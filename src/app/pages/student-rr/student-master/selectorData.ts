@@ -1,4 +1,4 @@
-import { Countries } from "src/app/shared/data/countries";
+import { Countries } from "../../../shared/data/countries";
 
 
 const _countries = new Countries();
