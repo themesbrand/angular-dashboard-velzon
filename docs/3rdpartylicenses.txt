@@ -1216,6 +1216,9 @@ SOFTWARE.
 ng-apexcharts
 MIT
 
+ng-otp-input
+MIT
+
 ngx-cookie-service
 MIT
 
