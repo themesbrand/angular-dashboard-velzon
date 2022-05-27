@@ -39,7 +39,7 @@ import { StudentCreateComponent } from './student-master/student-create/student-
 import { StudentEditComponent } from './student-master/student-edit/student-edit.component';
 
 export function createTranslateLoader(http: HttpClient): any {
-return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
 
 FullCalendarModule.registerPlugins([

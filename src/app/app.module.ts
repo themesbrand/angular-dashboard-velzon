@@ -22,7 +22,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { DecimalPipe } from '@angular/common';
 
 export function createTranslateLoader(http: HttpClient): any {
-  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
 
 if (environment.defaultauth === 'firebase') {
