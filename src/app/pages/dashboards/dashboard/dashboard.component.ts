@@ -251,19 +251,19 @@ export class DashboardComponent implements OnInit {
   getExamToppers() {
     this.examToppers = [
       {
-        imgUrl : '/assets/images/user-illustarator-1.png',
+        imgUrl : 'assets/images/user-illustarator-1.png',
         name : 'Param',
         marks : '900',
         marksHigh: '900'
       },
       {
-        imgUrl : '/assets/images/user-illustarator-1.png',
+        imgUrl : 'assets/images/user-illustarator-1.png',
         name : 'Parveen',
         marks : '700',
         marksHigh: '900'
       },
       {
-        imgUrl : '/assets/images/user-illustarator-1.png',
+        imgUrl : 'assets/images/user-illustarator-1.png',
         name : 'karan',
         marks : '180',
         marksHigh: '900'
