@@ -1,0 +1,111 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Student RR" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row">
+    <div class="col">
+        <div class="h-100">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <!-- <div class="card-header">
+                            <h4 class="card-title mb-0">Add, Edit & Remove</h4>
+                        </div> -->
+                        <!-- end card header -->
+              
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                        <div>
+                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" (click)="navigateToStudentCreate()"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="d-flex justify-content-sm-end">
+                                            <div class="search-box ms-2">
+                                                <input type="text" class="form-control search" placeholder="Search..." [(ngModel)]="service.searchTerm">
+                                                <i class="ri-search-line search-icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+              
+                                <div class="table-responsive table-card mt-3 mb-1">
+                                    <table class="table">
+                                      <thead>
+                                      <tr class="bg-light text-muted">
+                                      <th scope="col" style="width: 50px;">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" id="checkAll" value="option" [(ngModel)]="masterSelected" (change)="checkUncheckAll()">
+                                          </div>
+                                      </th>
+                                      <th class="sort" data-sort="customer_name">College</th>
+                                      <th class="sort" data-sort="customer_name">Program</th>
+                                      <th class="sort" data-sort="customer_name">Student Roll Number</th>
+                                      <th class="sort" data-sort="customer_name">Student Name</th>
+                                      <th class="sort" data-sort="customer_name">Student Intake Year</th>
+                                      <th class="sort">Action</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      <tr *ngFor="let data of ListJsList$ | async">
+                                        <th scope="row">
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" name="checkAll" value="option1" [(ngModel)]="data.isSelected">
+                                          </div>
+                                        </th>
+                                        <td><ngb-highlight [result]="data.college" [term]="service.searchTerm"></ngb-highlight></td>
+                                        <td><ngb-highlight [result]="data.program" [term]="service.searchTerm"></ngb-highlight></td>
+                                        <td><ngb-highlight [result]="data.studentRollNumber" [term]="service.searchTerm"></ngb-highlight></td>
+                                        <td><ngb-highlight [result]="data.studentName" [term]="service.searchTerm"></ngb-highlight></td>
+                                        <td><ngb-highlight [result]="data.intakeYear" [term]="service.searchTerm"></ngb-highlight></td>
+                                        <td>
+                                          <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <button class="btn btn-sm btn-success edit-item-btn"
+                                                data-bs-toggle="modal" data-bs-target="#showModal" (click)="routeToEdit(data)">Edit</button>
+                                            </div>
+                                            <div class="remove">
+                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" (click)="confirm()">Remove</button>
+                                            </div>
+                                          </div>
+                                      </td>
+                                      </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+              
+                                <div class="row justify-content-md-between align-items-md-center">
+                                  <div class="col col-sm-6">
+                                      <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
+                                          Showing
+                                          {{service.startIndex}} to
+                                          {{service.endIndex}} of {{service.totalRecords}}
+                                          entries
+                                      </div>
+                                  </div>
+                                  <!-- Pagination -->
+                                  <div class="col col-sm-6">
+                                      <div class="text-sm-right float-sm-end listjs-pagination">
+                                        <ngb-pagination
+                                        [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+                                      </ngb-pagination>
+                                      </div>
+                                  </div>
+                                  <!-- End Pagination -->
+                                </div>
+                            </div>
+                        </div><!-- end card -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end col -->
+              </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content role="document" let-modal>
+    <app-student-create></app-student-create>
+</ng-template>

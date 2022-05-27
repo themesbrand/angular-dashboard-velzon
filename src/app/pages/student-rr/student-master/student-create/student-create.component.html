@@ -1,0 +1,284 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Student RR" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Create Student</h4>
+                <div class="flex-shrink-0">
+                    <img src="/assets/images/users/user-dummy-img.jpg" class="rounded avatar-xl">
+                </div>
+            </div><!-- end card header -->
+            <form class="row g-3 needs-validation" novalidate (ngSubmit)="validSubmit()" [formGroup]="studentForm">
+                <div class="card-header align-items-center d-flex">
+                    <h6 class="card-title mb-0 flex-grow-1 text-primary">Personal Info<span class="text-danger">*</span></h6>
+                </div><!-- end card header -->
+                <div class="card-body mt-2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="admissionDate" class="form-label">Admission Date</label>
+                                <input id="admissionDate" class="form-control flatpickr-input" type="text" placeholder="Please select a Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true" formControlName="admissionDate" [ngClass]="{'is-invalid': submit && form['admissionDate'].errors}">
+                                <div *ngIf="submit && form['admissionDate'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['admissionDate'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="program" class="form-label">Program</label>
+                                <ng-select [items]="studentSelectorList.programSelector" bindLabel="name" placeholder="Please select an Option" formControlName="program" [ngClass]="{'is-invalid': submit && form['program'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['program'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['program'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="studentGroup" class="form-label">Student Group</label>
+                                <ng-select [items]="studentSelectorList.programSelector" bindLabel="name"  formControlName="studentGroup" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['studentGroup'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['studentGroup'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['studentGroup'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="studentRollNumber" class="form-label">Student Roll Number</label>
+                                <input type="text" class="form-control" id="placeholderInput" formControlName="studentRollNumber" [ngClass]="{'is-invalid': submit && form['studentRollNumber'].errors}">
+                                <div *ngIf="submit && form['studentRollNumber'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['studentRollNumber'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="studentName" class="form-label">Student Name</label>
+                                <input type="text" class="form-control" id="placeholderInput" formControlName="studentName" [ngClass]="{'is-invalid': submit && form['studentName'].errors}">
+                                <div *ngIf="submit && form['studentName'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['studentName'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="studentFeeCategory" class="form-label">Student Fee Category</label>
+                                <ng-select [items]="studentSelectorList.studentFeeCategorySelector" bindLabel="name"  formControlName="studentFeeCategory" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['studentFeeCategory'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['studentFeeCategory'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['studentFeeCategory'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                                <input id="dateOfBirth" class="form-control flatpickr-input" type="text" placeholder="Please select a Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true" formControlName="dateOfBirth" [ngClass]="{'is-invalid': submit && form['dateOfBirth'].errors}">
+                                <div *ngIf="submit && form['dateOfBirth'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['dateOfBirth'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="gender" class="form-label">Gender</label>
+                                <ng-select [items]="studentSelectorList.genderSelector" bindLabel="name"  formControlName="gender" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['gender'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['gender'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['gender'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="nationality" class="form-label">Nationality</label>
+                                <ng-select [items]="studentSelectorList.nationalitySelector" bindLabel="name"  formControlName="nationality" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['nationality'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['nationality'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['nationality'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="aadhaarNumber" class="form-label">Aadhaar Number</label>
+                                <input type="text" class="form-control" id="placeholderInput" formControlName="aadhaarNumber" [ngClass]="{'is-invalid': submit && form['aadhaarNumber'].errors}">
+                                <div *ngIf="submit && form['aadhaarNumber'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['aadhaarNumber'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="familyAnnualIncome" class="form-label">Family Annual Income</label>
+                                <input type="text" class="form-control" id="placeholderInput" formControlName="familyAnnualIncome" [ngClass]="{'is-invalid': submit && form['familyAnnualIncome'].errors}">
+                                <div *ngIf="submit && form['familyAnnualIncome'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['familyAnnualIncome'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="incomeCategory" class="form-label">Income Category</label>
+                                <input type="text" class="form-control" id="placeholderInput" formControlName="incomeCategory" [ngClass]="{'is-invalid': submit && form['incomeCategory'].errors}">
+                                <div *ngIf="submit && form['incomeCategory'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['incomeCategory'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="belongingQuota" class="form-label">Belonging Quota</label>
+                                <ng-select [items]="studentSelectorList.belongingQuota" bindLabel="name"  formControlName="belongingQuota" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['belongingQuota'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['belongingQuota'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['belongingQuota'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="admissionTakenQuotaCategory" class="form-label">Admission Taken Quota Category</label>
+                                <ng-select [items]="studentSelectorList.admissionTakenQuotaCategory" bindLabel="name"  formControlName="admissionTakenQuotaCategory" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['admissionTakenQuotaCategory'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['admissionTakenQuotaCategory'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['admissionTakenQuotaCategory'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="admissionTakenQuota" class="form-label">Admission Taken Quota</label>
+                                <ng-select [items]="studentSelectorList.admissionTakenQuota" bindLabel="name"  formControlName="admissionTakenQuota" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['admissionTakenQuotaCategory'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['admissionTakenQuotaCategory'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['admissionTakenQuota'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="martialStatus" class="form-label">Martial Status</label>
+                                <ng-select [items]="studentSelectorList.martialStatus" bindLabel="name"  formControlName="martialStatus" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['martialStatus'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['martialStatus'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['martialStatus'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <label for="domicile" class="form-label">Domicile</label>
+                                <ng-select [items]="studentSelectorList.domicile" bindLabel="name"  formControlName="domicile" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['domicile'].errors}">
+                                    <ng-template ng-optgroup-tmp let-item="item">
+                                        {{item.country || 'Unnamed group'}}
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="submit && form['domicile'].errors" class="invalid-feedback">
+                                    <span *ngIf="form['domicile'].errors">This field is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end row-->
+                </div>
+                <div class="card-header align-items-center d-flex">
+                    <h6 class="card-title mb-0 flex-grow-1 text-primary">Personal Info<span class="text-danger">*</span></h6>
+                </div><!-- end card header -->
+                <div class="card-body mt-2">
+                    
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <label for="previousStudentRegistrationNumber" class="form-label">Previous Student Registration Number</label>
+                                    <input type="text" class="form-control" id="placeholderInput" formControlName="previousStudentRegistrationNumber" [ngClass]="{'is-invalid': submit && form['previousStudentRegistrationNumber'].errors}">
+                                    <div *ngIf="submit && form['previousStudentRegistrationNumber'].errors" class="invalid-feedback">
+                                        <span *ngIf="form['previousStudentRegistrationNumber'].errors">This field is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <label for="previousStudentRollNumber" class="form-label">Previous Student Roll Number</label>
+                                    <input type="text" class="form-control" id="placeholderInput" formControlName="previousStudentRollNumber" [ngClass]="{'is-invalid': submit && form['previousStudentRollNumber'].errors}">
+                                    <div *ngIf="submit && form['previousStudentRollNumber'].errors" class="invalid-feedback">
+                                        <span *ngIf="form['previousStudentRollNumber'].errors">This field is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <label for="previousBoardUniversity" class="form-label">Previous Board University</label>
+                                    <input type="text" class="form-control" id="placeholderInput" formControlName="previousBoardUniversity" [ngClass]="{'is-invalid': submit && form['previousBoardUniversity'].errors}">
+                                    <div *ngIf="submit && form['previousBoardUniversity'].errors" class="invalid-feedback">
+                                        <span *ngIf="form['previousBoardUniversity'].errors">This field is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <label for="obtainedMarksPercentage" class="form-label">Obtained Marks Percentage</label>
+                                    <input type="text" class="form-control" id="placeholderInput" formControlName="obtainedMarksPercentage" [ngClass]="{'is-invalid': submit && form['obtainedMarksPercentage'].errors}">
+                                    <div *ngIf="submit && form['obtainedMarksPercentage'].errors" class="invalid-feedback">
+                                        <span *ngIf="form['obtainedMarksPercentage'].errors">This field is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-2">
+                                    <label for="status" class="form-label">Status</label>
+                                    <ng-select [items]="studentSelectorList.status" bindLabel="name" placeholder="Please select an Option" formControlName="status" [ngClass]="{'is-invalid': submit && form['status'].errors}">
+                                        <ng-template ng-optgroup-tmp let-item="item">
+                                            {{item.country || 'Unnamed group'}}
+                                        </ng-template>
+                                    </ng-select>
+                                    <div *ngIf="submit && form['status'].errors" class="invalid-feedback">
+                                        <span *ngIf="form['status'].errors">This field is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-lg-12">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    
+                </div>
+            </form>
+        </div>
+    </div><!--end col-->
+</div><!--end row-->
