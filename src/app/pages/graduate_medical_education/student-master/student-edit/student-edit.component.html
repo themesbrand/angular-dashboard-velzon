@@ -6,7 +6,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Create Student</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Edit Student</h4>
                 <div class="flex-shrink-0">
                     <img src="assets/images/users/user-dummy-img.jpg" class="rounded avatar-xl">
                 </div>
@@ -18,7 +18,7 @@
                 <div class="card-body mt-2">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="admissionDate" class="form-label">Admission Date</label>
                                 <input id="admissionDate" class="form-control flatpickr-input" type="text" placeholder="Please select a Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true" formControlName="admissionDate" [ngClass]="{'is-invalid': submit && form['admissionDate'].errors}">
                                 <div *ngIf="submit && form['admissionDate'].errors" class="invalid-feedback">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="program" class="form-label">Program</label>
                                 <ng-select [items]="studentSelectorList.programSelector" bindLabel="name" placeholder="Please select an Option" formControlName="program" [ngClass]="{'is-invalid': submit && form['program'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="studentGroup" class="form-label">Student Group</label>
                                 <ng-select [items]="studentSelectorList.programSelector" bindLabel="name"  formControlName="studentGroup" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['studentGroup'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="studentRollNumber" class="form-label">Student Roll Number</label>
                                 <input type="text" class="form-control" id="placeholderInput" formControlName="studentRollNumber" [ngClass]="{'is-invalid': submit && form['studentRollNumber'].errors}">
                                 <div *ngIf="submit && form['studentRollNumber'].errors" class="invalid-feedback">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="studentName" class="form-label">Student Name</label>
                                 <input type="text" class="form-control" id="placeholderInput" formControlName="studentName" [ngClass]="{'is-invalid': submit && form['studentName'].errors}">
                                 <div *ngIf="submit && form['studentName'].errors" class="invalid-feedback">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="studentFeeCategory" class="form-label">Student Fee Category</label>
                                 <ng-select [items]="studentSelectorList.studentFeeCategorySelector" bindLabel="name"  formControlName="studentFeeCategory" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['studentFeeCategory'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="dateOfBirth" class="form-label">Date Of Birth</label>
                                 <input id="dateOfBirth" class="form-control flatpickr-input" type="text" placeholder="Please select a Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true" formControlName="dateOfBirth" [ngClass]="{'is-invalid': submit && form['dateOfBirth'].errors}">
                                 <div *ngIf="submit && form['dateOfBirth'].errors" class="invalid-feedback">
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="gender" class="form-label">Gender</label>
                                 <ng-select [items]="studentSelectorList.genderSelector" bindLabel="name"  formControlName="gender" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['gender'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="nationality" class="form-label">Nationality</label>
                                 <ng-select [items]="studentSelectorList.nationalitySelector" bindLabel="name"  formControlName="nationality" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['nationality'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="aadhaarNumber" class="form-label">Aadhaar Number</label>
                                 <input type="text" class="form-control" id="placeholderInput" formControlName="aadhaarNumber" [ngClass]="{'is-invalid': submit && form['aadhaarNumber'].errors}">
                                 <div *ngIf="submit && form['aadhaarNumber'].errors" class="invalid-feedback">
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="familyAnnualIncome" class="form-label">Family Annual Income</label>
                                 <input type="text" class="form-control" id="placeholderInput" formControlName="familyAnnualIncome" [ngClass]="{'is-invalid': submit && form['familyAnnualIncome'].errors}">
                                 <div *ngIf="submit && form['familyAnnualIncome'].errors" class="invalid-feedback">
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="incomeCategory" class="form-label">Income Category</label>
                                 <input type="text" class="form-control" id="placeholderInput" formControlName="incomeCategory" [ngClass]="{'is-invalid': submit && form['incomeCategory'].errors}">
                                 <div *ngIf="submit && form['incomeCategory'].errors" class="invalid-feedback">
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="belongingQuota" class="form-label">Belonging Quota</label>
                                 <ng-select [items]="studentSelectorList.belongingQuota" bindLabel="name"  formControlName="belongingQuota" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['belongingQuota'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="admissionTakenQuotaCategory" class="form-label">Admission Taken Quota Category</label>
                                 <ng-select [items]="studentSelectorList.admissionTakenQuotaCategory" bindLabel="name"  formControlName="admissionTakenQuotaCategory" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['admissionTakenQuotaCategory'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -172,7 +172,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="admissionTakenQuota" class="form-label">Admission Taken Quota</label>
                                 <ng-select [items]="studentSelectorList.admissionTakenQuota" bindLabel="name"  formControlName="admissionTakenQuota" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['admissionTakenQuotaCategory'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="martialStatus" class="form-label">Martial Status</label>
                                 <ng-select [items]="studentSelectorList.martialStatus" bindLabel="name"  formControlName="martialStatus" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['martialStatus'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -198,7 +198,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <label for="domicile" class="form-label">Domicile</label>
                                 <ng-select [items]="studentSelectorList.domicile" bindLabel="name"  formControlName="domicile" placeholder="Please select an Option" [ngClass]="{'is-invalid': submit && form['domicile'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
@@ -211,22 +211,26 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="thubImpression" class="form-label">Upload Thumb Impression</label>
-                            <ngx-dropzone [multiple]="false" (change)="onSelectThumbImpression($event)" class="d-flex justify-content-center text-center">
-                                <ngx-dropzone-label><span>{{'Drop your file here.'}}</span></ngx-dropzone-label>
-                                <ngx-dropzone-preview *ngFor="let f of thumbImpressionFiles" [removable]="true" (removed)="onRemoveThumbImpression(f)">
-                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                                </ngx-dropzone-preview>
-                            </ngx-dropzone>
+                            <div class="col-mb-4">
+                                <label for="thubImpression" class="form-label">Upload Thumb Impression</label>
+                                <ngx-dropzone [multiple]="false" (change)="onSelectThumbImpression($event)" class="d-flex justify-content-center text-center">
+                                    <ngx-dropzone-label><span>{{'Drop your file here.'}}</span></ngx-dropzone-label>
+                                    <ngx-dropzone-preview *ngFor="let f of thumbImpressionFiles" [removable]="true" (removed)="onRemoveThumbImpression(f)">
+                                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="signature" class="form-label">Upload Thumb Impression</label>
-                            <ngx-dropzone [multiple]="false" (change)="onSelectSignature($event)" class="d-flex justify-content-center text-center">
-                                <ngx-dropzone-label><span>{{'Drop your file here.'}}</span></ngx-dropzone-label>
-                                <ngx-dropzone-preview *ngFor="let f of signatureFiles" [removable]="true" (removed)="onRemoveSignature(f)">
-                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                                </ngx-dropzone-preview>
-                            </ngx-dropzone>
+                            <div class="mb-4">
+                                <label for="signature" class="form-label">Upload Thumb Impression</label>
+                                <ngx-dropzone [multiple]="false" (change)="onSelectSignature($event)" class="d-flex justify-content-center text-center">
+                                    <ngx-dropzone-label><span>{{'Drop your file here.'}}</span></ngx-dropzone-label>
+                                    <ngx-dropzone-preview *ngFor="let f of signatureFiles" [removable]="true" (removed)="onRemoveSignature(f)">
+                                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
                         </div>
                     </div><!--end row-->
                 </div>
@@ -237,7 +241,7 @@
                     
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="mb-2">
+                                <div class="mb-4">
                                     <label for="previousStudentRegistrationNumber" class="form-label">Previous Student Registration Number</label>
                                     <input type="text" class="form-control" id="placeholderInput" formControlName="previousStudentRegistrationNumber" [ngClass]="{'is-invalid': submit && form['previousStudentRegistrationNumber'].errors}">
                                     <div *ngIf="submit && form['previousStudentRegistrationNumber'].errors" class="invalid-feedback">
@@ -246,7 +250,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="mb-2">
+                                <div class="mb-4">
                                     <label for="previousStudentRollNumber" class="form-label">Previous Student Roll Number</label>
                                     <input type="text" class="form-control" id="placeholderInput" formControlName="previousStudentRollNumber" [ngClass]="{'is-invalid': submit && form['previousStudentRollNumber'].errors}">
                                     <div *ngIf="submit && form['previousStudentRollNumber'].errors" class="invalid-feedback">
@@ -255,7 +259,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="mb-2">
+                                <div class="mb-4">
                                     <label for="previousBoardUniversity" class="form-label">Previous Board University</label>
                                     <input type="text" class="form-control" id="placeholderInput" formControlName="previousBoardUniversity" [ngClass]="{'is-invalid': submit && form['previousBoardUniversity'].errors}">
                                     <div *ngIf="submit && form['previousBoardUniversity'].errors" class="invalid-feedback">
@@ -264,7 +268,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="mb-2">
+                                <div class="mb-4">
                                     <label for="obtainedMarksPercentage" class="form-label">Obtained Marks Percentage</label>
                                     <input type="text" class="form-control" id="placeholderInput" formControlName="obtainedMarksPercentage" [ngClass]="{'is-invalid': submit && form['obtainedMarksPercentage'].errors}">
                                     <div *ngIf="submit && form['obtainedMarksPercentage'].errors" class="invalid-feedback">
@@ -274,7 +278,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <div class="mb-2">
+                                <div class="mb-4">
                                     <label for="status" class="form-label">Status</label>
                                     <ng-select [items]="studentSelectorList.status" bindLabel="name" placeholder="Please select an Option" formControlName="status" [ngClass]="{'is-invalid': submit && form['status'].errors}">
                                         <ng-template ng-optgroup-tmp let-item="item">
