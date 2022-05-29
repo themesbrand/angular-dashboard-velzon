@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   menuItems: MenuItem[] = [];
   @ViewChild('sideMenu') sideMenu!: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
-
+  
   constructor(private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
   }

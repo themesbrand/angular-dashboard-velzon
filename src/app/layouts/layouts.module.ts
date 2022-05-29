@@ -19,8 +19,6 @@ import { HorizontalTopbarComponent } from './horizontal-topbar/horizontal-topbar
 import { TwoColumnComponent } from './two-column/two-column.component';
 import { TwoColumnSidebarComponent } from './two-column-sidebar/two-column-sidebar.component';
 
-
-
 @NgModule({
   declarations: [
     LayoutComponent,
