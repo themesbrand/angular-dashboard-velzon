@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -16,15 +17,19 @@ export class BreadcrumbsComponent implements OnInit {
   breadcrumbItems!: Array<{
     active?: boolean;
     label?: string;
+    link?: string;
   }>;
 
   Item!: Array<{
     label?: string;
   }>;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  onChangeNav(link : any) {
+    this.router.navigateByUrl(link)
+  }
 }

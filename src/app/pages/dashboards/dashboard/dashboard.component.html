@@ -1,5 +1,5 @@
 <!-- Start Breadcrumbs -->
-<app-breadcrumbs title="{{ 'MENUITEMS.DASHBOARD.TEXT' | translate }}" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Dashboard" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
 
 <div class="row">
@@ -99,27 +99,6 @@
                     </div><!-- end card -->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="d-flex flex-row justify-content-between">
-                                <h4 class="card-title mb-0">Affiliated Colleges</h4>
-                            </div>
-                        </div><!-- end card header -->
-              
-                        <div class="card-body">
-                            <agm-map [latitude]="latitude" [longitude]="longitude" style="height: 300px" (mapClick)="placeMarker($event)">
-                                <agm-marker *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude">
-                                </agm-marker>
-                              </agm-map>
-                        </div><!-- end card-body -->
-                    </div><!-- end card -->
-
-                    
-                </div>
-            </div>
-
         </div> <!-- end .h-100-->
 
     </div> <!-- end col -->

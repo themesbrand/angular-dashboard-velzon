@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { StudentCreateComponent } from './student-master/student-create/student-create.component';
 import { StudentEditComponent } from './student-master/student-edit/student-edit.component';
 import { StudentMasterComponent } from './student-master/student-master.component';
-import { StudentComponent } from './student-rr-dashboard/student.component';
+import { StudentComponent } from './dashboard/student.component';
 
 // Component pages
 

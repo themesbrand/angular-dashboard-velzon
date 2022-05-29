@@ -30,7 +30,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 // Component Pages
 import { SharedModule } from '../../shared/shared.module';
 import { StudentRoutingModule } from './student-routing.module';
-import { StudentComponent } from './student-rr-dashboard/student.component';
+import { StudentComponent } from './dashboard/student.component';
 import { StudentMasterComponent } from './student-master/student-master.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

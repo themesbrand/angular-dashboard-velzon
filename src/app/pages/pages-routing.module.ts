@@ -10,7 +10,7 @@ const routes: Routes = [
         component: DashboardComponent
     },
     {
-      path: 'student-rr', loadChildren: () => import('./student-rr/student.module').then(m => m.AppsModule)
+      path: 'student-rr', loadChildren: () => import('./graduate_medical_education/student.module').then(m => m.AppsModule)
     }
 ];
 

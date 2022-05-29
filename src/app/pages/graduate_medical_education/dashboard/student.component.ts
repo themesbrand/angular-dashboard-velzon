@@ -18,7 +18,7 @@ export class StudentComponent implements OnInit {
      * BreadCrumb
      */
         this.breadCrumbItems = [
-        { label: 'Student RR', active: true }
+        { label: 'Graduate Medical Education', active: true }
         ];
     }
 

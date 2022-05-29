@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import {_studentSelectorList} from '../selectorData';
 
 @Component({
-  selector: 'app-student-edit',
-  templateUrl: './student-edit.component.html',
-  styleUrls: ['./student-edit.component.scss']
+  selector: 'app-student-create',
+  templateUrl: './student-create.component.html',
+  styleUrls: ['./student-create.component.scss']
 })
-export class StudentEditComponent implements OnInit {
+export class StudentCreateComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
 
@@ -18,26 +17,16 @@ export class StudentEditComponent implements OnInit {
 
   studentSelectorList = _studentSelectorList
   
-  studentData : any;
-
-  constructor(private formBuilder : FormBuilder,
-    private router : Router) { 
-
-      const data = this.router.getCurrentNavigation()?.extras?.state
-      console.log(data)
-
-      this.studentData = data
-    }
+  constructor(private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
-
-
     /**
     * BreadCrumb
     */
     this.breadCrumbItems = [
-      { label: 'Student RR' },
-      { label: 'Student Master', active: true }
+      { label: 'Graduate Medical Education', link : "/student-rr" },
+      { label: "Registrar's Office", link : "/student-rr/student-master" },
+      { label: "Create New", active: true }
     ];
 
     /**
@@ -68,7 +57,6 @@ export class StudentEditComponent implements OnInit {
       status: [null, [Validators.required]],
     });
 
-    this.studentForm.patchValue(this.studentData)
   }
 
 
@@ -85,9 +73,5 @@ export class StudentEditComponent implements OnInit {
   validSubmit() {
     this.submit = true;
   }
-
-  navigateBack() {
-    this.router.navigateByUrl('/student-rr/student-master')
-  }
-
+  
 }
