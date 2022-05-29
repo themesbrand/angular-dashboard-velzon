@@ -210,10 +210,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <label for="thubImpression" class="form-label">Upload Thumb Impression</label>
+                            <ngx-dropzone [multiple]="false" (change)="onSelectThumbImpression($event)" class="d-flex justify-content-center text-center">
+                                <ngx-dropzone-label><span>{{'Drop your file here.'}}</span></ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of thumbImpressionFiles" [removable]="true" (removed)="onRemoveThumbImpression(f)">
+                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="signature" class="form-label">Upload Thumb Impression</label>
+                            <ngx-dropzone [multiple]="false" (change)="onSelectSignature($event)" class="d-flex justify-content-center text-center">
+                                <ngx-dropzone-label><span>{{'Drop your file here.'}}</span></ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of signatureFiles" [removable]="true" (removed)="onRemoveSignature(f)">
+                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
                     </div><!--end row-->
                 </div>
                 <div class="card-header align-items-center d-flex">
-                    <h6 class="card-title mb-0 flex-grow-1 text-primary">Personal Info<span class="text-danger">*</span></h6>
+                    <h6 class="card-title mb-0 flex-grow-1 text-primary">Previous Registration Details<span class="text-danger">*</span></h6>
                 </div><!-- end card header -->
                 <div class="card-body mt-2">
                     

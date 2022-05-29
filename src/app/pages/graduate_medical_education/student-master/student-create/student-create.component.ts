@@ -14,6 +14,9 @@ export class StudentCreateComponent implements OnInit {
   studentForm!: FormGroup;
   submit!: boolean;
   formsubmit!: boolean;
+  
+  thumbImpressionFiles !: any;
+  signatureFiles !: any;
 
   studentSelectorList = _studentSelectorList
   
@@ -65,6 +68,25 @@ export class StudentCreateComponent implements OnInit {
   */
     get form() {
     return this.studentForm.controls;
+  }
+
+  
+  onSelectThumbImpression(event : any) {
+
+    this.thumbImpressionFiles = event.addedFiles
+  }
+    
+  onRemoveThumbImpression(event : any) {
+    this.thumbImpressionFiles = null;
+  }
+
+  onSelectSignature(event : any) {
+
+    this.signatureFiles = event.addedFiles
+  }
+    
+  onRemoveSignature(event : any) {
+    this.signatureFiles = null;
   }
 
     /**

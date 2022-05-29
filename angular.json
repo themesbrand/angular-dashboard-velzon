@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "velzon": {
+    "OMSB": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "velzon:build:production"
+              "browserTarget": "OMSB:build:production"
             },
             "development": {
-              "browserTarget": "velzon:build:development"
+              "browserTarget": "OMSB:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "velzon:build"
+            "browserTarget": "OMSB:build"
           }
         },
         "test": {
@@ -115,5 +115,5 @@
       }
     }
   },
-  "defaultProject": "velzon"
+  "defaultProject": "OMSB"
 }

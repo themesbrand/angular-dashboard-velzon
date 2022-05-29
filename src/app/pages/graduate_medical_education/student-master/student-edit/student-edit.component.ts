@@ -15,6 +15,8 @@ export class StudentEditComponent implements OnInit {
   studentForm!: FormGroup;
   submit!: boolean;
   formsubmit!: boolean;
+  thumbImpressionFiles !: any;
+  signatureFiles !: any;
 
   studentSelectorList = _studentSelectorList
   
@@ -24,8 +26,6 @@ export class StudentEditComponent implements OnInit {
     private router : Router) { 
 
       const data = this.router.getCurrentNavigation()?.extras?.state
-      console.log(data)
-
       this.studentData = data
     }
 
@@ -89,6 +89,25 @@ export class StudentEditComponent implements OnInit {
 
   navigateBack() {
     this.router.navigateByUrl('/student-rr/student-master')
+  }
+
+   
+  onSelectThumbImpression(event : any) {
+
+    this.thumbImpressionFiles = event.addedFiles
+  }
+    
+  onRemoveThumbImpression(event : any) {
+    this.thumbImpressionFiles = null;
+  }
+
+  onSelectSignature(event : any) {
+
+    this.signatureFiles = event.addedFiles
+  }
+    
+  onRemoveSignature(event : any) {
+    this.signatureFiles = null;
   }
 
 }

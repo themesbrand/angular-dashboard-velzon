@@ -27,6 +27,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
+// Drop Zone
+import { NgxDropzoneModule } from "ngx-dropzone";
+
 // Component Pages
 import { SharedModule } from '../../shared/shared.module';
 import { StudentRoutingModule } from './student-routing.module';
@@ -69,6 +72,7 @@ FullCalendarModule.registerPlugins([
     CKEditorModule,
     CountToModule,
     NgSelectModule,
+    NgxDropzoneModule,
     NgApexchartsModule,
     LeafletModule,
     NgbModule,
