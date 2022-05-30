@@ -5,18 +5,18 @@ import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs/internal/Observable';
 
-import {ListJsModel} from './listjs.model';
-import { OrdersService } from './listjs.service';
-import { ListJs } from './data';
+import {ListJsModel} from '../listjs.model';
+import { OrdersService } from '../listjs.service';
+import { ListJs } from '../data';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-student-master',
-  templateUrl: './student-master.component.html',
-  styleUrls: ['./student-master.component.scss']
+  selector: 'app-registrar_office',
+  templateUrl: './registrar_office.component.html',
+  styleUrls: ['./registrar_office.component.scss']
 })
-export class StudentMasterComponent implements OnInit {
+export class RegistrarOfficeComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
   
@@ -45,7 +45,7 @@ export class StudentMasterComponent implements OnInit {
    * BreadCrumb
    */
     this.breadCrumbItems = [
-      { label: 'Graduate Medical Education', link : "/student-rr" },
+      { label: 'Graduate Medical Education', link : "/graduate-medical-education" },
       { label: "Registrar's Office", active : true }
     ];
 
@@ -112,11 +112,11 @@ export class StudentMasterComponent implements OnInit {
   //Navigation 
 
   routeToEdit(data : any) {
-    this.router.navigateByUrl('/student-rr/student-edit', { state: data })
+    this.router.navigateByUrl('/graduate-medical-education/student-edit', { state: data })
   }
 
   navigateToStudentCreate() {
-    this.router.navigateByUrl('/student-rr/student-create')
+    this.router.navigateByUrl('/graduate-medical-education/student-create')
   }
 
 }

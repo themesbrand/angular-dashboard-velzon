@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StudentCreateComponent } from './student-master/student-create/student-create.component';
-import { StudentEditComponent } from './student-master/student-edit/student-edit.component';
-import { StudentMasterComponent } from './student-master/student-master.component';
+import { StudentCreateComponent } from './registrar_office/student-create/student-create.component';
+import { StudentEditComponent } from './registrar_office/student-edit/student-edit.component';
 import { StudentComponent } from './dashboard/student.component';
+import { RegistrarOfficeComponent } from './registrar_office/registrar-Office-Page/registrar_office.component';
 
 // Component pages
 
 
 const routes: Routes = [
     { path: "", component : StudentComponent },
-    { path: "student-master", component : StudentMasterComponent },
+    { path: "registrar_office", component : RegistrarOfficeComponent },
     { path: "student-booking", component : StudentComponent },
     { path: "student-checklist", component : StudentComponent },
     { path: "crr-student-registration", component : StudentComponent },
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StudentRoutingModule { }
+export class MedicalEducationRoutingModule { }

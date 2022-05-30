@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -14,17 +15,22 @@ export class SidebarComponent implements OnInit {
 
   menu: any;
   toggle: any = true;
-  menuItems: MenuItem[] = [];
+  menuItems: any[] = [];
   @ViewChild('sideMenu') sideMenu!: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
   
-  constructor(private router: Router, public translate: TranslateService) {
+  constructor(private router: Router, public translate: TranslateService, private httpClient: HttpClient) {
     translate.setDefaultLang('en');
   }
 
   ngOnInit(): void {
     // Menu Items
-    this.menuItems = MENU;
+    this.httpClient.get("assets/menu/menu-items.json").subscribe((response : any) =>{
+      console.log(response);
+      this.menuItems = [...response];      
+    })
+
+    
   }
 
   /***

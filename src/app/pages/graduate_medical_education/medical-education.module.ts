@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 import { NgbTooltipModule, NgbDropdownModule, NgbAccordionModule, NgbProgressbarModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Feather Icon
@@ -32,14 +34,11 @@ import { NgxDropzoneModule } from "ngx-dropzone";
 
 // Component Pages
 import { SharedModule } from '../../shared/shared.module';
-import { StudentRoutingModule } from './student-routing.module';
+import { MedicalEducationRoutingModule } from './medical-education-routing.module';
 import { StudentComponent } from './dashboard/student.component';
-import { StudentMasterComponent } from './student-master/student-master.component';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
-import { StudentCreateComponent } from './student-master/student-create/student-create.component';
-import { StudentEditComponent } from './student-master/student-edit/student-edit.component';
+import { StudentCreateComponent } from './registrar_office/student-create/student-create.component';
+import { StudentEditComponent } from './registrar_office/student-edit/student-edit.component';
+import { RegistrarOfficeComponent } from './registrar_office/registrar-Office-Page/registrar_office.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -53,7 +52,7 @@ FullCalendarModule.registerPlugins([
 @NgModule({
   declarations: [
     StudentComponent,
-    StudentMasterComponent,
+    RegistrarOfficeComponent,
     StudentCreateComponent,
     StudentEditComponent
   ],
@@ -76,7 +75,7 @@ FullCalendarModule.registerPlugins([
     NgApexchartsModule,
     LeafletModule,
     NgbModule,
-    StudentRoutingModule,
+    MedicalEducationRoutingModule,
     TranslateModule.forChild({
         defaultLanguage: 'en',
         loader: {
