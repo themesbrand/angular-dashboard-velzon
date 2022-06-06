@@ -21,6 +21,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class TopbarComponent implements OnInit {
 
   element: any;
+  viewSwitch : boolean = false;
   mode: string | undefined;
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
@@ -34,6 +35,10 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.element = document.documentElement;
+
+    if(this._cookiesService.get('viewMode') === 'RTL') {
+      this.viewSwitch = true;
+    }
   }
 
   /**
@@ -81,25 +86,15 @@ export class TopbarComponent implements OnInit {
   }
 
   /**
-  * Topbar Light-Dark Mode Change
+  * Topbar toogle view
   */
-   changeMode(mode: string) {
-    this.mode = mode;
-    this.eventService.broadcast('changeMode', mode);
-
-    switch (mode) {
-      case 'light':
-        document.body.setAttribute('data-layout-mode', "light");
-        document.body.setAttribute('data-sidebar', "light");
-        break;
-      case 'dark':
-        document.body.setAttribute('data-layout-mode', "dark");
-        document.body.setAttribute('data-sidebar', "dark");
-        break;
-      default:
-        document.body.setAttribute('data-layout-mode', "light");
-        break;
+   changeMode() {
+    if(this.viewSwitch) {
+      this._cookiesService.set('viewMode', 'RTL')
+    } else {
+      this._cookiesService.set('viewMode', 'LTR')
     }
+    window.location.reload();
   }
 
   /**

@@ -18,6 +18,7 @@ import { HorizontalComponent } from './horizontal/horizontal.component';
 import { HorizontalTopbarComponent } from './horizontal-topbar/horizontal-topbar.component';
 import { TwoColumnComponent } from './two-column/two-column.component';
 import { TwoColumnSidebarComponent } from './two-column-sidebar/two-column-sidebar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TwoColumnSidebarComponent } from './two-column-sidebar/two-column-sideb
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
     NgbDropdownModule,
     NgbNavModule,
