@@ -20,6 +20,7 @@ import { JwtInterceptor } from './core/helpers/jwt.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { DecimalPipe } from '@angular/common';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');

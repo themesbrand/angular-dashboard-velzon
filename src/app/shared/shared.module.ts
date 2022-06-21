@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbNavModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule, NgbAccordionModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Swiper Slider
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -25,6 +25,8 @@ import { TeamComponent } from './landing/team/team.component';
 import { ContactComponent } from './landing/contact/contact.component';
 import { FooterComponent } from './landing/footer/footer.component';
 import { ScrollspyDirective } from './scrollspy.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -53,7 +55,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CommonModule,
     NgbNavModule,
     NgbAccordionModule,
+    NgbDropdownModule,
     SwiperModule,
+    ScrollToModule.forRoot(),
     CountToModule
   ],
   exports: [BreadcrumbsComponent, ClientLogoComponent, ServicesComponent, CollectionComponent, CtaComponent, DesignedComponent, PlanComponent, FaqsComponent, ReviewComponent, CounterComponent, WorkProcessComponent, TeamComponent, ContactComponent, FooterComponent, ScrollspyDirective]

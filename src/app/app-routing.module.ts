@@ -7,9 +7,9 @@ import { LayoutComponent } from './layouts/layout.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
   { path: 'auth', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)  },
-
+  { path: 'dashboard', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
+  { path: '', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)},
 ];
 
 @NgModule({
