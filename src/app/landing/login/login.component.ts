@@ -1,26 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
 // Login Auth
-import { environment } from '../../../environments/environment';
-import { AuthenticationService } from '../../core/services/auth.service';
-import { AuthfakeauthenticationService } from '../../core/services/authfake.service';
-import { first } from 'rxjs/operators';
-
+import { environment } from "../../../environments/environment";
+import { AuthenticationService } from "../../core/services/auth.service";
+import { AuthfakeauthenticationService } from "../../core/services/authfake.service";
+import { first } from "rxjs/operators";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-
   // Login Form
   loginForm!: FormGroup;
   submitted = false;
   fieldTextType!: boolean;
-  error = '';
+  error = "";
   returnUrl!: string;
 
   toast!: false;
@@ -28,52 +26,78 @@ export class LoginComponent implements OnInit {
   // set the current year
   year: number = new Date().getFullYear();
 
-  constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService,private router: Router,
-    private authFackservice: AuthfakeauthenticationService,private route: ActivatedRoute,) {
-      // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) {
-        this.router.navigate(['/']);
-      }
-     }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private authFackservice: AuthfakeauthenticationService,
+    private route: ActivatedRoute
+  ) {
+    // redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(["/dashboard"]);
+    }
+  }
 
   ngOnInit(): void {
+    console.log(history.state);
+
     /**
      * Form Validatyion
      */
-     this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+    this.loginForm = this.formBuilder.group({
+      email: ["admin@themesbrand.com", [Validators.required, Validators.email]],
+      password: ["123456", [Validators.required]],
     });
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/home/main";
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() {
+    return this.loginForm.controls;
+  }
 
   /**
    * Form submit
    */
-   onSubmit() {
+  onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
+    console.log("click");
     if (this.loginForm.invalid) {
       return;
     } else {
-      if (environment.defaultauth === 'firebase') {
-        this.authenticationService.login(this.f['email'].value, this.f['password'].value).then((res: any) => {
-          this.router.navigate(['/dashboard']);
-        })
-          .catch(error => {
-            this.error = error ? error : '';
+      if (environment.defaultauth === "firebase") {
+        this.authenticationService
+          .login(this.f["email"].value, this.f["password"].value)
+          .then((res: any) => {
+            if (this.returnUrl === "/home/application-forms") {
+              this.router.navigateByUrl("/home/application-forms", { state: { path : "application-forms"} });
+              return;
+            }
+            this.router.navigateByUrl("/dashboard");
+          })
+          .catch((error) => {
+            this.error = error ? error : "";
           });
       } else {
-        this.authFackservice.login(this.f['email'].value, this.f['password'].value).pipe(first()).subscribe(data => {
-              this.router.navigate(['/dashboard']);
+        this.authFackservice
+          .login(this.f["email"].value, this.f["password"].value)
+          .pipe(first())
+          .subscribe(
+            (data) => {
+              console.log(this.returnUrl);
+              if (this.returnUrl === "/home/application-forms") {
+                this.router.navigateByUrl("/home/application-forms", { state: { path : "application-forms"} });
+                return;
+              }
+              this.router.navigateByUrl("/dashboard");
             },
-            error => {
-              this.error = error ? error : '';
-            });
+            (error) => {
+              this.error = error ? error : "";
+            }
+          );
       }
     }
   }
@@ -81,8 +105,7 @@ export class LoginComponent implements OnInit {
   /**
    * Password Hide/Show
    */
-   toggleFieldTextType() {
+  toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
-
 }

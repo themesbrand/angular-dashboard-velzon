@@ -27,6 +27,7 @@ import { FooterComponent } from './landing/footer/footer.component';
 import { ScrollspyDirective } from './scrollspy.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -56,6 +57,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     NgbNavModule,
     NgbAccordionModule,
     NgbDropdownModule,
+    NgSelectModule,
     SwiperModule,
     ScrollToModule.forRoot(),
     CountToModule

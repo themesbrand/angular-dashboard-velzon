@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+  NgbNavModule,
   NgbToastModule
 } from '@ng-bootstrap/ng-bootstrap';
 
@@ -29,11 +30,13 @@ import { SharedModule } from "../shared/shared.module";
 import { WidgetModule } from '../shared/widget/widget.module';
 import { DashboardComponent } from './dashboards/dashboard/dashboard.component';
 import { ToastsContainer } from './dashboards/toasts-container.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ArchwizardModule } from 'angular-archwizard';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -66,7 +69,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SharedModule,
     FormsModule,
     WidgetModule,
+    NgbNavModule,
+    NgSelectModule,
     SwiperModule,
+    ReactiveFormsModule,
+    ArchwizardModule,
     LightboxModule,
     TranslateModule.forChild({
       defaultLanguage: 'en',

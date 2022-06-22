@@ -1,3 +1,30 @@
+.section {
+    background-color: rgb(237, 237, 237) !important;
+}
 p {
     margin-bottom: 0px !important;
+}
+.border {
+    border: 1px solid var(--vz-border-color) !important;
+    border-radius: 25px !important;
+}
+
+.shadow {
+    -webkit-box-shadow: 5px 5px 13px 11px rgba(169,169,169,0.3) !important; 
+    box-shadow: 5px 5px 13px 11px rgba(169,169,169,0.3) !important;
+}
+
+.img-box {
+    width: 280px !important;
+    height: auto;
+    background-color: #dfdfdf !important;   
+}
+
+.card-box-title {
+    color: #011c10 !important;
+    text-shadow: 2px 2px 4px #05e37f3f !important;
+}
+
+.tab-card {
+    background: url('/assets/images/chat-bg-pattern.png');
 }

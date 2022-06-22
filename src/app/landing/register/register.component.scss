@@ -1,0 +1,16 @@
+.section {
+    background-color: rgb(237, 237, 237) !important;
+}
+.card {
+    padding: 20px !important;
+}
+
+.border {
+    border: 1px solid var(--vz-border-color) !important;
+    border-radius: 20px !important;
+}
+
+.shadow {
+    -webkit-box-shadow: 5px 5px 13px 11px rgba(169,169,169,0.3) !important; 
+    box-shadow: 5px 5px 13px 11px rgba(169,169,169,0.3) !important;
+}

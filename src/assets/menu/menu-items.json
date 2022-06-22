@@ -14,7 +14,7 @@
         "id": 3,
         "label": "Graduate Medical Education",
         "icon": "ri-file-user-line",
-        "link": "graduate-medical-education"    
+        "link": "/graduate-medical-education"    
     },
     {
         "id": 10,

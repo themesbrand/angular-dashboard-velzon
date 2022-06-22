@@ -1,14 +1,122 @@
  <!-- start services -->
- <section class="section" id="services">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="text-center mt-2">
-                    <div class="container p-3">
-                        <h3 class="text-primary">Login using Digital Certification Service (Tam)</h3>
-                    </div>
+ <section class="section p-0" id="services">
+    <div class="container">
+        <div class="row justify-content-center pt-5">
+            <div class="col-lg-8">
+                <div class="card border shadow px-2 py-2">
+                    <div class="card-body">
+                        <!-- Nav tabs -->
+                        <ul ngbNav #BorderTop="ngbNav" [activeId]="1" class="nav nav-tabs nav-justified nav-border-top nav-border-top-success mb-3">
+                          <li [ngbNavItem]="1">
+                              <a ngbNavLink>
+                                <i class="ri-bank-card-line align-middle me-1"></i>Id Card</a>
+                              <ng-template ngbNavContent>
+                                <div class="card tab-card">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="card img-box">
+                                                <div class="card-body rounded border">
+                                                    <img src="/assets/images/card_reader.png"class="img-fluid">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column px-4 w-100 text-center">
+                                                <h2 class="card-box-title">Login using ID Card</h2>
+                                                <p class="mt-4">To login with Id Card, you will need you Civil Id card, your pin code and a card reader.</p>
+                                                <form [formGroup]="loginForm" class=" mt-2 h-100">
+                                                    <div class="d-flex flex-column justify-content-between h-100">
+                                                        <div class="mb-3">
+                                                            <label for="username" class="form-label">Username</label>
+                                                            <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback" >
+                                                                <div *ngIf="f['email'].errors['required']">Username is required</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="password-input">Password</label>
+                                                            <div class="position-relative auth-pass-inputgroup mb-3">
+                                                                <input [type]="fieldTextType ? 'text' : 'password'" class="form-control pe-5" placeholder="Enter password" id="password-input" formControlName="password"
+                                                                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                                                                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="mdi align-middle" [ngClass]="{'mdi-eye-off-outline': !fieldTextType, 'mdi-eye-outline': fieldTextType
+                                                                }" (click)="toggleFieldTextType()"></i></button>
+                                                                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                                                    <span *ngIf="f['password'].errors['required']">Password is required</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                    
+                                                </form>
+                                                <hr class="mt-auto">
+                                                <div class="w-100">
+                                                    <button class="btn btn-success w-100" type="submit" (click)="onSubmit()">Login</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </ng-template>
+                          </li>
+                          <li [ngbNavItem]="2">
+                              <a ngbNavLink>
+                                <i class="ri-smartphone-line me-1 align-middle"></i>Mobile</a>
+                              <ng-template ngbNavContent>
+                                <div class="card tab-card">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="card img-box">
+                                                <div class="card-body rounded border">
+                                                    <img src="/assets/images/phone_auth.png"class="img-fluid">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column px-4 w-100 text-center">
+                                                <h2 class="card-box-title">Login using Mobile</h2>
+                                                <p class="mt-4">To login with Mobile, you will need PKI enabled SIM card and the OPT</p>
+                                                <form [formGroup]="loginForm" class=" mt-2 h-100">
+                                                    <div class="input-group mb-3">
+                                                        <span id="basic-addon1" class="input-group-text">+968</span><input type="number" placeholder="Mobile Number" aria-label="Mobile Number" aria-describedby="basic-addon1" class="form-control">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-between h-100">
+                                                        <div class="mb-3">
+                                                            <label for="username" class="form-label">Username</label>
+                                                            <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback" >
+                                                                <div *ngIf="f['email'].errors['required']">Username is required</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="password-input">Password</label>
+                                                            <div class="position-relative auth-pass-inputgroup mb-3">
+                                                                <input [type]="fieldTextType ? 'text' : 'password'" class="form-control pe-5" placeholder="Enter password" id="password-input" formControlName="password"
+                                                                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                                                                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="mdi align-middle" [ngClass]="{'mdi-eye-off-outline': !fieldTextType, 'mdi-eye-outline': fieldTextType
+                                                                }" (click)="toggleFieldTextType()"></i></button>
+                                                                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                                                    <span *ngIf="f['password'].errors['required']">Password is required</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                    
+                                                </form>
+                                                <hr class="mt-auto">
+                                                <div class="w-100">
+                                                    <button class="btn btn-success w-100" type="submit" (click)="onSubmit()">Login</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </ng-template>
+                          </li>
+                        </ul>
+                        <div class="tab-content text-muted">
+                          <div [ngbNavOutlet]="BorderTop"></div>
+                        </div>
+                    </div><!-- end card-body -->
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="card border h-100">
                             <div class="card-body">
@@ -18,9 +126,8 @@
                                         <div class="d-flex flex-column justify-content-between h-100">
                                             <div class="p-2 mt-4">
                                                 <p><b>Login using ID Card Requires:</b></p>
-                                                <p>1. Mobile Simcard</p>
-                                                <p>2. Pin Code
-                                                </p>
+                                                <p>1. Id Card / Resident Card</p>
+                                                <p>2. Pin Code</p>
                                                 <p>3. Card Reader
                                                 </p>
                                                 <div class="mt-2 d-flex flex-row justify-content-center align-items-center">
@@ -59,11 +166,9 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- end card body -->
                         </div>
                     </div>
 
-                    <!-- Phone login-->
                     <div class="col-md-6">
                         <div class="card border h-100">
                             <div class="card-body">
@@ -116,14 +221,9 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- end card body -->
                         </div>
                     </div>
-                    
-                    
-                    
-
-                </div>
+                </div> -->
             </div>
             <!-- end col -->
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -15,7 +16,7 @@ export class IndexComponent implements OnInit {
   showNavigationArrows: any;
   showNavigationIndicators: any;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -48,6 +49,14 @@ export class IndexComponent implements OnInit {
    */
   toggleMenu() {
     document.getElementById('navbarSupportedContent')?.classList.toggle('show');
+  }
+
+  routerTo(route : any) {
+    console.log(`/${route}`)
+    this.router.navigateByUrl(`${route}`, { state: { path : route} })
+
+
+    
   }
 
 }

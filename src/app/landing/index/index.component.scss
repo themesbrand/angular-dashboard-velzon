@@ -2,9 +2,73 @@
     background-color: #193239 !important;
 }
 
-.nav-item a {
-    color: white !important;
+// .nav-item a {
+//     color: white !important;
+// }
+// .nav-item .dropdown-item {
+//     color: black !important;
+// }
+
+.card-logo {
+    height: 90px !important;
 }
-.nav-item .dropdown-item {
-    color: black !important;
+
+.heading {
+    font-size: 1.6rem;
+} 
+
+.btn-custom {
+    background-color: #84a39a !important;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.submenu {
+    cursor: pointer !important;
+}
+.signIn-button {
+    padding-top: 0;
+}
+.navbar-brand {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 767px) { 
+    .card-logo {
+        height: 60px !important;
+    }
+    .heading {
+        font-size: 1.1rem !important;
+    } 
+    .btn-custom {
+        font-size: 1rem !important;
+    }
+}
+@media screen and (max-width: 574px) { 
+    .card-logo {
+        height: 45px !important;
+    }
+    .heading {
+        font-size: 1rem !important;
+    } 
+    .btn-custom {
+        font-size: 0.8rem !important;
+    }
+    .navbar-brand {
+        padding: 15px !important;
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-brand .d-flex {
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .signIn-button {
+        padding-top: 15px;
+    }
 }

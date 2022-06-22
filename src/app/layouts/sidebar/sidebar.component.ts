@@ -28,9 +28,7 @@ export class SidebarComponent implements OnInit {
     this.httpClient.get("assets/menu/menu-items.json").subscribe((response : any) =>{
       console.log(response);
       this.menuItems = [...response];      
-    })
-
-    
+    })    
   }
 
   /***

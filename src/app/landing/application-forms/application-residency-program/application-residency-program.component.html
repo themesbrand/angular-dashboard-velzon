@@ -1,0 +1,1826 @@
+<section class="section p-0">
+  <div class="container-fluid px-5">
+    <div class="row">
+      <div class="profile-foreground position-relative">
+        <div class="profile-wid-bg">
+          <img
+            src="assets/images/profile-bg.jpg"
+            alt=""
+            class="profile-wid-img"
+          />
+        </div>
+      </div>
+      <div class="row g-2 px-3">
+        <div class="col-md-1 mx-1">
+          <div class="avatar-lg">
+            <img
+              src="assets/images/users/avatar-1.jpg"
+              alt="user-img"
+              class="img-thumbnail rounded-circle"
+            />
+          </div>
+        </div>
+        <!--end col-->
+        <div class="col-auto mt-3">
+          <div class="mb-1 d-flex flex-row">
+            <label class="form-label text-white mx-3">Amith Mark</label>
+            <label class="form-label text-white mx-3">أميث مارك</label>
+          </div>
+          <div class="d-flex flex-column">
+            <label class="form-label text-white mx-3"
+              ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
+            >
+            <label class="form-label text-white mx-3"
+              ><i class="mx-2 ri-mail-line"></i>Amith@emai.com</label
+            >
+          </div>
+        </div>
+
+        <!--end col-->
+      </div>
+    </div>
+
+    <div class="row px-3">
+      <div class="col-lg-12">
+        <div>
+          <div class="d-flex">
+            <!-- Nav tabs -->
+            <ul
+              ngbNav
+              #customNav="ngbNav"
+              [activeId]="1"
+              class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+              role="tablist"
+            >
+              <li [ngbNavItem]="1" class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                  <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                  <span class="d-none d-md-inline-block">Application Form</span>
+                </a>
+                <ng-template ngbNavContent>
+                  <div class="card border shadow mb-2">
+                    <div class="card-body">
+                      <h5 class="card-title mb-5">Complete Your Profile</h5>
+                      <div
+                        class="progress animated-progess custom-progress progress-label"
+                      >
+                        <div
+                          class="progress-bar bg-danger"
+                          role="progressbar"
+                          [style]="progressBarSize.width"
+                          ([aria-valuenow])="(progressBarSize.value)"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          <div class="label">
+                            {{ progressBarSize.value }}{{ "%" }}
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <h5 class="card-title mb-2">Documents</h5>
+                                      <div class="mb-2">
+                                          <a href="javascript:void(0);" class="mb-2">Civil / Residential Id</a>
+                                      </div>
+                                      <div class="mb-2">
+                                          <a href="javascript:void(0);" class="mb-2">Passport Size Photo</a>
+                                      </div> -->
+                    </div>
+                  </div>
+                  <div class="card border shadow">
+                    <div class="card-body form-steps">
+                      <aw-wizard
+                        id="wizard"
+                        [navBarLayout]="'large-empty-symbols'"
+                        class="nav nav-pills progress-bar-tab custom-nav"
+                      >
+                        <aw-wizard-step>
+                          <ng-template awWizardStepSymbol>
+                            <li class="nav-item" role="presentation">
+                              <button
+                                class="nav-link rounded-pill active"
+                                data-progressbar="custom-progress-bar"
+                                id="pills-gen-info-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-gen-info"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-gen-info"
+                                aria-selected="true"
+                              >
+                                1
+                              </button>
+                            </li>
+                          </ng-template>
+                          <div>
+                            <div class="mb-4">
+                              <div>
+                                <h4 class="mb-2">Application - Page 1</h4>
+                                <p class="text-muted">
+                                  Fill all Information as below
+                                </p>
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Application Intake Year</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Examination Type</label
+                                      >
+                                      <ng-select
+                                        [items]="examType"
+                                        [(ngModel)]="examTypeValue"
+                                        (change)="onChangeExamType()"
+                                        placeholder="Select your Examination Type"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="col-md-12"
+                                    *ngIf="examTypeValue === 'MFD'"
+                                  >
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        role="switch"
+                                        id="flexSwitchCheckDefault"
+                                        [(ngModel)]="havePassedExam"
+                                      />
+                                      <label
+                                        class="form-check-label"
+                                        for="flexSwitchCheckDefault"
+                                        >Have you passed the MFD II?</label
+                                      >
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="col-md-4"
+                                    *ngIf="
+                                      examTypeValue === 'MFD' &&
+                                      havePassedExam === true
+                                    "
+                                  >
+                                    <p class="text-muted">
+                                      Upload your MFD Part II.
+                                    </p>
+                                    <ngx-dropzone
+                                      (change)="onSelect($event)"
+                                      [multiple]="false"
+                                    >
+                                      <ngx-dropzone-label
+                                        >Drop your file
+                                        here!</ngx-dropzone-label
+                                      >
+                                      <ngx-dropzone-preview
+                                        *ngFor="let f of filesMFD"
+                                        [removable]="true"
+                                        (removed)="onRemove(f)"
+                                      >
+                                        <ngx-dropzone-label
+                                          >{{ f.name }} ({{
+                                            f.type
+                                          }})</ngx-dropzone-label
+                                        >
+                                      </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                  </div>
+                                  <div
+                                    class="col-md-4"
+                                    *ngIf="
+                                      examTypeValue === 'MFD' &&
+                                      havePassedExam === true
+                                    "
+                                  >
+                                    <p class="text-muted">
+                                      Upload your certificate.
+                                    </p>
+                                    <ngx-dropzone
+                                      (change)="onSelectCertificate($event)"
+                                      [multiple]="false"
+                                    >
+                                      <ngx-dropzone-label
+                                        >Drop your file
+                                        here!</ngx-dropzone-label
+                                      >
+                                      <ngx-dropzone-preview
+                                        *ngFor="let f of filesCertificate"
+                                        [removable]="true"
+                                        (removed)="onRemoveCertificate(f)"
+                                      >
+                                        <ngx-dropzone-label
+                                          >{{ f.name }} ({{
+                                            f.type
+                                          }})</ngx-dropzone-label
+                                        >
+                                      </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                  </div>
+                                  <div
+                                    class="col-md-4"
+                                    *ngIf="
+                                      examTypeValue === 'OMSB_Selection_Exam'
+                                    "
+                                  >
+                                    <label class="form-label"
+                                      >OMSB Selection Exam Score</label
+                                    >
+                                    <input
+                                      type="text"
+                                      value="Your score is 22.4"
+                                      class="form-control"
+                                    />
+                                  </div>
+                                  <div class="col-md-12 mt-4">
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        role="switch"
+                                        id="flexSwitchCheckDefault"
+                                        [(ngModel)]="haveSubmittedDeclaration"
+                                      />
+                                      <label
+                                        class="form-check-label"
+                                        for="flexSwitchCheckDefault"
+                                        >I declare that all information will be
+                                        provided below in this application form
+                                        is true, complete and correct to the
+                                        best of my knowledge and belief. I
+                                        understand that any misrepresentation or
+                                        material omission made on the
+                                        application form or any document
+                                        uploaded renders me liable for rejection
+                                        of application request or termination
+                                        later on if accepted in any training
+                                        program</label
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- wizard-tab -->
+                          <div class="d-flex align-items-start gap-3 mt-4">
+                            <button
+                              type="button"
+                              class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                              data-nexttab="pills-info-desc-tab"
+                              (click)="enterStep(1)"
+                            >
+                              <i
+                                class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"
+                              ></i
+                              >Next Step
+                            </button>
+                          </div>
+                        </aw-wizard-step>
+
+                        <aw-wizard-step>
+                          <ng-template awWizardStepSymbol>
+                            <li class="nav-item" role="presentation">
+                              <button
+                                class="nav-link rounded-pill"
+                                data-progressbar="custom-progress-bar"
+                                id="pills-info-desc-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-info-desc"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-info-desc"
+                                aria-selected="false"
+                              >
+                                2
+                              </button>
+                            </li>
+                          </ng-template>
+                          <div>
+                            <div class="mb-4">
+                              <div>
+                                <h4 class="mb-2">Application - Page 2</h4>
+                                <p class="text-muted">
+                                  Fill all Information as below
+                                </p>
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Marital Status</label
+                                      >
+                                      <ng-select
+                                        [items]="maritalStatus"
+                                        placeholder="Select your Marital Status"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div class="mb-3">
+                                      <label class="form-label">Address</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Governorate
+                                      </label>
+                                      <ng-select
+                                        [items]="GovernorateList"
+                                        placeholder="Select your Governorate"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Wilayat/Region</label
+                                      >
+                                      <ng-select
+                                        [items]="WilayatList"
+                                        placeholder="Select your Wilayat/Region"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Name of Next of Kin (NOK)</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Contact No. of NOK</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >OMSB Admission Exam Score</label
+                                      >
+                                      <input
+                                        type="number"
+                                        class="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-4 mt-3 mb-3">
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        role="switch"
+                                        id="flexSwitchCheckDefault"
+                                        [(ngModel)]="haveDiseases"
+                                      />
+                                      <label
+                                        class="form-check-label"
+                                        for="flexSwitchCheckDefault"
+                                        >List any Disabilities or
+                                        Diseases</label
+                                      >
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4" *ngIf="haveDiseases">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Please provide the name of the disease
+                                        or disability</label
+                                      >
+                                      <textarea
+                                        type="text"
+                                        (resize)="(false)"
+                                        rows="2"
+                                        class="form-control"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row mt-5">
+                                  <p class="h5">Education</p>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Name of University / College
+                                        Attended</label
+                                      >
+                                      <ng-select
+                                        [items]="educationInstitutesList"
+                                        [(ngModel)]="educationInstituteValue"
+                                        placeholder="Name of University / College Attended"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="col-md-4"
+                                    *ngIf="educationInstituteValue === 'other'"
+                                  >
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Specify your Educational
+                                        Institute</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Country </label>
+                                      <ng-select
+                                        [items]="countryList"
+                                        placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Degree Obtained</label
+                                      >
+                                      <ng-select
+                                        [items]="degreeList"
+                                        [(ngModel)]="degreeValue"
+                                        placeholder="Degree"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="col-md-4"
+                                    *ngIf="degreeValue === 'other'"
+                                  >
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Specify your Degree</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">GPA</label>
+                                      <input
+                                        type="number"
+                                        class="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Date of Graduation</label
+                                      >
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row mt-5">
+                                  <p class="h5">Internship Details</p>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Start Date</label
+                                      >
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">End Date</label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">
+                                        Institution of Internship</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Current Position</label
+                                      >
+                                      <ng-select
+                                        [items]="currentPositionList"
+                                        placeholder="Current Position"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="d-flex flex-column mt-5">
+                                  <p class="h5">Certificates</p>
+                                  <div class="row">
+                                    <div class="col-md-6 border p-3">
+                                      <p class="h6">BLS Certificate</p>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="mb-3">
+                                            <label class="form-label"
+                                              >Expiry Date</label
+                                            >
+                                            <input
+                                              class="form-control flatpickr-input"
+                                              type="text"
+                                              mwlFlatpickr
+                                              [altInput]="true"
+                                              [convertModelValue]="true"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <p class="text-muted">
+                                            Upload your BLS Certificate.
+                                          </p>
+                                          <ngx-dropzone
+                                            (change)="
+                                              onSelectBLSCertificate($event)
+                                            "
+                                            [multiple]="false"
+                                          >
+                                            <ngx-dropzone-label
+                                              >Drop your file
+                                              here!</ngx-dropzone-label
+                                            >
+                                            <ngx-dropzone-preview
+                                              *ngFor="
+                                                let f of filesBLSCertificate
+                                              "
+                                              [removable]="true"
+                                              (removed)="
+                                                onRemoveBLSCertificate(f)
+                                              "
+                                            >
+                                              <ngx-dropzone-label
+                                                >{{ f.name }} ({{
+                                                  f.type
+                                                }})</ngx-dropzone-label
+                                              >
+                                            </ngx-dropzone-preview>
+                                          </ngx-dropzone>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 border p-3">
+                                      <p class="h6">ACLS Certificate</p>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="mb-3">
+                                            <label class="form-label"
+                                              >Expiry Date</label
+                                            >
+                                            <input
+                                              class="form-control flatpickr-input"
+                                              type="text"
+                                              mwlFlatpickr
+                                              [altInput]="true"
+                                              [convertModelValue]="true"
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <p class="text-muted">
+                                            Upload your ACLS Certificate.
+                                          </p>
+                                          <ngx-dropzone
+                                            (change)="
+                                              onSelectACLSCertificate($event)
+                                            "
+                                            [multiple]="false"
+                                          >
+                                            <ngx-dropzone-label
+                                              >Drop your file
+                                              here!</ngx-dropzone-label
+                                            >
+                                            <ngx-dropzone-preview
+                                              *ngFor="
+                                                let f of filesACLSCertificate
+                                              "
+                                              [removable]="true"
+                                              (removed)="
+                                                onRemoveACLSCertificate(f)
+                                              "
+                                            >
+                                              <ngx-dropzone-label
+                                                >{{ f.name }} ({{
+                                                  f.type
+                                                }})</ngx-dropzone-label
+                                              >
+                                            </ngx-dropzone-preview>
+                                          </ngx-dropzone>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row mt-5">
+                                  <p class="h5">
+                                    Postgraduate Qualifications/Training
+                                    Experience
+                                  </p>
+                                  <div class="col-md-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">
+                                        Please provide a summary of your
+                                        Postgraduate Qualifications / Training
+                                        Experience</label
+                                      >
+                                      <textarea
+                                        type="text"
+                                        class="form-control"
+                                        rows="5"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <p class="text-muted">
+                                      Upload your proof of Documents.
+                                    </p>
+                                    <ngx-dropzone
+                                      (change)="onSelectProofDocs($event)"
+                                    >
+                                      <ngx-dropzone-label
+                                        >Drop your file
+                                        here!</ngx-dropzone-label
+                                      >
+                                      <ngx-dropzone-preview
+                                        *ngFor="let f of filesProofDocs"
+                                        [removable]="true"
+                                        (removed)="onRemoveProofDocs(f)"
+                                      >
+                                        <ngx-dropzone-label
+                                          >{{ f.name }} ({{
+                                            f.type
+                                          }})</ngx-dropzone-label
+                                        >
+                                      </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                  </div>
+                                </div>
+                                <div class="row mt-5" *ngIf="!haveDiseases">
+                                  <p class="h5">
+                                    Selection of Choice of Speciality programs
+                                  </p>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >1st Choice</label
+                                      >
+                                      <ng-select
+                                        [items]="trainingProgramsList"
+                                        placeholder="Current Position"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      ></ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >2nd Choice</label
+                                      >
+                                      <ng-select
+                                        [items]="trainingProgramsList"
+                                        placeholder="Current Position"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      ></ng-select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <hr />
+                                <div class="row mt-5">
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Required a White Lab Coat</label
+                                      >
+                                      <ng-select
+                                        [items]="[
+                                          { name: 'Yes', value: true },
+                                          { name: 'No', value: false }
+                                        ]"
+                                        bindLabel="name"
+                                        [(ngModel)]="IsRequiredLabCoat"
+                                        bindValue="value"
+                                      ></ng-select>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="col-md-4"
+                                    *ngIf="IsRequiredLabCoat"
+                                  >
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Required a White Lab Coat</label
+                                      >
+                                      <ng-select
+                                        [items]="[
+                                          { name: 'XS', value: 'XS' },
+                                          { name: 'S', value: 'S' },
+                                          { name: 'M', value: 'M' },
+                                          { name: 'L', value: 'L' },
+                                          { name: 'XL', value: 'XL' },
+                                          { name: 'XXL', value: 'XXL' }
+                                        ]"
+                                        placeholder="Please select your White Lab Coat Size"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      ></ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <p class="text-muted">
+                                      Upload your Sponsorship letter from
+                                      Employer.
+                                    </p>
+                                    <ngx-dropzone
+                                      (change)="
+                                        onSelectSponsorshipLetter($event)
+                                      "
+                                      [multiple]="false"
+                                    >
+                                      <ngx-dropzone-label
+                                        >Drop your file
+                                        here!</ngx-dropzone-label
+                                      >
+                                      <ngx-dropzone-preview
+                                        *ngFor="let f of filesSponsorshipLetter"
+                                        [removable]="true"
+                                        (removed)="onRemoveSponsorshipLetter(f)"
+                                      >
+                                        <ngx-dropzone-label
+                                          >{{ f.name }} ({{
+                                            f.type
+                                          }})</ngx-dropzone-label
+                                        >
+                                      </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex align-items-start gap-3 mt-4">
+                            <button
+                              type="button"
+                              class="btn btn-link text-decoration-none btn-label previestab"
+                              data-previous="pills-gen-info-tab"
+                              awPreviousStep
+                            >
+                              <i
+                                class="ri-arrow-left-line label-icon align-middle fs-16 me-2"
+                              ></i>
+                              Application - Page 1
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                              data-nexttab="pills-success-tab"
+                              (click)="enterStep(2)"
+                            >
+                              <i
+                                class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"
+                              ></i
+                              >Next Step
+                            </button>
+                          </div>
+                        </aw-wizard-step>
+
+                        <aw-wizard-step>
+                          <ng-template awWizardStepSymbol>
+                            <li class="nav-item" role="presentation">
+                              <button
+                                class="nav-link rounded-pill"
+                                data-progressbar="custom-progress-bar"
+                                id="pills-success-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-success"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-success"
+                                aria-selected="false"
+                              >
+                                3
+                              </button>
+                            </li>
+                          </ng-template>
+                          <div>
+                            <div class="mb-4">
+                              <div>
+                                <h4 class="mb-2">Application - Page 3</h4>
+                                <p class="h6">CV Section</p>
+                                <p class="text-muted">
+                                  Fill all Information as below.
+                                </p>
+                                <div class="row">
+                                  <p class="h5">
+                                    DEMOGRAPHIC INFORMATION SECTION
+                                  </p>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Name (As per passport)</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Birthday</label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-control-label"
+                                        >Nationality</label
+                                      >
+                                      <ng-select
+                                        name="nationality"
+                                        [items]="nationalities"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                        placeholder="Select your nationality"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >National ID No</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Passport No.</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Marital Status</label
+                                      >
+                                      <ng-select
+                                        [items]="maritalStatus"
+                                        placeholder="Select your Marital Status"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Permanent Address</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Wilayat/Region</label
+                                      >
+                                      <ng-select
+                                        [items]="WilayatList"
+                                        placeholder="Select your Wilayat/Region"
+                                        bindLabel="name"
+                                        bindValue="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <label class="form-label"
+                                      >Mobile Number</label
+                                    >
+                                    <div class="input-group mb-3">
+                                      <span
+                                        id="basic-addon1"
+                                        class="input-group-text"
+                                        >+968</span
+                                      ><input
+                                        type="number"
+                                        placeholder="Mobile Number"
+                                        aria-label="Mobile Number"
+                                        aria-describedby="basic-addon1"
+                                        class="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Name of Next of Kin (NOK)</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <label class="form-label"
+                                      >Contact No. of NOK</label
+                                    >
+                                    <div class="input-group mb-3">
+                                      <span
+                                        id="basic-addon1"
+                                        class="input-group-text"
+                                        >+968</span
+                                      ><input
+                                        type="number"
+                                        placeholder="Mobile Number"
+                                        aria-label="Mobile Number"
+                                        aria-describedby="basic-addon1"
+                                        class="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
+                                <p class="h5 mt-3">1. Secondary School</p>
+                                <div class="row shadow">
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                          <label class="form-label">School</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                      </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">Start Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">End Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">Country </label>
+                                        <ng-select
+                                          [items]="countryList"
+                                          placeholder="Country"
+                                          bindLabel="name"
+                                          bindValue="code"
+                                        >
+                                        </ng-select>
+                                      </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">2. BSc/Medical School</p>
+                                <div class="row shadow">
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                          <label class="form-label">School</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                      </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">Start Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">End Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">Country </label>
+                                        <ng-select
+                                          [items]="countryList"
+                                          placeholder="Country"
+                                          bindLabel="name"
+                                          bindValue="code"
+                                        >
+                                        </ng-select>
+                                      </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">3. Internship </p>
+                                <div class="row shadow">
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Start Date</label
+                                      >
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">End Date</label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">
+                                        Institution of Internship</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">Country </label>
+                                      <ng-select
+                                        [items]="countryList"
+                                        placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row shadow">
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Start Date</label
+                                      >
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">End Date</label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">
+                                        Institution of Internship</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">Country </label>
+                                      <ng-select
+                                        [items]="countryList"
+                                        placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row shadow">
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Start Date</label
+                                      >
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">End Date</label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">
+                                        Institution of Internship</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">Country </label>
+                                      <ng-select
+                                        [items]="countryList"
+                                        placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <p class="h5 mt-3">4. Clinical Electives</p>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Department, Institution</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="mb-3">
+                                        <label class="form-label">Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Department, Institution</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="mb-3">
+                                        <label class="form-label">Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Department, Institution</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="mb-3">
+                                        <label class="form-label">Date</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">5. The Basic Certificates Courses:</p>
+                                <div class="row">
+                                    <div class="col-md-4 d-flex flex-row">
+                                        <label class="form-label">BLS Certificate</label>
+                                        <div class="mb-3 mx-5">
+                                            <label class="form-label">Expiry Date</label>
+                                            <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex flex-row">
+                                        <label class="form-label">ACLS Certificate</label>
+                                        <div class="mb-3 mx-5">
+                                            <label class="form-label">Expiry Date</label>
+                                            <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="h5 mt-4">SCHOLARLY ACTIVITIES SECTION</p>
+                                <p class="h5 mt-3">1. Research</p>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Project Title</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Position</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Inclusive Dates</label>
+                                          <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" mode="range">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Institution</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Department</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Mentor</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Project Title</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Position</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Inclusive Dates</label>
+                                          <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" mode="range">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Institution</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Department</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                          <label class="form-label">Mentor</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">2. Publications</p>
+                                <div class="row shadow">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                          <label class="form-label">Last, First, Middle Initial of authors as listed in the paper. Underline your name. Title of article,
+                                            Journal, Publication date; vol (issue): pages. (Should include abstracts). </label>
+                                          <textarea type="text" class="form-control" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">3. Presentations</p>
+                                <div class="row shadow">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                          <label class="form-label">Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location 
+                                        </label>
+                                          <textarea type="text" class="form-control" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shadow">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                          <label class="form-label">Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location 
+                                        </label>
+                                          <textarea type="text" class="form-control" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">4. Honors and Awards</p>
+                                <div class="row shadow">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                          <label class="form-label">Award, Institution, Date Conferred</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="h5 mt-3">4. Community Service/Volunteer Experience (Health-Related Fields)</p>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">From Date</label>
+                                            <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">To Date</label>
+                                            <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                          <label class="form-label">Award, Institution, Date Conferred</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shadow">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">From Date</label>
+                                            <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">To Date</label>
+                                            <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                          <label class="form-label">Award, Institution, Date Conferred</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex align-items-start gap-3 mt-4">
+                            <button
+                              type="button"
+                              class="btn btn-link text-decoration-none btn-label previestab"
+                              data-previous="pills-gen-info-tab"
+                              awPreviousStep
+                            >
+                              <i
+                                class="ri-arrow-left-line label-icon align-middle fs-16 me-2"
+                              ></i>
+                              Application - Page 2
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                              data-nexttab="pills-success-tab"
+                            >
+                              <i
+                                class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"
+                              ></i
+                              >Submit Application
+                            </button>
+                          </div>
+                        </aw-wizard-step>
+                      </aw-wizard>
+                    </div>
+                    <!-- end card body -->
+                  </div>
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="2" class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                  <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                  <span class="d-none d-md-inline-block">Personal Details</span>
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Civil ID </label>
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Full Name in English</label>
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Full Name in Arabic</label>
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <ng-select
+                                      [items]="gender"
+                                      placeholder="Select your Gender"
+                                      bindLabel="name"
+                                      bindName="value"
+                                    >
+                                    </ng-select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-control-label">Nationality</label>
+                                    <ng-select
+                                      name="nationality"
+                                      [items]="nationalities"
+                                      bindLabel="name"
+                                      bindValue="code"
+                                      placeholder="Select your nationality"
+                                    >
+                                    </ng-select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Birthday</label>
+                                    <input
+                                      class="form-control flatpickr-input"
+                                      type="text"
+                                      mwlFlatpickr
+                                      [altInput]="true"
+                                      [convertModelValue]="true"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Contact Number</label>
+                                    <input type="number" class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="number" class="form-control" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="text-muted">Please provide a Passport size Photo.</p>
+                                    <ngx-dropzone (change)="onSelectPassport($event)" [multiple]="false">
+                                        <ngx-dropzone-label>Drop your Photo!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview *ngFor="let f of filesPassport" [removable]="true" (removed)="onRemovePassport(f)">
+                                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+            
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="text-muted">Please provide a Civil ID.</p>
+                                    <ngx-dropzone (change)="onSelectId($event)" [multiple]="false">
+                                        <ngx-dropzone-label>Drop your Civil Id!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview *ngFor="let f of filesId" [removable]="true" (removed)="onRemoveId(f)">
+                                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+            
+                                </div>
+                              </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success">Update Details</button>
+                        </div>
+                    </div>
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="3" class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                  <i class="ri-price-tag-line d-inline-block d-md-none"></i>
+                  <span class="d-none d-md-inline-block">Work Details</span>
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-control-label">Employment Status</label>
+                                      <ng-select
+                                        name="employmentStatus"
+                                        [items]="employmentStatus"
+                                        bindLabel="name"
+                                        [(ngModel)]="employmentStatusValue"
+                                        bindValue="value"
+                                        placeholder="Select your Employment Status"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="employmentStatusValue === 'employed'">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-control-label">Sector Type</label>
+                                            <ng-select
+                                              [items]="sectorType"
+                                              bindLabel="name"
+                                              [(ngModel)]="sectorTypeValue"
+                                              (change)="onChangeSectorType(sectorTypeValue)"
+                                              bindValue="value"
+                                              placeholder="Select your Sector Type"
+                                            >
+                                            </ng-select>
+                                          </div>
+                                    </div>
+                                    <div class="col-md-6" *ngIf="sectorTypeValue ==='government' || sectorTypeValue ==='private'">
+                                        <div class="mb-3">
+                                            <label class="form-control-label">Sector</label>
+                                            <ng-select
+                                              [items]="sectorsList"
+                                              bindLabel="name"
+                                              [(ngModel)]="sectorValue"
+                                              bindValue="value"
+                                              placeholder="Select your Sector Type"
+                                            >
+                                            </ng-select>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-6" *ngIf="sectorValue !== undefined && sectorValue === 'other'">
+                                        <div class="mb-3">
+                                          <label class="form-label">Please specify if other Sector</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                          <label class="form-label">Staff ID</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                          <label class="form-label">Job Title</label>
+                                          <ng-select
+                                              [items]="jobTitle"
+                                              [(ngModel)]="jobTitleValue"
+                                              bindLabel="name"
+                                              bindValue="value"
+                                              placeholder="Select your Jpb Title"
+                                            >
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6" *ngIf="jobTitleValue !== undefined && jobTitleValue === 'other'">
+                                        <div class="mb-3">
+                                          <label class="form-label">Please specify if other job Title</label>
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
+                                            [(ngModel)]="isAnotherJob">
+                                            <label class="form-check-label" for="flexSwitchCheckDefault">Do you have another Job?</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="isAnotherJob">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-control-label">Sector Type</label>
+                                                <ng-select
+                                                  [items]="sectorType"
+                                                  bindLabel="name"
+                                                  [(ngModel)]="sectorTypeValueNewJob"
+                                                  (change)="onChangeSectorNewJobType(sectorTypeValueNewJob)"
+                                                  bindValue="value"
+                                                  placeholder="Select your Sector Type"
+                                                >
+                                                </ng-select>
+                                              </div>
+                                        </div>
+                                        <div class="col-md-6" *ngIf="sectorTypeValueNewJob ==='government' || sectorTypeValueNewJob ==='private'">
+                                            <div class="mb-3">
+                                                <label class="form-control-label">Sector</label>
+                                                <ng-select
+                                                  [items]="sectorsNewJobList"
+                                                  bindLabel="name"
+                                                  [(ngModel)]="sectorValueNewJob"
+                                                  bindValue="value"
+                                                  placeholder="Select your Sector Type"
+                                                >
+                                                </ng-select>
+                                              </div>
+                                        </div>
+                                        <div class="col-lg-6" *ngIf="sectorValueNewJob !== undefined && sectorValueNewJob === 'other'">
+                                            <div class="mb-3">
+                                              <label class="form-label">Please specify if other Sector</label>
+                                              <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                              <label class="form-label">Staff ID</label>
+                                              <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                              <label class="form-label">Job Title</label>
+                                              <ng-select
+                                                  [items]="jobTitle"
+                                                  [(ngModel)]="jobTitleValueNewJob"
+                                                  bindLabel="name"
+                                                  bindValue="value"
+                                                  placeholder="Select your Jpb Title"
+                                                >
+                                                </ng-select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6" *ngIf="jobTitleValueNewJob !== undefined && jobTitleValueNewJob === 'other'">
+                                            <div class="mb-3">
+                                              <label class="form-label">Please specify if other Job Title</label>
+                                              <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success">Update Details</button>
+                        </div>
+                    </div>
+                </ng-template>
+              </li>
+            </ul>
+          </div>
+          <!-- Tab panes -->
+          <div class="tab-content pt-4 text-muted">
+            <div [ngbNavOutlet]="customNav"></div>
+          </div>
+          <!--end tab-content-->
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+</section>
