@@ -22,7 +22,7 @@
                                             <div class="d-flex flex-column px-4 w-100 text-center">
                                                 <h2 class="card-box-title">Login using ID Card</h2>
                                                 <p class="mt-4">To login with Id Card, you will need you Civil Id card, your pin code and a card reader.</p>
-                                                <form [formGroup]="loginForm" class=" mt-2 h-100">
+                                                <!-- <form [formGroup]="loginForm" class=" mt-2 h-100">
                                                     <div class="d-flex flex-column justify-content-between h-100">
                                                         <div class="mb-3">
                                                             <label for="username" class="form-label">Username</label>
@@ -45,7 +45,7 @@
                                                         </div>
                                                     </div>
                     
-                                                </form>
+                                                </form> -->
                                                 <hr class="mt-auto">
                                                 <div class="w-100">
                                                     <button class="btn btn-success w-100" type="submit" (click)="onSubmit()">Login</button>
@@ -72,11 +72,11 @@
                                             <div class="d-flex flex-column px-4 w-100 text-center">
                                                 <h2 class="card-box-title">Login using Mobile</h2>
                                                 <p class="mt-4">To login with Mobile, you will need PKI enabled SIM card and the OPT</p>
-                                                <form [formGroup]="loginForm" class=" mt-2 h-100">
-                                                    <div class="input-group mb-3">
-                                                        <span id="basic-addon1" class="input-group-text">+968</span><input type="number" placeholder="Mobile Number" aria-label="Mobile Number" aria-describedby="basic-addon1" class="form-control">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-between h-100">
+                                                <div class="input-group mb-3">
+                                                    <span id="basic-addon1" class="input-group-text">+968</span><input type="number" placeholder="Mobile Number" aria-label="Mobile Number" aria-describedby="basic-addon1" class="form-control">
+                                                </div>
+                                                <!-- <form [formGroup]="loginForm" class=" mt-2 h-100">
+                                                    <div class="d-flex flex-column justify-content-start h-100">
                                                         <div class="mb-3">
                                                             <label for="username" class="form-label">Username</label>
                                                             <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
@@ -98,7 +98,7 @@
                                                         </div>
                                                     </div>
                     
-                                                </form>
+                                                </form> -->
                                                 <hr class="mt-auto">
                                                 <div class="w-100">
                                                     <button class="btn btn-success w-100" type="submit" (click)="onSubmit()">Login</button>
