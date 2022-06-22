@@ -39,25 +39,25 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Civil ID </label>
+                        <label class="form-label">Civil ID<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Full Name in English</label>
+                        <label class="form-label">Full Name in English<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Full Name in Arabic</label>
+                        <label class="form-label">Full Name in Arabic<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Gender</label>
+                        <label class="form-label">Gender<span class="text-danger">{{" *"}}</span></label>
                         <ng-select
                           [items]="gender"
                           placeholder="Select your Gender"
@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-control-label">Nationality</label>
+                        <label class="form-control-label">Nationality<span class="text-danger">{{" *"}}</span></label>
                         <ng-select
                           name="nationality"
                           [items]="nationalities"
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Birthday</label>
+                        <label class="form-label">Birthday<span class="text-danger">{{" *"}}</span></label>
                         <input
                           class="form-control flatpickr-input"
                           type="text"
@@ -94,19 +94,19 @@
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Email</label>
+                        <label class="form-label">Email<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Contact Number</label>
+                        <label class="form-label">Contact Number<span class="text-danger">{{" *"}}</span></label>
                         <input type="number" class="form-control" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="mb-3">
-                        <label class="form-label">Phone Number</label>
+                        <label class="form-label">Passport Number</label>
                         <input type="number" class="form-control" />
                       </div>
                     </div>
@@ -156,7 +156,7 @@
                   <div class="row">
                     <div class="col-lg-4">
                         <div class="mb-3">
-                          <label class="form-control-label">Employment Status</label>
+                          <label class="form-control-label">Employment Status<span class="text-danger">{{" *"}}</span></label>
                           <ng-select
                             name="employmentStatus"
                             [items]="employmentStatus"
@@ -171,7 +171,7 @@
                     <div class="row" *ngIf="employmentStatusValue === 'employed'">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-control-label">Sector Type</label>
+                                <label class="form-control-label">Sector Type<span class="text-danger">{{" *"}}</span></label>
                                 <ng-select
                                   [items]="sectorType"
                                   bindLabel="name"
@@ -185,7 +185,7 @@
                         </div>
                         <div class="col-md-6" *ngIf="sectorTypeValue ==='government' || sectorTypeValue ==='private'">
                             <div class="mb-3">
-                                <label class="form-control-label">Sector</label>
+                                <label class="form-control-label">Sector<span class="text-danger">{{" *"}}</span></label>
                                 <ng-select
                                   [items]="sectorsList"
                                   bindLabel="name"
@@ -198,19 +198,19 @@
                         </div>
                         <div class="col-lg-6" *ngIf="sectorValue !== undefined && sectorValue === 'other'">
                             <div class="mb-3">
-                              <label class="form-label">Please specify if other Sector</label>
+                              <label class="form-label">Please specify if other Sector<span class="text-danger">{{" *"}}</span></label>
                               <input type="text" class="form-control" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                              <label class="form-label">Staff ID</label>
+                              <label class="form-label">Staff ID<span class="text-danger">{{" *"}}</span></label>
                               <input type="text" class="form-control" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                              <label class="form-label">Job Title</label>
+                              <label class="form-label">Job Title<span class="text-danger">{{" *"}}</span></label>
                               <ng-select
                                   [items]="jobTitle"
                                   [(ngModel)]="jobTitleValue"
@@ -223,7 +223,7 @@
                         </div>
                         <div class="col-lg-6" *ngIf="jobTitleValue !== undefined && jobTitleValue === 'other'">
                             <div class="mb-3">
-                              <label class="form-label">Please specify if other job Title</label>
+                              <label class="form-label">Please specify if other job Title<span class="text-danger">{{" *"}}</span></label>
                               <input type="text" class="form-control" />
                             </div>
                         </div>
@@ -299,7 +299,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                        <p class="text-muted">Please provide a Passport size Photo.</p>
+                        <p class="text-muted">Please provide a Passport size Photo.<span class="text-danger">{{" *"}}</span></p>
                         <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
                             <ngx-dropzone-label>Drop your Photo!</ngx-dropzone-label>
                             <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
@@ -309,7 +309,7 @@
 
                     </div>
                     <div class="col-md-6">
-                        <p class="text-muted">Please provide a Civil ID.</p>
+                        <p class="text-muted">Please provide a Civil ID.<span class="text-danger">{{" *"}}</span></p>
                         <ngx-dropzone (change)="onSelectId($event)" [multiple]="false">
                             <ngx-dropzone-label>Drop your Civil Id!</ngx-dropzone-label>
                             <ngx-dropzone-preview *ngFor="let f of filesId" [removable]="true" (removed)="onRemoveId(f)">
@@ -366,16 +366,7 @@
                 </ng-template>
                 <div>
                   <div class="text-center">
-                    <div class="mb-4">
-                      <lord-icon
-                        src="https://cdn.lordicon.com/lupuorrc.json"
-                        trigger="loop"
-                        colors="primary:#0ab39c,secondary:#405189"
-                        style="width: 120px; height: 120px"
-                      ></lord-icon>
-                    </div>
-                    <h5>Well Done !</h5>
-                    <p class="text-muted">You have Successfully Signed Up</p>
+                    <p class="text-muted">Registration is successful!</p>
                   </div>
                 </div>
               </aw-wizard-step>
