@@ -124,7 +124,11 @@
                                       <label class="form-label"
                                         >Application Intake Year</label
                                       >
-                                      <input type="text" class="form-control" />
+                                      <ng-select
+                                        [items]="[2014,2015,2016,2017,2018,2019,2020,2021,2022]"
+                                        placeholder="Select your Intake Year"
+                                      >
+                                      </ng-select>
                                     </div>
                                   </div>
                                   <div class="col-lg-4">
