@@ -1,6 +1,10 @@
 .section {
     background-color: rgb(237, 237, 237) !important;
 }
+
+.login-card {
+    padding-top: 65px !important;
+}
 p {
     margin-bottom: 0px !important;
 }
@@ -16,6 +20,11 @@ p {
 
 .img-box {
     width: 280px !important;
+    height: auto;
+    background-color: #dfdfdf !important;   
+}
+.img-box_2 {
+    width: 230px !important;
     height: auto;
     background-color: #dfdfdf !important;   
 }
