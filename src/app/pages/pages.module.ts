@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   NgbNavModule,
+  NgbProgressbarModule,
   NgbToastModule
 } from '@ng-bootstrap/ng-bootstrap';
 
@@ -37,6 +38,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ArchwizardModule } from 'angular-archwizard';
+import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -51,12 +53,21 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 @NgModule({
   declarations: [
     DashboardComponent,
-    ToastsContainer
+    ToastsContainer,
+    ResidentBlockDiagramComponent
   ],
   imports: [
     CommonModule,
     NgbToastModule,
     FlatpickrModule.forRoot(),
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     CountToModule,
     NgApexchartsModule,
     LeafletModule,
@@ -71,6 +82,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     WidgetModule,
     NgbNavModule,
     NgSelectModule,
+    NgbProgressbarModule,
     SwiperModule,
     ReactiveFormsModule,
     ArchwizardModule,

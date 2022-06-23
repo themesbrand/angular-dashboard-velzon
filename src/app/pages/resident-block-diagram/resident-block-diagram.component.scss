@@ -1,0 +1,87 @@
+thead, thead {
+    text-align: center !important;
+}
+table th {
+    background-color: #9ab5a470;
+}
+table th, table tr, table td {
+    padding: 5px 10px !important
+}
+
+th.th_title {
+    width: 150px !important;
+}
+
+.table-responsive {
+    overflow-y: hidden;
+}
+
+table {
+    background-image: url('/assets/images/chat-bg-pattern.png');
+}
+
+.table_summary td {
+    height: 45px !important;
+
+}
+
+.progress_td {
+    padding: 5px 2px !important;
+}
+
+.progress-label .progress-bar .label {
+    top: -22px !important
+}
+
+.block_box {
+    width: 100% !important;
+    overflow: hidden !important;
+    height: 45px!important;
+    cursor: pointer !important;
+    background-color: white !important;
+}
+
+.block_box .block_name {
+    height: 45px !important;
+    background-color: white !important;
+    transition: .8s;
+    font-weight: 500 !important;
+    line-height: 45px;
+    text-align: center;
+}
+
+.block_box .block_date {
+    height: 45px !important;
+    background-color: white !important;
+    transition: .8s;
+    line-height: 45px;
+    text-align: center;
+}
+
+.block_box:hover .block_date {
+    transition: .8s;
+    transform: translateY(-45px);
+}
+
+.bg-green {
+    padding: 5px !important;
+    background-color: rgb(111, 232, 111);
+}
+.bg-yellow {
+    background-color: rgb(235, 235, 106);
+}
+.bg-grey {
+    background-color: rgb(236, 232, 232);
+}
+
+.arrow-none:hover {
+    color: white !important;
+}
+
+.dropdown-menu{
+    transform: translate3d(5px, 35px, 0px)!important;
+}
+
+.dropdown-menu-end {
+    right: auto !important;
+}

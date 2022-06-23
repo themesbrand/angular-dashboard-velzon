@@ -8,7 +8,7 @@
         "id": 2,
         "label": "Dashboard",
         "icon": "ri-dashboard-line",
-        "link": "/"
+        "link": "/dashboard"
     },
     {
         "id": 3,
@@ -26,7 +26,7 @@
         "id": 11,
         "label": "Resident Management",
         "icon": "ri-add-box-fill",
-        "link": "/graduate-medical-education"
+        "link": "/residency-block-diagram"
     },
     {
         "id": 12,

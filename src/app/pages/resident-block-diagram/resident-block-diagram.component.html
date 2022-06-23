@@ -1,0 +1,1493 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Residency Block Diagram" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row">
+    <div class="col">
+        <div class="h-100">
+            <div class="row">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label"
+                                    >{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}</label
+                                >
+                                <ng-select
+                                [(ngModel)]="selectedUser"
+                                    [items]="['Durward Ward','Wilhelm Homenick','Marlon Metz','Allene Stark','Alexandra Cummings','Pansy Gorczany','Aaliyah Bailey','Noe Harber','Bella VonRueden']"
+                                    placeholder="Select a user"
+                                >
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="selectedUser" >
+                  <div class="card">                  
+                      <div class="card-body py-1">
+                        <!-- RESIDENCY BLOCK TABLES -->
+                        <div class="col-lg-12" >
+                            <div class="live-preview p-2" >
+                                <div class="table-responsive">
+                                    <p class="h4 px-1 py-3 pt-1">2019 - 2020</p>
+                                    <table class="table table-bordered table-nowrap align-middle mb-0">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
+                                                <th scope="col" colspan="3" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 1</div>
+                                                        <div class="block_date">(01/09/2019 - 28/09/2019)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 2</div>
+                                                        <div class="block_date">(29/09/2019 - 26/10/2019)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 3</div>
+                                                        <div class="block_date">(27/10/2019 - 23/11/2019)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 4</div>
+                                                        <div class="block_date">(24/11/2019 - 21/12/2019)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 5</div>
+                                                        <div class="block_date">(22/12/2019 - 18/01/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 6</div>
+                                                        <div class="block_date">(19/01/2020 - 15/02/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 7</div>
+                                                        <div class="block_date">(16/02/2020 - 14/03/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 8</div>
+                                                        <div class="block_date">(15/03/2020 - 11/04/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 9</div>
+                                                        <div class="block_date">(12/04/2020 - 09/05/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 10</div>
+                                                        <div class="block_date"> (10/05/2020 - 06/06/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 11</div>
+                                                        <div class="block_date">(07/06/2020 - 04/07/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 12</div>
+                                                        <div class="block_date">(05/07/2020 - 01/08/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 13</div>
+                                                        <div class="block_date">(02/08/2020 - 31/08/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_6' | translate }}</strong></td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_7' | translate }}</strong></td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-RH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-RH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-RH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"EM:EM-KH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:OT-RH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:RSCH(STAGE 1)-RH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Failed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Completed-Passed</td>
+                                                <td>Completed-Passed</td>
+                                                <td>Progress to the next level</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                        <div class="row">
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    </table>
+                                    <p class="h4 px-1 py-3">2020 - 2021</p>
+                                    <table class="table table-bordered table-nowrap align-middle mb-0">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
+                                                <th scope="col" colspan="3" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 1</div>
+                                                        <div class="block_date">(01/09/2020 - 26/09/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 2</div>
+                                                        <div class="block_date">(27/09/2020 - 24/10/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 3</div>
+                                                        <div class="block_date">(25/10/2020 - 21/11/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 4</div>
+                                                        <div class="block_date">(22/11/2020 - 19/12/2020)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 5</div>
+                                                        <div class="block_date">(20/12/2020 - 16/01/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 6</div>
+                                                        <div class="block_date">(17/01/2021 - 13/02/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 7</div>
+                                                        <div class="block_date">(14/02/2021 - 13/03/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 8</div>
+                                                        <div class="block_date">(14/03/2021 - 10/04/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 9</div>
+                                                        <div class="block_date">(11/04/2021 - 08/05/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 10</div>
+                                                        <div class="block_date">(09/05/2021 - 05/06/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 11</div>
+                                                        <div class="block_date">(06/06/2021 - 03/07/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 12</div>
+                                                        <div class="block_date">(04/07/2021 - 31/07/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 13</div>
+                                                        <div class="block_date">(01/08/2021 - 31/08/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_6' | translate }}</strong></td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_7' | translate }}</strong></td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-NIZWA"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-NIZWA"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ULTRASOUND-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"EM:EM-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:OT-RH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:RSCH(STAGE 1)-RH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Failed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>Completed-Passed</td>
+                                                <td>Completed-Passed</td>
+                                                <td>Progress to the next level</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="h4 px-1 py-3">2021 - 2022</p>
+                                    <table class="table table-bordered table-nowrap align-middle mb-0">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
+                                                <th scope="col" colspan="3" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 1</div>
+                                                        <div class="block_date">(01/09/2021 - 25/09/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 2</div>
+                                                        <div class="block_date">(26/09/2021 - 23/10/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 3</div>
+                                                        <div class="block_date">(24/10/2021 - 20/11/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 4</div>
+                                                        <div class="block_date">(21/11/2021 - 18/12/2021)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 5</div>
+                                                        <div class="block_date">(19/12/2021 - 15/01/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 6</div>
+                                                        <div class="block_date">(16/01/2022 - 12/02/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 7</div>
+                                                        <div class="block_date">(13/02/2022 - 12/03/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 8</div>
+                                                        <div class="block_date">(13/03/2022 - 09/04/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 9</div>
+                                                        <div class="block_date">(10/04/2022 - 07/05/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 10</div>
+                                                        <div class="block_date">(08/05/2022 - 04/06/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 11</div>
+                                                        <div class="block_date">(05/06/2022 - 02/07/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 12</div>
+                                                        <div class="block_date">(03/07/2022 - 30/07/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="block_box">
+                                                        <div class="block_name">Block 13</div>
+                                                        <div class="block_date">(31/07/2022 - 31/08/2022)</div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_6' | translate }}</strong></td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_7' | translate }}</strong></td>
+                                                <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DM & INF-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DM & INF-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DM, HRP & MC-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DM, HRP & MC-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-green">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-yellow">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-KH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-yellow">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-yellow">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-grey">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-grey">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-grey">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-grey">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-grey">
+                                                    <div class="d-flex flex-row justify-content-center align-items-center">
+                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td>Failed</td>
+                                                <td>Passed</td>
+                                                <td>Passed</td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>Completed-Passed</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    
+                                    <!-- RESIDENCY BLOCK GRAPH -->
+                                    <p class="h4 px-1 py-3">Summary</p>
+                                    <table class="table_summary table table-bordered table-nowrap align-middle mb-4">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_1' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_2' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_4' | translate }}</th> 
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_5' | translate }}</th> 
+                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_6' | translate }}</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr>
+                                                <td>{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_7' | translate }}</td>
+                                                <td>28</td>
+                                                <td>16</td>
+                                                <td>12</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"><div class="label">57%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-danger">Incomplete</td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_8' | translate }}</td>
+                                                <td>33</td>
+                                                <td>16</td>
+                                                <td>17</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"><div class="label">48%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-danger">Incomplete</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_9' | translate }}</th>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="label">100%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-success">Complete</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_10' | translate }}</th>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-danger">Incomplete</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_11' | translate }}</th>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-danger">Incomplete</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_12' | translate }}</th>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-danger">Incomplete</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_13' | translate }}</th>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-danger">Incomplete</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_14' | translate }}</th>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="label">100%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-success">Completed</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_15' | translate }}</th>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="label">100%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-success">Completed</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_16' | translate }}</th>
+                                                <td>3</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td class="progress_td">
+                                                    <div class="flex-grow-1">
+                                                        <div class="progress animated-progess custom-progress progress-label">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 66.66%" aria-valuenow="66.66" aria-valuemin="0" aria-valuemax="100"><div class="label">66.66%</div></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-success">Completed</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="live-preview p-2" >
+                                <div class="table-responsive">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
