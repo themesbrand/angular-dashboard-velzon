@@ -15,7 +15,7 @@
                                 >
                                 <ng-select
                                 [(ngModel)]="selectedUser"
-                                    [items]="['Durward Ward','Wilhelm Homenick','Marlon Metz','Allene Stark','Alexandra Cummings','Pansy Gorczany','Aaliyah Bailey','Noe Harber','Bella VonRueden']"
+                                    [items]="['Fahad Al Khatri','Abbas Al Ajmi','Yasser Al Maamari','Abdulaziz Al Raisi']"
                                     placeholder="Select a user"
                                 >
                                 </ng-select>
@@ -32,8 +32,8 @@
                             <div class="live-preview p-2" >
                                 <div class="table-responsive">
                                     <p class="h4 px-1 py-3 pt-1">2019 - 2020</p>
-                                    <table class="table table-bordered table-nowrap align-middle mb-0">
-                                        <thead class="text-center">
+                                    <table class="w-100 table table-bordered table-nowrap align-middle mb-0">
+                                        <thead class="table-light text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
@@ -129,7 +129,7 @@
                                             </tr>
                                             <tr>
                                                 <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-success">
                                                     <div class="d-flex flex-row justify-content-center align-center">
                                                         <span style="margin-right: 10px !important;">{{"OBGYN:ANW-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
@@ -173,7 +173,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-info">
                                                     <div class="d-flex flex-row justify-content-center align-center">
                                                         <span style="margin-right: 10px !important;">{{"OBGYN:ANW-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
@@ -195,7 +195,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-info">
                                                     <div class="d-flex flex-row justify-content-center align-center">
                                                         <span style="margin-right: 10px !important;">{{"EM:EM-KH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
@@ -239,7 +239,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
                                                         <span style="margin-right: 10px !important;">{{"OBGYN:RSCH(STAGE 1)-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
@@ -327,7 +327,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
                                                         <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
@@ -371,7 +371,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
                                                         <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
@@ -421,19 +421,19 @@
                                             </tr>
                                             <tr>
                                                 <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Failed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-danger p-2">Failed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
                                                 <td>Completed-Passed</td>
                                                 <td>Completed-Passed</td>
                                                 <td>Progress to the next level</td>
@@ -460,8 +460,8 @@
                                         </div>
                                     </table>
                                     <p class="h4 px-1 py-3">2020 - 2021</p>
-                                    <table class="table table-bordered table-nowrap align-middle mb-0">
-                                        <thead class="text-center">
+                                    <table class="w-100 table table-bordered table-nowrap align-middle mb-0">
+                                        <thead class="table-light text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
@@ -843,25 +843,28 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
                                             </tr>
                                             <tr>
                                                 <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Failed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td class="bg-dark"><span class="text-dark">.</span></td>
-                                                <td class="bg-dark"><span class="text-dark">.</span></td>
-                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-danger p-2">Failed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td>Completed-Passed</td>
+                                                <td>Completed-Passed</td>
+                                                <td>Progress to the next level</td>
                                             </tr>
                                             <tr>
                                                 <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
@@ -878,14 +881,14 @@
                                                 <td>0</td>
                                                 <td>0</td>
                                                 <td>0</td>
-                                                <td>Completed-Passed</td>
-                                                <td>Completed-Passed</td>
-                                                <td>Progress to the next level</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p class="h4 px-1 py-3">2021 - 2022</p>
-                                    <table class="table table-bordered table-nowrap align-middle mb-0">
+                                    <table class="w-100 table table-bordered table-nowrap align-middle mb-0">
                                         <thead class="text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
@@ -1268,27 +1271,31 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td class="bg-dark"><span class="text-dark">.</span></td>
 
 
                                             </tr>
                                             <tr>
                                                 <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
-                                                <td>Passed</td>
-                                                <td>Leave</td>
-                                                <td>Passed</td>
-                                                <td>Leave</td>
-                                                <td>Leave</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td>Failed</td>
-                                                <td>Passed</td>
-                                                <td>Passed</td>
-                                                <td class="bg-dark"><span class="text-dark">.</span></td>
-                                                <td class="bg-dark"><span class="text-dark">.</span></td>
-                                                <td class="bg-dark"><span class="text-dark">.</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-primary p-2">Leave</span></td>
+                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-primary p-2">Leave</span></td>
+                                                <td><span class="badge badge-soft-primary p-2">Leave</span></td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>Completed-Passed</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                
                                             </tr>
                                             <tr>
                                                 <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
@@ -1298,14 +1305,14 @@
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                                 <td>2</td>
-                                                <td>0</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>Completed-Passed</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
+                                                <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                             </tr>
@@ -1316,7 +1323,7 @@
                                     <!-- RESIDENCY BLOCK GRAPH -->
                                     <p class="h4 px-1 py-3">Summary</p>
                                     <table class="table_summary table table-bordered table-nowrap align-middle mb-4">
-                                        <thead class="text-center">
+                                        <thead class="table-light text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_1' | translate }}</th>   
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_2' | translate }}</th>   
@@ -1466,6 +1473,11 @@
                                                     </div>
                                                 </td>
                                                 <td class="bg-success">Completed</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_17' | translate }}</th>
+                                                <td>1</td>
+                                                
                                             </tr>
                                             
                                         </tbody>

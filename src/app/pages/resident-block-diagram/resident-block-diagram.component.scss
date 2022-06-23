@@ -1,9 +1,9 @@
 thead, thead {
     text-align: center !important;
 }
-table th {
-    background-color: #9ab5a470;
-}
+// table th {
+//     background-color: #9ab5a470;
+// }
 table th, table tr, table td {
     padding: 5px 10px !important
 }
@@ -17,7 +17,8 @@ th.th_title {
 }
 
 table {
-    background-image: url('/assets/images/chat-bg-pattern.png');
+    //background-image: url('/assets/images/chat-bg-pattern.png');
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .table_summary td {
@@ -45,7 +46,7 @@ table {
     height: 45px !important;
     background-color: white !important;
     transition: .8s;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     line-height: 45px;
     text-align: center;
 }
@@ -65,13 +66,13 @@ table {
 
 .bg-green {
     padding: 5px !important;
-    background-color: rgb(111, 232, 111);
+    background-color: #cef0eb;
 }
 .bg-yellow {
-    background-color: rgb(235, 235, 106);
+    background-color: #fdf1db;
 }
 .bg-grey {
-    background-color: rgb(236, 232, 232);
+    background-color: #fce0da;
 }
 
 .arrow-none:hover {

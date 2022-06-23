@@ -1,122 +1,467 @@
-<section class="section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-12 mb-3">
-                <div class="card card-animate shadow">
-                    <div class="card-body py-2">  
-                            <div class="row lign-items-start">
-                                <div class="col-md-8 col-sm-8 col-8">
-                                    <div class="flex flex-column">
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <p class="fs-19 ">Application for Residency Program</p>
+<section class="section p-0">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="profile-foreground position-relative">
+          <div class="profile-wid-bg">
+            <img
+              src="assets/images/profile-bg.jpg"
+              alt=""
+              class="profile-wid-img"
+            />
+          </div>
+        </div>
+        <div class="row g-2 px-3">
+          <div class="col-md-1 mx-1">
+            <div class="avatar-lg">
+              <img
+                src="assets/images/users/avatar-1.jpg"
+                alt="user-img"
+                class="img-thumbnail rounded-circle"
+              />
+            </div>
+          </div>
+          <!--end col-->
+          <div class="col-auto mt-3 mb-2">
+            <div class="mb-1 d-flex flex-row">
+              <label class="form-label text-white mx-3">Amith Mark</label>
+              <label class="form-label text-white mx-3">أميث مارك</label>
+            </div>
+            <div class="d-flex flex-column">
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
+              >
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-mail-line"></i>Amith@emai.com</label
+              >
+            </div>
+          </div>
+  
+          <!--end col-->
+        </div>
+      </div>
+  
+      <div class="row px-5 justify-content-center">
+        <div class="col-lg-11">
+          <div>
+            <div class="d-flex">
+              <!-- Nav tabs -->
+              <ul
+                ngbNav
+                #customNav="ngbNav"
+                [activeId]="1"
+                class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+                role="tablist"
+              >
+                <li [ngbNavItem]="1" class="nav-item">
+                  <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                    <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                    <span class="d-none d-md-inline-block">Application Forms</span>
+                  </a>
+                  <ng-template ngbNavContent>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-12 mb-3">
+                            <div class="card card-animate shadow">
+                                <div class="card-body py-2">  
+                                        <div class="row lign-items-start">
+                                            <div class="col-md-8 col-sm-8 col-8">
+                                                <div class="flex flex-column">
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <p class="fs-19 ">Application for Residency Program</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <div class="mt-3">
+                                                                <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-4 mt-3">
+                                                <img src="assets/images/verification-img.png" class="img-fluid" alt="">
                                             </div>
                                         </div>
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <div class="mt-3">
-                                                    <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-4 mt-3">
-                                    <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                                </div>
+                                                 
+                                </div> <!-- end card-body-->
                             </div>
-                                     
-                    </div> <!-- end card-body-->
-                </div>
-            </div>
-            <div class="col-md-6 col-12 mb-3">
-                <div class="card card-animate shadow">
-                    <div class="card-body py-2">  
-                            <div class="row lign-items-start">
-                                <div class="col-md-8 col-sm-8 col-8">
-                                    <div class="flex flex-column">
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <p class="fs-19 ">Application for GFP </p>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
+                            <div class="card card-animate shadow">
+                                <div class="card-body py-2">  
+                                        <div class="row lign-items-start">
+                                            <div class="col-md-8 col-sm-8 col-8">
+                                                <div class="flex flex-column">
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <p class="fs-19 ">Application for GFP </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <div class="mt-3">
+                                                                <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-4 mt-3">
+                                                <img src="assets/images/verification-img.png" class="img-fluid" alt="">
                                             </div>
                                         </div>
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <div class="mt-3">
-                                                    <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-4 mt-3">
-                                    <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                                </div>
+                                                 
+                                </div> <!-- end card-body-->
                             </div>
-                                     
-                    </div> <!-- end card-body-->
-                </div>
-            </div>
-            <div class="col-md-6 col-12 mb-3">
-                <div class="card card-animate shadow">
-                    <div class="card-body py-2">  
-                            <div class="row lign-items-start">
-                                <div class="col-md-8 col-sm-8 col-8">
-                                    <div class="flex flex-column">
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <p class="fs-19 ">Application for Fellowship</p>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
+                            <div class="card card-animate shadow">
+                                <div class="card-body py-2">  
+                                        <div class="row lign-items-start">
+                                            <div class="col-md-8 col-sm-8 col-8">
+                                                <div class="flex flex-column">
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <p class="fs-19 ">Application for Fellowship</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <div class="mt-3">
+                                                                <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-4 mt-3">
+                                                <img src="assets/images/verification-img.png" class="img-fluid" alt="">
                                             </div>
                                         </div>
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <div class="mt-3">
-                                                    <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-4 mt-3">
-                                    <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                                </div>
+                                                 
+                                </div> <!-- end card-body-->
                             </div>
-                                     
-                    </div> <!-- end card-body-->
-                </div>
-            </div>
-            <div class="col-md-6 col-12 mb-3">
-                <div class="card card-animate shadow">
-                    <div class="card-body py-2">  
-                            <div class="row lign-items-start">
-                                <div class="col-md-8 col-sm-8 col-8">
-                                    <div class="flex flex-column">
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <p class="fs-19 ">Application for Scholarship</p>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
+                            <div class="card card-animate shadow">
+                                <div class="card-body py-2">  
+                                        <div class="row lign-items-start">
+                                            <div class="col-md-8 col-sm-8 col-8">
+                                                <div class="flex flex-column">
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <p class="fs-19 ">Application for Scholarship</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide slide1">
+                                                        <div class="p-3">
+                                                            <div class="mt-3">
+                                                                <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-4 mt-3">
+                                                <img src="assets/images/verification-img.png" class="img-fluid" alt="">
                                             </div>
                                         </div>
-                                        <div class="slide slide1">
-                                            <div class="p-3">
-                                                <div class="mt-3">
-                                                    <a (click)="onNavigate('Residency Program')" class="btn btn-success">Application Form</a>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-4 mt-3">
-                                    <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                                </div>
+                                                 
+                                </div> <!-- end card-body-->
                             </div>
-                                     
-                    </div> <!-- end card-body-->
-                </div>
+                        </div>
+                    </div>
+                    
+                  </ng-template>
+                </li>
+                <li [ngbNavItem]="2" class="nav-item">
+                  <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                    <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                    <span class="d-none d-md-inline-block">Personal Details</span>
+                  </a>
+                  <ng-template ngbNavContent>
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Civil ID <span class="text-danger">*</span> </label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Full Name in English</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Full Name in Arabic</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Gender</label>
+                                      <ng-select
+                                        [items]="gender"
+                                        placeholder="Select your Gender"
+                                        bindLabel="name"
+                                        bindName="value"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-control-label">Nationality</label>
+                                      <ng-select
+                                        name="nationality"
+                                        [items]="nationalities"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                        placeholder="Select your nationality"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Birthday</label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Email</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Contact Number</label>
+                                      <input type="number" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="mb-3">
+                                      <label class="form-label">Phone Number</label>
+                                      <input type="number" class="form-control" />
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <p class="text-muted">Please provide a Passport size Photo.</p>
+                                      <ngx-dropzone (change)="onSelectPassport($event)" [multiple]="false">
+                                          <ngx-dropzone-label>Drop your Photo!</ngx-dropzone-label>
+                                          <ngx-dropzone-preview *ngFor="let f of filesPassport" [removable]="true" (removed)="onRemovePassport(f)">
+                                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                          </ngx-dropzone-preview>
+                                      </ngx-dropzone>
+              
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p class="text-muted">Please provide a Civil ID.</p>
+                                      <ngx-dropzone (change)="onSelectId($event)" [multiple]="false">
+                                          <ngx-dropzone-label>Drop your Civil Id!</ngx-dropzone-label>
+                                          <ngx-dropzone-preview *ngFor="let f of filesId" [removable]="true" (removed)="onRemoveId(f)">
+                                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                          </ngx-dropzone-preview>
+                                      </ngx-dropzone>
+              
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="card-footer">
+                              <button class="btn btn-success">Update Details</button>
+                          </div>
+                      </div>
+                  </ng-template>
+                </li>
+                <li [ngbNavItem]="3" class="nav-item">
+                  <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                    <i class="ri-price-tag-line d-inline-block d-md-none"></i>
+                    <span class="d-none d-md-inline-block">Work Details</span>
+                  </a>
+                  <ng-template ngbNavContent>
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-lg-4">
+                                      <div class="mb-3">
+                                        <label class="form-control-label">Employment Status</label>
+                                        <ng-select
+                                          name="employmentStatus"
+                                          [items]="employmentStatus"
+                                          bindLabel="name"
+                                          [(ngModel)]="employmentStatusValue"
+                                          bindValue="value"
+                                          placeholder="Select your Employment Status"
+                                        >
+                                        </ng-select>
+                                      </div>
+                                  </div>
+                                  <div class="row" *ngIf="employmentStatusValue === 'employed'">
+                                      <div class="col-md-6">
+                                          <div class="mb-3">
+                                              <label class="form-control-label">Sector Type</label>
+                                              <ng-select
+                                                [items]="sectorType"
+                                                bindLabel="name"
+                                                [(ngModel)]="sectorTypeValue"
+                                                (change)="onChangeSectorType(sectorTypeValue)"
+                                                bindValue="value"
+                                                placeholder="Select your Sector Type"
+                                              >
+                                              </ng-select>
+                                            </div>
+                                      </div>
+                                      <div class="col-md-6" *ngIf="sectorTypeValue ==='government' || sectorTypeValue ==='private'">
+                                          <div class="mb-3">
+                                              <label class="form-control-label">Sector</label>
+                                              <ng-select
+                                                [items]="sectorsList"
+                                                bindLabel="name"
+                                                [(ngModel)]="sectorValue"
+                                                bindValue="value"
+                                                placeholder="Select your Sector Type"
+                                              >
+                                              </ng-select>
+                                            </div>
+                                      </div>
+                                      <div class="col-lg-6" *ngIf="sectorValue !== undefined && sectorValue === 'other'">
+                                          <div class="mb-3">
+                                            <label class="form-label">Please specify if other Sector</label>
+                                            <input type="text" class="form-control" />
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="mb-3">
+                                            <label class="form-label">Staff ID</label>
+                                            <input type="text" class="form-control" />
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="mb-3">
+                                            <label class="form-label">Job Title</label>
+                                            <ng-select
+                                                [items]="jobTitle"
+                                                [(ngModel)]="jobTitleValue"
+                                                bindLabel="name"
+                                                bindValue="value"
+                                                placeholder="Select your Jpb Title"
+                                              >
+                                              </ng-select>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6" *ngIf="jobTitleValue !== undefined && jobTitleValue === 'other'">
+                                          <div class="mb-3">
+                                            <label class="form-label">Please specify if other job Title</label>
+                                            <input type="text" class="form-control" />
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="col-md-12">
+                                          <div class="form-check form-switch mb-2">
+                                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
+                                              [(ngModel)]="isAnotherJob">
+                                              <label class="form-check-label" for="flexSwitchCheckDefault">Do you have another Job?</label>
+                                          </div>
+                                      </div>
+                                      <div class="row" *ngIf="isAnotherJob">
+                                          <div class="col-md-6">
+                                              <div class="mb-3">
+                                                  <label class="form-control-label">Sector Type</label>
+                                                  <ng-select
+                                                    [items]="sectorType"
+                                                    bindLabel="name"
+                                                    [(ngModel)]="sectorTypeValueNewJob"
+                                                    (change)="onChangeSectorNewJobType(sectorTypeValueNewJob)"
+                                                    bindValue="value"
+                                                    placeholder="Select your Sector Type"
+                                                  >
+                                                  </ng-select>
+                                                </div>
+                                          </div>
+                                          <div class="col-md-6" *ngIf="sectorTypeValueNewJob ==='government' || sectorTypeValueNewJob ==='private'">
+                                              <div class="mb-3">
+                                                  <label class="form-control-label">Sector</label>
+                                                  <ng-select
+                                
+                                                    [items]="sectorsNewJobList"
+                                                    bindLabel="name"
+                                                    [(ngModel)]="sectorValueNewJob"
+                                                    bindValue="value"
+                                                    placeholder="Select your Sector Type"
+                                                  >
+                                                  </ng-select>
+                                                </div>
+                                          </div>
+                                          <div class="col-lg-6" *ngIf="sectorValueNewJob !== undefined && sectorValueNewJob === 'other'">
+                                              <div class="mb-3">
+                                                <label class="form-label">Please specify if other Sector</label>
+                                                <input type="text" class="form-control" />
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="mb-3">
+                                                <label class="form-label">Staff ID</label>
+                                                <input type="text" class="form-control" />
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="mb-3">
+                                                <label class="form-label">Job Title</label>
+                                                <ng-select
+                                                    [items]="jobTitle"
+                                                    [(ngModel)]="jobTitleValueNewJob"
+                                                    bindLabel="name"
+                                                    bindValue="value"
+                                                    placeholder="Select your Jpb Title"
+                                                  >
+                                                  </ng-select>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6" *ngIf="jobTitleValueNewJob !== undefined && jobTitleValueNewJob === 'other'">
+                                              <div class="mb-3">
+                                                <label class="form-label">Please specify if other Job Title</label>
+                                                <input type="text" class="form-control" />
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="card-footer">
+                              <button class="btn btn-success">Update Details</button>
+                          </div>
+                      </div>
+                  </ng-template>
+                </li>
+              </ul>
             </div>
-        </div> <!-- end row-->
+            <!-- Tab panes -->
+            <div class="tab-content pt-4 text-muted">
+              <div [ngbNavOutlet]="customNav"></div>
+            </div>
+            <!--end tab-content-->
+          </div>
+        </div>
+        <!--end col-->
+      </div>
+      <!--end row-->
     </div>
-  </section>
+</section>

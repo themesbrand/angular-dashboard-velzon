@@ -122,7 +122,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Application Intake Year</label
+                                        >Application Intake Year<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="[2014,2015,2016,2017,2018,2019,2020,2021,2022]"
@@ -134,7 +134,7 @@
                                   <div class="col-lg-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Examination Type</label
+                                        >Examination Type<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="examType"
@@ -162,7 +162,7 @@
                                       <label
                                         class="form-check-label"
                                         for="flexSwitchCheckDefault"
-                                        >Have you passed the MFD II?</label
+                                        >Have you passed the MFD II?<span class="text-danger">{{" *"}}</span></label
                                       >
                                     </div>
                                   </div>
@@ -174,7 +174,7 @@
                                     "
                                   >
                                     <p class="text-muted">
-                                      Upload your MFD Part II.
+                                      Upload your MFD Part II.<span class="text-danger">{{" *"}}</span>
                                     </p>
                                     <ngx-dropzone
                                       (change)="onSelect($event)"
@@ -205,7 +205,7 @@
                                     "
                                   >
                                     <p class="text-muted">
-                                      Upload your certificate.
+                                      Upload your certificate.<span class="text-danger">{{" *"}}</span>
                                     </p>
                                     <ngx-dropzone
                                       (change)="onSelectCertificate($event)"
@@ -251,7 +251,7 @@
                                         role="switch"
                                         id="flexSwitchCheckDefault"
                                         [(ngModel)]="haveSubmittedDeclaration"
-                                      />
+                                      /><span class="text-danger px-2">{{" *"}}</span>
                                       <label
                                         class="form-check-label"
                                         for="flexSwitchCheckDefault"
@@ -318,7 +318,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Marital Status</label
+                                        >Marital Status<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="maritalStatus"
@@ -331,14 +331,14 @@
                                   </div>
                                   <div class="col-md-8">
                                     <div class="mb-3">
-                                      <label class="form-label">Address</label>
+                                      <label class="form-label">Address<span class="text-danger">{{" *"}}</span></label>
                                       <input type="text" class="form-control" />
                                     </div>
                                   </div>
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Governorate
+                                        >Governorate<span class="text-danger">{{" *"}}</span>
                                       </label>
                                       <ng-select
                                         [items]="GovernorateList"
@@ -352,7 +352,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Wilayat/Region</label
+                                        >Wilayat/Region<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="WilayatList"
@@ -366,7 +366,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Name of Next of Kin (NOK)</label
+                                        >Name of Next of Kin (NOK)<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
@@ -374,7 +374,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Contact No. of NOK</label
+                                        >Contact No. of NOK<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
@@ -382,7 +382,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >OMSB Admission Exam Score</label
+                                        >OMSB Admission Exam Score<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input
                                         type="number"
@@ -405,7 +405,7 @@
                                         class="form-check-label"
                                         for="flexSwitchCheckDefault"
                                         >List any Disabilities or
-                                        Diseases</label
+                                        Diseases<span class="text-danger">{{" *"}}</span></label
                                       >
                                     </div>
                                   </div>
@@ -413,7 +413,7 @@
                                     <div class="mb-3">
                                       <label class="form-label"
                                         >Please provide the name of the disease
-                                        or disability</label
+                                        or disability<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <textarea
                                         type="text"
@@ -425,103 +425,106 @@
                                   </div>
                                 </div>
                                 <div class="row mt-5">
-                                  <p class="h5">Education</p>
-                                  <div class="col-md-4">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Name of University / College
-                                        Attended</label
-                                      >
-                                      <ng-select
-                                        [items]="educationInstitutesList"
-                                        [(ngModel)]="educationInstituteValue"
-                                        placeholder="Name of University / College Attended"
-                                        bindLabel="name"
-                                        bindValue="value"
-                                      >
-                                      </ng-select>
-                                    </div>
+                                  <div class="d-flex flex-column justify-content-between">
+                                    <p class="h5">Education Details</p>
+                                    <a (click)="addEducationDetails_1()"href="javascript:void(0);" class="link-primary my-3"><i class=" ri-add-box-line"></i>Add more</a>
                                   </div>
-                                  <div
-                                    class="col-md-4"
-                                    *ngIf="educationInstituteValue === 'other'"
-                                  >
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Specify your Educational
-                                        Institute</label
-                                      >
-                                      <input type="text" class="form-control" />
+                                  <div class="row" *ngFor="let education of educationDetails_1_List">
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label"
+                                          >Name of University / College<span class="text-danger">{{" *"}}</span></label
+                                        >
+                                        <ng-select
+                                          [items]="educationInstitutesList"
+                                          [(ngModel)]="educationInstituteValue"
+                                          placeholder="Name of University / College"
+                                          bindLabel="name"
+                                          bindValue="value"
+                                        >
+                                        </ng-select>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div class="mb-3">
-                                      <label class="form-label">Country </label>
-                                      <ng-select
-                                        [items]="countryList"
-                                        placeholder="Country"
-                                        bindLabel="name"
-                                        bindValue="code"
-                                      >
-                                      </ng-select>
+                                    <div class="col-md-3" *ngIf="educationInstituteValue === 'other'">
+                                      <div class="mb-3">
+                                        <label class="form-label"
+                                          >Specify your Educational
+                                          Institute<span class="text-danger">{{" *"}}</span></label
+                                        >
+                                        <input type="text" class="form-control" />
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Degree Obtained</label
-                                      >
-                                      <ng-select
-                                        [items]="degreeList"
-                                        [(ngModel)]="degreeValue"
-                                        placeholder="Degree"
-                                        bindLabel="name"
-                                        bindValue="value"
-                                      >
-                                      </ng-select>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">Country<span class="text-danger">{{" *"}}</span></label>
+                                        <ng-select
+                                          [items]="countryList"
+                                          placeholder="Country"
+                                          bindLabel="name"
+                                          bindValue="code"
+                                        >
+                                        </ng-select>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div
-                                    class="col-md-4"
-                                    *ngIf="degreeValue === 'other'"
-                                  >
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Specify your Degree</label
-                                      >
-                                      <input type="text" class="form-control" />
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label"
+                                          >Degree Obtained<span class="text-danger">{{" *"}}</span></label
+                                        >
+                                        <ng-select
+                                          [items]="degreeList"
+                                          [(ngModel)]="degreeValue"
+                                          placeholder="Degree"
+                                          bindLabel="name"
+                                          bindValue="value"
+                                        >
+                                        </ng-select>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div class="mb-3">
-                                      <label class="form-label">GPA</label>
-                                      <input
-                                        type="number"
-                                        class="form-control"
-                                      />
+                                    <div
+                                      class="col-md-4"
+                                      *ngIf="degreeValue === 'other'"
+                                    >
+                                      <div class="mb-3">
+                                        <label class="form-label"
+                                          >Specify your Degree<span class="text-danger">{{" *"}}</span></label
+                                        >
+                                        <input type="text" class="form-control" />
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Date of Graduation</label
-                                      >
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                        <label class="form-label">GPA<span class="text-danger">{{" *"}}</span></label>
+                                        <input
+                                          type="number"
+                                          class="form-control"
+                                        />
+                                      </div>
                                     </div>
+                                    <div class="col-md-2">
+                                      <div class="mb-3">
+                                        <label class="form-label"
+                                          >Date of Graduation<span class="text-danger">{{" *"}}</span></label
+                                        >
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    </div>
+
                                   </div>
+                                  
                                 </div>
                                 <div class="row mt-5">
                                   <p class="h5">Internship Details</p>
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Start Date</label
+                                        >Start Date<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input
                                         class="form-control flatpickr-input"
@@ -534,7 +537,7 @@
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">End Date</label>
+                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
                                       <input
                                         class="form-control flatpickr-input"
                                         type="text"
@@ -547,7 +550,7 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label">
-                                        Institution of Internship</label
+                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
@@ -555,7 +558,7 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Current Position</label
+                                        >Current Position<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="currentPositionList"
@@ -566,6 +569,7 @@
                                       </ng-select>
                                     </div>
                                   </div>
+                                  
                                 </div>
                                 <div class="d-flex flex-column mt-5">
                                   <p class="h5">Certificates</p>
@@ -576,20 +580,21 @@
                                         <div class="col-md-6">
                                           <div class="mb-3">
                                             <label class="form-label"
-                                              >Expiry Date</label
+                                              >Expiry Date<span class="text-danger">{{" *"}}</span></label
                                             >
                                             <input
                                               class="form-control flatpickr-input"
                                               type="text"
                                               mwlFlatpickr
+                                              [minDate]="todayDate"
                                               [altInput]="true"
                                               [convertModelValue]="true"
                                             />
                                           </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                           <p class="text-muted">
-                                            Upload your BLS Certificate.
+                                            Upload your BLS Certificate.<span class="text-danger">{{" *"}}</span>
                                           </p>
                                           <ngx-dropzone
                                             (change)="
@@ -626,12 +631,13 @@
                                         <div class="col-md-6">
                                           <div class="mb-3">
                                             <label class="form-label"
-                                              >Expiry Date</label
+                                              >Expiry Date<span class="text-danger">{{" *"}}</span></label
                                             >
                                             <input
                                               class="form-control flatpickr-input"
                                               type="text"
                                               mwlFlatpickr
+                                              [minDate]="todayDate"
                                               [altInput]="true"
                                               [convertModelValue]="true"
                                             />
@@ -639,7 +645,7 @@
                                         </div>
                                         <div class="col-md-6">
                                           <p class="text-muted">
-                                            Upload your ACLS Certificate.
+                                            Upload your ACLS Certificate.<span class="text-danger">{{" *"}}</span>
                                           </p>
                                           <ngx-dropzone
                                             (change)="
@@ -723,7 +729,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >1st Choice</label
+                                        >1st Choice<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="trainingProgramsList"
@@ -736,7 +742,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >2nd Choice</label
+                                        >2nd Choice<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="trainingProgramsList"
@@ -752,7 +758,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Required a White Lab Coat</label
+                                        >Required a White Lab Coat<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="[
@@ -771,7 +777,7 @@
                                   >
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Required a White Lab Coat</label
+                                        >Required a White Lab Coat<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="[
@@ -791,8 +797,7 @@
                                   <div class="col-md-4">
                                     <p class="text-muted">
                                       Upload your Sponsorship letter from
-                                      Employer.
-                                    </p>
+                                      Employer.<span class="text-danger">{{" *"}}</span></p>
                                     <ngx-dropzone
                                       (change)="
                                         onSelectSponsorshipLetter($event)
@@ -879,14 +884,14 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Name (As per passport)</label
+                                        >Name (As per passport)<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
                                   </div>
                                   <div class="col-lg-4">
                                     <div class="mb-3">
-                                      <label class="form-label">Birthday</label>
+                                      <label class="form-label">Birthday<span class="text-danger">{{" *"}}</span></label>
                                       <input
                                         class="form-control flatpickr-input"
                                         type="text"
@@ -899,7 +904,7 @@
                                   <div class="col-lg-4">
                                     <div class="mb-3">
                                       <label class="form-control-label"
-                                        >Nationality</label
+                                        >Nationality<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         name="nationality"
@@ -914,7 +919,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >National ID No</label
+                                        >National ID No<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
@@ -922,7 +927,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Passport No.</label
+                                        >Passport No<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
@@ -930,7 +935,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Marital Status</label
+                                        >Marital Status<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="maritalStatus"
@@ -944,7 +949,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Permanent Address</label
+                                        >Permanent Address<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
@@ -952,7 +957,7 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Wilayat/Region</label
+                                        >Wilayat/Region<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="WilayatList"
@@ -965,7 +970,7 @@
                                   </div>
                                   <div class="col-lg-4">
                                     <label class="form-label"
-                                      >Mobile Number</label
+                                      >Mobile Number<span class="text-danger">{{" *"}}</span></label
                                     >
                                     <div class="input-group mb-3">
                                       <span
@@ -984,14 +989,14 @@
                                   <div class="col-md-4">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Name of Next of Kin (NOK)</label
+                                        >Name of Next of Kin (NOK)<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
                                   </div>
                                   <div class="col-lg-4">
                                     <label class="form-label"
-                                      >Contact No. of NOK</label
+                                      >Contact No. of NOK<span class="text-danger">{{" *"}}</span></label
                                     >
                                     <div class="input-group mb-3">
                                       <span
@@ -1013,13 +1018,13 @@
                                 <div class="row shadow">
                                     <div class="col-md-3">
                                         <div class="mb-3">
-                                          <label class="form-label">School</label>
+                                          <label class="form-label">School<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                       </div>
                                     <div class="col-md-3">
                                       <div class="mb-3">
-                                        <label class="form-label">Start Date</label>
+                                        <label class="form-label">Start Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1031,7 +1036,7 @@
                                     </div>
                                     <div class="col-md-3">
                                       <div class="mb-3">
-                                        <label class="form-label">End Date</label>
+                                        <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1043,7 +1048,7 @@
                                     </div>
                                     <div class="col-md-3">
                                       <div class="mb-3">
-                                        <label class="form-label">Country </label>
+                                        <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
                                         <ng-select
                                           [items]="countryList"
                                           placeholder="Country"
@@ -1058,13 +1063,13 @@
                                 <div class="row shadow">
                                     <div class="col-md-3">
                                         <div class="mb-3">
-                                          <label class="form-label">School</label>
+                                          <label class="form-label">School<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                       </div>
                                     <div class="col-md-3">
                                       <div class="mb-3">
-                                        <label class="form-label">Start Date</label>
+                                        <label class="form-label">Start Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1076,7 +1081,7 @@
                                     </div>
                                     <div class="col-md-3">
                                       <div class="mb-3">
-                                        <label class="form-label">End Date</label>
+                                        <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1088,7 +1093,7 @@
                                     </div>
                                     <div class="col-md-3">
                                       <div class="mb-3">
-                                        <label class="form-label">Country </label>
+                                        <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
                                         <ng-select
                                           [items]="countryList"
                                           placeholder="Country"
@@ -1104,7 +1109,7 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Start Date</label
+                                        >Start Date<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input
                                         class="form-control flatpickr-input"
@@ -1117,7 +1122,7 @@
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">End Date</label>
+                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
                                       <input
                                         class="form-control flatpickr-input"
                                         type="text"
@@ -1130,14 +1135,14 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label">
-                                        Institution of Internship</label
+                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">Country </label>
+                                      <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
                                       <ng-select
                                         [items]="countryList"
                                         placeholder="Country"
@@ -1152,7 +1157,7 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Start Date</label
+                                        >Start Date<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input
                                         class="form-control flatpickr-input"
@@ -1165,7 +1170,7 @@
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">End Date</label>
+                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
                                       <input
                                         class="form-control flatpickr-input"
                                         type="text"
@@ -1178,14 +1183,14 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label">
-                                        Institution of Internship</label
+                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">Country </label>
+                                      <label class="form-label">Country <span class="text-danger">{{" *"}}</span></label>
                                       <ng-select
                                         [items]="countryList"
                                         placeholder="Country"
@@ -1200,7 +1205,7 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Start Date</label
+                                        >Start Date<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input
                                         class="form-control flatpickr-input"
@@ -1213,7 +1218,7 @@
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">End Date</label>
+                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
                                       <input
                                         class="form-control flatpickr-input"
                                         type="text"
@@ -1226,14 +1231,14 @@
                                   <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label">
-                                        Institution of Internship</label
+                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
                                       >
                                       <input type="text" class="form-control" />
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="mb-3">
-                                      <label class="form-label">Country </label>
+                                      <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
                                       <ng-select
                                         [items]="countryList"
                                         placeholder="Country"
@@ -1248,13 +1253,13 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Department, Institution</label>
+                                          <label class="form-label">Department, Institution<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                       </div>
                                     <div class="col-md-4">
                                       <div class="mb-3">
-                                        <label class="form-label">Date</label>
+                                        <label class="form-label">Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1268,13 +1273,13 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Department, Institution</label>
+                                          <label class="form-label">Department, Institution<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                       </div>
                                     <div class="col-md-4">
                                       <div class="mb-3">
-                                        <label class="form-label">Date</label>
+                                        <label class="form-label">Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1288,13 +1293,13 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Department, Institution</label>
+                                          <label class="form-label">Department, Institution<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                       </div>
                                     <div class="col-md-4">
                                       <div class="mb-3">
-                                        <label class="form-label">Date</label>
+                                        <label class="form-label">Date<span class="text-danger">{{" *"}}</span></label>
                                         <input
                                           class="form-control flatpickr-input"
                                           type="text"
@@ -1310,7 +1315,7 @@
                                     <div class="col-md-4 d-flex flex-row">
                                         <label class="form-label">BLS Certificate</label>
                                         <div class="mb-3 mx-5">
-                                            <label class="form-label">Expiry Date</label>
+                                            <label class="form-label">Expiry Date<span class="text-danger">{{" *"}}</span></label>
                                             <input
                                                 class="form-control flatpickr-input"
                                                 type="text"
@@ -1322,7 +1327,7 @@
                                     <div class="col-md-4 d-flex flex-row">
                                         <label class="form-label">ACLS Certificate</label>
                                         <div class="mb-3 mx-5">
-                                            <label class="form-label">Expiry Date</label>
+                                            <label class="form-label">Expiry Date<span class="text-danger">{{" *"}}</span></label>
                                             <input
                                                 class="form-control flatpickr-input"
                                                 type="text"
@@ -1338,37 +1343,37 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Project Title</label>
+                                          <label class="form-label">Project Title<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Position</label>
+                                          <label class="form-label">Position<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Inclusive Dates</label>
+                                          <label class="form-label">Inclusive Dates<span class="text-danger">{{" *"}}</span></label>
                                           <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" mode="range">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Institution</label>
+                                          <label class="form-label">Institution<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Department</label>
+                                          <label class="form-label">Department<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Mentor</label>
+                                          <label class="form-label">Mentor<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
@@ -1376,37 +1381,37 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Project Title</label>
+                                          <label class="form-label">Project Title<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Position</label>
+                                          <label class="form-label">Position<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Inclusive Dates</label>
+                                          <label class="form-label">Inclusive Dates<span class="text-danger">{{" *"}}</span></label>
                                           <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" mode="range">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Institution</label>
+                                          <label class="form-label">Institution<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Department</label>
+                                          <label class="form-label">Department<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                          <label class="form-label">Mentor</label>
+                                          <label class="form-label">Mentor<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
@@ -1416,7 +1421,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                           <label class="form-label">Last, First, Middle Initial of authors as listed in the paper. Underline your name. Title of article,
-                                            Journal, Publication date; vol (issue): pages. (Should include abstracts). </label>
+                                            Journal, Publication date; vol (issue): pages. (Should include abstracts).<span class="text-danger">{{" *"}}</span> </label>
                                           <textarea type="text" class="form-control" ></textarea>
                                         </div>
                                     </div>
@@ -1425,7 +1430,7 @@
                                 <div class="row shadow">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                          <label class="form-label">Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location 
+                                          <label class="form-label">Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location <span class="text-danger">{{" *"}}</span>
                                         </label>
                                           <textarea type="text" class="form-control" ></textarea>
                                         </div>
@@ -1434,7 +1439,7 @@
                                 <div class="row shadow">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                          <label class="form-label">Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location 
+                                          <label class="form-label">Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location <span class="text-danger">{{" *"}}</span>
                                         </label>
                                           <textarea type="text" class="form-control" ></textarea>
                                         </div>
@@ -1444,7 +1449,7 @@
                                 <div class="row shadow">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                          <label class="form-label">Award, Institution, Date Conferred</label>
+                                          <label class="form-label">Award, Institution, Date Conferred<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
@@ -1453,7 +1458,7 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">From Date</label>
+                                            <label class="form-label">From Date<span class="text-danger">{{" *"}}</span></label>
                                             <input
                                                 class="form-control flatpickr-input"
                                                 type="text"
@@ -1464,7 +1469,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">To Date</label>
+                                            <label class="form-label">To Date<span class="text-danger">{{" *"}}</span></label>
                                             <input
                                                 class="form-control flatpickr-input"
                                                 type="text"
@@ -1475,7 +1480,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                          <label class="form-label">Award, Institution, Date Conferred</label>
+                                          <label class="form-label">Award, Institution, Date Conferred<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>
@@ -1483,7 +1488,7 @@
                                 <div class="row shadow">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">From Date</label>
+                                            <label class="form-label">From Date<span class="text-danger">{{" *"}}</span></label>
                                             <input
                                                 class="form-control flatpickr-input"
                                                 type="text"
@@ -1494,7 +1499,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">To Date</label>
+                                            <label class="form-label">To Date<span class="text-danger">{{" *"}}</span></label>
                                             <input
                                                 class="form-control flatpickr-input"
                                                 type="text"
@@ -1505,7 +1510,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                          <label class="form-label">Award, Institution, Date Conferred</label>
+                                          <label class="form-label">Award, Institution, Date Conferred<span class="text-danger">{{" *"}}</span></label>
                                           <input type="text" class="form-control" />
                                         </div>
                                     </div>

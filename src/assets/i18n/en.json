@@ -10,7 +10,7 @@
       "HEADER_5" : "Resident Portfolio",
       "HEADER_6" : "6-Monthly Evaluation",
       "HEADER_7" : "Annual Evaluation",
-      "HEADER_8" : "Block & Date",
+      "HEADER_8" : "Block",
       "HEADER_9" : "Rotation Code",
       "HEADER_10" : "Status",
       "HEADER_11" : "Low Score"
@@ -31,7 +31,8 @@
       "HEADER_13" : "Birth Spacing /Family Planning Clinic",
       "HEADER_14" : "Gynecologic Pathology",
       "HEADER_15" : "Genetics",
-      "HEADER_16" : "Research"
+      "HEADER_16" : "Research",
+      "HEADER_17" : "Total"
     }
   }
 }

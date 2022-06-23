@@ -18,6 +18,14 @@
     border-radius: 14px !important;
 }
 
+a i {
+    padding: 5px;
+}
+
+a:hover i {
+    border: 1px solid ;
+}
+
 // .shadow {
 //     -webkit-box-shadow: 5px 5px 13px 11px rgba(169,169,169,0.3) !important; 
 //     box-shadow: 5px 5px 13px 11px rgba(169,169,169,0.3) !important;

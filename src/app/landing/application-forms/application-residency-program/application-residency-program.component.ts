@@ -68,6 +68,7 @@ export class ApplicationResidencyProgramComponent implements OnInit {
 
   countryList = Countries.countryList;
   nationalities = Nationalities.nationalities;
+  todayDate : Date = new Date();
 
   progressBarSize:any = {
     width:'width:0%',
@@ -102,6 +103,11 @@ export class ApplicationResidencyProgramComponent implements OnInit {
   filesSponsorshipLetter: File[] = [];
 
   @ViewChild(WizardComponent) public wizard!: WizardComponent;
+  educationDetails_1_List: any[] = [
+    {
+      id : 0
+    }
+  ];
 
   constructor() { }
 
@@ -185,16 +191,16 @@ export class ApplicationResidencyProgramComponent implements OnInit {
   }
   onRemovePassport(event : any) {
     console.log(event);
-    this.filesPassport.splice(this.filesMFD.indexOf(event), 1);
+    this.filesPassport.splice(this.filesPassport.indexOf(event), 1);
   }
   onSelectPassport(event : any) {
     console.log(event);
-    this.filesSponsorshipLetter.push(...event.addedFiles);
+    this.filesPassport.push(...event.addedFiles);
   }
 
   onRemoveId(event : any) {
     console.log(event);
-    this.filesId.splice(this.filesMFD.indexOf(event), 1);
+    this.filesId.splice(this.filesId.indexOf(event), 1);
   }
   onSelectId(event : any) {
     console.log(event);
@@ -253,6 +259,21 @@ export class ApplicationResidencyProgramComponent implements OnInit {
         { name: "Other", value: "other" },
       ];
     }
+  }
+
+  addEducationDetails_1() {
+    const object = {
+      id : this.educationDetails_1_List.length
+    }
+    this.educationDetails_1_List.push(object)
+  }
+  removeInternshipDetails_1(id : any) {
+    if(this.educationDetails_1_List.length === 1) {
+      return;
+    }
+    this.educationDetails_1_List.forEach((value,index)=>{
+      if(value.id==id) this.educationDetails_1_List.splice(index,1);
+    });
   }
 
 }
