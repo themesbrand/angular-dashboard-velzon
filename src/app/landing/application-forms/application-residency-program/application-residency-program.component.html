@@ -251,11 +251,11 @@
                                         role="switch"
                                         id="flexSwitchCheckDefault"
                                         [(ngModel)]="haveSubmittedDeclaration"
-                                      /><span class="text-danger px-2">{{" *"}}</span>
+                                      />
                                       <label
                                         class="form-check-label"
                                         for="flexSwitchCheckDefault"
-                                        >I declare that all information will be
+                                        ><span class="text-danger px-2">{{" * "}}</span>I declare that all information will be
                                         provided below in this application form
                                         is true, complete and correct to the
                                         best of my knowledge and belief. I
@@ -515,6 +515,12 @@
                                         />
                                       </div>
                                     </div>
+                                    <div class="col-md-1">
+                                      <div class="d-flex flex-row w-100 h-100 justify-content-start align-items-center">
+                                        <a (click)="removeInternshipDetails_1(education.id)"href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                                        
+                                      </div>
+                                    </div>
 
                                   </div>
                                   
@@ -754,21 +760,21 @@
                                   </div>
                                 </div>
                                 <hr />
-                                <div class="row mt-5">
-                                  <div class="col-md-4">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Required a White Lab Coat<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <ng-select
-                                        [items]="[
-                                          { name: 'Yes', value: true },
-                                          { name: 'No', value: false }
-                                        ]"
-                                        bindLabel="name"
+                                <div class="row my-3">
+                                  <div class="col-md-4 mt-4">
+                                    <div class="form-check form-switch">
+                                      <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        role="switch"
+                                        id="flexSwitchCheckDefault"
                                         [(ngModel)]="IsRequiredLabCoat"
-                                        bindValue="value"
-                                      ></ng-select>
+                                      />
+                                      <label
+                                        class="form-check-label"
+                                        for="flexSwitchCheckDefault"
+                                        ><span class="text-danger px-2">{{" * "}}</span>Do you require a Lab Coat</label
+                                      >
                                     </div>
                                   </div>
                                   <div
@@ -777,7 +783,7 @@
                                   >
                                     <div class="mb-3">
                                       <label class="form-label"
-                                        >Required a White Lab Coat<span class="text-danger">{{" *"}}</span></label
+                                        >Please select your Lab Coat Size <span class="text-danger">{{" *"}}</span></label
                                       >
                                       <ng-select
                                         [items]="[
@@ -794,6 +800,9 @@
                                       ></ng-select>
                                     </div>
                                   </div>
+                                </div>
+                                <hr>
+                                <div class="row">
                                   <div class="col-md-4">
                                     <p class="text-muted">
                                       Upload your Sponsorship letter from

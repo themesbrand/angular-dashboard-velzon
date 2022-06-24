@@ -5,37 +5,45 @@
 <div class="row">
     <div class="col">
         <div class="h-100">
-            <div class="row">
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <div class="col-md-4">
-                            <div class="mb-3">
+            <div class="row" >
+                <div class="card mb-2" >
+                    <div class="card-body py-2 px-1">
+                        <div class="col-md-4 ">
+                            <div class="d-flex flex-column ">
                                 <label class="form-label"
                                     >{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}</label
                                 >
                                 <ng-select
                                 [(ngModel)]="selectedUser"
                                     [items]="['Fahad Al Khatri','Abbas Al Ajmi','Yasser Al Maamari','Abdulaziz Al Raisi']"
-                                    placeholder="Select a user"
+                                    placeholder="{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}"
                                 >
                                 </ng-select>
                             </div>
-                        </div>
+                        </div>   
                     </div>
                 </div>
             </div>
-            <div class="row" *ngIf="selectedUser" >
-                  <div class="card">                  
-                      <div class="card-body py-1">
-                        <!-- RESIDENCY BLOCK TABLES -->
-                        <div class="col-lg-12" >
-                            <div class="live-preview p-2" >
-                                <div class="table-responsive">
-                                    <p class="h4 px-1 py-3 pt-1">2019 - 2020</p>
-                                    <table class="w-100 table table-bordered table-nowrap align-middle mb-0">
+            <div class="row" *ngIf="selectedUser">
+                <!-- RESIDENCY BLOCK TABLES -->
+                <div class="col-md-12 p-0">
+                    <div class="live-preview" >                                    
+                        <div class="hover-area d-flex flex-row justify-content-end aligh-items-end">
+                            <div class="hover-background d-flex flex-row justify-content-end aligh-items-center">
+                                <button id="scroll-left" class="btn btn-custom mx-1" [class.disable]="!list.canScrollStart" (mouseleave)="list.endTimer()" (mouseenter)="list.scroll(-1);"><i class=" ri-arrow-left-circle-line"></i></button>
+                                <button id="scroll-right" class="btn btn-custom mx-1" [class.disable]="!list.canScrollEnd" (mouseleave)="list.endTimer()" (mouseenter)="list.scroll(1);"><i class="ri-arrow-right-circle-line"></i></button>                                        
+                            </div>
+                        </div>
+                        <div class="table-responsive" appScrollable #list="appScrollable" [scrollUnit]="50">
+                            <table class="w-100 table table-bordered table-nowrap align-middle mb-0" >
+                                <div class="card mb-2 w-100">
+                                    <div class="card-header px-3 py-1">
+                                        <p class="h3 mb-0 py-0">2019 - 2020</p>
+                                    </div>
+                                    <div class="card-body py-0 pb-3">
                                         <thead class="table-light text-center">
                                             <tr>
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{''}}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
@@ -44,7 +52,7 @@
                                         </thead>
                                         <tbody class="text-center">
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
                                                 <td>
                                                     <div class="block_box">
                                                         <div class="block_name">Block 1</div>
@@ -128,10 +136,10 @@
                                                 <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</strong></td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
-                                                <td class="bg-soft-success">
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-RH "}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -151,9 +159,31 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-RH "}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-RH "}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-soft-warning">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -175,7 +205,7 @@
                                                 </td>
                                                 <td class="bg-soft-info">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-RH "}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"EM:EM-KH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -195,31 +225,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-soft-info">
+                                                <td class="bg-soft-danger">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"EM:EM-KH "}}</span>
-                                                        <div class="dropdown" ngbDropdown>
-                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                                                                <i class="ri-stack-fill"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-green">
-                                                    <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:OT-RH "}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:OT-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -241,7 +249,7 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:RSCH(STAGE 1)-RH "}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:RSCH(STAGE 1)-RH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -261,9 +269,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH "}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -283,9 +291,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -305,53 +313,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-SQUH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
-                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                                                                <i class="ri-stack-fill"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-soft-warning">
-                                                    <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
-                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                                                                <i class="ri-stack-fill"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-green">
-                                                    <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -373,7 +337,7 @@
                                                 </td>
                                                 <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"PEDS:NICU-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -393,9 +357,53 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-soft-warning">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="dropdown" ngbDropdown>
+                                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                <i class="ri-stack-fill"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="bg-soft-secondary">
+                                                    <div class="d-flex flex-row justify-content-center align-center">
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -420,26 +428,26 @@
                                                 <td class="bg-dark"><span class="text-dark">.</span></td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-danger p-2">Failed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-danger w-100 p-2">Failed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
                                                 <td>Completed-Passed</td>
                                                 <td>Completed-Passed</td>
                                                 <td>Progress to the next level</td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
                                                 <td>0</td>
                                                 <td>0</td>
                                                 <td>0</td>
@@ -455,15 +463,16 @@
                                                 <td>0</td>
                                             </tr>
                                         </tbody>
-                                        <div class="row">
-                                            <div class="col-md-6"></div>
-                                        </div>
-                                    </table>
-                                    <p class="h4 px-1 py-3">2020 - 2021</p>
-                                    <table class="w-100 table table-bordered table-nowrap align-middle mb-0">
+                                    </div>
+                                </div>
+                                <div class="card mb-2 w-100">
+                                    <div class="card-header px-3 py-1">
+                                        <p class="h3 mb-0 py-0">2020 - 2021</p>
+                                    </div>
+                                    <div class="card-body py-0 pb-3">
                                         <thead class="table-light text-center">
                                             <tr>
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{''}}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
@@ -472,7 +481,7 @@
                                         </thead>
                                         <tbody class="text-center">
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
                                                 <td>
                                                     <div class="block_box">
                                                         <div class="block_name">Block 1</div>
@@ -556,10 +565,10 @@
                                                 <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</strong></td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
-                                                <td class="bg-green">
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
+                                                <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-NIZWA"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-NIZWA"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -579,9 +588,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-NIZWA"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-NIZWA"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -601,9 +610,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-primary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ULTRASOUND-KH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ULTRASOUND-KH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -623,9 +632,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-danger">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"EM:EM-KH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"EM:EM-KH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -645,9 +654,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:OT-RH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:OT-RH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -667,9 +676,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-primary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:RSCH(STAGE 1)-RH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:RSCH(STAGE 1)-RH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -689,9 +698,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-danger">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -711,9 +720,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -733,9 +742,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -755,9 +764,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"PEDS:NICU-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -777,9 +786,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -799,9 +808,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -821,9 +830,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -848,26 +857,26 @@
                                                 <td class="bg-dark"><span class="text-dark">.</span></td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-danger p-2">Failed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-danger w-100 p-2">Failed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
                                                 <td>Completed-Passed</td>
                                                 <td>Completed-Passed</td>
                                                 <td>Progress to the next level</td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
                                                 <td>0</td>
                                                 <td>0</td>
                                                 <td>0</td>
@@ -886,12 +895,16 @@
                                                 <td>{{""}}</td>
                                             </tr>
                                         </tbody>
-                                    </table>
-                                    <p class="h4 px-1 py-3">2021 - 2022</p>
-                                    <table class="w-100 table table-bordered table-nowrap align-middle mb-0">
-                                        <thead class="text-center">
+                                    </div>
+                                </div>
+                                <div class="card mb-2 w-100">
+                                    <div class="card-header px-3 py-1">
+                                        <p class="h3 mb-0 py-0">2021 - 2022</p>
+                                    </div>
+                                    <div class="card-body py-0 pb-3">
+                                        <thead class="table-light text-center">
                                             <tr>
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_1' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap">{{''}}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
                                                 <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
                                                 <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
@@ -900,7 +913,7 @@
                                         </thead>
                                         <tbody class="text-center">
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
                                                 <td>
                                                     <div class="block_box">
                                                         <div class="block_name">Block 1</div>
@@ -984,15 +997,15 @@
                                                 <td><strong>{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</strong></td>
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
-                                                <td class="bg-green">
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DM & INF-KH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DM & INF-KH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
-                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
@@ -1009,7 +1022,7 @@
                                                 </td>
                                                 <td class="bg-dark text-white">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"AL"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"AL"}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1029,14 +1042,14 @@
                                                         </div> -->
                                                     </div>
                                                 </td>
-                                                <td class="bg-green">
+                                                <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DM, HRP & MC-KH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DM, HRP & MC-KH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
-                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Review & Confirm rotation curriculum</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Rotation</li>
@@ -1053,7 +1066,7 @@
                                                 </td>
                                                 <td class="bg-dark text-white">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"ML"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"ML"}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1075,7 +1088,7 @@
                                                 </td>
                                                 <td class="bg-dark text-white">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"ML"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"ML"}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1097,19 +1110,19 @@
                                                 </td>
                                                 <td class="bg-yellow">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-KH"}}</span>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-KH"}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
-                                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
+                                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
                                                                 <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
@@ -1119,171 +1132,171 @@
                                                 </td>
                                                 <td class="bg-yellow">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-yellow">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-check-double-line text-success"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:ANW-SQUH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"PEDS:NICU-SQUH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 10px !important;">{{"OBGYN:GYN-AFH"}}</span>
-                                                        <div class="dropdown" ngbDropdown>
+                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
                                                             </a>
                                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Review & Confirm rotation curriculum</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Faculty Or Research mentor</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Evaluation of Rotation</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>ITAR</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>WPBA (On-Demand Evaluations)</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Academic Activity Attendance</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Logging of Duty Hours</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Life support certifications BLS, PALS, NRP</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Resident Development Workshops</li>
-                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-dark"></i>Procedures Logged</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Review & Confirm rotation curriculum</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Faculty Or Research mentor</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Evaluation of Rotation</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>ITAR</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>WPBA (On-Demand Evaluations)</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Academic Activity Attendance</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Logging of Duty Hours</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Life support certifications BLS, PALS, NRP</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Resident Development Workshops</li>
+                                                                <li class="dropdown-item"><i style="margin-right: 10px !important;" class="ri-edit-circle-line text-danger"></i>Procedures Logged</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </td>
                                                 <td class="bg-dark"><span class="text-dark">.</span></td>
                                                 <td class="bg-dark"><span class="text-dark">.</span></td>
                                                 <td class="bg-dark"><span class="text-dark">.</span></td>
-
-
+    
+    
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-primary p-2">Leave</span></td>
-                                                <td><span class="badge badge-soft-success p-2">Passed</span></td>
-                                                <td><span class="badge badge-soft-primary p-2">Leave</span></td>
-                                                <td><span class="badge badge-soft-primary p-2">Leave</span></td>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_10' | translate }}</th>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-primary w-100 p-2">Leave</span></td>
+                                                <td><span class="badge badge-soft-success w-100 p-2">Passed</span></td>
+                                                <td><span class="badge badge-soft-primary w-100 p-2">Leave</span></td>
+                                                <td><span class="badge badge-soft-primary w-100 p-2">Leave</span></td>
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
@@ -1292,13 +1305,13 @@
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
-                                                <td>Completed-Passed</td>
+                                                <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                                 <td>{{""}}</td>
                                                 
                                             </tr>
                                             <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
+                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_11' | translate }}</th>
                                                 <td>0</td>
                                                 <td>{{""}}</td>
                                                 <td>0</td>
@@ -1317,186 +1330,268 @@
                                                 <td>{{""}}</td>
                                             </tr>
                                         </tbody>
-                                    </table>
-                                    
-                                    
+                                    </div>
+                                </div>
+                            </table>
+                        </div>
+                    </div>
+                </div>   
+                
+            </div>
+            <div class="row"  *ngIf="selectedUser">
+                  <div class="card p-0 mt-2">                  
+                      <div class="card-body">
+                        <div class="col-lg-12" >
+                                <div class="live-preview">
                                     <!-- RESIDENCY BLOCK GRAPH -->
-                                    <p class="h4 px-1 py-3">Summary</p>
-                                    <table class="table_summary table table-bordered table-nowrap align-middle mb-4">
-                                        <thead class="table-light text-center">
-                                            <tr>
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_1' | translate }}</th>   
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_2' | translate }}</th>   
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_3' | translate }}</th>   
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_4' | translate }}</th> 
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_5' | translate }}</th> 
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_6' | translate }}</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-center">
-                                            <tr>
-                                                <td>{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_7' | translate }}</td>
-                                                <td>28</td>
-                                                <td>16</td>
-                                                <td>12</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"><div class="label">57%</div></div>
+                                    <p class="h4 border p-1 bg-light py-2 mb-0">Summary</p>
+                                    <div class="table-responsive">
+                                        <table class="table_summary table table-bordered table-nowrap align-middle mb-4">
+                                            <thead class="table-light text-center">
+                                                <tr>
+                                                    <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_1' | translate }}</th>   
+                                                    <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_2' | translate }}</th>   
+                                                    <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_3' | translate }}</th>   
+                                                    <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_4' | translate }}</th> 
+                                                    <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_5' | translate }}</th> 
+                                                    <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_6' | translate }}</th> 
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_7' | translate }}</th>
+                                                    <td>28</td>
+                                                    <td>16</td>
+                                                    <td>12</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">57%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-danger">Incomplete</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_8' | translate }}</td>
-                                                <td>33</td>
-                                                <td>16</td>
-                                                <td>17</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"><div class="label">48%</div></div>
+                                                    </td>
+                                                    <td class="bg-danger fw-bold">Incomplete</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_8' | translate }}</th>
+                                                    <td>33</td>
+                                                    <td>16</td>
+                                                    <td>17</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">48%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-danger">Incomplete</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_9' | translate }}</th>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="label">100%</div></div>
+                                                    </td>
+                                                    <td class="bg-danger fw-bold">Incomplete</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_9' | translate }}</th>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">100%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-success">Complete</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_10' | translate }}</th>
-                                                <td>2</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                    </td>
+                                                    <td class="bg-success fw-bold">Complete</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_10' | translate }}</th>
+                                                    <td>2</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">50%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-danger">Incomplete</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_11' | translate }}</th>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                    </td>
+                                                    <td class="bg-danger fw-bold">Incomplete</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_11' | translate }}</th>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">50%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-danger">Incomplete</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_12' | translate }}</th>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
+                                                    </td>
+                                                    <td class="bg-danger fw-bold">Incomplete</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_12' | translate }}</th>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">50%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-danger">Incomplete</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_13' | translate }}</th>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="label">50%</div></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-danger">Incomplete</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_14' | translate }}</th>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>1</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="label">100%</div></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-success">Completed</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_15' | translate }}</th>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>1</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="label">100%</div></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-success">Completed</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_16' | translate }}</th>
-                                                <td>3</td>
-                                                <td>2</td>
-                                                <td>1</td>
-                                                <td class="progress_td">
-                                                    <div class="flex-grow-1">
-                                                        <div class="progress animated-progess custom-progress progress-label">
-                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 66.66%" aria-valuenow="66.66" aria-valuemin="0" aria-valuemax="100"><div class="label">66.66%</div></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="bg-success">Completed</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_17' | translate }}</th>
-                                                <td>1</td>
-                                                
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="live-preview p-2" >
-                                <div class="table-responsive">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+                                                    </td>
+                                                    <td class="bg-danger fw-bold">Incomplete</td>
 
-                        </div>
-                        
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_13' | translate }}</th>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">50%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-danger fw-bold">Incomplete</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_14' | translate }}</th>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td>1</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">100%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-success fw-bold">Completed</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_15' | translate }}</th>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td>1</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">100%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-success fw-bold">Completed</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_16' | translate }}</th>
+                                                    <td>3</td>
+                                                    <td>2</td>
+                                                    <td>1</td>
+                                                    <td class="progress_td">
+                                                        <div class="bg-light overflow-hidden">
+                                                            <div class="card-body">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="mb-0"><b class="text-secondary">100%</b></h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress bg-soft-success rounded-0">
+                                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-success fw-bold">Completed</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_title">{{ 'RESIDENCY_PROGRAM.RESIDENCY_BLOCK_GRAPH.HEADER_17' | translate }}</th>
+                                                    <td class="th_title">33</td>
+                                                    <td class="th_title">26</td>
+                                                    <td class="th_title">1</td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> 
+                                       
                     </div>
                 </div>
             </div>

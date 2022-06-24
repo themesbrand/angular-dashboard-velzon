@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
-    console.log("click");
     if (this.loginForm.invalid) {
       return;
     } else {
@@ -90,6 +89,10 @@ export class LoginComponent implements OnInit {
               console.log(this.returnUrl);
               if (this.returnUrl === "/home/application-forms") {
                 this.router.navigateByUrl("/home/application-forms", { state: { path : "application-forms"} });
+                return;
+              }
+              if (this.returnUrl === "/home/registration") {
+                this.router.navigateByUrl("/home/registration", { state: { path : "registration"} });
                 return;
               }
               this.router.navigateByUrl("/dashboard");

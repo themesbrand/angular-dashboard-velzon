@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-resident-block-diagram',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ResidentBlockDiagramComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
+
 
   selectedUser: any
 

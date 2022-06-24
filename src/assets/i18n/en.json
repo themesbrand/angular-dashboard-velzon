@@ -1,7 +1,7 @@
 {
   "//Component" : "RESIDENCY BLOCK DIAGRAM****************************************************",
   "RESIDENCY_PROGRAM": {
-    "SELECT_USER" : "Please select a User",  
+    "SELECT_USER" : "Trainee Name",  
     "TABLE_HEADERS" :{
       "HEADER_1" : "Curriculum Required Rotations",
       "HEADER_2" : "General Obstetrics",
