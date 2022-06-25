@@ -1,29 +1,35 @@
-thead, thead {
+.table_block thead, thead {
     text-align: center !important;
 }
-table td {
+
+.table_block table td, 
+.table_block table td, 
+.table_block table th {
+    border: 2px solid rgb(196, 196, 196) !important;
+}
+
+.table_block table td {
     font-size: 0.6125rem !important;
     padding: 0 !important;
     word-wrap: break-word !important;
-    border: 2px solid rgb(196, 196, 196);
     min-width: 100px !important;
 }
-table th {
+.table_block table th {
     font-weight: 600 !important;
     font-size: 0.85rem !important;
 }
-table th, table tr {
-    padding: 2px 4px !important;
-    border: 2px solid rgb(196, 196, 196);
+.table_block table th, table tr {
+    padding: 2px 8px !important;
 }
-table {
+.table_block table {
     width: 100% !important;
 }
 
-th.th_title {
+.table_block .th_title {
     width: 150px !important;
     text-align: start !important;
 }
+
 .hover-area {
     position: absolute !important; right: 0px !important;
     width: 300px !important;
@@ -37,12 +43,6 @@ th.th_title {
     width: 120px !important;
     height: 100% !important;
     z-index: 9999999 !important;
-}
-.heading_bar {
-    position: fixed !important;
-    width: inherit !important;
-    //background-color: grey !important;
-    right: 25px !important;
 }
 #scroll-left, #scroll-right {
     display: none !important;
@@ -59,10 +59,33 @@ th.th_title {
     //overflow: scroll;
 }
 
-.table-responsive {
-    //overflow-x: hidden;
-    
+//table summary css 
+.table_summary table {
+    table-layout: auto;
+    font-size: 0.9125rem;
 }
+
+.table_summary th {
+    text-align: start !important;
+    padding: 5px !important;
+}
+.table_summary td {
+    text-align: center !important;
+    padding: 5px !important;
+}
+.table_summary table, 
+.table_summary table td, 
+.table_summary table td, 
+.table_summary table th {
+    border: 2px solid rgb(196, 196, 196) !important;
+}
+
+.live-preview .heading {
+    border: 2px solid rgb(196, 196, 196) !important;
+    border-bottom: 0px !important;
+}
+
+//table summary css End 
 
 .btn-custom {
     padding: 5px 5px !important;
@@ -100,25 +123,16 @@ td .dropdown-menu-up {
     //transform: translate3d(5px, 35px, 0px)!important;
 }
 
-// .table_summary td {
-//     height: 65px !important;
-// }
-
 
 .progress_td {
     padding: 5px 5px !important;
 }
 
-.progress-label .progress-bar .label {
-    top: -22px !important
-}
-
-
 .block_box {
     width: 100% !important;
     overflow: hidden !important;
     height: 45px!important;
-    font-size: 0.7125rem !important;
+    font-size: 0.8325rem  !important;
     cursor: pointer !important;
     background-color: white !important;
 }
@@ -127,7 +141,7 @@ td .dropdown-menu-up {
     height: 45px !important;
     background-color: white !important;
     transition: .8s;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     line-height: 45px;
     text-align: center;
 }
@@ -138,23 +152,6 @@ td .dropdown-menu-up {
     transition: .8s;
     line-height: 45px;
     text-align: center;
-}
-
-.block_box:hover .block_date {
-    transition: .8s;
-    transform: translateY(-45px);
-}
-
-
-.bg-green {
-    padding: 5px !important;
-    background-color: #cef0eb;
-}
-.bg-yellow {
-    background-color: #fdf1db;
-}
-.bg-grey {
-    background-color: #fce0da;
 }
 
 .arrow-none:hover {
@@ -168,6 +165,13 @@ td .dropdown-menu-up {
 .progress_td:hover .card-body {
     display: block !important;
 }
-.fw-bold {
-    font-size: 0.9125rem !important;
+.card {
+    border-radius: 0.65rem !important;
 }
+.card-header:first-child {
+    border-radius: 0.65rem 0.65rem 0 0;
+}
+.card-header {
+    border-bottom: none !important;
+}
+
