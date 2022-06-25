@@ -108,6 +108,11 @@ export class ApplicationResidencyProgramComponent implements OnInit {
       id : 0
     }
   ];
+  internshipDetails_1_List: any[] = [
+    {
+      id : 0
+    }
+  ];
 
   constructor() { }
 
@@ -267,12 +272,26 @@ export class ApplicationResidencyProgramComponent implements OnInit {
     }
     this.educationDetails_1_List.push(object)
   }
-  removeInternshipDetails_1(id : any) {
+  removeEducationDetails_1(id : any) {
     if(this.educationDetails_1_List.length === 1) {
       return;
     }
     this.educationDetails_1_List.forEach((value,index)=>{
       if(value.id==id) this.educationDetails_1_List.splice(index,1);
+    });
+  }
+  addInternshipDetails_1() {
+    const object = {
+      id : this.internshipDetails_1_List.length
+    }
+    this.internshipDetails_1_List.push(object)
+  }
+  removeInternshipDetails_1(id : any) {
+    if(this.internshipDetails_1_List.length === 1) {
+      return;
+    }
+    this.internshipDetails_1_List.forEach((value,index)=>{
+      if(value.id==id) this.internshipDetails_1_List.splice(index,1);
     });
   }
 

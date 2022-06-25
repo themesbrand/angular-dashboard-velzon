@@ -56,8 +56,20 @@
 .live-preview {
     display: flex !important;
     flex-direction: column !important;
-    //overflow: scroll;
 }
+.table_block .span-box {
+    width: 60px !important;
+    overflow: hidden !important;
+} 
+.table_block .span-box-dot {
+    margin-right: 5px !important;
+} 
+.table_block .span-box:hover {
+    width: 100% !important;
+} 
+.table_block .span-box:hover + .span-box-dot {
+    display: none !important;
+} 
 
 //table summary css 
 .table_summary table {

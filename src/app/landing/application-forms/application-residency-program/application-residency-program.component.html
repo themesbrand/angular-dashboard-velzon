@@ -424,160 +424,149 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="row mt-5">
-                                  <div class="d-flex flex-column justify-content-between">
+                                <div class="row mt-2">
+                                  <div class="d-flex flex-row justify-content-between">
                                     <p class="h5">Education Details</p>
-                                    <a (click)="addEducationDetails_1()"href="javascript:void(0);" class="link-primary my-3"><i class=" ri-add-box-line"></i>Add more</a>
+                                    <a (click)="addEducationDetails_1()"href="javascript:void(0);" class="link-primary"><i class=" ri-add-box-line"></i>Add more</a>
                                   </div>
-                                  <div class="row" *ngFor="let education of educationDetails_1_List">
-                                    <div class="col-md-3">
-                                      <div class="mb-3">
-                                        <label class="form-label"
-                                          >Name of University / College<span class="text-danger">{{" *"}}</span></label
-                                        >
-                                        <ng-select
-                                          [items]="educationInstitutesList"
-                                          [(ngModel)]="educationInstituteValue"
-                                          placeholder="Name of University / College"
-                                          bindLabel="name"
-                                          bindValue="value"
-                                        >
-                                        </ng-select>
+                                  <div class="card mb-1" *ngFor="let education of educationDetails_1_List">
+                                    <div class="card-body" style="padding: 10px !important">
+                                      <div class="d-flex flex-row justify-content-end align-items-center">
+                                        <a (click)="removeEducationDetails_1(education.id)"href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
                                       </div>
-                                    </div>
-                                    <div class="col-md-3" *ngIf="educationInstituteValue === 'other'">
-                                      <div class="mb-3">
-                                        <label class="form-label"
-                                          >Specify your Educational
-                                          Institute<span class="text-danger">{{" *"}}</span></label
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <label class="form-label"
+                                            >Name of University / College<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <ng-select
+                                            [items]="educationInstitutesList"
+                                            [(ngModel)]="educationInstituteValue"
+                                            placeholder="Name of University / College"
+                                            bindLabel="name"
+                                            bindValue="value"
+                                          >
+                                          </ng-select>
+                                        </div>
+                                        <div class="col-md-3" *ngIf="educationInstituteValue === 'other'">
+                                          <label class="form-label"
+                                            >Specify your Educational
+                                            Institute<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                        <div class="col-md-3">
+                                          <label class="form-label">Country<span class="text-danger">{{" *"}}</span></label>
+                                          <ng-select
+                                            [items]="countryList"
+                                            placeholder="Country"
+                                            bindLabel="name"
+                                            bindValue="code"
+                                          >
+                                          </ng-select>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <label class="form-label"
+                                            >Degree Obtained<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <ng-select
+                                            [items]="degreeList"
+                                            [(ngModel)]="degreeValue"
+                                            placeholder="Degree"
+                                            bindLabel="name"
+                                            bindValue="value"
+                                          >
+                                          </ng-select>
+                                        </div>
+                                        <div
+                                          class="col-md-4"
+                                          *ngIf="degreeValue === 'other'"
                                         >
-                                        <input type="text" class="form-control" />
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                      <div class="mb-3">
-                                        <label class="form-label">Country<span class="text-danger">{{" *"}}</span></label>
-                                        <ng-select
-                                          [items]="countryList"
-                                          placeholder="Country"
-                                          bindLabel="name"
-                                          bindValue="code"
-                                        >
-                                        </ng-select>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                      <div class="mb-3">
-                                        <label class="form-label"
-                                          >Degree Obtained<span class="text-danger">{{" *"}}</span></label
-                                        >
-                                        <ng-select
-                                          [items]="degreeList"
-                                          [(ngModel)]="degreeValue"
-                                          placeholder="Degree"
-                                          bindLabel="name"
-                                          bindValue="value"
-                                        >
-                                        </ng-select>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="col-md-4"
-                                      *ngIf="degreeValue === 'other'"
-                                    >
-                                      <div class="mb-3">
                                         <label class="form-label"
                                           >Specify your Degree<span class="text-danger">{{" *"}}</span></label
                                         >
                                         <input type="text" class="form-control" />
-                                      </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <label class="form-label">GPA<span class="text-danger">{{" *"}}</span></label>
+                                          <input
+                                            type="number"
+                                            class="form-control"
+                                          />
+                                        </div>
+                                        <div class="col-md-2">
+                                          <label class="form-label"
+                                            >Date of Graduation<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <input
+                                            class="form-control flatpickr-input"
+                                            type="text"
+                                            mwlFlatpickr
+                                            [altInput]="true"
+                                            [convertModelValue]="true"
+                                          />
+                                        </div>
+                                      </div>  
                                     </div>
-                                    <div class="col-md-3">
-                                      <div class="mb-3">
-                                        <label class="form-label">GPA<span class="text-danger">{{" *"}}</span></label>
-                                        <input
-                                          type="number"
-                                          class="form-control"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                      <div class="mb-3">
-                                        <label class="form-label"
-                                          >Date of Graduation<span class="text-danger">{{" *"}}</span></label
-                                        >
-                                        <input
-                                          class="form-control flatpickr-input"
-                                          type="text"
-                                          mwlFlatpickr
-                                          [altInput]="true"
-                                          [convertModelValue]="true"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                      <div class="d-flex flex-row w-100 h-100 justify-content-start align-items-center">
-                                        <a (click)="removeInternshipDetails_1(education.id)"href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
-                                        
-                                      </div>
-                                    </div>
-
                                   </div>
-                                  
+                                                     
                                 </div>
-                                <div class="row mt-5">
-                                  <p class="h5">Internship Details</p>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Start Date<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
+                                <div class="row mt-2">
+                                  <div class="d-flex flex-row justify-content-between">
+                                    <p class="h5">Internship Details</p>
+                                    <a (click)="addInternshipDetails_1()"href="javascript:void(0);" class="link-primary"><i class=" ri-add-box-line"></i>Add more</a>
                                   </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
+                                  <div class="card mb-1" *ngFor="let internship of internshipDetails_1_List">
+                                    <div class="card-body" style="padding: 10px !important">
+                                      <div class="d-flex flex-row justify-content-end align-items-center">
+                                        <a (click)="removeInternshipDetails_1(internship.id)"href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                                      </div>
+                                      <div class="row" >
+                                        <div class="col-md-3">
+                                          <label class="form-label"
+                                            >Start Date<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <input
+                                            class="form-control flatpickr-input"
+                                            type="text"
+                                            mwlFlatpickr
+                                            [altInput]="true"
+                                            [convertModelValue]="true"
+                                          />
+                                        </div>
+                                        <div class="col-md-3">
+                                          <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
+                                          <input
+                                            class="form-control flatpickr-input"
+                                            type="text"
+                                            mwlFlatpickr
+                                            [altInput]="true"
+                                            [convertModelValue]="true"
+                                          />
+                                        </div>
+                                        <div class="col-md-3">
+                                          <label class="form-label">
+                                            Institution of Internship<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <input type="text" class="form-control" />
+                                        </div>
+                                        <div class="col-md-3">
+                                          <label class="form-label"
+                                            >Current Position<span class="text-danger">{{" *"}}</span></label
+                                          >
+                                          <ng-select
+                                            [items]="currentPositionList"
+                                            placeholder="Current Position"
+                                            bindLabel="name"
+                                            bindValue="value"
+                                          >
+                                          </ng-select>
+                                        </div>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">
-                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input type="text" class="form-control" />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Current Position<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <ng-select
-                                        [items]="currentPositionList"
-                                        placeholder="Current Position"
-                                        bindLabel="name"
-                                        bindValue="value"
-                                      >
-                                      </ng-select>
-                                    </div>
-                                  </div>
-                                  
+                                  </div>    
                                 </div>
-                                <div class="d-flex flex-column mt-5">
+                                <div class="d-flex flex-column mt-2">
                                   <p class="h5">Certificates</p>
                                   <div class="row">
                                     <div class="col-md-6 border p-3">
@@ -684,7 +673,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="row mt-5">
+                                <div class="row mt-2">
                                   <p class="h5">
                                     Postgraduate Qualifications/Training
                                     Experience
@@ -728,7 +717,7 @@
                                     </ngx-dropzone>
                                   </div>
                                 </div>
-                                <div class="row mt-5" *ngIf="!haveDiseases">
+                                <div class="row mt-2" *ngIf="!haveDiseases">
                                   <p class="h5">
                                     Selection of Choice of Speciality programs
                                   </p>
@@ -1113,151 +1102,6 @@
                                       </div>
                                     </div>
                                 </div>
-                                <p class="h5 mt-3">3. Internship </p>
-                                <div class="row shadow">
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Start Date<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">
-                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input type="text" class="form-control" />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
-                                      <ng-select
-                                        [items]="countryList"
-                                        placeholder="Country"
-                                        bindLabel="name"
-                                        bindValue="code"
-                                      >
-                                      </ng-select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row shadow">
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Start Date<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">
-                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input type="text" class="form-control" />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">Country <span class="text-danger">{{" *"}}</span></label>
-                                      <ng-select
-                                        [items]="countryList"
-                                        placeholder="Country"
-                                        bindLabel="name"
-                                        bindValue="code"
-                                      >
-                                      </ng-select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row shadow">
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label"
-                                        >Start Date<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
-                                      <input
-                                        class="form-control flatpickr-input"
-                                        type="text"
-                                        mwlFlatpickr
-                                        [altInput]="true"
-                                        [convertModelValue]="true"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">
-                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
-                                      >
-                                      <input type="text" class="form-control" />
-                                    </div>
-                                  </div>
-                                  <div class="col-md-3">
-                                    <div class="mb-3">
-                                      <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
-                                      <ng-select
-                                        [items]="countryList"
-                                        placeholder="Country"
-                                        bindLabel="name"
-                                        bindValue="code"
-                                      >
-                                      </ng-select>
-                                    </div>
-                                  </div>
-                                </div>
                                 <p class="h5 mt-3">4. Clinical Electives</p>
                                 <div class="row shadow">
                                     <div class="col-md-4">
@@ -1347,6 +1191,56 @@
                                     </div>
 
                                 </div>
+                                <p class="h5 mt-4">INTERNSHIP</p>
+                                <div class="row shadow">
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label"
+                                        >Start Date<span class="text-danger">{{" *"}}</span></label
+                                      >
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">End Date<span class="text-danger">{{" *"}}</span></label>
+                                      <input
+                                        class="form-control flatpickr-input"
+                                        type="text"
+                                        mwlFlatpickr
+                                        [altInput]="true"
+                                        [convertModelValue]="true"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">
+                                        Institution of Internship<span class="text-danger">{{" *"}}</span></label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                      <label class="form-label">Country<span class="text-danger">{{" *"}}</span> </label>
+                                      <ng-select
+                                        [items]="countryList"
+                                        placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="code"
+                                      >
+                                      </ng-select>
+                                    </div>
+                                  </div>
+                                </div>
+                                
                                 <p class="h5 mt-4">SCHOLARLY ACTIVITIES SECTION</p>
                                 <p class="h5 mt-3">1. Research</p>
                                 <div class="row shadow">
