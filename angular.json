@@ -38,7 +38,8 @@
               "src/assets/scss/config/default/bootstrap.scss",
               "src/assets/scss/config/default/app.scss",
               "src/assets/scss/icons.scss",
-              "node_modules/shepherd.js/dist/css/shepherd.css"
+              "node_modules/shepherd.js/dist/css/shepherd.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts":
             []

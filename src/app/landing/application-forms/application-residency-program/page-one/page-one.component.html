@@ -1,0 +1,109 @@
+<h4 class="mb-2">Application - Page 1</h4>
+<p class="text-muted">
+    Fill all Information as below
+</p>
+<form [formGroup]="applicationFormOne">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label"
+                >Application Intake Year<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select
+                [items]="intakeYears"
+                formControlName="intakeYear"
+                placeholder="Select your Intake Year"
+                >
+                </ng-select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label class="form-label"
+                >Examination Type<span
+                    class="text-danger"
+                    >{{ " *" }}</span
+                ></label
+                >
+                <ng-select
+                [items]="listData.examType"
+                formControlName="examType"
+                (change)="onChangeExamType()"
+                placeholder="Select your Examination Type"
+                bindLabel="name"
+                bindValue="value"
+                >
+                </ng-select>
+            </div>
+        </div>
+        <div
+        class="col-md-12" *ngIf="formValues.examType === 'MFD'">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="isMfdPassed"/>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Have you passed the MFD II?<span
+                    class="text-danger">{{ " *" }}</span
+                ></label>
+            </div>
+        </div>
+        <div
+        class="col-md-4" *ngIf="formValues.examType === 'MFD' && formValues.isMfdPassed === true" >
+        <p class="text-muted">
+            Upload your MFD Part II.<span class="text-danger"
+            >{{ " *" }}</span>
+        </p>
+        <ngx-dropzone (change)="onSelect($event, 'filesMFD')"
+            [multiple]="false">
+            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of filesMFD"
+            [removable]="true" (removed)="onRemove(f, 'filesMFD')">
+            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+        </div>
+        <div class="col-md-4" *ngIf="formValues.examType === 'MFD' && formValues.isMfdPassed === true">
+        <p class="text-muted">
+            Upload your certificate.<span
+            class="text-danger"
+            >{{ " *" }}</span
+            >
+        </p>
+        <ngx-dropzone (change)="onSelect($event, 'filesCertificate')" [multiple]="false">
+            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview
+            *ngFor="let f of filesCertificate"
+            [removable]="true"
+            (removed)="onRemove(f, 'filesCertificate')"
+            >
+            <ngx-dropzone-label
+                >{{ f.name }} ({{
+                f.type
+                }})</ngx-dropzone-label
+            >
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+        </div>
+        <div class="col-md-4" *ngIf="formValues.examType === 'OMSB_Selection_Exam'">
+        <label class="form-label">OMSB Selection Exam Score</label>
+        <input type="text" formControlName="omsbSelectionExamScore" class="form-control"/>
+        </div>
+        <div class="col-md-12 mt-4">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox"
+                formControlName="isDeclared"
+                role="switch" id="flexSwitchCheckDefault"/>
+                <label class="form-check-label" for="flexSwitchCheckDefault"
+                ><span class="text-danger px-2">{{" * "}}</span>I declare that all information will be
+                provided below in this application form
+                is true, complete and correct to the
+                best of my knowledge and belief. I
+                understand that any misrepresentation or
+                material omission made on the
+                application form or any document
+                uploaded renders me liable for rejection
+                of application request or termination
+                later on if accepted in any training
+                program</label
+                >
+            </div>
+        </div>
+    </div>
+</form>

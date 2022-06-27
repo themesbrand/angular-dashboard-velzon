@@ -2,329 +2,346 @@
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-12">
-        <div class="card border shadow">
-          <div class="card-body form-steps">
-            <div class="text-center pt-3 pb-4 mb-1">
-              <h3>Admission Registration</h3>
-            </div>
-            <aw-wizard
-              [navBarLayout]="'large-empty-symbols'"
-              class="nav nav-pills progress-bar-tab custom-nav"
-            >
-              <aw-wizard-step>
-                <ng-template awWizardStepSymbol>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link rounded-pill active"
-                      data-progressbar="custom-progress-bar"
-                      id="pills-gen-info-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-gen-info"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-gen-info"
-                      aria-selected="true"
-                    >
-                      1
-                    </button>
-                  </li>
-                </ng-template>
-                <div>
-                  <div class="mb-4">
-                    <div>
-                      <h5 class="mb-1">Personal Details</h5>
-                      <p class="text-muted">Fill all Information as below</p>
-                    </div>
+        <div class="card border">
+          <div class="card-header text-center">
+            <h3>Admission Registration</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="registrationForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+                      <label class="form-label mb-0 text-nowrap" >Residency Status</label>
+                      <ng-select [items]="listData.residencyType" class="mx-3"
+                        formControlName="residencyStatus"
+                        placeholder="Please select" style="width: 285px !important">
+                      </ng-select>
                   </div>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Civil ID<span class="text-danger">{{" *"}}</span></label>
-                        <input type="text" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex flex-row w-100 h-100 justify-content-between align-items-center">
+                    <label class="form-label mb-0 text-nowrap">Are you an OMSB member?</label>
+                    <div class="d-flex flex-row mx-3">
+                      <div class="form-check mx-1">
+                        <input class="form-check-input" type="radio" id="omsbMemeberCheckRadio1" formControlName="isOmsbMember" value="true">
+                        <label class="form-check-label" for="omsbMemeberCheckRadio1">Yes</label>
                       </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Full Name in English<span class="text-danger">{{" *"}}</span></label>
-                        <input type="text" class="form-control" />
+                      <div class="form-check mx-1">
+                        <input class="form-check-input" type="radio" id="omsbMemeberCheckRadio2" formControlName="isOmsbMember" value="false">
+                        <label class="form-check-label" for="omsbMemeberCheckRadio2">No</label>
                       </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Full Name in Arabic<span class="text-danger">{{" *"}}</span></label>
-                        <input type="text" class="form-control" />
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Gender<span class="text-danger">{{" *"}}</span></label>
-                        <ng-select
-                          [items]="gender"
-                          placeholder="Select your Gender"
-                          bindLabel="name"
-                          bindName="value"
-                        >
-                        </ng-select>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-control-label">Nationality<span class="text-danger">{{" *"}}</span></label>
-                        <ng-select
-                          name="nationality"
-                          [items]="nationalities"
-                          bindLabel="name"
-                          bindValue="code"
-                          placeholder="Select your nationality"
-                        >
-                        </ng-select>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Birthday<span class="text-danger">{{" *"}}</span></label>
-                        <input
-                          class="form-control flatpickr-input"
-                          type="text"
-                          mwlFlatpickr
-                          [altInput]="true"
-                          [convertModelValue]="true"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Email<span class="text-danger">{{" *"}}</span></label>
-                        <input type="text" class="form-control" />
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Contact Number<span class="text-danger">{{" *"}}</span></label>
-                        <input type="number" class="form-control" />
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="mb-3">
-                        <label class="form-label">Passport Number</label>
-                        <input type="number" class="form-control" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                        <p class="text-muted">Please provide a Passport size Photo.<span class="text-danger">{{" *"}}</span></p>
-                        <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
-                            <ngx-dropzone-label>Drop your Photo!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
-
-                    </div>
-                    <div class="col-md-6">
-                        <p class="text-muted">Please provide a Civil ID.<span class="text-danger">{{" *"}}</span></p>
-                        <ngx-dropzone (change)="onSelectId($event)" [multiple]="false">
-                            <ngx-dropzone-label>Drop your Civil Id!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of filesId" [removable]="true" (removed)="onRemoveId(f)">
-                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
-
-                    </div>
-                  </div>
-                  <div class="mb-4">
-                    <div>
-                      <h5 class="mb-1 mt-3">Work Details</h5>
-                      <p class="text-muted">Fill all Information as below</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-4">
-                        <div class="mb-3">
-                          <label class="form-control-label">Employment Status<span class="text-danger">{{" *"}}</span></label>
-                          <ng-select
-                            name="employmentStatus"
-                            [items]="employmentStatus"
-                            bindLabel="name"
-                            [(ngModel)]="employmentStatusValue"
-                            bindValue="value"
-                            placeholder="Select your Employment Status"
-                          >
-                          </ng-select>
-                        </div>
-                    </div>
-                    <div class="row" *ngIf="employmentStatusValue === 'employed'">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-control-label">Sector Type<span class="text-danger">{{" *"}}</span></label>
-                                <ng-select
-                                  [items]="sectorType"
-                                  bindLabel="name"
-                                  [(ngModel)]="sectorTypeValue"
-                                  (change)="onChangeSectorType(sectorTypeValue)"
-                                  bindValue="value"
-                                  placeholder="Select your Sector Type"
-                                >
-                                </ng-select>
-                              </div>
-                        </div>
-                        <div class="col-md-6" *ngIf="sectorTypeValue ==='government' || sectorTypeValue ==='private'">
-                            <div class="mb-3">
-                                <label class="form-control-label">Sector<span class="text-danger">{{" *"}}</span></label>
-                                <ng-select
-                                  [items]="sectorsList"
-                                  bindLabel="name"
-                                  [(ngModel)]="sectorValue"
-                                  bindValue="value"
-                                  placeholder="Select your Sector Type"
-                                >
-                                </ng-select>
-                              </div>
-                        </div>
-                        <div class="col-lg-6" *ngIf="sectorValue !== undefined && sectorValue === 'other'">
-                            <div class="mb-3">
-                              <label class="form-label">Please specify if other Sector<span class="text-danger">{{" *"}}</span></label>
-                              <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                              <label class="form-label">Staff ID<span class="text-danger">{{" *"}}</span></label>
-                              <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                              <label class="form-label">Job Title<span class="text-danger">{{" *"}}</span></label>
-                              <ng-select
-                                  [items]="jobTitle"
-                                  [(ngModel)]="jobTitleValue"
-                                  bindLabel="name"
-                                  bindValue="value"
-                                  placeholder="Select your Jpb Title"
-                                >
-                                </ng-select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6" *ngIf="jobTitleValue !== undefined && jobTitleValue === 'other'">
-                            <div class="mb-3">
-                              <label class="form-label">Please specify if other job Title<span class="text-danger">{{" *"}}</span></label>
-                              <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12">
-                            <div class="form-check form-switch mb-2">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
-                                [(ngModel)]="isAnotherJob">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Do you have another Job?</label>
-                            </div>
-                        </div>
-                        <div class="row" *ngIf="isAnotherJob">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-control-label">Sector Type</label>
-                                    <ng-select
-                                      [items]="sectorType"
-                                      bindLabel="name"
-                                      [(ngModel)]="sectorTypeValueNewJob"
-                                      (change)="onChangeSectorNewJobType(sectorTypeValueNewJob)"
-                                      bindValue="value"
-                                      placeholder="Select your Sector Type"
-                                    >
-                                    </ng-select>
-                                  </div>
-                            </div>
-                            <div class="col-md-6" *ngIf="sectorTypeValueNewJob ==='government' || sectorTypeValueNewJob ==='private'">
-                                <div class="mb-3">
-                                    <label class="form-control-label">Sector</label>
-                                    <ng-select
-                                      [items]="sectorsNewJobList"
-                                      bindLabel="name"
-                                      [(ngModel)]="sectorValueNewJob"
-                                      bindValue="value"
-                                      placeholder="Select your Sector Type"
-                                    >
-                                    </ng-select>
-                                  </div>
-                            </div>
-                            <div class="col-lg-6" *ngIf="sectorValueNewJob !== undefined && sectorValueNewJob === 'other'">
-                                <div class="mb-3">
-                                  <label class="form-label">Please specify if other Sector</label>
-                                  <input type="text" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                  <label class="form-label">Staff ID</label>
-                                  <input type="text" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                  <label class="form-label">Job Title</label>
-                                  <ng-select
-                                      [items]="jobTitle"
-                                      [(ngModel)]="jobTitleValueNewJob"
-                                      bindLabel="name"
-                                      bindValue="value"
-                                      placeholder="Select your Jpb Title"
-                                    >
-                                    </ng-select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6" *ngIf="jobTitleValueNewJob !== undefined && jobTitleValueNewJob === 'other'">
-                                <div class="mb-3">
-                                  <label class="form-label">Please specify if other Job Title</label>
-                                  <input type="text" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
                     </div>
                   </div>
                 </div>
-                <!-- wizard-tab -->
-                <div class="d-flex align-items-start gap-3 mt-4">
-                  <button
-                    type="button"
-                    class="btn btn-success btn-label right ms-auto nexttab nexttab"
-                    data-nexttab="pills-info-desc-tab"
-                    awNextStep
-                  >
-                    <i
-                      class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"
-                    ></i
-                    >Submit Information
-                  </button>
-                </div>
-              </aw-wizard-step>
-
-              <aw-wizard-step>
-                <ng-template awWizardStepSymbol>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link rounded-pill"
-                      data-progressbar="custom-progress-bar"
-                      id="pills-success-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-success"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-success"
-                      aria-selected="false"
-                    >
-                      2
-                    </button>
-                  </li>
-                </ng-template>
-                <div>
-                  <div class="text-center">
-                    <p class="text-muted">Registration is successful!</p>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-6" *ngIf="formValues.isOmsbMember === 'true'">
+                  <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+                      <label class="form-label mb-0 text-nowrap">Membership Type</label>
+                      <ng-select [items]="listData.membershipType" class="mx-3"
+                        formControlName="membershipType"
+                        placeholder="Please select" style="width: 285px !important">
+                      </ng-select>
                   </div>
                 </div>
-              </aw-wizard-step>
-            </aw-wizard>
+                <div class="col-md-6">
+                  <div class="d-flex flex-row w-100 h-100 justify-content-between align-items-center">
+                    <label class="form-label mb-0 text-nowrap">Are you employed?</label>
+                    <div class="d-flex flex-row mx-3">
+                      <div class="form-check mx-1">
+                        <input class="form-check-input" type="radio" id="isEmployedCheckRadio1" formControlName="isEmployed" value="true">
+                        <label class="form-check-label" for="isEmployedCheckRadio1">Yes</label>
+                      </div>
+                      <div class="form-check mx-1">
+                        <input class="form-check-input" type="radio" id="isEmployedCheckRadio2" formControlName="isEmployed" value="false">
+                        <label class="form-check-label" for="isEmployedCheckRadio2">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Personal Details -->
+              <p class="h4 my-3">Personal Details</p>
+              <div class="row mt-3">
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">First Name (English)<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="firstName" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Second Name (English)<span *ngIf="formValues.residencyStatus === 'Omani National'" class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="secondName" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Third Name (English)<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="thirdName" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Family Name (English)<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="familyName" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Full Name (Arabic) - if applicable</label>
+                  <input type="text" formControlName="familyName" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Gender<span class="text-danger">{{ " *" }}</span></label>
+                  <ng-select [items]="listData.gender" formControlName="gender"
+                    bindLabel="name" bindValue="value" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Nationality<span class="text-danger">{{ " *" }}</span></label>
+                  <ng-select [items]="listData.nationalities" formControlName="nationality"
+                  bindLabel="name" bindValue="code" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label" >Birthday<span class="text-danger">{{ " *" }}</span></label>
+                  <input class="form-control flatpickr-input" type="text"
+                    formControlName="birthDate" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Email Address<span class="text-danger">{{ " *" }}</span></label>
+                  <input type="text" formControlName="email" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Contact Number<span class="text-danger">{{ " *" }}</span></label>
+                  <ngx-intl-tel-input [cssClass]="'custom'" 
+                  [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                  [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                  [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                  [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="contactNumber">
+                </ngx-intl-tel-input>
+                </div>
+              </div>
+              <!-- Identification Details -->
+              <p class="h4 my-3">Identification Details</p>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label class="form-label">Omani Resident/National/Government ID No.</label>
+                  <input type="text" formControlName="idNumber" class="form-control"/>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <p class="text-muted">Upload your Id (Front Side)</p>
+                  <input type="hidden" formControlName="idLinkFront">
+                  <ngx-dropzone (change)="onSelect($event, 'filesResidentIdFront')" [multiple]="false">
+                      <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of filesResidentIdFront" [removable]="true" (removed)="onRemove(f, 'filesResidentIdFront')">
+                        <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <p class="text-muted">Upload your Id (Back Side)</p>
+                  <input type="hidden" formControlName="idLinkBack">
+                  <ngx-dropzone (change)="onSelect($event, 'filesResidentIdBack')" [multiple]="false">
+                      <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of filesResidentIdBack" [removable]="true" (removed)="onRemove(f, 'filesResidentIdBack')">
+                        <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Passport Number</label>
+                  <input type="text" formControlName="passportNumber" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <p class="text-muted">Upload your Passport</p>
+                  <input type="hidden" formControlName="passportLink">
+                  <ngx-dropzone (change)="onSelect($event, 'filesPassport')" [multiple]="false">
+                      <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of filesPassport" [removable]="true" (removed)="onRemove(f, 'filesPassport')">
+                        <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="form-label">Staff ID No./Work ID No.</label>
+                  <input type="text" formControlName="staffIdOrWorkId" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <p class="text-muted">Upload you Staff Id / Work Id</p>
+                  <input type="hidden" formControlName="staffIdLink">
+                  <ngx-dropzone (change)="onSelect($event, 'filesStaffId')" [multiple]="false">
+                      <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of filesStaffId" [removable]="true" (removed)="onRemove(f, 'filesStaffId')">
+                        <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                
+              </div>
+              <!-- Employment Details  -->
+              <p class="h4 my-3">Employment Details </p>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label class="form-label">Profession<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.profession" formControlName="profession"
+                    placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label">Primary specialty<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.specialty" formControlName="primarySpecialty" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.primarySpecialty === 'Other'">
+                  <label class="form-label">Specify if other Specialty<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="ifOtherPrimarySpecialty" class="form-control"/>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label">Secondary specialty<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.specialty" formControlName="secondarySpecialty" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondarySpecialty === 'Other'">
+                  <label class="form-label">Specify if other Specialty<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="ifOtherSecondarySpecialty" class="form-control"/>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label">Job Title / Designation<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.jobTitle" formControlName="jobTitle" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label class="form-label">Primary Workplace Sector Type<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.sector" formControlName="primaryWorkplaceSectorType" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.governmentSectorInstitutes" formControlName="primarySectorName" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.privateSectorInstitutes" formControlName="primarySectorName" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.primarySectorName === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Specify if other Sector Name<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="ifOtherPrimarySector" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Region of Primary Workplace<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.regions" formControlName="regionOfPrimaryWorkplace" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Secondary Workplace Sector Type<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.sector" formControlName="secondaryWorkplaceSectorType" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Secondary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.governmentSectorInstitutes" formControlName="secondarySectorName" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Secondary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
+                  <ng-select [items]="listData.privateSectorInstitutes" formControlName="secondarySectorName" placeholder="Please select">
+                  </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                  <label class="form-label">Specify if other Sector Name<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="ifOtherSecondarySectorName" class="form-control">
+                </div>
+              </div>
+              <!-- Employment Details  -->
+              <div class="d-flex flex-row justify-content-between">
+                <p class="h4 my-3">Education Details</p>
+                <a
+                  (click)="addEducation()"
+                  href="javascript:void(0);"
+                  class="link-primary"
+                  ><i class="ri-add-box-line"></i>Add more</a
+                >
+              </div>
+              <div formArrayName="education">
+                <div class="mt-2 d-flex flex-column border p-3"
+                  *ngFor="let schools of educationControls; let i = index"
+                  [formGroupName]="i">
+                  <div class="d-flex flex-row justify-content-end align-items-center">
+                    <a (click)="onDeleteEducation(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Qualification<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" formControlName="qualification" class="form-control" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Country of Institution<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select [items]="listData.countryList"
+                        placeholder="Please select" bindLabel="name" formControlName="country"
+                        bindValue="code">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">University / Institution<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select [items]="listData.universities"
+                        placeholder="Please select" formControlName="universityOrInstitution">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3" *ngIf="formValues.education[i].universityOrInstitution === 'Other'">
+                      <label class="form-label" >Specify if Institution<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" formControlName="ifOtherUniversityOrInstitution" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Year of Graduation<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select [items]="listData.intakeYears"
+                        placeholder="Please select" formControlName="graduationYear">
+                      </ng-select>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <p class="h4 my-3">Verification Details </p>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Dataflow Reference Number, if available<span class="text-danger">{{" *"}}</span></label>
+                  <input type="text" formControlName="dataflowRef" class="form-control">
+                </div>
+              </div>
+              <p class="h4 my-3">Confirmation </p>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleOne" formControlName="confirmationToggleOne"/>
+                      <label class="form-check-label" for="confirmationToggleOne">I agree to have my general information (name, specialty and workplace) presented.</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleTwo" formControlName="confirmationToggleTwo"/>
+                      <label class="form-check-label" for="confirmationToggleTwo">In the OMSB Public Healthcare Professionals Directory.</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleThree" formControlName="confirmationToggleThree"/>
+                      <label class="form-check-label" for="confirmationToggleThree">I do not agree to have my general information (name, specialty and workplace) presented.</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleFour" formControlName="confirmationToggleFour"/>
+                      <label class="form-check-label" for="confirmationToggleFour">In the OMSB Public Healthcare Professionals Directory.</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleFive" formControlName="confirmationToggleFive"/>
+                      <label class="form-check-label" for="confirmationToggleFive">I declare that all of the information provided by me in this form is true and correct to the best of my knowledge.</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="d-flex flex-row w-100 justify-content-end">
+                  <button class="btn btn-primary mt-3" type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
           </div>
           <!-- end card body -->
         </div>

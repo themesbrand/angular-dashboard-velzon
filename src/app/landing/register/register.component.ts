@@ -1,100 +1,162 @@
 import { Component, OnInit } from "@angular/core";
-import { Nationalities } from "src/app/enums/nationality";
+import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
+import { data } from './data';
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.scss"],
 })
 export class RegistrationComponent implements OnInit {
-  //Form Selector Values
-  gender: any[] = [
-    { name: "Male", value: "male" },
-    { name: "Female", value: "Female" },
-  ];
-  nationalities: any[] = Nationalities.nationalities;
-  employmentStatus: any[] = [
-    { name: "Employed", value: "employed" },
-    { name: "Unemployed", value: "unemployed" },
-  ];
-  jobTitle: any[] = [
-    { name: "Assistant", value: "doctor" },
-    { name: "Medical Officer", value: "medical_officer" },
-    { name: "Senior Medical Officer", value: "senior_medical_office" },
-    { name: "Other", value: "other" },
-  ];
-  sectorType: any[] = [
-    { name: "Government", value: "government" },
-    { name: "Private", value: "private" },
-  ];
-  sectorsList: any[] = [];
-  sectorsNewJobList: any[] = [];
-  privateSectorList: any[] = [{ name: "Government", value: "government" }];
 
-  employmentStatusValue: any;
-  sectorTypeValue: any;
-  sectorTypeValueNewJob: any;
-  jobTitleValue: any;
-  employmentStatusValueNewJob: any;
-  sectorValue: any;
-  sectorValueNewJob: any;
-  jobTitleValueNewJob: any;
-  isAnotherJob: boolean = false;
+  registrationForm !: FormGroup;
+  listData = data;
 
-  files: File[] = [];
-  filesId: File[] = [];
+  //Uploaded files
+  filesResidentIdFront: File[] = [];
+  filesResidentIdBack: File[] = [];
+  filesPassport: File[] = [];
+  filesStaffId: File[] = [];
 
-  constructor() {}
+	SearchCountryField = SearchCountryField;
+	CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.Oman];
 
-  ngOnInit(): void {}
+  constructor(private formBuilder : FormBuilder) {}
 
-  onChangeSectorType(value: any) {
-    this.sectorValue = null;
-    if (value === "government") {
-      this.sectorsList = [
-        { name: "Armed Forces Medical Services", value: "armed_forces" },
-        { name: "Diwan Medical Service", value: "diwan_medical_service" },
-        { name: "Other", value: "other" },
-      ];
-    } else if (value === "private") {
-      this.sectorsList = [
-        { name: "Private Sector", value: "private_sector" },
-        { name: "Other", value: "other" },
-      ];
+  ngOnInit(): void {
+    this.RegistrationFormInit()
+  }
+
+  RegistrationFormInit() {
+    this.registrationForm = this.formBuilder.group({
+      'residencyStatus' : new FormControl(null, []),
+      'isOmsbMember' : new FormControl(null, []),
+      'membershipType' : new FormControl(null, []),
+      'isEmployed' : new FormControl(null, []),
+      //Personal Details
+      'firstName' : new FormControl('', []),
+      'secondName' : new FormControl('', []),
+      'thirdName' : new FormControl('', []),
+      'familyName' : new FormControl('', []),
+      'fullNameInArabic' : new FormControl('', []),
+      'gender' : new FormControl(null, []),
+      'nationality' : new FormControl(null, []),
+      'birthDate' : new FormControl(null, []),
+      'email' : new FormControl(null, []),
+      'contactNumber' : new FormControl(null, []),
+      //Identification Details
+      'idNumber' : new FormControl('', []),
+      'idLinkFront' : new FormControl(null, []),
+      'idLinkBack' : new FormControl(null, []),
+      'passportNumber' : new FormControl('', []),
+      'passportLink' : new FormControl(null, []),
+      'staffIdOrWorkId' : new FormControl('', []),
+      'staffIdLink' : new FormControl(null, []),
+      //Employment Details 
+
+      'profession' : new FormControl(null, []),
+      'primarySpecialty' : new FormControl(null, []),
+      'ifOtherPrimarySpecialty' : new FormControl('', []),
+      'secondarySpecialty' : new FormControl(null, []),
+      'ifOtherSecondarySpecialty' : new FormControl(null, []),
+      'jobTitle' : new FormControl(null, []),
+      'primaryWorkplaceSectorType' : new FormControl(null, []),
+      'primarySectorName' : new FormControl(null, []),
+      'ifOtherPrimarySector' : new FormControl(null, []),
+      'regionOfPrimaryWorkplace' : new FormControl(null, []),
+      'ifOtherRegionOfPrimaryWorkplace' : new FormControl(null, []),
+      'secondaryWorkplaceSectorType' : new FormControl(null, []),
+      'secondarySectorName' : new FormControl(null, []),
+      'ifOtherSecondarySectorName' : new FormControl(null, []),
+      //Education Details
+      'education' : new FormArray([]),
+      
+      'dataflowRef' : new FormControl('', []),
+      'confirmationToggleOne' : new FormControl(null, []),
+      'confirmationToggleTwo' : new FormControl(null, []),
+      'confirmationToggleThree' : new FormControl(null, []),
+      'confirmationToggleFour' : new FormControl(null, []),
+      'confirmationToggleFive' : new FormControl(null, [])   
+    })
+    this.addEducation();
+  }
+
+
+  get formValues () {
+    console.log(this.registrationForm.value.education)
+    return this.registrationForm.value
+  }
+
+  get educationControls() {
+    return (<FormArray>this.registrationForm.get('education')).controls;
+  }
+  addEducation() {
+    (<FormArray>this.registrationForm.get('education')).push(
+      new FormGroup({
+        'qualification' : new FormControl(null, []),
+        'country' : new FormControl(null, []),
+        'universityOrInstitution' : new FormControl(null, []),
+        'ifOtherUniversityOrInstitution' : new FormControl('', []),
+        'graduationYear' : new FormControl(null, [])
+      })
+    );
+  }
+  
+  onDeleteEducation(index : number) {
+    if((<FormArray>this.registrationForm.get('education')).length != 1) {
+      (<FormArray>this.registrationForm.get('education')).removeAt(index);
     }
   }
-  onChangeSectorNewJobType(value: any) {
-    this.sectorValueNewJob = null;
-    if (value === "government") {
-      this.sectorsNewJobList = [
-        { name: "Armed Forces Medical Services", value: "armed_forces" },
-        { name: "Diwan Medical Service", value: "diwan_medical_service" },
-        { name: "Other", value: "other" },
-      ];
-    } else if (value === "private") {
-      this.sectorsNewJobList = [
-        { name: "Private Sector", value: "private_sector" },
-        { name: "Other", value: "other" },
-      ];
+
+  onRemove(event : any, type: any) {
+    switch(type) {
+      case 'filesResidentIdFront' : {
+        this.filesResidentIdFront.splice(this.filesResidentIdFront.indexOf(event), 1);
+        return
+      }
+      case 'filesResidentIdBack' : {
+        this.filesResidentIdBack.splice(this.filesResidentIdBack.indexOf(event), 1);
+        return
+      }
+      case 'filesPassport' : {
+        this.filesPassport.splice(this.filesPassport.indexOf(event), 1);
+        return
+      }
+      case 'filesStaffId' : {
+        this.filesStaffId.splice(this.filesStaffId.indexOf(event), 1);
+        return
+      }
+      default : {
+        break;
+      }
     }
   }
 
-  onSelect(event : any) {
-    console.log(event);
-    this.files.push(...event.addedFiles);
+  onSelect(event : any, type: any) {
+    switch(type) {
+      case 'filesResidentIdFront' : {
+        this.filesResidentIdFront.push(...event.addedFiles);
+        return
+      }
+      case 'filesResidentIdBack' : {
+        this.filesResidentIdBack.push(...event.addedFiles);
+        return
+      }
+      case 'filesPassport' : {
+        this.filesPassport.push(...event.addedFiles);
+        return
+      }
+      case 'filesStaffId' : {
+        this.filesStaffId.push(...event.addedFiles);
+        return
+      }
+      default : {
+        break;
+      }
+    }
   }
 
-  onRemove(event : any) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
-  }
-  onSelectId(event : any) {
-    console.log(event);
-    this.filesId.push(...event.addedFiles);
-  }
-
-  onRemoveId(event : any) {
-    console.log(event);
-    this.filesId.splice(this.filesId.indexOf(event), 1);
-  }
 }

@@ -8,6 +8,7 @@ import {
 import { ArchwizardModule } from 'angular-archwizard';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 // Load Icons
 import { defineLordIconElement } from 'lord-icon-element';
@@ -23,6 +24,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { ApplicationFormsComponent } from './application-forms/application-forms.component';
 import { ApplicationResidencyProgramComponent } from './application-forms/application-residency-program/application-residency-program.component';
+import { PageThreeComponent } from './application-forms/application-residency-program/page-three/page-three.component';
+import { PageOneComponent } from './application-forms/application-residency-program/page-one/page-one.component';
+import { PageTwoComponent } from './application-forms/application-residency-program/page-two/page-two.component';
 
 
 
@@ -33,7 +37,10 @@ import { ApplicationResidencyProgramComponent } from './application-forms/applic
     LoginComponent,
     HomeComponent,
     ApplicationFormsComponent,
-    ApplicationResidencyProgramComponent
+    ApplicationResidencyProgramComponent,
+    PageThreeComponent,
+    PageOneComponent,
+    PageTwoComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +49,7 @@ import { ApplicationResidencyProgramComponent } from './application-forms/applic
     ReactiveFormsModule,
     ArchwizardModule,
     LandingRoutingModule,
+    NgxIntlTelInputModule,
     SharedModule,
     NgbNavModule,
     NgSelectModule,

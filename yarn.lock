@@ -4075,6 +4075,11 @@
     "merge2" "^1.4.1"
     "slash" "^4.0.0"
 
+"google-libphonenumber@^3.2.28":
+  "integrity" "sha512-6VHuMFJa+kPpcMwv+2y/o5uKD5uVh4SOVoXQAy4ZE1TKtxZX/BvBOJX5CZe7nKj5GeE5/9WnBItjWvZVZYcpiA=="
+  "resolved" "https://registry.npmjs.org/google-libphonenumber/-/google-libphonenumber-3.2.28.tgz"
+  "version" "3.2.28"
+
 "graceful-fs@^4.1.2", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.4", "graceful-fs@^4.2.6":
   "integrity" "sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ=="
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.9.tgz"
@@ -4366,6 +4371,11 @@
   "integrity" "sha512-2Vkz8z46Dv401zTWudDGwO7KiGHNDkMv417T5ItcNYfmvHR/1qCTVBO9vwH8zZmQ0WkA/1ARwpysR9bsnop4NQ=="
   "resolved" "https://registry.npmjs.org/intersection-observer/-/intersection-observer-0.12.0.tgz"
   "version" "0.12.0"
+
+"intl-tel-input@^17.0.3":
+  "integrity" "sha512-vfO5yIddrkNKaJYqGySuT6lyovWZoBLU/vyGA2A4VdKIZasknpd9/emTJYIPqFzjkguFfEDUiERKFih3k9Yj3Q=="
+  "resolved" "https://registry.npmjs.org/intl-tel-input/-/intl-tel-input-17.0.3.tgz"
+  "version" "17.0.3"
 
 "ip@^1.1.0", "ip@^1.1.5":
   "integrity" "sha1-vd7XARQpCCjAoDnnLvJfWq7ENUo="
@@ -5203,6 +5213,13 @@
     "lodash-es" "^4.17.15"
     "tslib" "^2.3.0"
 
+"ngx-bootstrap@^8.0.0":
+  "integrity" "sha512-UjJ/57Pr7ctdI2L113QX1IqJPYtOMrp5Qq/RLvUT1TOwPQWPi9LXTQ/7BtipkptQjer7Fk9yueITH3Y8vD+Dmg=="
+  "resolved" "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-8.0.0.tgz"
+  "version" "8.0.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "ngx-color-picker@^12.0.0":
   "integrity" "sha512-ODLePeqN7dnhTmjHGJrxFHaEXb3o2vH4n8qUzkUAIFmz5vOOxCCEYY4/bg+5VK62PonaK7j0fFf8AjnwrqhFHQ=="
   "resolved" "https://registry.npmjs.org/ngx-color-picker/-/ngx-color-picker-12.0.1.tgz"
@@ -5252,6 +5269,13 @@
   "version" "8.1.0"
   dependencies:
     "tslib" "^1.9.0"
+
+"ngx-intl-tel-input@^3.2.0":
+  "integrity" "sha512-TM3R0Az+F63eNCBj+NpR6UzJYg4FkHxDrS2hfeFoHJymMc4+DlqB581g4tPil4IkMetlR+jaAtEcqKiqmYGYlw=="
+  "resolved" "https://registry.npmjs.org/ngx-intl-tel-input/-/ngx-intl-tel-input-3.2.0.tgz"
+  "version" "3.2.0"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "ngx-lightbox@^2.5.2":
   "integrity" "sha512-Kg/3uxJtWfLcxn3YBQKK/Iei/U/2caAg1NBXpvlBQg1nTLnMoJhoY7+/W2cBitsA0taL6dP0CN5o4ds5ArWlyA=="
