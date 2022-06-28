@@ -26,10 +26,11 @@ export class ScrollableDirective {
   endTimer () {
     clearInterval(this.timeoutId)
   }
+
   startTimer (direction: number) {
     this.timeoutId = setInterval(() => {
       this.element.scrollLeft += this.scrollUnit * direction;      
-    }, 50);
+    }, 150);
   }
 
   get canScrollStart() {

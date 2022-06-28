@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
@@ -9,6 +9,15 @@ import { data } from './data';
   styleUrls: ["./register.component.scss"],
 })
 export class RegistrationComponent implements OnInit {
+
+  userDetailObject : any;
+
+  @Input('userDetails') 
+  set userDetails(data: any){
+    this.userDetailObject = data;
+    console.log(this.userDetailObject)
+  };
+
 
   registrationForm !: FormGroup;
   listData = data;
@@ -81,12 +90,25 @@ export class RegistrationComponent implements OnInit {
       'confirmationToggleFour' : new FormControl(null, []),
       'confirmationToggleFive' : new FormControl(null, [])   
     })
-    this.addEducation();
+    this.addEducation()
+
+    if(this.userDetailObject === undefined) {
+      this.registrationForm.patchValue({
+        'firstName' : 'Abbas',
+        'secondName' : 'Al',
+        'thirdName' : 'Ajmi',
+        'familyName' : 'Ajmi',
+        'fullNameInArabic' : 'عباس أل أجمع',
+        'gender' : 'male',
+        'nationality' : 'Omani',
+      })
+    } else {
+      this.registrationForm.patchValue(this.userDetailObject)
+    }
   }
 
 
   get formValues () {
-    console.log(this.registrationForm.value.education)
     return this.registrationForm.value
   }
 

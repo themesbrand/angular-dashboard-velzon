@@ -7,20 +7,29 @@
         <div class="h-100">
             <div class="row" >
                 <div class="card mb-2" >
-                    <div class="card-body py-2 px-1">
-                        <div class="col-md-4 ">
-                            <div class="d-flex flex-column ">
-                                <label class="form-label"
-                                    >{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}</label
-                                >
-                                <ng-select
-                                [(ngModel)]="selectedUser"
-                                    [items]="['Fahad Al Khatri','Abbas Al Ajmi','Yasser Al Maamari','Abdulaziz Al Raisi']"
-                                    placeholder="{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}"
-                                >
-                                </ng-select>
+                    <div class="card-body py-3 px-1">
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <div class="d-flex flex-column ">
+                                    <label class="form-label"
+                                        >{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}</label
+                                    >
+                                    <ng-select
+                                    [(ngModel)]="selectedUser"
+                                        [items]="['Fahad Al Khatri','Abbas Al Ajmi','Yasser Al Maamari','Abdulaziz Al Raisi']"
+                                        placeholder="{{ 'RESIDENCY_PROGRAM.SELECT_USER' | translate }}"
+                                    >
+                                    </ng-select>
+                                </div>
+                            </div>   
+                            <div class="col-md-8">
+                                <div class="d-flex flex-row justify-content-end h-100">
+                                    <p class="h5 mx-3 my-auto"><b>{{"Program : "}}</b>Anaesthesia </p>
+                                    <p class="h5 mx-3 my-auto"><b>{{"OMSB # : "}}</b>19-201</p>
+                                    <p class="h5 mx-3 my-auto"><b>{{"Level : "}}</b>R3</p>
+                                <div>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,21 +47,21 @@
                             <table class=" w-100 table p-3 table-nowrap align-middle mb-0" >
                                 <div class="card mb-4 w-100">
                                     <div class="card-header px-3 py-1">
-                                        <p class="h3 mb-0 py-3">2019 - 2020</p>
+                                        <p class="h3 mb-0 py-3"><span>2019 - 2020</span><span class="mx-4">R1</span></p>
                                     </div>
                                     <div class="card-body py-0 pb-3">
                                         <thead class="table-light text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{''}}</th>   
-                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
-                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
-                                                <th scope="col" colspan="3" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
+                                                <th scope="col" colspan="3" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
                                             </tr>
                                         </thead>
                                         <tbody class="text-center">
                                             <tr>
-                                                <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
+                                                <th class="th_title text-ceter bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_8' | translate }}</th>
                                                 <td>
                                                     <div class="block_box">
                                                         <div class="block_name">Block 1</div>
@@ -468,16 +477,16 @@
                                 </div>
                                 <div class="card mb-4 w-100">
                                     <div class="card-header px-3 py-1">
-                                        <p class="h3 mb-0 py-3">2020 - 2021</p>
+                                        <p class="h3 mb-0 py-3"><span>2020 - 2021</span><span class="mx-4">R2</span></p>
                                     </div>
                                     <div class="card-body py-0 pb-3">
                                         <thead class="table-light text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{''}}</th>   
-                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
-                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
-                                                <th scope="col" colspan="3" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
+                                                <th scope="col" colspan="3" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
                                             </tr>
                                         </thead>
                                         <tbody class="text-center">
@@ -906,16 +915,16 @@
                                 </div>
                                 <div class="card mb-2 w-100">
                                     <div class="card-header px-3 py-1">
-                                        <p class="h3 mb-0 py-3">2021 - 2022</p>
+                                        <p class="h3 mb-0 py-3"><span>2021 - 2022</span><span class="mx-4">R3</span></p>
                                     </div>
                                     <div class="card-body py-0 pb-3">
                                         <thead class="table-light text-center">
                                             <tr>
                                                 <th scope="col" class="th_title text-wrap">{{''}}</th>   
-                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
-                                                <th scope="col" colspan="6" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
-                                                <th scope="col" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
-                                                <th scope="col" colspan="3" class="th_title text-wrap">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_2' | translate }}</th>   
+                                                <th scope="col" colspan="6" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_3' | translate }}</th>   
+                                                <th scope="col" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_4' | translate }}</th>   
+                                                <th scope="col" colspan="3" class="th_title text-wrap" style="text-align: center !important">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_5' | translate }}</th>   
                                             </tr>
                                         </thead>
                                         <tbody class="text-center">

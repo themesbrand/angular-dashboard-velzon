@@ -1,5 +1,5 @@
-<section class="section p-4">
-  <div class="container">
+<section class="section p-0">
+  <div class="container p-0">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-12">
         <div class="card border">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                   <label class="form-label">Full Name (Arabic) - if applicable</label>
-                  <input type="text" formControlName="familyName" class="form-control"/>
+                  <input type="text" formControlName="fullNameInArabic" class="form-control"/>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label class="form-label">Gender<span class="text-danger">{{ " *" }}</span></label>
@@ -92,7 +92,7 @@
                 <div class="col-md-3 mb-3">
                   <label class="form-label">Nationality<span class="text-danger">{{ " *" }}</span></label>
                   <ng-select [items]="listData.nationalities" formControlName="nationality"
-                  bindLabel="name" bindValue="code" placeholder="Please select">
+                  bindLabel="name" bindValue="name" placeholder="Please select">
                   </ng-select>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -155,11 +155,11 @@
                         </ngx-dropzone-preview>
                     </ngx-dropzone>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" *ngIf="formValues.isEmployed === 'true'">
                   <label class="form-label">Staff ID No./Work ID No.</label>
                   <input type="text" formControlName="staffIdOrWorkId" class="form-control"/>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" *ngIf="formValues.isEmployed === 'true'">
                   <p class="text-muted">Upload you Staff Id / Work Id</p>
                   <input type="hidden" formControlName="staffIdLink">
                   <ngx-dropzone (change)="onSelect($event, 'filesStaffId')" [multiple]="false">
@@ -198,51 +198,51 @@
                   <label class="form-label">Specify if other Specialty<span class="text-danger">{{" *"}}</span></label>
                   <input type="text" formControlName="ifOtherSecondarySpecialty" class="form-control"/>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3" *ngIf="formValues.isEmployed === 'true'">
                   <label class="form-label">Job Title / Designation<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.jobTitle" formControlName="jobTitle" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3" *ngIf="formValues.isEmployed === 'true'">
                   <label class="form-label">Primary Workplace Sector Type<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.sector" formControlName="primaryWorkplaceSectorType" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable' && formValues.isEmployed === 'true'">
                   <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.governmentSectorInstitutes" formControlName="primarySectorName" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.privateSectorInstitutes" formControlName="primarySectorName" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.primarySectorName === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.primarySectorName === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Specify if other Sector Name<span class="text-danger">{{" *"}}</span></label>
                   <input type="text" formControlName="ifOtherPrimarySector" class="form-control">
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Region of Primary Workplace<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.regions" formControlName="regionOfPrimaryWorkplace" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Secondary Workplace Sector Type<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.sector" formControlName="secondaryWorkplaceSectorType" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Secondary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.governmentSectorInstitutes" formControlName="secondarySectorName" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Secondary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
                   <ng-select [items]="listData.privateSectorInstitutes" formControlName="secondarySectorName" placeholder="Please select">
                   </ng-select>
                 </div>
-                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'">
+                <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
                   <label class="form-label">Specify if other Sector Name<span class="text-danger">{{" *"}}</span></label>
                   <input type="text" formControlName="ifOtherSecondarySectorName" class="form-control">
                 </div>
@@ -273,7 +273,7 @@
                       <label class="form-label">Country of Institution<span class="text-danger">{{ " *" }}</span></label>
                       <ng-select [items]="listData.countryList"
                         placeholder="Please select" bindLabel="name" formControlName="country"
-                        bindValue="code">
+                        bindValue="name">
                       </ng-select>
                     </div>
                     <div class="col-md-3 mb-3">
@@ -303,8 +303,8 @@
                   <input type="text" formControlName="dataflowRef" class="form-control">
                 </div>
               </div>
-              <p class="h4 my-3">Confirmation </p>
-              <div class="row mt-3">
+              <p class="h4 my-3" *ngIf="userDetailObject === undefined">Confirmation</p>
+              <div class="row mt-3" *ngIf="userDetailObject === undefined">
                 <div class="col-md-12">
                   <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleOne" formControlName="confirmationToggleOne"/>

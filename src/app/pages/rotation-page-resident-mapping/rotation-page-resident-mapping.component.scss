@@ -43,6 +43,13 @@
     word-wrap: break-word !important;
     text-align: center;
 }
+.table_block table tr:hover {
+    background-color: #f3f6f9 !important;
+}
+.table_block table td:hover {
+    background-color: rgba(152, 152, 152, 0.444) !important;
+    z-index: 9999 !important;
+}
 .table_block table th {
     font-weight: 600 !important;
     font-size: 0.85rem !important;

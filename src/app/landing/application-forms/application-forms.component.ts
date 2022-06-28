@@ -10,43 +10,61 @@ import { Nationalities } from 'src/app/enums/nationality';
 })
 export class ApplicationFormsComponent implements OnInit {
 
-  gender: any[] = [
-    { name: "Male", value: "male" },
-    { name: "Female", value: "Female" },
-  ];
-  employmentStatus: any[] = [
-    { name: "Employed", value: "employed" },
-    { name: "Unemployed", value: "unemployed" },
-  ];
-  sectorType: any[] = [
-    { name: "Government", value: "government" },
-    { name: "Private", value: "private" },
-  ];
-  jobTitle: any[] = [
-    { name: "Assistant", value: "doctor" },
-    { name: "Medical Officer", value: "medical_officer" },
-    { name: "Senior Medical Officer", value: "senior_medical_office" },
-    { name: "Other", value: "other" },
-  ];
-  sectorsList: any[] = [];
-  sectorsNewJobList: any[] = [];
-  privateSectorList: any[] = [{ name: "Government", value: "government" }];
+  userDetails: any = {
+    'residencyStatus' : 'Omani National',
+    'isOmsbMember' : 'true',
+    'membershipType' : 'Staff',
+    'isEmployed' : 'true',
 
-  employmentStatusValue: any;
-  sectorTypeValue: any;
-  sectorTypeValueNewJob: any;
-  jobTitleValue: any;
-  employmentStatusValueNewJob: any;
-  sectorValue: any;
-  sectorValueNewJob: any;
-  jobTitleValueNewJob: any;
-  isAnotherJob: boolean = false;
-  
-  countryList = Countries.countryList;
-  nationalities = Nationalities.nationalities;
+    
+    'firstName' : 'Abbas',
+    'thirdName' : 'Al',
+    'familyName' : 'Ajmi',
+    'fullNameInArabic' : 'عباس أل أجمع',
+    'gender' : 'male',
+    'nationality' : 'Omani',
+    'birthDate' : '1984-09-15',
+    'email' : 'abbas@gmail.com',
+    'contactNumber' : '132153213',
+    
+    'idNumber' : '97513256',
+    // 'idLinkFront' : '',
+    // 'idLinkBack' : '',
+    'passportNumber' : '26934345',
+    // 'passportLink' : '',
+    'staffIdOrWorkId' : '24651923',
+    // 'staffIdLink' : '',
 
-  filesId: File[] = [];
-  filesPassport: File[] = [];
+    'profession' : 'Doctor',
+    'primarySpecialty' : 'Medical',
+    // 'ifOtherPrimarySpecialty' : '',
+    'secondarySpecialty' : 'Other',
+    'ifOtherSecondarySpecialty' : 'Other',
+    'jobTitle' : 'OPD Consultant Doctor',
+    'primaryWorkplaceSectorType' : 'Government',
+    'primarySectorName' : 'Diwan Medical Service',
+    // 'ifOtherPrimarySector' : '',
+    'regionOfPrimaryWorkplace' : 'Value 1',
+    // 'ifOtherRegionOfPrimaryWorkplace' : '',
+    'secondaryWorkplaceSectorType' : 'Non-Applicable',
+    // 'secondarySectorName' : '',
+    // 'ifOtherSecondarySectorName' : '',
+
+    'education' : [
+      {'qualification' : 'BSC', 
+      'country' : 'Oman', 
+      'universityOrInstitution': 'Other', 
+      'ifOtherUniversityOrInstitution' : 'Dhofar University',
+      'graduationYear' : '2015'}
+    ],
+    
+    'dataflowRef' : '#SC56-513213548',
+    // 'confirmationToggleOne' : '',
+    // 'confirmationToggleTwo' : '',
+    // 'confirmationToggleThree' : '',
+    // 'confirmationToggleFour' : '',
+    // 'confirmationToggleFive' : ''   
+  };
 
   constructor(private router : Router) { }
 
@@ -66,54 +84,5 @@ export class ApplicationFormsComponent implements OnInit {
         }
     }
   }
-  onRemovePassport(event : any) {
-    console.log(event);
-    this.filesPassport.splice(this.filesPassport.indexOf(event), 1);
-  }
-  onSelectPassport(event : any) {
-    console.log(event);
-    this.filesPassport.push(...event.addedFiles);
-  }
-
-  onRemoveId(event : any) {
-    console.log(event);
-    this.filesId.splice(this.filesId.indexOf(event), 1);
-  }
-  onSelectId(event : any) {
-    console.log(event);
-    this.filesId.push(...event.addedFiles);
-  }
-
-  onChangeSectorType(value: any) {
-    this.sectorValue = null;
-    if (value === "government") {
-      this.sectorsList = [
-        { name: "Armed Forces Medical Services", value: "armed_forces" },
-        { name: "Diwan Medical Service", value: "diwan_medical_service" },
-        { name: "Other", value: "other" },
-      ];
-    } else if (value === "private") {
-      this.sectorsList = [
-        { name: "Private Sector", value: "private_sector" },
-        { name: "Other", value: "other" },
-      ];
-    }
-  }
-
-  onChangeSectorNewJobType(value: any) {
-    this.sectorValueNewJob = null;
-    if (value === "government") {
-      this.sectorsNewJobList = [
-        { name: "Armed Forces Medical Services", value: "armed_forces" },
-        { name: "Diwan Medical Service", value: "diwan_medical_service" },
-        { name: "Other", value: "other" },
-      ];
-    } else if (value === "private") {
-      this.sectorsNewJobList = [
-        { name: "Private Sector", value: "private_sector" },
-        { name: "Other", value: "other" },
-      ];
-    }
-  }
-
+  
 }

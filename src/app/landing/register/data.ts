@@ -24,7 +24,7 @@ const data = {
     { name: "Male", value: "male" },
     { name: "Female", value: "Female" },
   ],
-  profession: [],
+  profession: ["Doctor", 'Surgeon', 'Nurse'],
   specialty: [
     "Medical",
     "Nursing",
