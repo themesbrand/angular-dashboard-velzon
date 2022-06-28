@@ -1,0 +1,86 @@
+.main-body {
+    height: calc(100vh - 95px - 80px - 1.5rem) !important;
+    //padding: 0 calc(1.5rem / 2) calc(70px + 1.5rem) calc(1.5rem / 2);
+    overflow-y: hidden !important;
+}
+.main-body .card {
+    height: 100%;
+}
+.main-body .card .card-body {
+    height: 100%;
+}
+.main-body .card .card-body .row{
+    height: 100%;
+}
+.main-body .card .card-body .row .col-md-3 {
+    height: 100%;
+}
+.list-group {
+    height: 100% !important; 
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+}
+.main-body .card .card-body .row .col-md-9 {
+    height: 100%;
+}
+.table_block {
+    height: 100% !important;
+    overflow: scroll !important;
+}
+.table_block thead, thead {
+    text-align: center !important;
+}
+
+.table_block table td, 
+.table_block table td, 
+.table_block table th {
+    border: 2px solid rgb(196, 196, 196) !important;
+}
+
+.table_block table td {
+    font-size: 0.9125rem !important;
+    padding: 0.5rem 0.6rem !important;
+    word-wrap: break-word !important;
+    text-align: center;
+}
+.table_block table th {
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+}
+.table_block table th, table tr {
+    padding: 2px 8px !important;
+}
+.table_block table {
+    width: 100% !important;
+}
+.table_block .block_box {
+    width: 100% !important;
+    overflow: hidden !important;
+    height: 45px!important;
+    font-size: 0.8325rem  !important;
+    //background-color: white !important;
+}
+.table_block td i {
+    cursor: pointer !important;
+}
+
+.table_block .block_box .block_name {
+    height: 45px !important;
+    //background-color: white !important;
+    transition: .8s;
+    font-weight: 600 !important;
+    line-height: 45px;
+    text-align: center;
+}
+
+.table_block .block_box .block_date {
+    height: 45px !important;
+    background-color: #f3f6f9 !important;
+    transition: .8s;
+    line-height: 45px;
+    text-align: center;
+}
+.table_block .block_box:hover .block_date {
+    transition: .8s;
+    transform: translateY(-45px);
+}

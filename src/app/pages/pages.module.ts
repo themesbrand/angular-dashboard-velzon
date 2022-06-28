@@ -40,6 +40,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ArchwizardModule } from 'angular-archwizard';
 import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 import { ScrollableDirective } from '../directive/scrollable.directive';
+import { RotationPageResidentMappingComponent } from './rotation-page-resident-mapping/rotation-page-resident-mapping.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -56,7 +57,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     DashboardComponent,
     ToastsContainer,
     ResidentBlockDiagramComponent,
-    ScrollableDirective
+    ScrollableDirective,
+    RotationPageResidentMappingComponent
   ],
   imports: [
     CommonModule,
