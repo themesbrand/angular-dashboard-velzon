@@ -48,7 +48,7 @@ export class PageTwoComponent implements OnInit {
         'expiryDate' : new FormControl(null, []),
         'uploadLink' : new FormControl('', []),
       }),
-      'qualificationsAndTrainings ' : new FormControl('', []),
+      'qualificationsAndTrainings' : new FormControl('', []),
       'proofOfDocumentsLinks' : new FormControl('', []),
       'specialtyProgramOne' : new FormControl(null, []),
       'specialtyProgramTwo' : new FormControl(null, []),

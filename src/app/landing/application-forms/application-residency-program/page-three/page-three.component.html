@@ -116,17 +116,12 @@
       <label class="form-label"
         >Mobile Number<span class="text-danger">{{ " *" }}</span></label
       >
-      <div class="input-group mb-3">
-        <span id="basic-addon1" class="input-group-text">+968</span
-        ><input
-          type="number"
-          formControlName="mobileNumber"
-          placeholder="Mobile Number"
-          aria-label="Mobile Number"
-          aria-describedby="basic-addon1"
-          class="form-control"
-        />
-      </div>
+      <ngx-intl-tel-input [cssClass]="'custom'" 
+          [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+          [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+          [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="mobileNumber">
+      </ngx-intl-tel-input>
     </div>
     <div class="col-md-4">
       <div class="mb-3">
@@ -146,17 +141,12 @@
       <label class="form-label"
         >Contact No. of NOK<span class="text-danger">{{ " *" }}</span></label
       >
-      <div class="input-group mb-3">
-        <span id="basic-addon1" class="input-group-text">+968</span
-        ><input
-          type="number"
-          formControlName="contactNextKin"
-          placeholder="Mobile Number"
-          aria-label="Mobile Number"
-          aria-describedby="basic-addon1"
-          class="form-control"
-        />
-      </div>
+      <ngx-intl-tel-input [cssClass]="'custom'" 
+          [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+          [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+          [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="contactNextKin">
+      </ngx-intl-tel-input>
     </div>
   </div>
   <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>

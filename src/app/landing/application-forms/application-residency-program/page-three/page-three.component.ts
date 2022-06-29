@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
 import { data } from '../data';
 
@@ -17,6 +18,12 @@ export class PageThreeComponent implements OnInit {
   todayDate : Date = new Date();
   
   constructor(private formBuilder : FormBuilder) { }
+
+  SearchCountryField = SearchCountryField;
+	CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.Oman];
+
 
   ngOnInit(): void {
 
