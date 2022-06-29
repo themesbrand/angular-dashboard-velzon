@@ -1,10 +1,70 @@
 const data = {
-    rotationCodes : [
-        'OBGYN:ANW-RH', 'OBGYN:CLINIC-RH','OBGYN:ANW-RH', 'EM:EM-KH' ,'OBGYN:OT-RH', 'OBGYN:RSCH(STAGE 1)-RH', 'OBGYN:CLINIC-SQUH', 'PEDS:NICU-SQUH', 'OBGYN:ANW-RH', 'OBGYN:CLINIC-RH','OBGYN:ANW-RH', 'EM:EM-KH' ,'OBGYN:OT-RH', 'OBGYN:RSCH(STAGE 1)-RH', 'OBGYN:CLINIC-SQUH', 'PEDS:NICU-SQUH','OBGYN:ANW-RH', 'OBGYN:CLINIC-RH','OBGYN:ANW-RH', 'EM:EM-KH' ,'OBGYN:OT-RH', 'OBGYN:RSCH(STAGE 1)-RH', 'OBGYN:CLINIC-SQUH', 'PEDS:NICU-SQUH','OBGYN:ANW-RH', 'OBGYN:CLINIC-RH','OBGYN:ANW-RH', 'EM:EM-KH' ,'OBGYN:OT-RH', 'OBGYN:RSCH(STAGE 1)-RH', 'OBGYN:CLINIC-SQUH', 'PEDS:NICU-SQUH',
-    ],
-    students : [
-        'Al Abri Falsal', 'Al Abri Ibraham', 'Fahad Al Khatri', 'Yasser Al Ajmi', 'Yasser Al Maamari', 'Al Raisi','Abba Abri Falsal', 'Abba Abri Ibraham', 'Fahad Al Ibraham', 'Abba Al Ajmi', 'Raisi Al Maamari', 'Abdulaziz Raisi','Al Falsal', 'Fahad Abri Ibraham', 'Fahad Al Maamari', 'Abba Al Fahad'
-    ]
-}
+  rotationCodes: [
+    "OBGYN-ANW-RH",
+    "OBGYN-CLINIC-RH",
+    "OBGYN-ANS-RH",
+    "EM-EM-KH",
+    "OBGYN-OT-RH",
+    "OBGYN-RSCH(STAGE 1)-RH",
+    "OBGYN-CLINIC-SQUH",
+    "PEDS-NICU-RH",
+    "OBGYN-ANX-RH",
+    "OBGYN-ANA-RH",
+    "EM-ER-KH",
+    "OBGYN-ON-RH",
+    "OBGYN-RSCH(STAGE 2)-RH",
+    "EM-CLINIC-SQUH",
+    "PEDS-NICU-SQUH",
+    "OBGYN-ANB-RH",
+    "OBGYM-CLINIC-RH",
+    "OBGYN-ANC-RH",
+    "EM-EN-KH",
+    "OBGYN-OS-RH",
+    "OBGYN-RSCH(STAGE 3)-RH",
+    "PEDS-CLINIC-SQUH",
+    "OBGYN-ANJ-RH",
+    "OBGYR-CLINIC-RH",
+    "OBGYN-ANI-RH",
+    "EM-EB-KH",
+    "OBGYN-OA-RH",
+    "OBGYN-RSCH(STAGE 4)-RH",
+    "OBGYN-CLINIC-SQUH"
+  ],
+  students: [
+    { name: "Al Abri Falsal", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-201'},
+    { name: "Al Abri Ibraham", program: 'Anaesthesia', year: 'R3', omsbNumber : '14-201'},
+    { name: "Fahad Al Khatri", program: 'Anaesthesia', year: 'R3', omsbNumber : '11-201'},
+    { name: "Yasser Al Ajmi", program: 'Anaesthesia', year: 'R3', omsbNumber : '06-201'},
+    { name: "Yasser Al Maamari", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-205'},
+    { name: "Al Raisi", program: 'Anaesthesia', year: 'R3', omsbNumber : '11-205'},
+    { name: "Abba Abri Falsal", program: 'Anaesthesia', year: 'R3', omsbNumber : '49-201'},
+    { name: "Abba Abri Ibraham", program: 'Anaesthesia', year: 'R3', omsbNumber : '29-201'},
+    { name: "Fahad Al Ibraham", program: 'Anaesthesia', year: 'R3', omsbNumber : '69-201'},
+    { name: "Abba Al Ajmi", program: 'Anaesthesia', year: 'R3', omsbNumber : '79-201'},
+    { name: "Raisi Al Maamari", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-211'},
+    { name: "Abdulaziz Raisi", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-241'},
+    { name: "Al Falsal", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-206'},
+    { name: "Fahad Abri Ibraham", program: 'Anaesthesia', year: 'R3', omsbNumber : '49-204'},
+    { name: "Fahad Al Maamari", program: 'Anaesthesia', year: 'R3', omsbNumber : '21-209'},
+    { name: "Abba Al Fahad", program: 'Anaesthesia', year: 'R3', omsbNumber : '41-201'},
+  ],
+  faculty: [
+    {name : 'Faculty 1'},
+    {name : 'Faculty 2'},
+    {name : 'Faculty 3'},
+    {name : 'Faculty 4'},
+    {name : 'Faculty 5'},
+    {name : 'Faculty 6'},
+    {name : 'Faculty 7'},
+    {name : 'Faculty 8'},
+    {name : 'Faculty 9'},
+    {name : 'Faculty 10'},
+    {name : 'Faculty 11'},
+    {name : 'Faculty 12'},
+    {name : 'Faculty 13'},
+    {name : 'Faculty 14'},
+    {name : 'Faculty 15'}
+  ],
+};
 
 export { data };

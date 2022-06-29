@@ -22,7 +22,7 @@
                                     </ng-select>
                                 </div>
                             </div>   
-                            <div class="col-md-8">
+                            <div class="col-md-8" *ngIf="selectedUser">
                                 <div class="d-flex flex-row justify-content-end h-100">
                                     <p class="h5 mx-3 my-auto"><b>{{"Program : "}}</b>Anaesthesia </p>
                                     <p class="h5 mx-3 my-auto"><b>{{"OMSB # : "}}</b>19-201</p>
@@ -146,10 +146,12 @@
                                             </tr>
                                             <tr>
                                                 <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
-                                                <td class="bg-soft-secondary">
-                                                    
+                                                <td class="bg-soft-secondary"> 
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-RH "}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:ANW-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -171,7 +173,10 @@
                                                 </td>
                                                 <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-RH "}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:CLINIC-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -193,7 +198,10 @@
                                                 </td>
                                                 <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-RH "}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:ANW-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -215,7 +223,10 @@
                                                 </td>
                                                 <td class="bg-soft-info">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"EM:EM-KH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"EM:EM-KH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -237,7 +248,10 @@
                                                 </td>
                                                 <td class="bg-soft-danger">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:OT-RH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:OT-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -259,7 +273,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:RSCH(STAGE 1)-RH "}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:RSCH(STAGE 1)-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -281,7 +298,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH "}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -303,7 +323,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -325,7 +348,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:ANW-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -347,7 +373,10 @@
                                                 </td>
                                                 <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"PEDS:NICU-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -369,7 +398,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -391,7 +423,10 @@
                                                 </td>
                                                 <td class="bg-soft-warning">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-AFH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -413,7 +448,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-AFH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -628,7 +666,10 @@
                                                 </td>
                                                 <td class="bg-soft-primary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ULTRASOUND-KH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:ULTRASOUND-KH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -650,7 +691,10 @@
                                                 </td>
                                                 <td class="bg-soft-danger">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"EM:EM-KH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"EM:EM-KH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -672,7 +716,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:OT-RH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:OT-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -694,7 +741,10 @@
                                                 </td>
                                                 <td class="bg-soft-primary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:RSCH(STAGE 1)-RH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:RSCH(STAGE 1)-RH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -716,7 +766,10 @@
                                                 </td>
                                                 <td class="bg-soft-danger">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -738,7 +791,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:CLINIC-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -760,7 +816,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:ANW-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -782,7 +841,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"PEDS:NICU-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -804,7 +866,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -826,7 +891,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-AFH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -848,7 +916,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-AFH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1016,7 +1087,10 @@
                                                 <th class="th_title bg-light">{{ 'RESIDENCY_PROGRAM.TABLE_HEADERS.HEADER_9' | translate }}</th>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DM & INF-KH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:DM & INF-KH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1060,7 +1134,10 @@
                                                 </td>
                                                 <td class="bg-soft-secondary">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DM, HRP & MC-KH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:DM, HRP & MC-KH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1126,7 +1203,10 @@
                                                 </td>
                                                 <td class="bg-yellow">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-KH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:DELIVERY-KH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1148,7 +1228,10 @@
                                                 </td>
                                                 <td class="bg-yellow">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1170,7 +1253,10 @@
                                                 </td>
                                                 <td class="bg-yellow">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-SOHAR"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1192,7 +1278,10 @@
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:ANW-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:ANW-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1214,7 +1303,10 @@
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"PEDS:NICU-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"PEDS:NICU-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1236,7 +1328,10 @@
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:DELIVERY-SQUH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1258,7 +1353,10 @@
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-AFH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>
@@ -1280,7 +1378,10 @@
                                                 </td>
                                                 <td class="bg-grey">
                                                     <div class="d-flex flex-row justify-content-center align-items-center">
-                                                        <span style="margin-right: 5px !important;">{{"OBGYN:GYN-AFH"}}</span>
+                                                        <div class="span-box" style="cursor: pointer !important;">
+                                                            <span>{{"OBGYN:GYN-AFH"}}</span>
+                                                        </div>
+                                                        <span class="span-box-dot">{{".. "}}</span>
                                                         <!-- <div class="dropdown" ngbDropdown>
                                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                                 <i class="ri-stack-fill"></i>

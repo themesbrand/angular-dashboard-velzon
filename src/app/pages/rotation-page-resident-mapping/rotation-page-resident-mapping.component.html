@@ -1,132 +1,36 @@
 <!-- Start Breadcrumbs -->
-<app-breadcrumbs title="Residency Block Diagram" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Residency Mapping" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
-
-<div class="row main-body">
-    <div class="card mb-0">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="list-group list-group-fill-success">
-                        <div *ngFor="let code of listData.rotationCodes; let i = index">
-                            <a [ngClass]="status[i] === true ? 'bg-secondary' : ''" (click)="onSelectRotationCode(code, i)" class="list-group-item list-group-item-action" style="cursor: pointer !important">{{code}}</a>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="table-responsive table_block">
-                        <table class=" table table-nowrap" >
-                            <thead class="table-light text-center">
-                                <tr>
-                                    <th></th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 1</div>
-                                            <div class="block_date">(01/09/2019 - 28/09/2019)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 2</div>
-                                            <div class="block_date">(29/09/2019 - 26/10/2019)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 3</div>
-                                            <div class="block_date">(27/10/2019 - 23/11/2019)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 4</div>
-                                            <div class="block_date">(24/11/2019 - 21/12/2019)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 5</div>
-                                            <div class="block_date">(22/12/2019 - 18/01/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 6</div>
-                                            <div class="block_date">(19/01/2020 - 15/02/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 7</div>
-                                            <div class="block_date">(16/02/2020 - 14/03/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 8</div>
-                                            <div class="block_date">(15/03/2020 - 11/04/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 9</div>
-                                            <div class="block_date">(12/04/2020 - 09/05/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 10</div>
-                                            <div class="block_date"> (10/05/2020 - 06/06/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 11</div>
-                                            <div class="block_date">(07/06/2020 - 04/07/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 12</div>
-                                            <div class="block_date">(05/07/2020 - 01/08/2020)</div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="block_box">
-                                            <div class="block_name">Block 13</div>
-                                            <div class="block_date">(02/08/2020 - 31/08/2020)</div>
-                                        </div>
-                                    </th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody *ngFor="let s of studentList">
-                                <tr>
-                                    <td style="text-align:left !important">{{s.student}}</td>
-                                    <td (click)="setStudentBlock(s.student, 0)"><span>{{s?.blockValue[0]}}</span><i  *ngIf="s?.blockValue[0] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 0)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 1)"><span>{{s?.blockValue[1]}}</span><i  *ngIf="s?.blockValue[1] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 1)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 2)"><span>{{s?.blockValue[2]}}</span><i  *ngIf="s?.blockValue[2] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 2)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 3)"><span>{{s?.blockValue[3]}}</span><i  *ngIf="s?.blockValue[3] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 3)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 4)"><span>{{s?.blockValue[4]}}</span><i  *ngIf="s?.blockValue[4] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 4)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 5)"><span>{{s?.blockValue[5]}}</span><i  *ngIf="s?.blockValue[5] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 5)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 6)"><span>{{s?.blockValue[6]}}</span><i  *ngIf="s?.blockValue[6] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 6)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 7)"><span>{{s?.blockValue[7]}}</span><i  *ngIf="s?.blockValue[7] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 7)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 8)"><span>{{s?.blockValue[8]}}</span><i  *ngIf="s?.blockValue[8] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 8)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 9)"><span>{{s?.blockValue[9]}}</span><i  *ngIf="s?.blockValue[9] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 9)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 10)"><span>{{s?.blockValue[10]}}</span><i  *ngIf="s?.blockValue[10] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 10)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 11)"><span>{{s?.blockValue[11]}}</span><i  *ngIf="s?.blockValue[11] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 11)"></i></td>
-                                    <td (click)="setStudentBlock(s.student, 12)"><span>{{s?.blockValue[12]}}</span><i  *ngIf="s?.blockValue[12] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setStudentBlock(s.student, 12)"></i></td>
-                                    
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>
+<div class="row bg-light">
+    <ul ngbNav #ModifierCustom="ngbNav" [activeId]="1" class="nav nav-pills nav-customs nav-danger mb-3">
+        <li [ngbNavItem]="1">
+            <a ngbNavLink class="nav-link">
+              Trainee
+            </a>
+            <ng-template ngbNavContent>
+                <app-by-trainee></app-by-trainee> 
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+            <a ngbNavLink class="nav-link">
+              Rotation
+            </a>
+            <ng-template ngbNavContent>
+                <app-by-rotation></app-by-rotation>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+            <a ngbNavLink class="nav-link">
+              Faculty
+            </a>
+            <ng-template ngbNavContent>
+                <app-by-faculty></app-by-faculty>
+            </ng-template>
+        </li>
+    </ul>
+    <div class="tab-content text-muted">
+        <div [ngbNavOutlet]="ModifierCustom"></div>
     </div>
+
 </div>
+

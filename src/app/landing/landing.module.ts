@@ -27,6 +27,7 @@ import { ApplicationResidencyProgramComponent } from './application-forms/applic
 import { PageThreeComponent } from './application-forms/application-residency-program/page-three/page-three.component';
 import { PageOneComponent } from './application-forms/application-residency-program/page-one/page-one.component';
 import { PageTwoComponent } from './application-forms/application-residency-program/page-two/page-two.component';
+import { ApplicationForScholarshipComponent } from './application-forms/application-for-scholarship/application-for-scholarship.component';
 
 
 
@@ -40,7 +41,8 @@ import { PageTwoComponent } from './application-forms/application-residency-prog
     ApplicationResidencyProgramComponent,
     PageThreeComponent,
     PageOneComponent,
-    PageTwoComponent
+    PageTwoComponent,
+    ApplicationForScholarshipComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+  NgbAlertModule,
   NgbNavModule,
   NgbProgressbarModule,
   NgbToastModule
@@ -41,6 +42,9 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 import { ScrollableDirective } from '../directive/scrollable.directive';
 import { RotationPageResidentMappingComponent } from './rotation-page-resident-mapping/rotation-page-resident-mapping.component';
+import { ByTraineeComponent } from './rotation-page-resident-mapping/by-trainee/by-trainee.component';
+import { ByRotationComponent } from './rotation-page-resident-mapping/by-rotation/by-rotation.component';
+import { ByFacultyComponent } from './rotation-page-resident-mapping/by-faculty/by-faculty.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -58,7 +62,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ToastsContainer,
     ResidentBlockDiagramComponent,
     ScrollableDirective,
-    RotationPageResidentMappingComponent
+    RotationPageResidentMappingComponent,
+    ByTraineeComponent,
+    ByRotationComponent,
+    ByFacultyComponent
   ],
   imports: [
     CommonModule,
@@ -84,6 +91,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SharedModule,
     FormsModule,
     WidgetModule,
+    NgbAlertModule,
     NgbNavModule,
     NgSelectModule,
     NgbProgressbarModule,

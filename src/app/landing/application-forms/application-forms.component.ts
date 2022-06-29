@@ -79,6 +79,10 @@ export class ApplicationFormsComponent implements OnInit {
             this.router.navigateByUrl('/home/application-forms/residency-program')
             break;
         }
+        case 'Application for Scholarship' : {
+            this.router.navigateByUrl('/home/application-forms/scholarship-program-form')
+            break;
+        }
         default : {
             break;
         }
