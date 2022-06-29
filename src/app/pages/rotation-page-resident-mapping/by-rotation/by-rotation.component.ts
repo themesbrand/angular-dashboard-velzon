@@ -22,6 +22,9 @@ export class ByRotationComponent implements OnInit {
   isRotationVsTrainee : boolean = true
   isFullscreenMode : boolean = false
 
+  colorCodeArray: any[] =[]
+  colorBlocksArray: any[][] = [];
+
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -51,6 +54,34 @@ export class ByRotationComponent implements OnInit {
         this.facultyList.push(object)
       })
     }
+    this.generateColorCodes()
+  }
+
+  generateColorCodes() {
+    for(var i = 0; i < this.listData.students.length; i++) {
+      var color = Math.floor(0x1000000 * Math.random()).toString(16);
+      const randomColor = '#' + ('000000' + color + '8f').slice(6);
+      this.colorCodeArray.push(randomColor)  
+    }
+
+    if(this.isRotationVsTrainee) { 
+      for(var i = 0; i < this.studentList.length; i++) {
+        let colorRow = [];
+        for(var j = 0; j < 13; j++) {
+          colorRow.push('#ffffff')
+        }
+        this.colorBlocksArray.push(colorRow)  
+      }
+    } else {
+      for(var i = 0; i < this.facultyList.length; i++) {
+        let colorRow = [];
+        for(var j = 0; j < 13; j++) {
+          colorRow.push('#ffffff')
+        }
+        this.colorBlocksArray.push(colorRow)  
+      }
+    }
+
   }
 
   //Change the Table 1st Column Data 
@@ -67,37 +98,38 @@ export class ByRotationComponent implements OnInit {
   }
 
   setBlock(name : any, index : any) {
-    console.log(this.selectedRotationCode)
     if(this.isRotationVsTrainee) {
+      const result = this.studentList.findIndex(x => {
+        return x.student.name === name
+      })
+      this.studentList[result].blockValue[index] = this.selectedRotationCode
+      
       if(this.selectedRotationCode != '') {
-        const result = this.studentList.findIndex(x => {
-          return x.student.name === name
+        const _result = this.listData.rotationCodes.findIndex(y => {
+          return y === this.selectedRotationCode
         })
-        this.studentList[result].blockValue[index] = this.selectedRotationCode
-        
+        this.colorBlocksArray[result][index] = this.colorCodeArray[_result]
       } else {
-        const result = this.studentList.findIndex(x => {
-          return x.student.name === name
-        })
-        this.studentList[result].blockValue[index] = this.selectedRotationCode
+        this.colorBlocksArray[result][index] = '#ffffff'
       }   
     } else {
+      const result = this.facultyList.findIndex(x => {
+        return x.faculty.name === name
+      })
+      this.facultyList[result].blockValue[index] = this.selectedRotationCode
       if(this.selectedRotationCode != '') {
-        const result = this.facultyList.findIndex(x => {
-          return x.faculty.name === name
+        const _result = this.listData.rotationCodes.findIndex(y => {
+          return y === this.selectedRotationCode
         })
-        this.facultyList[result].blockValue[index] = this.selectedRotationCode
-        
+        this.colorBlocksArray[result][index] = this.colorCodeArray[_result]
       } else {
-        const result = this.facultyList.findIndex(x => {
-          return x.faculty.name === name
-        })
-        this.facultyList[result].blockValue[index] = this.selectedRotationCode
-      }   
+        this.colorBlocksArray[result][index] = '#ffffff'
+      }     
     }
 
-
     this.resetRotationCodeSelector()
+    console.log(this.colorCodeArray)
+    console.log(this.colorBlocksArray)
   }
 
   resetRotationCodeSelector() {

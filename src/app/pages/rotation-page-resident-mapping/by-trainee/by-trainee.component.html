@@ -11,7 +11,7 @@
                 <ng-container *ngTemplateOutlet="tableBody"></ng-container>                
             </div>
         </div>
-    </div><!-- /.modal-content -->
+    </div>
 </ng-template>
 
 <!-- template body -->
@@ -36,7 +36,7 @@
                             "></i></button>
                     </div>
                     <div class="table-responsive table_block">
-                        <table class=" table table-nowrap" >
+                        <table class=" table table-hover table-nowrap" >
                             <thead class="table-light text-center">
                                 <tr>
                                     <th>Rotation</th>
@@ -121,47 +121,14 @@
                                     
                                 </tr>
                             </thead>
-                            <tbody >
-                                <tr *ngFor="let c of rotationCodeList">
+                            <tbody>
+                                <tr *ngFor="let c of rotationCodeList; let i = index">
                                     <td style="text-align:left !important" class="columnName">
                                         <span>{{c?.rotationCode}}</span>
                                     </td>
-                                    <td [ngClass]="c?.blockValue[0] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 0)"><span>{{c?.blockValue[0]}}</span><i  *ngIf="c?.blockValue[0] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 0)"></i></td>
-                                    <td [ngClass]="c?.blockValue[1] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 1)"><span>{{c?.blockValue[1]}}</span><i  *ngIf="c?.blockValue[1] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 1)"></i></td>
-                                    <td [ngClass]="c?.blockValue[2] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 2)"><span>{{c?.blockValue[2]}}</span><i  *ngIf="c?.blockValue[2] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 2)"></i></td>
-                                    <td [ngClass]="c?.blockValue[3] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 3)"><span>{{c?.blockValue[3]}}</span><i  *ngIf="c?.blockValue[3] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 3)"></i></td>
-                                    <td [ngClass]="c?.blockValue[4] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 4)"><span>{{c?.blockValue[4]}}</span><i  *ngIf="c?.blockValue[4] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 4)"></i></td>
-                                    <td [ngClass]="c?.blockValue[5] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 5)"><span>{{c?.blockValue[5]}}</span><i  *ngIf="c?.blockValue[5] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 5)"></i></td>
-                                    <td [ngClass]="c?.blockValue[6] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 6)"><span>{{c?.blockValue[6]}}</span><i  *ngIf="c?.blockValue[6] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 6)"></i></td>
-                                    <td [ngClass]="c?.blockValue[7] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 7)"><span>{{c?.blockValue[7]}}</span><i  *ngIf="c?.blockValue[7] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 7)"></i></td>
-                                    <td [ngClass]="c?.blockValue[8] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 8)"><span>{{c?.blockValue[8]}}</span><i  *ngIf="c?.blockValue[8] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 8)"></i></td>
-                                    <td [ngClass]="c?.blockValue[9] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 9)"><span>{{c?.blockValue[9]}}</span><i  *ngIf="c?.blockValue[9] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 9)"></i></td>
-                                    <td [ngClass]="c?.blockValue[10] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 10)"><span>{{c?.blockValue[10]}}</span><i  *ngIf="c?.blockValue[10] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 10)"></i></td>
-                                    <td [ngClass]="c?.blockValue[11] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 11)"><span>{{c?.blockValue[11]}}</span><i  *ngIf="c?.blockValue[11] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 11)"></i></td>
-                                    <td [ngClass]="c?.blockValue[12] != '' ? 'bg-blocked-cell' : ''"(click)="setBlock(c?.rotationCode, 12)"><span>{{c?.blockValue[12]}}</span><i  *ngIf="c?.blockValue[12] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, 12)"></i></td>
-                                </tr>
-                                <tr *ngFor="let f of facultyList">
-                                    <td style="text-align:left !important" class="columnName">
-                                        <!-- <div class="hoverModal bg-light p-3 d-flex flex-column">
-                                            <p class="mb-1">Program : {{c.student.program}}</p>
-                                            <p class="mb-1">OMSB # : {{c.student.omsbNumber}}</p>
-                                            <p class="mb-0">Year : {{c.student.year}}</p>
-                                        </div> -->
-                                        <span>{{f.faculty.name}}</span>
+                                    <td *ngFor="let blockValue of c.blockValue; let j = index;" (click)="setBlock(c?.rotationCode, j)" [ngStyle]="{'background-color': colorBlocksArray[i][j] }">
+                                        <span>{{blockValue}}</span><i *ngIf="blockValue != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(c?.rotationCode, j)"></i>
                                     </td>
-                                    <td (click)="setBlock(f.faculty.name, 0)"><span>{{f?.blockValue[0]}}</span><i  *ngIf="f?.blockValue[0] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 0)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 1)"><span>{{f?.blockValue[1]}}</span><i  *ngIf="f?.blockValue[1] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 1)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 2)"><span>{{f?.blockValue[2]}}</span><i  *ngIf="f?.blockValue[2] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 2)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 3)"><span>{{f?.blockValue[3]}}</span><i  *ngIf="f?.blockValue[3] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 3)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 4)"><span>{{f?.blockValue[4]}}</span><i  *ngIf="f?.blockValue[4] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 4)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 5)"><span>{{f?.blockValue[5]}}</span><i  *ngIf="f?.blockValue[5] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 5)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 6)"><span>{{f?.blockValue[6]}}</span><i  *ngIf="f?.blockValue[6] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 6)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 7)"><span>{{f?.blockValue[7]}}</span><i  *ngIf="f?.blockValue[7] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 7)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 8)"><span>{{f?.blockValue[8]}}</span><i  *ngIf="f?.blockValue[8] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 8)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 9)"><span>{{f?.blockValue[9]}}</span><i  *ngIf="f?.blockValue[9] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 9)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 10)"><span>{{f?.blockValue[10]}}</span><i  *ngIf="f?.blockValue[10] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 10)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 11)"><span>{{f?.blockValue[11]}}</span><i  *ngIf="f?.blockValue[11] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 11)"></i></td>
-                                    <td (click)="setBlock(f.faculty.name, 12)"><span>{{f?.blockValue[12]}}</span><i  *ngIf="f?.blockValue[12] != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(f.faculty.name, 12)"></i></td>
                                 </tr>
                             </tbody>
                         </table>
