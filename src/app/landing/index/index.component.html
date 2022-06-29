@@ -31,8 +31,12 @@
                         <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Academic Affairs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" (click)="routerTo('/home/application-forms')">Admission</a>
-                    </li>
+                        <div class="dropdown" ngbDropdown>
+                            <a class="nav-link "  [ngClass]="{'active':currentSection === 'features'}" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>Admission</a>
+                            <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu >
+                                <li><a class="dropdown-item edit-item-btn submenu" (click)="routerTo('/home/application-forms')" data-bs-toggle="modal">Application</a></li>
+                            </ul>
+                        </div>
                     <li class="nav-item">
                         <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" (click)="routerTo('/home/registration')">Registration</a>
                     </li>

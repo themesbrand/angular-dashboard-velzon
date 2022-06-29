@@ -14,6 +14,8 @@ export class ByRotationComponent implements OnInit {
   status : any[] = [];
   selectedRotationCode : any = ''
 
+  blockColorCodes: any[][] =[]
+
   studentList: any[] = [];
   facultyList: any[] = [];
 

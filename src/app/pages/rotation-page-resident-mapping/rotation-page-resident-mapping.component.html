@@ -1,11 +1,11 @@
 <!-- Start Breadcrumbs -->
 <app-breadcrumbs title="Residency Mapping" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
-<div class="row bg-light">
-    <ul ngbNav #ModifierCustom="ngbNav" [activeId]="1" class="nav nav-pills nav-customs nav-danger mb-3">
-        <li [ngbNavItem]="1">
+<div class="row">
+    <ul ngbNav #ModifierCustom="ngbNav" [activeId]="1" class="nav nav-pills nav-customs nav-danger">
+        <li [ngbNavItem]="1">`
             <a ngbNavLink class="nav-link">
-              Trainee
+              By Trainee
             </a>
             <ng-template ngbNavContent>
                 <app-by-trainee></app-by-trainee> 
@@ -13,7 +13,7 @@
         </li>
         <li [ngbNavItem]="2">
             <a ngbNavLink class="nav-link">
-              Rotation
+              By Rotation
             </a>
             <ng-template ngbNavContent>
                 <app-by-rotation></app-by-rotation>
@@ -21,7 +21,7 @@
         </li>
         <li [ngbNavItem]="3">
             <a ngbNavLink class="nav-link">
-              Faculty
+              By Faculty
             </a>
             <ng-template ngbNavContent>
                 <app-by-faculty></app-by-faculty>
