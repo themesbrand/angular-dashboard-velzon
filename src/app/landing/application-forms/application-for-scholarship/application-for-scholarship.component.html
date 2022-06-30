@@ -31,7 +31,7 @@
                 ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
               >
               <label class="form-label text-white mx-3"
-                ><i class="mx-2 ri-mail-line"></i>ajmi@gmail..com</label
+                ><i class="mx-2 ri-mail-line"></i>ajmi@gmail.com</label
               >
             </div>
           </div>
@@ -213,70 +213,145 @@
                                             </ngx-intl-tel-input>
                                             
                                         </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                >OMSB Admission Exam Score<span
-                                                    class="text-danger"
-                                                    >{{ " *" }}</span
-                                                ></label
-                                                >
-                                                <input type="number" formControlName="omsbAdmissionScore" class="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                >National Id Card No.<span
-                                                    class="text-danger"
-                                                    >{{ " *" }}</span
-                                                ></label
-                                                >
-                                                <input type="text" formControlName="nationIdNumber" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                >Staff Id Card No.<span
-                                                    class="text-danger"
-                                                    >{{ " *" }}</span
-                                                ></label
-                                                >
-                                                <input type="text" formControlName="staffIdNumber" class="form-control" />
-                                            </div>
-                                        </div>
+                                      </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4 mt-3 mb-3">
-                                        <div class="form-check form-switch">
-                                            <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            role="switch"
-                                            id="flexSwitchCheckDefault" formControlName="haveDiseases"/>
-                                            <label
-                                            class="form-check-label"
-                                            for="flexSwitchCheckDefault"
-                                            >List any Disabilities or Diseases<span
-                                                class="text-danger"
-                                                >{{ " *" }}</span
-                                            ></label
-                                            >
-                                        </div>
-                                        </div>
-                                        <div class="col-md-4" *ngIf="formValues.haveDiseases">
+                                      <div class="col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label"
-                                            >Please provide the name of the disease
-                                            or disability<span
+                                            >National Id Card No.<span
                                                 class="text-danger"
                                                 >{{ " *" }}</span
                                             ></label
                                             >
-                                            <textarea type="text" (resize)="(false)" rows="2" class="form-control" formControlName="diseasesOrDisabilities"></textarea>
+                                            <input type="text" formControlName="nationIdNumber" class="form-control" />
                                         </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                      <p class="text-muted">
+                                          Upload your National Id Card<span
+                                          class="text-danger"
+                                          >{{ " *" }}</span
+                                          >
+                                      </p>
+                                      <input type="hidden" formControlName="nationIdLink">
+                                      <ngx-dropzone (change)="onSelect($event, 'filesCertificate')" [multiple]="false">
+                                          <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                          <ngx-dropzone-preview
+                                          *ngFor="let f of filesCertificate"
+                                          [removable]="true"
+                                          (removed)="onRemove(f, 'filesCertificate')"
+                                          >
+                                          <ngx-dropzone-label
+                                              >{{ f.name }} ({{
+                                              f.type
+                                              }})</ngx-dropzone-label
+                                          >
+                                          </ngx-dropzone-preview>
+                                      </ngx-dropzone>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-4">
+                                        <div class="mb-3">
+                                            <label class="form-label"
+                                            >Examination Type<span
+                                                class="text-danger"
+                                                >{{ " *" }}</span
+                                            ></label
+                                            >
+                                            <ng-select
+                                            [items]="listData.examType"
+                                            formControlName="examType"
+                                            (change)="onChangeExamType()"
+                                            placeholder="Select your Examination Type"
+                                            bindLabel="name"
+                                            bindValue="value"
+                                            >
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" *ngIf="formValues.examType === 'OMSB_Selection_Exam'">
+                                      <label class="form-label">OMSB Selection Exam Score</label>
+                                      <input type="text" formControlName="omsbSelectionExamScore" class="form-control"/>
+                                    </div>
+                                  </div>
+                                    <div
+                                    class="col-md-4" *ngIf="formValues.examType === 'MFD'">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="isMfdPassed"/>
+                                            <label class="form-check-label" for="flexSwitchCheckDefault">Have you passed the MFD II?<span
+                                                class="text-danger">{{ " *" }}</span
+                                            ></label>
+                                        </div>
+                                    </div>
+                                    <div
+                                    class="col-md-4" *ngIf="formValues.examType === 'MFD' && formValues.isMfdPassed === true" >
+                                    <p class="text-muted">
+                                        Upload your MFD Part II.<span class="text-danger"
+                                        >{{ " *" }}</span>
+                                    </p>
+                                    <ngx-dropzone (change)="onSelect($event, 'filesMFD')"
+                                        [multiple]="false">
+                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview *ngFor="let f of filesMFD"
+                                        [removable]="true" (removed)="onRemove(f, 'filesMFD')">
+                                        <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                    </div>
+                                    <div class="col-md-4" *ngIf="formValues.examType === 'MFD' && formValues.isMfdPassed === true">
+                                      <p class="text-muted">
+                                          Upload your certificate.<span
+                                          class="text-danger"
+                                          >{{ " *" }}</span
+                                          >
+                                      </p>
+                                      <ngx-dropzone (change)="onSelect($event, 'filesCertificate')" [multiple]="false">
+                                          <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                          <ngx-dropzone-preview
+                                          *ngFor="let f of filesCertificate"
+                                          [removable]="true"
+                                          (removed)="onRemove(f, 'filesCertificate')"
+                                          >
+                                          <ngx-dropzone-label
+                                              >{{ f.name }} ({{
+                                              f.type
+                                              }})</ngx-dropzone-label
+                                          >
+                                          </ngx-dropzone-preview>
+                                      </ngx-dropzone>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-4 mt-3 mb-3">
+                                          <div class="form-check form-switch">
+                                              <input
+                                              class="form-check-input"
+                                              type="checkbox"
+                                              role="switch"
+                                              id="flexSwitchCheckDefault" formControlName="haveDiseases"/>
+                                              <label
+                                              class="form-check-label"
+                                              for="flexSwitchCheckDefault"
+                                              >List any Disabilities or Diseases<span
+                                                  class="text-danger"
+                                                  >{{ " *" }}</span
+                                              ></label
+                                              >
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4" *ngIf="formValues.haveDiseases">
+                                          <div class="mb-3">
+                                              <label class="form-label"
+                                              >Please provide the name of the disease
+                                              or disability<span
+                                                  class="text-danger"
+                                                  >{{ " *" }}</span
+                                              ></label
+                                              >
+                                              <textarea type="text" (resize)="(false)" rows="2" class="form-control" formControlName="diseasesOrDisabilities"></textarea>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row justify-content-between">
@@ -576,38 +651,7 @@
                                             <label class="form-label" >Overall Score<span class="text-danger">{{ " *" }}</span></label>
                                             <input type="text" formControlName="overallScore" class="form-control" />
                                         </div>
-                                    </div>
-                                    <div class="row mt-3" *ngIf="!formValues.haveDiseases">
-                                        <p class="h5">
-                                        Selection of Choice of Speciality programs
-                                        </p>
-                                        <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label class="form-label"
-                                            >1st Choice<span class="text-danger">{{
-                                                " *"
-                                            }}</span></label
-                                            >
-                                            <ng-select formControlName="specialtyProgramOne" [items]="listData.trainingProgramsList"
-                                            bindLabel="name"
-                                            bindValue="value"
-                                            placeholder="Current Position"></ng-select>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label class="form-label"
-                                            >2nd Choice<span class="text-danger">{{
-                                                " *"
-                                            }}</span></label
-                                            >
-                                            <ng-select formControlName="specialtyProgramTwo" [items]="listData.trainingProgramsList" placeholder="Current Position"
-                                            bindLabel="name"
-                                            bindValue="value"
-                                            ></ng-select>
-                                        </div>
-                                        </div>
-                                    </div>                                    
+                                    </div>                                
                                     <hr />
                                     <div class="row">
                                         <div class="col-md-5">

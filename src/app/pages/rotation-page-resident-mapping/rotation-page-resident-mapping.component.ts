@@ -15,7 +15,7 @@ export class RotationPageResidentMappingComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "Residency Mapping", active : true }
+      { label: "Master Rotation", active : true }
     ];
     
   }

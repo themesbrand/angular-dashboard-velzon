@@ -45,6 +45,9 @@ import { RotationPageResidentMappingComponent } from './rotation-page-resident-m
 import { ByTraineeComponent } from './rotation-page-resident-mapping/by-trainee/by-trainee.component';
 import { ByRotationComponent } from './rotation-page-resident-mapping/by-rotation/by-rotation.component';
 import { ByFacultyComponent } from './rotation-page-resident-mapping/by-faculty/by-faculty.component';
+import { TrainerEvaluationFormComponent } from './forms/trainer-evaluation-form/trainer-evaluation-form.component';
+import { ResearchMentorEvaluationFormComponent } from './forms/research-mentor-evaluation-form/research-mentor-evaluation-form.component';
+import { RotationEvaluationFormComponent } from './forms/rotation-evaluation-form/rotation-evaluation-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -65,7 +68,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     RotationPageResidentMappingComponent,
     ByTraineeComponent,
     ByRotationComponent,
-    ByFacultyComponent
+    ByFacultyComponent,
+    TrainerEvaluationFormComponent,
+    ResearchMentorEvaluationFormComponent,
+    RotationEvaluationFormComponent
   ],
   imports: [
     CommonModule,

@@ -74,11 +74,14 @@ export class ApplicationForScholarshipComponent implements OnInit {
   todayDate : Date = new Date();
 
   intakeYears: any[] = []
+  trainingProgramsList: any[] = []
 
   filesBLSCertificate: File[] = [];
   filesACLSCertificate: File[] = [];
   filesProofDocs: File[] = [];
   filesSponsorshipLetter: File[] = [];
+  filesMFD: File[] = [];
+  filesCertificate: File[] = [];
 
   SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
@@ -112,9 +115,15 @@ export class ApplicationForScholarshipComponent implements OnInit {
       'wilayatOrRegion' : new FormControl(null, []),
       'nextOfKin' : new FormControl('', []),
       'contactNextOfKin' : new FormControl('', []),
-      'omsbAdmissionScore' : new FormControl('', []),
+
+      'examType' : new FormControl(null, []),
+      'omsbSelectionExamScore' : new FormControl('', []),
+      'isMfdPassed' : new FormControl(null, []),
+      'mfdUploadLink' : new FormControl('', []),
+      'certificateUploadLink' : new FormControl('', []),
+      
       'nationIdNumber' : new FormControl('', []),
-      'staffIdNumber' : new FormControl('', []),
+      'nationIdLink' : new FormControl('', []),
 
       'haveDiseases' : new FormControl(null, []),
       'diseasesOrDisabilities' : new FormControl('', []),
@@ -128,9 +137,7 @@ export class ApplicationForScholarshipComponent implements OnInit {
         'expiryDate' : new FormControl(null, []),
         'uploadLink' : new FormControl('', []),
       }),
-      
-      'specialtyProgramOne' : new FormControl(null, []),
-      'specialtyProgramTwo' : new FormControl(null, []),
+
       'sponsorshipLetterLink' : new FormControl('', []),
       
       'isCompletedResidencyProgram' : new FormControl(null, []),      
@@ -143,6 +150,12 @@ export class ApplicationForScholarshipComponent implements OnInit {
     })
     this.addEducation();
     this.addInternship();
+
+    this.applicationForm.patchValue({
+      'fullName': 'Abbas Al Ajmi',
+      'email': 'ajmi@gmail.com',
+      'contactNumber': '13255618',
+    })
   }
 
   get formValues () {
@@ -157,6 +170,21 @@ export class ApplicationForScholarshipComponent implements OnInit {
     }  
     this.intakeYears.reverse()
   }
+
+  onChangeExamType() {
+    console.log(this.applicationForm.controls['examType'].value)
+    if(this.formValues.examType === 'MFD') {
+      this.trainingProgramsList = [
+        { name: "None", value: "None" },
+        { name: "Dermatology", value: "Dermatology" }
+      ];
+    } else {
+      this.trainingProgramsList = this.listData.examType
+    }
+    // Get the OMSB Selection Exam Score
+    this.applicationForm.controls['omsbSelectionExamScore'].patchValue('20.5')
+  }
+
 
   get educationControls() {
     return (<FormArray>this.applicationForm.get('education')).controls;
@@ -217,7 +245,15 @@ export class ApplicationForScholarshipComponent implements OnInit {
         this.filesProofDocs.splice(this.filesSponsorshipLetter.indexOf(event), 1);
         return
       }
-
+      
+      case 'filesMFD' : {
+        this.filesMFD.splice(this.filesMFD.indexOf(event), 1);
+        return
+      }
+      case 'filesCertificate' : {
+        this.filesCertificate.splice(this.filesCertificate.indexOf(event), 1);
+        return
+      }
       default : {
         break;
       }
@@ -239,6 +275,14 @@ export class ApplicationForScholarshipComponent implements OnInit {
       }
       case 'filesSponsorshipLetter' : {
         this.filesSponsorshipLetter.push(...event.addedFiles);
+        return
+      }
+      case 'filesMFD' : {
+        this.filesMFD.push(...event.addedFiles);
+        return
+      }
+      case 'filesCertificate' : {
+        this.filesCertificate.push(...event.addedFiles);
         return
       }
       default : {

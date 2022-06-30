@@ -1,0 +1,143 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Trainer Evaluation Form" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-2" >
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/assets/images/logo.png" class="img-fluid">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex flex-column text-center">
+                                <p class="h2">TRAINER EVALUATION BY RESIDENTS</p>
+                                <p class="h6">OMSB-AES-FRM-034</p>
+                            </div>
+                            <form [formGroup]="applicationHeaderForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Name of Trainer</label>
+                                        <ng-select
+                                        [items]="listData.trainerNamesList"
+                                        formControlName="nameOfTrainer"
+                                        placeholder="Please select"
+                                        >
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Training Center</label>
+                                        <ng-select
+                                        [items]="listData.trainerCenterList"
+                                        formControlName="trainerCenterName"
+                                        placeholder="Please select"
+                                        >
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Program</label>
+                                        <input type="text" formControlName="program" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Rotation</label>
+                                        <ng-select
+                                        [items]="listData.rotationList"
+                                        formControlName="rotation"
+                                        placeholder="Please select"
+                                        >
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Block</label>
+                                        <input type="text" formControlName="block" class="form-control"/>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body py-3 px-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="form-label">How many weeks did you work with this consultant/trainer?</label>
+                        <div class="d-flex flex-row">
+                            <div *ngFor="let choice of choices; let i=index" class="form-check mx-4 mb-2">
+                                <input [value]="choice.value" class="form-check-input" type="checkbox" id="formCheck1" (change)="onCheckChange($event, i, 'weeksOfWork')">
+                                <label class="form-check-label check-option" for="formCheck1">
+                                    {{choice.description}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">The frequency of your contacts with the teaching consultant/trainer was (per week)?</label>
+                        <div class="d-flex flex-row">
+                            <div *ngFor="let choice of choicesSub; let i=index" class="form-check mx-4 mb-2">
+                                <input [value]="choice.value" class="form-check-input" type="checkbox" id="formCheck1" (change)="onCheckChange($event, i, 'frequencyOfContacts')">
+                                <label class="form-check-label" for="formCheck1">
+                                    {{choice.description}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="table-responsive table_block table-fixed">
+                            <table class="table table-wrap" >
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>TRAINER</th>
+                                        <th>Strongly Disagree</th>
+                                        <th>Disagree</th>
+                                        <th>Agree</th>
+                                        <th>Strongly Agree</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let question of listData['trainer-evaluation-form']">
+                                        <td *ngIf="question.isChoices">{{question.question}}
+                                        </td>
+                                        <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
+                                        </td>
+                                        <td  *ngFor="let choice of choices; let i=index" >
+                                            <div *ngIf="question.isChoices" class="form-check mx-2 mb-2">
+                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
+                                                <label class="form-check-label mx-1 text-center check-option" for="formCheck1">
+                                                    {{choice.description}}
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5">
+                                            <label class="form-label mb-2" for="formCheck1">
+                                                Comments: (Strengths and Areas for Improvement)
+                                            </label>
+                                            <textarea name="" id="" cols="30" rows="10" style="width: 100%;"></textarea>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="form-label mb-2" for="formCheck1">
+                                                {{"Date : "}} {{todayDate | date : 'yyyy-MM-dd'}}
+                                             </label>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                                
+                            </table>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

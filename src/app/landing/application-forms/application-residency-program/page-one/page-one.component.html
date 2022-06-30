@@ -60,26 +60,26 @@
         </ngx-dropzone>
         </div>
         <div class="col-md-4" *ngIf="formValues.examType === 'MFD' && formValues.isMfdPassed === true">
-        <p class="text-muted">
-            Upload your certificate.<span
-            class="text-danger"
-            >{{ " *" }}</span
-            >
-        </p>
-        <ngx-dropzone (change)="onSelect($event, 'filesCertificate')" [multiple]="false">
-            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
-            <ngx-dropzone-preview
-            *ngFor="let f of filesCertificate"
-            [removable]="true"
-            (removed)="onRemove(f, 'filesCertificate')"
-            >
-            <ngx-dropzone-label
-                >{{ f.name }} ({{
-                f.type
-                }})</ngx-dropzone-label
-            >
-            </ngx-dropzone-preview>
-        </ngx-dropzone>
+            <p class="text-muted">
+                Upload your certificate.<span
+                class="text-danger"
+                >{{ " *" }}</span
+                >
+            </p>
+            <ngx-dropzone (change)="onSelect($event, 'filesCertificate')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of filesCertificate"
+                [removable]="true"
+                (removed)="onRemove(f, 'filesCertificate')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
         </div>
         <div class="col-md-4" *ngIf="formValues.examType === 'OMSB_Selection_Exam'">
         <label class="form-label">OMSB Selection Exam Score</label>
