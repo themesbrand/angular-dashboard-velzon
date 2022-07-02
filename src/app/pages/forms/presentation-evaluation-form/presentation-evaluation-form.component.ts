@@ -43,7 +43,7 @@ export class PresentationEvaluationFormComponent implements OnInit {
     {description: "Below Expectations", value: '2'},
     {description: "Meets Expectations", value: '3'},
     {description: "Exceeds Expectations", value: '3'},
-    {description: "Not Applicable", value: '4'}
+    {description: "N/A", value: '4'}
   ];
   traineeName: any;
   

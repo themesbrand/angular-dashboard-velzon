@@ -1,7 +1,8 @@
 <!-- Start Breadcrumbs -->
 <app-breadcrumbs title=" ROTATION EVALUATION FORM" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
-<button class="btn btn-primary mb-3" (click)="navigateBack()"><i class=" ri-arrow-left-circle-line"></i> Back</button>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card mb-2" >
@@ -14,7 +15,7 @@
                         <div class="d-flex flex-column justify-content-center">
                             <div class="d-flex flex-column text-center">
                                 <p class="h2">ROTATION EVALUATION FORM</p>
-                                <p class="h6">OMSB-AES-FRM-033</p>
+                                <p class="h6 mb-4">OMSB-AES-FRM-033</p>
                             </div>
                             <form [formGroup]="applicationHeaderForm">
                                 <div class="row">
@@ -76,12 +77,12 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>TRAINER</th>
-                                        <th class="text-center">Unsatisfactory</th>
-                                        <th class="text-center">Deficient</th>
-                                        <th class="text-center">Good</th>
-                                        <th class="text-center">Very Good</th>
-                                        <th class="text-center">Outstanding</th>
-                                        <th class="text-center">N/A</th>
+                                        <th class="text-start">Unsatisfactory</th>
+                                        <th class="text-start">Deficient</th>
+                                        <th class="text-start">Good</th>
+                                        <th class="text-start">Very Good</th>
+                                        <th class="text-start">Outstanding</th>
+                                        <th class="text-start">N/A</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -91,28 +92,32 @@
                                         <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index" >
-                                            <div *ngIf="question.isChoices" class="form-check mx-2 mb-2">
-                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
-                                                [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
-                                                (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
-                                                <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-1 text-center check-option" >
-                                                    {{choice.description}}
-                                                </label>
+                                            <div *ngIf="question.isChoices" class="form-check mb-2">
+                                                <div class="d-flex flex-row">
+                                                    <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
+                                                    [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
+                                                    (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
+                                                    <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-2 text-start check-option" >
+                                                        {{choice.description}}
+                                                    </label>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">Overall Quality of Rotation</p>
+                                        <td style="background-color: grey; color: white; align-items: center; padding: 25px 5px "><b><p class="h5 text-white">Overall Quality of Rotation</p>
                                         </b>
                                         </td>
-                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choices; let i=index" >
+                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 5px " *ngFor="let choice of choices; let i=index" >
                                             <div class="form-check mx-2 mb-2">
-                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
-                                                [checked]="getControlsSurveyForm('overallQualityOfRotation')[i].value" 
-                                                (change)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')">
-                                                <label (click)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')" class="form-check-label mx-1 text-center check-option" >
-                                                    <b class="h6 text-white">{{choice.description}}</b>
-                                                </label>
+                                                <div class="d-flex flex-row">
+                                                    <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
+                                                    [checked]="getControlsSurveyForm('overallQualityOfRotation')[i].value" 
+                                                    (change)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')">
+                                                    <label (click)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')" class="form-check-label mx-1text-center check-option" >
+                                                        <b class="h6 text-white">{{choice.description}}</b>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>

@@ -107,15 +107,21 @@ export class SixMonthAndAnnualEvaluationFormComponent implements OnInit {
     return (<FormArray>this.surveyForm.get(controlName)).controls
   }
 
-  onCheckChangeSurvey(event : any, choice : any, controlName: any){
-    this.getControlsSurveyForm(controlName).forEach((element, index) => {
-      if(index === choice) {
-        element.patchValue(true);
-      } else {
-        element.patchValue(false);
-      }
-    })  
-    
+  onCheckChangeSurvey(event : any, choice : any, controlName: any, question : any){
+
+    console.log(question)
+    if(question){
+      this.getControlsSurveyForm(controlName).forEach((element, index) => {
+        console.log(index, element)
+        if(index === choice) {
+          element.patchValue(true);
+        } else {
+          element.patchValue(false);
+        }
+      })  
+    } else {
+      return;
+    }
     
   }
 

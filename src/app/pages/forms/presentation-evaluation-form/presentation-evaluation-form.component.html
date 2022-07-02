@@ -1,7 +1,7 @@
 <!-- Start Breadcrumbs -->
 <app-breadcrumbs title="EVALUATION FORM FOR PRESENTATION" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
-<button class="btn btn-primary mb-3" (click)="navigateBack()"><i class=" ri-arrow-left-circle-line"></i> Back</button>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 <div class="row">
     <div class="col-md-12">
         <div class="card mb-2" >
@@ -15,7 +15,7 @@
                             <div class="d-flex flex-column text-center">
                                 <p class="h2">OMAN MEDICAL SPECIALTY BOARD</p>
                                 <p class="h3">EVALUATION FORM FOR PRESENTATION</p>
-                                <p class="h6">OMSB-AES-FRM-006</p>
+                                <p class="h6 mb-4">OMSB-AES-FRM-006</p>
                             </div>
                             <form [formGroup]="applicationHeaderForm">
                                 <div class="row">
@@ -80,11 +80,11 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>CRITERIA</th>
-                                        <th class="text-center">Unsatisfactory</th>
-                                        <th class="text-center">Below Expectations</th>
-                                        <th class="text-center">Meets Expectations</th>
-                                        <th class="text-center">Exceeds Expectations</th>
-                                        <th class="text-center">Not Applicable</th>
+                                        <th class="text-start">Unsatisfactory</th>
+                                        <th class="text-start">Below Expectations</th>
+                                        <th class="text-start">Meets Expectations</th>
+                                        <th class="text-start">Exceeds Expectations</th>
+                                        <th class="text-start">N/A</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,13 +94,15 @@
                                         <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index" >
-                                            <div *ngIf="question.isChoices" class="form-check mx-2 mb-2">
-                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
-                                                [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
-                                                (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
-                                                <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-1 text-center check-option" >
-                                                    {{choice.description}}
-                                                </label>
+                                            <div *ngIf="question.isChoices" class="form-check mb-2">
+                                                <div class="d-flex flex-row">
+                                                    <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
+                                                    [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
+                                                    (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
+                                                    <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-2 text-start check-option" >
+                                                        {{choice.description}}
+                                                    </label>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
