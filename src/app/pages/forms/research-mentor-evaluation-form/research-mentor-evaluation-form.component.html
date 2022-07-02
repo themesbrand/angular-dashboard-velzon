@@ -1,16 +1,14 @@
 <!-- Start Breadcrumbs -->
-<app-breadcrumbs title="RESEARCH MENTOR EVALUATION FORM
-
-" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="RESEARCH MENTOR EVALUATION FORM" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
-
+<button class="btn btn-primary mb-3" (click)="navigateBack()"><i class=" ri-arrow-left-circle-line"></i> Back</button>
 <div class="row">
     <div class="col-md-12">
         <div class="card mb-2" >
             <div class="card-header pb-0">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/assets/images/logo.png" class="img-fluid">
+                        <img src="/assets/images/logo_2.png" class="img-fluid">
                     </div>
                     <div class="col-md-10">
                         <div class="d-flex flex-column justify-content-center">
@@ -22,6 +20,22 @@
                             </div>
                             <form [formGroup]="applicationHeaderForm">
                                 <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Trainee Name</label>
+                                        <input type="text" formControlName="traineeName" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Program</label>
+                                        <input type="text" formControlName="program" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Trainee Level</label>
+                                        <input type="text" formControlName="traineeLevel" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">OMSB No.</label>
+                                        <input type="text" formControlName="omsbNumber" class="form-control"/>
+                                    </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Name of Mentor</label>
                                         <ng-select
@@ -31,16 +45,9 @@
                                         >
                                         </ng-select>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-label">Program</label>
-                                        <input type="text" formControlName="program" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-label">Resident Level</label>
-                                        <input type="text" formControlName="residentLevel" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="d-flex flex-row">
+                                    
+                                    <div class="col-md-8">
+                                        <div class="d-flex flex-row my-4">
                                             <label class="form-label">Current Stage of Research</label>
                                             <div class="d-flex flex-row mx-4">
                                                 <div class="form-check mx-1">
@@ -69,11 +76,11 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>CRITERIA</th>
-                                        <th>Strongly Disagree</th>
-                                        <th>Disagree</th>
-                                        <th>Agree</th>
-                                        <th>Strongly Agree</th>
-                                        <th>N/A</th>
+                                        <th class="text-center">Strongly Disagree</th>
+                                        <th class="text-center">Disagree</th>
+                                        <th class="text-center">Agree</th>
+                                        <th class="text-center">Strongly Agree</th>
+                                        <th class="text-center">N/A</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,8 +91,9 @@
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index" >
                                             <div *ngIf="question.isChoices" class="form-check mx-2 mb-2">
-                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
-                                                <label class="form-check-label mx-1 text-center check-option" for="formCheck1">
+                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" [checked]="getControlsSurveyForm(question.questionNumber)[i].value" 
+                                                (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
+                                                <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-1 text-center check-option" >
                                                     {{choice.description}}
                                                 </label>
                                             </div>
@@ -93,18 +101,13 @@
                                     </tr>
                                     <tr>
                                         <td colspan="6">
-                                            <label class="form-check-label mb-2" for="formCheck1">
+                                            <label class="form-check-label mb-2" >
                                                 COMMENTS: (Please use this space to record areas of strengths or any suggestions for development.)
                                             </label>
                                             <textarea name="" id="" cols="30" rows="10" style="width: 100%;"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3">
-                                            <label class="form-label">
-                                                {{"Resident Name : Abbas Al Ajmi"}}
-                                             </label>        
-                                        </td>
                                         <td colspan="3">
                                             <label class="form-label">
                                                 {{"Date : "}} {{todayDate | date : 'yyyy-MM-dd'}}

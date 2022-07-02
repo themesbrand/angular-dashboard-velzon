@@ -1,0 +1,553 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Six monthly and Annual Evaluation" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<button class="btn btn-primary mb-3" (click)="navigateBack()"><i class=" ri-arrow-left-circle-line"></i> Back</button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-2" >
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/assets/images/logo_2.png" class="img-fluid">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex flex-column text-center">
+                                <p class="h2">OMAN MEDICAL SPECIALTY BOARD</p>
+                                <p class="h6">OMSB-AES-FRM-007</p>
+                            </div>
+                            <form [formGroup]="applicationHeaderForm">
+                                <div class="row">
+                                    <div class="col-md-12 mt-3">
+                                        <div class="d-flex flex-row justify-content-center" >
+                                            <div class="form-check mx-1">
+                                              <input class="form-check-input" type="radio" id="omsbMemeberCheckRadio1" formControlName="evaluationType" value="true">
+                                              <label class="h5 mx-2" for="omsbMemeberCheckRadio1">Six-Month Evaluation</label>
+                                            </div>
+                                            <div class="form-check mx-1">
+                                              <input class="form-check-input" type="radio" id="omsbMemeberCheckRadio2" formControlName="evaluationType" value="false">
+                                              <label class="h5 mx-2" for="omsbMemeberCheckRadio2">Annual Evaluation</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Trainee Name</label>
+                                        <input type="text" formControlName="traineeName" class="form-control"/>
+                                    </div>
+                                   
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Program</label>
+                                        <input type="text" formControlName="program" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Trainee Level</label>
+                                        <input type="text" formControlName="traineeLevel" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">OMSB No.</label>
+                                        <input type="text" formControlName="omsbNumber" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="d-flex flex-row">
+                                            <label class="form-label">Date of Rotation</label>
+                                            <div class="d-flex flex-row mx-2">
+                                                <label class="form-label" style="margin-right: 15px !important">{{"From"}}</label>
+                                                <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                formControlName="rotationFrom"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"
+                                              />
+                                            </div>
+                                            <div class="d-flex flex-row mx-2">
+                                                <label class="form-label" style="margin-right: 15px !important">{{"To"}}</label>
+                                                <input
+                                                class="form-control flatpickr-input"
+                                                type="text"
+                                                formControlName="rotationTo"
+                                                mwlFlatpickr
+                                                [altInput]="true"
+                                                [convertModelValue]="true"
+                                              />
+                                            </div>
+
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body py-3 px-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table_block table-fixed">
+                            <table class="table table-wrap" >
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>CRITERIA</th>
+                                        <th class="text-center">Unsatisfactory</th>
+                                        <th class="text-center">Below Expectations</th>
+                                        <th class="text-center">Meets Expectations</th>
+                                        <th class="text-center">Exceeds Expectations</th>
+                                        <th class="text-center">Not Evaluated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let question of listData['six-month-and-annual-evaluation-form']">
+                                        <td *ngIf="question.isChoices">{{question.question}}
+                                        </td>
+                                        <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
+                                        </td>
+                                        <td  *ngFor="let choice of choices; let i=index" >
+                                            <div *ngIf="question.isChoices" class="form-check mx-2 mb-2">
+                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
+                                                [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
+                                                [disabled]="!question.question"
+                                                (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
+                                                <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-1 text-center check-option" >
+                                                    {{choice.description}}
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <label class="form-label mb-2">Strengths Summary:</label>
+                                            <textarea name="" id="" cols="30" rows="5" style="width: 100%;"></textarea>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <label class="form-label mb-2">Areas of Improvement Summary (including professional issues):</label>
+                                            <textarea name="" id="" cols="30" rows="5" style="width: 100%;"></textarea>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <label class="form-label mb-2">Agreed Action:
+                                            </label>
+                                            <textarea name="" id="" cols="30" rows="5" style="width: 100%;"></textarea>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row text-center py-3 bg-block-title"><span class="mx-auto">EXAMINATIONS</span></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td colspan="3" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row">
+                                                    <label class="form-label mb-2">OMSB Examination</label>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-labe mx-2" for="flexRadioDefault1">Part 1</label>
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                        <label class="form-check-label mx-2" for="flexRadioDefault2">Part 2</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <label class="form-label mb-2">International Examinations</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row">
+                                                    <div class="d-flex flex-row">
+                                                        <label class="form-label mb-2">Score</label>
+                                                        <input type="text" style="width: 80px;" class="form-control mx-2" />
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-labe mx-2" for="flexRadioDefault1">Pass</label>
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                        <label class="form-check-label mx-2" for="flexRadioDefault2">Fail</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row">
+                                                    <div class="d-flex flex-row">
+                                                        <label class="form-label mb-2">In-Training Examination Score</label>
+                                                        <input type="text" style="width: 80px;" class="form-control mx-2" />
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-labe mx-2" for="flexRadioDefault1">Pass</label>
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                        <label class="form-check-label mx-2" for="flexRadioDefault2">Fail</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <label class="form-label mb-2">End-of-year examination </label>
+                                        </td>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label mb-2 text-nowrap">Exit Examination</label>
+                                                <input type="text" style="width: 100%;" class="form-control mx-2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row">
+                                                    <div class="d-flex flex-row">
+                                                        <label class="form-label mb-2">Score</label>
+                                                        <input type="text" style="width: 80px;" class="form-control mx-2" />
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-labe mx-2" for="flexRadioDefault1">Pass</label>
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                        <label class="form-check-label mx-2" for="flexRadioDefault2">Fail</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row">
+                                                    <div class="d-flex flex-row">
+                                                        <label class="form-label mb-2">Score</label>
+                                                        <input type="text" style="width: 80px;" class="form-control mx-2" />
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-labe mx-2" for="flexRadioDefault1">Pass</label>
+                                                    </div>
+                                                    <div class="form-check mx-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                        <label class="form-check-label mx-2" for="flexRadioDefault2">Fail</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row text-center py-3 bg-block-title"><span class="mx-auto">RESEARCH EVALUATION</span></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">Research Title</label>
+                                                <input type="text" style="width: 100%" class="form-control mx-2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border">
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">STAGE</label>
+                                            </div>
+                                        </td>
+                                        <td colspan="3"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">COMMENTS</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border">
+                                        <td colspan="3"  style="border-style: none !important" class="border py-0">
+                                            <div class="d-flex flex-row">
+                                                <textarea type="text" style="width: 100%" rows="3"></textarea>
+                                            </div>
+                                        </td>
+                                        <td colspan="3"  style="border-style: none !important" class="border py-0">
+                                            <div class="d-flex flex-row">
+                                                <textarea type="text" style="width: 100%" rows="3"></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- PRESENTATION EVALUATION -->
+                                    <tr>
+                                        <td colspan="6" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row text-center py-3 bg-block-title"><span class="mx-auto">PRESENTATION EVALUATION</span></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">No. of Presentations Done:</label>
+                                                <input type="text" style="width: 100%" class="form-control mx-2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <ng-container *ngTemplateOutlet="tableBody"></ng-container>
+
+                                    <!-- MINI CLINICAL EVALUATION EXERCISE (MINI-CEX) -->
+                                    <tr>
+                                        <td colspan="6" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row text-center py-3 bg-block-title"><span class="mx-auto">MINI CLINICAL EVALUATION EXERCISE (MINI-CEX)</span></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">No. of Mini-CEX Completed:</label>
+                                                <input type="text" style="width: 100%" class="form-control mx-2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <ng-container *ngTemplateOutlet="tableBody"></ng-container>
+
+                                    <!-- PROCEDURAL SKILLS EVALUATION/LOGBOOK -->
+                                    <tr>
+                                        <td colspan="6" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row text-center py-3 bg-block-title"><span class="mx-auto">PROCEDURAL SKILLS EVALUATION/LOGBOOK</span></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">No. of Procedures Done:</label>
+                                                <input type="text" style="width: 100%" class="form-control mx-2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <ng-container *ngTemplateOutlet="tableBody"></ng-container>
+                                    <!-- CASE-BASED DISCUSSIONS -->
+                                    <tr>
+                                        <td colspan="6" style="border-style: none !important">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <div class="d-flex flex-row text-center py-3 bg-block-title"><span class="mx-auto">CASE-BASED DISCUSSIONS</span></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6"  style="border-style: none !important">
+                                            <div class="d-flex flex-row">
+                                                <label class="form-label text-nowrap mb-2">No. of Case-Based Discussion Done: </label>
+                                                <input type="text" style="width: 100%" class="form-control mx-2" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <ng-container *ngTemplateOutlet="tableBody"></ng-container>
+                  
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="d-flex flex-row" >
+                                                <label class="form-label text-nowrap mb-2">Multisource Feedback evaluation conducted with the resident:  </label>
+                                                <div class="form-check mx-3">
+                                                  <input class="form-check-input" type="radio" id="feedbackEvaluation1" value="true">
+                                                  <label class="mx-2" for="feedbackEvaluation1">Yes</label>
+                                                </div>
+                                                <div class="form-check mx-3">
+                                                  <input class="form-check-input" type="radio" id="feedbackEvaluation2"  value="false">
+                                                  <label class="mx-2" for="feedbackEvaluation2">No</label>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" style="padding: 0!important; padding-top: 15px !important; ">
+                                            <div class="table-responsive table_block table-fixed">
+                                                <table class="table table-wrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Leave</th>
+                                                            <th>From Date</th>
+                                                            <th>To Date</th>
+                                                            <th>Number of Days</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Sick Leave</td>
+                                                            <td>2019-06-10</td>
+                                                            <td>2019-06-14</td>
+                                                            <td>4</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Emergency Leave</td>
+                                                            <td>2019-09-10</td>
+                                                            <td>2019-09-14</td>
+                                                            <td>4</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">For Six-Month Evaluation (select one):</p>
+                                        </b>
+                                        </td>
+                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choicesSubs; let i=index" >
+                                            <div class="form-check mx-2 mb-2">
+                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
+                                                [checked]="getControlsSurveyForm('overallSixMonthEvaluation')[i].value" 
+                                                (change)="onCheckChangeSurvey($event, i, 'overallSixMonthEvaluation')">
+                                                <label (click)="onCheckChangeSurvey($event, i, 'overallSixMonthEvaluation')" class="form-check-label mx-1 text-center check-option" >
+                                                    <b class="h6 text-white">{{choice.description}}</b>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">For Annual Evaluation: Recommendation (select one): </p>
+                                        </b>
+                                        </td>
+                                        <td  colspan="1" style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choicesSubs2; let i=index" >
+                                            <div class="form-check mb-2">
+                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
+                                                [checked]="getControlsSurveyForm('overallAnnualEvaluation')[i].value" 
+                                                (change)="onCheckChangeSurvey($event, i, 'overallAnnualEvaluation')">
+                                                <label (click)="onCheckChangeSurvey($event, i, 'overallAnnualEvaluation')" class="form-check-label mx-1 text-center check-option" >
+                                                    <b class="h7 text-white">{{choice.description}}</b>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td colspan="2" style="background-color: grey; color: white; align-items: center; padding: 25px 10px ">
+                                            <input type="text" *ngIf="getControlsSurveyForm('overallAnnualEvaluation')[1].value" formControlName="annualEvaluationOther" class="form-control"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="d-flex flex-row" >
+                                                <label class="form-label text-nowrap mb-2">This evaluation has been reviewed with the resident:   </label>
+                                                <div class="form-check mx-3">
+                                                  <input class="form-check-input" type="radio" id="feedbackEvaluation1" value="true">
+                                                  <label class="mx-2" for="feedbackEvaluation1">Yes</label>
+                                                </div>
+                                                <div class="form-check mx-3">
+                                                  <input class="form-check-input" type="radio" id="feedbackEvaluation2"  value="false">
+                                                  <label class="mx-2" for="feedbackEvaluation2">No</label>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr class="mt-3">
+                                        <td colspan="6">
+                                            <label class="form-label mb-2" >
+                                                {{"Name of Program Director/Asst. Program Director: Fahad Al Khatri"}} 
+                                             </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td colspan="3">
+                                            <label class="form-label mb-2" >
+                                                {{"Name of Trainee: "}} {{traineeName }}
+                                             </label>
+                                        </td>
+                                        
+                                        <td colspan="3">
+                                            <label class="form-label mb-2" >
+                                                {{"Date : "}} {{todayDate | date : 'yyyy-MM-dd'}}
+                                             </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn btn-primary">Submit</button>
+                            <div class="d-flex flex-column px-2 py-2 shadow border mt-3">
+                                <p class="h5"><b>Scale</b></p>
+                                <p class="h6"><b>1. Unsatisfactory</b></p>
+                                <p class="">Poor competency judgment. Requires continuous supervision.</p>
+                                <p class="h6"><b>2. Below Expectations</b></p>
+                                <p class="">Inadequate competency judgment. Requires frequent supervision.</p>
+                                <p class="h6"><b>3. Meets Expectations</b></p>
+                                <p class="">Effective competency judgment. Supervision needed for complex/difficulty situations.</p>
+                                <p class="h6"><b>4. Exceeds Expectations</b></p>
+                                <p class="">Exemplary competency judgment including in complex/difficult situations. Can practice independently.</p>
+                                <p class="h6"><b>Not Applicable</b></p>
+                                <p class="">Not relevant in the setting, not observed or unable to evaluate.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #tableBody>
+    <tr class="border">
+        <td colspan="6"  style="border-style: none !important">
+            <div class="d-flex flex-row">
+                <label class="form-label text-nowrap mb-2">Strengths Summary:</label>
+            </div>
+        </td>
+    </tr>
+    <tr class="border">
+        <td colspan="6"  style="border-style: none !important" class="border py-0">
+            <div class="d-flex flex-row">
+                <textarea type="text" style="width: 100%" rows="3"></textarea>
+            </div>
+        </td>
+    </tr>
+    <tr class="border">
+        <td colspan="6"  style="border-style: none !important">
+            <div class="d-flex flex-row">
+                <label class="form-label text-nowrap mb-2">Areas of Improvement Summary:</label>
+            </div>
+        </td>
+    </tr>
+    <tr class="border">
+        <td colspan="6"  style="border-style: none !important" class="border py-0">
+            <div class="d-flex flex-row">
+                <textarea type="text" style="width: 100%" rows="3"></textarea>
+            </div>
+        </td>
+    </tr>
+    <tr class="border">
+        <td colspan="6"  style="border-style: none !important">
+            <div class="d-flex flex-row">
+                <label class="form-label text-nowrap mb-2">Agreed Action:</label>
+            </div>
+        </td>
+    </tr>
+    <tr class="border">
+        <td colspan="6"  style="border-style: none !important" class="border py-0">
+            <div class="d-flex flex-row">
+                <textarea type="text" style="width: 100%" rows="3"></textarea>
+            </div>
+        </td>
+    </tr>
+</ng-template>

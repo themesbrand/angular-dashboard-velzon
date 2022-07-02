@@ -94,26 +94,66 @@ export class ResidentBlockDiagramComponent implements OnInit {
   }
 
   routeToForm(form : any, blockId : any, tableYearNumber : any) {
+    console.log(form)
     switch (form) {
       case 'Trainer Evaluation Form' : {
         this.router.navigateByUrl('/forms/trainer-evaluation-form', { state: {
           block: this.blockDates[tableYearNumber][blockId],
-          programName : this.listData.programName
+          programName : this.listData.programName,
+          traineeName : this.listData.traineeName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb
         }})
         break;
       }
       case 'Research Mentor Evaluation Form' : {
         this.router.navigateByUrl('/forms/research-mentor-evaluation-form', { state: {
           yearCode: this.tableYears[tableYearNumber].yearCode,
-          programName : this.listData.programName
+          programName : this.listData.programName,
+          traineeName : this.listData.traineeName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb
         }})
         break;
       }
       case 'Rotation Evaluation Form' : {
         this.router.navigateByUrl('/forms/rotation-evaluation-form', { state: {
           block: this.blockDates[tableYearNumber][blockId],
+          academicYear : this.tableYears[tableYearNumber].year,
           programName : this.listData.programName,
-          academicYear : this.tableYears[tableYearNumber].year
+          traineeName : this.listData.traineeName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb
+        }})
+        break;
+      }
+      case 'ITAR' : {
+        this.router.navigateByUrl('/forms/in-training-evaluation-form', { state: {
+          traineeName : this.listData.traineeName,
+          programName : this.listData.programName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb,
+          block: this.blockDates[tableYearNumber][blockId]
+        }})
+        break;
+      }
+      case 'WPBA (On-Demand Evaluations)' : {
+        this.router.navigateByUrl('/forms/presentation-evaluation-form', { state: {
+          traineeName : this.listData.traineeName,
+          programName : this.listData.programName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb,
+          block: this.blockDates[tableYearNumber][blockId]
+        }})
+        break;
+      }
+      case 'Six monthly and Annual Evaluation' : {
+        this.router.navigateByUrl('/forms/six-month-and-annual-evaluation-form', { state: {
+          traineeName : this.listData.traineeName,
+          programName : this.listData.programName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb,
+          block: this.blockDates[tableYearNumber][blockId]
         }})
         break;
       }

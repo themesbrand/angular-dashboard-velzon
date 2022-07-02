@@ -58,11 +58,21 @@ export class ByRotationComponent implements OnInit {
   }
 
   generateColorCodes() {
-    for(var i = 0; i < this.listData.students.length; i++) {
-      var color = Math.floor(0x1000000 * Math.random()).toString(16);
-      const randomColor = '#' + ('000000' + color + '8f').slice(6);
-      this.colorCodeArray.push(randomColor)  
+    for(var i = 0; i < this.listData.rotationCodes.length; i++) {
+      
     }
+    this.listData.rotationCodes.forEach( code => {
+      if(code === 'AL' || code === 'ML' )  {
+
+        this.colorCodeArray.push('#000000')  
+      } else {
+        var color = Math.floor(0x1000000 * Math.random()).toString(16);
+        const randomColor = '#' + ('000000' + color + '8f').slice(6);
+        this.colorCodeArray.push(randomColor)  
+      }
+
+    })
+
 
     if(this.isRotationVsTrainee) { 
       for(var i = 0; i < this.studentList.length; i++) {

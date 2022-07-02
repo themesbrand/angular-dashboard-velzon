@@ -4,7 +4,7 @@
 
 <ng-template #fullDataModal let-modal style="z-index: 999999 !important;">
     <div class="modal-content">
-        <div class="modal-body">
+        <div class="modal-body py-0">
             <div class="row modal-main-body">
                 <ng-container *ngTemplateOutlet="tableBody"></ng-container>   
             </div>
@@ -36,7 +36,7 @@
                             "></i></button>
                     </div>
                     <div class="table-responsive table_block">
-                        <table class=" table table-hover table-nowrap" >
+                        <table class=" table table-nowrap" >
                             <thead class="text-center">
                                 <tr>
                                     <th>
@@ -141,7 +141,9 @@
                                         </div>
                                         <span>{{s.student.name}}</span>
                                     </td>
-                                    <td *ngFor="let blockValue of s.blockValue; let j = index;" (click)="setBlock(s.student.name, j)" [ngStyle]="{'background-color': colorBlocksArray[i][j] }">
+                                    <td *ngFor="let blockValue of s.blockValue; let j = index;" (click)="setBlock(s.student.name, j)"
+                                    [ngClass]="colorBlocksArray[i][j] === '#000000' ? 'text-white' : ''"
+                                    [ngStyle]="{'background-color': colorBlocksArray[i][j] }">
                                         <span>{{blockValue}}</span><i  *ngIf="blockValue != ''" class="ri-delete-bin-5-line text-danger mx-2" (click)="setBlock(s.student.name, j)"></i>
                                     </td>
                                 </tr>

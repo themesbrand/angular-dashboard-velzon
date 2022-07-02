@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { data } from '../data'
 @Component({
@@ -17,24 +18,24 @@ export class ResearchMentorEvaluationFormComponent implements OnInit {
 
   applicationHeaderForm !: FormGroup;
   surveyForm : FormGroup = new FormGroup({
-    'questionOne' : new FormArray([]),
-    'questionTwo' : new FormArray([]),
-    'questionThree' : new FormArray([]),
-    'questionFour' : new FormArray([]),
-    'questionFive' : new FormArray([]),
-    'questionSix' : new FormArray([]),
-    'questionSeven' : new FormArray([]),
-    'questionEight' : new FormArray([]),
-    'questionNine' : new FormArray([]),
-    'questionTen' : new FormArray([]),
-    'questionEleven' : new FormArray([]),
-    'questionTwelve' : new FormArray([]),
-    'questionThirteen' : new FormArray([]),
-    'questionFourteen' : new FormArray([]),
-    'questionFifteen' : new FormArray([]),
-    'questionSeventeen' : new FormArray([]),
-    'questionEighteen' : new FormArray([]),
-    'questionNineteen' : new FormArray([]),
+    'questionOne' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionTwo' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionThree' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionFour' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionFive' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionSix' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionSeven' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionEight' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionNine' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionTen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionEleven' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionTwelve' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionThirteen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionFourteen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionFifteen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionSeventeen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionEighteen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
+    'questionNineteen' : new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)]),
   });
 
   public choices = [
@@ -47,10 +48,12 @@ export class ResearchMentorEvaluationFormComponent implements OnInit {
 
 
   
-  constructor(private formBuilder : FormBuilder) { }
+  constructor(private formBuilder : FormBuilder,
+    private router : Router) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [
+      { label: "BLOCK DIAGRAM", link: '/residency-block-diagram'},
       { label: "RESEARCH MENTOR EVALUATION FORM", active : true }
     ];
     console.log(history.state)
@@ -61,9 +64,11 @@ export class ResearchMentorEvaluationFormComponent implements OnInit {
 
   headerFormInit() {
     this.applicationHeaderForm = this.formBuilder.group({
-      'nameOfMentor' : new FormControl(null, []),
+      'traineeName' : new FormControl(null, []),
+      'traineeLevel' : new FormControl(null, []),
+      'omsbNumber' : new FormControl(null, []),
       'program' : new FormControl(null, []),
-      'residentLevel' : new FormControl(null, []),
+      'nameOfMentor' : new FormControl(null, []),
       'stageOfResearch' : new FormControl(null, [])
     })
 
@@ -76,54 +81,28 @@ export class ResearchMentorEvaluationFormComponent implements OnInit {
     
     this.applicationHeaderForm.patchValue({
       program : history.state.programName,
-      residentLevel :history.state.yearCode
+      traineeName : history.state.traineeName,
+      traineeLevel : history.state.level,
+      omsbNumber : history.state.omsb,
     })
 
   }
 
-  onCheckChange(event : any, choice : any, controlName: any){
-    if(event.target.checked){
-      (<FormArray>this.applicationHeaderForm.get(controlName)).push(
-        new FormControl(event.target.value)
-      );
-
-    }
-    else{
-      let i: number = 0;
-  
-      const formArray = (<FormArray>this.applicationHeaderForm.get(controlName));
-
-      formArray.controls.forEach(ctrl  => {
-        if(ctrl.value == event.target.value) {
-          formArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-    }
-    console.log(this.applicationHeaderForm.value)
+  getControlsSurveyForm(controlName : any) {
+    return (<FormArray>this.surveyForm.get(controlName)).controls
   }
   onCheckChangeSurvey(event : any, choice : any, controlName: any){
-    if(event.target.checked){
-      (<FormArray>this.surveyForm.get(controlName)).push(
-        new FormControl(event.target.value)
-      );
+    this.getControlsSurveyForm(controlName).forEach((element, index) => {
+      if(index === choice) {
+        element.patchValue(true);
+      } else {
+        element.patchValue(false);
+      }
+    })  
+  }
 
-    }
-    else{
-      let i: number = 0;
-  
-      const formArray = (<FormArray>this.surveyForm.get(controlName));
-
-      formArray.controls.forEach(ctrl  => {
-        if(ctrl.value == event.target.value) {
-          formArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-    }
-    console.log(this.surveyForm.value)
+  navigateBack() {
+    this.router.navigateByUrl('/residency-block-diagram')
   }
 
 }

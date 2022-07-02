@@ -28,7 +28,9 @@ const data = {
     "EM-EB-KH",
     "OBGYN-OA-RH",
     "OBGYN-RSCH(STAGE 4)-RH",
-    "OBGYN-CLINIC-SQUH"
+    "OBGYN-CLINIC-SQUH",
+    "AL",
+    "ML"
   ],
   students: [
     { name: "Al Abri Falsal", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-251'},
@@ -49,21 +51,19 @@ const data = {
     { name: "Abba Al Fahad", program: 'Anaesthesia', year: 'R3', omsbNumber : '20-782'},
   ],
   faculty: [
-    {name : 'Faculty 1'},
-    {name : 'Faculty 2'},
-    {name : 'Faculty 3'},
-    {name : 'Faculty 4'},
-    {name : 'Faculty 5'},
-    {name : 'Faculty 6'},
-    {name : 'Faculty 7'},
-    {name : 'Faculty 8'},
-    {name : 'Faculty 9'},
-    {name : 'Faculty 10'},
-    {name : 'Faculty 11'},
-    {name : 'Faculty 12'},
-    {name : 'Faculty 13'},
-    {name : 'Faculty 14'},
-    {name : 'Faculty 15'}
+    {name : 'Al Abri Falsal'},
+    {name : 'Al Abri Maamari'},
+    {name : 'Al Abri Ibraham'},
+    {name : 'Fahad Al Khatri'},
+    {name : 'Yasser Al Ajmi'},
+    {name : 'Yasser Al Maamari'},
+    {name : 'Al Raisi'},
+    {name : 'Abba Abri Falsal'},
+    {name : 'Fahad Al Ibraham'},
+    {name : 'Raisi Al Maamari'},
+    {name : 'Fahad Abri Ibraham'},
+    {name : 'Abri Fahad Ibraham'},
+    {name : 'Abdulaziz Raisi'}
   ],
 };
 

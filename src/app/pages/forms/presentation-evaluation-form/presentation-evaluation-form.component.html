@@ -1,5 +1,5 @@
 <!-- Start Breadcrumbs -->
-<app-breadcrumbs title=" ROTATION EVALUATION FORM" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="EVALUATION FORM FOR PRESENTATION" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
 <button class="btn btn-primary mb-3" (click)="navigateBack()"><i class=" ri-arrow-left-circle-line"></i> Back</button>
 <div class="row">
@@ -13,8 +13,9 @@
                     <div class="col-md-10">
                         <div class="d-flex flex-column justify-content-center">
                             <div class="d-flex flex-column text-center">
-                                <p class="h2">ROTATION EVALUATION FORM</p>
-                                <p class="h6">OMSB-AES-FRM-033</p>
+                                <p class="h2">OMAN MEDICAL SPECIALTY BOARD</p>
+                                <p class="h3">EVALUATION FORM FOR PRESENTATION</p>
+                                <p class="h6">OMSB-AES-FRM-006</p>
                             </div>
                             <form [formGroup]="applicationHeaderForm">
                                 <div class="row">
@@ -35,11 +36,7 @@
                                         <label class="form-label">OMSB No.</label>
                                         <input type="text" formControlName="omsbNumber" class="form-control"/>
                                     </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Academic Year</label>
-                                        <input type="text" formControlName="academicYear" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
+                                    <div class="col-md-4 mb-3">
                                         <label class="form-label">Rotation</label>
                                         <ng-select
                                         [items]="listData.rotationList"
@@ -47,22 +44,29 @@
                                         placeholder="Please select"
                                         >
                                         </ng-select>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Training Center</label>
+                                    </div>                                    
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Setting</label>
                                         <ng-select
-                                        [items]="listData.trainerCenterList"
-                                        formControlName="trainerCenterName"
+                                        [items]="listData.setting"
+                                        formControlName="setting"
                                         placeholder="Please select"
                                         >
                                         </ng-select>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Block</label>
-                                        <input type="text" formControlName="block" class="form-control"/>
-                                    </div>
+                                    </div>    
+                                    <div class="col-md-4">
+                                        <label class="form-label">Date Of Presentation</label>
+                                        <input
+                                          class="form-control flatpickr-input"
+                                          type="text"
+                                          mwlFlatpickr
+                                          [altInput]="true"
+                                          formControlName="dateOfPresentation"
+                                          [convertModelValue]="true"
+                                        />
+                                      </div>
+                                    
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -75,17 +79,16 @@
                             <table class="table table-wrap" >
                                 <thead class="table-light">
                                     <tr>
-                                        <th>TRAINER</th>
+                                        <th>CRITERIA</th>
                                         <th class="text-center">Unsatisfactory</th>
-                                        <th class="text-center">Deficient</th>
-                                        <th class="text-center">Good</th>
-                                        <th class="text-center">Very Good</th>
-                                        <th class="text-center">Outstanding</th>
-                                        <th class="text-center">N/A</th>
+                                        <th class="text-center">Below Expectations</th>
+                                        <th class="text-center">Meets Expectations</th>
+                                        <th class="text-center">Exceeds Expectations</th>
+                                        <th class="text-center">Not Applicable</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let question of listData['rotation-evaluation-form']">
+                                    <tr *ngFor="let question of listData['presentation-evaluation-form']">
                                         <td *ngIf="question.isChoices">{{question.question}}
                                         </td>
                                         <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
@@ -102,24 +105,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">Overall Quality of Rotation</p>
-                                        </b>
-                                        </td>
-                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choices; let i=index" >
-                                            <div class="form-check mx-2 mb-2">
-                                                <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
-                                                [checked]="getControlsSurveyForm('overallQualityOfRotation')[i].value" 
-                                                (change)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')">
-                                                <label (click)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')" class="form-check-label mx-1 text-center check-option" >
-                                                    <b class="h6 text-white">{{choice.description}}</b>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="7">
+                                        <td colspan="6">
                                             <label class="form-label mb-2" >
-                                                Comments: (Strengths and Areas for Improvement)
+                                                COMMENTS AND SUGGESTIONS FOR IMPROVEMENT:
                                             </label>
                                             <textarea name="" id="" cols="30" rows="10" style="width: 100%;"></textarea>
                                             
@@ -128,15 +116,47 @@
                                     <tr>
                                         <td colspan="6">
                                             <label class="form-label mb-2" >
+                                                AGREED ACTION:
+                                            </label>
+                                            <textarea name="" id="" cols="30" rows="10" style="width: 100%;"></textarea>
+                                            
+                                        </td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="form-label mb-2" >
+                                                {{"Assessor's Name: Fahad Al Khatri"}} 
+                                             </label>
+                                        </td>
+                                        
+                                        <td colspan="2">
+                                            <label class="form-label mb-2" >
+                                                {{"Designation of Assessor: : Director"}}}
+                                             </label>
+                                        </td>
+                                        
+                                        <td colspan="2">
+                                            <label class="form-label mb-2" >
                                                 {{"Date : "}} {{todayDate | date : 'yyyy-MM-dd'}}
                                              </label>
                                         </td>
                                     </tr>
-                                    
                                 </tbody>
-                                
                             </table>
                             <button class="btn btn-primary">Submit</button>
+                            <div class="d-flex flex-column px-2 py-2 shadow border mt-3">
+                                <p class="h5"><b>Scale</b></p>
+                                <p class="h6"><b>1. Unsatisfactory</b></p>
+                                <p class="">Poor competency judgment. Requires continuous supervision.</p>
+                                <p class="h6"><b>2. Below Expectations</b></p>
+                                <p class="">Inadequate competency judgment. Requires frequent supervision.</p>
+                                <p class="h6"><b>3. Meets Expectations</b></p>
+                                <p class="">Effective competency judgment. Supervision needed for complex/difficulty situations.</p>
+                                <p class="h6"><b>4. Exceeds Expectations</b></p>
+                                <p class="">Exemplary competency judgment including in complex/difficult situations. Can practice independently.</p>
+                                <p class="h6"><b>Not Applicable</b></p>
+                                <p class="">Not relevant in the setting, not observed or unable to evaluate.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
