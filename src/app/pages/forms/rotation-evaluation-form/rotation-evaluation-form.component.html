@@ -93,7 +93,7 @@
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index" >
                                             <div *ngIf="question.isChoices" class="form-check mb-2">
-                                                <div class="d-flex flex-row">
+                                                <div class="d-flex flex-row align-items-center">
                                                     <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
                                                     (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
@@ -105,16 +105,16 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="background-color: grey; color: white; align-items: center; padding: 25px 5px "><b><p class="h5 text-white">Overall Quality of Rotation</p>
+                                        <td style="background-color: grey; color: white"><b><p class="h5 text-white">Overall Quality of Rotation</p>
                                         </b>
                                         </td>
-                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 5px " *ngFor="let choice of choices; let i=index" >
-                                            <div class="form-check mx-2 mb-2">
-                                                <div class="d-flex flex-row">
-                                                    <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
+                                        <td  style="background-color: grey; color: white;" *ngFor="let choice of choices; let i=index" >
+                                            <div class="form-check mb-2">
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <input [value]="choice.value" class="form-check-input text-center" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallQualityOfRotation')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')">
-                                                    <label (click)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')" class="form-check-label mx-1text-center check-option" >
+                                                    <label (click)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')" class="form-check-label mx-2 text-center check-option" >
                                                         <b class="h6 text-white">{{choice.description}}</b>
                                                     </label>
                                                 </div>

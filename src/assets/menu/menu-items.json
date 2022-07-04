@@ -30,9 +30,9 @@
     },
     {
         "id": 12,
-        "label": "Scholarship and International Relationships",
+        "label": "EC Setup",
         "icon": "ri-calendar-event-line",
-        "link": "/graduate-medical-education"
+        "link": "/ec-setup"
     },
     {
         "id": 13,

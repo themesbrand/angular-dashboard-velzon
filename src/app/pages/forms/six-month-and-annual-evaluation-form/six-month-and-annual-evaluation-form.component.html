@@ -107,7 +107,7 @@
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index" >
                                             <div *ngIf="question.isChoices" class="form-check mb-2">
-                                                <div class="d-flex flex-row">
+                                                <div class="d-flex flex-row align-items-center">
                                                     <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
                                                     [disabled]="!question.question"
@@ -412,12 +412,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">For Six-Month Evaluation (select one):</p>
+                                        <td colspan="2" style="background-color: grey; color: white;"><b><p class="h5 text-white">For Six-Month Evaluation (select one):</p>
                                         </b>
                                         </td>
-                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choicesSubs; let i=index" >
+                                        <td  style="background-color: grey; color: white;" *ngFor="let choice of choicesSubs; let i=index" >
                                             <div class="form-check mb-2">
-                                                <div class="d-flex flex-row">
+                                                <div class="d-flex flex-row align-items-center">
                                                     <input [value]="choice.value" class="form-check-input text-center" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallSixMonthEvaluation')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallSixMonthEvaluation', 'null')">
@@ -429,12 +429,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">For Annual Evaluation: Recommendation (select one): </p>
+                                        <td colspan="2" style="background-color: grey; color: white;  "><b><p class="h5 text-white">For Annual Evaluation: Recommendation (select one): </p>
                                         </b>
                                         </td>
-                                        <td  colspan="1" style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choicesSubs2; let i=index" >
+                                        <td  colspan="1" style="background-color: grey; color: white;  " *ngFor="let choice of choicesSubs2; let i=index" >
                                             <div class="form-check mb-2">
-                                                <div class="d-flex flex-row">
+                                                <div class="d-flex flex-row align-items-center">
                                                     <input [value]="choice.value" class="form-check-input text-center" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallAnnualEvaluation')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallAnnualEvaluation', 'null')">

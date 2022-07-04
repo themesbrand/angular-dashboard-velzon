@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Component pages
 import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
+import { CreateProgramComponent } from './ec-setup/create-program/create-program.component';
+import { EcSetupComponent } from './ec-setup/ec-setup.component';
 import { InTrainingEvaluationReportComponent } from './forms/in-trainning-evaluation-report/in-trainning-evaluation-report.component';
 import { PresentationEvaluationFormComponent } from './forms/presentation-evaluation-form/presentation-evaluation-form.component';
 import { ResearchMentorEvaluationFormComponent } from './forms/research-mentor-evaluation-form/research-mentor-evaluation-form.component';
@@ -23,9 +25,13 @@ const routes: Routes = [
       { path: "in-training-evaluation-form", component: InTrainingEvaluationReportComponent },
       { path: "presentation-evaluation-form", component: PresentationEvaluationFormComponent },
       { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormComponent },
-
+      
     ] },
-    
+    { path: "ec-setup", children: [
+        { path: "", component: EcSetupComponent },
+        { path: "create-program", component: CreateProgramComponent },
+      ] 
+    },
     {
       path: 'graduate-medical-education', loadChildren: () => import('./graduate_medical_education/medical-education.module').then(m => m.AppsModule)
     }

@@ -62,7 +62,7 @@ export class ByRotationComponent implements OnInit {
       
     }
     this.listData.rotationCodes.forEach( code => {
-      if(code === 'AL' || code === 'ML' )  {
+      if(code === 'Annual Leave' || code === 'Medical Leave' )  {
 
         this.colorCodeArray.push('#000000')  
       } else {

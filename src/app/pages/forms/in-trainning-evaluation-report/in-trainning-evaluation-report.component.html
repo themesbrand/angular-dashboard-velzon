@@ -116,9 +116,9 @@
                                         </td>
                                         <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
                                         </td>
-                                        <td  *ngFor="let choice of choices; let i=index" >
+                                        <td  *ngFor="let choice of choices; let i=index">
                                             <div *ngIf="question.isChoices" class="form-check mb-2">
-                                                <div class="d-flex flex-row">
+                                                <div class="d-flex flex-row align-items-center">
                                                     <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
                                                     (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
@@ -130,16 +130,16 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="background-color: grey; color: white; align-items: center; padding: 25px 10px "><b><p class="h5 text-white">Overall Assessment</p>
+                                        <td style="background-color: grey; color: white;"><b><p class="h5 text-white">Overall Assessment</p>
                                         </b>
                                         </td>
-                                        <td  style="background-color: grey; color: white; align-items: center; padding: 25px 10px " *ngFor="let choice of choices; let i=index" >
-                                            <div class="form-check mx-2 mb-2">
-                                                <div class="d-flex flex-row">
-                                                    <input [value]="choice.value" class="form-check-input mx-1 text-center" type="checkbox" id="formCheck1" 
+                                        <td  style="background-color: grey; color: white;" *ngFor="let choice of choices; let i=index" >
+                                            <div class="form-check mb-2">
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallAssessment')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallAssessment')">
-                                                    <label (click)="onCheckChangeSurvey($event, i, 'overallAssessment')" class="form-check-label mx-1 text-center check-option" >
+                                                    <label (click)="onCheckChangeSurvey($event, i, 'overallAssessment')" class="form-check-label mx-2 text-start check-option" >
                                                         <b class="h6 text-white">{{choice.description}}</b>
                                                     </label>
                                                 </div>

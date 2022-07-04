@@ -51,6 +51,10 @@ import { RotationEvaluationFormComponent } from './forms/rotation-evaluation-for
 import { InTrainingEvaluationReportComponent } from './forms/in-trainning-evaluation-report/in-trainning-evaluation-report.component';
 import { PresentationEvaluationFormComponent } from './forms/presentation-evaluation-form/presentation-evaluation-form.component';
 import { SixMonthAndAnnualEvaluationFormComponent } from './forms/six-month-and-annual-evaluation-form/six-month-and-annual-evaluation-form.component';
+import { CreateProgramComponent } from './ec-setup/create-program/create-program.component';
+import { EcSetupComponent } from './ec-setup/ec-setup.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -77,7 +81,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     RotationEvaluationFormComponent,
     InTrainingEvaluationReportComponent,
     PresentationEvaluationFormComponent,
-    SixMonthAndAnnualEvaluationFormComponent
+    SixMonthAndAnnualEvaluationFormComponent,
+    CreateProgramComponent,
+    EcSetupComponent
   ],
   imports: [
     CommonModule,
@@ -105,9 +111,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     WidgetModule,
     NgbAlertModule,
     NgbNavModule,
+    NgxDropzoneModule,
     NgSelectModule,
     NgbProgressbarModule,
     SwiperModule,
+    CKEditorModule,
     ReactiveFormsModule,
     ArchwizardModule,
     LightboxModule,

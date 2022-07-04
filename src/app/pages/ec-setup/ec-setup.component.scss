@@ -1,0 +1,13 @@
+p {
+    text-align: justify;
+}
+.badge {
+    font-size: 0.95em !important;
+    padding: 0.55em 0.85em;
+}
+.badge-label:before {
+    top: 5px;
+}
+.card-animate {
+    cursor: pointer !important;
+}

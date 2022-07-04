@@ -29,8 +29,8 @@ const data = {
     "OBGYN-OA-RH",
     "OBGYN-RSCH(STAGE 4)-RH",
     "OBGYN-CLINIC-SQUH",
-    "AL",
-    "ML"
+    "Annual Leave",
+    "Medical Leave"
   ],
   students: [
     { name: "Al Abri Falsal", program: 'Anaesthesia', year: 'R3', omsbNumber : '19-251'},

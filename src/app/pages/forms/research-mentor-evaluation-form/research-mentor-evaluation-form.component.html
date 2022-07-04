@@ -91,7 +91,7 @@
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index" >
                                             <div *ngIf="question.isChoices" class="form-check mb-2">
-                                                <div class="d-flex flex-row">
+                                                <div class="d-flex flex-row align-items-center">
                                                     <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" [checked]="getControlsSurveyForm(question.questionNumber)[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
                                                     <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-2 text-start check-option" >
