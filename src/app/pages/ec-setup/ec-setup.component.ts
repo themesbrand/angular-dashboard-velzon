@@ -39,4 +39,9 @@ export class EcSetupComponent implements OnInit {
     }
   }
 
+  viewProgram() {
+    this.router.navigateByUrl('/ec-setup/view-program')
+
+  }
+
 }

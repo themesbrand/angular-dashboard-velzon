@@ -1,0 +1,497 @@
+<app-breadcrumbs title="View Program" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mx-n4 card-top-header">
+            <div class="bg-soft-primary">
+                <div class="card-body p-0">
+                    <div class="d-flex flex-row w-100">
+                        <div class="d-flex">
+                            <img src="/assets/images/small/image-1.jpg" class="image-fliud" style="height: 150px !important;">
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center g-3 w-100 px-4">
+                            <div>
+                                <h4 class="fw-bold">ANAESTHESIA</h4>
+                                <div class="hstack gap-3 flex-wrap">
+                                    <div><i class="ri-building-line align-bottom me-1"></i>Program Code: 155-121</div>
+                                    <div class="vr"></div>
+                                    <div>Establishment Date : <span class="fw-medium">2019 June 15</span></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0 flex-grow-1">Overview</h4>
+                <div class="pt-3 border-top border-top-dashed mt-2">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <p class="card-text mb-2"><span class="fw-bold">{{programData.programDescription.name}}{{" : "}}</span>{{programData.programDescription.description}}</p>
+                            <p class="card-text mb-2"><span class="fw-bold">{{programData.vision.name}}{{" : "}}</span>{{programData.vision.description}}</p>
+                            <p class="card-text mb-2"><span class="fw-bold">{{programData.mission.name}}{{" : "}}</span>{{programData.mission.description}}</p>
+                            <p class="card-text mb-2"><span class="fw-bold">{{programData.programDuration.name}}{{" : "}}</span>{{programData.programDuration.description}}</p>
+                            <p  class="card-text mb-2 text-muted">{{programData.programDuration.extra}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0 flex-grow-1">Curricula Document</h4>
+                <div class="pt-3 border-top border-top-dashed mt-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="border rounded border-dashed p-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="avatar-sm">
+                                            <div class="avatar-title bg-light text-secondary rounded fs-24">
+                                                <i class="ri-folder-zip-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h5 class="fs-13 mb-1"><a href="javascript: void(0);" class="text-body text-truncate d-block">Curricula_Document.zip</a></h5>
+                                        <div>2.2MB</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0 flex-grow-1">Program Gallery</h4>
+                <div class="pt-3 border-top border-top-dashed mt-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="swiper pagination-scrollbar-swiper rounded">
+                                <swiper [config]="Progress">
+                                  <div class="swiper-slide">
+                                      <img src="assets/images/small/image-1.jpg" alt="" class="img-fluid" />
+                                  </div>
+                                  <div class="swiper-slide">
+                                      <img src="assets/images/small/image-2.jpg" alt="" class="img-fluid" />
+                                  </div>
+                                  <div class="swiper-slide">
+                                      <img src="assets/images/small/image-3.jpg" alt="" class="img-fluid" />
+                                  </div>
+                                  <div class="swiper-slide">
+                                      <img src="assets/images/small/image-4.jpg" alt="" class="img-fluid" />
+                                  </div>
+                                  <div class="swiper-slide">
+                                      <img src="assets/images/small/image-5.jpg" alt="" class="img-fluid" />
+                                  </div>
+                                  <div class="swiper-slide">
+                                      <img src="assets/images/small/image-6.jpg" alt="" class="img-fluid" />
+                                  </div>
+                                </swiper>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    <div class="col-md-5">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0 flex-grow-1">Team</h4>
+                <div class="pt-3 border-top border-top-dashed mt-2">
+                    <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+                        <ngb-panel id="static-1">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Education Committee</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.educationCommittee">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel id="static-2">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Curriculum Sub Committee</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.curriculumSubcommittee">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel id="static-3">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Program Evaluation Committee</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.programEvaluationCommittee">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel id="static-4">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Clinical Competency Committee</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.clinicalCompetencyCommittee">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel id="static-5">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Research Sub Committee</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.researchSubCommittee">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel id="static-6">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Medical Simulation Sub Committee</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.medicalSimulationSubCommittee">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel id="static-7">
+                            <ng-template ngbPanelTitle class="accordion-header">
+                                <h2 class="accordion-header" id="gen-ques-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                        aria-controls="gen-ques-collapseOne">Program Administrators</button>
+                                </h2>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex-column mb-2">
+                                        <p class="fw-12 mb-1">{{"Start Date : 2018-10-01"}}</p>
+                                        <p class="fw-12 mb-1">{{"End Date : 2024-10-01"}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <span class="badge bg-success my-auto">Active</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper navigation-swiper rounded">
+                                    <swiper [config]="NavAndPaginatoion">
+                                        <div class="swiper-slide" *ngFor="let member of listData.team?.programAdministrators">
+                                            <div class="card round shadow team-box">
+                                                <div class="card-body">
+                                                    <div class="team-top-cover">
+                                                        <img src="{{member.backgroundImg}}" alt="" class="img-fluid" />
+                                                    </div>
+                                                    <div class="team-profile-img">
+                                                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                            <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                                        </div>
+                                                        <div class="d-flex flex-column text-center">
+                                                            <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                            <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Email : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center text-center">
+                                                        <p class="fw-12 fw-bold mb-1">{{"Phone Number : "}}</p>
+                                                        <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </swiper>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+                      </ngb-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  
+   <!-- Modal -->
+   <ng-template #content role="document" let-modal>
+    <div class="modal-header p-3 ps-4 bg-soft-success">
+        <h5 class="modal-title" id="inviteMembersModalLabel">Members</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body p-4">
+
+        
+    </div>
+   </ng-template>
+  

@@ -1,0 +1,30 @@
+p {
+    text-align: justify !important;
+}
+.team-box {
+    background-color: #e6e6e6aa;
+}
+.team-profile-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.team-profile-img .avatar-lg {
+    margin-top: -50px !important;
+}
+.team-top-cover {
+    height: 120px !important;
+    overflow: hidden !important;
+}
+.team-top-cover img {
+    width: 100% !important;
+    object-fit: cover !important;
+
+}
+.text-muted {
+    color : #5b5d66 !important
+}
+.badge {
+    padding: 0.55em 0.85em !important;
+}

@@ -4,7 +4,8 @@ import {
   NgbAlertModule,
   NgbNavModule,
   NgbProgressbarModule,
-  NgbToastModule
+  NgbToastModule,
+  NgbAccordionModule
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { FlatpickrModule } from 'angularx-flatpickr';
@@ -55,6 +56,7 @@ import { CreateProgramComponent } from './ec-setup/create-program/create-program
 import { EcSetupComponent } from './ec-setup/ec-setup.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ViewProgramComponent } from './ec-setup/view-program/view-program.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -83,7 +85,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     PresentationEvaluationFormComponent,
     SixMonthAndAnnualEvaluationFormComponent,
     CreateProgramComponent,
-    EcSetupComponent
+    EcSetupComponent,
+    ViewProgramComponent
   ],
   imports: [
     CommonModule,
@@ -111,6 +114,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     WidgetModule,
     NgbAlertModule,
     NgbNavModule,
+    NgbAccordionModule,
     NgxDropzoneModule,
     NgSelectModule,
     NgbProgressbarModule,

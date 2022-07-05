@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
 import { CreateProgramComponent } from './ec-setup/create-program/create-program.component';
 import { EcSetupComponent } from './ec-setup/ec-setup.component';
+import { ViewProgramComponent } from './ec-setup/view-program/view-program.component';
 import { InTrainingEvaluationReportComponent } from './forms/in-trainning-evaluation-report/in-trainning-evaluation-report.component';
 import { PresentationEvaluationFormComponent } from './forms/presentation-evaluation-form/presentation-evaluation-form.component';
 import { ResearchMentorEvaluationFormComponent } from './forms/research-mentor-evaluation-form/research-mentor-evaluation-form.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: "ec-setup", children: [
         { path: "", component: EcSetupComponent },
         { path: "create-program", component: CreateProgramComponent },
+        { path: "view-program", component: ViewProgramComponent },
       ] 
     },
     {
