@@ -32,8 +32,7 @@ const routes: Routes = [
     { path: "ec-setup", children: [
         { path: "", component: EcSetupComponent },
         { path: "create-program", component: CreateProgramComponent },
-        { path: "view-program-2", component: ViewProgramComponent },
-        { path: "view-program", component: ViewProgramsTwoComponent },
+        { path: "view-program", component: ViewProgramComponent },
       ] 
     },
     {

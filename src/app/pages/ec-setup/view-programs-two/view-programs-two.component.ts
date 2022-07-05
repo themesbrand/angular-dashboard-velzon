@@ -82,9 +82,40 @@ export class ViewProgramsTwoComponent implements OnInit {
 
   onSelectCommittee(committee : any) {
     this.selectedCommittee.name = committee
-    if(committee === 'Education Committee') {
-      this.selectedCommittee.data = this.listData.teamObject.educationCommittee
+    switch (committee) {
+      case 'Education Committee' : {
+        this.selectedCommittee.data = this.listData.teamObject.educationCommittee
+        break;
+      }
+      case 'Curriculum Sub Committee' : {
+        this.selectedCommittee.data = this.listData.teamObject.curriculumSubcommittee
+        break;
+      }
+      case 'Program Evaluation Committee' : {
+        this.selectedCommittee.data = this.listData.teamObject.programEvaluationCommittee
+        break;
+      }
+      case 'Clinical Competency Committee' : {
+        this.selectedCommittee.data = this.listData.teamObject.clinicalCompetencyCommittee
+        break;
+      }
+      case 'Research Sub Committee' : {
+        this.selectedCommittee.data = this.listData.teamObject.researchSubCommittee
+        break;
+      }
+      case 'Medical Simulation Sub Committee' : {
+        this.selectedCommittee.data = this.listData.teamObject.medicalSimulationSubCommittee
+        break;
+      }
+      case 'Program Administrators' : {
+        this.selectedCommittee.data = this.listData.teamObject.programAdministrators
+        break;
+      }
+      default : {
+        break;
+      }
     }
+    
   }
 
   open(index: number): void {

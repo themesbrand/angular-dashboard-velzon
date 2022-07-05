@@ -93,6 +93,264 @@ const data = {
                 }
             ]
         }},
+    ],
+    'curriculumSubcommittee' : [
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }}
+    ],
+    'programEvaluationCommittee' : [
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }}
+    ],
+    'clinicalCompetencyCommittee' : [
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }}
+    ],
+    'researchSubCommittee' : [
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }}
+    ],
+    'medicalSimulationSubCommittee' : [
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }}
+    ],
+    'programAdministrators' : [
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }}
     ]
   },
   'team' : {
