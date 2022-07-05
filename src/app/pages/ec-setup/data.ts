@@ -18,6 +18,7 @@ const data = {
       'mission' : {
         name : 'MIssion', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       },
+      'noOfBlocks' : {name : 'Number of Block', value : '65 Blocks'} ,
       'programDuration' : {
         name : 'Program Duration', description : '05 Years', extra: 'Basic Level Training : 3 years & Advanced Training : 2 Years',
       },
@@ -31,6 +32,69 @@ const data = {
     {name: '6 Year', value : '6'},
     {name: '7 Year', value : '7'}
   ],
+  'teamCommittee' : [
+    'Education Committee', 'Curriculum Sub Committee', 'Program Evaluation Committee', 'Clinical Competency Committee', 'Research Sub Committee', 'Medical Simulation Sub Committee', 'Program Administrators'
+  ],
+  'teamObject' : {
+    'educationCommittee' : [
+        {'position' : {
+            'name': 'Education Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Program Director',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-4.jpg',
+                    name : "Saleh Mahfoudh",
+                    email:'SalehMahfoudh@gmail.com',
+                    phone:'+96885325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Assistant Program Director',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Member',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                }
+            ]
+        }},
+    ]
+  },
   'team' : {
     'educationCommittee' : [
       {

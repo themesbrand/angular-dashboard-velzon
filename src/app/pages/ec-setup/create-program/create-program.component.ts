@@ -112,6 +112,9 @@ export class CreateProgramComponent implements OnInit {
       yearString = year.toString() + " years"
     } 
     this.programForm.get('advanceLevel')?.patchValue(yearString)
+
+    this.programForm.get('totalBlock')?.patchValue(this.form.durationOfProgram * 13)
+    
   }
 
 }

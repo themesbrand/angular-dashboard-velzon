@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                              <label class="form-control-label">Basic Level Training<span class="text-danger">{{ " *" }}</span></label>
+                              <label class="form-control-label">Basic Level Training in Years (Junior Residency)<span class="text-danger">{{ " *" }}</span></label>
                               <ng-select name="basicLevel"
                                 formControlName="basicLevel"
                                 bindLabel="name" bindValue="value"
@@ -70,8 +70,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                              <label class="form-control-label">Advanced Training<span class="text-danger">{{ " *" }}</span></label>
+                              <label class="form-control-label">Advanced Training (Senior Residency)</label>
                               <input type="text" class="form-control" formControlName="advanceLevel" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                              <label class="form-control-label">Total Number of Block</label>
+                              <input type="text" class="form-control" formControlName="totalBlock" />
                             </div>
                         </div>
                     </div>

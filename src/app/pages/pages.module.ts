@@ -57,6 +57,7 @@ import { EcSetupComponent } from './ec-setup/ec-setup.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ViewProgramComponent } from './ec-setup/view-program/view-program.component';
+import { ViewProgramsTwoComponent } from './ec-setup/view-programs-two/view-programs-two.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -86,7 +87,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SixMonthAndAnnualEvaluationFormComponent,
     CreateProgramComponent,
     EcSetupComponent,
-    ViewProgramComponent
+    ViewProgramComponent,
+    ViewProgramsTwoComponent
   ],
   imports: [
     CommonModule,
