@@ -57,7 +57,8 @@ import { EcSetupComponent } from './ec-setup/ec-setup.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ViewProgramComponent } from './ec-setup/view-program/view-program.component';
-import { ViewProgramsTwoComponent } from './ec-setup/view-programs-two/view-programs-two.component';
+import { OverviewComponent } from './ec-setup/view-program/overview/overview.component';
+import { CommitteeComponent } from './ec-setup/view-program/committee/committee.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -88,8 +89,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CreateProgramComponent,
     EcSetupComponent,
     ViewProgramComponent,
-    ViewProgramsTwoComponent
-  ],
+    OverviewComponent,
+    CommitteeComponent
+],
   imports: [
     CommonModule,
     NgbToastModule,

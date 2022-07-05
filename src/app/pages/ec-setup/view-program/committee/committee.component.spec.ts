@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewProgramsTwoComponent } from './view-programs-two.component';
+import { CommitteeComponent } from './committee.component';
 
-describe('ViewProgramsTwoComponent', () => {
-  let component: ViewProgramsTwoComponent;
-  let fixture: ComponentFixture<ViewProgramsTwoComponent>;
+describe('CommitteeComponent', () => {
+  let component: CommitteeComponent;
+  let fixture: ComponentFixture<CommitteeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewProgramsTwoComponent ]
+      declarations: [ CommitteeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewProgramsTwoComponent);
+    fixture = TestBed.createComponent(CommitteeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

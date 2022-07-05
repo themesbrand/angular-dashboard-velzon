@@ -4,7 +4,7 @@ const data = {
         name : 'Program Name', description : 'Anaesthesia',
       },
       'programCode' : {
-        name : 'Program Code', description : '155-1321',
+        name : 'Program Code', description : 'ANS',
       },
       'programDescription' : {
         name : 'Program Description', description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi maiores mollitia dolorum at id accusantium quisquam vitae facilis natus? Ab recusandae eos iste nihil illum. Suscipit.',
@@ -18,9 +18,9 @@ const data = {
       'mission' : {
         name : 'Mission', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       },
-      'noOfBlocks' : {name : 'Number of Block', value : '65 Blocks'} ,
+      'noOfBlocks' : {name : 'Number of Blocks', value : '65 Blocks'} ,
       'programDuration' : {
-        name : 'Program Duration', description : '05 Years', extra: 'Basic Level Trainin (Junior Residency) : 3 years & Advanced Training (Senior Residency) : 2 Years',
+        name : 'Program Duration', description : '05 Years', extra: 'Basic Level Training (Junior Residency) : 2 years & Advanced Training (Senior Residency) : 3 Years',
       },
   },
   'programDurations': [
@@ -38,7 +38,7 @@ const data = {
   'teamObject' : {
     'educationCommittee' : [
         {'position' : {
-            'name': 'Education Committee Chairman',
+            'name': 'Committee Chairman',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-3.jpg',
@@ -49,7 +49,7 @@ const data = {
             ]
         }},
         {'position' : {
-            'name': 'Program Director',
+            'name': 'Program Directors',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -60,7 +60,7 @@ const data = {
             ]
         }},
         {'position' : {
-            'name': 'Assistant Program Director',
+            'name': 'Assistant Program Directors',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-2.jpg',
@@ -73,11 +73,23 @@ const data = {
                     name : "Abdel Maddali",
                     email:'Abdel94@gmail.com',
                     phone:'+968999232'
-                }
+                },
+                {
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Madan Khan",
+                    email:'MadanKhan@gmail.com',
+                    phone:'+96814525232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Abdel Maddali",
+                    email:'Abdel94@gmail.com',
+                    phone:'+968999232'
+                },
             ]
         }},
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-5.jpg',
@@ -90,13 +102,60 @@ const data = {
                     name : "Al Abri Ibraham",
                     email:'AbriIbraham@gmail.com',
                     phone:'+9681999232'
-                }
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-5.jpg',
+                    name : "Al Abri Falsal",
+                    email:'AlAbriFalsal@gmail.com',
+                    phone:'+9681999232'
+                },
+                {
+                    userImage : '/assets/images/users/avatar-6.jpg',
+                    name : "Al Abri Ibraham",
+                    email:'AbriIbraham@gmail.com',
+                    phone:'+9681999232'
+                },
             ]
         }},
     ],
     'curriculumSubcommittee' : [
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -139,7 +198,18 @@ const data = {
     ],
     'programEvaluationCommittee' : [
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -182,7 +252,18 @@ const data = {
     ],
     'clinicalCompetencyCommittee' : [
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -225,7 +306,18 @@ const data = {
     ],
     'researchSubCommittee' : [
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -268,7 +360,18 @@ const data = {
     ],
     'medicalSimulationSubCommittee' : [
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -311,7 +414,18 @@ const data = {
     ],
     'programAdministrators' : [
         {'position' : {
-            'name': 'Committee Member',
+            'name': 'Committee Chairman',
+            'members' : [
+                {
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Madan Al Abri",
+                    email:'MadanAlAbri@gmail.com',
+                    phone:'+9681325232'
+                }
+            ]
+        }},
+        {'position' : {
+            'name': 'Committee Members',
             'members' : [
                 {
                     userImage : '/assets/images/users/avatar-4.jpg',
@@ -352,360 +466,7 @@ const data = {
             ]
         }}
     ]
-  },
-  'team' : {
-    'educationCommittee' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Education Committee Chairman",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Program Director",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Assistant Program Director",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Assistant Program Director",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Committee Member",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Committee Member",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-    'curriculumSubcommittee' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Committee Member",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Committee Member",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Committee Member",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Committee Member",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Committee Member",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Committee Member",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-    'programEvaluationCommittee' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Committee Member",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Committee Member",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Committee Member",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Committee Member",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Committee Member",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Committee Member",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-    'clinicalCompetencyCommittee' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Committee Member",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Committee Member",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Committee Member",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Committee Member",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Committee Member",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Committee Member",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-    'researchSubCommittee' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Committee Member",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Committee Member",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Committee Member",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Committee Member",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Committee Member",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Committee Member",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-    'medicalSimulationSubCommittee' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Committee Member",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Committee Member",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Committee Member",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Committee Member",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Committee Member",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Committee Member",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-    'programAdministrators' : [
-      {
-          backgroundImg :'/assets/images/small/img-1.jpg',
-          userImage : '/assets/images/users/avatar-4.jpg',
-          name : "Madan Al Abri",
-          jobPosition : "Program Administor",
-          email:'MadanAlAbri@gmail.com',
-          phone:'+9681325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-2.jpg',
-          userImage : '/assets/images/users/avatar-1.jpg',
-          name : "Saleh Mahfoudh",
-          jobPosition : "Program Administor",
-          email:'SalehMahfoudh@gmail.com',
-          phone:'+96885325232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-3.jpg',
-          userImage : '/assets/images/users/avatar-2.jpg',
-          name : "Madan Khan",
-          jobPosition : "Program Administor",
-          email:'MadanKhan@gmail.com',
-          phone:'+96814525232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-4.jpg',
-          userImage : '/assets/images/users/avatar-3.jpg',
-          name : "Abdel Maddali",
-          jobPosition : "Program Administor",
-          email:'Abdel94@gmail.com',
-          phone:'+968999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-5.jpg',
-          userImage : '/assets/images/users/avatar-5.jpg',
-          name : "Al Abri Falsal",
-          jobPosition : "Program Administor",
-          email:'AlAbriFalsal@gmail.com',
-          phone:'+9681999232'
-      },
-      {
-          backgroundImg :'/assets/images/small/img-6.jpg',
-          userImage : '/assets/images/users/avatar-6.jpg',
-          name : "Al Abri Ibraham",
-          jobPosition : "Program Administor",
-          email:'AbriIbraham@gmail.com',
-          phone:'+9681999232'
-      }
-    ],
-  }
-    
+  },    
 }
 
 export { data }

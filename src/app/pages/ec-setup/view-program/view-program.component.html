@@ -20,142 +20,45 @@
                             <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title mb-0 flex-grow-1">Overview</h4>
-                <div class="pt-3 border-top border-top-dashed mt-2">
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.programDescription.name}}{{" : "}}</span>{{programData.programDescription.description}}</p>
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.vision.name}}{{" : "}}</span>{{programData.vision.description}}</p>
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.mission.name}}{{" : "}}</span>{{programData.mission.description}}</p>
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.programDuration.name}}{{" : "}}</span>{{programData.programDuration.description}}</p>
-                            <p  class="card-text mb-2 text-muted">{{programData.programDuration.extra}}</p>
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.noOfBlocks.name}}{{" : "}}</span>{{programData.noOfBlocks.value}}</p>
-                        </div>
-                    </div>
-                </div>
-                <h4 class="card-title mt-3 mb-0 flex-grow-1">Curricula Document</h4>
-                <div class="pt-3 border-top border-top-dashed mt-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="border rounded border-dashed p-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar-sm">
-                                            <div class="avatar-title bg-light text-secondary rounded fs-24">
-                                                <i class="ri-folder-zip-line"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="fs-13 mb-1"><a href="javascript: void(0);" class="text-body text-truncate d-block">Curricula_Document.zip</a></h5>
-                                        <div>2.2MB</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="d-flex flex-row w-100 mt-2">
+                        <ul ngbNav #customNav="ngbNav" [activeId]="1"  class="nav nav-tabs-custom border-bottom-0" role="tablist">
+                            <li [ngbNavItem]="1" class="nav-item">
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                                  Overview
+                                </a>
+                                <ng-template ngbNavContent>
+                                    <app-overview></app-overview>    
+                                </ng-template>
+                            </li>
+                            <li [ngbNavItem]="2" class="nav-item">
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                                  Committee
+                                </a>
+                                <ng-template ngbNavContent>
+                                    <app-committee></app-committee>
+                                </ng-template>
+                            </li>
+                            <li [ngbNavItem]="3" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                                Program Objectives
+                              </a>
+                              <ng-template ngbNavContent>
+                    
+                              </ng-template>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card" *ngIf="selectedCommittee.name">
-            <div class="card-body">
-                <div class="d-flex flex-row mb-2 justify-content-between">
-                    <h4 class="mb-0 flex-grow-1">{{selectedCommittee?.name}}</h4>
-                    <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class=" ri-file-user-fill label-icon align-middle fs-16 me-2"></i>Add New Member</button>
-                </div>
-                <div class="row justify-content-center" *ngFor="let data of selectedCommittee.data">
-                    <h5 class="card-title text-center mb-2 flex-grow-1">{{data.position.name}}</h5>
-                    <div class="col-md-4" *ngFor="let member of data.position.members">
-                        <div class="card round shadow team-box mb-2">
-                            <div class="card-body">
-                                <div class="team-profile-img">
-                                    <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
-                                        <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
-                                    </div>
-                                    <div class="d-flex flex-column text-center">
-                                        <h5 class="fs-16 mb-1">{{member.name}}</h5>
-                                        <p class="text-muted mb-0">{{member.jobPosition}}</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row mt-2 justify-content-center text-center">
-                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-mail-fill"></i></p>
-                                    <p class="text-muted mb-0 mx-2">{{member.email}}</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-center text-center">
-                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-phone-fill"></i></p>
-                                    <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-end">
-                                    <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-edit-2-fill"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-      </div>
-    <div class="col-md-4">
-
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title mb-0 flex-grow-1">Program Gallery</h4>
-                <div class="pt-3 border-top border-top-dashed mt-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="swiper pagination-scrollbar-swiper rounded">
-                                <swiper [config]="Progress">
-                                  <div class="swiper-slide" *ngFor="let image of _albums; let i = index" (click)="open(i)">
-                                      <img src="{{image.src}}" alt="" class="img-fluid" />
-                                  </div>
-                                </swiper>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex flex-row justify-content-between">
-                    <h4 class="card-title mb-0 flex-grow-1">Committees</h4>
-                    <button type="button" class="btn btn-primary btn-label waves-effect waves-light" ><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Committee</button>
-                </div>
-                <div class="d-flex flex-column justify-content-between mt-2">
-                    <div class="border rounded border-dashed committeeCard" *ngFor="let committee of listData.teamCommittee">
-                        <div class="px-4 py-2" (click)="onSelectCommittee(committee)">
-                            {{committee}}
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
     </div>
 </div>
-  
-  
-   <!-- Modal -->
-   <ng-template #content role="document" let-modal>
-    <div class="modal-header p-3 ps-4 bg-soft-success">
-        <h5 class="modal-title" id="inviteMembersModalLabel">Members</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body p-4">
 
-        
+<div class="row">
+    <div class="col-lg-12">
+        <div class="tab-content text-muted">
+          <div [ngbNavOutlet]="customNav"></div>
+        </div>
     </div>
-   </ng-template>
+    <!-- end col -->
+  </div>
