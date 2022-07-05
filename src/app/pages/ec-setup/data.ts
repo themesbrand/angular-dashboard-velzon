@@ -16,11 +16,11 @@ const data = {
         name : 'Vision', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rem explicabo nihil.',
       },
       'mission' : {
-        name : 'MIssion', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        name : 'Mission', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       },
       'noOfBlocks' : {name : 'Number of Block', value : '65 Blocks'} ,
       'programDuration' : {
-        name : 'Program Duration', description : '05 Years', extra: 'Basic Level Training : 3 years & Advanced Training : 2 Years',
+        name : 'Program Duration', description : '05 Years', extra: 'Basic Level Trainin (Junior Residency) : 3 years & Advanced Training (Senior Residency) : 2 Years',
       },
   },
   'programDurations': [
