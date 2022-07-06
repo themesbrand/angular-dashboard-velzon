@@ -7,16 +7,26 @@ const data = {
         name : 'Program Code', description : 'ANS',
       },
       'programDescription' : {
-        name : 'Program Description', description : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi maiores mollitia dolorum at id accusantium quisquam vitae facilis natus? Ab recusandae eos iste nihil illum. Suscipit.',
+        name : 'Program Description', description : `<b>'Anesthesiology'</b> is a medical specialty, which includes patient assessment and provision of life support, and analgesia for both surgical procedures and childbirth; assessment and management of critically ill patients, and patients with acute and
+        chronic pain.<br><br>
+        A <b>'Board Certified Anesthesiologist'</b> is a physician who provides medical management and consultation during the perioperative period, in pain medicine
+        and in critical care medicine.<br><br> 
+        A specialty committee was established under Oman Medical Specialty Board on 6 th of February 2007 to devise a plan to promote education and training through an accredited residency program in Anesthesia and Critical Care.<br>`,
       },
       'establishmentDate' : {
-        name : 'Establishment Date', description : '2019-06-15',
+        name : 'Establishment Date', description : '6th Of February 2007',
       },
       'vision' : {
-        name : 'Vision', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rem explicabo nihil.',
+        name : 'Vision', description : `To create enough Omani Graduates of highest quality to lead the specialty in the
+        country and attain self-sufficiency in manpower.`,
       },
       'mission' : {
-        name : 'Mission', description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        name : 'Mission', description : `
+        <ul>
+            <li>To enhance the recruitment of Omani graduates into the specialty of anesthesia and critical care.</li>
+            <li>To train the graduates in the areas of knowledge, skills and attitude specific to anesthesiology, critical care medicine and pain management to current international standards.</li>
+            <li>Upon completion of training, a resident is expected to be a competent specialist anesthesiologist, capable of functioning independently.</li>
+        </ul>`
       },
       'noOfBlocks' : {name : 'Number of Blocks', value : '65 Blocks'} ,
       'programDuration' : {

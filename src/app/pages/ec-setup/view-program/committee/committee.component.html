@@ -33,15 +33,19 @@
 
 <ng-template #committeeMembers>
     <div class="card-body"  *ngIf="selectedCommittee.name">
-        <div class="d-flex flex-row mb-2 justify-content-between">
+        <div class="d-flex flex-row mb-1 justify-content-between">
             <h4 class="mb-0 flex-grow-1">{{selectedCommittee?.name}}</h4>
-            <button type="button" class="btn btn-sm btn-primary btn-label waves-effect waves-light mb-3"><i class=" ri-file-user-fill label-icon align-middle fs-16 me-2"></i>Add New Member</button>
+            <button type="button" class="btn btn-sm btn-primary btn-label waves-effect waves-light"><i class=" ri-file-user-fill label-icon align-middle fs-16 me-2"></i>Add Member</button>
+        </div>
+        <div class="d-flex flex-row justify-content-start">
+            <h6 class="mb-0">{{"From : 6th June 2019 To: 8th August 2024"}}</h6>
+            <span class="badge badge-soft-success badge-border mx-4">Active</span>
         </div>
         <div class="row justify-content-center" *ngFor="let data of selectedCommittee.data">
             <h5 class="card-title text-center mb-2 flex-grow-1">{{data.position.name}}</h5>
             <div class="col-md-3" *ngFor="let member of data.position.members">
                 <div class="card round shadow team-box mb-2">
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="team-profile-img">
                             <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
                                 <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
@@ -51,16 +55,21 @@
                                 <p class="text-muted mb-0">{{member.jobPosition}}</p>
                             </div>
                         </div>
-                        <div class="d-flex flex-row mt-2 justify-content-center text-center">
-                            <p class="fw-12 fw-bold mb-1"><i class=" ri-mail-fill"></i></p>
-                            <p class="text-muted mb-0 mx-2">{{member.email}}</p>
-                        </div>
-                        <div class="d-flex flex-row justify-content-center text-center">
-                            <p class="fw-12 fw-bold mb-1"><i class=" ri-phone-fill"></i></p>
-                            <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
-                        </div>
-                        <div class="d-flex flex-row justify-content-end">
-                            <button type="button" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-edit-2-fill"></i></button>
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-mail-fill"></i></p>
+                                    <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-center text-center">
+                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-phone-fill"></i></p>
+                                    <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-end align-items-center">
+                                <button type="button" class="btn btn-sm mx-1 btn-outline-primary btn-icon waves-effect waves-light mx-1"><i class=" ri-edit-2-fill"></i></button>
+                            </div>
+
                         </div>
                     </div>
                 </div>

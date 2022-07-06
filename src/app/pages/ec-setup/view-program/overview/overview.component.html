@@ -6,9 +6,13 @@
                 <div class="pt-3 border-top border-top-dashed mt-2">
                     <div class="row">
                         <div class="col-md-12 ">
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.programDescription.name}}{{" : "}}</span>{{programData.programDescription.description}}</p>
+                            <p class="card-text mb-2"><span class="fw-bold">{{programData.programDescription.name}}{{" : "}}</span></p>
+                            <p class="card-text mb-2" [innerHTML]="programData.programDescription.description">
+                            </p>
                             <p class="card-text mb-2"><span class="fw-bold">{{programData.vision.name}}{{" : "}}</span>{{programData.vision.description}}</p>
-                            <p class="card-text mb-2"><span class="fw-bold">{{programData.mission.name}}{{" : "}}</span>{{programData.mission.description}}</p>
+                            <p class="card-text mb-2"><span class="fw-bold">{{programData.mission.name}}{{" : "}}</span></p>
+                            <p class="card-text mb-2" [innerHTML]="programData.mission.description">
+                            
                             <p class="card-text mb-2"><span class="fw-bold">{{programData.programDuration.name}}{{" : "}}</span>{{programData.programDuration.description}}</p>
                             <p  class="card-text mb-2 text-muted">{{programData.programDuration.extra}}</p>
                             <p class="card-text mb-2"><span class="fw-bold">{{programData.noOfBlocks.name}}{{" : "}}</span>{{programData.noOfBlocks.value}}</p>

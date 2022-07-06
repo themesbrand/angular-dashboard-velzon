@@ -59,6 +59,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ViewProgramComponent } from './ec-setup/view-program/view-program.component';
 import { OverviewComponent } from './ec-setup/view-program/overview/overview.component';
 import { CommitteeComponent } from './ec-setup/view-program/committee/committee.component';
+import { ObjectivesComponent } from './ec-setup/view-program/objectives/objectives.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -90,7 +91,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     EcSetupComponent,
     ViewProgramComponent,
     OverviewComponent,
-    CommitteeComponent
+    CommitteeComponent,
+    ObjectivesComponent
 ],
   imports: [
     CommonModule,
