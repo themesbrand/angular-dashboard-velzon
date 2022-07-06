@@ -60,6 +60,10 @@ import { ViewProgramComponent } from './ec-setup/view-program/view-program.compo
 import { OverviewComponent } from './ec-setup/view-program/overview/overview.component';
 import { CommitteeComponent } from './ec-setup/view-program/committee/committee.component';
 import { ObjectivesComponent } from './ec-setup/view-program/objectives/objectives.component';
+import { RequirementsComponent } from './ec-setup/view-program/requirements/requirements.component';
+import { RotationComponent } from './ec-setup/view-program/rotation/rotation.component';
+import { AddRotationComponent } from './ec-setup/view-program/rotation/add-rotation/add-rotation.component';
+import { PreviewRotationComponent } from './ec-setup/view-program/rotation/preview-rotation/preview-rotation.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -92,8 +96,12 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ViewProgramComponent,
     OverviewComponent,
     CommitteeComponent,
-    ObjectivesComponent
-],
+    ObjectivesComponent,
+    RequirementsComponent,
+    RotationComponent,
+    AddRotationComponent,
+    PreviewRotationComponent
+  ],
   imports: [
     CommonModule,
     NgbToastModule,

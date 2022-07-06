@@ -13,15 +13,13 @@ export class ObjectivesComponent implements OnInit {
   listData = data;
       
   public Editor = ClassicEditor;
-
-  generalObjectiveData: any;
-
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
+  //Changing Program Objectives
   onChangeContent(name : any, index : any, subCategory: any) {
     console.log(name)
     switch (name) {

@@ -1,0 +1,11 @@
+th {
+    background-color: #193239 !important;   
+    color: white;
+}
+tr td:first-child {
+    cursor: pointer !important;
+}
+tr td:first-child:hover {
+    text-decoration: underline !important;
+    color: #e8080c !important;
+}

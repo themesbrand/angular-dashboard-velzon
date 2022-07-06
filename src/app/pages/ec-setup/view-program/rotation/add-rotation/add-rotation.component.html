@@ -1,0 +1,60 @@
+<app-breadcrumbs title="View Program" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Add Rotation</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <form [formGroup]="rotationForm">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Year<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.rotationYears"     formControlName="year" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="d-flex flex-row justify-content-between mb-1">
+                                <label class="form-label">Rotation Name<span class="text-danger">{{ " *" }}</span></label>
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-file-add-fill"></i></button>
+                            </div>
+
+                            <ng-select [items]="listData.rotationCodes"     
+                                bindLabel="name" (change)="onChangeRotationName()"
+                                formControlName="name" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Rotation Code</label>
+                            <input type="text" formControlName="code" class="form-control"/>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Rotation Type</label>
+                            <input type="text" formControlName="type" class="form-control"/>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Is program own the Rotation</label>
+                            <input type="text"  formControlName="isOwnedByRotation" class="form-control"/>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Number Of Blocks<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text"  formControlName="numberOfBlocks" class="form-control"/>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Training Sites<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.trainingSites" [multiple]="true" bindLabel="name" placeholder="Please select"
+                            formControlName="trainingSites" >
+                                  <ng-template ng-optgroup-tmp let-item="item">
+                                      {{item.country || 'Unnamed group'}}
+                                  </ng-template>
+                                </ng-select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

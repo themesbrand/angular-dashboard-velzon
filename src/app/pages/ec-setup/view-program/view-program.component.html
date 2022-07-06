@@ -31,19 +31,27 @@
                                 </ng-template>
                             </li>
                             <li [ngbNavItem]="2" class="nav-item">
-                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
-                                  Committee
-                                </a>
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Committee</a>
                                 <ng-template ngbNavContent>
                                     <app-committee></app-committee>
                                 </ng-template>
                             </li>
                             <li [ngbNavItem]="3" class="nav-item">
-                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
-                                Program Objectives
-                              </a>
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Objectives</a>
                               <ng-template ngbNavContent>
                                 <app-objectives></app-objectives>
+                              </ng-template>
+                            </li>
+                            <li [ngbNavItem]="4" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Requirements</a>
+                              <ng-template ngbNavContent>
+                                <app-requirements></app-requirements>
+                              </ng-template>
+                            </li>
+                            <li [ngbNavItem]="5" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Rotation</a>
+                              <ng-template ngbNavContent>
+                                <app-rotation></app-rotation>
                               </ng-template>
                             </li>
                         </ul>
