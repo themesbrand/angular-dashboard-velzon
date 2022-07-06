@@ -19,7 +19,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let row of listData.tableData">
-                            <td>{{row.rotation}}</td>
+                            <td (click)="onClickAction(row.rotation)">{{row.rotation}}</td>
                             <td>{{row.R1}}</td>
                             <td>{{row.R2}}</td>
                             <td>{{row.R3}}</td>
@@ -42,3 +42,20 @@
         </div>
     </div>
 </div>
+
+<ng-template #electiveSelector let-modal>
+    <div class="modal-content">
+        <div class="modal-body text-center p-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Please select an Elective</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="d-flex flex-column">
+                    <label class="form-label border border-dashed p-2"><a (click)="onClickAction('Elective 1')">Elective 1</a></label>
+                    <label class="form-label border border-dashed p-2"><a (click)="onClickAction('Elective 2')">Elective 1</a></label>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

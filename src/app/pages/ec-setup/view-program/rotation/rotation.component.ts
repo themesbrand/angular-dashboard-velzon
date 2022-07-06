@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import {data} from './data'
 
@@ -14,7 +15,11 @@ export class RotationComponent implements OnInit {
 
   tableTotal : any = [];
 
-  constructor(private router : Router) { }
+  @ViewChild("electiveSelector") electiveSelector !: TemplateRef<any>;
+
+
+  constructor(private router : Router,
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getTableTotal()
@@ -42,4 +47,20 @@ export class RotationComponent implements OnInit {
   onNavigate() {
     this.router.navigateByUrl('/ec-setup/add-rotation')
   }
+
+  onClickAction(rotation : any) {
+    if(rotation != 'Annual Leave') {
+      if(rotation != 'Elective') {
+        this.modalService.dismissAll();
+        this.router.navigateByUrl('/ec-setup/view-rotation')
+      } else {
+        this.openModel(this.electiveSelector)
+      }
+    } 
+  }
+
+  openModel(modal: any) {
+    this.modalService.open(modal, { centered: true });
+  }
+
 }

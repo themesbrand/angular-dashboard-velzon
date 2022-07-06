@@ -1,1 +1,74 @@
-<p>preview-rotation works!</p>
+<app-breadcrumbs title="View Rotation" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">View Rotation</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <form [formGroup]="rotationForm">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Year</label>
+                            <label class="form-control">{{formControls.year}}</label>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="d-flex flex-row justify-content-between mb-1">
+                                <label class="form-label">Rotation Name</label>
+                            </div>
+                            <label class="form-control">{{formControls.name}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Rotation Code</label>
+                            <label class="form-control">{{formControls.code}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Rotation Type</label>
+                            <label class="form-control">{{formControls.type}}</label>
+
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Is program own the Rotation</label>
+                            <label class="form-control">{{formControls.isOwnedByRotation}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Number Of Blocks</label>
+                            <label class="form-control">{{formControls.numberOfBlocks}}</label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Training Sites<span class="text-danger">{{ " *" }}</span></label>
+                            <label class="form-control">{{formControls.trainingSites}}</label>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Rotation Description<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="form-control" [innerHTML]="formControls.description"></div>
+                            
+                        </div>
+                        <div formArrayName="objectives" class="border-top border-top-dashed mt-3">
+                            <label class="form-label mt-2">Rotation Objectives</label>
+                            <div class="row">
+                                <div class="col-md-12 mb-3" *ngFor="let objective of objectiveControls; let i = index"
+                                [formGroupName]="i">
+                                    <label class="form-label">{{objective.value.objectiveName}}</label>
+                                    <div class="form-control" [innerHTML]="objective.value.objectiveContent"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top border-top-dashed mt-3 col-md-4 mb-3" formArrayName="methodOfAssessments">
+                            <div class="d-flex flex-row">
+                                <label class="form-label py-3 mb-0">Method of Assessments</label>
+                            </div>
+                            <div *ngFor="let assessment of methodOfAssessmentsControls; let i = index" [formGroupName]="i" class="d-flex flex-row justify-content-between align-items-center">
+                                <label class="form-control">{{assessment.value.methodName}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

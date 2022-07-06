@@ -9,3 +9,10 @@ tr td:first-child:hover {
     text-decoration: underline !important;
     color: #e8080c !important;
 }
+label a {
+    cursor: pointer !important;
+}
+label:hover a {
+    text-decoration: underline !important;
+    color: #e8080c !important;
+}

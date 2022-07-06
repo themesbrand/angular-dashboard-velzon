@@ -1,4 +1,4 @@
-<app-breadcrumbs title="View Program" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Add Rotation" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 
 <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 <div class="row">
@@ -52,7 +52,33 @@
                                   </ng-template>
                                 </ng-select>
                         </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Rotation Description<span class="text-danger">{{ " *" }}</span></label>
+                            <ckeditor [editor]="Editor" formControlName="description" ></ckeditor>
+                        </div>
+                        <div formArrayName="objectives" class="border-top border-top-dashed mt-3">
+                            <label class="form-label mt-2">Rotation Objectives</label>
+                            <div class="row">
+                                <div class="col-md-6 mb-3" *ngFor="let objective of objectiveControls; let i = index"
+                                [formGroupName]="i">
+                                    <label class="form-label">{{objective.value.objectiveName}}<span class="text-danger">{{ " *" }}</span></label>
+                                    <ckeditor [editor]="Editor" formControlName="objectiveContent" ></ckeditor>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mb-3" formArrayName="methodOfAssessments">
+                            <div class="d-flex flex-row">
+                                <label class="form-label">Method of Assessments</label>
+                                <button (click)="addMethodOfAssessments()" type="button" class="mx-4 btn btn-sm btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-file-add-fill"></i></button>
+                            </div>
+                            <div *ngFor="let assessment of methodOfAssessmentsControls; let i = index" [formGroupName]="i" class="mt-2 d-flex flex-row justify-content-between align-items-center">
+                                <input type="text"  formControlName="methodName" class="form-control"/>
+                                <button (click)="onDeleteMethodOfAssessments(i)" type="button" class="mx-3 btn btn-sm btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-delete-bin-2-line"></i></button>
+                            </div>
+
+                        </div>
                     </div>
+                    <button type="button" class="btn btn-primary right" (click)="onSubmit()">Submit</button>
                 </form>
             </div>
         </div>

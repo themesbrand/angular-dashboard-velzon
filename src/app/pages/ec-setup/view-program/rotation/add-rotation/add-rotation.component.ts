@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import {data} from '../data'
 
@@ -12,6 +13,7 @@ import {data} from '../data'
 export class AddRotationComponent implements OnInit {
   
   listData = data;
+  public Editor = ClassicEditor;
 
   breadCrumbItems!: Array<{}>;
   rotationForm !: FormGroup;
@@ -22,7 +24,7 @@ export class AddRotationComponent implements OnInit {
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "EC Setup", link: '/ec-setup'},
-      { label: "View Program", link: '//ec-setup/view-program'},
+      { label: "View Program", link: '/ec-setup/view-program'},
       { label: "Add Rotation", active : true }
     ];
     this.rotationFormInit()
@@ -47,6 +49,8 @@ export class AddRotationComponent implements OnInit {
     this.rotationForm.controls['code'].disable();
     this.rotationForm.controls['isOwnedByRotation'].disable();
 
+    this.addObjectives();
+    this.addMethodOfAssessments();
   }
 
   get formControls() {
@@ -78,16 +82,13 @@ export class AddRotationComponent implements OnInit {
   }
 
   addMethodOfAssessments() {
-    this.listData.rotationObjectives.forEach(objective => {
-      (<FormArray>this.rotationForm.get('methodOfAssessments')).push(
-        new FormGroup({
-          'methodName' : new FormControl(null, [])
-        })
-      );
-    })
+    (<FormArray>this.rotationForm.get('methodOfAssessments')).push(
+      new FormGroup({
+        'methodName' : new FormControl(null, [])
+      }))
   }
-  onDeleteMethodOfAssessments(index : any) {
 
+  onDeleteMethodOfAssessments(index : any) {
     if((<FormArray>this.rotationForm.get('methodOfAssessments')).length != 1) {
       (<FormArray>this.rotationForm.get('methodOfAssessments')).removeAt(index);
 
@@ -99,8 +100,13 @@ export class AddRotationComponent implements OnInit {
     this.rotationForm.get('type')?.patchValue(this.formControls.name.type)
     this.rotationForm.get('code')?.patchValue(this.formControls.name.code)
     this.rotationForm.get('isOwnedByRotation')?.patchValue(this.formControls.name.isOwnedByRotation)
+
+    console.log(this.objectiveControls[0].value.objectiveName)
   }
 
+  onSubmit() {
+    console.log(this.rotationForm.get('description')?.value)
+  }
   navigateBack() {
     this.router.navigateByUrl('/ec-setup/view-program')
   }
