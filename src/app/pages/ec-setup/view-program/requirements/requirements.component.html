@@ -24,12 +24,12 @@
                                         <tbody>
                                             <tr *ngFor="let requirement of listData.admissionRequirements.content; let i = index">
                                                 <td class="fw-medium">{{(i + 1)}}</td>
-                                                <td>
+                                                <td class="text-wrap">
                                                     <p *ngIf="!isEditObjects[i]">{{requirement}}</p>
                                                     <div class="d-flex flex-column" *ngIf="isEditObjects[i]">
                                                         <textarea [(ngModel)]="newRequirement" rows="10"></textarea>
                                                         <div class="d-flex flex-row justify-content-end">
-                                                            <button (click)="onSave(i)" type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="ri-edit-2-fill label-icon align-middle fs-16 me-2"></i>Save</button>
+                                                            <button (click)="onSave(i)" type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="ri-save-2-line label-icon align-middle fs-16 me-2"></i>Save</button>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -52,7 +52,7 @@
                             <div class="d-flex flex-column" *ngIf="listData.residencyTrainingRequirements.editable">
                                 <ckeditor [editor]="Editor" [(ngModel)]="listData.residencyTrainingRequirements.content" ></ckeditor>
                                 <div class="d-flex flex-row justify-content-end">
-                                    <button type="button" (click)="onChangeContent()" class="btn btn-primary my-1 btn-label waves-effect mt-2 waves-light mb-3"><i class="  ri-edit-2-line btn-sm label-icon align-middle fs-16 me-2"></i>Save</button>
+                                    <button type="button" (click)="onChangeContent()" class="btn btn-primary my-1 btn-label waves-effect mt-2 waves-light mb-3"><i class="ri-save-2-line btn-sm label-icon align-middle fs-16 me-2"></i>Save</button>
                                 </div>
                             </div>
                             <div class="d-flex flex-row justify-content-end" *ngIf="!listData.residencyTrainingRequirements.editable">

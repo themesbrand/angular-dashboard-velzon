@@ -64,6 +64,8 @@ import { RequirementsComponent } from './ec-setup/view-program/requirements/requ
 import { RotationComponent } from './ec-setup/view-program/rotation/rotation.component';
 import { AddRotationComponent } from './ec-setup/view-program/rotation/add-rotation/add-rotation.component';
 import { PreviewRotationComponent } from './ec-setup/view-program/rotation/preview-rotation/preview-rotation.component';
+import { ProcedureComponent } from './ec-setup/view-program/procedure/procedure.component';
+import { AllocateProcedureComponent } from './ec-setup/view-program/procedure/allocate-procedure/allocate-procedure.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -100,7 +102,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     RequirementsComponent,
     RotationComponent,
     AddRotationComponent,
-    PreviewRotationComponent
+    PreviewRotationComponent,
+    ProcedureComponent,
+    AllocateProcedureComponent
   ],
   imports: [
     CommonModule,

@@ -54,6 +54,12 @@
                                 <app-rotation></app-rotation>
                               </ng-template>
                             </li>
+                            <li [ngbNavItem]="6" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Procedures</a>
+                              <ng-template ngbNavContent>
+                                <app-procedure></app-procedure>
+                              </ng-template>
+                            </li>
                         </ul>
                     </div>
                 </div>

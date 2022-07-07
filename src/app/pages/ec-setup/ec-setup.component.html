@@ -17,7 +17,7 @@
                         
                     </div>
                     <div class="card-body">
-                        <p class="card-text mb-2"><span class="fw-bold">{{programData.programDescription.name}}{{" : "}}</span>{{programData.programDescription.description}}</p>
+                        <p class="card-text mb-2"><span class="fw-bold">{{programData.programDescription.name}}{{" : "}}</span><span [innerHTML]="programData.programDescription.description"></span></p>
                         <p class="card-text mb-2"><span class="fw-bold">{{programData.establishmentDate.name}}{{" : "}}</span>{{programData.establishmentDate.description}}</p>                        
                     </div>
                 </div>
@@ -25,9 +25,9 @@
             <div class="row g-0">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <p class="card-text mb-2"><span class="fw-bold">{{programData.vision.name}}{{" : "}}</span>{{programData.vision.description}}</p>
-                        <p class="card-text mb-2"><span class="fw-bold">{{programData.mission.name}}{{" : "}}</span>{{programData.mission.description}}</p>
-                        <p class="card-text mb-2"><span class="fw-bold">{{programData.programDuration.name}}{{" : "}}</span>{{programData.programDuration.description}}</p>
+                        <p class="card-text mb-2"><span class="fw-bold">{{programData.vision.name}}{{" : "}}</span><span [innerHTML]="programData.vision.description"></span></p>
+                        <p class="card-text mb-2"><span class="fw-bold">{{programData.mission.name}}{{" : "}}</span><span [innerHTML]="programData.mission.description"></span></p>
+                        <p class="card-text mb-2"><span class="fw-bold">{{programData.programDuration.name}}{{" : "}}</span><span [innerHTML]="programData.programDuration.description"></span></p>
                         <p  class="card-text mb-2 text-muted">{{programData.programDuration.extra}}</p>
                         <div class="d-flex flex-row justify-content-between mb-2">
                             <p class="card-text mb-2"><span class="fw-bold">Curricula Document</span></p>

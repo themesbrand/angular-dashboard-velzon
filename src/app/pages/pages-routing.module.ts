@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
 import { CreateProgramComponent } from './ec-setup/create-program/create-program.component';
 import { EcSetupComponent } from './ec-setup/ec-setup.component';
+import { AllocateProcedureComponent } from './ec-setup/view-program/procedure/allocate-procedure/allocate-procedure.component';
+import { ProcedureComponent } from './ec-setup/view-program/procedure/procedure.component';
 import { AddRotationComponent } from './ec-setup/view-program/rotation/add-rotation/add-rotation.component';
 import { PreviewRotationComponent } from './ec-setup/view-program/rotation/preview-rotation/preview-rotation.component';
 import { RotationComponent } from './ec-setup/view-program/rotation/rotation.component';
@@ -37,6 +39,7 @@ const routes: Routes = [
         { path: "view-program", component: ViewProgramComponent },
         { path: "add-rotation", component: AddRotationComponent },
         { path: "view-rotation", component: PreviewRotationComponent },
+        { path: "allocate-procedure", component: AllocateProcedureComponent },
       ] 
     },
     {

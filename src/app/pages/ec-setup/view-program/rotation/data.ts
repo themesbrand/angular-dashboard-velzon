@@ -26,6 +26,7 @@ const data = {
     rotationObjectives : [ 'Medical Knowledge', 'Interpersonal and Communications Skills', 'Systems-Based Practice', 'Practice-Based Learning and Improvement', 'Professionalism', 'Patient Care'
     ],
     rotationYears: ['R1', 'R2', 'R3', 'R4', 'R4'],
+    rotationTypes: ['Core', 'Elective'],
     rotationCodes: [
         {name : 'Anesthesia for General Surgery', code : 'ANGS', isOwnedByRotation: 'Yes', type: 'Core'},
         {name : 'Anesthesia for General Surgery - Ambulatory Cases', code : 'ANGS-AMC', isOwnedByRotation: 'No', type: 'Elective'},

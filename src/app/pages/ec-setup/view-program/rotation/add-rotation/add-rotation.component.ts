@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import {data} from '../data'
 
@@ -19,7 +20,8 @@ export class AddRotationComponent implements OnInit {
   rotationForm !: FormGroup;
 
   constructor(private router : Router,
-    private formBuilder : FormBuilder) { }
+    private formBuilder : FormBuilder,
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -110,5 +112,10 @@ export class AddRotationComponent implements OnInit {
   navigateBack() {
     this.router.navigateByUrl('/ec-setup/view-program')
   }
+
+  openModel(modal: any) {
+    this.modalService.open(modal, { centered: true });
+  }
+
 
 }

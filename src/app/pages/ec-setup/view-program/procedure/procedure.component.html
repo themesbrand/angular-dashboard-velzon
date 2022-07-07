@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-end">
+                    <button type="button" (click)="onNavigate()" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add</button>
+                </div>
+                <div class="live-preview" >                                    
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle table-nowrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ANESTHESIA ADMINISTRATION</th>
+                                    <th scope="col" colspan="5">MINIMUM NUMBER A RESIDENT SHOULD ACHIEVE</th>
+                                    <th scope="col" rowspan="2" style="vertical-align : middle; text-align: center;">TOTAL</th>
+                                </tr>
+                                <tr>
+                                    <th>PROCEDURE NAME</th>
+                                    <th>R1</th>
+                                    <th>R2</th>
+                                    <th>R3</th>
+                                    <th>R4</th>
+                                    <th>R5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let object of listData.tableData.procedureCategoryNames">
+                                    <td>{{object.name}}</td>                                    
+                                    <td>{{object.r1}}</td>                                    
+                                    <td>{{object.r2}}</td>                                    
+                                    <td>{{object.r3}}</td>                                    
+                                    <td>{{object.r4}}</td>                                    
+                                    <td>{{object.r5}}</td>                                    
+                                    <td>{{(+object.r1 + +object.r2 + +object.r3 + +object.r4 + +object.r5  )}}</td>                                    
+                                </tr>
+                                <tr>
+                                    <th>PROCEDURES/TECHNIQUES</th>
+                                </tr>
+
+                                <tr *ngFor="let object of listData.tableData.procedureSubCategory">
+                                    <td>{{object.name}}</td>                                    
+                                    <td>{{object.r1}}</td>                                    
+                                    <td>{{object.r2}}</td>                                    
+                                    <td>{{object.r3}}</td>                                    
+                                    <td>{{object.r4}}</td>                                    
+                                    <td>{{object.r5}}</td>                                    
+                                    <td>{{(+object.r1 + +object.r2 + +object.r3 + +object.r4 + +object.r5  )}}</td>                                    
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
