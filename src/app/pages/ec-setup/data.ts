@@ -108,7 +108,7 @@ const data = {
                     phone:'+9681999232'
                 },
                 {
-                    userImage : '/assets/images/users/avatar-6.jpg',
+                    userImage : '/assets/images/users/avatar-1.jpg',
                     name : "Al Abri Ibraham",
                     email:'AbriIbraham@gmail.com',
                     phone:'+9681999232'
@@ -126,8 +126,8 @@ const data = {
                     phone:'+9681999232'
                 },
                 {
-                    userImage : '/assets/images/users/avatar-5.jpg',
-                    name : "Al Abri Falsal",
+                    userImage : '/assets/images/users/avatar-2.jpg',
+                    name : "Abu Nasser",
                     email:'AlAbriFalsal@gmail.com',
                     phone:'+9681999232'
                 },
@@ -138,14 +138,14 @@ const data = {
                     phone:'+9681999232'
                 },
                 {
-                    userImage : '/assets/images/users/avatar-5.jpg',
-                    name : "Al Abri Falsal",
+                    userImage : '/assets/images/users/avatar-1.jpg',
+                    name : "Hilal basheer",
                     email:'AlAbriFalsal@gmail.com',
                     phone:'+9681999232'
                 },
                 {
-                    userImage : '/assets/images/users/avatar-6.jpg',
-                    name : "Al Abri Ibraham",
+                    userImage : '/assets/images/users/avatar-3.jpg',
+                    name : "Faisal Gawas",
                     email:'AbriIbraham@gmail.com',
                     phone:'+9681999232'
                 },
