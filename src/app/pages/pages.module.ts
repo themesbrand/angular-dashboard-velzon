@@ -67,6 +67,9 @@ import { PreviewRotationComponent } from './ec-setup/view-program/rotation/previ
 import { ProcedureComponent } from './ec-setup/view-program/procedure/procedure.component';
 import { AllocateProcedureComponent } from './ec-setup/view-program/procedure/allocate-procedure/allocate-procedure.component';
 import { TrainingSitesComponent } from './ec-setup/view-program/training-sites/training-sites.component';
+import { SyllabusComponent } from './ec-setup/view-program/syllabus/syllabus.component';
+import { AssessmentComponent } from './ec-setup/view-program/assessment/assessment.component';
+import { ToolsForEvaluationComponent } from './ec-setup/view-program/tools-for-evaluation/tools-for-evaluation.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -106,7 +109,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     PreviewRotationComponent,
     ProcedureComponent,
     AllocateProcedureComponent,
-    TrainingSitesComponent
+    TrainingSitesComponent,
+    SyllabusComponent,
+    AssessmentComponent,
+    ToolsForEvaluationComponent
   ],
   imports: [
     CommonModule,

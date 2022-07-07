@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header align-items-xl-center d-xl-flex">
+                <div class="flex-shrink-0">
+                  <ul ngbNav #Header="ngbNav" [activeId]="1" class="nav nav-pills card-header-pills">
+                    <li [ngbNavItem]="1">
+                        <a ngbNavLink>Formative Assessment</a>
+                        <ng-template ngbNavContent>
+                            <div class="d-flex flex-row justify-content-end">
+                                <button type="button" (click)="openModel(addAssessment)" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Assessment</button>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="border border-dashed mt-2 px-4 py-3" *ngFor="let content of listData.formativeAssessment; let i = index">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="text-success h5">{{(i+1)}}{{". "}}{{content.name}}</p>
+                                        <div class="d-flex flex-row">
+                                        <button (click)="onDelete(i, 'formativeAssessment')" type="button" class="btn btn-sm btn-outline-danger mx-1 btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                        <button (click)="onEdit(i, 'formativeAssessment')" type="button" class="btn btn-sm btn-outline-primary mx-1 btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></button>
+                                        </div>
+                                    </div>
+                                    <div [innerHTML]="content.description" *ngIf="!content.editable">
+                                    </div>
+                                    <div *ngIf="content.editable">
+                                        <ckeditor [editor]="Editor" [(ngModel)]="content.description" ></ckeditor>
+                                        <button type="button" (click)="onSave(i, 'formativeAssessment')" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Save</button>
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2">
+                        <a ngbNavLink>Summative Assessment</a>
+                        <ng-template ngbNavContent>
+                            <div class="d-flex flex-row justify-content-end">
+                                <button type="button" (click)="openModel(addAssessment)" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Assessment</button>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="border border-dashed mt-2 px-4 py-3" *ngFor="let content of listData.summativeAssessment; let i = index">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="text-success h5">{{(i+1)}}{{". "}}{{content.name}}</p>
+                                        <div class="d-flex flex-row">
+                                        <button (click)="onDelete(i, 'summativeAssessment')" type="button" class="btn btn-sm btn-outline-danger mx-1 btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                        <button (click)="onEdit(i, 'summativeAssessment')" type="button" class="btn btn-sm btn-outline-primary mx-1 btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></button>
+                                        </div>
+                                    </div>
+                                    <div [innerHTML]="content.description" *ngIf="!content.editable">
+                                    </div>
+                                    <div *ngIf="content.editable">
+                                        <ckeditor [editor]="Editor" [(ngModel)]="content.description" ></ckeditor>
+                                        <button type="button" (click)="onSave(i, 'summativeAssessment')" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Save</button>
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    
+                  </ul>
+                </div>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <!-- Tab panes -->
+                <div class="tab-content text-muted">
+                  <div [ngbNavOutlet]="Header"></div>
+                </div>
+            </div><!-- end card-body -->                
+        </div>
+      </div>
+</div>
+
+
+<ng-template #addAssessment let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Assessment</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Assessment Name<span class="text-danger">{{"*"}}</span></label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Description<span class="text-danger">{{"*"}}</span></label>
+                        <ckeditor [(ngModel)]="editableContent" [editor]="Editor" ></ckeditor>
+                    </div>
+                </div>
+                <button class="btn btn-primary right" (click)="onClick()">Save</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

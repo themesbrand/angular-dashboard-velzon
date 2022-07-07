@@ -66,6 +66,24 @@
                                 <app-training-sites></app-training-sites>
                               </ng-template>
                             </li>
+                            <li [ngbNavItem]="8" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Syllabus</a>
+                              <ng-template ngbNavContent>
+                                <app-syllabus></app-syllabus>
+                              </ng-template>
+                            </li>
+                            <li [ngbNavItem]="9" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Assessment</a>
+                              <ng-template ngbNavContent>
+                                <app-assessment></app-assessment>
+                              </ng-template>
+                            </li>
+                            <li [ngbNavItem]="10" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Tools For Program Evaluation</a>
+                              <ng-template ngbNavContent>
+                                <app-tools-for-evaluation></app-tools-for-evaluation>
+                              </ng-template>
+                            </li>
                         </ul>
                     </div>
                 </div>
