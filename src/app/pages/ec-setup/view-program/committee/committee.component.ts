@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { data } from '../../data'
+import { data } from './data'
 
 @Component({
   selector: 'app-committee',
@@ -11,10 +11,11 @@ export class CommitteeComponent implements OnInit {
   listData = data;
 
   selectedCommittee : {
-    name : any, data: any
+    name : any, data: any, type : any
   } = {
     name: undefined,
-    data: undefined
+    data: undefined,
+    type: undefined
   };
 
   constructor() { }
@@ -26,7 +27,9 @@ export class CommitteeComponent implements OnInit {
   onSelectCommittee(committee : any) {
 
 
-    this.selectedCommittee.name = committee
+    this.selectedCommittee.name = committee;
+    this.selectedCommittee.type = undefined;
+
     switch (committee) {
       case 'Education Committee' : {
         this.selectedCommittee.data = this.listData.teamObject.educationCommittee
@@ -62,9 +65,21 @@ export class CommitteeComponent implements OnInit {
         break;
       }
       case 'Program Administrators' : {
-        this.selectedCommittee.data = this.listData.teamObject.programAdministrators
+        this.selectedCommittee.data = this.listData.teamObject.programAdministrators;
+        this.selectedCommittee.type = 'MEMBERS_ONLY'
         window.scroll({ top: 640, left: 0, behavior: 'smooth' });
-
+        break;
+      }
+      case 'Career Adviser' : {
+        this.selectedCommittee.data = this.listData.teamObject.careerAdviser;
+        this.selectedCommittee.type = 'MEMBERS_ONLY'
+        window.scroll({ top: 640, left: 0, behavior: 'smooth' });
+        break;
+      }
+      case 'Quality Improvement Supervisor' : {
+        this.selectedCommittee.data = this.listData.teamObject.qualityImprovementSupervisor;
+        this.selectedCommittee.type = 'MEMBERS_ONLY'
+        window.scroll({ top: 640, left: 0, behavior: 'smooth' });
         break;
       }
       default : {
