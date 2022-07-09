@@ -36,9 +36,20 @@
     },
     {
         "id": 13,
-        "label": "Medical Simulation",
+        "label": "Duty Hours",
         "icon": "ri-book-3-line",
-        "link": "/graduate-medical-education"
+        "subItems" : [
+            {
+                "label": "Log Hours",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/grid"
+            },
+            {
+                "label": "View Hours",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/view"
+            }
+        ]
     },
     {
         "id": 14,

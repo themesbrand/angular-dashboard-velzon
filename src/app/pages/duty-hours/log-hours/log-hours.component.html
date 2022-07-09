@@ -1,0 +1,142 @@
+<app-breadcrumbs title="Log Hours" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-end mb-2">
+            <button type="button" (click)="openModal(changePreference, 'md')" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-settings-2-line"></i></button>
+        </div>
+        <full-calendar [options]="calendarOptions" class="h-100"></full-calendar>
+    </div>
+</div>
+
+<ng-template #changePreference let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Table Preferences</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="row border border-dashed p-2 mx-3 my-2">
+                    <div class="col-md-6">
+                        <label class="form-label mb-0 text-nowrap">Table Preference</label>
+                        <div class="d-flex flex-row mt-3">
+                            <div class="form-check">
+                              <input class="form-check-input" name="tablePreferences" type="radio" id="tablePreferencesCheckRadio1" value="vertical" [(ngModel)]="tablePreferenceValue" (change)="onChangeTablePreferences('vertical')">
+                              <label class="form-check-label"  for="tablePreferencesCheckRadio1">Vertical</label>
+                            </div>
+                            <div class="form-check mx-3">
+                              <input class="form-check-input" type="radio" id="tablePreferencesCheckRadio2" name="tablePreferences" value="horizontal" [(ngModel)]="tablePreferenceValue" (change)="onChangeTablePreferences('horizontal')">
+                              <label class="form-check-label"  for="tablePreferencesCheckRadio2">Horizontal</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label mb-0 text-nowrap">Slot Duration</label>
+                        <div class="d-flex flex-row mt-3">
+                            <div class="form-check">
+                              <input class="form-check-input" name="slotDuration" type="radio" id="slotDurationCheckRadio1" value="00:15" [(ngModel)]="slotDurationValue" (change)="onChangeSlotDuration('00:15')">
+                              <label class="form-check-label"  for="slotDurationCheckRadio1">15</label>
+                            </div>
+                            <div class="form-check mx-3">
+                              <input class="form-check-input" type="radio" id="slotDurationCheckRadio2" name="slotDuration" value="00:30" [(ngModel)]="slotDurationValue" (change)="onChangeSlotDuration('00:30')">
+                              <label class="form-check-label"  for="slotDurationCheckRadio2">30</label>
+                            </div>
+                            <div class="form-check mx-3">
+                              <input class="form-check-input" type="radio" id="slotDurationCheckRadio2" name="slotDuration" value="00:60" (change)="onChangeSlotDuration('00:60')"[(ngModel)]="slotDurationValue" >
+                              <label class="form-check-label"  for="slotDurationCheckRadio2">60</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <button class="btn btn-primary" (click)="savePreference()">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #addEventModal let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Event</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <form [formGroup]="addEventForm" (ngSubmit)="onSubmitEvent()">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.department"
+                            placeholder="Please select" formControlName="department">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Training Center<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.trainingSites"
+                            formControlName="trainingCenter"
+                            placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Assignment<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-column assignment-box">
+                                <div *ngFor="let object of listData.assignmentsDataObject; let i = index" class="border border-dashed px-3 py-1 d-flex flex-row my-1" (click)="onSelectAssignment(object)" id="{{i}}">
+                                    <label class="form-label mb-0 text-nowrap">{{object.assignmentName}}</label>
+                                    <div style="width: 20px; height: 20px" [ngStyle]="{'background-color' : object.colorCode}" class="mx-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="formValues.assignment">
+                            <label class="form-label">Selected Assignment<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-column assignment-box">
+                                <div class="border border-dashed px-3 py-1 d-flex flex-row my-1">
+                                    <label class="form-label mb-0 text-nowrap">{{formValues.assignment.assignmentName}}</label>
+                                    <div style="width: 20px; height: 20px" [ngStyle]="{'background-color' : formValues.assignment.colorCode}" class="mx-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="d-flex flex-row w-100 h-100 justify-content-between align-items-center">
+                              <label class="form-label mb-0 text-nowrap">Event Duration<span class="text-danger">{{" * "}}</span></label>
+                              <div class="d-flex flex-row mx-3">
+                                <div class="form-check mx-1">
+                                  <input class="form-check-input" type="radio" id="eventDurationCheckRadio1" formControlName="eventDuration" value="single">
+                                  <label class="form-check-label" for="eventDurationCheckRadio1">Single Event</label>
+                                </div>
+                                <div class="form-check mx-1">
+                                  <input class="form-check-input" type="radio" id="eventDurationCheckRadio3" formControlName="eventDuration" value="multiple">
+                                  <label class="form-check-label" for="eventDurationCheckRadio3">Multiple Dates</label>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3" *ngIf="formValues.eventDuration === 'multiple'">
+                            <label class="form-label mb-0 text-nowrap">Please select the Dates<span class="text-danger">{{" * "}}</span></label>
+                            <input class="form-control flatpickr-input" type="text" id="example-week-input"
+                                  mwlFlatpickr [convertModelValue]="false" 
+                                  formControlName="recurringDates" 
+                                  mode="multiple">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Slot Duration<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.slotDuration"
+                            formControlName="slotDuration"
+                            bindLabel="name"
+                            placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+                    
+
+                    
+                </form>
+            </div>
+            <button class="btn btn-primary" type="submit" (click)="onSubmitEvent()">Save</button>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

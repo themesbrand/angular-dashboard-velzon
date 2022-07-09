@@ -1,0 +1,39 @@
+.card {
+    height: 100%;
+}
+.card .card-body {
+    height: 100%;
+}
+.card .card-body .row{
+    height: 100%;
+}
+.assignment-box {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.assignment-box div {
+    width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+}
+.assignment-box div:hover {
+    background-color: rgb(216, 216, 216);
+}
+.active {
+    background-color: rgb(110, 110, 110);
+    color: white;
+
+}
+::ng-deep .fc-event {
+    margin-top: 0 !important;
+}
+::ng-deep .fc-timegrid-event {
+    padding: 0 !important;
+}
+::ng-deep .fc-event-title {
+    font-size: 0.7rem !important;
+}
+::ng-deep .fc .fc-timegrid-slot {
+    height: 2em;
+}

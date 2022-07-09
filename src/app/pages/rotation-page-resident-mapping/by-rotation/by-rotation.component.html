@@ -28,12 +28,13 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div *ngIf="!isFullscreenMode" class="d-flex flex-row justify-content-end">
+                    <div *ngIf="!isFullscreenMode" class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-primary btn-label waves-effect waves-light my-2"><i class="ri-save-2-line label-icon align-middle fs-16 me-2"></i>Save</button>
                         <button (click)="fullModal(fullDataModal)" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light my-2"><i class=" ri-fullscreen-fill"></i></button>
                     </div>
-                    <div *ngIf="isFullscreenMode" class="d-flex flex-row justify-content-end">
-                        <button (click)="closeModal()"type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light my-2"><i class="  ri-close-line
-                            "></i></button>
+                    <div *ngIf="isFullscreenMode" class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-primary btn-label waves-effect waves-light my-2"><i class="ri-save-2-line label-icon align-middle fs-16 me-2"></i>Save</button>
+                        <button (click)="closeModal()"type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light my-2"><i class="  ri-close-line"></i></button>
                     </div>
                     <div class="table-responsive table_block">
                         <table class=" table table-nowrap" >

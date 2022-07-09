@@ -15,6 +15,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Swiper Slider
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -33,13 +34,20 @@ import { SharedModule } from "../shared/shared.module";
 import { WidgetModule } from '../shared/widget/widget.module';
 import { DashboardComponent } from './dashboards/dashboard/dashboard.component';
 import { ToastsContainer } from './dashboards/toasts-container.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+//Full Calendar
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ArchwizardModule } from 'angular-archwizard';
+
 import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 import { ScrollableDirective } from '../directive/scrollable.directive';
 import { RotationPageResidentMappingComponent } from './rotation-page-resident-mapping/rotation-page-resident-mapping.component';
@@ -70,16 +78,26 @@ import { TrainingSitesComponent } from './ec-setup/view-program/training-sites/t
 import { SyllabusComponent } from './ec-setup/view-program/syllabus/syllabus.component';
 import { AssessmentComponent } from './ec-setup/view-program/assessment/assessment.component';
 import { ToolsForEvaluationComponent } from './ec-setup/view-program/tools-for-evaluation/tools-for-evaluation.component';
+import { DailyAssignmentsComponent } from './ec-setup/view-program/daily-assignments/daily-assignments.component';
+import { LogHoursComponent } from './duty-hours/log-hours/log-hours.component';
+import { ViewHoursComponent } from './duty-hours/view-hours/view-hours.component';
+
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
-
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto'
 };
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  interactionPlugin,
+  timeGridPlugin 
+]);
+
 
 @NgModule({
   declarations: [
@@ -112,7 +130,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     TrainingSitesComponent,
     SyllabusComponent,
     AssessmentComponent,
-    ToolsForEvaluationComponent
+    ToolsForEvaluationComponent,
+    DailyAssignmentsComponent,
+    LogHoursComponent,
+    ViewHoursComponent
   ],
   imports: [
     CommonModule,
@@ -126,6 +147,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         deps: [HttpClient]
       }
     }),
+    FullCalendarModule,
     CountToModule,
     NgApexchartsModule,
     LeafletModule,

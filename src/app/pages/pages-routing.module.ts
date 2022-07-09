@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Component pages
 import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
+import { LogHoursComponent } from './duty-hours/log-hours/log-hours.component';
+import { ViewHoursComponent } from './duty-hours/view-hours/view-hours.component';
 import { CreateProgramComponent } from './ec-setup/create-program/create-program.component';
 import { EcSetupComponent } from './ec-setup/ec-setup.component';
 import { AllocateProcedureComponent } from './ec-setup/view-program/procedure/allocate-procedure/allocate-procedure.component';
@@ -44,7 +46,12 @@ const routes: Routes = [
     },
     {
       path: 'graduate-medical-education', loadChildren: () => import('./graduate_medical_education/medical-education.module').then(m => m.AppsModule)
-    }
+    },
+    { path: "duty-hours", children: [
+      { path: "grid", component: LogHoursComponent },
+      { path: "view", component: ViewHoursComponent },
+    ] 
+  },
 ];
 
 @NgModule({

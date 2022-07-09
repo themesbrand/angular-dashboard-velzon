@@ -61,6 +61,7 @@ export class AllocateProcedureComponent implements OnInit {
     (<FormArray>this.yearlyForm.get('objects')).push(
       new FormGroup({
         category : new FormControl(null, []),
+        name : new FormControl(null, []),
         r1 : new FormControl(null, []),
         r2 : new FormControl(null, []),
         r3 : new FormControl(null, []),
@@ -79,6 +80,7 @@ export class AllocateProcedureComponent implements OnInit {
     (<FormArray>this.basicAndAdvanceForm.get('objects')).push(
       new FormGroup({
         category : new FormControl(null, []),
+        name : new FormControl(null, []),
         basic : new FormControl(null, []),
         advance : new FormControl(null, [])
       })
@@ -94,6 +96,7 @@ export class AllocateProcedureComponent implements OnInit {
     (<FormArray>this.overallForm.get('objects')).push(
       new FormGroup({
         category : new FormControl(null, []),
+        name : new FormControl(null, []),
         overall : new FormControl(null, []),
         residencyLevel : new FormControl(null, [])
       })

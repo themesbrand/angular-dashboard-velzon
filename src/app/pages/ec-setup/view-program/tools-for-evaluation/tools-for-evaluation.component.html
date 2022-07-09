@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-row justify-content-end">
-                    <button type="button" (click)="openModel(addAssessment)" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Evaluation</button>
+                    <button type="button" (click)="openModel(addEvaluation)" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Evaluation</button>
                 </div>
                 <div class="d-flex flex-column">
                     <div class="border border-dashed mt-2 px-4 py-3" *ngFor="let content of listData.objects; let i = index">
@@ -29,11 +29,11 @@
 </div>
 
 
-<ng-template #addAssessment let-modal>
+<ng-template #addEvaluation let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Add Assessment</label>
+                <label class="form-label mt-2 h5">Add Evaluation</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-2">

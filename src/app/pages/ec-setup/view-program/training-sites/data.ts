@@ -123,7 +123,7 @@ const data = {
             ]
         },
         {
-            trainingCenterName: 'Armed Forces Hospita',
+            trainingCenterName: 'Armed Forces Hospital',
             trainingCenterAddress: 'Al Seeb Al Khoudh SQU SEPS Muscat OM, 123, Oman',
             contactPerson : [
                 { 

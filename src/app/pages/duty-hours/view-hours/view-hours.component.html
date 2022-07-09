@@ -1,0 +1,192 @@
+<app-breadcrumbs title="View Hours" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="card">
+    <div class="card-body">
+        <div class="live-preview" >                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Department</th>
+                            <th scope="col">Assignment</th>
+                            <th scope="col">Duty Type</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Color Code</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of listData.calendarEvents"> 
+                            <td>{{event.department}}</td>
+                            <td>{{event.assignmentName}}</td>
+                            <td>{{event.dutyType}}</td>
+                            <td>{{event.startDate | date : 'MMMM d, y, h:mm:ss a z' }}</td>
+                            <td>{{event.endDate | date : 'MMMM d, y, h:mm:ss a z'}}</td>
+                            <td>{{event.duration}}</td>
+                            <td [ngStyle]="{'background-color' : event.colorCode}"></td>
+                            <td>                                
+                                <button (click)="openModal(editEvent, 'lg'); selectEvent(event)" type="button" class="mx-1 btn btn-outline-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>
+                                <button (click)="openModal(viewEvent, 'lg'); selectEvent(event)" type="button" class="mx-1 btn btn-outline-success btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #viewEvent let-modal style="z-index: 9999999 !important;">
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Event</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Duty Type</label>
+                        <label class="form-control">{{selectedEvent.dutyType}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Assignment</label>
+                        <label class="form-control">{{selectedEvent.assignmentName}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Start Date</label>
+                        <label class="form-control">{{selectedEvent.startDate | date : 'MMMM d, y, h:mm:ss a z'}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">End Date</label>
+                        <label class="form-control">{{selectedEvent.endDate | date : 'MMMM d, y, h:mm:ss a z'}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Duration</label>
+                        <label class="form-control">{{selectedEvent.duration}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Color Code</label>
+                        <label class="form-control" [ngStyle]="{'background-color' : selectedEvent.colorCode}" ></label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Department</label>
+                        <label class="form-control">{{selectedEvent.department}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Training Center</label>
+                        <label class="form-control">{{selectedEvent.trainingCenter}}</label>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #editEvent let-modal style="z-index: 9999999 !important;">
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Edit Event</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <form [formGroup]="eventForm" (ngSubmit)="onSubmitEvent()">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.department"
+                            placeholder="Please select" formControlName="department">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Training Center<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.trainingSites"
+                            formControlName="trainingCenter"
+                            placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Assignment<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-column assignment-box">
+                                <div *ngFor="let object of listData.assignmentsDataObject; let i = index" class="border border-dashed px-3 py-1 d-flex flex-row my-1" (click)="onSelectAssignment(object)" id="{{i}}">
+                                    <label class="form-label mb-0 text-nowrap">{{object.assignmentName}}</label>
+                                    <div style="width: 20px; height: 20px" [ngStyle]="{'background-color' : object.colorCode}" class="mx-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="formValues.assignment">
+                            <label class="form-label">Selected Assignment<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-column assignment-box">
+                                <div class="border border-dashed px-3 py-1 d-flex flex-row my-1">
+                                    <label class="form-label mb-0 text-nowrap">{{formValues.assignment.assignmentName}}</label>
+                                    <div style="width: 20px; height: 20px" [ngStyle]="{'background-color' : formValues.assignment.colorCode}" class="mx-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex flex-row w-100 h-100 justify-content-between align-items-center">
+                              <label class="form-label mb-0 text-nowrap">Event Duration<span class="text-danger">{{" * "}}</span></label>
+                              <div class="d-flex flex-row mx-3">
+                                <div class="form-check mx-1">
+                                  <input class="form-check-input" type="radio" id="eventDurationCheckRadio1" formControlName="eventDuration" value="single">
+                                  <label class="form-check-label" for="eventDurationCheckRadio1">Single Event</label>
+                                </div>
+                                <div class="form-check mx-1">
+                                  <input class="form-check-input" type="radio" id="eventDurationCheckRadio3" formControlName="eventDuration" value="multiple">
+                                  <label class="form-check-label" for="eventDurationCheckRadio3">Multiple Dates</label>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="formValues.eventDuration === 'single'">
+                            <label class="form-label mb-0 text-nowrap">Please select the Date<span class="text-danger">{{" * "}}</span></label>
+                            <input class="form-control flatpickr-input" type="text" id="example-week-input"
+                                  mwlFlatpickr 
+                                  formControlName="eventDate" >
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="formValues.eventDuration === 'multiple'">
+                            <label class="form-label mb-0 text-nowrap">Please select the Dates<span class="text-danger">{{" * "}}</span></label>
+                            <input class="form-control flatpickr-input" type="text" id="example-week-input"
+                                  mwlFlatpickr [convertModelValue]="false" 
+                                  formControlName="recurringDates" 
+                                  mode="multiple">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Slot Duration<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.slotDuration"
+                            formControlName="slotDuration"
+                            bindLabel="name"
+                            placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Start Time<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'" formControlName="startTime">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">End Time<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'" formControlName="EndTime">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary">Save</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

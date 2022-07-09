@@ -27,6 +27,7 @@
                         <table class="table table-hover align-middle table-nowrap mb-0">
                             <thead>
                                 <tr>
+                                    <th scope="col">Procedure Category</th>
                                     <th scope="col">Procedure Name</th>
                                     <th scope="col">R1</th>
                                     <th scope="col">R2</th>
@@ -42,6 +43,9 @@
                                     <td>
                                         <ng-select [items]="listData.procedureNames" placeholder="Please select" formControlName="category">
                                         </ng-select>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" formControlName="name"/>
                                     </td>
                                     <td>
                                         <input type="number" class="form-control" formControlName="r1"/>
@@ -86,6 +90,7 @@
                         <table class="table table-hover align-middle table-nowrap mb-0">
                             <thead>
                                 <tr>
+                                    <th scope="col">Procedure Category</th>
                                     <th scope="col">Procedure Name</th>
                                     <th scope="col">Basic</th>
                                     <th scope="col">Advance</th>
@@ -98,6 +103,9 @@
                                     <td>
                                         <ng-select [items]="listData.procedureNames" placeholder="Please select" formControlName="category">
                                         </ng-select>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" formControlName="name"/>
                                     </td>
                                     <td>
                                         <input type="number" class="form-control" formControlName="basic"/>
@@ -133,6 +141,7 @@
                         <table class="table table-hover align-middle table-nowrap mb-0">
                             <thead>
                                 <tr>
+                                    <th scope="col">Procedure Category</th>
                                     <th scope="col">Procedure Name</th>
                                     <th scope="col">OverAll</th>
                                     <th scope="col">Level Of Residency</th>
@@ -141,9 +150,13 @@
                             </thead>
                             <tbody formArrayName="objects">
                                 <tr *ngFor="let object of overallFormObjectsObjects; let i = index" [formGroupName]="i">
+                                    
                                     <td>
                                         <ng-select [items]="listData.procedureNames" placeholder="Please select" formControlName="category">
                                         </ng-select>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" formControlName="name"/>
                                     </td>
                                     <td>
                                         <input type="number" class="form-control" formControlName="overall"/>

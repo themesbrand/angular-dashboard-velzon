@@ -1,0 +1,37 @@
+.table-responsive  {
+    height: 70vh !important;
+    overflow-y: scroll;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+.table-responsive  thead tr:nth-child(1) {
+    top: 0 !important; 
+    left: 0 !important;
+    position: sticky !important;
+    z-index: 99 !important;
+}
+td {
+    word-wrap: break-word;
+    padding: 0.45rem 0.6rem;
+}
+.assignment-box {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.assignment-box div {
+    width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+}
+.assignment-box div:hover {
+    background-color: rgb(216, 216, 216);
+}
+.active {
+    background-color: rgb(110, 110, 110);
+    color: white;
+
+}
