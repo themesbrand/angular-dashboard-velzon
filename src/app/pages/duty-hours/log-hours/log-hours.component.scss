@@ -8,14 +8,16 @@
     height: 100%;
 }
 .assignment-box {
-    max-height: 200px;
+    max-height: 70px;
+    width: 100% !important;
     overflow-y: auto;
 }
 
 .assignment-box div {
-    width: 100%;
     word-wrap: break-word;
     text-align: center;
+    width: calc(95%/3) !important;
+    margin: 0 5px 0 5px;
 }
 .assignment-box div:hover {
     background-color: rgb(216, 216, 216);
@@ -23,7 +25,6 @@
 .active {
     background-color: rgb(110, 110, 110);
     color: white;
-
 }
 ::ng-deep .fc-event {
     margin-top: 0 !important;
@@ -36,4 +37,15 @@
 }
 ::ng-deep .fc .fc-timegrid-slot {
     height: 2em;
+}
+full-calendar {
+    height: calc(100vh - 240px ) !important;
+}
+::ng-deep .fc-event-title-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: black;
+    font-weight: 300;
 }

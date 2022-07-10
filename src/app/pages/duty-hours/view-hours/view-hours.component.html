@@ -2,14 +2,41 @@
 
 <div class="card">
     <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select [items]="listData.department"
+                placeholder="Please select" formControlName="department">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Duty Types<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select [items]="listData.dutyTypes"
+                placeholder="Please select" formControlName="dutyTypes">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Assignments<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select [items]="listData.assignmentsDataObject"
+                placeholder="Please select" formControlName="assignments">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                        <div class="d-flex flex-row">
+                            <div style="width : 20px; height : 20px; margin-right: 15px" [ngStyle]="{'background-color' : item.colorCode}"></div>
+                            <p>{{item.assignmentName}}</p>
+                        </div>
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+        <button class="btn btn-primary mb-3">Search</button>
         <div class="live-preview" >                                    
             <div class="table-responsive">
                 <table class="table align-middle table-nowrap mb-0">
                     <thead>
                         <tr>
                             <th scope="col">Department</th>
-                            <th scope="col">Assignment</th>
                             <th scope="col">Duty Type</th>
+                            <th scope="col">Assignment</th>
                             <th scope="col">Start Date</th>
                             <th scope="col">End Date</th>
                             <th scope="col">Duration</th>
@@ -20,15 +47,15 @@
                     <tbody>
                         <tr *ngFor="let event of listData.calendarEvents"> 
                             <td>{{event.department}}</td>
-                            <td>{{event.assignmentName}}</td>
                             <td>{{event.dutyType}}</td>
+                            <td>{{event.assignmentName}}</td>
                             <td>{{event.startDate | date : 'MMMM d, y, h:mm:ss a z' }}</td>
                             <td>{{event.endDate | date : 'MMMM d, y, h:mm:ss a z'}}</td>
                             <td>{{event.duration}}</td>
                             <td [ngStyle]="{'background-color' : event.colorCode}"></td>
                             <td>                                
-                                <button (click)="openModal(editEvent, 'lg'); selectEvent(event)" type="button" class="mx-1 btn btn-outline-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>
-                                <button (click)="openModal(viewEvent, 'lg'); selectEvent(event)" type="button" class="mx-1 btn btn-outline-success btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                                <i (click)="openModal(editEvent, 'lg'); selectEvent(event)"class="text-danger mx-2 ri-edit-2-line"></i>
+                                <i (click)="openModal(viewEvent, 'lg'); selectEvent(event)" class="text-success mx-2 ri-eye-line"></i>
                             </td>
                         </tr>
                         

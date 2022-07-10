@@ -24,6 +24,7 @@ export class LogHoursComponent implements OnInit {
   newEventDate: any;
   category!: any[];
   submitted = false;
+  isEditMode = false;
 
   slotDurationValue: any = '00:30'
   tablePreferenceValue: any = 'horizontal'
@@ -40,12 +41,14 @@ export class LogHoursComponent implements OnInit {
   headerToolbar: {
     left: 'dayGridMonth,timeGridWeek',
     center: 'title',
-    right: 'prevYear,prev,next,nextYear'
+    right: 'prev,next'
   },
+  
   initialView: "timeGridWeek",
   themeSystem: "bootstrap",
   initialEvents: this.listData.calendarEvents,
   weekends: true,
+  allDaySlot: false,
   expandRows: true,
   slotDuration: this.slotDurationValue,
   editable: true,
@@ -66,6 +69,7 @@ export class LogHoursComponent implements OnInit {
   
   constructor(private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
+
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Log Hours", active : true }
@@ -76,6 +80,7 @@ export class LogHoursComponent implements OnInit {
   addEventFormInit() {
     this.addEventForm = this.formBuilder.group({
       department: new FormControl(null, []),
+      dutyTypes: new FormControl(null, []),
       assignment: new FormControl(null, []),
       trainingCenter: new FormControl(null, []),
       eventDuration: new FormControl(null, []),
@@ -85,7 +90,7 @@ export class LogHoursComponent implements OnInit {
   }
 
   onSubmitEvent() {
-        let endDate = new Date(this.currentEvent.date)
+    let endDate = new Date(this.currentEvent.date)
 
     const calendarApi = this.currentEvent.view.calendar;
 
@@ -100,8 +105,22 @@ export class LogHoursComponent implements OnInit {
         calendarApi.addEvent({
           title : this.formValues.assignment.assignmentName,
           start: date,
+          display: 'block',          
           end: new Date(date.getTime() + this.formValues.slotDuration.value *60000),
-          color: this.formValues.assignment.colorCode
+          color: this.formValues.assignment.colorCode,
+          background : this.formValues.assignment.colorCode,
+          extendedProps : {
+            department: this.formValues.department,
+            dutyTypes: this.formValues.dutyTypes,
+            assignment: this.formValues.assignment,
+            trainingCenter: this.formValues.trainingCenter,
+            eventDuration: this.formValues.eventDuration,
+            recurringDates : dates,
+            singleDate : date,
+            slotDuration : this.formValues.slotDuration,
+            colorCode: this.formValues.assignment.colorCode
+  
+          }
         });
 
 
@@ -111,7 +130,21 @@ export class LogHoursComponent implements OnInit {
         title : this.formValues.assignment.assignmentName,
         start: this.currentEvent.date,
         end: new Date(endDate.getTime() + this.formValues.slotDuration.value *60000),
-        color: this.formValues.assignment.colorCode
+        color: this.formValues.assignment.colorCode,
+        background : this.formValues.assignment.colorCode,
+        display: 'block',
+        extendedProps : {
+          department: this.formValues.department,
+          dutyTypes: this.formValues.dutyTypes,
+          assignment: this.formValues.assignment,
+          trainingCenter: this.formValues.trainingCenter,
+          eventDuration: this.formValues.eventDuration,
+          recurringDates : this.formValues.recurringDates,
+          singleDate : this.currentEvent.date,
+          slotDuration : this.formValues.slotDuration,
+          colorCode: this.formValues.assignment.colorCode
+
+        }
       });
       const date = new Date(endDate.getTime() + this.formValues.slotDuration.value *60000)
 
@@ -119,14 +152,19 @@ export class LogHoursComponent implements OnInit {
     }
     this.modalService.dismissAll();
     this.addEventForm.reset();
+    this.isEditMode = false;
   }
 
   /**
    * Event click modal show
    */
   handleEventClick(clickInfo: EventClickArg) {
-
-    
+    console.log(clickInfo.event.extendedProps)
+    this.openModal(this.addEventModal, 'xl')
+    this.addEventForm.patchValue({
+      ...clickInfo.event.extendedProps
+    })
+    this.isEditMode = true;
   }
 
   /**
@@ -164,7 +202,7 @@ export class LogHoursComponent implements OnInit {
   addEvent(event : any) {
     console.log(event)
     this.currentEvent = event;
-    this.openModal(this.addEventModal, 'lg');
+    this.openModal(this.addEventModal, 'xl');
   }
 
   savePreference() {

@@ -24,15 +24,7 @@ const data = {
     ],
     department: ['Orthographic','ENT', 'ICU'],
     trainingSites: ['Al Nahdah Hospital', 'Armed Forces Hospital', 'Khoula Hospital', 'Royal Hospital', 'Sultan Qaboos University Hospital'],
-    slotDuration: [
-        {value : 15, name : '15 Minutes'},
-        {value : 30, name : '30 Minutes'},
-        {value : 45, name : '45 Minutes'},
-        {value : 60, name : '1 Hour'},
-        {value : 120, name : '2 Hour'},
-        {value : 180, name : '3 Hour'},
-        {value : 240, name : '4 Hour'},
-    ],
+    slotDuration: getSlotDates()
 }
 
 export {data}
@@ -40,4 +32,21 @@ export {data}
 let eventGuid = 0;
 export function createEventId() {
     return String(eventGuid++);
+}
+
+function getSlotDates() {
+    let slots = []
+    slots.push({value : 15, name : '15 Minutes'},
+    {value : 30, name : '30 Minutes'},
+    {value : 45, name : '45 Minutes'})
+    let index = 1;
+    while (index < 25) {
+        if(index === 1 ) {
+            slots.push({value : (index * 60), name : `${index} Hour`})
+        } else {
+            slots.push({value : (index * 60), name : `${index} Hours`})
+        }
+        index +=1 
+    }
+    return slots
 }
