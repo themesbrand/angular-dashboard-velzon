@@ -1,0 +1,122 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header align-items-xl-center d-xl-flex justify-content-end">
+                <button type="button" class="btn btn-sm btn-primary btn-label waves-effect waves-light" ><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Committee</button>
+            </div>
+            <div class="card-body">
+                <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="true">
+                      <ngb-panel *ngFor="let committee of listData.teamCommittee; let i = index" id="static-{{(i+1)}}">
+                          <ng-template ngbPanelTitle class="accordion-header">
+                              <h2 class="accordion-header" id="gen-ques-headingOne">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                      data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                      (click)="onSelectCommittee(committee)"
+                                      aria-controls="gen-ques-collapseOne">
+                                      {{committee}}
+                                  </button>
+                              </h2>
+                          </ng-template>
+                          <ng-template ngbPanelContent *ngIf="selectedCommittee.type === undefined">
+                            <ng-container *ngTemplateOutlet="committeeMembers"></ng-container>
+                          </ng-template>
+                          <ng-template ngbPanelContent *ngIf="selectedCommittee.type === 'MEMBERS_ONLY'">
+                            <ng-container *ngTemplateOutlet="membersOnly"></ng-container>
+                          </ng-template>
+                      </ngb-panel>
+                      
+                </ngb-accordion>
+            </div>
+                
+        </div>
+      </div>
+</div>
+  
+
+<ng-template #committeeMembers>
+    <div class="card-body"  *ngIf="selectedCommittee.name">
+        <div class="d-flex flex-row mb-1 justify-content-between">
+            <h4 class="mb-0 flex-grow-1 text-success">{{selectedCommittee?.name}}</h4>
+            <button type="button" class="btn btn-sm btn-primary btn-label waves-effect waves-light"><i class=" ri-file-user-fill label-icon align-middle fs-16 me-2"></i>Add Member</button>
+        </div>
+        <div class="d-flex flex-row justify-content-start">
+            <h6 class="mb-0">{{"From : 6th June 2019 To: 8th August 2024"}}</h6>
+            <span class="badge badge-soft-success badge-border mx-4">Active</span>
+        </div>
+        <div class="row justify-content-center" *ngFor="let data of selectedCommittee.data">
+            <h5 class="card-title text-center mb-2 flex-grow-1">{{data.position.name}}</h5>
+            <div class="col-md-3" *ngFor="let member of data.position.members">
+                <div class="card round shadow team-box mb-3">
+                    <div class="card-body p-1">
+                        <div class="team-profile-img">
+                            <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                            </div>
+                            <div class="d-flex flex-column text-center">
+                                <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-mail-fill"></i></p>
+                                    <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-center text-center">
+                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-phone-fill"></i></p>
+                                    <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end align-items-center">
+                            <button type="button" class="btn btn-sm mx-1 btn-outline-primary btn-icon waves-effect waves-light mx-1"><i class=" ri-edit-2-fill"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</ng-template>
+<ng-template #membersOnly>
+    <div class="card-body"  *ngIf="selectedCommittee.name">
+        <div class="d-flex flex-row mb-2 justify-content-end">
+            <button type="button" class="btn btn-sm btn-primary btn-label waves-effect waves-light"><i class=" ri-file-user-fill label-icon align-middle fs-16 me-2"></i>Add Member</button>
+        </div>
+        <div class="row justify-content-center" *ngFor="let data of selectedCommittee.data">
+            <div class="col-md-3" *ngFor="let member of data.position.members">
+                <div class="card round shadow team-box mb-3">
+                    <div class="card-body p-1">
+                        <div class="team-profile-img">
+                            <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                <img src="{{member.userImage}}" alt="" class="rounded-circle img-fluid userprofile" />
+                            </div>
+                            <div class="d-flex flex-column text-center">
+                                <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                <p class="text-muted mb-0">{{member.jobPosition}}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row mt-2 justify-content-center text-center">
+                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-mail-fill"></i></p>
+                                    <p class="text-muted mb-0 mx-2">{{member.email}}</p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-center text-center">
+                                    <p class="fw-12 fw-bold mb-1"><i class=" ri-phone-fill"></i></p>
+                                    <p class="text-muted mb-0 mx-2">{{member.phone}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end align-items-center">
+                            <button type="button" class="btn btn-sm mx-1 btn-outline-primary btn-icon waves-effect waves-light mx-1"><i class=" ri-edit-2-fill"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</ng-template>

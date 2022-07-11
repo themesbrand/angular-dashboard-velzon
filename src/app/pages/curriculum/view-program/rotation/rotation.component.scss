@@ -1,0 +1,27 @@
+.table-responsive  {
+    height: calc(100vh - 220px) !important;
+    overflow-y: scroll;
+}
+.table-responsive tr:nth-child(1) th {
+    top: 0 !important; 
+    left: 0 !important;
+    position: sticky !important;    
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+}
+tr td:first-child {
+    cursor: pointer !important;
+}
+tr td:first-child:hover {
+    text-decoration: underline !important;
+    color: #e8080c !important;
+}
+label a {
+    cursor: pointer !important;
+}
+label:hover a {
+    text-decoration: underline !important;
+    color: #e8080c !important;
+}

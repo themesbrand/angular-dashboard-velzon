@@ -5,14 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from "./dashboards/dashboard/dashboard.component";
 import { LogHoursComponent } from './duty-hours/log-hours/log-hours.component';
 import { ViewHoursComponent } from './duty-hours/view-hours/view-hours.component';
-import { CreateProgramComponent } from './ec-setup/create-program/create-program.component';
-import { EcSetupComponent } from './ec-setup/ec-setup.component';
-import { AllocateProcedureComponent } from './ec-setup/view-program/procedure/allocate-procedure/allocate-procedure.component';
-import { ProcedureComponent } from './ec-setup/view-program/procedure/procedure.component';
-import { AddRotationComponent } from './ec-setup/view-program/rotation/add-rotation/add-rotation.component';
-import { PreviewRotationComponent } from './ec-setup/view-program/rotation/preview-rotation/preview-rotation.component';
-import { RotationComponent } from './ec-setup/view-program/rotation/rotation.component';
-import { ViewProgramComponent } from './ec-setup/view-program/view-program.component';
+import { CreateProgramComponent } from './curriculum/create-program/create-program.component';
+import { EcSetupComponent } from './curriculum/ec-setup.component';
+import { AllocateProcedureComponent } from './curriculum/view-program/procedure/allocate-procedure/allocate-procedure.component';
+import { ProcedureComponent } from './curriculum/view-program/procedure/procedure.component';
+import { AddRotationComponent } from './curriculum/view-program/rotation/add-rotation/add-rotation.component';
+import { PreviewRotationComponent } from './curriculum/view-program/rotation/preview-rotation/preview-rotation.component';
+import { RotationComponent } from './curriculum/view-program/rotation/rotation.component';
+import { ViewProgramComponent } from './curriculum/view-program/view-program.component';
 import { InTrainingEvaluationReportComponent } from './forms/in-trainning-evaluation-report/in-trainning-evaluation-report.component';
 import { PresentationEvaluationFormComponent } from './forms/presentation-evaluation-form/presentation-evaluation-form.component';
 import { ResearchMentorEvaluationFormComponent } from './forms/research-mentor-evaluation-form/research-mentor-evaluation-form.component';
@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormComponent },
       
     ] },
-    { path: "ec-setup", children: [
+    { path: "curriculum", children: [
         { path: "", component: EcSetupComponent },
         { path: "create-program", component: CreateProgramComponent },
         { path: "view-program", component: ViewProgramComponent },

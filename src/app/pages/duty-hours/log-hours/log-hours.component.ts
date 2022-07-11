@@ -52,6 +52,7 @@ export class LogHoursComponent implements OnInit {
   expandRows: true,
   slotDuration: this.slotDurationValue,
   editable: true,
+  eventDurationEditable : true,
   selectable: true,
   selectMirror: true,
   dayMaxEvents: true,

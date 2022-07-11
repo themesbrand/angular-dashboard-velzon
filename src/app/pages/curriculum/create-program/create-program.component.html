@@ -1,0 +1,137 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Create a new Program" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<form [formGroup]="programForm">    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Program Code<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" formControlName="programCode" class="form-control"/>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Program Name<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" formControlName="programName" class="form-control"/>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Program Description<span class="text-danger">{{ " *" }}</span></label>
+                            <ckeditor [editor]="Editor" data="programDescription" formControlName="programDescription"></ckeditor>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3"> 
+                                <label class="form-label">Vision<span class="text-danger">{{ " *" }}</span></label>
+                                <ckeditor [editor]="Editor" data="vision" formControlName="vision"></ckeditor>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3"> 
+                                <label class="form-label">Mission<span class="text-danger">{{ " *" }}</span></label>
+                                <ckeditor [editor]="Editor" data="mission" formControlName="mission"></ckeditor>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="mb-3">
+                            <label class="form-label">Establishment Date<span class="text-danger">{{ " *" }}</span></label>
+                            <input
+                                class="form-control flatpickr-input"
+                                type="text"
+                                mwlFlatpickr
+                                [maxDate]="todayDate"
+                                formControlName="programEstablishDate"
+                                [altInput]="true"
+                                [convertModelValue]="true"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-control-label">Duration Of Program<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select name="durationOfProgram"
+                              formControlName="durationOfProgram"
+                              bindLabel="name" bindValue="value"
+                              [items]="listData.programDurations"
+                              placeholder="Please select" (click)="onChangeDurationOfProgram()">
+                            </ng-select>
+                          </div>
+                        <div class="mb-3">
+                            <label class="form-control-label">Basic Level Training in Years (Junior Residency)<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select name="basicLevel"
+                                formControlName="basicLevel"
+                                bindLabel="name" bindValue="value"
+                                [items]="basicTrainingDurations"
+                                placeholder="Please select" (change)="onChangeBasicLevel()">
+                            </ng-select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-control-label">Advanced Training (Senior Residency)</label>
+                            <input type="text" class="form-control" formControlName="advanceLevel" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-control-label">Total Number of Blocks</label>
+                            <input type="text" class="form-control" formControlName="totalBlock" />
+                        </div>
+                        <div class="d-flex flex-column">
+                            <p class="text-muted">
+                                Upload your Curricula Document<span
+                                class="text-danger"
+                                >{{ " *" }}</span
+                                >
+                            </p>
+                            <input type="hidden" formControlName="curriculaDocumentLink">
+                            <ngx-dropzone (change)="onSelect($event, 'filesCurriculum')" [multiple]="false">
+                                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview
+                                *ngFor="let f of filesCurriculum"
+                                [removable]="true"
+                                (removed)="onRemove(f, 'filesCurriculum')"
+                                >
+                                <ngx-dropzone-label
+                                    >{{ f.name }} ({{
+                                    f.type
+                                    }})</ngx-dropzone-label
+                                >
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <p class="text-muted mb-1">
+                                Program Gallery <span
+                                class="text-danger"
+                                >{{ " *" }}</span
+                                >
+                            </p>
+                            <p class="text-muted h7">Upload you images for the Gallery
+                            </p>
+                            <input type="hidden" formControlName="programGalleryLinks">
+                            <ngx-dropzone (change)="onSelect($event, 'filesGallery')" >
+                                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview
+                                *ngFor="let f of filesGallery"
+                                [removable]="true"
+                                (removed)="onRemove(f, 'filesGallery')"
+                                >
+                                <ngx-dropzone-label
+                                    >{{ f.name }} ({{
+                                    f.type
+                                    }})</ngx-dropzone-label
+                                >
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -2,7 +2,7 @@
 <div class="card">
     <div class="card-body">
         <div class="d-flex flex-row justify-content-end mb-2">
-            <button type="button" class="btn btn-primary btn-label waves-effect waves-light mx-2"><i class=" ri-save-line label-icon align-middle fs-16 me-2"></i>Save as Draft</button>
+            <button type="button" class="btn btn-light btn-label waves-effect waves-light mx-2"><i class=" ri-save-line label-icon align-middle fs-16 me-2"></i>Save as Draft</button>
             <button type="button" class="btn btn-primary btn-label waves-effect waves-light mx-2"><i class=" ri-save-line label-icon align-middle fs-16 me-2"></i>Save</button>
             <button type="button" (click)="openModal(changePreference, 'md')" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-settings-2-line"></i></button>
         </div>
@@ -18,20 +18,7 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-2">
-                <div class="row border border-dashed p-2 mx-3 my-2">
-                    <div class="col-md-6">
-                        <label class="form-label mb-0 text-nowrap">Table Preference</label>
-                        <div class="d-flex flex-row mt-3">
-                            <div class="form-check">
-                              <input class="form-check-input" name="tablePreferences" type="radio" id="tablePreferencesCheckRadio1" value="vertical" [(ngModel)]="tablePreferenceValue" (change)="onChangeTablePreferences('vertical')">
-                              <label class="form-check-label"  for="tablePreferencesCheckRadio1">Vertical</label>
-                            </div>
-                            <div class="form-check mx-3">
-                              <input class="form-check-input" type="radio" id="tablePreferencesCheckRadio2" name="tablePreferences" value="horizontal" [(ngModel)]="tablePreferenceValue" (change)="onChangeTablePreferences('horizontal')">
-                              <label class="form-check-label"  for="tablePreferencesCheckRadio2">Horizontal</label>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row border border-dashed p-2 mx-3 my-2 justify-content-center">
                     <div class="col-md-6">
                         <label class="form-label mb-0 text-nowrap">Slot Duration</label>
                         <div class="d-flex flex-row mt-3">
@@ -140,7 +127,10 @@
                     
                 </form>
             </div>
-            <button class="btn btn-primary" type="submit" (click)="onSubmitEvent()">Save</button>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary" type="submit" (click)="onSubmitEvent()">Save</button>
+                <button *ngIf="isEditMode" class="btn btn-danger mx-2" type="submit" (click)="onSubmitEvent()">Delete</button>
+            </div>
         </div>
     </div><!-- /.modal-content -->
 </ng-template>
