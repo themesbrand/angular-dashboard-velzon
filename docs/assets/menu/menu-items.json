@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "label": "Master Rotation",
+        "icon": "ri-file-paper-line",
+        "link": "/rotation-page-resident-mapping"
+    },
+    {
+        "id": 12,
+        "label": "Block Diagram",
+        "icon": "ri-add-box-fill",
+        "link": "/residency-block-diagram"
+    },
+    {
+        "id": 3,
+        "label": "Curriculum",
+        "icon": "ri-calendar-event-line",
+        "link": "/curriculum"
+    },
+    {
+        "id": 4,
+        "label": "Duty Hours",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 5,
+                "label": "Log Hours",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/grid"
+            },
+            {
+                "id": 6,
+                "label": "View Hours",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/view"
+            },
+            {
+                "id": 7,
+                "label": "Log Procedure",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/log-procedures"
+            }
+        ]
+    }
+]
