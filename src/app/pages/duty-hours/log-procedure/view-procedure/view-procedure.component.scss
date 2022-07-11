@@ -1,0 +1,19 @@
+.table-responsive  {
+    height: 70vh !important;
+    overflow-y: scroll;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+.table-responsive  thead tr:nth-child(1) {
+    top: 0 !important; 
+    left: 0 !important;
+    position: sticky !important;
+    z-index: 99 !important;
+}
+td {
+    word-wrap: break-word;
+    padding: 0.45rem 0.6rem;
+}

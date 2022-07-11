@@ -1,0 +1,138 @@
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="row mb-3">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Patient ID</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Gender<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.gender" 
+                      bindLabel="name" bindValue="value" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Date Of Birth<span class="text-danger">{{ " *" }}</span></label>
+                    <input
+                      class="form-control flatpickr-input"
+                      type="text"
+                      mwlFlatpickr
+                      [altInput]="true"
+                      [convertModelValue]="true"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Patient Type<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.patientType"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Case Type<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.caseType"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Date Performed<span class="text-danger">{{ " *" }}</span></label>
+                    <input
+                      class="form-control flatpickr-input"
+                      type="text"
+                      mwlFlatpickr
+                      [altInput]="true"
+                      [convertModelValue]="true"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Procedure Group<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.procedureCategory"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Procedure<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.procedureList"
+                    [(ngModel)]="procedureName"
+                    name="procedureName"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">CPT Code<span class="text-danger">{{ " *" }}</span></label>
+                    <div class="d-flex flex-row">
+                        <div class="form-control d-flex flex-row flex-wrap">
+                            <div *ngFor="let code of cptCodes; let i = index" class="border border-dashed d-flex flex-row justify-content-center align-items-center mx-2"><!---->
+                                <span class="ng-value-label mx-1">{{code}}</span><!---->
+                                <i (click)="removeCptCode(i)" class="mx-2 ri-close-line"></i>
+                            </div>
+                        </div>
+                        <button type="button" (click)="openModal(findCptCode, 'xl')" class="mx-1 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-find-replace-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3" *ngIf="procedureName">
+                    <label class="form-label text-primary">{{"Target : 16"}}</label>
+                    <br>
+                    <label class="form-label text-primary">{{"Logs counting towards target: 5"}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Location<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.caseType"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Supervisor<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.supervisors"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Role<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.roles"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Diagnosis<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.caseType"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Comments<span class="text-danger">{{ " *" }}</span></label>
+                    <textarea class="form-control" rows="5"></textarea>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<ng-template #findCptCode let-modal style="z-index: 9999999 !important;">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Find CPT Code</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <gridjs-angular
+                [config]="gridConfig"
+                (cellClick)="handleCellClick($event)"
+                (rowClick)="handleRowClick($event)"
+                (beforeLoad)="handleBeforeLoad($event)"
+                (gridLoad)="handleGridLoad($event)"
+              ></gridjs-angular>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

@@ -6,19 +6,19 @@
             <div class="col-md-4 mb-3">
                 <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
                 <ng-select [items]="listData.department"
-                placeholder="Please select" formControlName="department">
+                placeholder="Please select">
                 </ng-select>
             </div>
             <div class="col-md-4 mb-3">
                 <label class="form-label">Duty Types<span class="text-danger">{{ " *" }}</span></label>
                 <ng-select [items]="listData.dutyTypes"
-                placeholder="Please select" formControlName="dutyTypes">
+                placeholder="Please select">
                 </ng-select>
             </div>
             <div class="col-md-4 mb-3">
                 <label class="form-label">Assignments<span class="text-danger">{{ " *" }}</span></label>
                 <ng-select [items]="listData.assignmentsDataObject"
-                placeholder="Please select" formControlName="assignments">
+                placeholder="Please select">
                     <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
                         <div class="d-flex flex-row">
                             <div style="width : 20px; height : 20px; margin-right: 15px" [ngStyle]="{'background-color' : item.colorCode}"></div>

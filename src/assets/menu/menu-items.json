@@ -33,6 +33,12 @@
                 "label": "View Hours",
                 "icon": "ri-calendar-event-line",
                 "link": "/duty-hours/view"
+            },
+            {
+                "id": 7,
+                "label": "Log Procedure",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/log-procedures"
             }
         ]
     }

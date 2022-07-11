@@ -4160,6 +4160,21 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.9.tgz"
   "version" "4.2.9"
 
+"gridjs-angular@^1.2.0":
+  "integrity" "sha512-qpiLRIY25KZ5kwNylbWr9hyfBz/og9qikmNcVVJqpMMiLkey2Vae6i0p6t7GuRXgssyWdDVlCj8TytkFYqcU9A=="
+  "resolved" "https://registry.npmjs.org/gridjs-angular/-/gridjs-angular-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
+"gridjs@^4.0.0":
+  "integrity" "sha512-HSs5/DYcy+TF96TiYejqDQ5q4sZBTwVFfY3wKhz8oDD/kdeL5T03kWo2pih2906JVBlx/Qk9bAFzlGnnvsW7Gg=="
+  "resolved" "https://registry.npmjs.org/gridjs/-/gridjs-4.0.0.tgz"
+  "version" "4.0.0"
+  dependencies:
+    "preact" "^10.5.12"
+    "tslib" "^2.0.1"
+
 "handle-thing@^2.0.0":
   "integrity" "sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg=="
   "resolved" "https://registry.npmjs.org/handle-thing/-/handle-thing-2.0.1.tgz"
@@ -6096,7 +6111,7 @@
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.1"
 
-"preact@^10.0.5":
+"preact@^10.0.5", "preact@^10.5.12":
   "integrity" "sha512-jO6/OvCRL+OT8gst/+Q2ir7dMybZAX8ioP02Zmzh3BkQMHLyqZSujvxbUriXvHi8qmhcHKC2Gwbog6Kt+YTh+Q=="
   "resolved" "https://registry.npmjs.org/preact/-/preact-10.9.0.tgz"
   "version" "10.9.0"
@@ -7148,7 +7163,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.0", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@^2.3.0", "tslib@^2.3.1", "tslib@2.3.1":
+"tslib@^2.0.0", "tslib@^2.0.1", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@^2.3.0", "tslib@^2.3.1", "tslib@2.3.1":
   "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
   "version" "2.3.1"

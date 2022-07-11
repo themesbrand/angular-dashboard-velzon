@@ -21,6 +21,7 @@ import { SixMonthAndAnnualEvaluationFormComponent } from './forms/six-month-and-
 import { TrainerEvaluationFormComponent } from './forms/trainer-evaluation-form/trainer-evaluation-form.component';
 import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 import { RotationPageResidentMappingComponent } from './rotation-page-resident-mapping/rotation-page-resident-mapping.component';
+import { LogProcedureComponent } from './duty-hours/log-procedure/log-procedure.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
     { path: "duty-hours", children: [
       { path: "grid", component: LogHoursComponent },
       { path: "view", component: ViewHoursComponent },
+      { path: "log-procedures", component: LogProcedureComponent },
     ] 
   },
 ];

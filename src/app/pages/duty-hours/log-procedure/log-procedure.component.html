@@ -1,0 +1,28 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Log Procedures" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<div class="row">
+    <ul ngbNav #ModifierCustom="ngbNav" [activeId]="1" class="nav nav-pills nav-customs nav-danger">
+        <li [ngbNavItem]="1">`
+            <a ngbNavLink class="nav-link">
+              Add Procedure
+            </a>
+            <ng-template ngbNavContent>
+                <app-add-procedure></app-add-procedure>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+            <a ngbNavLink class="nav-link">
+              View Procedure
+            </a>
+            <ng-template ngbNavContent>
+                <app-view-procedure></app-view-procedure>
+            </ng-template>
+        </li>
+    </ul>
+    <div class="tab-content text-muted p-0">
+        <div [ngbNavOutlet]="ModifierCustom"></div>
+    </div>
+
+</div>
+

@@ -1,0 +1,19 @@
+i.ri-close-line {
+    color: red;
+}
+i.ri-close-line:hover {
+    background-color: rgb(229, 123, 123);
+    color: black;
+}
+::ng-deep .gridjs-search {
+    margin-bottom: 15px !important;
+}
+::ng-deep .gridjs-table {
+    width: 100%;    
+}
+::ng-deep .gridjs-table th:nth-child(2) {
+    min-width: 352px !important;
+}
+::ng-deep .gridjs-table td:hover {
+    cursor: pointer !important;
+}

@@ -48,6 +48,8 @@ import { HttpClient } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ArchwizardModule } from 'angular-archwizard';
 
+import { GridJsAngularModule } from 'gridjs-angular';
+
 import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 import { ScrollableDirective } from '../directive/scrollable.directive';
 import { RotationPageResidentMappingComponent } from './rotation-page-resident-mapping/rotation-page-resident-mapping.component';
@@ -81,6 +83,9 @@ import { ToolsForEvaluationComponent } from './curriculum/view-program/tools-for
 import { DailyAssignmentsComponent } from './curriculum/view-program/daily-assignments/daily-assignments.component';
 import { LogHoursComponent } from './duty-hours/log-hours/log-hours.component';
 import { ViewHoursComponent } from './duty-hours/view-hours/view-hours.component';
+import { LogProcedureComponent } from './duty-hours/log-procedure/log-procedure.component';
+import { AddProcedureComponent } from './duty-hours/log-procedure/add-procedure/add-procedure.component';
+import { ViewProcedureComponent } from './duty-hours/log-procedure/view-procedure/view-procedure.component';
 
 
 export function createTranslateLoader(http: HttpClient): any {
@@ -133,7 +138,10 @@ FullCalendarModule.registerPlugins([
     ToolsForEvaluationComponent,
     DailyAssignmentsComponent,
     LogHoursComponent,
-    ViewHoursComponent
+    ViewHoursComponent,
+    LogProcedureComponent,
+    AddProcedureComponent,
+    ViewProcedureComponent
   ],
   imports: [
     CommonModule,
@@ -153,6 +161,7 @@ FullCalendarModule.registerPlugins([
     LeafletModule,
     NgbDropdownModule,
     SimplebarAngularModule,
+    GridJsAngularModule,
     PagesRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAbvyBxmMbFhrzP9Z8moyYr6dCr-pzjhBE'
