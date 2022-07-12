@@ -9,7 +9,8 @@ const data = {
     caseType : [
         'Case Type 1', 'Case Type 2'
     ],
-    procedureCategory: [],
+    procedureCategory: ['Anaesthesia'],
+    diagnosisList: ['Heart Issue'],
     procedureList : ['Intrathoracic with CPB', 'Intrathoracic without CPB', 'Major Vascular (e.g. carotid, aorta, iliac)'],
     cptCodes : [
         ['2641', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor assumenda fugit sunt earum reiciendis dignissimos!', 'Sub Area 1', 'Type 1'],
@@ -21,30 +22,30 @@ const data = {
         {
             patientId: 'SS2135454', firstName : 'Madan', lastName : 'Khan', gender: 'Male', dob: '1964-06-04', patientType : 'Adult', caseType : 'Case Type 1', confirmedDate : '2022-05-05',
             procedures: [
-                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Madan Al Abri', role: 'Doctor', diagnosis : 'Heart Issue', comment : 'Operation Successful'  },
-                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue', comment : 'Operation Successful' },
+                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Madan Al Abri', role: 'Doctor', diagnosis : 'Heart Issue', comments : 'Operation Successful'  },
+                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue', comments : 'Operation Successful' },
             ]        
         },
         {
             patientId: 'BS2135454', firstName : 'Abri', lastName : 'Falsal', gender: 'Female', dob: '1964-06-04', patientType : 'Adult', caseType : 'Case Type 1', confirmedDate : '2022-06-10',
             procedures: [
                 { datePerformed : '2022-06-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Madan Al Abri', role: 'Doctor', diagnosis : 'Heart Issue' },
-                { datePerformed : '2022-06-18', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue' , comment : 'Check MRI'},
+                { datePerformed : '2022-06-18', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue' , comments : 'Check MRI'},
                 { datePerformed : '2022-06-19', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Madan Al Abri', role: 'Doctor', diagnosis : 'Heart Issue' },
-                { datePerformed : '2022-06-20', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue' , comment : 'Check MRI'},
+                { datePerformed : '2022-06-20', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue' , comments : 'Check MRI'},
             ]        
         },
         {
             patientId: 'CD9135454', firstName : 'Abdel', lastName : 'Maddali', gender: 'Male', dob: '1964-06-04', patientType : 'Adult', caseType : 'Case Type 1', confirmedDate : '2022-07-03',
             procedures: [
-                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Madan Al Abri', role: 'Doctor', diagnosis : 'Heart Issue', comment : 'Check MRI' },
-                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue' , comment : 'Check MRI'},
+                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Madan Al Abri', role: 'Doctor', diagnosis : 'Heart Issue', comments : 'Check MRI' },
+                { datePerformed : '2019-10-15', procedureGroup : 'Anaesthesia', procedure: 'Intrathoracic with CPB', cptCode : '36315', location: 'Al Nahdah Hospital', supervisor : 'Saleh Mahfoudh', role: 'Doctor', diagnosis : 'Heart Issue' , comments : 'Check MRI'},
             ]        
         },
 
     ],
     supervisors: ['Madan Al Abri', 'Saleh Mahfoudh', 'Madan Khan', 'Al Abri Ibraham'],
-    roles: []
+    roles: ['Doctor']
 }
 
 export { data }

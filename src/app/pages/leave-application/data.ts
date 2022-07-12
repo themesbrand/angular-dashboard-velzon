@@ -27,7 +27,16 @@ const data = {
                 },
             ],
             leaveReturnForm: {
-
+                numberOfDaysInExcess : 1,
+                reasonsForDelay : 'Doctors appointment got rescheduled.',
+                returnApprovalStatus: [
+                    {
+                        stage : 'Program Director of the Affected Rotation', name : 'Madan Al Abri', date : '2022-05-27', status: 'Approved'
+                    },
+                    {
+                        stage : 'Assistant Program Director', name : 'Yousuf Mahmood Mahfoudh', date : '2022-05-28' , status: 'Awaiting Approval'
+                    }
+                ]
             }
         
         },

@@ -51,7 +51,7 @@ export class LeaveReturnApplicationComponent implements OnInit {
       reasonsForDelays : new FormControl(null),
       submissionDate : new FormControl(null),
 
-      numberOfDaysInAccess : new FormControl(null),
+      numberOfDaysInExcess : new FormControl(null),
       reasonsForDelay : new FormControl(null),
 
 

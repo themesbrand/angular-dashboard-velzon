@@ -59,10 +59,12 @@ export class AddProcedureComponent implements OnInit {
           supervisor : new FormControl(element.supervisor),
           role : new FormControl(element.role),
           diagnosis : new FormControl(element.diagnosis),
-          comments : new FormControl(element.comment),
+          comments : new FormControl(element.comments),
         })
       );
     });
+    console.log(this.formValues)
+
   }
 
   formInit() {

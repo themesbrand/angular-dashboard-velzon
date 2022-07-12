@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 border border-dashed">
         <form [formGroup]="leaveForm">
             <div class="row mt-2">
                 <div class="col-md-4 mb-3">
@@ -42,6 +42,7 @@
         </form>
     </div>
     <div class="col-md-4 border border-dashed justify-content-center align-items-center">
+        <p class="h5 mt-2">Leave Approval Status</p>
         <ngx-simplebar class="p-3" style="max-height: 364px;">
             <div class="acitivity-timeline acitivity-main">
                 <div class="acitivity-item d-flex mb-3" *ngFor="let stage of formValues.leaveApprovalStatus; let i = index">
@@ -67,4 +68,46 @@
 </div>
 <div class="d-flex flex-row" *ngIf="formValues.leaveStatus === 'Approved' && formValues.leaveReturnForm === null">
     <button class="btn btn-primary" (click)="onNavigate()">Return from Leave</button>
+</div>
+<div class="row" *ngIf="formValues.leaveReturnForm !=  null">
+    <p class="h5 my-2 text-primary">Returned from Leave on 2022-06-03</p>
+    
+</div>
+<div class="row" *ngIf="formValues.leaveReturnForm !=  null">
+    <div class="col-md-4 mb-3 border border-dashed justify-content-center align-items-center">
+        <p class="h5 mt-2">Approval Status</p>
+        <ngx-simplebar class="p-3" style="max-height: 364px;">
+            <div class="acitivity-timeline acitivity-main">
+                <div class="acitivity-item d-flex mb-3" *ngFor="let stage of formValues.leaveReturnForm.returnApprovalStatus; let i = index">
+                    <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                        <div class="avatar-title text-light rounded-circle" [ngClass]="i === 0 ? 'bg-primary' : i === 1 ? 'bg-secondary'  : 'bg-success' ">
+                            <i *ngIf="stage.status !== 'Approved'" class="ri-chat-check-line"></i>
+                            <i *ngIf="stage.status === 'Approved'" class="ri-chat-check-fill"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h6 class="mb-1">{{stage.stage}}</h6>
+                        <p class="h7 mb-1">{{stage.name}}</p>
+                        <span class="badge rounded-pill"
+                            [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                        >{{stage.status}}</span>
+                        <br>
+                        <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                    </div>
+                </div>
+            </div>
+        </ngx-simplebar>
+    </div>
+    <div class="col-md-8 mb-3 py-4 border border-dashed justify-content-center align-items-center">
+        <div class="d-flex flex-column">
+            <div class="mb-3">
+                <label class="form-label">No of days in excess of those approved</label>
+                <label class="form-control">{{formValues.leaveReturnForm.numberOfDaysInExcess}}</label>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Reasons for any delay</label>
+                <label class="form-control text-wrap">{{formValues.leaveReturnForm.reasonsForDelay}}</label>
+            </div>
+        </div>
+    </div>
 </div>

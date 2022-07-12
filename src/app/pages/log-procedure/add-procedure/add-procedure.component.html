@@ -66,7 +66,7 @@
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Procedure Group<span class="text-danger">{{ " *" }}</span></label>
                             <ng-select [items]="listData.procedureCategory"
-                            placeholder="Please select">
+                            placeholder="Please select" formControlName="procedureGroup">
                             </ng-select>
                         </div>
                         <div class="col-md-5 mb-3">
@@ -104,30 +104,35 @@
                         <div class="col-md-3 mb-3">
                             <label class="form-label">Location<span class="text-danger">{{ " *" }}</span></label>
                             <ng-select [items]="listData.caseType"
+                            formControlName="location"
                             placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="form-label">Supervisor<span class="text-danger">{{ " *" }}</span></label>
                             <ng-select [items]="listData.supervisors"
+                            formControlName="supervisor"
                             placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="form-label">Role<span class="text-danger">{{ " *" }}</span></label>
                             <ng-select [items]="listData.roles"
+                            formControlName="role"
                             placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="form-label">Diagnosis<span class="text-danger">{{ " *" }}</span></label>
-                            <ng-select [items]="listData.caseType"
+                            <ng-select [items]="listData.diagnosisList"
+                            formControlName="diagnosis"
                             placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-12">
                             <label class="form-label">Comments</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3" formControlName="comments"
+                            ></textarea>
                         </div>
                     </div>
                 </div>
