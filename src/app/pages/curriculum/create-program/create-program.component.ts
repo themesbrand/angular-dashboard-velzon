@@ -29,7 +29,7 @@ export class CreateProgramComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "EC Setup", link: '/ec-setup'},
+      { label: "Curriculum", link: '/curriculum'},
       { label: "Create Program", active : true }
     ];
     this.formInit();
@@ -57,7 +57,7 @@ export class CreateProgramComponent implements OnInit {
   }
 
   navigateBack() {
-    this.router.navigateByUrl('/ec-setup')
+    this.router.navigateByUrl('/curriculum')
   }
 
   onRemove(event : any, type: any) {

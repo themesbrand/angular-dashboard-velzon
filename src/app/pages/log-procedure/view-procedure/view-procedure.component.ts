@@ -16,6 +16,7 @@ export class ViewProcedureComponent implements OnInit {
 
   eventForm !: FormGroup;
   selectedEvent: any;
+  selectedProcedureObject: any;
 
   constructor(private modalService: NgbModal,
     private formBuilder : FormBuilder) { }
@@ -53,6 +54,10 @@ export class ViewProcedureComponent implements OnInit {
 
   }
 
+  setProcedureLog(procedure : any) {
+    console.log(procedure)
+    this.selectedProcedureObject = procedure
+  }
     
   get formValues() {
     return this.eventForm.value

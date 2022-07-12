@@ -24,53 +24,62 @@
                         <button  (click)="addYearlyFormObjects()" type="button" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add More</button>
                     </div>
                     <div [formGroup]="yearlyForm">
-                        <table class="table table-hover align-middle table-nowrap mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Group</th>
-                                    <th scope="col">Procedure Name</th>
-                                    <th scope="col">R1</th>
-                                    <th scope="col">R2</th>
-                                    <th scope="col">R3</th>
-                                    <th scope="col">R4</th>
-                                    <th scope="col">R5</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody formArrayName="objects">
-                                <tr *ngFor="let object of yearlyFormObjects; let i = index" [formGroupName]="i">
-                                    <td>
-                                        <ng-select [items]="listData.procedureNames" placeholder="Please select" formControlName="category">
-                                        </ng-select>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" formControlName="name"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="r1"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="r2"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="r3"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="r4"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="r5"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" disabled class="form-control" value="{{+yearlyFormObjects[i].value.r1 + +yearlyFormObjects[i].value.r2 + +yearlyFormObjects[i].value.r3 + +yearlyFormObjects[i].value.r4 + yearlyFormObjects[i].value.r5}}"/>
-                                    </td>
-                                    <td>
-                                        <button type="button" (click)="onDeleteYearlyFormObject(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="live-preview yearlyTable" >                                    
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle table-nowrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Group</th>
+                                            <th scope="col">Procedure Name</th>
+                                            <th scope="col" class="numberCell">R1</th>
+                                            <th scope="col" class="numberCell">R2</th>
+                                            <th scope="col" class="numberCell">R3</th>
+                                            <th scope="col" class="numberCell">R4</th>
+                                            <th scope="col" class="numberCell">R5</th>
+                                            <th scope="col" class="numberCell">Confirmation Required</th>
+                                            <th scope="col" class="numberCell">Total</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody formArrayName="objects">
+                                        <tr *ngFor="let object of yearlyFormObjects; let i = index" [formGroupName]="i">
+                                            <td (click)="setSelectProcedureGroup(i, 'Yearly')">
+                                                <input type="text" class="form-control" formControlName="category"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" formControlName="name"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="r1"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="r2"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="r3"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="r4"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="r5"/>
+                                            </td>
+                                            <td>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox"  formControlName="isConfirmationRequired">
+                                                </div> 
+                                            </td>
+                                            <td>
+                                                <input type="number" disabled class="form-control" value="{{+yearlyFormObjects[i].value.r1 + +yearlyFormObjects[i].value.r2 + +yearlyFormObjects[i].value.r3 + +yearlyFormObjects[i].value.r4 + yearlyFormObjects[i].value.r5}}"/>
+                                            </td>
+                                            <td>
+                                                <button type="button" (click)="onDeleteYearlyFormObject(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex flex-row justify-content-end">
                         <button  type="button" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class="ri-save-2-line label-icon align-middle fs-16 me-2"></i>Save</button>
@@ -87,41 +96,50 @@
                         <button  (click)="addBasicAndAdvanceFormObjects()" type="button" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add More</button>
                     </div>
                     <div [formGroup]="basicAndAdvanceForm">
-                        <table class="table table-hover align-middle table-nowrap mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Group</th>
-                                    <th scope="col">Procedure Name</th>
-                                    <th scope="col">Basic</th>
-                                    <th scope="col">Advance</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody formArrayName="objects">
-                                <tr *ngFor="let object of basicAndAdvanceFormObjects; let i = index" [formGroupName]="i">
-                                    <td>
-                                        <ng-select [items]="listData.procedureNames" placeholder="Please select" formControlName="category">
-                                        </ng-select>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" formControlName="name"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="basic"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="advance"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" disabled class="form-control" value="{{+basicAndAdvanceFormObjects[i].value.basic + +basicAndAdvanceFormObjects[i].value.advance}}"/>
-                                    </td>
-                                    <td>
-                                        <button type="button" (click)="onDeleteBasicAndAdvanceFormObject(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="live-preview" >                                    
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle table-nowrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Group</th>
+                                            <th scope="col">Procedure Name</th>
+                                            <th scope="col" class="numberCell">Basic</th>
+                                            <th scope="col" class="numberCell">Advance</th>
+                                            <th scope="col" class="numberCell">Confirmation Required</th>
+                                            <th scope="col" class="numberCell">Total</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody formArrayName="objects">
+                                        <tr *ngFor="let object of basicAndAdvanceFormObjects; let i = index" [formGroupName]="i">
+                                            <td (click)="setSelectProcedureGroup(i, 'Basic and Advance')">
+                                                <input type="text" class="form-control" formControlName="category"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" formControlName="name"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="basic"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="advance"/>
+                                            </td>
+                                            <td>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox"  formControlName="isConfirmationRequired">
+                                                </div> 
+                                            </td>
+                                            <td>
+                                                <input type="number" disabled class="form-control" value="{{+basicAndAdvanceFormObjects[i].value.basic + +basicAndAdvanceFormObjects[i].value.advance}}"/>
+                                            </td>
+                                            <td>
+                                                <button type="button" (click)="onDeleteBasicAndAdvanceFormObject(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex flex-row justify-content-end">
                         <button  type="button" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class="ri-save-2-line label-icon align-middle fs-16 me-2"></i>Save</button>
@@ -138,39 +156,46 @@
                         <button  (click)="addOverallFormObjects()" type="button" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add More</button>
                     </div>
                     <div [formGroup]="overallForm">
-                        <table class="table table-hover align-middle table-nowrap mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Group</th>
-                                    <th scope="col">Procedure Name</th>
-                                    <th scope="col">OverAll</th>
-                                    <th scope="col">Level Of Residency</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody formArrayName="objects">
-                                <tr *ngFor="let object of overallFormObjectsObjects; let i = index" [formGroupName]="i">
-                                    
-                                    <td>
-                                        <ng-select [items]="listData.procedureNames" placeholder="Please select" formControlName="category">
-                                        </ng-select>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" formControlName="name"/>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" formControlName="overall"/>
-                                    </td>
-                                    <td>
-                                        <ng-select [items]="listData.residencyLevel" placeholder="Please select" formControlName="residencyLevel">
-                                        </ng-select>
-                                    </td>
-                                    <td>
-                                        <button type="button" (click)="onDeleteOverallFormObject(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="live-preview overallTable" >                                    
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle table-nowrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Group</th>
+                                            <th scope="col">Procedure Name</th>
+                                            <th scope="col" class="numberCell">OverAll</th>
+                                            <th scope="col" class="numberCell">Level Of Residency</th>
+                                            <th scope="col" class="numberCell">Confirmation Required</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody formArrayName="objects">
+                                        <tr *ngFor="let object of overallFormObjectsObjects; let i = index" [formGroupName]="i">
+                                            <td (click)="setSelectProcedureGroup(i, 'Overall')">
+                                                <input type="text" class="form-control" formControlName="category"/>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" formControlName="name"/>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" formControlName="overall"/>
+                                            </td>
+                                            <td (click)="setSelectResidencyLevel(i)">
+                                                <input type="text" class="form-control" formControlName="residencyLevel"/>
+                                            </td>
+                                            <td>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox"  formControlName="isConfirmationRequired">
+                                                </div> 
+                                            </td>
+                                            <td>
+                                                <button type="button" (click)="onDeleteOverallFormObject(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex flex-row justify-content-end">
                         <button  type="button" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class="ri-save-2-line label-icon align-middle fs-16 me-2"></i>Save</button>
@@ -181,3 +206,36 @@
         </div>
     </div>
 </div>
+
+
+
+<ng-template #selectProcedureGroup let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Please select Procedure Group</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <ng-select [items]="listData.procedureNames" [(ngModel)]="procedureGroupValue" placeholder="Please select" >
+            </ng-select>
+            <div class="d-flex flex-row justify-content-center my-2">
+                <button class="btn btn-primary" (click)="onSaveProcedureGroup()">Save</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+<ng-template #selectResidencyLevel let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Please select Residency Level</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <ng-select [items]="listData.residencyLevel" [(ngModel)]="residencyLevelValue" placeholder="Please select" >
+            </ng-select>
+            <div class="d-flex flex-row justify-content-center my-2">
+                <button class="btn btn-primary" (click)="onSaveResidencyLevel()">Save</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

@@ -1,10 +1,11 @@
 th {
     background-color: #193239 !important;   
     color: white;
+    min-width: 50px !important;
 }
 td {
     word-wrap: break-word;
-    padding: 0.45rem 0.6rem;
+    padding: 0.45rem 0.1rem;
 }
 th:nth-child(1) {
     min-width: 360px !important;
@@ -12,6 +13,17 @@ th:nth-child(1) {
 th:nth-child(2) {
     min-width: 410px !important;
 }
+
 // th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8) {
 //     max-width: 20px !important;
 // }
+
+.table-responsive {
+    min-width: 300px;
+    overflow-y: visible;   
+}
+.form-check {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

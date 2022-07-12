@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { data } from './data'
 
@@ -20,11 +21,19 @@ export class AllocateProcedureComponent implements OnInit {
   basicAndAdvanceForm !: FormGroup;
   overallForm !: FormGroup;
 
-  constructor(private router : Router, private formBuilder : FormBuilder) { }
+  @ViewChild("selectProcedureGroup") selectProcedureGroup !: TemplateRef<any>;
+  @ViewChild("selectResidencyLevel") selectResidencyLevel !: TemplateRef<any>;
+  setFormId: any;
+  procedureGroupValue: any;
+  setFormName: any;
+  residencyLevelValue: any;
+
+  constructor(private router : Router, private formBuilder : FormBuilder,
+    private modalService : NgbModal) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "EC Setup", link: '/ec-setup'},
+      { label: "Curriculum", link: '/curriculum'},
       { label: "View Program", link: '/curriculum/view-program'},
       { label: "Allocate Procedure", active : true }
     ];
@@ -67,6 +76,7 @@ export class AllocateProcedureComponent implements OnInit {
         r3 : new FormControl(null, []),
         r4 : new FormControl(null, []),
         r5 : new FormControl(null, []),
+        isConfirmationRequired : new FormControl(null, [])
       })
     );    
   }
@@ -82,7 +92,8 @@ export class AllocateProcedureComponent implements OnInit {
         category : new FormControl(null, []),
         name : new FormControl(null, []),
         basic : new FormControl(null, []),
-        advance : new FormControl(null, [])
+        advance : new FormControl(null, []),
+        isConfirmationRequired : new FormControl(null, [])
       })
     );    
   }
@@ -98,7 +109,8 @@ export class AllocateProcedureComponent implements OnInit {
         category : new FormControl(null, []),
         name : new FormControl(null, []),
         overall : new FormControl(null, []),
-        residencyLevel : new FormControl(null, [])
+        residencyLevel : new FormControl(null, []),
+        isConfirmationRequired : new FormControl(null, [])
       })
     );    
   }
@@ -108,9 +120,45 @@ export class AllocateProcedureComponent implements OnInit {
     }
   }
 
+  setSelectProcedureGroup(i : any, selectForm : any) {
+    this.openModel(this.selectProcedureGroup)
+    this.setFormId = i
+    this.setFormName = selectForm
+  }
+  setSelectResidencyLevel(i : any) {
+    this.openModel(this.selectResidencyLevel)
+    this.setFormId = i
+  }
+
+  onSaveProcedureGroup() {
+    console.log(this.yearlyFormObjects)
+    if(this.setFormName === 'Yearly') {
+      this.yearlyFormObjects[this.setFormId].get('category')?.patchValue(this.procedureGroupValue)
+    }
+    if(this.setFormName === 'Basic and Advance') {
+      this.basicAndAdvanceFormObjects[this.setFormId].get('category')?.patchValue(this.procedureGroupValue)
+    }
+    if(this.setFormName === 'Overall') {
+      this.overallFormObjectsObjects[this.setFormId].get('category')?.patchValue(this.procedureGroupValue)
+    }
+    this.procedureGroupValue = null
+    this.modalService.dismissAll();
+  }
+  
+  onSaveResidencyLevel() {
+   
+    this.overallFormObjectsObjects[this.setFormId].get('residencyLevel')?.patchValue(this.residencyLevelValue)
+    this.residencyLevelValue = null
+    this.modalService.dismissAll();
+  }
   
   navigateBack() {
     this.router.navigateByUrl('/curriculum/view-program')
   }
+
+  openModel(modal: any) {
+    this.modalService.open(modal, { centered: true });
+  }
+
 
 }

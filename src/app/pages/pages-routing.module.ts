@@ -21,7 +21,10 @@ import { SixMonthAndAnnualEvaluationFormComponent } from './forms/six-month-and-
 import { TrainerEvaluationFormComponent } from './forms/trainer-evaluation-form/trainer-evaluation-form.component';
 import { ResidentBlockDiagramComponent } from './resident-block-diagram/resident-block-diagram.component';
 import { RotationPageResidentMappingComponent } from './rotation-page-resident-mapping/rotation-page-resident-mapping.component';
-import { LogProcedureComponent } from './duty-hours/log-procedure/log-procedure.component';
+import { LogProcedureComponent } from './log-procedure/log-procedure.component';
+import { LeaveApplicationComponent } from './leave-application/leave-application.component';
+import { LeaveRequestFormComponent } from './leave-application/leave-request-form/leave-request-form.component';
+import { LeaveReturnApplicationComponent } from './leave-application/leave-return-application/leave-return-application.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -49,11 +52,17 @@ const routes: Routes = [
       path: 'graduate-medical-education', loadChildren: () => import('./graduate_medical_education/medical-education.module').then(m => m.AppsModule)
     },
     { path: "duty-hours", children: [
-      { path: "grid", component: LogHoursComponent },
-      { path: "view", component: ViewHoursComponent },
-      { path: "log-procedures", component: LogProcedureComponent },
-    ] 
-  },
+        { path: "grid", component: LogHoursComponent },
+        { path: "view", component: ViewHoursComponent },
+      ] 
+    },
+    { path: "leave-application", children: [
+        { path: "", component: LeaveApplicationComponent },
+        { path: "leave-request", component: LeaveRequestFormComponent },
+        { path: "leave-return-application", component: LeaveReturnApplicationComponent },
+      ] 
+    },
+    { path: "log-procedures", component: LogProcedureComponent }
 ];
 
 @NgModule({

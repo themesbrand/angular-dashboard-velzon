@@ -1,0 +1,172 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label text-nowrap">Please a Date Range<span class="text-danger">{{" * "}}</span></label>
+                <input class="form-control flatpickr-input" type="text" id="example-week-input"
+                      mwlFlatpickr [convertModelValue]="false" 
+                      mode="range">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Procedure</label>
+                <ng-select [items]="listData.procedureList"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Supervisor</label>
+                <ng-select [items]="listData.supervisors"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+        </div>
+        <button class="btn btn-primary mb-3">Search</button>
+        <div class="live-preview" >                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Patient Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Patient Type</th>
+                            <th scope="col">No. Of Procedures</th>
+                            <th scope="col">Confirmed Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let object of listData.procedureObjectsList"> 
+                            <td>{{object.patientId}}</td>
+                            <td>{{object.firstName}}{{" "}}{{object.lastName}}</td>
+                            <td>{{object.patientType}}</td>
+                            <td>{{object.procedures.length}}</td>
+                            <td>{{object.confirmedDate}}</td>
+                            <td>              
+                                <button (click)="openModal(editEvent, 'xl'); setProcedureLog(object)"  type="button" class="btn btn-outline-warning btn-icon  btn-sm mx-1 waves-effect waves-light"><i class="ri-edit-2-line"></i></button>
+                                <button (click)="openModal(viewEvent, 'xl'); setProcedureLog(object)" type="button" class="btn btn-outline-success btn-icon btn-sm mx-1  waves-effect waves-light"><i class="ri-eye-line"></i></button>
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #viewEvent let-modal style="z-index: 9999999 !important;">
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Log</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Patient ID</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.patientId}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">First Name</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.firstName}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Last Name</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.lastName}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Gender</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.gender}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Date Of Birth</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.dob}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Patient Type</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.patientType}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Case Type</label>
+                        <label type="text" class="form-control">{{selectedProcedureObject.caseType}}</label>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h5">Procedure</p>
+                </div>
+                <div
+                    class="mt-2 d-flex flex-column border border-dashed p-3"
+                    *ngFor="let procedure of selectedProcedureObject.procedures; let i = index">
+                    <div class="d-flex flex-row justify-content-end align-items-center">
+                    </div>
+                    <div class="row">
+                    
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Procedure Group</label>
+                            <label type="text" class="form-control">{{procedure.procedureGroup}}</label>
+
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label class="form-label">Procedure</label>
+                            <label type="text" class="form-control">{{procedure.procedure}}</label>
+
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label text-primary">{{"Target : 16"}}</label>
+                            <br>
+                            <label class="form-label text-primary">{{"Logs counting towards target: 5"}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Date Performed</label>
+                            <label type="text" class="form-control">{{procedure.datePerformed}}</label>
+
+                        </div>               
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">CPT Code</label>
+                            <label type="text" class="form-control">{{procedure.cptCode}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Location</label>
+                            <label type="text" class="form-control">{{procedure.location}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Supervisor</label>
+                            <label type="text" class="form-control">{{procedure.supervisor}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Role</label>
+                            <label type="text" class="form-control">{{procedure.role}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Diagnosis</label>
+                            <label type="text" class="form-control">{{procedure.diagnosis}}</label>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Comments</label>
+                            <label type="text" class="form-control">{{procedure.comment}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #editEvent let-modal style="z-index: 9999999 !important;">
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Edit Log</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <app-add-procedure [procedureDetails]="selectedProcedureObject"></app-add-procedure>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

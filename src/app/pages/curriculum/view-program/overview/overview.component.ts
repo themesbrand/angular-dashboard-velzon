@@ -61,7 +61,7 @@ export class OverviewComponent implements OnInit {
   }
 
   navigateBack() {
-    this.router.navigateByUrl('/ec-setup')
+    this.router.navigateByUrl('/curriculum')
   }
 
   openModal(content: any) {

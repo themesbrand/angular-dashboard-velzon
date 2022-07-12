@@ -83,9 +83,14 @@ import { ToolsForEvaluationComponent } from './curriculum/view-program/tools-for
 import { DailyAssignmentsComponent } from './curriculum/view-program/daily-assignments/daily-assignments.component';
 import { LogHoursComponent } from './duty-hours/log-hours/log-hours.component';
 import { ViewHoursComponent } from './duty-hours/view-hours/view-hours.component';
-import { LogProcedureComponent } from './duty-hours/log-procedure/log-procedure.component';
-import { AddProcedureComponent } from './duty-hours/log-procedure/add-procedure/add-procedure.component';
-import { ViewProcedureComponent } from './duty-hours/log-procedure/view-procedure/view-procedure.component';
+import { LogProcedureComponent } from './log-procedure/log-procedure.component';
+import { AddProcedureComponent } from './log-procedure/add-procedure/add-procedure.component';
+import { ViewProcedureComponent } from './log-procedure/view-procedure/view-procedure.component';
+import { LeaveApplicationComponent } from './leave-application/leave-application.component';
+import { LeaveRequestFormComponent } from './leave-application/leave-request-form/leave-request-form.component';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { LeaveApplicationViewComponent } from './leave-application/leave-application-view/leave-application-view.component';
+import { LeaveReturnApplicationComponent } from './leave-application/leave-return-application/leave-return-application.component';
 
 
 export function createTranslateLoader(http: HttpClient): any {
@@ -141,7 +146,11 @@ FullCalendarModule.registerPlugins([
     ViewHoursComponent,
     LogProcedureComponent,
     AddProcedureComponent,
-    ViewProcedureComponent
+    ViewProcedureComponent,
+    LeaveApplicationComponent,
+    LeaveRequestFormComponent,
+    LeaveApplicationViewComponent,
+    LeaveReturnApplicationComponent
   ],
   imports: [
     CommonModule,
@@ -160,6 +169,7 @@ FullCalendarModule.registerPlugins([
     NgApexchartsModule,
     LeafletModule,
     NgbDropdownModule,
+    NgxIntlTelInputModule,
     SimplebarAngularModule,
     GridJsAngularModule,
     PagesRoutingModule,

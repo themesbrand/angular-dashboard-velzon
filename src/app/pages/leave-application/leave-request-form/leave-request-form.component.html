@@ -1,0 +1,92 @@
+<app-breadcrumbs title="Leave Application Form" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="d-flex flex-row">
+    <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="leaveForm">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Name of Trainee</label>
+                    <label class="form-control">{{formValues.trainee}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">OMSB Number</label>
+                    <label class="form-control">{{formValues.omsbNumber}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Program Name</label>
+                    <label class="form-control">{{formValues.programName}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Training Level</label>
+                    <label class="form-control">{{formValues.trainingLevel}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Training Site</label>
+                    <label class="form-control">{{formValues.trainingSite}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Sponsor</label>
+                    <label class="form-control">{{formValues.sponsor}}</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Address</label>
+                    <label class="form-control">{{formValues.address}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Email</label>
+                    <label class="form-control">{{formValues.email}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Date of Application</label>
+                    <label class="form-control">{{formValues.dateOfApplication | date : 'MMMM d, y, h:mm:ss a'}}</label>
+                </div>
+            </div>
+            <div class="row border-top border-top-dashed py-2">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Leave Type<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.typeOfLeave" formControlName="typeOfLeave"
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label" >Leave From<span class="text-danger">{{ " *" }}</span></label>
+                    <input class="form-control flatpickr-input" type="text"
+                      formControlName="leaveFrom" mwlFlatpickr [altInput]="true" [convertModelValue]="true" (change)="onChangeFromDate($event.target)"/>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label class="form-label" >Leave To<span class="text-danger">{{ " *" }}</span></label>
+                    <input class="form-control flatpickr-input" type="text"
+                      formControlName="leaveTo" mwlFlatpickr [altInput]="true" [convertModelValue]="true" [minDate]="leaveToMinDate" (change)="onChangeToDate($event.target)"/>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label class="form-label">Number Of Days</label>
+                    <label class="form-control">{{formValues.numberOfDays}}</label>
+                  </div>
+                  
+            </div>
+            <p class="h5 text-muted">Contact While on Leave</p>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Name<span class="text-danger">{{" *"}}</span></label>
+                    <input type="text" formControlName="contactOnLeaveName" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Email<span class="text-danger">{{" *"}}</span></label>
+                    <input type="text" formControlName="contactOnLeaveEmail" class="form-control"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Contact Number<span class="text-danger">{{" *"}}</span></label>
+                    <ngx-intl-tel-input [cssClass]="'custom'" 
+                        [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                        [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                        [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="contactOnLeavePhone">
+                        </ngx-intl-tel-input>
+                </div>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

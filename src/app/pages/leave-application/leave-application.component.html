@@ -1,0 +1,53 @@
+<app-breadcrumbs title="Leave Applications" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex flex-row">
+            <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate()"><i class=" ri-file-list-3-line label-icon align-middle fs-16 me-2"></i>Leave Request</button>
+        </div>
+        <div class="live-preview border-top border-top-dashed mt-3" >                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Leave Type</th>
+                            <th scope="col">From Date</th>
+                            <th scope="col">To Date</th>
+                            <th scope="col">Days on Leave</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let leave of listData.leaveRequests">
+                            <td>{{leave.typeOfLeave}}</td>
+                            <td>{{leave.leaveFrom}}</td>
+                            <td>{{leave.leaveTo}}</td>
+                            <td>{{leave.numberOfDays}}</td>
+                            <td>{{leave.leaveStatus}}</td>
+                            <td>
+                                <button (click)="openModal(leaveApplicationView); setLeave(leave)" type="button" class="btn btn-outline-success btn-icon btn-sm waves-effect waves-light"><i class="  ri-eye-line"></i></button>
+                            </td>
+                        </tr>
+                        
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #leaveApplicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Leave Application</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <app-leave-application-view [leaveObject]="selectedLeave"></app-leave-application-view>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

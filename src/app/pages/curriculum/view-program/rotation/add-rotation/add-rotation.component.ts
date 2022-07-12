@@ -25,7 +25,7 @@ export class AddRotationComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "EC Setup", link: '/ec-setup'},
+      { label: "Curriculum", link: '/curriculum'},
       { label: "View Program", link: '/curriculum/view-program'},
       { label: "Add Rotation", active : true }
     ];

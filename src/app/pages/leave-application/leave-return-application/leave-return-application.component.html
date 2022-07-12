@@ -1,0 +1,78 @@
+<app-breadcrumbs title="Return From Leave Application" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="d-flex flex-row">
+    <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="leaveReturnForm">
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <label class="form-label">Name of Trainee</label>
+                    <label class="form-control">{{formValues.trainee}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">OMSB Number</label>
+                    <label class="form-control">{{formValues.omsbNumber}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Program Name</label>
+                    <label class="form-control">{{formValues.programName}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Training Level</label>
+                    <label class="form-control">{{formValues.trainingLevel}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Training Site</label>
+                    <label class="form-control">{{formValues.trainingSite}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Sponsor</label>
+                    <label class="form-control">{{formValues.sponsor}}</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Address</label>
+                    <label class="form-control">{{formValues.address}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Email</label>
+                    <label class="form-control">{{formValues.email}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Date of Application</label>
+                    <label class="form-control">{{formValues.dateOfApplication | date : 'MMMM d, y'}}</label>
+                </div>
+            </div>
+            <div class="row border-top border-top-dashed pt-2">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Leave Type<span class="text-danger">{{ " *" }}</span></label>
+                    <label class="form-control">{{formValues.typeOfLeave}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label" >Leave From<span class="text-danger">{{ " *" }}</span></label>
+                    <label class="form-control">{{formValues.leaveFrom}}</label>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label class="form-label" >Leave To<span class="text-danger">{{ " *" }}</span></label>
+                    <label class="form-control">{{formValues.leaveTo}}</label>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label class="form-label">Number Of Days</label>
+                    <label class="form-control">{{formValues.numberOfDays}}</label>
+                  </div>
+            </div>
+            <div class="row border-top border-top-dashed pt-2">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Reasons for any delay<span class="text-danger">{{ " *" }}</span></label>
+                    <textarea type="text" cols="3" formControlName="reasonsForDelay" class="form-control"></textarea>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">No of days in access of those approved<span class="text-danger">{{ " *" }}</span></label>
+                    <input type="text" formControlName="numberOfDaysInAccess" class="form-control"/>
+                </div>
+                
+            </div>
+            <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </form>
+    </div>
+</div>
