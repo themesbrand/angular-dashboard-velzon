@@ -1,0 +1,70 @@
+<app-breadcrumbs title="Self Referral Request Form" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate()" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="requestForm">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Trainee Name</label>
+                    <label class="form-control">{{formValue.name}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">OMSB No.</label>
+                    <label class="form-control">{{formValue.omsb}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Academic Year</label>
+                    <label class="form-control">{{formValue.academicYear}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Training Program</label>
+                    <label class="form-control">{{formValue.trainingProgram}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Year Of Training</label>
+                    <label class="form-control">{{formValue.yearOfTraining}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Telephone</label>
+                    <label class="form-control">{{formValue.telephoneNumber}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Email</label>
+                    <label class="form-control">{{formValue.emailAddress}}</label>
+                </div>
+            </div>
+            <div class="row border-top border-top-dashed py-2">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Referral Reasons:</label>
+                    <textarea class="form-control" Trainee Name
+                    formControlName="referralReason" rows="3"></textarea>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Supporting Documents</label>
+                    <input type="hidden" formControlName="supportDocumentLink"
+                    >
+                    <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                          <ngx-dropzone-preview *ngFor="let f of supportingDocument" [removable]="true" (removed)="onRemove(f)">
+                          <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                          </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Preferred method to Contact you</label>
+                    <div class="d-flex flex-row">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" id="preferredMethodCheckRadio1" formControlName="profferedContactMethod" value="true">
+                          <label class="form-check-label" for="preferredMethodCheckRadio1">Telephone</label>
+                        </div>
+                        <div class="form-check mx-4">
+                          <input class="form-check-input" type="radio" id="preferredMethodCheckRadio2" formControlName="profferedContactMethod" value="false">
+                          <label class="form-check-label" for="preferredMethodCheckRadio2">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<app-breadcrumbs *ngIf="!isNextStep" title="Program Referral Form" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs *ngIf="isNextStep" title="Trainee Performance Evaluation Form" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<button *ngIf="!isNextStep" type="button" (click)="onNavigate()" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<button *ngIf="isNextStep" (click)="this.isNextStep = false"  type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Previous Step </button>
+
+<div class="card">
+    <div class="card-body" *ngIf="!isNextStep">
+        <form [formGroup]="requestForm">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">OMSB No</label>
+                    <ng-select
+                    [items]="listData.omsbNumbersList"
+                    placeholder="Please select"
+                    formControlName="omsb"
+                    (change)="onChangeOmsb()"
+                    >
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Trainee Name</label>
+                    <label class="form-control">{{formValue.name === null ? 'Please select OMSB' : formValue.name}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Academic Year</label>
+                    <label class="form-control">{{formValue.academicYear === null ? 'Please select OMSB' : formValue.academicYear}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Training Program</label>
+                    <label class="form-control">{{formValue.trainingProgram === null ? 'Please select OMSB' : formValue.trainingProgram}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Year Of Training</label>
+                    <label class="form-control">{{formValue.yearOfTraining === null ? 'Please select OMSB' : formValue.yearOfTraining}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Telephone</label>
+                    <label class="form-control">{{formValue.telephoneNumber === null ? 'Please select OMSB' : formValue.telephoneNumber}}</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Email</label>
+                    <label class="form-control">{{formValue.emailAddress === null ? 'Please select OMSB' : formValue.emailAddress}}</label>
+                </div>
+            </div>
+            <div class="row border-top border-top-dashed py-2">
+                <div class="col-md-9 mb-3">
+                    <label class="form-label">Referral Reasons:</label>
+                    <textarea class="form-control" style="min-height:182px" formControlName="referralReason" rows="3"></textarea>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Supporting Documents</label>
+                    <input type="hidden" formControlName="supportDocumentLink"
+                    >
+                    <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                          <ngx-dropzone-preview *ngFor="let f of supportingDocument" [removable]="true" (removed)="onRemove(f)">
+                          <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                          </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Reason Type</label>
+                    <ng-select
+                    [items]="listData.scenario"
+                    placeholder="Please select"
+                    formControlName="reasonType"
+                    >
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Is the Trainee aware of this referral?</label>
+                    <div class="d-flex flex-row">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" id="isTraineeAwareCheckRadio1" formControlName="isTraineeAware" value="yes">
+                          <label class="form-check-label" for="isTraineeAwareCheckRadio1">Yes</label>
+                        </div>
+                        <div class="form-check mx-4">
+                          <input class="form-check-input" type="radio" id="isTraineeAwareCheckRadio2" formControlName="isTraineeAware" value="no">
+                          <label class="form-check-label" for="isTraineeAwareCheckRadio2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3" *ngIf="formValue.isTraineeAware === 'yes'">
+                    <label class="form-label">Preferred method to Contact the Trainee?</label>
+                    <div class="d-flex flex-row">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" id="preferredContactMethodCheckRadio1" formControlName="preferredContactMethod" value="telephone">
+                          <label class="form-check-label" for="preferredContactMethodCheckRadio1">Telephone</label>
+                        </div>
+                        <div class="form-check mx-4">
+                          <input class="form-check-input" type="radio" id="preferredContactMethodCheckRadio2" formControlName="preferredContactMethod" value="email">
+                          <label class="form-check-label" for="preferredContactMethodCheckRadio2">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="!isNextStep" (click)="this.isNextStep = true" type="button" data-nexttab="pills-info-desc-tab" class="btn btn-success btn-label right ms-auto nexttab nexttab"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Next Step </button>      
+              
+        </form>
+    </div>
+    <div class="card-body" *ngIf="isNextStep">
+        <app-trainee-performance-evauation-form></app-trainee-performance-evauation-form>  
+    </div>
+</div>

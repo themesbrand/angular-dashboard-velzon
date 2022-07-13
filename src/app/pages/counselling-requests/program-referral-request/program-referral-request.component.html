@@ -1,0 +1,54 @@
+<app-breadcrumbs title="Program Referral" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="card">
+    <div class="card-body pb-0">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Name of Counselee</label>
+                <ng-select [items]="listData.nameOfCounselee"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Scenario</label>
+                <ng-select [items]="listData.scenario"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Date Range</label>
+                <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                                    [convertModelValue]="true" mode="range">
+            </div>
+        </div>
+        <button class="btn btn-primary">Search</button>
+    </div>
+    <div class="card-body">
+        <p class="h4 text-success py-2">New Request for Appointment</p>
+        <div class="live-preview" >                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name of Counselee</th>
+                            <th scope="col">Date of Request</th>
+                            <th scope="col">Scenario</th>
+                            <th scope="col" class="text-end"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of listData.programReferralEvents">
+                            <td>{{event.nameOfCounselee}}</td>
+                            <td>{{event.dateOfRequest}}</td>
+                            <td>{{event.scenario}}</td>
+                            <td class="text-end">
+                                <button (click)="onNavigate()" class="btn btn-primary btn-sm">Mini Medical Record</button>
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

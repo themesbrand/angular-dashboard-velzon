@@ -47,5 +47,24 @@
         "label": "Leave Application",
         "icon": "ri-calendar-event-line",
         "link": "/leave-application"
+    },
+    {
+        "id": 10,
+        "label": "Counselling",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 11,
+                "label": "Self Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/self-referral"
+            },
+            {
+                "id": 12,
+                "label": "Program Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/program-referral"
+            }
+        ]
     }
 ]

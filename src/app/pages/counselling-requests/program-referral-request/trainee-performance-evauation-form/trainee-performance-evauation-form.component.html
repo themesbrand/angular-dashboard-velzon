@@ -1,0 +1,299 @@
+<form [formGroup]="requestForm">
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Omsb No.</label>
+            <label class="form-control">{{formValue.omsb === null ? 'Please select OMSB' : formValue.omsb}}</label>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Trainee Name</label>
+            <label class="form-control">{{formValue.name === null ? 'Please select OMSB' : formValue.name}}</label>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Academic Year</label>
+            <label class="form-control">{{formValue.academicYear === null ? 'Please select OMSB' : formValue.academicYear}}</label>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Training Program</label>
+            <label class="form-control">{{formValue.trainingProgram === null ? 'Please select OMSB' : formValue.trainingProgram}}</label>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Year Of Training</label>
+            <label class="form-control">{{formValue.yearOfTraining === null ? 'Please select OMSB' : formValue.yearOfTraining}}</label>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Telephone</label>
+            <label class="form-control">{{formValue.telephoneNumber === null ? 'Please select OMSB' : formValue.telephoneNumber}}</label>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Email</label>
+            <label class="form-control">{{formValue.emailAddress === null ? 'Please select OMSB' : formValue.emailAddress}}</label>
+        </div>
+    </div>
+    <div class="row border-top border-top-dashed py-2">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trainee has been trained for training requirements</label>
+            <div class="d-flex flex-row">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="isTrainedCheckRadio1" formControlName="isTrained" value="yes">
+                  <label class="form-check-label" for="isTrainedCheckRadio1">Yes</label>
+                </div>
+                <div class="form-check mx-4">
+                  <input class="form-check-input" type="radio" id="isTrainedCheckRadio2" formControlName="isTrained" value="no">
+                  <label class="form-check-label" for="isTrainedCheckRadio2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Deterioration of Trainee’s efficiency or behavior has been noticed</label>
+            <div class="d-flex flex-row">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="traineeEfficiencyOrBehaviorCheckRadio1" formControlName="traineeEfficiencyOrBehavior" value="yes">
+                  <label class="form-check-label" for="traineeEfficiencyOrBehaviorCheckRadio1">Yes</label>
+                </div>
+                <div class="form-check mx-4">
+                  <input class="form-check-input" type="radio" id="traineeEfficiencyOrBehaviorCheckRadio2" formControlName="traineeEfficiencyOrBehavior" value="no">
+                  <label class="form-check-label" for="traineeEfficiencyOrBehaviorCheckRadio2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3" *ngIf="formValue.traineeEfficiencyOrBehavior === 'yes'">
+            <label class="form-label" >Since when?<span class="text-danger">{{ " *" }}</span></label>
+            <input class="form-control flatpickr-input" type="text"
+              formControlName="traineeEfficiencyOrBehaviorDate" mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+        </div>
+    </div>
+    <div class="row border-top border-top-dashed py-2">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trainee’s attitude towards service</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption1"   value="Good">
+                  <label class="form-check-label" for="CheckRadio1">Good</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption1" value="Average">
+                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption1" value="Poor">
+                  <label class="form-check-label" for="CheckRadio3">Poor</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trainee’s adjustment to training conditions</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption2"   value="Good">
+                  <label class="form-check-label" for="CheckRadio1">Good</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption2" value="Average">
+                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption2" value="Poor">
+                  <label class="form-check-label" for="CheckRadio3">Poor</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top border-top-dashed py-2">
+        <label class="form-label">Trainee’s popularity among:</label>
+        <div class="col-md-6 mb-3">
+            <label class="form-label text-muted">a. Seniors</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption3" value="Good">
+                  <label class="form-check-label" for="CheckRadio1">Good</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption3" value="Average">
+                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption3" value="Poor">
+                  <label class="form-check-label" for="CheckRadio3">Poor</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label text-muted">b. Colleagues/peers</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption4"   value="Popular">
+                  <label class="form-check-label" for="CheckRadio1">Popular</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption4" value="Acceptable">
+                  <label class="form-check-label" for="CheckRadio2">Acceptable</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption4" value="Unpopular">
+                  <label class="form-check-label" for="CheckRadio3">Unpopular</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label text-muted">c. Medical/allied staff</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption5"   value="Popular">
+                  <label class="form-check-label" for="CheckRadio1">Popular</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption5" value="Acceptable">
+                  <label class="form-check-label" for="CheckRadio2">Acceptable</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption5" value="Unpopular">
+                  <label class="form-check-label" for="CheckRadio3">Unpopular</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top border-top-dashed py-2">
+        <label class="form-label">Trainee’s capabilities:</label>
+        <div class="col-md-6 mb-3">
+            <label class="form-label text-muted">a. Mental (Attentive /motivated)</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption6" value="Above Average">
+                  <label class="form-check-label" for="CheckRadio1">Above Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption6" value="Average">
+                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption6" value="Below Average">
+                  <label class="form-check-label" for="CheckRadio3">Below Average</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label text-muted">b. Physical</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption7" value="Above Average">
+                  <label class="form-check-label" for="CheckRadio1">Above Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption7" value="Average">
+                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption7" value="Below Average">
+                  <label class="form-check-label" for="CheckRadio3">Below Average</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top border-top-dashed py-2">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trainee’s appearance and cleanliness</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1"
+                  name ="checkRadioOption8"   value="Good">
+                  <label class="form-check-label" for="CheckRadio1">Good</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2"  
+                  name ="checkRadioOption8" value="Average">
+                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3"  
+                  name ="checkRadioOption8" value="Poor">
+                  <label class="form-check-label" for="CheckRadio3">Poor</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="live-preview">                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Characteristics</th>
+                            <th scope="col"></th>
+                            <th scope="col">Characteristics</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let column of listData.characteristicsTableData">
+                            <td>{{column.column1}}</td>
+                            <td>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="formCheck1">
+                                </div>
+                            </td>
+                            <td>{{column.column2}}</td>
+                            <td>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="formCheck1">
+                                </div>
+                            </td>
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top border-top-dashed py-2">
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Additional comments</label>
+            <textarea rows="5"></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Trainee’s appearance and cleanliness</label>
+            <div class="d-flex flex-row gap-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio1" value="Yes" formControlName="hasInvolvedInViolations">
+                  <label class="form-check-label" for="CheckRadio1">Yes</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio2" value="No" formControlName="hasInvolvedInViolations">
+                  <label class="form-check-label" for="CheckRadio2">No</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="CheckRadio3" value="Not enough information" formControlName="hasInvolvedInViolations">
+                  <label class="form-check-label" for="CheckRadio3">Not enough information</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValue.hasInvolvedInViolations === 'Yes'">
+            <label class="form-label">Additional comments</label>
+            <textarea rows="5"></textarea>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Education Committee’s recommendations and future plans for the Trainee:</label>
+            <textarea rows="5"></textarea>
+        </div>
+    </div>
+</form>
+<button type="button" class="btn btn-success">Submit</button>  

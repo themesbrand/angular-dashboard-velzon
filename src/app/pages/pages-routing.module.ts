@@ -25,6 +25,10 @@ import { LogProcedureComponent } from './log-procedure/log-procedure.component';
 import { LeaveApplicationComponent } from './leave-application/leave-application.component';
 import { LeaveRequestFormComponent } from './leave-application/leave-request-form/leave-request-form.component';
 import { LeaveReturnApplicationComponent } from './leave-application/leave-return-application/leave-return-application.component';
+import { SelfReferralRequestComponent } from './counselling-requests/self-referral-request/self-referral-request.component';
+import { SelfReferralRequestFormComponent } from './counselling-requests/self-referral-request/self-referral-request-form/self-referral-request-form.component';
+import { ProgramReferralRequestComponent } from './counselling-requests/program-referral-request/program-referral-request.component';
+import { ProgramReferralRequestFormComponent } from './counselling-requests/program-referral-request/program-referral-request-form/program-referral-request-form.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -62,7 +66,17 @@ const routes: Routes = [
         { path: "leave-return-application", component: LeaveReturnApplicationComponent },
       ] 
     },
-    { path: "log-procedures", component: LogProcedureComponent }
+    { path: "log-procedures", component: LogProcedureComponent },
+    { path: "counselling", children: [
+      { path: "self-referral", children : [
+        {path : "", component: SelfReferralRequestComponent},
+        { path: "self-referral-request-form", component: SelfReferralRequestFormComponent },
+      ] },
+      { path: "program-referral", children : [
+        {path : "", component: ProgramReferralRequestComponent},
+        {path : "program-referral-request-form", component: ProgramReferralRequestFormComponent}
+      ] },
+    ]}
 ];
 
 @NgModule({

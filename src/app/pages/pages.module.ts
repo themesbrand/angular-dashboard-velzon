@@ -91,6 +91,11 @@ import { LeaveRequestFormComponent } from './leave-application/leave-request-for
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { LeaveApplicationViewComponent } from './leave-application/leave-application-view/leave-application-view.component';
 import { LeaveReturnApplicationComponent } from './leave-application/leave-return-application/leave-return-application.component';
+import { SelfReferralRequestComponent } from './counselling-requests/self-referral-request/self-referral-request.component';
+import { SelfReferralRequestFormComponent } from './counselling-requests/self-referral-request/self-referral-request-form/self-referral-request-form.component';
+import { ProgramReferralRequestComponent } from './counselling-requests/program-referral-request/program-referral-request.component';
+import { ProgramReferralRequestFormComponent } from './counselling-requests/program-referral-request/program-referral-request-form/program-referral-request-form.component';
+import { TraineePerformanceEvauationFormComponent } from './counselling-requests/program-referral-request/trainee-performance-evauation-form/trainee-performance-evauation-form.component';
 
 
 export function createTranslateLoader(http: HttpClient): any {
@@ -150,7 +155,12 @@ FullCalendarModule.registerPlugins([
     LeaveApplicationComponent,
     LeaveRequestFormComponent,
     LeaveApplicationViewComponent,
-    LeaveReturnApplicationComponent
+    LeaveReturnApplicationComponent,
+    SelfReferralRequestComponent,
+    SelfReferralRequestFormComponent,
+    ProgramReferralRequestComponent,
+    ProgramReferralRequestFormComponent,
+    TraineePerformanceEvauationFormComponent
   ],
   imports: [
     CommonModule,
