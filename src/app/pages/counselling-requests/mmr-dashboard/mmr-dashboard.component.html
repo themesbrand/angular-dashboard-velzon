@@ -1,0 +1,186 @@
+<app-breadcrumbs title="MMR Dashboard" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-widget mb-0 w-100">
+                    <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="avatar-sm flex-shrink-0">
+                                 <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                    <i class=" ri-window-2-line align-middle"></i>
+                                 </span>
+                             </div>
+                             <div class="flex-grow-1 ms-3">
+                                <p class="text-uppercase fw-semibold fs-12 text-light mb-1">Total Program Referrals</p>
+                                <h4 class="text-light mb-0"><span [CountTo]="10" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-widget mb-0 w-100">
+                    <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="avatar-sm flex-shrink-0">
+                                 <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                    <i class=" ri-projector-line align-middle"></i>
+                                 </span>
+                             </div>
+                             <div class="flex-grow-1 ms-3">
+                                <p class="text-uppercase fw-semibold fs-12 text-light mb-1">Total Self Referrals</p>
+                                <h4 class="text-light mb-0"><span [CountTo]="20" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Name of Counselee</label>
+                <ng-select [items]="listData.nameOfCounselee"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Scenario</label>
+                <ng-select [items]="listData.scenario"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program</label>
+                <ng-select [items]="listData.program"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Type of Referral</label>
+                <ng-select [items]="listData.typeOfReferral"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Date of Requested</label>
+                <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                    [convertModelValue]="true" mode="range">
+            </div>
+        </div>
+        <button class="btn btn-primary">Search</button>
+
+    </div>
+    <div class="card-body">
+        <div class="live-preview">                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name of Counselee</th>
+                            <th scope="col">Type of Referral</th>
+                            <th scope="col">program</th>
+                            <th scope="col">Type of Counselee</th>
+                            <th scope="col">Date of Request</th>
+                            <th scope="col">Requested By</th>
+                            <th scope="col">Scenario</th>
+                            <th scope="col">Appointment Date</th>
+                            <th scope="col">Counsellor Name</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let appointment of listData.appointmentRequestData; let i = index">
+                            <td>{{appointment.nameOfCounselee}}</td>
+                            <td>{{appointment.typeOfReferral}}</td>
+                            <td>{{appointment.program}}</td>
+                            <td>{{appointment.typeOfCounselee}}</td>
+                            <td>{{appointment.dateOfRequest | date : 'yyyy-M-dd'}}</td>
+                            <td>{{appointment.requestedBy}}</td>
+                            <td>{{appointment.scenario}}</td>
+                            <td>{{appointment.appointmentDate | date : 'yyyy-M-dd'}}</td>
+                            <td>{{appointment.counsellorName}}</td>
+                            <td><div class="dropdown" ngbDropdown>
+                                <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                    <i class="ri-more-2-fill"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                    <li (click)="onNavigate()">
+                                        <a class="dropdown-item" ><i class="mx-1 ri-stack-line"></i>Mini Medical Record</a></li>
+                                    <li *ngIf="appointment.appointmentDate === ''" (click)="openModal(confirmAppointment); selectAppointment(i)">
+                                        <a class="dropdown-item"><i class=" mx-1 ri-window-2-line"></i>Schedule Appointment</a></li>
+                                </ul>
+                            </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <app-appointments-calendar></app-appointments-calendar>
+    </div>
+</div>
+
+
+<ng-template #confirmAppointment let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Schedule Appointment</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <form [formGroup]="appointmentScheduleForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Name Of Counselee<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.nameOfCounseleeObjects" placeholder="Please select" (change)="onChangeCounselee()" 
+                            bindLabel="counsellorsName"
+                            formControlName="counsellorsName">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Mobile<span class="text-danger">{{ " *" }}</span></label>
+                            <label class="form-control">{{formValues.mobile === null ? 'Please select': formValues.mobile}}</label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Email<span class="text-danger">{{ " *" }}</span></label>
+                            <label class="form-control">{{formValues.email === null ? 'Please select': formValues.mobile}}</label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Appointment Date<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text"
+                                formControlName="date" mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Appointment Time</label>
+                            <input class="form-control
+                            flatpickr-input" 
+                            formControlName="time"
+                            type="text" mwlFlatpickr
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Venue<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" formControlName="venue" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Mode<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.mode" placeholder="Please select"
+                            formControlName="mode">
+                            </ng-select>
+                        </div>
+    
+                    </div>
+                </form>
+                <button class="btn btn-primary right" (click)="onSave()">Submit</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

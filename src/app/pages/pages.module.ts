@@ -96,6 +96,9 @@ import { SelfReferralRequestFormComponent } from './counselling-requests/self-re
 import { ProgramReferralRequestComponent } from './counselling-requests/program-referral-request/program-referral-request.component';
 import { ProgramReferralRequestFormComponent } from './counselling-requests/program-referral-request/program-referral-request-form/program-referral-request-form.component';
 import { TraineePerformanceEvauationFormComponent } from './counselling-requests/program-referral-request/trainee-performance-evauation-form/trainee-performance-evauation-form.component';
+import { MmrDashboardComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard.component';
+import { ConfidentialityFormComponent } from './counselling-requests/self-referral-request/confidentiality-form/confidentiality-form.component';
+import { AppointmentsCalendarComponent } from './counselling-requests/mmr-dashboard/appointments-calendar/appointments-calendar.component';
 
 
 export function createTranslateLoader(http: HttpClient): any {
@@ -160,7 +163,10 @@ FullCalendarModule.registerPlugins([
     SelfReferralRequestFormComponent,
     ProgramReferralRequestComponent,
     ProgramReferralRequestFormComponent,
-    TraineePerformanceEvauationFormComponent
+    TraineePerformanceEvauationFormComponent,
+    MmrDashboardComponent,
+    ConfidentialityFormComponent,
+    AppointmentsCalendarComponent
   ],
   imports: [
     CommonModule,

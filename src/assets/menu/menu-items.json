@@ -64,6 +64,12 @@
                 "label": "Program Referral",
                 "icon": "ri-calendar-event-line",
                 "link": "/counselling/program-referral"
+            },
+            {
+                "id": 13,
+                "label": "MMR Dashboard",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/mmr-dashboard"
             }
         ]
     }

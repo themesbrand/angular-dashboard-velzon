@@ -86,10 +86,10 @@
                                             </div>
                                             <div class="flex-grow-1 ms-3">
                                                 <h6 class="mb-1 ">{{event.name}}
-                                                    <a *ngIf="event.date" class="link-secondary" style="margin-left : 10px">{{event.date}}</a>
-                                                    <a *ngIf="event.date === null" class="link-secondary text-warning" style="margin-left : 10px">{{'Not Scheduled'}}</a></h6>
+                                                <a *ngIf="event.date" class="link-secondary" style="margin-left : 10px">{{event.date}}</a>
+                                                <a *ngIf="event.date === null" class="link-secondary text-warning" style="margin-left : 10px">{{'Not Scheduled'}}</a></h6>
                                                 <p class="text-muted mb-2">{{"Counselor Name : "}}<small class="mb-0 text-muted">{{event.counselorName}}</small></p>
-                                                
+                                                <button (click)="onNavigation('/counselling/self-referral/confidentiality-form')" *ngIf="event.date"  type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class=" ri-check-double-fill label-icon align-middle fs-16 me-2"></i>Confidentiality Declaration</button>
                                             </div>
                                         </div>
                                     </div>

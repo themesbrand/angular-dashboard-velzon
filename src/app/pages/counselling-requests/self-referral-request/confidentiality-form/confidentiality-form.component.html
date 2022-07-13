@@ -1,0 +1,36 @@
+<app-breadcrumbs title="Confidentiality Declaration Form" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate()" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-2 px-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <img src="/assets/images/logo_2.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-10 ">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                    <p class="h2">Trainee Affairs Department</p>
+                    <p class="h3">Counselling and Guidance Section</p>
+                    <p class="h4 text-muted">Confidentiality Form</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body px-4">
+        <p>I, <span class="text-muted">{{userName}}</span>, that all the information discussed with staff of the OMSB Counselling and Guidance Section will be managed in a completely confidential manner. This information will not be disclosed without my written consent.</p>
+        <p>I, <span class="text-muted">{{userName}}</span>, understand that there are circumstances where confidentiality may be breeched and disclosed to another source.</p>
+        <p class="fw-bold">Confidentiality may be breeched if:-</p>
+        <ul>
+            <li>There is a specific concern regarding my own safety.</li>
+            <li>There is a specific concern regarding the safety of others, including but not limited to patient safety.</li>
+            <li>When I have been formally referred to the Counselling and Guidance Section, a report will be provided to the referrer, though personal information will be kept to a minimum.</li>
+            <li>A written consent is signed by the trainee</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary">Confirm</button>
+        <button class="btn btn-outline-danger mx-3">Reject</button>
+    </div>
+</div>

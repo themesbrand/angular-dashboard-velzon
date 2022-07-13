@@ -29,6 +29,8 @@ import { SelfReferralRequestComponent } from './counselling-requests/self-referr
 import { SelfReferralRequestFormComponent } from './counselling-requests/self-referral-request/self-referral-request-form/self-referral-request-form.component';
 import { ProgramReferralRequestComponent } from './counselling-requests/program-referral-request/program-referral-request.component';
 import { ProgramReferralRequestFormComponent } from './counselling-requests/program-referral-request/program-referral-request-form/program-referral-request-form.component';
+import { MmrDashboardComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard.component';
+import { ConfidentialityFormComponent } from './counselling-requests/self-referral-request/confidentiality-form/confidentiality-form.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -71,11 +73,16 @@ const routes: Routes = [
       { path: "self-referral", children : [
         {path : "", component: SelfReferralRequestComponent},
         { path: "self-referral-request-form", component: SelfReferralRequestFormComponent },
+        { path: "confidentiality-form", component: ConfidentialityFormComponent },
       ] },
       { path: "program-referral", children : [
         {path : "", component: ProgramReferralRequestComponent},
         {path : "program-referral-request-form", component: ProgramReferralRequestFormComponent}
       ] },
+      { path: "mmr-dashboard", children : [
+        {path : "", component: MmrDashboardComponent},
+      ] },
+      
     ]}
 ];
 

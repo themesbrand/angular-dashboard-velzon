@@ -1,0 +1,35 @@
+<full-calendar  #fullcalendar [options]="calendarOptions"></full-calendar>
+
+<ng-template #eventModal let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Appointment Details</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2 border border-dashed p-3 rounded">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="form-label">{{"Name Of Counselee : "}}<span class="h6 text-muted">{{selectedEvent.nameOfCounselee}}</span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="form-label">{{"Counsellor Name : "}}<span class="h6 text-muted">{{selectedEvent.counsellorName}}</span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="form-label">{{"Appointment Date : "}}<span class="badge badge-soft-success fs-12"><i class="ri-calendar-event-line fs-13 align-middle me-1"></i>{{selectedEvent.dateOfRequest | date : 'M/d/yy, h:mm a'}}<span>
+                        </span></span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="form-label">{{"Venue : "}}<span class="h6 text-muted">{{selectedEvent.venue}}</span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="form-label">{{"Mode : "}}<span class="h6 text-muted">{{selectedEvent.mode}}</span></p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-end">
+                    <a class="text-success" (click)="onNavigate()">Mini Medical Record</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
