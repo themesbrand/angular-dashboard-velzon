@@ -111,18 +111,18 @@
             <div class="d-flex flex-row gap-5">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" id="CheckRadio1"
-                  name ="checkRadioOption3" value="Good">
-                  <label class="form-check-label" for="CheckRadio1">Good</label>
+                  name ="checkRadioOption3" value="Popular">
+                  <label class="form-check-label" for="CheckRadio1">Popular</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" id="CheckRadio2"  
-                  name ="checkRadioOption3" value="Average">
-                  <label class="form-check-label" for="CheckRadio2">Average</label>
+                  name ="checkRadioOption3" value="Acceptable">
+                  <label class="form-check-label" for="CheckRadio2">Acceptable</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" id="CheckRadio3"  
-                  name ="checkRadioOption3" value="Poor">
-                  <label class="form-check-label" for="CheckRadio3">Poor</label>
+                  name ="checkRadioOption3" value="Unpopular">
+                  <label class="form-check-label" for="CheckRadio3">Unpopular</label>
                 </div>
             </div>
         </div>
@@ -235,7 +235,7 @@
     <div class="row">
         <div class="live-preview">                                    
             <div class="table-responsive">
-                <table class="table align-middle table-nowrap mb-0">
+                <table class="table align-middle table-hover table-nowrap mb-0">
                     <thead>
                         <tr>
                             <th scope="col">Characteristics</th>
@@ -267,7 +267,7 @@
     <div class="row border-top border-top-dashed py-2">
         <div class="col-md-12 mb-3">
             <label class="form-label">Additional comments</label>
-            <textarea rows="5"></textarea>
+            <textarea class="form-control" rows="5"></textarea>
         </div>
         <div class="col-md-6 mb-3">
             <label class="form-label">Trainee’s appearance and cleanliness</label>
@@ -288,11 +288,11 @@
         </div>
         <div class="col-md-12 mb-3" *ngIf="formValue.hasInvolvedInViolations === 'Yes'">
             <label class="form-label">Additional comments</label>
-            <textarea rows="5"></textarea>
+            <textarea class="form-control" rows="5"></textarea>
         </div>
         <div class="col-md-12 mb-3">
             <label class="form-label">Education Committee’s recommendations and future plans for the Trainee:</label>
-            <textarea rows="5"></textarea>
+            <textarea class="form-control" rows="5"></textarea>
         </div>
     </div>
 </form>
