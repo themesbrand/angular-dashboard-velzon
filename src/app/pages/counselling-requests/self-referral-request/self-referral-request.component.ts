@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import {data} from '../data';
 
@@ -15,8 +16,10 @@ export class SelfReferralRequestComponent implements OnInit {
   returnUrl: any;
 
   isFromProgramReferral: boolean = false;
+  isAssessmentVisible: boolean = false;
 
-  constructor(private router : Router, private route : ActivatedRoute) { }
+  constructor(private router : Router, private route : ActivatedRoute,
+    private modalService : NgbModal) { }
 
   ngOnInit(): void {
 
@@ -34,8 +37,11 @@ export class SelfReferralRequestComponent implements OnInit {
       ];
     }
   }
-
   onNavigation(url: any) {
     this.router.navigateByUrl(url)
+  }
+
+  openModal(modal : any, size : any) {
+    this.modalService.open(modal, {size : size})
   }
 }

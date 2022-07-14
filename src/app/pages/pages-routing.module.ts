@@ -8,10 +8,8 @@ import { ViewHoursComponent } from './duty-hours/view-hours/view-hours.component
 import { CreateProgramComponent } from './curriculum/create-program/create-program.component';
 import { EcSetupComponent } from './curriculum/ec-setup.component';
 import { AllocateProcedureComponent } from './curriculum/view-program/procedure/allocate-procedure/allocate-procedure.component';
-import { ProcedureComponent } from './curriculum/view-program/procedure/procedure.component';
 import { AddRotationComponent } from './curriculum/view-program/rotation/add-rotation/add-rotation.component';
 import { PreviewRotationComponent } from './curriculum/view-program/rotation/preview-rotation/preview-rotation.component';
-import { RotationComponent } from './curriculum/view-program/rotation/rotation.component';
 import { ViewProgramComponent } from './curriculum/view-program/view-program.component';
 import { InTrainingEvaluationReportComponent } from './forms/in-trainning-evaluation-report/in-trainning-evaluation-report.component';
 import { PresentationEvaluationFormComponent } from './forms/presentation-evaluation-form/presentation-evaluation-form.component';
@@ -33,6 +31,7 @@ import { MmrDashboardComponent } from './counselling-requests/mmr-dashboard/mmr-
 import { ConfidentialityFormComponent } from './counselling-requests/self-referral-request/confidentiality-form/confidentiality-form.component';
 import { MyAppointmentsComponent } from './counselling-requests/my-appointments/my-appointments.component';
 import { AssessmentFormComponent } from './counselling-requests/my-appointments/assessment-form/assessment-form.component';
+import { ConfidentialityFormTwoComponent } from './counselling-requests/self-referral-request/confidentiality-form-two/confidentiality-form-two.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -76,6 +75,7 @@ const routes: Routes = [
         {path : "", component: SelfReferralRequestComponent},
         { path: "self-referral-request-form", component: SelfReferralRequestFormComponent },
         { path: "confidentiality-form", component: ConfidentialityFormComponent },
+        { path: "confidentiality-form-two", component: ConfidentialityFormTwoComponent }
       ] },
       { path: "program-referral", children : [
         {path : "", component: ProgramReferralRequestComponent},

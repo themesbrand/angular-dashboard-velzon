@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-md-2 px-3">
+        <div class="d-flex flex-row justify-content-center">
+            <img src="/assets/images/logo_2.png" class="img-fluid">
+        </div>
+    </div>
+    <div class="col-md-10 ">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <p class="h2">Trainee Affairs Department</p>
+            <p class="h3">Counselling and Guidance Section</p>
+            <p class="h4 text-muted">Assessment Form</p>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form [formGroup]="assessmentForm">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Trainee Name</label>
+                <label class="form-control">{{formValues.name}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">OMSB Number</label>
+                <label class="form-control">{{formValues.omsb}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Age</label>
+                <label class="form-control">{{formValues.age}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Marital Status</label>
+                <label class="form-control">{{formValues.maritalStatus}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Program</label>
+                <label class="form-control">{{formValues.trainingProgram}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Year started at OMSB</label>
+                <label class="form-control">{{formValues.yearOfTraining}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Year of Training</label>
+                <label class="form-control">{{formValues.academicYear}}</label>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Referral Type</label>
+                <div class="d-flex flex-row mt-3">
+                    <div class="form-check">
+                      <input class="form-check-input" formControlName="referralType" type="radio" id="referralTypeCheckRadio1" value="Self-Referral">
+                      <label class="form-check-label"  for="referralTypeCheckRadio1">Self-Referral</label>
+                    </div>
+                    <div class="form-check mx-3">
+                      <input class="form-check-input" type="radio" id="referralTypeCheckRadio2" formControlName="referralType" value="Referred By">
+                      <label class="form-check-label"  for="referralTypeCheckRadio2">Referred By</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3" *ngIf="formValues.referralType === 'Referred By'">
+                <label class="form-label">Refereed by Person Name</label>
+                <label class="form-control">{{formValues.refereeName}}</label>
+            </div>
+            <div class="col-md-3 mb-3" *ngIf="formValues.referralType === 'Referred By'">
+                <label class="form-label">Refereed on Date</label>
+                <label class="form-control">{{formValues.referredDate}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Current lifestyle interventions</label>
+                <div class="d-flex flex-row mt-3">
+                    <div class="form-check">
+                      <input class="form-check-input" formControlName="lifestyleInterventions" type="radio" id="lifestyleInterventionsCheckRadio1" value="Exercise">
+                      <label class="form-check-label"  for="lifestyleInterventionsCheckRadio1">Exercise</label>
+                    </div>
+                    <div class="form-check mx-3">
+                      <input class="form-check-input" type="radio" id="lifestyleInterventionsCheckRadio2" formControlName="lifestyleInterventions" value="Diet">
+                      <label class="form-check-label"  for="lifestyleInterventionsCheckRadio2">Diet</label>
+                    </div>
+                    <div class="form-check mx-3">
+                      <input class="form-check-input" type="radio" id="lifestyleInterventionsCheckRadio3" formControlName="lifestyleInterventions" value="Other">
+                      <label class="form-check-label"  for="lifestyleInterventionsCheckRadio3">Other</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="formValues.lifestyleInterventions === 'Other'">
+                <label class="form-label">If, other</label>
+                <label class="form-control">{{formValues.lifestyleInterventionOther}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb-3" *ngFor="let assessment of listData.assessmentData.assessmentArray">
+                <label class="form-label">{{assessment.name}}</label>
+                <label class="form-control text-wrap">{{assessment.value}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <p class="h5 text-muted">Medical History</p>
+            <div class="col-md-12 mb-3" *ngFor="let medical of listData.assessmentData.medicalHistory">
+                <label class="form-label">{{medical.name}}</label>
+                <label class="form-control text-wrap">{{medical.value}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <p class="h5 text-muted">Developmental History</p>
+            <div class="col-md-12 mb-3" *ngFor="let history of listData.assessmentData.developmentalHistory">
+                <label class="form-label">{{history.name}}</label>
+                <label class="form-control text-wrap">{{history.value}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="live-preview">                                    
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-nowrap mb-0">
+                        <thead>
+                            <tr>
+                                <th colspan="8">Systemic Inquiry</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let inquiry of listData.assessmentData.systemicInquiry">
+                            <tr>
+                                <td>{{inquiry[0].name}}</td>
+                                <td>
+                                    {{inquiry[0].value}}
+                                </td>
+                                <td>{{inquiry[1].name}}</td>
+                                <td>
+                                    {{inquiry[0].value}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+</div>

@@ -45,6 +45,11 @@ const data = {
         {column1 : 'Tactful', column2 : 'Tactless'},
         {column1 : 'Absent-minded', column2 : 'Social'},
         {column1 : 'Antisocial', column2 : 'Patient'},
+    ],
+    assessmentData : [
+        {name : 'Assessment 1', assessmentPerformedBy : 'Madan Al Abri', assessmentData : '2020-06-10'},
+        {name : 'Assessment 2', assessmentPerformedBy : 'Madan Khan', assessmentData : '2020-07-10'},
+        {name : 'Assessment 3', assessmentPerformedBy : 'Madan Al Abri', assessmentData : '2020-07-15'},
     ]
 }
 

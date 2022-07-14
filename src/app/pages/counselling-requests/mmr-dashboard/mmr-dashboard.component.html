@@ -138,6 +138,13 @@
                 <form [formGroup]="appointmentScheduleForm">
                     <div class="row">
                         <div class="col-md-4 mb-3">
+                            <label class="form-label">Schedule Type<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.scheduleType" placeholder="Please select" formControlName="scheduleType">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="formValues.scheduleType === 'Internal'">
+                        <div class="col-md-4 mb-3">
                             <label class="form-label">Name Of Counselee<span class="text-danger">{{ " *" }}</span></label>
                             <ng-select [items]="listData.nameOfCounseleeObjects" placeholder="Please select" (change)="onChangeCounselee()" 
                             bindLabel="counsellorsName"
@@ -152,6 +159,98 @@
                             <label class="form-label">Email<span class="text-danger">{{ " *" }}</span></label>
                             <label class="form-control">{{formValues.email === null ? 'Please select': formValues.mobile}}</label>
                         </div>
+                    </div>
+                    
+                    <div class="row" *ngIf="formValues.scheduleType === 'External'">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Name Of Counselee<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row">
+                                <ng-select [items]="listData.nameOfCounseleeObjects" placeholder="Please select" 
+                                bindLabel="counsellorsName"
+                                formControlName="counsellorsNameExternal" class="w-100">
+                                </ng-select>
+                                <button class="btn btn-primary btn-sm mx-2" (click)="addReferralToControl()">Select</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div formArrayName="referralTo" class="row"  *ngIf="formValues.scheduleType === 'External' && referralToControls.length != 0">
+                        <div *ngFor="let control of referralToControls; let i = index" [formGroupName]="i">
+                            <div class="row border-bottom border-bottom-dashed">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Counsellors Name<span class="text-danger">{{ " *" }}</span></label>
+                                    <label class="form-control">{{control.value.name === null ? 'Please select': control.value.name}}</label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Designation<span class="text-danger">{{ " *" }}</span></label>
+                                    <label class="form-control">{{control.value.designation === null ? 'Please select': control.value.designation}}</label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Institution<span class="text-danger">{{ " *" }}</span></label>
+                                    <label class="form-control">{{control.value.institution === null ? 'Please select': control.value.institution}}</label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Mobile<span class="text-danger">{{ " *" }}</span></label>
+                                    <label class="form-control">{{control.value.mobile === null ? 'Please select': control.value.mobile}}</label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Email<span class="text-danger">{{ " *" }}</span></label>
+                                    <label class="form-control">{{control.value.email === null ? 'Please select': control.value.mobile}}</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="formValues.scheduleType === 'External'">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Referral Reason<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row">
+                                <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio1" name="radioOption1" value="Take Over">
+                                    <label class="mx-2" for="selectionRadio1">Take Over</label>
+                                  </div>
+                                  <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio2" name="radioOption1" value="Evaluate">
+                                    <label class="mx-2" for="selectionRadio2">Evaluate</label>
+                                  </div>
+                                  <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio3"  name="radioOption1" value="Treat">
+                                    <label class="mx-2" for="selectionRadio3">Treat</label>
+                                  </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <textarea cols="3" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Is the Trainee aware of this referral?<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row">
+                                <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio4" name="radioOption2" value="yes">
+                                    <label class="mx-2" for="selectionRadio4">Yes</label>
+                                  </div>
+                                  <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio5"  name="radioOption2" value="no">
+                                    <label class="mx-2" for="selectionRadio5">No</label>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Is feedback/report required?<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row">
+                                <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio6" name="radioOption3" value="yes">
+                                    <label class="mx-2" for="selectionRadio6">Yes</label>
+                                  </div>
+                                  <div class="form-check mx-3">
+                                    <input class="form-check-input" type="radio" id="selectionRadio7" name="radioOption3"  value="no">
+                                    <label class="mx-2" for="selectionRadio7">No</label>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Appointment Date<span class="text-danger">{{ " *" }}</span></label>
                             <input class="form-control flatpickr-input" type="text"
@@ -176,7 +275,6 @@
                             formControlName="mode">
                             </ng-select>
                         </div>
-    
                     </div>
                 </form>
                 <button class="btn btn-primary right" (click)="onSave()">Submit</button>

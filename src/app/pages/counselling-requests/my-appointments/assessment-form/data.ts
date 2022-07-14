@@ -18,13 +18,13 @@ const data = {
         'Caffeine', 'Alcohol', 'Nicotine', 'Illicit substances', 'Prescription medication misuse', 'Other'
     ],
     systemicInquiry: [
-        ['Mood', 'Suicidal/Homicidal Thoughts', 'Irritability', 'Concentration']
+        ['Mood', 'Suicidal/Homicidal Thoughts'], ['Irritability', 'Concentration']
         , 
-        ['Memory', 'Energy Level', 'Sleep pattern', 'Appetite']
+        ['Memory', 'Energy Level'], ['Sleep pattern', 'Appetite']
         , 
-        ['Weight','Behavioral Change', 'Social Withdrawal', 'Feelings about "Self"']
+        ['Weight','Behavioral Change'], ['Social Withdrawal', 'Feelings about "Self"']
         , 
-        ['Tearfulness', 'Feeling overwhelmed', 'Panic Attacks', 'Psychotic Symptoms']
+        ['Tearfulness', 'Feeling overwhelmed'], ['Panic Attacks', 'Psychotic Symptoms']
     ]
 }
 

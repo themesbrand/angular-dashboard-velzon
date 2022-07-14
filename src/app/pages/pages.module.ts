@@ -101,7 +101,8 @@ import { ConfidentialityFormComponent } from './counselling-requests/self-referr
 import { AppointmentsCalendarComponent } from './counselling-requests/mmr-dashboard/appointments-calendar/appointments-calendar.component';
 import { MyAppointmentsComponent } from './counselling-requests/my-appointments/my-appointments.component';
 import { AssessmentFormComponent } from './counselling-requests/my-appointments/assessment-form/assessment-form.component';
-
+import { AssessmentFormViewComponent } from './counselling-requests/my-appointments/assessment-form-view/assessment-form-view.component';
+import { ConfidentialityFormTwoComponent } from './counselling-requests/self-referral-request/confidentiality-form-two/confidentiality-form-two.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -170,7 +171,9 @@ FullCalendarModule.registerPlugins([
     ConfidentialityFormComponent,
     AppointmentsCalendarComponent,
     MyAppointmentsComponent,
-    AssessmentFormComponent
+    AssessmentFormComponent,
+    AssessmentFormViewComponent,
+    ConfidentialityFormTwoComponent
   ],
   imports: [
     CommonModule,

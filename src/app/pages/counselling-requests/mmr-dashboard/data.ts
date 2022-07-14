@@ -1,31 +1,40 @@
 const data = {
     nameOfCounselee : ['Madan Khan', 'Madan Al Abri', 'Saleh Mahfoudh', 'Abdel Maddali', 'Al Abri Falsal'],
-    
     nameOfCounseleeObjects : [
         {
             counsellorsName : 'Madan Khan',
             mobile : '+968123456',
             email : 'madan512@gmail.com',
+            designation: 'Counselor',
+            institution : 'Al Nahdah Hospital'
         },
         {
             counsellorsName : 'Madan Al Abri',
             mobile : '+968965456',
             email : 'AbriSD@gmail.com',
+            designation: 'Counselor',
+            institution : 'Al Nahdah Hospital'
         },
         {
             counsellorsName : 'Saleh Mahfoudh',
             mobile : '+968965456',
             email : 'SalehMahfoudh@gmail.com',
+            designation: 'Counselor',
+            institution : 'Al Nahdah Hospital'
         },
         {
             counsellorsName : 'Abdel Maddali',
             mobile : '+968965456',
             email : 'AbdelMaddali@gmail.com',
+            designation: 'Counselor',
+            institution : 'Al Nahdah Hospital'
         },
         {
             counsellorsName : 'Al Abri Falsal',
             mobile : '+968965456',
             email : 'AbriFalsal@gmail.com',
+            designation: 'Counselor',
+            institution : 'Al Nahdah Hospital'
         }
     ],
 
@@ -70,6 +79,9 @@ const data = {
             appointmentDate : '',
             counsellorName : '',
         },
+    ],
+    scheduleType : [
+        'Internal', 'External'
     ]
 }
 
