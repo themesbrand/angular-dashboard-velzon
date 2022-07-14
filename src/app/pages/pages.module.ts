@@ -99,6 +99,8 @@ import { TraineePerformanceEvauationFormComponent } from './counselling-requests
 import { MmrDashboardComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard.component';
 import { ConfidentialityFormComponent } from './counselling-requests/self-referral-request/confidentiality-form/confidentiality-form.component';
 import { AppointmentsCalendarComponent } from './counselling-requests/mmr-dashboard/appointments-calendar/appointments-calendar.component';
+import { MyAppointmentsComponent } from './counselling-requests/my-appointments/my-appointments.component';
+import { AssessmentFormComponent } from './counselling-requests/my-appointments/assessment-form/assessment-form.component';
 
 
 export function createTranslateLoader(http: HttpClient): any {
@@ -166,7 +168,9 @@ FullCalendarModule.registerPlugins([
     TraineePerformanceEvauationFormComponent,
     MmrDashboardComponent,
     ConfidentialityFormComponent,
-    AppointmentsCalendarComponent
+    AppointmentsCalendarComponent,
+    MyAppointmentsComponent,
+    AssessmentFormComponent
   ],
   imports: [
     CommonModule,

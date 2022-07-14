@@ -70,6 +70,12 @@
                 "label": "MMR Dashboard",
                 "icon": "ri-calendar-event-line",
                 "link": "/counselling/mmr-dashboard"
+            },
+            {
+                "id": 13,
+                "label": "My Appointments",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/my-appointments"
             }
         ]
     }

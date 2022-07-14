@@ -31,6 +31,8 @@ import { ProgramReferralRequestComponent } from './counselling-requests/program-
 import { ProgramReferralRequestFormComponent } from './counselling-requests/program-referral-request/program-referral-request-form/program-referral-request-form.component';
 import { MmrDashboardComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard.component';
 import { ConfidentialityFormComponent } from './counselling-requests/self-referral-request/confidentiality-form/confidentiality-form.component';
+import { MyAppointmentsComponent } from './counselling-requests/my-appointments/my-appointments.component';
+import { AssessmentFormComponent } from './counselling-requests/my-appointments/assessment-form/assessment-form.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -81,6 +83,10 @@ const routes: Routes = [
       ] },
       { path: "mmr-dashboard", children : [
         {path : "", component: MmrDashboardComponent},
+      ] },
+      { path: "my-appointments", children : [
+        {path : "", component: MyAppointmentsComponent},
+        {path : "assessment-form", component: AssessmentFormComponent },
       ] },
       
     ]}

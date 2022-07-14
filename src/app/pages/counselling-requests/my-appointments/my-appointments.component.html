@@ -1,0 +1,95 @@
+<app-breadcrumbs title="My Appointments" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Name of Counselee</label>
+                <ng-select [items]="listData.nameOfCounselee"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Scenario</label>
+                <ng-select [items]="listData.scenario"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program</label>
+                <ng-select [items]="listData.program"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Type of Referral</label>
+                <ng-select [items]="listData.typeOfReferral"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Date of Requested</label>
+                <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                    [convertModelValue]="true" mode="range">
+            </div>
+        </div>
+        <button class="btn btn-primary">Search</button>
+
+    </div>
+    <div class="card-body">
+        <!-- <div class="d-flex flex-row">
+            <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate()"><i class=" ri-file-list-3-line label-icon align-middle fs-16 me-2"></i>Leave Request</button>
+        </div> -->
+        <div class="live-preview border-top border-top-dashed mt-3">                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name of Counselee</th>
+                            <th scope="col">Type of Referral</th>
+                            <th scope="col">Program</th>
+                            <th scope="col">Type of Counselee</th>
+                            <th scope="col">Date of Request</th>
+                            <th scope="col">Requested By</th>
+                            <th scope="col">Scenario</th>
+                            <th scope="col">Appointment Date</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let appointment of listData.appointmentRequestData">
+                            <td>{{appointment.nameOfCounselee}}</td>
+                            <td>{{appointment.typeOfReferral}}</td>
+                            <td>{{appointment.program}}</td>
+                            <td>{{appointment.typeOfCounselee}}</td>
+                            <td>{{appointment.dateOfRequest | date: 'MMMM d, y, h:mm:ss a'}}</td>
+                            <td>{{appointment.requestedBy}}</td>
+                            <td>{{appointment.scenario}}</td>
+                            <td>{{appointment.appointmentDate | date: 'MMMM d, y, h:mm:ss a'}}</td>
+                            <td><div class="dropdown" ngbDropdown>
+                                <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                    <i class="ri-more-2-fill"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                    <li (click)="onNavigate('counselling/self-referral')">
+                                        <a class="dropdown-item" ><i class="mx-1 ri-stack-line"></i>Mini Medical Record</a></li>
+                                    <li (click)="onNavigate('counselling/my-appointments/assessment-form')">
+                                        <a class="dropdown-item"><i class=" mx-1 ri-window-2-line"></i>Assessment Form</a></li>
+                                </ul>
+                            </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #leaveApplicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            
+            
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
