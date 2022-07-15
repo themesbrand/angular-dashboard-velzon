@@ -78,5 +78,18 @@
                 "link": "/counselling/my-appointments"
             }
         ]
+    },
+    {
+        "id": 14,
+        "label": "Scholarship",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 15,
+                "label": "Scholarship Section",
+                "icon": "ri-calendar-event-line",
+                "link": "/scholarship/scholarship-section"
+            }
+        ]
     }
 ]

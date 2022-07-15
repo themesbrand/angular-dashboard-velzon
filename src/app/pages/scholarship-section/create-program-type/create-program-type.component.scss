@@ -1,0 +1,16 @@
+th, td {
+    vertical-align: middle;
+}
+tr th:nth-child(1) {
+    min-width: 140px !important;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+}
+.table-responsive {
+    overflow: visible !important;
+}
+td a {
+    cursor: pointer !important;
+}

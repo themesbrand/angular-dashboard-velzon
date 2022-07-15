@@ -1,0 +1,363 @@
+<app-breadcrumbs title="Create a Program Type" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate()" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Program Name</label>
+                <ng-select [items]="[]"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Program Type</label>
+                <ng-select [items]="[]"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Program Specialization</label>
+                <ng-select [items]="[]"
+                placeholder="Please select">
+                </ng-select>
+            </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Search</button>
+
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-end ">
+            <button (click)="onAddProgram()" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Program</button>
+        </div>
+        <div class="live-preview">     
+            <form [formGroup]="programForm">
+                <div class="table-responsive" [ngClass]="isEditMode === true ? 'edit-mode' : ''">
+                    <table class="table align-middle table-hover mb-0" [ngClass]="isEditMode === false ? 'table-wrap' : 'table-nowrap'">
+                        <thead>
+                            <tr>
+                                <th scope="col">Program Name</th>
+                                <th scope="col">Program Type</th>
+                                <th scope="col">Program Specialization</th>
+                                <th scope="col">Program Sub-Specialization</th>
+                                <th scope="col">Sponsored By</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody formArrayName="programs">
+                            <tr *ngFor="let data of getProgramControls ; let i = index" [formGroupName]="i">
+                                <td *ngIf="!data.value.isEdit">{{data.value.programName}}</td>
+                                <td *ngIf="!data.value.isEdit">{{data.value.programType}}</td>
+                                <td *ngIf="!data.value.isEdit">{{data.value.programSpecialization}}</td>
+                                <td *ngIf="!data.value.isEdit">{{data.value.programSubSpecialization}}</td>
+                                <td *ngIf="!data.value.isEdit">{{data.value.sponsoredBy}}</td>
+
+                                <td *ngIf="data.value.isEdit">
+                                    <input type="text" formControlName="programName" class="form-control">
+                                </td>
+                                <td *ngIf="data.value.isEdit">
+                                    <ng-select [items]="listData.programType" formControlName="programType"
+                                            placeholder="Please select">
+                                          </ng-select>
+                                </td>
+                                <td *ngIf="data.value.isEdit">
+                                    <ng-select [items]="listData.programSpecialization" formControlName="programSpecialization"
+                                            placeholder="Please select">
+                                          </ng-select>
+                                </td>
+                                <td *ngIf="data.value.isEdit">
+                                    <ng-select [items]="listData.programSubSpecialization" formControlName="programSubSpecialization"
+                                            placeholder="Please select">
+                                          </ng-select>
+                                </td>
+                                <td *ngIf="data.value.isEdit">
+                                    <ng-select [items]="listData.sponsoredBy" formControlName="sponsoredBy"
+                                            placeholder="Please select">
+                                          </ng-select>
+                                </td>
+                                <td *ngIf="data.value.isEdit">
+                                    <button class="btn btn-sm btn-success" (click)="onSaveProgram(i)">Save</button>
+                                </td>
+                                <td *ngIf="!data.value.isEdit">
+                                    <div class="dropdown" ngbDropdown>
+                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                            <i class="ri-more-2-fill"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <li (click)="onEditProgram(i)">
+                                                <a class="dropdown-item" ><i class="mx-1  ri-edit-2-line"></i>Edit</a></li>
+                                                <li (click)="onDeleteProgram(i)">
+                                                    <a class="text-danger dropdown-item" ><i class="mx-1  ri-delete-bin-line"></i>Delete</a></li>
+                                                <li (click)="selectAcademicYear(data.value.academicYear, i)">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-stack-line"></i>Setup for Academic Year</a></li>
+                                                <li (click)="selectOfferedCountries(data.value.offeredCountries, i)">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-stack-line"></i>Offered Countries</a></li>
+                                                <li (click)="selectEmployerSetup(data.value.employersSetup, i)">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-stack-line"></i>Employer Setup</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>        
+                        </tbody>
+                    </table>
+                </div>
+            </form>                               
+        </div>
+    </div>
+</div>
+
+
+<ng-template #setupAcademicYear let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Setup for Academic Year</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="d-flex flex-row justify-content-end ">
+                    <button (click)="onAddAcademicYear()" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Academic Year</button>
+                </div>
+                <div class="live-preview" *ngIf="getAcademicYearControls.length != 0">     
+                    <form [formGroup]="academicYearsForm">
+                        <div class="table-responsive" [ngClass]="isEditMode === true ? 'edit-mode' : ''">
+                            <table class="table align-middle table-hover mb-0" [ngClass]="isEditMode === false ? 'table-wrap' : 'table-nowrap'">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Applicable Academic Year</th>
+                                        <th scope="col">Number of scholarships</th>
+                                        <th scope="col" *ngIf="!isUnitAvailable">Unit</th>
+                                        <th scope="col">Application Start Date</th>
+                                        <th scope="col">Application Start Time</th>
+                                        <th scope="col">Application End Date</th>
+                                        <th scope="col">Application End Time</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="academicYearArray">
+                                    <tr *ngFor="let data of getAcademicYearControls; let i = index" [formGroupName]="i">
+                                        <td *ngIf="!data.value.isEdit">{{data.value.applicableAcademicYear}}</td>
+                                        <td *ngIf="!data.value.isEdit">{{data.value.noOfScholarships}}</td>
+                                        <td *ngIf="!data.value.isEdit && !isUnitAvailable">{{data.value.unit}}</td>
+                                        <td *ngIf="!data.value.isEdit">{{data.value.startDate | date : 'yyyy-MMM-d'}}</td>
+                                        <td *ngIf="!data.value.isEdit">{{data.value.startTime}}</td>
+                                        <td *ngIf="!data.value.isEdit">{{data.value.endDate | date : 'yyyy-MMM-d'}}</td>
+                                        <td *ngIf="!data.value.isEdit">{{data.value.endTime}}</td>
+
+                                        <td *ngIf="data.value.isEdit">
+                                            <ng-select [items]="listData.applicableAcademicYear" formControlName="applicableAcademicYear"
+                                                    placeholder="Please select">
+                                                  </ng-select>
+                                        </td>
+                                        <td *ngIf="data.value.isEdit">
+                                            <input type="number" class="form-control" formControlName="noOfScholarships">
+                                        </td>
+                                        <td *ngIf="data.value.isEdit && !isUnitAvailable">
+                                            <ng-select [items]="listData.unitList" formControlName="unit"
+                                                    placeholder="Please select">
+                                                  </ng-select>
+                                        </td>
+                                        <td *ngIf="data.value.isEdit">
+                                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" 
+                                            formControlName="startDate" [convertModelValue]="true">
+                                        </td>
+                                        <td *ngIf="data.value.isEdit">
+                                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                            formControlName="startTime" 
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                                        </td>
+                                        <td *ngIf="data.value.isEdit">
+                                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" 
+                                            formControlName="endDate" [convertModelValue]="true">
+                                        </td>
+                                        <td *ngIf="data.value.isEdit">
+                                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                            formControlName="endTime" 
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                                        </td>
+
+                                        <td *ngIf="data.value.isEdit">
+                                            <button (click)="onSaveAcademicYear(data, i)" class="btn btn-sm btn-success" >Save</button>
+                                        </td>
+                                        <td *ngIf="!data.value.isEdit">
+                                            <div class="dropdown" ngbDropdown>
+                                                <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                    <i class="ri-more-2-fill"></i>
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                    <li (click)="onEditAcademicYear(i)">
+                                                        <a class="dropdown-item" ><i class="mx-1  ri-edit-2-line"></i>Edit</a></li>
+                                                    <li (click)="onDeleteAcademicYear(i)">
+                                                        <a class="text-danger dropdown-item" ><i class="mx-1  ri-delete-bin-line"></i>Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+
+                                    </tr>                     
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>     
+                                            
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #offeredCountries let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Offered Countries</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="form-label">Offered Countried List<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select [items]="listData.countryList"
+                        placeholder="Please select" bindLabel="name" 
+                        bindValue="name" [multiple]="true"
+                        [(ngModel)]="selectedCountiesSelector">
+                      </ng-select>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-primary mt-3" (click)="saveOfferedCountries()">Save</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #employersSetup let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Employer Setup</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="d-flex flex-row justify-content-end ">
+                    <button (click)="onAddEmployersSetup()" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Employer Setup</button>
+                </div>
+                <form [formGroup]="employersSetupForm">
+                    <div formArrayName="employersSetupArray">
+                        <div class="border border-dashed px-4 py-3 mb-2" *ngFor="let data of getEmployersSetupControls; let i = index" [formGroupName]="i">
+                            <div class="row">
+                                <div class="col-md-12" *ngIf="!data.value.isEdit">
+                                    <div class="d-flex flex-row justify-content-between" >
+                                        <div class="d-flex flex-column">
+                                            <p class="h3 text-success" *ngIf="data.value.employerName && data.value.employerName != 'Other'">{{"Employer Name : "}}{{data.value.employerName}}</p>
+                                            <p *ngIf="data.value.employerNameOther" class="h3 text-success">{{"Employer Name : "}}{{data.value.employerNameOther}}</p>
+                                            <p class="h4 text-primary" *ngIf="data.value.hospitalName && data.value.hospitalName != 'Other'">{{"Hospital Name : "}}{{data.value.hospitalName}}</p>
+                                            <p class="h4 text-primary" *ngIf="data.value.hospitalNameOther">{{"Hospital Name : "}}{{data.value.hospitalNameOther}}</p>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-end">
+                                            <button (click)="onEditEmployersSetup(i)" type="button" class="mx-2 btn-sm btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-edit-2-line
+                                                "></i></button>
+                                            <button (click)="onDeleteEmployersSetup(i)"type="button" class="btn-sm btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" *ngIf="data.value.isEdit">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Employer Name</label>
+                                            <ng-select [items]="listData.employerNames"
+                                            placeholder="Please select"
+                                            formControlName="employerName" (change)="onChangeEmployerName(i)">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-4 mb-3" *ngIf="getEmployersSetupControls[i].value.employerName === 'Other'">
+                                            <label class="form-label">If, Other</label>
+                                            <input type="text" class="form-control" formControlName="employerNameOther">
+                                        </div>
+                                        <div class="col-md-4 mb-3" *ngIf="getEmployersSetupControls[i].value.employerName === 'Ministry of Health'">
+                                            <label class="form-label">Hospital Name</label>
+                                            <ng-select [items]="listData.hospitalNames"
+                                            formControlName="hospitalName"
+                                            placeholder="Please select" (change)="onChangeHospitalName(i)">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-4 mb-3" *ngIf="getEmployersSetupControls[i].value.hospitalName === 'Other'">
+                                            <label class="form-label">If, Other</label>
+                                            <input type="text" class="form-control" formControlName="hospitalNameOther">
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-end">
+                                            <button class="btn btn-success" (click)="onSaveEmployersSetup(i)">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-between" *ngIf="!data.value.isEdit" formArrayName="authorizedIndividuals">
+                                <p class="h5 text-muted">{{"Authorized Individual : "}}<span>{{getEmployersSetupControls[i].value.authorizedIndividuals.length}}</span></p>
+                                <button (click)="onAddAuthorizedIndividual(i)" type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Authorized Individual</button>
+                            </div>
+                            <div class="live-preview" *ngIf="getEmployersSetupControls[i].value.authorizedIndividuals.length != 0 && !data.value.isEdit">     
+                                <div class="table-responsive" [ngClass]="isEditMode === true ? 'edit-mode' : ''">
+                                    <table class="table align-middle table-hover mb-0" [ngClass]="isEditMode === false ? 'table-wrap' : 'table-nowrap'">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Civil ID</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody formArrayName="authorizedIndividuals">
+                                            <tr *ngFor="let individual of authorizedIndividualControls(i) ; let j = index" [formGroupName]="j">
+                                                <td *ngIf="!individual.value.isEdit">{{individual.value.name}}</td>
+                                                <td *ngIf="!individual.value.isEdit">{{individual.value.civilId}}</td>
+                                                <td *ngIf="!individual.value.isEdit">{{individual.value.title}}</td>
+                                                <td *ngIf="individual.value.isEdit">
+                                                    <label class="form-label">Name</label>
+                                                    <input type="text" class="form-control" formControlName="name">
+                                                </td>
+                                                <td *ngIf="individual.value.isEdit">
+                                                    <label class="form-label">Civil Id</label>
+                                                    <input type="text" class="form-control" formControlName="civilId">
+                                                </td>
+                                                <td *ngIf="individual.value.isEdit">
+                                                    <label class="form-label">Title</label>
+                                                    <input type="text" class="form-control" formControlName="title">
+                                                </td>
+                                                <td *ngIf="individual.value.isEdit">
+                                                    <button class="btn btn-sm btn-success" (click)="onSaveAuthorizedIndividual(i, j)">Save</button>
+                                                </td>
+                                                <td *ngIf="!individual.value.isEdit">
+                                                    <div class="dropdown" ngbDropdown>
+                                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                            <i class="ri-more-2-fill"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                            <li (click)="onEditAuthorizedIndividual(i, j)">
+                                                                <a class="dropdown-item" ><i class="mx-1  ri-edit-2-line"></i>Edit</a>
+                                                            </li>
+                                                            <li (click)="onDeleteAuthorizedIndividual(i, j)">
+                                                                <a class="text-danger dropdown-item" ><i class="mx-1  ri-delete-bin-line"></i>Delete</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+    
+        
+                                            </tr>                     
+                                        </tbody>
+                                    </table>
+                                </div>
+                                  
+                                                        
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>     
+                
+            </div>
+        </div>
+    </div>
+</ng-template>

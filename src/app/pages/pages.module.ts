@@ -103,6 +103,9 @@ import { MyAppointmentsComponent } from './counselling-requests/my-appointments/
 import { AssessmentFormComponent } from './counselling-requests/my-appointments/assessment-form/assessment-form.component';
 import { AssessmentFormViewComponent } from './counselling-requests/my-appointments/assessment-form-view/assessment-form-view.component';
 import { ConfidentialityFormTwoComponent } from './counselling-requests/self-referral-request/confidentiality-form-two/confidentiality-form-two.component';
+import { ScholarshipSectionComponent } from './scholarship-section/scholarship-section.component';
+import { CreateProgramTypeComponent } from './scholarship-section/create-program-type/create-program-type.component';
+import { CreateScholarshipProgramComponent } from './scholarship-section/create-program/create-program.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -173,7 +176,10 @@ FullCalendarModule.registerPlugins([
     MyAppointmentsComponent,
     AssessmentFormComponent,
     AssessmentFormViewComponent,
-    ConfidentialityFormTwoComponent
+    ConfidentialityFormTwoComponent,
+    ScholarshipSectionComponent,
+    CreateProgramTypeComponent,
+    CreateScholarshipProgramComponent
   ],
   imports: [
     CommonModule,

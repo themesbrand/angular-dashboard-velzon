@@ -9,8 +9,11 @@ th {
     position: sticky !important;
     z-index: 99 !important;
 }
-td {
+td, th {
+    vertical-align: middle;
     word-wrap: break-word;
+}
+td {
     padding: 0.45rem 0.6rem;
 }
 .assignment-box {

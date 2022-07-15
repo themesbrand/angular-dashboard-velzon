@@ -32,6 +32,9 @@ import { ConfidentialityFormComponent } from './counselling-requests/self-referr
 import { MyAppointmentsComponent } from './counselling-requests/my-appointments/my-appointments.component';
 import { AssessmentFormComponent } from './counselling-requests/my-appointments/assessment-form/assessment-form.component';
 import { ConfidentialityFormTwoComponent } from './counselling-requests/self-referral-request/confidentiality-form-two/confidentiality-form-two.component';
+import { ScholarshipSectionComponent } from './scholarship-section/scholarship-section.component';
+import { CreateProgramTypeComponent } from './scholarship-section/create-program-type/create-program-type.component';
+import { CreateScholarshipProgramComponent } from './scholarship-section/create-program/create-program.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -87,9 +90,13 @@ const routes: Routes = [
       { path: "my-appointments", children : [
         {path : "", component: MyAppointmentsComponent},
         {path : "assessment-form", component: AssessmentFormComponent },
-      ] },
-      
-    ]}
+      ] },  
+    ]},
+    { path: "scholarship", children : [
+      { path : "scholarship-section", component: ScholarshipSectionComponent },
+      { path : "create-program-type", component: CreateProgramTypeComponent },
+      { path : "create-program", component: CreateScholarshipProgramComponent },
+    ]},
 ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+th, td {
+    vertical-align: middle;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+}
+.table-nowrap tr th:nth-child(1) {
+    min-width: 200px !important;
+}
+.table-responsive {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+.edit-mode {
+    padding-bottom: 180px !important;
+    overflow-y: visible !important;
+    overflow-x: scroll !important;
+}
+td a {
+    cursor: pointer !important;
+}
+.border {
+	border: 1.5px dashed #605f5f !important;
+}

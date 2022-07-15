@@ -3,8 +3,11 @@ th {
     color: white;
     align-items: center;
 }
-td {
+td, th {
+    vertical-align: middle;
     word-wrap: break-word;
+}
+td {
     padding: 0.45rem 0.6rem;
 }
 td .dropdown-menu-up {
