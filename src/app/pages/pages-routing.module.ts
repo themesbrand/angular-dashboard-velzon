@@ -35,6 +35,9 @@ import { ConfidentialityFormTwoComponent } from './counselling-requests/self-ref
 import { ScholarshipSectionComponent } from './scholarship-section/scholarship-section.component';
 import { CreateProgramTypeComponent } from './scholarship-section/create-program-type/create-program-type.component';
 import { CreateScholarshipProgramComponent } from './scholarship-section/create-program/create-program.component';
+import { ViewScholarshipApplicationsComponent } from './scholarship-section/view-scholarship-applications/view-scholarship-applications.component';
+import { ScholarshipApplicationFormComponent } from './scholarship-section/view-scholarship-applications/scholarship-application-form/scholarship-application-form.component';
+import { DashboardsEmployerComponent } from './dashboards-employer/dashboards-employer.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -96,7 +99,11 @@ const routes: Routes = [
       { path : "scholarship-section", component: ScholarshipSectionComponent },
       { path : "create-program-type", component: CreateProgramTypeComponent },
       { path : "create-program", component: CreateScholarshipProgramComponent },
+      { path : "view-applications", component: ViewScholarshipApplicationsComponent },
+      { path : "show-application-form", component: ScholarshipApplicationFormComponent },
     ]},
+    { path: "dashboard-employer", component: DashboardsEmployerComponent },
+
 ];
 
 @NgModule({

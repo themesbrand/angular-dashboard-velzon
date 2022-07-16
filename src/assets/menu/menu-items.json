@@ -1,6 +1,12 @@
 [
     {
         "id": 1,
+        "label": "Dashboard",
+        "icon": "ri-file-paper-line",
+        "link": "/dashboard"
+    },
+    {
+        "id": 1,
         "label": "Master Rotation",
         "icon": "ri-file-paper-line",
         "link": "/rotation-page-resident-mapping"

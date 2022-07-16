@@ -5303,6 +5303,13 @@
     "lodash-es" "^4.17.15"
     "tslib" "^2.3.0"
 
+"ng2-tooltip-directive@^2.10.3":
+  "integrity" "sha512-BNFxE/s9sNqkD3LTua/MtbM2n2lKycNIC8zG8XVyHtO9sJ+s2jj7g8dDuOxmX+izQGG+EBosPRCK1wTZL8NbVw=="
+  "resolved" "https://registry.npmjs.org/ng2-tooltip-directive/-/ng2-tooltip-directive-2.10.3.tgz"
+  "version" "2.10.3"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "ngx-bootstrap@^8.0.0":
   "integrity" "sha512-UjJ/57Pr7ctdI2L113QX1IqJPYtOMrp5Qq/RLvUT1TOwPQWPi9LXTQ/7BtipkptQjer7Fk9yueITH3Y8vD+Dmg=="
   "resolved" "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-8.0.0.tgz"

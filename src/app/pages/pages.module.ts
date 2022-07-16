@@ -35,6 +35,7 @@ import { WidgetModule } from '../shared/widget/widget.module';
 import { DashboardComponent } from './dashboards/dashboard/dashboard.component';
 import { ToastsContainer } from './dashboards/toasts-container.component';
 
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 //Full Calendar
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -106,6 +107,9 @@ import { ConfidentialityFormTwoComponent } from './counselling-requests/self-ref
 import { ScholarshipSectionComponent } from './scholarship-section/scholarship-section.component';
 import { CreateProgramTypeComponent } from './scholarship-section/create-program-type/create-program-type.component';
 import { CreateScholarshipProgramComponent } from './scholarship-section/create-program/create-program.component';
+import { ViewScholarshipApplicationsComponent } from './scholarship-section/view-scholarship-applications/view-scholarship-applications.component';
+import { ScholarshipApplicationFormComponent } from './scholarship-section/view-scholarship-applications/scholarship-application-form/scholarship-application-form.component';
+import { DashboardsEmployerComponent } from './dashboards-employer/dashboards-employer.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -179,7 +183,10 @@ FullCalendarModule.registerPlugins([
     ConfidentialityFormTwoComponent,
     ScholarshipSectionComponent,
     CreateProgramTypeComponent,
-    CreateScholarshipProgramComponent
+    CreateScholarshipProgramComponent,
+    ViewScholarshipApplicationsComponent,
+    ScholarshipApplicationFormComponent,
+    DashboardsEmployerComponent
   ],
   imports: [
     CommonModule,
@@ -198,6 +205,7 @@ FullCalendarModule.registerPlugins([
     NgApexchartsModule,
     LeafletModule,
     NgbDropdownModule,
+    TooltipModule,
     NgxIntlTelInputModule,
     SimplebarAngularModule,
     GridJsAngularModule,

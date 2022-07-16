@@ -26,7 +26,6 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     // Menu Items
     this.httpClient.get("assets/menu/menu-items.json").subscribe((response : any) =>{
-      console.log(response);
       this.menuItems = [...response];      
     })    
   }

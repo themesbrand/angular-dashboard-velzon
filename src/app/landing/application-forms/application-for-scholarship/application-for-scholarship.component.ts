@@ -291,4 +291,8 @@ export class ApplicationForScholarshipComponent implements OnInit {
     }
   }
 
+  onSubmit() {
+    console.log(this.formValues)
+  }
+
 }

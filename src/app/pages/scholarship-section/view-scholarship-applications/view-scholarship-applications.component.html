@@ -1,0 +1,118 @@
+<app-breadcrumbs title="View Applications" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate('/scholarship/scholarship-section')" class="btn btn-primary btn-label waves-effect waves-light mb-1"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-end">
+                    <button (click)="onFilter()" type="button" class="btn-sm my-2 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Program Type">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Program specialization">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Sub Specialization">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Country">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Academic Year">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Employment Status">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Employer">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Obtained Degree">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <input class="form-control" type="text" placeholder="Please enter OMSB Selection Exam score">
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select OMSB Selection Exam score">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select OMSB specialty certificate">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <input class="form-control" type="text" placeholder="Please enter International Exams/Qualifications">
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select BLS Certificate validity">
+                </ng-select>
+            </div>
+            <div class="d-flex flex-row">
+                <button (click)="onSearch()" class="btn btn-primary my-2">Filter</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Nationality</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Contact Number</th>
+                                <th scope="col">BLS Expiry Date</th>
+                                <th scope="col">ACLS Expiry Date</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr *ngFor="let application of listData.applicationTableDate">
+                                <td>{{application.fullName}}</td>
+                                <td>{{application.gender}}</td>
+                                <td>{{application.nationality}}</td>
+                                <td>{{application.email}}</td>
+                                <td>{{application.contactNumber}}</td>
+                                <td>{{application.blsExpiryDate}}</td>
+                                <td>{{application.aclsExpiryDate}}</td>
+                                <td class="text-center">
+
+                                    <span class="mx-2 my-1 badge rounded-pill text-success bg-success" *ngIf="application.action === 'green'">.</span>
+                                    <span tooltip="No Valid BLS Certificate Found" placement="top" [showDelay]="500" class="mx-2 my-1 badge rounded-pill text-danger bg-danger" *ngIf="application.action === 'red'">.</span>      
+                                    <button (click)="onNavigate('/scholarship/show-application-form')" type="button" class="mx-2 my-1 btn-sm btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>            
+                                </td>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>
