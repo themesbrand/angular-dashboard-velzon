@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "label": "Dashboard",
+        "icon": "ri-file-paper-line",
+        "link": "/dashboard"
+    },
+    {
+        "id": 1,
+        "label": "Employer Dashboard",
+        "icon": "ri-file-paper-line",
+        "link": "/dashboard-employer"
+    },
+    {
+        "id": 1,
+        "label": "Master Rotation",
+        "icon": "ri-file-paper-line",
+        "link": "/rotation-page-resident-mapping"
+    },
+    {
+        "id": 12,
+        "label": "Block Diagram",
+        "icon": "ri-add-box-fill",
+        "link": "/residency-block-diagram"
+    },
+    {
+        "id": 3,
+        "label": "Curriculum",
+        "icon": "ri-calendar-event-line",
+        "link": "/curriculum"
+    },
+    {
+        "id": 4,
+        "label": "Duty Hours",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 5,
+                "label": "Log Hours",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/grid"
+            },
+            {
+                "id": 6,
+                "label": "View Hours",
+                "icon": "ri-calendar-event-line",
+                "link": "/duty-hours/view"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "label": "Log Procedure",
+        "icon": "ri-calendar-event-line",
+        "link": "/log-procedures"
+    },
+    {
+        "id": 9,
+        "label": "Leave Application",
+        "icon": "ri-calendar-event-line",
+        "link": "/leave-application"
+    },
+    {
+        "id": 10,
+        "label": "Counselling",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 11,
+                "label": "Self Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/self-referral"
+            },
+            {
+                "id": 12,
+                "label": "Program Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/program-referral"
+            },
+            {
+                "id": 13,
+                "label": "MMR Dashboard",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/mmr-dashboard"
+            },
+            {
+                "id": 13,
+                "label": "My Appointments",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/my-appointments"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "label": "Scholarship",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 15,
+                "label": "Scholarship Section",
+                "icon": "ri-calendar-event-line",
+                "link": "/scholarship/scholarship-section"
+            }
+        ]
+    }
+]
