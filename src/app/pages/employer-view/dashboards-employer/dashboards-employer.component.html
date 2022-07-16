@@ -1,3 +1,16 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Dashboard" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<div class="row mb-3 pb-1">
+    <div class="col-12">
+        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+            <div class="flex-grow-1">
+                <h4 class="fs-16 mb-1">Good Morning, Abbas!</h4>
+            </div>
+        </div><!-- end card header -->
+    </div><!--end col-->
+</div><!--end row-->
+
 <div class="row">
     <div class="col-xxl-8 col-lg-6">
         <div class="card">
@@ -66,7 +79,7 @@
                                     </p>
                                 </div>
                                 <div class="flex-shrink-0 text-end">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                                    <button type="button" (click)="onNavigate('/employer-view-applications')" class="btn btn-primary waves-effect waves-light"><i class=" ri-eye-line"></i></button>
                                 </div>
                             </div>
                         </div>

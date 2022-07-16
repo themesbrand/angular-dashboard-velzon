@@ -7,6 +7,12 @@
     },
     {
         "id": 1,
+        "label": "Employer Dashboard",
+        "icon": "ri-file-paper-line",
+        "link": "/dashboard-employer"
+    },
+    {
+        "id": 1,
         "label": "Master Rotation",
         "icon": "ri-file-paper-line",
         "link": "/rotation-page-resident-mapping"

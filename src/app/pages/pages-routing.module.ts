@@ -37,7 +37,8 @@ import { CreateProgramTypeComponent } from './scholarship-section/create-program
 import { CreateScholarshipProgramComponent } from './scholarship-section/create-program/create-program.component';
 import { ViewScholarshipApplicationsComponent } from './scholarship-section/view-scholarship-applications/view-scholarship-applications.component';
 import { ScholarshipApplicationFormComponent } from './scholarship-section/view-scholarship-applications/scholarship-application-form/scholarship-application-form.component';
-import { DashboardsEmployerComponent } from './dashboards-employer/dashboards-employer.component';
+import { DashboardsEmployerComponent } from './employer-view/dashboards-employer/dashboards-employer.component';
+import { ScholarshipApplicationViewComponent } from './employer-view/scholarship-application-view/scholarship-application-view.component';
 
 const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },
@@ -103,6 +104,7 @@ const routes: Routes = [
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
     ]},
     { path: "dashboard-employer", component: DashboardsEmployerComponent },
+    { path: "employer-view-applications", component: ScholarshipApplicationViewComponent },
 
 ];
 

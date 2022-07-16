@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {data} from './data';
 
 @Component({
@@ -8,10 +9,18 @@ import {data} from './data';
 })
 export class DashboardsEmployerComponent implements OnInit {
   listData = data;
-  
-  constructor() { }
+  breadCrumbItems!: Array<{}>;
+
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [
+      { label: 'Dashboard', active: true }
+    ];
+  }
+
+  onNavigate(url : any) {
+    this.router.navigateByUrl(url)
   }
 
 }
