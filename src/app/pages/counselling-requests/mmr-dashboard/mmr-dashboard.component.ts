@@ -32,12 +32,10 @@ export class MmrDashboardComponent implements OnInit {
   appointmentScheduleFormInit() {
     this.appointmentScheduleForm = this.formBuilder.group({
       scheduleType : new FormControl(null),
-
-      counsellorsName : new FormControl(null),
-      mobile : new FormControl(null),
-      email : new FormControl(null),
       
-      counsellorsNameExternal : new FormControl(null),
+      counsellorsSelector : new FormControl(null),
+
+      internalReferral : new FormArray([]),
       referralTo : new FormArray([]),
 
       date : new FormControl(null),
@@ -57,7 +55,7 @@ export class MmrDashboardComponent implements OnInit {
   }
 
   addReferralToControl () {
-    const referral = this.formValues.counsellorsNameExternal;
+    const referral = this.formValues.counsellorsSelector;
   
     (<FormArray>this.appointmentScheduleForm.get('referralTo')).push(
       new FormGroup({
@@ -68,6 +66,30 @@ export class MmrDashboardComponent implements OnInit {
         'email' : new FormControl(referral.email, [])
       })
     );
+    this.appointmentScheduleForm.get('counsellorsSelector')?.patchValue(null)
+  }
+  deleteReferralTo(i : any) {
+    (<FormArray>this.appointmentScheduleForm.get('referralTo')).removeAt(i)
+  }
+
+  get internalReferralControls() {
+    return (<FormArray>this.appointmentScheduleForm.get('internalReferral')).controls;
+  }
+
+  addInternalReferralControl () {
+    const referral = this.formValues.counsellorsSelector;
+  
+    (<FormArray>this.appointmentScheduleForm.get('internalReferral')).push(
+      new FormGroup({
+        'name' : new FormControl(referral.counsellorsName, []),
+        'mobile' : new FormControl(referral.mobile, []),
+        'email' : new FormControl(referral.email, [])
+      })
+    );
+    this.appointmentScheduleForm.get('counsellorsSelector')?.patchValue(null)
+  }
+  deleteInternalReferral(i : any) {
+    (<FormArray>this.appointmentScheduleForm.get('internalReferral')).removeAt(i)
   }
 
   selectAppointment(i : any) {
@@ -108,8 +130,8 @@ export class MmrDashboardComponent implements OnInit {
     this.appointmentScheduleForm.reset()
   }
 
-  openModal(modal : any) {
-    this.modalService.open(modal, {size : 'lg'})
+  openModal(modal : any, size : any) {
+    this.modalService.open(modal, {size : size})
   }
 
   onNavigate() {

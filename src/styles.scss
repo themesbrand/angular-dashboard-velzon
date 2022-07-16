@@ -117,3 +117,13 @@ ngx-intl-tel-input input[disabled] {
 	background-color: #e5eaf1;
 }
 
+.form-check-input[type=checkbox] {
+    border-radius: 0.25em;
+    border: 2px rgb(105, 105, 105) solid;
+}
+.form-check-input[type=radio] {
+    border-radius: 50%;
+	border: 2px rgb(105, 105, 105) solid;
+}
+
+//Custom Nav Pill Setting

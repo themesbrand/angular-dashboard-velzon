@@ -17,6 +17,9 @@ const data = {
             leaveStatus : 'Approved',
             leaveApprovalStatus : [
                 {
+                    stage : 'Trainee', name : 'Abbas Al Ajmi', date : '2022-05-25', status: 'Applied For Leave'
+                },
+                {
                     stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-05-26', status: 'Approved'
                 },
                 {
@@ -30,6 +33,9 @@ const data = {
                 numberOfDaysInExcess : 1,
                 reasonsForDelay : 'Doctors appointment got rescheduled.',
                 returnApprovalStatus: [
+                    {
+                        stage : 'Trainee', name : 'Abbas Al Ajmi', date : '2022-05-25', status: 'Applied For Leave Return'
+                    },
                     {
                         stage : 'Program Director of the Affected Rotation', name : 'Madan Al Abri', date : '2022-05-27', status: 'Approved'
                     },

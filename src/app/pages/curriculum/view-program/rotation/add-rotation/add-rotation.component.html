@@ -53,7 +53,7 @@
                             <ckeditor [editor]="Editor" formControlName="description" ></ckeditor>
                         </div>
                         <div formArrayName="objectives" class="border-top border-top-dashed mt-3">
-                            <label class="form-label mt-2">Rotation Objectives</label>
+                            <label class="fs-16 text-success mt-2">Rotation Objectives</label>
                             <div class="row">
                                 <div class="col-md-6 mb-3" *ngFor="let objective of objectiveControls; let i = index"
                                 [formGroupName]="i">

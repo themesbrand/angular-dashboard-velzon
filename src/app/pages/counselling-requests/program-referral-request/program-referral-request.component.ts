@@ -21,9 +21,13 @@ export class ProgramReferralRequestComponent implements OnInit {
     ];
   }
 
-  onNavigate() {
+  onNavigate(url: any) {
+    if(url === '/counselling/self-referral') {
+      this.router.navigate([url], { queryParams: { returnUrl: 'counselling/program-referral' } });
+      return;
+    }
+    this.router.navigateByUrl(url)
 
-    this.router.navigate(['/counselling/self-referral'], { queryParams: { returnUrl: 'counselling/program-referral' } });
 
   }
 

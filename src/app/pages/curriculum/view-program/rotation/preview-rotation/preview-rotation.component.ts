@@ -75,6 +75,9 @@ export class PreviewRotationComponent implements OnInit {
     })
   }
 
+  setRotationYear(rotationYear : any) {
+    this.rotationForm.get('year')?.patchValue(rotationYear)    
+  }
   navigateBack() {
     this.router.navigateByUrl('/curriculum/view-program')
   }

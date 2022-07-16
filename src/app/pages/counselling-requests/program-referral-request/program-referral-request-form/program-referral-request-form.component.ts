@@ -26,7 +26,6 @@ export class ProgramReferralRequestFormComponent implements OnInit {
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Program Referral", link : '/counselling/program-referral' },
-      { label: "Self Referral", link : '/counselling/self-referral?returnUrl=counselling%2Fprogram-referral' },
       { label: "Program Referral Request Form", active : true }
     ];
     this.requestFormInit();
@@ -69,7 +68,7 @@ export class ProgramReferralRequestFormComponent implements OnInit {
   }
 
   onNavigate() {
-    this.router.navigate(['/counselling/self-referral'],  { queryParams: { returnUrl: 'counselling/program-referral' } } )
+    this.router.navigate(['/counselling/program-referral'])
   }
 
   onSelect(event : any) {

@@ -12,7 +12,7 @@
                                  </span>
                              </div>
                              <div class="flex-grow-1 ms-3">
-                                <p class="text-uppercase fw-semibold fs-12 text-light mb-1">Total Program Referrals</p>
+                                <p class="fw-semibold fs-12 text-light mb-1">Total Program Referrals</p>
                                 <h4 class="text-light mb-0"><span [CountTo]="10" class="counter-value" [from]="0" [duration]="1"></span></h4>
                              </div>
                          </div>
@@ -29,7 +29,7 @@
                                  </span>
                              </div>
                              <div class="flex-grow-1 ms-3">
-                                <p class="text-uppercase fw-semibold fs-12 text-light mb-1">Total Self Referrals</p>
+                                <p class="fw-semibold fs-12 text-light mb-1">Total Self Referrals</p>
                                 <h4 class="text-light mb-0"><span [CountTo]="20" class="counter-value" [from]="0" [duration]="1"></span></h4>
                              </div>
                          </div>
@@ -53,7 +53,7 @@
                 </ng-select>
             </div>
             <div class="col-md-4 mb-3">
-                <label class="form-label">Program</label>
+                <label class="form-label">Program Name</label>
                 <ng-select [items]="listData.program"
                 placeholder="Please select">
                 </ng-select>
@@ -70,8 +70,10 @@
                     [convertModelValue]="true" mode="range">
             </div>
         </div>
-        <button class="btn btn-primary">Search</button>
-
+        <div class="d-flex flex-row justify-content-between">
+            <button class="btn btn-primary">Search</button>
+            <span style="cursor: pointer" (mouseenter)="openModal(scenarioStatistics, 'sm')" class="my-auto badge rounded-pill badge-soft-secondary">Scenario Statistics</span>
+        </div>
     </div>
     <div class="card-body">
         <div class="live-preview">                                    
@@ -81,7 +83,7 @@
                         <tr>
                             <th scope="col">Name of Counselee</th>
                             <th scope="col">Type of Referral</th>
-                            <th scope="col">program</th>
+                            <th scope="col">Program Name</th>
                             <th scope="col">Type of Counselee</th>
                             <th scope="col">Date of Request</th>
                             <th scope="col">Requested By</th>
@@ -109,7 +111,7 @@
                                 <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                     <li (click)="onNavigate()">
                                         <a class="dropdown-item" ><i class="mx-1 ri-stack-line"></i>Mini Medical Record</a></li>
-                                    <li *ngIf="appointment.appointmentDate === ''" (click)="openModal(confirmAppointment); selectAppointment(i)">
+                                    <li *ngIf="appointment.appointmentDate === ''" (click)="openModal(confirmAppointment, 'xl'); selectAppointment(i)">
                                         <a class="dropdown-item"><i class=" mx-1 ri-window-2-line"></i>Schedule Appointment</a></li>
                                 </ul>
                             </div></td>
@@ -126,6 +128,39 @@
     </div>
 </div>
 
+<ng-template #scenarioStatistics let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Scenario Statistics</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2 d-flex flex-row justify-content-between align-items-center">
+                <div class="row text-center">
+                    <div class="card shadow border">
+                        <div class="card-body p-1">
+                            <p class="h5 text-primary">Self</p>
+                            <p class="h6 text-muted">5</p>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="card-body p-1">
+                            <p class="h5 text-primary">Transfer</p>
+                            <p class="h6 text-muted">5</p>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="card-body p-1">
+                            <p class="h5 text-primary">Interruption	</p>
+                            <p class="h6 text-muted">5</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
 
 <ng-template #confirmAppointment let-modal>
     <div class="modal-content">
@@ -142,62 +177,88 @@
                             <ng-select [items]="listData.scheduleType" placeholder="Please select" formControlName="scheduleType">
                             </ng-select>
                         </div>
-                    </div>
-                    <div class="row" *ngIf="formValues.scheduleType === 'Internal'">
+                    </div><div class="row"  *ngIf="formValues.scheduleType === 'Internal'">
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">Name Of Counselee<span class="text-danger">{{ " *" }}</span></label>
-                            <ng-select [items]="listData.nameOfCounseleeObjects" placeholder="Please select" (change)="onChangeCounselee()" 
-                            bindLabel="counsellorsName"
-                            formControlName="counsellorsName">
-                            </ng-select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">Mobile<span class="text-danger">{{ " *" }}</span></label>
-                            <label class="form-control">{{formValues.mobile === null ? 'Please select': formValues.mobile}}</label>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">Email<span class="text-danger">{{ " *" }}</span></label>
-                            <label class="form-control">{{formValues.email === null ? 'Please select': formValues.mobile}}</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row" *ngIf="formValues.scheduleType === 'External'">
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">Name Of Counselee<span class="text-danger">{{ " *" }}</span></label>
+                            <label class="form-label">Name Of Counselor<span class="text-danger">{{ " *" }}</span></label>
                             <div class="d-flex flex-row">
                                 <ng-select [items]="listData.nameOfCounseleeObjects" placeholder="Please select" 
                                 bindLabel="counsellorsName"
-                                formControlName="counsellorsNameExternal" class="w-100">
+                                formControlName="counsellorsSelector" class="w-100">
                                 </ng-select>
-                                <button class="btn btn-primary btn-sm mx-2" (click)="addReferralToControl()">Select</button>
+                                <button class="btn btn-primary btn-sm mx-2" (click)="addInternalReferralControl()">Add</button>
+                            </div>
+                        </div>
+                        <div formArrayName="internalReferral" >
+                            <div class="live-preview border-top border-top-dashed my-3" *ngIf="internalReferralControls.length != 0">                                    
+                                <div class="table-responsive">
+                                    <table class="table align-middle mb-0 table-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Counsellors Name</th>
+                                                <th scope="col">Mobile </th>
+                                                <th scope="col">Email </th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let control of internalReferralControls; let i = index" [formGroupName]="i">
+                                                <td>{{control.value.name === null ? 'Please select': control.value.name}}</td>
+                                                <td>{{control.value.mobile === null ? 'Please select': control.value.mobile}}</td>
+                                                <td>{{control.value.email === null ? 'Please select': control.value.email}}</td>
+                                                <td>
+                                                    <button (click)="deleteInternalReferral(i)" type="button" class="btn btn-sm btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                                </td>
+                                            </tr>
+                                            
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div formArrayName="referralTo" class="row"  *ngIf="formValues.scheduleType === 'External' && referralToControls.length != 0">
-                        <div *ngFor="let control of referralToControls; let i = index" [formGroupName]="i">
-                            <div class="row border-bottom border-bottom-dashed">
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Counsellors Name<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{control.value.name === null ? 'Please select': control.value.name}}</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Designation<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{control.value.designation === null ? 'Please select': control.value.designation}}</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Institution<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{control.value.institution === null ? 'Please select': control.value.institution}}</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Mobile<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{control.value.mobile === null ? 'Please select': control.value.mobile}}</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Email<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{control.value.email === null ? 'Please select': control.value.mobile}}</label>
+                    <div class="row"  *ngIf="formValues.scheduleType === 'External'">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Name Of Counselor<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row">
+                                <ng-select [items]="listData.nameOfCounseleeObjects" placeholder="Please select" 
+                                bindLabel="counsellorsName"
+                                formControlName="counsellorsSelector" class="w-100">
+                                </ng-select>
+                                <button class="btn btn-primary btn-sm mx-2" (click)="addReferralToControl()">Add</button>
+                            </div>
+                        </div>
+                        <div formArrayName="referralTo" >
+                            <div class="live-preview border-top border-top-dashed my-3" *ngIf="referralToControls.length != 0">                                    
+                                <div class="table-responsive">
+                                    <table class="table align-middle mb-0 table-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Counsellors Name</th>
+                                                <th scope="col">Designation</th>
+                                                <th scope="col">Institution </th>
+                                                <th scope="col">Mobile </th>
+                                                <th scope="col">Email </th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let control of referralToControls; let i = index" [formGroupName]="i">
+                                                <td>{{control.value.name === null ? 'Please select': control.value.name}}</td>
+                                                <td>{{control.value.designation === null ? 'Please select': control.value.designation}}</td>
+                                                <td>{{control.value.institution === null ? 'Please select': control.value.institution}}</td>
+                                                <td>{{control.value.mobile === null ? 'Please select': control.value.mobile}}</td>
+                                                <td>{{control.value.email === null ? 'Please select': control.value.email}}</td>
+                                                <td>
+                                                    <button (click)="deleteReferralTo(i)" type="button" class="btn btn-sm btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                                </td>
+                                            </tr>
+                                            
+                                            
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="row" *ngIf="formValues.scheduleType === 'External'">

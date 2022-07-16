@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-4">
-                                <label for="program" class="form-label">Program</label>
+                                <label for="program" class="form-label">Program Name</label>
                                 <ng-select [items]="studentSelectorList.programSelector" bindLabel="name" placeholder="Please select an Option" formControlName="program" [ngClass]="{'is-invalid': submit && form['program'].errors}">
                                     <ng-template ng-optgroup-tmp let-item="item">
                                         {{item.country || 'Unnamed group'}}

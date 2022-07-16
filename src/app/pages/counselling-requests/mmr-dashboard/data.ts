@@ -45,12 +45,12 @@ const data = {
     mode : ['Physical', 'Virtual'],
     appointmentRequestData : [
         {
-            nameOfCounselee : 'Madan Khan',
+            nameOfCounselee : 'Abbas Al Ajmi',
             typeOfReferral : 'Self',
             program: 'Anaesthesia',
             typeOfCounselee : 'Faculty',
             dateOfRequest : '2022-07-12T10:30',
-            requestedBy : 'Al Abri Falsal',
+            requestedBy : 'Abbas Al Ajmi',
             scenario : 'Self',
             appointmentDate : '2022-07-12T10:30',
             counsellorName : 'Madan Al Abri',
@@ -58,7 +58,7 @@ const data = {
             mode : 'Physical'
         },
         {
-            nameOfCounselee : 'Madan Khan',
+            nameOfCounselee : 'Abbas Al Ajmi',
             typeOfReferral : 'Program',
             program: 'Clinical Biochemistry',
             typeOfCounselee : 'Trainee',
@@ -69,7 +69,7 @@ const data = {
             counsellorName : '',
         },
         {
-            nameOfCounselee : 'Madan Khan',
+            nameOfCounselee : 'Abbas Al Ajmi',
             typeOfReferral : 'Program',
             program: 'Clinical Biochemistry',
             typeOfCounselee : 'Trainee',
