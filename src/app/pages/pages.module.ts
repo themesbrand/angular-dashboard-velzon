@@ -111,6 +111,8 @@ import { ViewScholarshipApplicationsComponent } from './scholarship-section/view
 import { ScholarshipApplicationFormComponent } from './scholarship-section/view-scholarship-applications/scholarship-application-form/scholarship-application-form.component';
 import { DashboardsEmployerComponent } from './employer-view/dashboards-employer/dashboards-employer.component';
 import { ScholarshipApplicationViewComponent } from './employer-view/scholarship-application-view/scholarship-application-view.component';
+import { DashboardInterviewerComponent } from './interviewer-view/dashboard-interviewer/dashboard-interviewer.component';
+import { ShowApplicationFormComponent } from './interviewer-view/show-application-form/show-application-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -188,7 +190,9 @@ FullCalendarModule.registerPlugins([
     ViewScholarshipApplicationsComponent,
     ScholarshipApplicationFormComponent,
     DashboardsEmployerComponent,
-    ScholarshipApplicationViewComponent
+    ScholarshipApplicationViewComponent,
+    DashboardInterviewerComponent,
+    ShowApplicationFormComponent
   ],
   imports: [
     CommonModule,

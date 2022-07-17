@@ -39,8 +39,11 @@ import { ViewScholarshipApplicationsComponent } from './scholarship-section/view
 import { ScholarshipApplicationFormComponent } from './scholarship-section/view-scholarship-applications/scholarship-application-form/scholarship-application-form.component';
 import { DashboardsEmployerComponent } from './employer-view/dashboards-employer/dashboards-employer.component';
 import { ScholarshipApplicationViewComponent } from './employer-view/scholarship-application-view/scholarship-application-view.component';
+import { DashboardInterviewerComponent } from './interviewer-view/dashboard-interviewer/dashboard-interviewer.component';
+import { ShowApplicationFormComponent } from './interviewer-view/show-application-form/show-application-form.component';
 
 const routes: Routes = [
+    //Default Routing
     { path: "dashboard", component: DashboardComponent },
     { path: "residency-block-diagram", component: ResidentBlockDiagramComponent },
     { path: "rotation-page-resident-mapping", component: RotationPageResidentMappingComponent },
@@ -103,8 +106,14 @@ const routes: Routes = [
       { path : "view-applications", component: ViewScholarshipApplicationsComponent },
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
     ]},
-    { path: "dashboard-employer", component: DashboardsEmployerComponent },
-    { path: "employer-view-applications", component: ScholarshipApplicationViewComponent },
+
+    //Employer Routing
+    { path: "employer/dashboard", component: DashboardsEmployerComponent },
+    { path: "employer/employer-view-applications", component: ScholarshipApplicationViewComponent },
+    
+    //Interviewer Routing
+    { path: "interviewer/dashboard", component: DashboardInterviewerComponent },
+    { path: "interviewer/show-application-form", component: ShowApplicationFormComponent },
 
 ];
 
