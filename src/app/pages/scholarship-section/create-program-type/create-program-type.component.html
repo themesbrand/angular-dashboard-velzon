@@ -46,7 +46,8 @@
                                 <td *ngIf="!data.value.isEdit">{{data.value.programType}}</td>
                                 <td *ngIf="!data.value.isEdit">{{data.value.type}}</td>
                                 <td *ngIf="data.value.isEdit">
-                                    <button class="btn btn-sm btn-success" (click)="onSave(i)">Save</button>
+                                    <button class="btn btn-sm btn-success m-1" (click)="onSave(i)">Save</button>
+                                    <button class="btn btn-sm btn-danger m-1" (click)="onDelete(i)">Delete</button>
                                 </td>
                                 <td *ngIf="data.value.isEdit === false">
                                     <div class="dropdown" ngbDropdown>
@@ -247,7 +248,8 @@
                                             </div>
                                         </td>
                                         <td *ngIf="data.value.isEdit">
-                                            <button class="btn btn-sm btn-success" (click)="onSaveQualificationCriteria(data, i)">Save</button>
+                                            <button class="btn btn-sm btn-success m-1" (click)="onSaveQualificationCriteria(data, i)">Save</button>
+                                            <button class="btn btn-sm btn-danger m-1" (click)="onDeleteValue(i)">Delete</button>
                                         </td>
                                         <td *ngIf="!data.value.isEdit">
                                             <div class="dropdown" ngbDropdown>

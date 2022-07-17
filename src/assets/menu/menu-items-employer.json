@@ -1,0 +1,8 @@
+[
+    {
+        "id": 1,
+        "label": "Employer Dashboard",
+        "icon": "ri-file-paper-line",
+        "link": "/dashboard-employer"
+    }
+]

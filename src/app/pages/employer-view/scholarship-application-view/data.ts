@@ -11,6 +11,7 @@ const data = {
             contactNumber : '+9681224568',
             blsExpiryDate : '2029-02-06',
             aclsExpiryDate : '2029-05-06',
+            status : 'Submitted',
             action: 'green'
         },
         {
@@ -21,6 +22,7 @@ const data = {
             contactNumber : '+9689994568',
             blsExpiryDate : '2028-02-16',
             aclsExpiryDate : '2028-01-16',
+            status : 'Submitted',
             action: 'red'
         },
         {
@@ -31,6 +33,7 @@ const data = {
             contactNumber : '+9681743687',
             blsExpiryDate : '2025-12-26',
             aclsExpiryDate : '2025-05-05',
+            status : 'Submitted',
             action: 'red'
         },
     ],

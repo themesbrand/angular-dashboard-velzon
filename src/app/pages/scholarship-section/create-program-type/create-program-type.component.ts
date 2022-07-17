@@ -73,7 +73,7 @@ export class CreateProgramTypeComponent implements OnInit {
     return (<FormArray>this.programTypeForm.get('programTypes')).controls;
   }
   onAdd() {
-    (<FormArray>this.programTypeForm.get('programTypes')).push(
+    (<FormArray>this.programTypeForm.get('programTypes')).insert(0,
       new FormGroup({
         programType : new FormControl(''),
         programTypeEdit : new FormControl(''),
@@ -146,7 +146,7 @@ export class CreateProgramTypeComponent implements OnInit {
   }
 
   onAddQualificationCriteria() {
-    (<FormArray>this.qualificationCriteriaForm.get('qualificationCriteriaArray')).push(
+    (<FormArray>this.qualificationCriteriaForm.get('qualificationCriteriaArray')).insert(0,
       new FormGroup({          
         sponsoredBy: new FormControl(null), 
         sponsoredByEdit: new FormControl(null), 

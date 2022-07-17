@@ -89,6 +89,7 @@
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">BLS Expiry Date</th>
                                 <th scope="col">ACLS Expiry Date</th>
+                                <th scope="col">Status</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -101,6 +102,7 @@
                                 <td>{{application.contactNumber}}</td>
                                 <td>{{application.blsExpiryDate}}</td>
                                 <td>{{application.aclsExpiryDate}}</td>
+                                <td>{{application.status}}</td>
                                 <td class="text-center">
 
                                     <span class="mx-2 my-1 badge rounded-pill text-success bg-success" *ngIf="application.action === 'green'">.</span>

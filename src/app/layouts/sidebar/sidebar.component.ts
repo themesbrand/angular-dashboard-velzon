@@ -25,9 +25,24 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     // Menu Items
-    this.httpClient.get("assets/menu/menu-items.json").subscribe((response : any) =>{
-      this.menuItems = [...response];      
-    })    
+    const userType = localStorage.getItem('userType')
+    switch (userType) {
+      case 'trainee@omsb.com': {
+        this.httpClient.get("assets/menu/menu-items-trainee.json").subscribe((response : any) =>{
+          this.menuItems = [...response];      
+        })   
+        break;
+      }
+      case 'employer@omsb.com': {
+        this.httpClient.get("assets/menu/menu-items-employer.json").subscribe((response : any) =>{
+          this.menuItems = [...response];      
+        })   
+        break;
+      }
+      default : break;
+    }
+
+     
   }
 
   /***

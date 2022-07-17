@@ -32,8 +32,8 @@
         </div>
         <div class="live-preview">     
             <form [formGroup]="programForm">
-                <div class="table-responsive" [ngClass]="isEditMode === true ? 'edit-mode' : ''">
-                    <table class="table align-middle table-hover mb-0" [ngClass]="isEditMode === false ? 'table-wrap' : 'table-nowrap'">
+                <div class="table-responsive" >
+                    <table class="table align-middle table-hover mb-0 table-wrap">
                         <thead>
                             <tr>
                                 <th scope="col">Program Name</th>
@@ -76,7 +76,8 @@
                                           </ng-select>
                                 </td>
                                 <td *ngIf="data.value.isEdit">
-                                    <button class="btn btn-sm btn-success" (click)="onSaveProgram(i)">Save</button>
+                                    <button class="btn btn-sm btn-success m-1" (click)="onSaveProgram(i)">Save</button>
+                                    <button class="btn btn-sm btn-danger m-1" (click)="onDeleteProgram(i)">Delete</button>
                                 </td>
                                 <td *ngIf="!data.value.isEdit">
                                     <div class="dropdown" ngbDropdown>

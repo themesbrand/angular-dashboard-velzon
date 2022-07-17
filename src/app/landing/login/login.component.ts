@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
      * Form Validatyion
      */
     this.loginForm = this.formBuilder.group({
-      email: ["admin@themesbrand.com", [Validators.required, Validators.email]],
+      email: ["trainee@omsb.com", [Validators.required]],
       password: ["123456", [Validators.required]],
     });
     // get return url from route parameters or default to '/'
@@ -61,27 +61,14 @@ export class LoginComponent implements OnInit {
   /**
    * Form submit
    */
-  onSubmit() {
+  onSubmit(submitType : any) {
+    console.log(this.f["password"].value)
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     } else {
-      if (environment.defaultauth === "firebase") {
-        this.authenticationService
-          .login(this.f["email"].value, this.f["password"].value)
-          .then((res: any) => {
-            if (this.returnUrl === "/home/application-forms") {
-              this.router.navigateByUrl("/home/application-forms", { state: { path : "application-forms"} });
-              return;
-            }
-            this.router.navigateByUrl("/dashboard");
-          })
-          .catch((error) => {
-            this.error = error ? error : "";
-          });
-      } else {
-        this.authFackservice
+      this.authFackservice
           .login(this.f["email"].value, this.f["password"].value)
           .pipe(first())
           .subscribe(
@@ -95,13 +82,27 @@ export class LoginComponent implements OnInit {
                 this.router.navigateByUrl("/home/registration", { state: { path : "registration"} });
                 return;
               }
-              this.router.navigateByUrl("/dashboard");
+
+              switch (this.f["email"].value) {
+                case 'trainee@omsb.com' : {
+                  this.router.navigateByUrl("/dashboard");
+                  localStorage.setItem('userType' , 'trainee@omsb.com')
+                  break;
+                }
+                case 'employer@omsb.com' : {
+                  localStorage.setItem('userType' , 'employer@omsb.com')
+                  this.router.navigateByUrl("/dashboard-employer");
+                  break;
+                }
+                default : break;
+              }
+              
+              
             },
             (error) => {
               this.error = error ? error : "";
             }
           );
-      }
     }
   }
 
