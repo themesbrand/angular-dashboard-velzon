@@ -1,0 +1,104 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Applicant Interview Evaluation" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-2 px-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <img src="/assets/images/logo_2.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-10 ">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                    <p class="h4 text-muted">Applicant Interview Evaluation Form</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="form-label">Trainee Name</label>
+                <label class="form-control">{{listData.userDetailsObject.name}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Civil Id</label>
+                <label class="form-control">{{listData.userDetailsObject.civilId}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Program Name</label>
+                <label class="form-control">{{listData.userDetailsObject.trainingProgram}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Date</label>
+                <label class="form-control">{{listData.userDetailsObject.currentDate | date : 'yyyy-MM-d'}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="evaluationForm">
+            <div class="live-preview">                                    
+                <div class="table-responsive">
+                    <table class="table align-middle table-wrap table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">1. Medical Knowledge (0-8)<sup>*D</sup></th>
+                                <th scope="col">Interviewer : Madan Khan</th>
+                                <th scope="col">Interviewer : Abdel Maddali</th>
+                                <th scope="col">Interviewer : Al Abri Ibraham</th>
+                                <th scope="col">Average</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of listData.resultData">
+                                <td [ngClass]="{'fw-bold' : row.isBold === true}">{{row.title}}</td>
+                                <td>{{row.objects[0]}}</td>
+                                <td>{{row.objects[1]}}</td>
+                                <td>{{row.objects[2]}}</td>
+                                <td *ngIf="row.objects.length != 0">{{row.average}}</td>
+                            </tr>
+                            <tr>
+                                <th>CUMULATIVE TOTAL SCORE (0 – 25)</th>
+                                <th>{{interviewsTotalAccumulatedTotal[0] | number : '1.2-2'}}</th>
+                                <th>{{interviewsTotalAccumulatedTotal[1] | number : '1.2-2'}}</th>
+                                <th>{{interviewsTotalAccumulatedTotal[2] | number : '1.2-2'}}</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Recommended</th>
+                                <th>Waiting List</th>
+                                <th>Not Recommended</th>
+                                <th>
+                                    <ng-select [items]="['Recommended', 'Waiting List', 'Not Recommended']" placeholder="Please select">
+                                    </ng-select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Rank : 5</th>
+                                <th></th>
+                                <th>Rank : 15</th>
+                                <th>
+                                    <input type="number" class="form-control">
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-3">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">General impression of candidate (include strengths, weaknesses or areas of concern)</label>
+                    <textarea cols="3" class="form-control"></textarea>
+                </div>
+
+            </div>
+        </form>
+        <button class="btn btn-primary my-2">Submit</button>
+    </div>
+</div>

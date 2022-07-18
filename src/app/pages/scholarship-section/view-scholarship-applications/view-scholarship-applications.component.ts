@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { trigger, style, animate, transition } from '@angular/animations';
 
 import {data} from './data';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-view-scholarship-applications',
@@ -30,7 +31,7 @@ export class ViewScholarshipApplicationsComponent implements OnInit {
 
   isFilterOpened: boolean = false;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private modalService : NgbModal) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -54,6 +55,10 @@ export class ViewScholarshipApplicationsComponent implements OnInit {
   
   onViewForm() {
 
+  }
+
+  openModal(modal : any, size : any) {
+    this.modalService.open(modal , {size : size})
   }
   
   onNavigate(url : any ) {

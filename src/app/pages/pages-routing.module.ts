@@ -41,6 +41,8 @@ import { DashboardsEmployerComponent } from './employer-view/dashboards-employer
 import { ScholarshipApplicationViewComponent } from './employer-view/scholarship-application-view/scholarship-application-view.component';
 import { DashboardInterviewerComponent } from './interviewer-view/dashboard-interviewer/dashboard-interviewer.component';
 import { ShowApplicationFormComponent } from './interviewer-view/show-application-form/show-application-form.component';
+import { InterviewEvaluationFormComponent } from './interviewer-view/interview-evaluation-form/interview-evaluation-form.component';
+import { InterviewResultComponent } from './interviewer-view/interview-result/interview-result.component';
 
 const routes: Routes = [
     //Default Routing
@@ -112,8 +114,12 @@ const routes: Routes = [
     { path: "employer/employer-view-applications", component: ScholarshipApplicationViewComponent },
     
     //Interviewer Routing
-    { path: "interviewer/dashboard", component: DashboardInterviewerComponent },
-    { path: "interviewer/show-application-form", component: ShowApplicationFormComponent },
+    { path: "interviewer", children : [
+      { path: "dashboard", component: DashboardInterviewerComponent },
+      { path: "show-application-form", component: ShowApplicationFormComponent },
+      { path: "evaluation-form", component: InterviewEvaluationFormComponent },
+      { path: "interview-result", component: InterviewResultComponent }
+    ] },
 
 ];
 

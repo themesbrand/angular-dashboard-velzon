@@ -34,6 +34,11 @@ const data = {
             action: 'red'
         }
     ],
+    screeningStatus : [
+        'Provisionally Approved by OMSB – pending obtaining acceptance letter',
+        'Not Approved',
+        'Other',
+    ]
 }
 
 export {data}

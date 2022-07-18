@@ -1,0 +1,19 @@
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+td, th {
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+td {
+    padding: 0.25rem 0.6rem;
+}
+.form-control {
+    padding: 0.25rem 0.5rem;
+}
+.table-responsive {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}

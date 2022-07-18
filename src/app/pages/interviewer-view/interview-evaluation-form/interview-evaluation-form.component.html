@@ -1,0 +1,459 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Applicant Interview Evaluation" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-2 px-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <img src="/assets/images/logo_2.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-10 ">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                    <p class="h4 text-muted">Applicant Interview Evaluation Form</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="form-label">Trainee Name</label>
+                <label class="form-control">{{listData.userDetailsObject.name}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Civil Id</label>
+                <label class="form-control">{{listData.userDetailsObject.civilId}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Program Name</label>
+                <label class="form-control">{{listData.userDetailsObject.trainingProgram}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Date</label>
+                <label class="form-control">{{listData.userDetailsObject.currentDate | date : 'yyyy-MM-d'}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="evaluationForm">
+            <div class="live-preview">                                    
+                <div class="table-responsive">
+                    <table class="table align-middle table-wrap table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">1. Medical Knowledge (0-8)<sup>*D</sup></th>
+                                <th scope="col" colspan="5">Select Score</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Standardized Case Scenario 1</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question1" type="radio" id="question1CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question1CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question1" type="radio" id="question1CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question1CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question1" type="radio" id="question1CheckRadio3" value="2">
+                                        <label class="form-check-label mx-2"  for="question1CheckRadio3">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question1" type="radio" id="question1CheckRadio4" value="3">
+                                        <label class="form-check-label mx-2"  for="question1CheckRadio4">3</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question1" type="radio" id="question1CheckRadio5" value="4">
+                                        <label class="form-check-label mx-2"  for="question1CheckRadio5">4</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question1}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>2. Completed International Exams
+                                    (MCCEE, USMLE, MRCS)</b></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question2" type="radio" id="question2CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question2CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question2" type="radio" id="question2CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question2CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question2" type="radio" id="question2CheckRadio3" value="2">
+                                        <label class="form-check-label mx-2"  for="question2CheckRadio3">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question2" type="radio" id="question2CheckRadio4" value="3">
+                                        <label class="form-check-label mx-2"  for="question2CheckRadio4">3</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question2" type="radio" id="question2CheckRadio5" value="4">
+                                        <label class="form-check-label mx-2"  for="question2CheckRadio5">4</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question2}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>3. Have valid IELTS of 7.0 or OET of B</b></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question3" type="radio" id="question3CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question3CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question3" type="radio" id="question3CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question3CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question3" type="radio" id="question3CheckRadio3" value="2">
+                                        <label class="form-check-label mx-2"  for="question3CheckRadio3">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question3" type="radio" id="question3CheckRadio4" value="3">
+                                        <label class="form-check-label mx-2"  for="question3CheckRadio4">3</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question3" type="radio" id="question3CheckRadio5" value="4">
+                                        <label class="form-check-label mx-2"  for="question3CheckRadio5">4</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question3}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>4. Research</b></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Research Proposal</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question4" type="radio" id="question4CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question4CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question4" type="radio" id="question4CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question4CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question4}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Poster Presentation</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question5" type="radio" id="question5CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question5CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question5" type="radio" id="question5CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question5CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question5}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Oral Presentation at Conference</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question6" type="radio" id="question6CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question6CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question6" type="radio" id="question6CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question6CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question6}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Publication in Journal</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question7" type="radio" id="question7CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question7CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question7" type="radio" id="question7CheckRadio2" value="3">
+                                        <label class="form-check-label mx-2"  for="question7CheckRadio2">3</label>
+                                      </div>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question7}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>5. Enthusiasm to the Specialty (0-4)</b></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question8" type="radio" id="question8CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question8CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question8" type="radio" id="question8CheckRadio2" value="1">
+                                        <label class="form-check-label mx-2"  for="question8CheckRadio2">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question8" type="radio" id="question8CheckRadio3" value="2">
+                                        <label class="form-check-label mx-2"  for="question8CheckRadio3">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question8" type="radio" id="question8CheckRadio4" value="3">
+                                        <label class="form-check-label mx-2"  for="question8CheckRadio4">3</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question8" type="radio" id="question8CheckRadio5" value="4">
+                                        <label class="form-check-label mx-2"  for="question8CheckRadio5">4</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question8}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>6. Personality & Attitude (0-2)</b></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question9" type="radio" id="question9CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question9CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question9" type="radio" id="question9CheckRadio2" value="0.5">
+                                        <label class="form-check-label mx-2"  for="question9CheckRadio2">0.5</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question9" type="radio" id="question9CheckRadio3" value="1">
+                                        <label class="form-check-label mx-2"  for="question9CheckRadio3">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question9" type="radio" id="question9CheckRadio4" value="1.5">
+                                        <label class="form-check-label mx-2"  for="question9CheckRadio4">1.5</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question9" type="radio" id="question9CheckRadio5" value="2">
+                                        <label class="form-check-label mx-2"  for="question9CheckRadio5">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question9}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>7. Proficiency in Spoken English (0-2)</b></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question10" type="radio" id="question10CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question10CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question10" type="radio" id="question10CheckRadio2" value="0.5">
+                                        <label class="form-check-label mx-2"  for="question10CheckRadio2">0.5</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question10" type="radio" id="question10CheckRadio3" value="1">
+                                        <label class="form-check-label mx-2"  for="question10CheckRadio3">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question10" type="radio" id="question10CheckRadio4" value="1.5">
+                                        <label class="form-check-label mx-2"  for="question10CheckRadio4">1.5</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question10" type="radio" id="question10CheckRadio5" value="2">
+                                        <label class="form-check-label mx-2"  for="question10CheckRadio5">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question10}}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>8. Community Service (0-2)</b></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question11" type="radio" id="question11CheckRadio1" value="0">
+                                        <label class="form-check-label mx-2"  for="question11CheckRadio1">0</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question11" type="radio" id="question11CheckRadio2" value="0.5">
+                                        <label class="form-check-label mx-2"  for="question11CheckRadio2">0.5</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question11" type="radio" id="question11CheckRadio3" value="1">
+                                        <label class="form-check-label mx-2"  for="question11CheckRadio3">1</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question11" type="radio" id="question11CheckRadio4" value="1.5">
+                                        <label class="form-check-label mx-2"  for="question11CheckRadio4">1.5</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" formControlName="question11" type="radio" id="question11CheckRadio5" value="2">
+                                        <label class="form-check-label mx-2"  for="question11CheckRadio5">2</label>
+                                      </div>
+                                </td>
+                                <td>
+                                    <label class="form-control mb-0">{{formValues.question11}}</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th class="fw-13"><b>CUMULATIVE TOTAL SCORE (0 – 25)</b></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <label class="form-control mb-0">{{+formValues.question1 + +formValues.question2 + +formValues.question3 + +formValues.question4 + +formValues.question5+ +formValues.question6 + +formValues.question7 + +formValues.question8 + +formValues.question9 + +formValues.question10 + +formValues.question11}}</label>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-3">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">General impression of candidate (include strengths, weaknesses or areas of concern)</label>
+                    <textarea cols="3" class="form-control"></textarea>
+                </div>
+                <hr>
+                <div class="col-md-12 mb-3">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-column">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="statusCheckRadio1" value="Recommended" name="statusRadio">
+                                <label class="form-check-label mx-2"  for="statusCheckRadio1">Recommended</label>
+                            </div>
+                            <div class="d-flex flex-row mt-2">
+                                <label class="form-label">Rank</label>
+                                <input type="number" class="form-control mx-2">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="statusCheckRadio2" value="Not Recommended" name="statusRadio">
+                                <label class="form-check-label mx-2"  for="statusCheckRadio2">Not Recommended</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="statusCheckRadio3" value="Waiting List" name="statusRadio">
+                                <label class="form-check-label mx-2"  for="statusCheckRadio3">Waiting List</label>
+                            </div>
+                            <div class="d-flex flex-row mt-2">
+                                <label class="form-label">Rank</label>
+                                <input type="number" class="form-control mx-2">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-primary my-2">Submit</button>
+    </div>
+</div>

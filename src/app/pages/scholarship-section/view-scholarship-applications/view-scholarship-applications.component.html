@@ -104,10 +104,16 @@
                                 <td>{{application.aclsExpiryDate}}</td>
                                 <td>{{application.status}}</td>
                                 <td class="text-center">
-
-                                    <span class="mx-2 my-1 badge rounded-pill text-success bg-success" *ngIf="application.action === 'green'">.</span>
-                                    <span tooltip="No Valid BLS Certificate Found" placement="top" [showDelay]="500" class="mx-2 my-1 badge rounded-pill text-danger bg-danger" *ngIf="application.action === 'red'">.</span>      
-                                    <button (click)="onNavigate('/scholarship/show-application-form')" type="button" class="mx-2 my-1 btn-sm btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>            
+                                    <div class="dropdown" ngbDropdown>
+                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                            <i class="ri-more-2-fill"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <li (click)="onNavigate('/scholarship/show-application-form')">
+                                                <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
+                                            </li>
+                                        </ul>
+                                    </div>          
                                 </td>
                             </tr>
                         </thead>
@@ -118,3 +124,15 @@
         </div>
     </div>
 </div>
+
+<ng-template #approveOrReject let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Application Status</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>

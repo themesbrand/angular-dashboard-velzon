@@ -146,8 +146,10 @@
                                             <i class="ri-more-2-fill"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                            <li (click)="onNavigate('/interviewer/show-application-form')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
-                                            <li><a class="dropdown-item text-primary" ><i class="mx-1 ri-pages-line"></i>Residency Interview Evaluation Form</a></li>
+                                            <li (click)="onNavigate('/interviewer/show-application-form')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Scholarship Program Application</a></li>
+                                            <li (click)="onNavigate('/interviewer/evaluation-form')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Trainee Interview Evaluation Form</a></li>
+                                            <li (click)="onNavigate('/interviewer/interview-result')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>View Interview Result</a></li>
+                                            <li (click)="openModal(committeeReview,'lg')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Committee Review Status</a></li>
                                                 
                                         </ul>
                                     </div>
@@ -161,3 +163,33 @@
         </div>
     </div>
 </div>
+
+
+<ng-template #committeeReview let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Committee Review Status</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form [formGroup]="committeeReviewForm">
+                <div class="mt-2 row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Review Status<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="listData.screeningStatus" placeholder="Please select" formControlName="reviewStatus">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3" *ngIf="formValues.reviewStatus === 'Not Approved'">
+                        <label class="form-label">Not approved reason<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control" formControlName="notApprovedStatus">
+                    </div>
+                    <div class="col-md-12 mb-3" *ngIf="formValues.reviewStatus === 'Other'">
+                        <label class="form-label">If Other<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control" formControlName="otherStatus">
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
