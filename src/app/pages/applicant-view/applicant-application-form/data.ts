@@ -5,9 +5,8 @@ const data = {
     applicationTableDate : [
         {
             fullName : 'Madan Al Abri',
-            program :  'Anaesthesia',
-            programType : 'Value 1',
-            sponsoredBy : 'MOHERI',
+            gender : 'Male',
+            nationality : 'Omani',
             email : 'Madan@email.com',
             contactNumber : '+9681224568',
             blsExpiryDate : '2029-02-06',
@@ -17,9 +16,8 @@ const data = {
         },
         {
             fullName : 'Saleh Mahfoudh',
-            program :  'Anaesthesia',
-            programType : 'Value 1',
-            sponsoredBy : 'MOHERI',
+            gender : 'Female',
+            nationality : 'Omani',
             email : 'Saleh@email.com',
             contactNumber : '+9689994568',
             blsExpiryDate : '2028-02-16',
@@ -29,9 +27,8 @@ const data = {
         },
         {
             fullName : 'Madan Khan',
-            program :  'Anaesthesia',
-            programType : 'Value 1',
-            sponsoredBy : 'OMSB',
+            gender : 'Male',
+            nationality : 'Omani',
             email : 'Khan@email.com',
             contactNumber : '+9681743687',
             blsExpiryDate : '2025-12-26',

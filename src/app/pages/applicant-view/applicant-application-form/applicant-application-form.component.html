@@ -1,9 +1,23 @@
-<app-breadcrumbs title="View Applications" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
-<button type="button" (click)="onNavigate('/scholarship/view-applications')" class="btn btn-primary btn-label waves-effect waves-light mb-1"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 <form [formGroup]="applicationForm">
     <div class="card">
         <div class="card-header">
-            <h4 class="mb-2">Scholarship Program Application</h4>
+            <div class="d-flex flex-row justify-content-between">
+                <h4 class="mb-2">Scholarship Program Application</h4>
+                <div class="dropdown" ngbDropdown>
+                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-more-2-fill"></i></button>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                        <li>
+                            <a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Provisional Sponsorship Letter</a>
+                        </li>
+                        <li (click)="openModal(uploadAcceptanceLetter)">
+                            <a class="dropdown-item" ><i class="mx-1 ri-download-cloud-2-line"></i>Upload Acceptance Letter</a>
+                        </li>
+                    </ul>
+                </div>      
+            </div>
+
         </div>
         <div class="card-body">
             <div class="row">
@@ -535,47 +549,104 @@
                     </div>
                 </div>
             </div>  
-            <div class="row">
-                <div class="d-flex flex-row w-100 justify-content-end">
-                    <button (click)="openModal(screeningStatus)" type="submit" class="btn btn-primary mt-3">Enter the Screening Status</button>
-                </div>
-            </div>
         </div>
     </div>
 </form>
 
-<ng-template #screeningStatus let-modal>
+<ng-template #uploadAcceptanceLetter let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Schedule Appointment</label>
+                <label class="form-label mt-2 h5"> Upload Acceptance Letter</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
-            <div class="mt-2">
-                <form [formGroup]="screeningForm">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Screening Status<span class="text-danger">{{ " *" }}</span></label>
-                            <ng-select (change)="onChange()" [items]="listData.screeningStatus" placeholder="Please select" formControlName="screeningStatus">
-                            </ng-select>
-                        </div>
-                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningStatus === 'Not Eligible'">
-                            <label class="form-label">Reason for being Not Eligible<span class="text-danger">{{ " *" }}</span></label>
-                            <ng-select [items]="listData.screeningFailedReason" placeholder="Please select" formControlName="screeningFailedReason">
-                            </ng-select>
-                        </div>
-                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningFailedReason === 'Other'">
-                            <label class="form-label">if, Other reason for being Not Eligible<span class="text-danger">{{ " *" }}</span></label>
-                            <input type="text" class="form-control" formControlName="screeningFailedOtherReason">
-                        </div>
-                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningStatus === 'Other'">
-                            <label class="form-label">if, Other Screening Status<span class="text-danger">{{ " *" }}</span></label>
-                            <input type="text" class="form-control" formControlName="ifOtherStatus">
-                        </div>
+            <form [formGroup]="acceptanceLetterForm">
+                <div class="row mt-3">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Country of received offer<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="country"
+                          [items]="listData.countryList" placeholder="Country"
+                          bindLabel="name" bindValue="code">
+                        </ng-select>
                     </div>
-                    <button class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >University<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="university"
+                          [items]="listData.educationInstitutesList" placeholder="University"
+                          bindLabel="name" bindValue="name">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Type<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="programType"
+                          [items]="listData.programType" placeholder="Program Type">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Specialty<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="programSpecialty"
+                          [items]="listData.programSpecialization" placeholder="Program Specialty">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Sub Specialty<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="programSubSpecialty"
+                          [items]="listData.programSubSpecialization" placeholder="Program Sub Specialty">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="acceptanceLetterFormValues.programSubSpecialty === 'Other'">
+                        <label class="form-label"
+                          >Program Sub Specialty, If Other<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <input type="text" class="form-control" formControlName="programSubSpecialtyOther">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >From<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <input class="form-control flatpickr-input" type="text"
+                          formControlName="fromDate" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >To<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <input class="form-control flatpickr-input" type="text"
+                          formControlName="toDate" mwlFlatpickr [altInput]="true" [convertModelValue]="true" (change)="onChangeFromDate($event.target)"/>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Duration<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <label class="form-control">{{acceptanceLetterFormValues.duration}}</label>
+                    </div>
+                    <div class="col-md-12" >
+                        <p class="text-muted">
+                            Upload Acceptance Letter<span class="text-danger"
+                            >{{ " *" }}</span>
+                        </p>
+                        <ngx-dropzone (change)="onSelect($event, 'acceptanceLetter')"
+                            [multiple]="false">
+                            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of acceptanceLetter"
+                            [removable]="true" (removed)="onRemove(f, 'acceptanceLetter')">
+                            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-3">Submit</button>
+            </form>
         </div>
-    </div><!-- /.modal-content -->
+    </div>
 </ng-template>

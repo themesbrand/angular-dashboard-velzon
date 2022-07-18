@@ -1,0 +1,86 @@
+<app-breadcrumbs title="View Acceptance Letter" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate('/scholarship/view-applications')" class="btn btn-primary btn-label waves-effect waves-light mb-1"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-header" *ngIf="isSponsoredByMoheri">
+        <div class="d-flex flex-row justify-content-end">
+            <div class="dropdown" ngbDropdown>
+                <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                    <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-more-2-fill"></i></button>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                    <li>
+                        <a class="dropdown-item" ><i class="mx-1 ri-hand-coin-line"></i>Request for Budget</a>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Country of received offer</label>
+                <label class="form-control">{{formValues.country}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">University</label>
+                <label class="form-control">{{formValues.university}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">University</label>
+                <label class="form-control">{{formValues.university}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program Type</label>
+                <label class="form-control">{{formValues.programType}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program Specialty</label>
+                <label class="form-control">{{formValues.programSpecialty}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program Sub Specialty</label>
+                <label class="form-control">{{formValues.programSubSpecialty}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">From</label>
+                <label class="form-control">{{formValues.fromDate | date : 'yyyy-MM-d'}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">To</label>
+                <label class="form-control">{{formValues.toDate | date : 'yyyy-MM-d'}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Duration</label>
+                <label class="form-control">{{formValues.duration}}</label>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="d-flex flex-row align-items-center">
+                    <p class="h6">Download Acceptance Letter</p>
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="applicationStatusForm">
+            <div class="row">
+                <div class="col-md-8 mb-3">
+                    <label class="form-label">Application Status<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select [items]="listData.applicationStatus" formControlName="applicationStatus" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="applicationStatusFormValues.applicationStatus === 'Acceptance Reviewed & requires further discussion'">
+                    <label class="form-label">Status<span class="text-danger">{{ " *" }}</span></label>
+                    <input type="text" class="form-control" formControlName="discussNotes">
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="applicationStatusFormValues.applicationStatus === 'Other'">
+                    <label class="form-label">If Other<span class="text-danger">{{ " *" }}</span></label>
+                    <input type="text" class="form-control" formControlName="otherStatus">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

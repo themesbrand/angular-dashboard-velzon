@@ -115,6 +115,8 @@ import { DashboardInterviewerComponent } from './interviewer-view/dashboard-inte
 import { ShowApplicationFormComponent } from './interviewer-view/show-application-form/show-application-form.component';
 import { InterviewEvaluationFormComponent } from './interviewer-view/interview-evaluation-form/interview-evaluation-form.component';
 import { InterviewResultComponent } from './interviewer-view/interview-result/interview-result.component';
+import { ApplicantApplicationFormComponent } from './applicant-view/applicant-application-form/applicant-application-form.component';
+import { ViewAcceptanceLetterComponent } from './scholarship-section/view-scholarship-applications/view-acceptance-letter/view-acceptance-letter.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -196,7 +198,9 @@ FullCalendarModule.registerPlugins([
     DashboardInterviewerComponent,
     ShowApplicationFormComponent,
     InterviewEvaluationFormComponent,
-    InterviewResultComponent
+    InterviewResultComponent,
+    ApplicantApplicationFormComponent,
+    ViewAcceptanceLetterComponent
   ],
   imports: [
     CommonModule,

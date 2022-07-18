@@ -43,6 +43,8 @@ import { DashboardInterviewerComponent } from './interviewer-view/dashboard-inte
 import { ShowApplicationFormComponent } from './interviewer-view/show-application-form/show-application-form.component';
 import { InterviewEvaluationFormComponent } from './interviewer-view/interview-evaluation-form/interview-evaluation-form.component';
 import { InterviewResultComponent } from './interviewer-view/interview-result/interview-result.component';
+import { ApplicantApplicationFormComponent } from './applicant-view/applicant-application-form/applicant-application-form.component';
+import { ViewAcceptanceLetterComponent } from './scholarship-section/view-scholarship-applications/view-acceptance-letter/view-acceptance-letter.component';
 
 const routes: Routes = [
     //Default Routing
@@ -107,11 +109,14 @@ const routes: Routes = [
       { path : "create-program", component: CreateScholarshipProgramComponent },
       { path : "view-applications", component: ViewScholarshipApplicationsComponent },
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
+      { path : "view-acceptance-letter", component: ViewAcceptanceLetterComponent },
     ]},
 
     //Employer Routing
-    { path: "employer/dashboard", component: DashboardsEmployerComponent },
-    { path: "employer/employer-view-applications", component: ScholarshipApplicationViewComponent },
+    { path: "employer", children : [
+      { path: "dashboard", component: DashboardsEmployerComponent },
+      { path: "employer-view-applications", component: ScholarshipApplicationViewComponent },
+    ]},
     
     //Interviewer Routing
     { path: "interviewer", children : [
@@ -119,6 +124,11 @@ const routes: Routes = [
       { path: "show-application-form", component: ShowApplicationFormComponent },
       { path: "evaluation-form", component: InterviewEvaluationFormComponent },
       { path: "interview-result", component: InterviewResultComponent }
+    ] },
+
+    //Applicant Routing
+    { path: "applicant", children : [
+      { path: "application", component: ApplicantApplicationFormComponent }
     ] },
 
 ];

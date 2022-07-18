@@ -83,8 +83,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Full Name</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Nationality</th>
+                                <th scope="col">Program</th>
+                                <th scope="col">Program Type</th>
+                                <th scope="col">Sponsored By</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">BLS Expiry Date</th>
@@ -96,8 +97,9 @@
                         <thead>
                             <tr *ngFor="let application of listData.applicationTableDate">
                                 <td>{{application.fullName}}</td>
-                                <td>{{application.gender}}</td>
-                                <td>{{application.nationality}}</td>
+                                <td>{{application.program}}</td>
+                                <td>{{application.programType}}</td>
+                                <td>{{application.sponsoredBy}}</td>
                                 <td>{{application.email}}</td>
                                 <td>{{application.contactNumber}}</td>
                                 <td>{{application.blsExpiryDate}}</td>
@@ -112,6 +114,12 @@
                                             <li (click)="onNavigate('/scholarship/show-application-form')">
                                                 <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
                                             </li>
+                                            <li (click)="openModal(uploadAcceptanceLetter, 'xl')">
+                                                <a class="dropdown-item" ><i class="mx-1   ri-profile-line"></i> Upload Acceptance Letter</a>
+                                            </li>
+                                            <li (click)="setApplication(application); onNavigate('/scholarship/view-acceptance-letter');">
+                                                <a class="dropdown-item" ><i class="mx-1   ri-archive-drawer-line"></i> View Acceptance Letter</a>
+                                            </li>
                                         </ul>
                                     </div>          
                                 </td>
@@ -125,14 +133,100 @@
     </div>
 </div>
 
-<ng-template #approveOrReject let-modal>
+<ng-template #uploadAcceptanceLetter let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Application Status</label>
+                <label class="form-label mt-2 h5"> Upload Acceptance Letter</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
-            
+            <form [formGroup]="acceptanceLetterForm">
+                <div class="row mt-3">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Country of received offer<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="country"
+                          [items]="listData.countryList" placeholder="Country"
+                          bindLabel="name" bindValue="code">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >University<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="university"
+                          [items]="listData.educationInstitutesList" placeholder="University"
+                          bindLabel="name" bindValue="name">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Type<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="programType"
+                          [items]="listData.programType" placeholder="Program Type">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Specialty<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="programSpecialty"
+                          [items]="listData.programSpecialization" placeholder="Program Specialty">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Sub Specialty<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <ng-select formControlName="programSubSpecialty"
+                          [items]="listData.programSubSpecialization" placeholder="Program Sub Specialty">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="formValues.programSubSpecialty === 'Other'">
+                        <label class="form-label"
+                          >Program Sub Specialty, If Other<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <input type="text" class="form-control" formControlName="programSubSpecialtyOther">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >From<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <input class="form-control flatpickr-input" type="text"
+                          formControlName="fromDate" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >To<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <input class="form-control flatpickr-input" type="text"
+                          formControlName="toDate" mwlFlatpickr [altInput]="true" [convertModelValue]="true" (change)="onChangeFromDate($event.target)"/>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"
+                          >Program Duration<span class="text-danger">{{ " *" }}</span>
+                        </label>
+                        <label class="form-control">{{formValues.duration}}</label>
+                    </div>
+                    <div class="col-md-12" >
+                        <p class="text-muted">
+                            Upload Acceptance Letter<span class="text-danger"
+                            >{{ " *" }}</span>
+                        </p>
+                        <ngx-dropzone (change)="onSelect($event, 'files')"
+                            [multiple]="false">
+                            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files"
+                            [removable]="true" (removed)="onRemove(f, 'files')">
+                            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-3" (click)="onSubmit()">Submit</button>
+            </form>
         </div>
     </div>
 </ng-template>
