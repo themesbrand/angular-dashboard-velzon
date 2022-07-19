@@ -1,4 +1,7 @@
 <div class="card">
+    <div class="card-header">
+        <p class="h5 mb-2 text-primary">Scholarship Program Summary</p>
+    </div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-4">
@@ -56,6 +59,9 @@
     </div>
 </div>
 <div class="card">
+    <div class="card-header">
+        <p class="h5 mb-2 text-primary">Scholarship Program Application</p>
+    </div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
@@ -137,8 +143,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Full Name</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Nationality</th>
+                                <th scope="col">Program</th>
+                                <th scope="col">Program Type</th>
+                                <th scope="col">Sponsored By</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">BLS Expiry Date</th>
@@ -150,8 +157,9 @@
                         <thead>
                             <tr *ngFor="let application of listData.applicationTableDate">
                                 <td>{{application.fullName}}</td>
-                                <td>{{application.gender}}</td>
-                                <td>{{application.nationality}}</td>
+                                <td>{{application.program}}</td>
+                                <td>{{application.programType}}</td>
+                                <td>{{application.sponsoredBy}}</td>
                                 <td>{{application.email}}</td>
                                 <td>{{application.contactNumber}}</td>
                                 <td>{{application.blsExpiryDate}}</td>
@@ -178,7 +186,6 @@
         </div>
     </div>
 </div>
-
 
 <ng-template #screeningStatus let-modal>
     <div class="modal-content">

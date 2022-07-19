@@ -117,6 +117,12 @@ import { InterviewEvaluationFormComponent } from './interviewer-view/interview-e
 import { InterviewResultComponent } from './interviewer-view/interview-result/interview-result.component';
 import { ApplicantApplicationFormComponent } from './applicant-view/applicant-application-form/applicant-application-form.component';
 import { ViewAcceptanceLetterComponent } from './scholarship-section/view-scholarship-applications/view-acceptance-letter/view-acceptance-letter.component';
+import { FinanceDashboardComponent } from './finance-view/finance-dashboard/finance-dashboard.component';
+import { FinanceScholarshipApplicationViewComponent } from './finance-view/finance-scholarship-application-view/finance-scholarship-application-view.component';
+import { FinanceViewAcceptanceLetterComponent } from './finance-view/finance-view-acceptance-letter/finance-view-acceptance-letter.component';
+import { DashboardInternationalTraineeComponent } from './international-trainees-view/dashboard-international-trainee/dashboard-international-trainee.component';
+import { ApplicationInternationalTraineeComponent } from './international-trainees-view/application-international-trainee/application-international-trainee.component';
+import { InternationalTraineeApplicationsViewComponent } from './scholarship-section/international-trainee-applications-view/international-trainee-applications-view.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -200,7 +206,13 @@ FullCalendarModule.registerPlugins([
     InterviewEvaluationFormComponent,
     InterviewResultComponent,
     ApplicantApplicationFormComponent,
-    ViewAcceptanceLetterComponent
+    ViewAcceptanceLetterComponent,
+    FinanceDashboardComponent,
+    FinanceScholarshipApplicationViewComponent,
+    FinanceViewAcceptanceLetterComponent,
+    DashboardInternationalTraineeComponent,
+    ApplicationInternationalTraineeComponent,
+    InternationalTraineeApplicationsViewComponent
   ],
   imports: [
     CommonModule,

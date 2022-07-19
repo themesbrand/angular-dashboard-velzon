@@ -1,0 +1,115 @@
+<app-breadcrumbs title="International Trainee Applications" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<button type="button" (click)="onNavigate('/scholarship/scholarship-section')" class="btn btn-primary btn-label waves-effect waves-light mb-1"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Trainee Name</th>
+                                <th scope="col">Request Type</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Date From</th>
+                                <th scope="col">Date To</th>
+                                <th scope="col">New University</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr *ngFor="let row of listData.applicationTableDate">
+                                <td>{{row.traineeName}}</td>
+                                <td>{{row.requestType}}</td>
+                                <td>{{row.country}}</td>
+                                <td>{{row.dateFrom}}</td>
+                                <td>{{row.dateTo}}</td>
+                                <td>{{row.NewUniversity}}</td>
+                                <td>{{row.status}}</td>
+                                <td>
+                                    <div class="dropdown" ngbDropdown>
+                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                            <i class="ri-more-2-fill"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <li (click)="openModal(requestView); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View </a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #requestView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Request View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form [formGroup]="statusUpdateForm">
+                <div class="mt-3">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-lable">Request Type</label>
+                            <label class="form-control">{{selectedRequest.requestType}}</label>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-lable">Description</label>
+                            <label class="form-control">{{selectedRequest.description}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-lable">Date To</label>
+                            <label class="form-control">{{selectedRequest.dateTo}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-lable">Date From</label>
+                            <label class="form-control">{{selectedRequest.dateFrom}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-lable">Country</label>
+                            <label class="form-control">{{selectedRequest.country}}</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-lable">New University</label>
+                            <label class="form-control">{{selectedRequest.NewUniversity}}</label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-lable">Current Status</label>
+                            <label class="form-control">{{selectedRequest.status}}</label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="from-label">Update Status<span class="text-dagner">*</span></label>
+                            <ng-select [items]="listData.status"
+                            formControlName="status"
+                            bindLabel="value"
+                            bindValue="value"
+                            placeholder="Please select Request Type">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-12 mb-3" *ngIf="formValues.status === 'Further documents are required'">
+                            <label class="from-label">Further documents : requirements<span class="text-dagner">*</span></label>
+                            <textarea rows="3" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-12 mb-3" *ngIf="formValues.status === 'Not Approved'">
+                            <label class="from-label">Not Approved Reason<span class="text-dagner">*</span></label>
+                            <textarea rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</ng-template>

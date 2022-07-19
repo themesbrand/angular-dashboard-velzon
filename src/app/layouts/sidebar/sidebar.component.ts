@@ -51,6 +51,18 @@ export class SidebarComponent implements OnInit {
         })   
         break;
       }
+      case 'finance@omsb.com': {
+        this.httpClient.get("assets/menu/menu-items-finance.json").subscribe((response : any) =>{
+          this.menuItems = [...response];      
+        })   
+        break;
+      }
+      case 'international@omsb.com': {
+        this.httpClient.get("assets/menu/menu-items-international.json").subscribe((response : any) =>{
+          this.menuItems = [...response];      
+        })   
+        break;
+      }
       default : break;
     }
 

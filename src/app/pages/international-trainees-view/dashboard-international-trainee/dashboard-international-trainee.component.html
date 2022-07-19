@@ -1,0 +1,275 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-widget mb-0 w-100">
+                    <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="avatar-sm flex-shrink-0">
+                                 <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                    <i class=" ri-file-text-line align-middle"></i>
+                                 </span>
+                             </div>
+                             <div class="flex-grow-1 ms-3">
+                                <p class="fw-semibold fs-12 text-light mb-3">No of Requests</p>
+                                <h4 class="text-light mb-0"><span [CountTo]="10" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-widget mb-0 w-100">
+                    <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="avatar-sm flex-shrink-0">
+                                 <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                    <i class=" ri-file-text-line align-middle"></i>
+                                 </span>
+                             </div>
+                             <div class="flex-grow-1 ms-3">
+                                <p class="fw-semibold fs-12 text-light mb-3">No of Pending Requests</p>
+                                <h4 class="text-light mb-0"><span [CountTo]="5" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-widget mb-0 w-100">
+                    <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="avatar-sm flex-shrink-0">
+                                 <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                    <i class=" ri-file-text-line align-middle"></i>
+                                 </span>
+                             </div>
+                             <div class="flex-grow-1 ms-3">
+                                <p class="fw-semibold fs-12 text-light mb-3">No of Rejected Requests</p>
+                                <h4 class="text-light mb-0"><span [CountTo]="2" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-end">
+                    <button (click)="openModal(addRequest)" type="button" class="mx-2 btn-sm my-2 btn btn-primary waves-effect waves-light"><i class=" ri-file-add-line
+                        "></i></button>
+                    <button (click)="onFilter()" type="button" class="btn-sm my-2 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+            <div class="col-md-3 mb-3">
+                <ng-select [items]="[]"
+                placeholder="Please select Request Type">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <ng-select [items]="[]"
+                placeholder="Please select Country">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <ng-select [items]="[]"
+                placeholder="Please select University">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <input class="form-control flatpickr-input" type="text"
+                      placeholder="From Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="col-md-3 mb-3">
+                <input class="form-control flatpickr-input" type="text"
+                      placeholder="To Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary my-2">Filter</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Request Type</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Date From</th>
+                                <th scope="col">Date To</th>
+                                <th scope="col">New University</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr *ngFor="let row of listData.applicationTableDate">
+                                <td>{{row.requestType}}</td>
+                                <td>{{row.country}}</td>
+                                <td>{{row.dateFrom}}</td>
+                                <td>{{row.dateTo}}</td>
+                                <td>{{row.NewUniversity}}</td>
+                                <td>{{row.status}}</td>
+                                <td>
+                                    <div class="dropdown" ngbDropdown>
+                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                            <i class="ri-more-2-fill"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <li (click)="openModal(requestView); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View </a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #requestView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Request View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-lable">Request Type</label>
+                        <label class="form-control">{{selectedRequest.requestType}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-lable">Description</label>
+                        <label class="form-control">{{selectedRequest.description}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Date To</label>
+                        <label class="form-control">{{selectedRequest.dateTo}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Date From</label>
+                        <label class="form-control">{{selectedRequest.dateFrom}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Country</label>
+                        <label class="form-control">{{selectedRequest.country}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">New University</label>
+                        <label class="form-control">{{selectedRequest.NewUniversity}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-lable">Current Status</label>
+                        <label class="form-control">{{selectedRequest.status}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #addRequest let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Create a Request </label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form [formGroup]="requestForm">
+                <div class="mt-3">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="from-label">Request Type<span class="text-dagner">*</span></label>
+                            <ng-select [items]="listData.requestTypes"
+                            formControlName="requestType"
+                            placeholder="Please select Request Type">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="from-label">Description<span class="text-dagner">*</span></label>
+                            <textarea type="text" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="from-label">Country<span *ngIf="fromValues.requestType === 'Change of Country Request'" class="text-dagner">*</span></label>
+                            <ng-select [items]="listData.countryList"
+                            bindLabel="name" bindValue="code"
+                            placeholder="Please select Country">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="from-label">New University<span *ngIf="fromValues.requestType === 'Change of University Request'" class="text-dagner">*</span></label>
+                            <ng-select [items]="listData.educationInstitutesList"
+                            placeholder="Please select University">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="from-label">New University<span *ngIf="fromValues.requestType === 'Change of University Request'" class="text-dagner">*</span></label>
+
+                            <input class="form-control flatpickr-input" type="text"
+                                  placeholder="From Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="from-label">From Date</label>
+                            <input class="form-control flatpickr-input" type="text"
+                                  placeholder="To Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="from-label">To Date<span *ngIf="fromValues.requestType === 'Extension Request' || fromValues.requestType === 'Interruption Request'" class="text-dagner">*</span></label>
+                            <input class="form-control flatpickr-input" type="text"
+                                  placeholder="To Date" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <p class="text-muted">Supporting Letter from University<span
+                                class="text-danger">{{ " *" }}</span>
+                            </p>
+                            <ngx-dropzone (change)="onSelect($event, 'supportingLetter')" [multiple]="false">
+                                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview
+                                *ngFor="let f of supportingLetter"
+                                [removable]="true"
+                                (removed)="onRemove(f, 'supportingLetter')"
+                                >
+                                <ngx-dropzone-label
+                                    >{{ f.name }} ({{
+                                    f.type
+                                    }})</ngx-dropzone-label
+                                >
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                          </div>
+                        <div class="col-md-12 mb-3">
+                            <p class="text-muted">Other relevant Documents</p>
+                            <ngx-dropzone (change)="onSelect($event, 'relevantDocuments')" >
+                                <ngx-dropzone-label>Drop your files here! Multiple Files are accepted.</ngx-dropzone-label>
+                                <ngx-dropzone-preview
+                                *ngFor="let f of relevantDocuments"
+                                [removable]="true"
+                                (removed)="onRemove(f, 'relevantDocuments')"
+                                >
+                                <ngx-dropzone-label
+                                    >{{ f.name }} ({{
+                                    f.type
+                                    }})</ngx-dropzone-label
+                                >
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                          </div>
+                    </div>
+                    <button class="btn btn-primary mt-3">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

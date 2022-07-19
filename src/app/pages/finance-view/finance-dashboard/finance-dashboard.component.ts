@@ -5,10 +5,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import {data} from './data';
+
 @Component({
-  selector: 'app-dashboard-interviewer',
-  templateUrl: './dashboard-interviewer.component.html',
-  styleUrls: ['./dashboard-interviewer.component.scss'],
+  selector: 'app-finance-dashboard',
+  templateUrl: './finance-dashboard.component.html',
+  styleUrls: ['./finance-dashboard.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -24,22 +25,34 @@ import {data} from './data';
     )
   ]
 })
-export class DashboardInterviewerComponent implements OnInit {
+export class FinanceDashboardComponent implements OnInit {
+
   listData = data;
   breadCrumbItems!: Array<{}>;
 
   isFilterOpened: boolean = false;
+  isFilterTraineeApplicationOpened: any = false;
 
   committeeReviewForm !: FormGroup
+  statusUpdateForm !: FormGroup
+  selectedRequest: any;
+  
 
   constructor(private router : Router, private modalService : NgbModal, private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "Scholarship", link : '/scholarship/scholarship-section' },
+      { label: "Dashboard", link : '/finance/dashboard' },
       { label: "View Applications", active : true }
     ];
     this.committeeReviewFormInit()
+    this.statusUpdateFormInit()
+  }
+  statusUpdateFormInit() {
+
+    this.statusUpdateForm = this.formBuilder.group({
+      status : new FormControl(null)
+    })  
   }
 
   committeeReviewFormInit() {
@@ -53,6 +66,9 @@ export class DashboardInterviewerComponent implements OnInit {
   get formValues() {
     return this.committeeReviewForm.value
   }
+  get statusFormValues() {
+    return this.statusUpdateForm.value
+  }
 
   onFilter() {
     if(this.isFilterOpened) {
@@ -62,9 +78,21 @@ export class DashboardInterviewerComponent implements OnInit {
     }
   }
 
+  onFilterTraineeApplication() {
+    if(this.isFilterTraineeApplicationOpened) {
+      this.isFilterTraineeApplicationOpened = false;
+    } else {
+      this.isFilterTraineeApplicationOpened = true
+    }
+  }
+
   onSearch() {
     this.onFilter();
     //Save functions
+  }
+
+  setRequest(object : any) {
+    this.selectedRequest = object;
   }
   
   onViewForm() {
@@ -78,6 +106,5 @@ export class DashboardInterviewerComponent implements OnInit {
   openModal(modal : any, size : any) {
     this.modalService.open(modal, {size : size})
   }
+
 }
-
-

@@ -86,11 +86,15 @@ export class CreateProgramTypeComponent implements OnInit {
   }
   onEdit(i : any) {
     const object = this.getProgramTypesControls[i].value
-    this.getProgramTypesControls[i].patchValue({
-      programTypeEdit : object.programType,
-      typeEdit : object.type,
-      isEdit : true
-    })
+    console.log(object)
+    this.programTypeForm.patchValue(
+      object
+    )
+    // this.getProgramTypesControls[i].patchValue({
+    //   programTypeEdit : object.programType,
+    //   typeEdit : object.type,
+    //   isEdit : true
+    // })
   }
   onDelete(i : any) {
     (<FormArray>this.programTypeForm.get('programTypes')).removeAt(i);

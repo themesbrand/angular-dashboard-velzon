@@ -120,8 +120,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Full Name</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Nationality</th>
+                                <th scope="col">Program</th>
+                                <th scope="col">Program Type</th>
+                                <th scope="col">Sponsored By</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">BLS Expiry Date</th>
@@ -133,8 +134,9 @@
                         <thead>
                             <tr *ngFor="let application of listData.applicationTableDate">
                                 <td>{{application.fullName}}</td>
-                                <td>{{application.gender}}</td>
-                                <td>{{application.nationality}}</td>
+                                <td>{{application.program}}</td>
+                                <td>{{application.programType}}</td>
+                                <td>{{application.sponsoredBy}}</td>
                                 <td>{{application.email}}</td>
                                 <td>{{application.contactNumber}}</td>
                                 <td>{{application.blsExpiryDate}}</td>

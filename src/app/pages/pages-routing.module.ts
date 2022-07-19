@@ -45,6 +45,12 @@ import { InterviewEvaluationFormComponent } from './interviewer-view/interview-e
 import { InterviewResultComponent } from './interviewer-view/interview-result/interview-result.component';
 import { ApplicantApplicationFormComponent } from './applicant-view/applicant-application-form/applicant-application-form.component';
 import { ViewAcceptanceLetterComponent } from './scholarship-section/view-scholarship-applications/view-acceptance-letter/view-acceptance-letter.component';
+import { FinanceDashboardComponent } from './finance-view/finance-dashboard/finance-dashboard.component';
+import { FinanceScholarshipApplicationViewComponent } from './finance-view/finance-scholarship-application-view/finance-scholarship-application-view.component';
+import { FinanceViewAcceptanceLetterComponent } from './finance-view/finance-view-acceptance-letter/finance-view-acceptance-letter.component';
+import { DashboardInternationalTraineeComponent } from './international-trainees-view/dashboard-international-trainee/dashboard-international-trainee.component';
+import { ApplicationInternationalTraineeComponent } from './international-trainees-view/application-international-trainee/application-international-trainee.component';
+import { InternationalTraineeApplicationsViewComponent } from './scholarship-section/international-trainee-applications-view/international-trainee-applications-view.component';
 
 const routes: Routes = [
     //Default Routing
@@ -110,6 +116,7 @@ const routes: Routes = [
       { path : "view-applications", component: ViewScholarshipApplicationsComponent },
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
       { path : "view-acceptance-letter", component: ViewAcceptanceLetterComponent },
+      { path : "international-trainee-applications", component: InternationalTraineeApplicationsViewComponent },
     ]},
 
     //Employer Routing
@@ -129,6 +136,19 @@ const routes: Routes = [
     //Applicant Routing
     { path: "applicant", children : [
       { path: "application", component: ApplicantApplicationFormComponent }
+    ] },
+    
+    //Finance Routing
+    { path: "finance", children : [
+      { path: "dashboard", component: FinanceDashboardComponent },
+      { path: "scholarship-application-view", component: FinanceScholarshipApplicationViewComponent },
+      { path: "view-acceptance-letter", component: FinanceViewAcceptanceLetterComponent }
+    ] },
+   
+    //Finance Routing
+    { path: "international", children : [
+      { path: "dashboard", component: DashboardInternationalTraineeComponent},
+      { path: "application", component: ApplicationInternationalTraineeComponent},
     ] },
 
 ];
