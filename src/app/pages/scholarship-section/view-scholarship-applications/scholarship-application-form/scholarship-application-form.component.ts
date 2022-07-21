@@ -89,6 +89,7 @@ export class ScholarshipApplicationFormComponent implements OnInit {
 
       'haveDiseases' : new FormControl(null, []),
       'diseasesOrDisabilities' : new FormControl('', []),
+      'specialty' : new FormArray([]),
       'education' : new FormArray([]),
       'internship' : new FormArray([]),
       'blsCertificate' : new FormGroup({
@@ -114,6 +115,8 @@ export class ScholarshipApplicationFormComponent implements OnInit {
     console.log(this.applicationForm)
     this.addEducation();
     this.addInternship();
+    this.addSpecialty();
+
   }
 
   get formValues () {
@@ -137,6 +140,9 @@ export class ScholarshipApplicationFormComponent implements OnInit {
   }
   get internshipControls() {
     return (<FormArray>this.applicationForm.get('internship')).controls;
+  }
+  get specialtyControls() {
+    return (<FormArray>this.applicationForm.get('specialty')).controls;
   }
   addEducation() {
     this.listData.userDetails.education.forEach(element => {
@@ -164,6 +170,21 @@ export class ScholarshipApplicationFormComponent implements OnInit {
         })
       );
     });
+  }
+
+  addSpecialty() {
+    this.listData.userDetails.specialty.forEach((element: any) => {
+      (<FormArray>this.applicationForm.get('specialty')).push(
+        new FormGroup({
+          'scholarshipProjectType' : new FormControl(null, []),
+          'scholarshipProject' : new FormControl(null, []),
+          'specialtyName' : new FormControl(null, []),
+          'sub-specialty' : new FormControl(null, []),
+          'country' : new FormControl(null, [])
+        })
+      );
+    })
+    
   }
 
   onChange(){

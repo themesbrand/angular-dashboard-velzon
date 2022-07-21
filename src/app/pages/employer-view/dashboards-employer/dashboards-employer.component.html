@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <p class="h5 mb-2 text-primary">Scholarship Program Summary</p>
+        <p class="h5 mb-2 text-primary">Scholarship Project Summary</p>
     </div>
     <div class="card-body">
         <div class="row">
@@ -60,7 +60,7 @@
 </div>
 <div class="card">
     <div class="card-header">
-        <p class="h5 mb-2 text-primary">Scholarship Program Application</p>
+        <p class="h5 mb-2 text-primary">Scholarship Project Application</p>
     </div>
     <div class="card-body">
         <div class="row">
@@ -73,12 +73,12 @@
         <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
             <div class="col-md-3 mb-1">
                 <ng-select [items]="[]"
-                placeholder="Please select Program Type">
+                placeholder="Please select Specialty">
                 </ng-select>
             </div>
             <div class="col-md-3 mb-1">
                 <ng-select [items]="[]"
-                placeholder="Please select Program specialization">
+                placeholder="Please select Project specialization">
                 </ng-select>
             </div>
             <div class="col-md-3 mb-1">
@@ -143,8 +143,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Full Name</th>
-                                <th scope="col">Program</th>
-                                <th scope="col">Program Type</th>
+                                <th scope="col">Specialty</th>
                                 <th scope="col">Sponsored By</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Contact Number</th>
@@ -158,7 +157,6 @@
                             <tr *ngFor="let application of listData.applicationTableDate">
                                 <td>{{application.fullName}}</td>
                                 <td>{{application.program}}</td>
-                                <td>{{application.programType}}</td>
                                 <td>{{application.sponsoredBy}}</td>
                                 <td>{{application.email}}</td>
                                 <td>{{application.contactNumber}}</td>
@@ -171,7 +169,7 @@
                                             <i class="ri-more-2-fill"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                            <li (click)="onNavigate('/employer/employer-view-applications')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Scholarship Program Application</a></li>
+                                            <li (click)="onNavigate('/employer/employer-view-applications')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Scholarship Project Application</a></li>
                                             <li (click)="openModal(screeningStatus,'md')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Screening Status</a></li>
                                                 
                                         </ul>

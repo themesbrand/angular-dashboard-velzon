@@ -37,7 +37,7 @@ export class CreateScholarshipProgramComponent implements OnInit {
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Scholarship", link : '/scholarship/scholarship-section' },
-      { label: "Create Program", active : true }
+      { label: "Create Project", active : true }
     ];
     this.programFormInit();
   }

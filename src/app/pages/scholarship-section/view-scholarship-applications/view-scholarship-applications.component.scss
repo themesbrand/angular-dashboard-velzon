@@ -17,3 +17,7 @@ td {
 td a  {
     cursor: pointer !important;
 }
+
+.acitivity-timeline .acitivity-item:before {
+    border-left: 1.2px dashed grey;
+}

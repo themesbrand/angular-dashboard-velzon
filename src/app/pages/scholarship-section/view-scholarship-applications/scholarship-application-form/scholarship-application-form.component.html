@@ -176,7 +176,68 @@
             </div>
         </div>
     </div>
-    
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-row">
+                <p class="h5 text-success">Specialty</p>
+            </div>
+            <div formArrayName="specialty">
+                <div
+                class="mt-2 d-flex flex-column border p-3"
+                *ngFor="let specialty of specialtyControls; let i = index"
+                [formGroupName]="i"
+                >
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Scholarship Project Type<span
+                            class="text-danger" >{{ " *" }}</span></label>
+                        <ng-select
+                        [items]="[]" formControlName="scholarshipProjectType"
+                        placeholder="Scholarship Project Type">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Scholarship Project<span
+                            class="text-danger" >{{ " *" }}</span></label>
+                        <ng-select
+                        [items]="[]" formControlName="scholarshipProject"
+                        placeholder="Scholarship Project">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Specialty Applied For<span
+                            class="text-danger" >{{ " *" }}</span></label>
+                        <ng-select
+                        [items]="[]" formControlName="specialtyName"
+                        placeholder="Specialty Applied For">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Sub-Specialty<span
+                            class="text-danger" >{{ " *" }}</span></label>
+                        <ng-select
+                        [items]="[]" formControlName="sub-specialty"
+                        placeholder="Sub-Specialty">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                    <label class="form-label"
+                        >Country of Interest<span class="text-danger">{{ " *" }}</span>
+                    </label>
+                    <ng-select
+                        [items]="listData.countryList" [multiple]="true"
+                        placeholder="Country of Interest"
+                        bindLabel="name"
+                        formControlName="country"
+                        bindValue="code"
+                    >
+                    </ng-select>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -268,7 +329,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex flex-row">
-                <p class="h5">Education</p>
+                <p class="h5 text-success">Education</p>
             </div>
             <div formArrayName="education">
                 <div
@@ -352,7 +413,7 @@
     <div class="card">
         <div class="card-body">
             <div class="mt-3 d-flex flex-row">
-                <p class="h5">Internship Details</p>
+                <p class="h5 text-success">Internship Details</p>
             </div>
             <div formArrayName="internship">
                 <div
@@ -415,7 +476,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex flex-column mt-2">
-                <p class="h5">Certificates</p>
+                <p class="h5 text-success">Certificates</p>
                 <div class="row">
                 <div class="col-md-6 border p-3" formGroupName="blsCertificate">
                     <p class="h6">BLS Certificate</p>

@@ -1,0 +1,28 @@
+.card {
+    height: 100%;
+}
+.meetingTypeHeading {
+    cursor: pointer;
+}
+.meetingTypeHeading:hover {
+    color: blue;
+    text-decoration: underline;
+}
+td a {
+    cursor: pointer !important;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+td, th {
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+td {
+    padding: 0.35rem 0.6rem;
+}
+.table-responsive {
+    overflow: visible !important;
+}

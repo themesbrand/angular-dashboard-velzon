@@ -7,32 +7,5 @@
 }
 
 .card-animate {
-    overflow: hidden !important;
-    height: 145px!important;
-}
-.card-animate .slide1 {
-    height: 115px !important;
-    transition: .8s;
-    font-weight: 500 !important;
-}
-
-.card-animate .slide2 {
-    height: 115px !important;
-    transition: .8s;
-}
-
-.card-animate:hover .slide.slide1 {
-    transition: .8s;
-    transform: translateY(-125px);
-}
-
-
-
-@media screen and (max-width: 767px) { 
-    .fs-19 {
-        font-size: 16px !important;
-    }
-    .card-animate .slide1 div {
-        padding: 0.6rem !important;
-    }
+    height: 100%!important;
 }

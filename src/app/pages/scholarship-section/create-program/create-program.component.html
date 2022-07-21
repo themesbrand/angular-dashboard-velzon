@@ -1,23 +1,23 @@
-<app-breadcrumbs title="Create a Program" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Create a Project" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <button type="button" (click)="onNavigate()" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 
 <div class="card">
     <div class="card-body">
         <div class="row">
             <div class="col-md-3 mb-3">
-                <label class="form-label">Program Name</label>
+                <label class="form-label">Project Name</label>
                 <ng-select [items]="[]"
                 placeholder="Please select">
                 </ng-select>
             </div>
             <div class="col-md-3 mb-3">
-                <label class="form-label">Program Type</label>
+                <label class="form-label">Project Type</label>
                 <ng-select [items]="[]"
                 placeholder="Please select">
                 </ng-select>
             </div>
             <div class="col-md-3 mb-3">
-                <label class="form-label">Program Specialization</label>
+                <label class="form-label">Project Specialization</label>
                 <ng-select [items]="[]"
                 placeholder="Please select">
                 </ng-select>
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="d-flex flex-row justify-content-end ">
-            <button (click)="onAddProgram()" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Program</button>
+            <button (click)="onAddProgram()" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Project</button>
         </div>
         <div class="live-preview">     
             <form [formGroup]="programForm">
@@ -36,10 +36,10 @@
                     <table class="table align-middle table-hover mb-0 table-wrap">
                         <thead>
                             <tr>
-                                <th scope="col">Program Name</th>
-                                <th scope="col">Program Type</th>
-                                <th scope="col">Program Specialization</th>
-                                <th scope="col">Program Sub-Specialization</th>
+                                <th scope="col">Project Name</th>
+                                <th scope="col">Project Type</th>
+                                <th scope="col">Specialization</th>
+                                <th scope="col">Sub-Specialization</th>
                                 <th scope="col">Sponsored By</th>
                                 <th scope="col"></th>
                             </tr>

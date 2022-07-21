@@ -32,7 +32,7 @@ export class CreateProgramTypeComponent implements OnInit {
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Scholarship", link : '/scholarship/scholarship-section' },
-      { label: "Create Program Type", active : true }
+      { label: "Create Project Type", active : true }
     ];
     this.programTypeFormInit()
   }

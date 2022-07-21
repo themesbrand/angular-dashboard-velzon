@@ -13,12 +13,12 @@
         <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
             <div class="col-md-3 mb-1">
                 <ng-select [items]="[]"
-                placeholder="Please select Program Type">
+                placeholder="Please select Specialty">
                 </ng-select>
             </div>
             <div class="col-md-3 mb-1">
                 <ng-select [items]="[]"
-                placeholder="Please select Program specialization">
+                placeholder="Please select Project specialization">
                 </ng-select>
             </div>
             <div class="col-md-3 mb-1">
@@ -83,8 +83,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Full Name</th>
-                                <th scope="col">Program Name</th>
-                                <th scope="col">Program Type</th>
+                                <th scope="col">Specialty</th>
                                 <th scope="col">Sponsored By</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Contact Number</th>
@@ -98,7 +97,6 @@
                             <tr *ngFor="let application of listData.applicationTableDate">
                                 <td>{{application.fullName}}</td>
                                 <td>{{application.program}}</td>
-                                <td>{{application.programType}}</td>
                                 <td>{{application.sponsoredBy}}</td>
                                 <td>{{application.email}}</td>
                                 <td>{{application.contactNumber}}</td>
@@ -165,31 +163,31 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label"
-                          >Program Type<span class="text-danger">{{ " *" }}</span>
+                          >Project Type<span class="text-danger">{{ " *" }}</span>
                         </label>
                         <ng-select formControlName="programType"
-                          [items]="listData.programType" placeholder="Program Type">
+                          [items]="listData.programType" placeholder="Project Type">
                         </ng-select>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label"
-                          >Program Specialty<span class="text-danger">{{ " *" }}</span>
+                          >Project Specialty<span class="text-danger">{{ " *" }}</span>
                         </label>
                         <ng-select formControlName="programSpecialty"
-                          [items]="listData.programSpecialization" placeholder="Program Specialty">
+                          [items]="listData.programSpecialization" placeholder="Project Specialty">
                         </ng-select>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label"
-                          >Program Sub Specialty<span class="text-danger">{{ " *" }}</span>
+                          >Project Sub Specialty<span class="text-danger">{{ " *" }}</span>
                         </label>
                         <ng-select formControlName="programSubSpecialty"
-                          [items]="listData.programSubSpecialization" placeholder="Program Sub Specialty">
+                          [items]="listData.programSubSpecialization" placeholder="Project Sub Specialty">
                         </ng-select>
                     </div>
                     <div class="col-md-4 mb-3" *ngIf="formValues.programSubSpecialty === 'Other'">
                         <label class="form-label"
-                          >Program Sub Specialty, If Other<span class="text-danger">{{ " *" }}</span>
+                          >Project Sub Specialty, If Other<span class="text-danger">{{ " *" }}</span>
                         </label>
                         <input type="text" class="form-control" formControlName="programSubSpecialtyOther">
                     </div>
@@ -209,7 +207,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label"
-                          >Program Duration<span class="text-danger">{{ " *" }}</span>
+                          >Project Duration<span class="text-danger">{{ " *" }}</span>
                         </label>
                         <label class="form-control">{{formValues.duration}}</label>
                     </div>

@@ -123,6 +123,7 @@ import { FinanceViewAcceptanceLetterComponent } from './finance-view/finance-vie
 import { DashboardInternationalTraineeComponent } from './international-trainees-view/dashboard-international-trainee/dashboard-international-trainee.component';
 import { ApplicationInternationalTraineeComponent } from './international-trainees-view/application-international-trainee/application-international-trainee.component';
 import { InternationalTraineeApplicationsViewComponent } from './scholarship-section/international-trainee-applications-view/international-trainee-applications-view.component';
+import { DefineMeetingTypesComponent } from './meeting-management/configuration/define-meeting-types/define-meeting-types.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -212,7 +213,8 @@ FullCalendarModule.registerPlugins([
     FinanceViewAcceptanceLetterComponent,
     DashboardInternationalTraineeComponent,
     ApplicationInternationalTraineeComponent,
-    InternationalTraineeApplicationsViewComponent
+    InternationalTraineeApplicationsViewComponent,
+    DefineMeetingTypesComponent
   ],
   imports: [
     CommonModule,

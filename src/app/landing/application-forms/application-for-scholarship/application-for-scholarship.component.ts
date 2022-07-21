@@ -127,6 +127,7 @@ export class ApplicationForScholarshipComponent implements OnInit {
 
       'haveDiseases' : new FormControl(null, []),
       'diseasesOrDisabilities' : new FormControl('', []),
+      'specialty' : new FormArray([]),
       'education' : new FormArray([]),
       'internship' : new FormArray([]),
       'blsCertificate' : new FormGroup({
@@ -150,6 +151,7 @@ export class ApplicationForScholarshipComponent implements OnInit {
     })
     this.addEducation();
     this.addInternship();
+    this.addSpecialty();
 
     this.applicationForm.patchValue({
       'fullName': 'Abbas Al Ajmi',
@@ -192,6 +194,9 @@ export class ApplicationForScholarshipComponent implements OnInit {
   get internshipControls() {
     return (<FormArray>this.applicationForm.get('internship')).controls;
   }
+  get specialtyControls() {
+    return (<FormArray>this.applicationForm.get('specialty')).controls;
+  }
 
   addEducation() {
     (<FormArray>this.applicationForm.get('education')).push(
@@ -215,6 +220,17 @@ export class ApplicationForScholarshipComponent implements OnInit {
       })
     );
   }
+  addSpecialty() {
+    (<FormArray>this.applicationForm.get('specialty')).push(
+      new FormGroup({
+        'scholarshipProjectType' : new FormControl(null, []),
+        'scholarshipProject' : new FormControl(null, []),
+        'specialtyName' : new FormControl(null, []),
+        'sub-specialty' : new FormControl(null, []),
+        'country' : new FormControl(null, [])
+      })
+    );
+  }
   onDeleteEducation(index : number) {
     if((<FormArray>this.applicationForm.get('education')).length != 1) {
       (<FormArray>this.applicationForm.get('education')).removeAt(index);
@@ -223,6 +239,12 @@ export class ApplicationForScholarshipComponent implements OnInit {
   onDeleteInternship(index : number) {
     if((<FormArray>this.applicationForm.get('internship')).length != 1) {
       (<FormArray>this.applicationForm.get('internship')).removeAt(index);
+
+    }
+  }
+  onDeleteSpecialty(index : number) {
+    if((<FormArray>this.applicationForm.get('specialty')).length != 1) {
+      (<FormArray>this.applicationForm.get('specialty')).removeAt(index);
 
     }
   }

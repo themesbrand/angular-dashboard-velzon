@@ -269,6 +269,15 @@ const data = {
                 school: "Oman_Medical_College",
             }
         ],
+        specialty : [
+          {
+            scholarshipProjectType: 'value 1',
+            scholarshipProject: 'value Sub 1',
+            specialtyName: 'value SUb 1',
+            'sub-specialty': 'value SUb 1',
+            country: 'OM'
+          }
+        ],
         email: "ajmi@gmail.com",
         examType: "MFD",
         fullName: "Abbas Al Ajmi",

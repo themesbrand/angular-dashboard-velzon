@@ -1,0 +1,362 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <p class="h5 text-primary mb-0">Available Meeting Types</p>
+            </div>
+            <div class="card-body">
+                <ngx-simplebar style="max-height: calc(100vh - 230px);">
+                    <ul class="list-group acitivity-timeline acitivity-main" *ngFor="let meeting of listData.availableMeetingTypes; let i = index">
+                        <li class="acitivity-item list-group-item my-1">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 ms-2">
+                                            <h6 (click)="onSelectMeetingType(meeting, i)" class="fs-13 mb-0 text-wrap meetingTypeHeading">{{meeting.meetingType}}</h6>
+                                            <small class="fs-12 text-muted">{{"Occurrence Per Calendar Year : "}}{{meeting.numberOfMeetingPerCalendar}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+    
+                    </ul>    
+                    
+                </ngx-simplebar>
+
+                      
+            </div>
+
+            
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <p class="h5 text-primary mb-0">Define Meeting Type</p>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="defineMeetingTypeForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Meeting Type <span class="text-danger">*</span></label>
+                            <input type="text" formControlName="meetingType" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Number of Items occurred per Calendar year<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="numberOfMeetingPerCalendar" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3 my-auto">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="isReminderRequired"/>
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Have Do you want to send Reminders?<span
+                                    class="text-danger">{{ " *" }}</span
+                                ></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="defineMeetingFormValues.isReminderRequired">
+                            <label class="form-label">Number of Reminders<span class="text-danger">*</span></label>
+                            <input type="number" (keyup)="onChangeNumberOfReminders()" formControlName="numberOfReminders" class="form-control">
+                        </div>
+                        <div formArrayName="remindersArray" class="col-md-12 mb-3 shadow border border-dashed p-3" *ngIf="remindersArrayControls.length != 0">
+                            <div class="row">
+                                <div class="col-md-6 d-flex flex-row mb-3" *ngFor="let reminder of remindersArrayControls; let i = index" [formGroupName]="i">
+                                    <label class="form-label">{{reminder.value.reminderNumber}}</label>
+                                    <input type="number" formControlName="reminderDays" style="max-width: 50px !important;" class="mx-3 form-control"><label class="form-label">{{" Days"}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3 my-auto">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="isPredefinedAgenda"/>
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Do you have predefined Agenda<span
+                                    class="text-danger">{{ " *" }}</span
+                                ></label>
+                            </div>
+                        </div>
+                        <div formArrayName="agendaArray" class="col-md-12 mb-3 shadow border border-dashed p-3" *ngIf="defineMeetingFormValues.isPredefinedAgenda">
+                            <div class="d-flex flex-row justify-content-between py-2">
+                                <p class="h5 text-success">Agenda</p>
+                                <button (click)="openModal(addAgenda, 'lg')" type="button" class="btn btn-primary waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                            </div>
+                            <div class="live-preview" *ngIf="agendaArrayControls.length != 
+                            0">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-hover mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Agenda Index</th>
+                                                <th>Time Duration</th>
+                                                <th>Presenter</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let agenda of agendaArrayControls; let i = index" [formGroupName]="i">
+                                                <td>{{"Agenda : "}}{{i+1}}</td>
+                                                <td>{{agenda.value.timeDuration}}</td>
+                                                <td>{{agenda.value.presenter}}</td>
+                                                <td><div class="dropdown" ngbDropdown>
+                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                        <i class="ri-more-2-fill"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                        <li (click)="setAgendaIndex(i)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                        <li (click)="onDeleteAgenda(i)"><a class="dropdown-item"><i class="text-danger mx-1  ri-delete-bin-line"></i>Delete</a></li>
+                                                    </ul>
+                                                </div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div formArrayName="attendeesGroupArray" class="col-md-12 mb-3 shadow border border-dashed p-3">
+                            <div class="d-flex flex-row justify-content-between py-2">
+                                <p class="h5 text-success">Attendees Group</p>
+                                <button (click)="openModal(addAttendees, 'lg')" type="button" class="btn btn-primary waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                            </div>
+                            <div class="live-preview" *ngIf="attendeesGroupArrayControls.length != 
+                            0">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-hover mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let user of attendeesGroupArrayControls; let i = index" [formGroupName]="i">
+                                                <td>{{user.value.name}}</td>
+                                                <td>{{user.value.email}}</td>
+                                                <td><div class="dropdown" ngbDropdown>
+                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                        <i class="ri-more-2-fill"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                        <li (click)="onDeleteAttendeesGroupArray(i)"><a class="dropdown-item"><i class="text-danger mx-1  ri-delete-bin-line"></i>Delete</a></li>
+                                                    </ul>
+                                                </div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div formArrayName="authorizedUsersArray" class="col-md-12 mb-3 shadow border border-dashed p-3">
+                            <div class="d-flex flex-row justify-content-between py-2">
+                                <p class="h5 text-success">Authorized users for approving department proposed agendas</p>
+                                <button (click)="openModal(addAuthorizedUsers, 'lg')" type="button" class="btn btn-primary waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                            </div>
+                            <div class="live-preview" *ngIf="authorizedUsersArrayControls.length != 
+                            0">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-hover mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let user of authorizedUsersArrayControls; let i = index" [formGroupName]="i">
+                                                <td>{{user.value.name}}</td>
+                                                <td>{{user.value.email}}</td>
+                                                <td><div class="dropdown" ngbDropdown>
+                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                        <i class="ri-more-2-fill"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                        <li (click)="onDeleteAttendeesGroupArray(i)"><a class="dropdown-item"><i class="text-danger mx-1  ri-delete-bin-line"></i>Delete</a></li>
+                                                    </ul>
+                                                </div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <button *ngIf="!isViewMode" class="btn btn-primary" (click)="onSaveMeetingType()">Save</button>
+                <button *ngIf="isViewMode" class="btn btn-primary mx-2" (click)="onUpdateMeetingType()">Update</button>
+                <button *ngIf="isViewMode" class="btn btn-danger mx-2" (click)="onCancelEditMeetingType()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addAgenda let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Agenda</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="agendaForm">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Agenda <span class="text-danger">*</span></label>
+                            <ckeditor formControlName="agenda" [editor]="Editor" ></ckeditor>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Time Duration</label>
+                            <input type="text" class="form-control" formControlName="timeDuration" >
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Presenter</label>
+                            <ng-select [items]="listData.presentersList" formControlName="presenter" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary" (click)="onSubmitAgenda()">Submit</button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewAgenda let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Agenda</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="agendaForm">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Agenda <span class="text-danger">*</span></label>
+                            <ckeditor [editor]="Editor" formControlName="agenda"></ckeditor>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Time Duration</label>
+                            <input type="text" class="form-control" formControlName="timeDuration" >
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Presenter</label>
+                            <ng-select [items]="listData.presentersList" formControlName="presenter"
+                            placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary" (click)="onUpdateAgenda()">Update</button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #addAttendees let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Attendees Group</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="d-flex flex-row float-right">
+                        <button class="btn btn-primary mb-3">Search</button>
+                    </div>
+                </div>
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of listData.userLists; let i = index">
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>
+                                        <button (click)="addAttendeesGroupArray(user)" class="btn btn-primary btn-sm">Select</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #addAuthorizedUsers let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Authorized Users</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="d-flex flex-row float-right">
+                        <button class="btn btn-primary mb-3">Search</button>
+                    </div>
+                </div>
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of listData.userLists; let i = index">
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>
+                                        <button (click)="addAuthorizedUsersArray(user)" class="btn btn-primary btn-sm">Select</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</ng-template>
+
+
+
+
+

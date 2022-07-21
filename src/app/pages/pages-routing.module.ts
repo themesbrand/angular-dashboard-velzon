@@ -51,6 +51,7 @@ import { FinanceViewAcceptanceLetterComponent } from './finance-view/finance-vie
 import { DashboardInternationalTraineeComponent } from './international-trainees-view/dashboard-international-trainee/dashboard-international-trainee.component';
 import { ApplicationInternationalTraineeComponent } from './international-trainees-view/application-international-trainee/application-international-trainee.component';
 import { InternationalTraineeApplicationsViewComponent } from './scholarship-section/international-trainee-applications-view/international-trainee-applications-view.component';
+import { DefineMeetingTypesComponent } from './meeting-management/configuration/define-meeting-types/define-meeting-types.component';
 
 const routes: Routes = [
     //Default Routing
@@ -117,6 +118,9 @@ const routes: Routes = [
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
       { path : "view-acceptance-letter", component: ViewAcceptanceLetterComponent },
       { path : "international-trainee-applications", component: InternationalTraineeApplicationsViewComponent },
+    ]},
+    { path: "meeting-management", children : [
+      { path : "configuration", component: DefineMeetingTypesComponent },
     ]},
 
     //Employer Routing
