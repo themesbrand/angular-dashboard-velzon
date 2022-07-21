@@ -165,6 +165,7 @@ export class DefineMeetingTypesComponent implements OnInit {
     this.listData.availableMeetingTypes.push(
       this.defineMeetingFormValues
     )
+    this.resetForm();
   }
 
   onUpdateMeetingType() {
