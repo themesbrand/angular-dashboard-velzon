@@ -1,0 +1,28 @@
+.tagLink {
+    text-decoration: underline;
+    color: blue;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.tagLink:hover {
+    color: rgb(87, 87, 159);
+}
+li a {
+    cursor: pointer;
+}
+
+.table-responsive {
+    overflow: visible !important;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+td, th {
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+td a {
+    cursor: pointer;
+}

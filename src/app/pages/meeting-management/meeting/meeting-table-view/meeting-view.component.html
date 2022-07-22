@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex flex-row justify-content-between">
+            <p class="h5">Meeting Invite View</p>
+            <button (click)="onNavigate('meeting-management/invite')" type="button" class="btn btn-primary btn-label waves-effect waves-light"><i class="ri-file-list-3-line label-icon align-middle fs-16 me-2"></i>Add Meeting Invite</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="live-preview">     
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-wrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Meeting Type</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Online Meeting</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr *ngFor="let meetings of listData.meetingInviteList">    
+                            <td>{{meetings.title}}</td>
+                            <td>{{meetings.meetingType}}</td>
+                            <td>{{meetings.startDate | date : 'M/d/yy, h:mm a'}}</td>
+                            <td>{{meetings.endDate | date : 'M/d/yy, h:mm a'}}</td>
+                            <td><span class="badge" [ngClass]="meetings.isOnline ? 'bg-success' : 'ng-danger'">
+                                {{meetings.isOnline === true ? 'Yes' : 'No'}}
+                            </span></td>
+                            <td class="text-center">
+                                <div class="dropdown" ngbDropdown>
+                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                        <i class="ri-more-2-fill"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                        <li (click)="viewMeeting(meetings)">
+                                            <a class="dropdown-item" >View</a>
+                                        </li>
+                                    </ul>
+                                </div>          
+                            </td>
+                        </tr>
+                    </thead>
+                    
+                </table>
+            </div>                             
+        </div>
+    </div>
+</div>

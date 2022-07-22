@@ -1,0 +1,15 @@
+.table-responsive {
+    overflow: visible !important;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+td, th {
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+td a {
+    cursor: pointer;
+}

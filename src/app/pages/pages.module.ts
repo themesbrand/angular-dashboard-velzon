@@ -124,6 +124,12 @@ import { DashboardInternationalTraineeComponent } from './international-trainees
 import { ApplicationInternationalTraineeComponent } from './international-trainees-view/application-international-trainee/application-international-trainee.component';
 import { InternationalTraineeApplicationsViewComponent } from './scholarship-section/international-trainee-applications-view/international-trainee-applications-view.component';
 import { DefineMeetingTypesComponent } from './meeting-management/configuration/define-meeting-types/define-meeting-types.component';
+import { MeetingInviteComponent } from './meeting-management/meeting/meeting-invite/meeting-invite.component';
+import { MeetingTableViewComponent } from './meeting-management/meeting/meeting-table-view/meeting-view.component';
+import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
+import { MinutesOfMeetingComponent } from './meeting-management/meeting/meeting-view/minutes-of-meeting/minutes-of-meeting.component';
+import { MarkAttendanceMeetingComponent } from './meeting-management/meeting/meeting-view/mark-attendance-meeting/mark-attendance-meeting.component';
+import { ActionItemsSummaryComponent } from './meeting-management/meeting/meeting-view/action-items-summary/action-items-summary.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -214,7 +220,13 @@ FullCalendarModule.registerPlugins([
     DashboardInternationalTraineeComponent,
     ApplicationInternationalTraineeComponent,
     InternationalTraineeApplicationsViewComponent,
-    DefineMeetingTypesComponent
+    DefineMeetingTypesComponent,
+    MeetingInviteComponent,
+    MeetingTableViewComponent,
+    MeetingViewComponent,
+    MinutesOfMeetingComponent,
+    MarkAttendanceMeetingComponent,
+    ActionItemsSummaryComponent
   ],
   imports: [
     CommonModule,

@@ -52,6 +52,10 @@ import { DashboardInternationalTraineeComponent } from './international-trainees
 import { ApplicationInternationalTraineeComponent } from './international-trainees-view/application-international-trainee/application-international-trainee.component';
 import { InternationalTraineeApplicationsViewComponent } from './scholarship-section/international-trainee-applications-view/international-trainee-applications-view.component';
 import { DefineMeetingTypesComponent } from './meeting-management/configuration/define-meeting-types/define-meeting-types.component';
+import { MeetingInviteComponent } from './meeting-management/meeting/meeting-invite/meeting-invite.component';
+import { MeetingTableViewComponent } from './meeting-management/meeting/meeting-table-view/meeting-view.component';
+import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
+// import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
 
 const routes: Routes = [
     //Default Routing
@@ -121,6 +125,9 @@ const routes: Routes = [
     ]},
     { path: "meeting-management", children : [
       { path : "configuration", component: DefineMeetingTypesComponent },
+      { path : "invite", component: MeetingInviteComponent },
+      { path : "view-meetings", component: MeetingTableViewComponent },
+      { path : "view", component: MeetingViewComponent },
     ]},
 
     //Employer Routing
