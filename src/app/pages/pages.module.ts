@@ -5,7 +5,8 @@ import {
   NgbNavModule,
   NgbProgressbarModule,
   NgbToastModule,
-  NgbAccordionModule
+  NgbAccordionModule,
+  NgbPaginationModule
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { FlatpickrModule } from 'angularx-flatpickr';
@@ -130,6 +131,8 @@ import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/
 import { MinutesOfMeetingComponent } from './meeting-management/meeting/meeting-view/minutes-of-meeting/minutes-of-meeting.component';
 import { MarkAttendanceMeetingComponent } from './meeting-management/meeting/meeting-view/mark-attendance-meeting/mark-attendance-meeting.component';
 import { ActionItemsSummaryComponent } from './meeting-management/meeting/meeting-view/action-items-summary/action-items-summary.component';
+import { AgendaRequestComponent } from './meeting-management/agenda-request/agenda-request.component';
+import { MyMeetingsComponent } from './meeting-management/my-meetings/my-meetings.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -226,7 +229,9 @@ FullCalendarModule.registerPlugins([
     MeetingViewComponent,
     MinutesOfMeetingComponent,
     MarkAttendanceMeetingComponent,
-    ActionItemsSummaryComponent
+    ActionItemsSummaryComponent,
+    AgendaRequestComponent,
+    MyMeetingsComponent
   ],
   imports: [
     CommonModule,
@@ -246,6 +251,7 @@ FullCalendarModule.registerPlugins([
     LeafletModule,
     NgbDropdownModule,
     TooltipModule,
+    NgbPaginationModule,
     NgxIntlTelInputModule,
     SimplebarAngularModule,
     GridJsAngularModule,

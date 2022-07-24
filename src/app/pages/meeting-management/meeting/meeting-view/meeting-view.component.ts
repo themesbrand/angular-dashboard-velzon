@@ -34,6 +34,8 @@ export class MeetingViewComponent implements OnInit {
   selectedActionItemIndex: any;
   selectedAgenda: any;
 
+  isViewOnly: boolean = false;
+
   constructor(
     private formBuilder : FormBuilder,
     private router : Router,
@@ -43,8 +45,12 @@ export class MeetingViewComponent implements OnInit {
   ngOnInit(): void {
     
     this.meeting = history.state.meetingObject
-    this.meeting = this.listData.meetingObject
+    this.isViewOnly = history.state.isViewOnly
     
+      // For Testing Purpose Only ***********************
+      // this.meeting = this.listData.meetingObject
+      // this.isViewOnly = true
+   
     this.breadCrumbItems = [
       { label: "Meeting Grid View", link : '/meeting-management/view-meetings'},
       { label: "Meeting", active : true }

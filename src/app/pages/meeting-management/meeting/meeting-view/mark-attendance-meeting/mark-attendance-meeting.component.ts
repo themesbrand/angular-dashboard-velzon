@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mark-attendance-meeting',
@@ -6,6 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mark-attendance-meeting.component.scss']
 })
 export class MarkAttendanceMeetingComponent implements OnInit {
+
+  isViewOnly : boolean = false;
+  
+  @Input('isViewOnly') 
+  set isViewOnlyStatus(data: any){
+    this.isViewOnly = data;
+    console.log(this.isViewOnly)
+  };
 
   simpleDonutChart: any;
 

@@ -45,8 +45,8 @@ export class DefineMeetingTypesComponent implements OnInit {
       remindersArray: new FormArray([]),
       isPredefinedAgenda: new FormControl(null),
       agendaArray: new FormArray([]),
-      attendeesGroupArray: new FormArray([]),
-      authorizedUsersArray: new FormArray([]),
+      attendeesGroupArray: new FormControl([]),
+      authorizedUsersArray: new FormControl([]),
     })
   }
 
@@ -70,15 +70,7 @@ export class DefineMeetingTypesComponent implements OnInit {
     return (<FormArray>this.defineMeetingTypeForm.get('agendaArray')).controls; 
   }
 
-  get attendeesGroupArrayControls() {
-    return (<FormArray>this.defineMeetingTypeForm.get('attendeesGroupArray')).controls; 
-  }
-  get authorizedUsersArrayControls() {
-    return (<FormArray>this.defineMeetingTypeForm.get('authorizedUsersArray')).controls; 
-  }
-
   onChangeNumberOfReminders () {
-
     const reminders = this.defineMeetingFormValues.numberOfReminders;
     while (this.remindersArrayControls.length !== 0) {
       (<FormArray>this.defineMeetingTypeForm.get('remindersArray')).removeAt(0)
@@ -131,35 +123,6 @@ export class DefineMeetingTypesComponent implements OnInit {
     (<FormArray>this.defineMeetingTypeForm.get('agendaArray')).removeAt(i)
   }
 
-  addAttendeesGroupArray(user : any) {
-    (<FormArray>this.defineMeetingTypeForm.get('attendeesGroupArray')).insert(0,
-      new FormGroup({
-        'name' : new FormControl(user.name, []),
-        'email' : new FormControl(user.email, []),
-        
-      })
-    );
-    this.modalService.dismissAll();
-  }
-
-  onDeleteAttendeesGroupArray(i : any) {
-    (<FormArray>this.defineMeetingTypeForm.get('attendeesGroupArray')).removeAt(i)
-
-  }
-  addAuthorizedUsersArray(user : any) {
-    (<FormArray>this.defineMeetingTypeForm.get('authorizedUsersArray')).insert(0,
-      new FormGroup({
-        'name' : new FormControl(user.name, []),
-        'email' : new FormControl(user.email, []),
-        
-      })
-    );
-    this.modalService.dismissAll();
-  }
-
-  onDeleteAuthorizedUsersArray(i : any) {
-    (<FormArray>this.defineMeetingTypeForm.get('authorizedUsersArray')).removeAt(i)
-  }
 
   onSaveMeetingType(){
     this.listData.availableMeetingTypes.push(
@@ -183,20 +146,15 @@ export class DefineMeetingTypesComponent implements OnInit {
     while (this.remindersArrayControls.length !== 0) {
       (<FormArray>this.defineMeetingTypeForm.get('remindersArray')).removeAt(0)
     }
-    while (this.attendeesGroupArrayControls.length !== 0) {
-      (<FormArray>this.defineMeetingTypeForm.get('attendeesGroupArray')).removeAt(0)
-    }
     while (this.agendaArrayControls.length !== 0) {
       (<FormArray>this.defineMeetingTypeForm.get('agendaArray')).removeAt(0)
-    }
-    while (this.authorizedUsersArrayControls.length !== 0) {
-      (<FormArray>this.defineMeetingTypeForm.get('authorizedUsersArray')).removeAt(0)
     }
     this.defineMeetingTypeForm.reset();
   }
 
   onSelectMeetingType(meeting: any, i : any) {
     console.log(meeting)
+    this.resetForm();
 
     this.isViewMode = true;
     this.selectedMeetingTypeIndex = i
@@ -209,29 +167,12 @@ export class DefineMeetingTypesComponent implements OnInit {
         })
       )
     });
-
     const agendaArray = meeting.agendaArray.forEach((element: any, index : any) => {
       (<FormArray>this.defineMeetingTypeForm.get('agendaArray')).push(
         new FormGroup({
           agendaItem : new FormControl(element.agendaItem),
           timeDuration : new FormControl(element.timeDuration),
           presenter : new FormControl(element.presenter)
-        })
-      )
-    });
-    const attendeesGroupArray = meeting.attendeesGroupArray.forEach((element: any, index : any) => {
-      (<FormArray>this.defineMeetingTypeForm.get('attendeesGroupArray')).push(
-        new FormGroup({
-          'name' : new FormControl(element.name),
-          'email' : new FormControl(element.email),
-        })
-      )
-    });
-    const authorizedUsersArray = meeting.authorizedUsersArray.forEach((element: any, index : any) => {
-      (<FormArray>this.defineMeetingTypeForm.get('authorizedUsersArray')).push(
-        new FormGroup({
-          'name' : new FormControl(element.name),
-          'email' : new FormControl(element.email),
         })
       )
     });
@@ -244,8 +185,8 @@ export class DefineMeetingTypesComponent implements OnInit {
       remindersArray: remindersArray,
       isPredefinedAgenda: meeting.isPredefinedAgenda,
       agendaArray: agendaArray,
-      attendeesGroupArray: attendeesGroupArray,
-      authorizedUsersArray: authorizedUsersArray,
+      attendeesGroupArray: meeting.attendeesGroupArray,
+      authorizedUsersArray: meeting.authorizedUsersArray,
 
     })
   }

@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
      * Form Validatyion
      */
     this.loginForm = this.formBuilder.group({
-      email: ["trainee@omsb.com", [Validators.required]],
+      email: ["admin@omsb", [Validators.required]],
       password: ["123456", [Validators.required]],
     });
     // get return url from route parameters or default to '/'
@@ -84,33 +84,33 @@ export class LoginComponent implements OnInit {
               }
 
               switch (this.f["email"].value) {
-                case 'trainee@omsb.com' : {
+                case 'admin@omsb' : {
                   this.router.navigateByUrl("/dashboard");
-                  localStorage.setItem('userType' , 'trainee@omsb.com')
+                  localStorage.setItem('userType' , 'admin@omsb')
                   break;
                 }
-                case 'employer@omsb.com' : {
-                  localStorage.setItem('userType' , 'employer@omsb.com')
+                case 'employer@omsb' : {
+                  localStorage.setItem('userType' , 'employer@omsb')
                   this.router.navigateByUrl("/employer/dashboard");
                   break;
                 }
-                case 'interviewer@omsb.com' : {
-                  localStorage.setItem('userType' , 'interviewer@omsb.com')
+                case 'interviewer@omsb' : {
+                  localStorage.setItem('userType' , 'interviewer@omsb')
                   this.router.navigateByUrl("/interviewer/dashboard");
                   break;
                 }
-                case 'applicant@omsb.com' : {
-                  localStorage.setItem('userType' , 'applicant@omsb.com')
+                case 'applicant@omsb' : {
+                  localStorage.setItem('userType' , 'applicant@omsb')
                   this.router.navigateByUrl("/applicant/application");
                   break;
                 }
-                case 'finance@omsb.com' : {
-                  localStorage.setItem('userType' , 'finance@omsb.com')
+                case 'finance@omsb' : {
+                  localStorage.setItem('userType' , 'finance@omsb')
                   this.router.navigateByUrl("/finance/dashboard");
                   break;
                 }
-                case 'international@omsb.com' : {
-                  localStorage.setItem('userType' , 'international@omsb.com')
+                case 'international@omsb' : {
+                  localStorage.setItem('userType' , 'international@omsb')
                   this.router.navigateByUrl("/international/dashboard");
                   break;
                 }

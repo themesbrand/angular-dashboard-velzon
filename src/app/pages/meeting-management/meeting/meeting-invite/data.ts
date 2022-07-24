@@ -7,7 +7,7 @@ const data = {
             isReminderRequired: true,
             predefinedAgenda : [
                 {
-                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><p>&nbsp;</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
                     presenter: "Abbas Al Ajmi",
                     timeDuration: "45 MInutes"
                 }
@@ -17,14 +17,14 @@ const data = {
                     presenter: "Abbas Al Ajmi",
                     serviceName : 'Rotation Evaluation',
                     serviceLink : '/forms/rotation-evaluation-form',
-                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><p>&nbsp;</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
                     isPollCreated : true
                 },
                 {
                     presenter: "Faisal Gawas",
                     serviceName : 'Rotation Evaluation',
                     serviceLink : '/forms/rotation-evaluation-form',
-                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><p>&nbsp;</p>",
+                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p>",
                     isPollCreated : false
                 },
             ],
@@ -37,12 +37,12 @@ const data = {
             isReminderRequired: true,
             predefinedAgenda : [
                 {
-                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><p>&nbsp;</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
                     presenter: "Abbas Al Ajmi",
                     timeDuration: "45 MInutes"
                 },
                 {
-                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><p>&nbsp;</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
                     presenter: "Abbas Al Ajmi",
                     timeDuration: "45 MInutes"
                 },
@@ -57,7 +57,7 @@ const data = {
             isReminderRequired: true,
             predefinedAgenda : [
                 {
-                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><p>&nbsp;</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    agendaItem: "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
                     presenter: "Abbas Al Ajmi",
                     timeDuration: "45 MInutes"
                 }
@@ -93,8 +93,18 @@ function userListGenerator() {
         {
             name : 'Faisal Gawas',
             email : 'Faisal@email.com',
-            omsb: '19-200'
-        }
+            omsb: '19-206'
+        },
+        {
+            name : 'Al Abri Ibraham',
+            email : 'Abri@email.com',
+            omsb: '19-219'
+        },
+        {
+            name : 'Hilal basheer',
+            email : 'Hilal@email.com',
+            omsb: '19-221'
+        },
     ]
     const userDefinedList: { name: string; email: string; labelValue: string; }[] = [];
 

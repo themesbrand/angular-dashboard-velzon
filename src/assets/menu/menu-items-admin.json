@@ -119,7 +119,7 @@
             {
                 "id": 20,
                 "label": "My Meeting",
-                "link": "/meeting-management/my-meeting"
+                "link": "/meeting-management/my-meetings"
             }
         ]
     }

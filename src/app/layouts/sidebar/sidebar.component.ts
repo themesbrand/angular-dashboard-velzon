@@ -27,37 +27,37 @@ export class SidebarComponent implements OnInit {
     // Menu Items
     const userType = localStorage.getItem('userType')
     switch (userType) {
-      case 'trainee@omsb.com': {
-        this.httpClient.get("assets/menu/menu-items-trainee.json").subscribe((response : any) =>{
+      case 'admin@omsb': {
+        this.httpClient.get("assets/menu/menu-items-admin.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'employer@omsb.com': {
+      case 'employer@omsb': {
         this.httpClient.get("assets/menu/menu-items-employer.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'interviewer@omsb.com': {
+      case 'interviewer@omsb': {
         this.httpClient.get("assets/menu/menu-items-interviewer.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'applicant@omsb.com': {
+      case 'applicant@omsb': {
         this.httpClient.get("assets/menu/menu-items-applicant.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'finance@omsb.com': {
+      case 'finance@omsb': {
         this.httpClient.get("assets/menu/menu-items-finance.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'international@omsb.com': {
+      case 'international@omsb': {
         this.httpClient.get("assets/menu/menu-items-international.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   

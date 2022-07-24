@@ -1,27 +1,27 @@
-.card {
-    height: 100%;
-}
-.card .card-body {
-    height: 100%;
-}
-.card .card-body .row{
-    height: 100%;
-}
-.assignment-box {
-    max-height: 70px;
-    width: 100% !important;
-    overflow-y: auto;
-}
+// .card {
+//     height: 100%;
+// }
+// .card .card-body {
+//     height: 100%;
+// }
+// .card .card-body .row{
+//     height: 100%;
+// }
+// .assignment-box {
+//     max-height: 70px;
+//     width: 100% !important;
+//     overflow-y: auto;
+// }
 
-.assignment-box div {
-    word-wrap: break-word;
-    text-align: center;
-    width: calc(95%/3) !important;
-    margin: 0 5px 0 5px;
-}
-.assignment-box div:hover {
-    background-color: rgb(216, 216, 216);
-}
+// .assignment-box div {
+//     word-wrap: break-word;
+//     text-align: center;
+//     width: calc(95%/3) !important;
+//     margin: 0 5px 0 5px;
+// }
+// .assignment-box div:hover {
+//     background-color: rgb(216, 216, 216);
+// }
 .active {
     background-color: rgb(110, 110, 110);
     color: white;
@@ -39,7 +39,7 @@
     height: 2em;
 }
 full-calendar {
-    height: calc(100vh - 240px ) !important;
+    height: calc(100vh - 120px ) !important;
 }
 ::ng-deep .fc-event-title-container {
     display: flex;

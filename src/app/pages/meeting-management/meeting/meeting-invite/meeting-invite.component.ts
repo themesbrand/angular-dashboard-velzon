@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Router } from '@angular/router';
@@ -19,6 +19,9 @@ export class MeetingInviteComponent implements OnInit {
   meetingInviteForm !: FormGroup;
   agendaForm !: FormGroup;
   simpleDonutChart: any;
+
+  @ViewChild('updateAgenda') updateAgenda !: TemplateRef<any>;
+  selectedAgendaIndex: any;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -77,7 +80,7 @@ export class MeetingInviteComponent implements OnInit {
 
   agendaFormInit() {
     this.agendaForm = this.formBuilder.group({
-      agenda : new FormControl(null),
+      agendaItem : new FormControl(null),
       timeDuration : new FormControl(null),
       presenter : new FormControl(null)
     })
@@ -110,7 +113,7 @@ export class MeetingInviteComponent implements OnInit {
   addAgendaArray() {
     (<FormArray>this.meetingInviteForm.get('otherAgenda')).insert(0,
       new FormGroup({
-        'agendaItem' : new FormControl(this.agendaForm.value.agenda, []),
+        'agendaItem' : new FormControl(this.agendaForm.value.agendaItem, []),
         'timeDuration' : new FormControl(this.agendaForm.value.timeDuration, []),
         'presenter' : new FormControl(this.agendaForm.value.presenter, []),
         'isPollCreated' : new FormControl(false)
@@ -124,8 +127,22 @@ export class MeetingInviteComponent implements OnInit {
     (<FormArray>this.meetingInviteForm.get('otherAgenda')).removeAt(i)
   }
   
+  onEditAgenda(agenda : any, i : any) {
+    console.log(agenda)
+    this.selectedAgendaIndex = i;
+    this.agendaForm.patchValue(agenda);
+    this.openModal(this.updateAgenda, 'lg')
+    this.agendaForm.reset();
+  }
+
   onSubmitAgenda() {
-    this.addAgendaArray()
+    this.addAgendaArray();
+  }
+
+  onUpdateAgenda() {
+    (<FormArray>this.meetingInviteForm.get('otherAgenda')).at(this.selectedAgendaIndex).patchValue(this.agendaForm.value)
+    console.log(this.agendaForm.value)
+    this.modalService.dismissAll();
   }
 
   openModal(modal : any, size : any) {

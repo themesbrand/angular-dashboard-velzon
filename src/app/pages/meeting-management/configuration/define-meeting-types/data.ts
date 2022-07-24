@@ -12,14 +12,8 @@ const data = {
                     timeDuration: "45 MInutes"
                 }
             ],
-            attendeesGroupArray : [
-                { email: "Madan@email.com", name: "Madan Khan" },
-                { email: "Abbas@email.com", name: "Abbas Al Ajmi" }
-            ],
-            authorizedUsersArray : [
-                { email: "Faisal@email.com", name: "Faisal Gawas" },
-                { email: "Madan@email.com", name: "Madan Al Abri" }
-            ],
+            attendeesGroupArray : ['Madan Khan','Abbas Al Ajmi'],
+            authorizedUsersArray : ["Faisal Gawas","Madan Al Abri"],
             numberOfReminders: 3,
             remindersArray : [
                 {
@@ -45,21 +39,15 @@ const data = {
                     timeDuration: "45 MInutes"
                 }
             ],
-            attendeesGroupArray : [
-                { email: "Madan@email.com", name: "Madan Khan" },
-                { email: "Abbas@email.com", name: "Abbas Al Ajmi" }
-            ],
-            authorizedUsersArray : [
-                { email: "Faisal@email.com", name: "Faisal Gawas" },
-                { email: "Madan@email.com", name: "Madan Al Abri" }
-            ],
+            attendeesGroupArray : ['Faisal Gawas','Abbas Al Ajmi'],
+            authorizedUsersArray : ["Faisal Gawas","Madan Al Abri"],
             numberOfReminders: 3,
             remindersArray : [
                 {
                     reminderDays: 5 , reminderNumber: "Reminder 1 : Before "
                 },
                 {
-                    reminderDays: 3 , reminderNumber: "Reminder 2 : Before "
+                    reminderDays: 2 , reminderNumber: "Reminder 2 : Before "
                 },
                 {
                     reminderDays: 1 , reminderNumber: "Reminder 3 : Before "
@@ -78,14 +66,9 @@ const data = {
                     timeDuration: "45 MInutes"
                 }
             ],
-            attendeesGroupArray : [
-                { email: "Madan@email.com", name: "Madan Khan" },
-            ],
-            authorizedUsersArray : [
-                { email: "Faisal@email.com", name: "Faisal Gawas" },
-                { email: "Madan@email.com", name: "Madan Al Abri" }
-            ],
-            numberOfReminders: 3,
+            attendeesGroupArray : ['Faisal Gawas'],
+            authorizedUsersArray : ["Faisal Gawas","Madan Al Abri"],
+            numberOfReminders: 2,
             remindersArray : [
                 {
                     reminderDays: 5 , reminderNumber: "Reminder 1 : Before "
@@ -97,27 +80,57 @@ const data = {
         }
     ],
     presentersList : [ 'Abbas Al Ajmi','Madan Khan', 'Madan Al Abri', 'Faisal Gawas'],
-    userLists : [
-        {
-            name : 'Abbas Al Ajmi',
-            email : 'Abbas@email.com'
-        }, 
-        {
-            name : 'Madan Khan',
-            email : 'Madan@email.com'
-        }, 
-        {
-            name : 'Madan Al Abri',
-            email : 'Madan@email.com'
-        }, 
-        {
-            name : 'Faisal Gawas',
-            email : 'Faisal@email.com'
-        }
-    ]
+    userLists : userListGenerator()
 }
 
 export {data}
 
+function userListGenerator() {
+    const users = [
+        {
+            name : 'Abbas Al Ajmi',
+            email : 'Abbas@email.com',
+            omsb: '19-204'
+        }, 
+        {
+            name : 'Madan Khan',
+            email : 'Madan@email.com',
+            omsb: '19-210'
+        }, 
+        {
+            name : 'Madan Al Abri',
+            email : 'Madan@email.com',
+            omsb: '19-209'
+        }, 
+        {
+            name : 'Faisal Gawas',
+            email : 'Faisal@email.com',
+            omsb: '19-206'
+        },
+        {
+            name : 'Al Abri Ibraham',
+            email : 'Abri@email.com',
+            omsb: '19-219'
+        },
+        {
+            name : 'Hilal basheer',
+            email : 'Hilal@email.com',
+            omsb: '19-221'
+        },
+    ]
+    const userDefinedList: { name: string; email: string; labelValue: string; }[] = [];
+
+    users.forEach(user=> {
+        userDefinedList.push(
+            {
+                name : user.name,
+                email : user.email,
+                labelValue : `${user.name} | ${user.email} | ${user.omsb} `
+            }
+        )
+    })
+
+    return userDefinedList;
+}
 
 

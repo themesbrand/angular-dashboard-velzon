@@ -55,6 +55,8 @@ import { DefineMeetingTypesComponent } from './meeting-management/configuration/
 import { MeetingInviteComponent } from './meeting-management/meeting/meeting-invite/meeting-invite.component';
 import { MeetingTableViewComponent } from './meeting-management/meeting/meeting-table-view/meeting-view.component';
 import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
+import { AgendaRequestComponent } from './meeting-management/agenda-request/agenda-request.component';
+import { MyMeetingsComponent } from './meeting-management/my-meetings/my-meetings.component';
 // import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
 
 const routes: Routes = [
@@ -128,6 +130,8 @@ const routes: Routes = [
       { path : "invite", component: MeetingInviteComponent },
       { path : "view-meetings", component: MeetingTableViewComponent },
       { path : "view", component: MeetingViewComponent },
+      { path : "agenda-request", component: AgendaRequestComponent },
+      { path : "my-meetings", component: MyMeetingsComponent },
     ]},
 
     //Employer Routing

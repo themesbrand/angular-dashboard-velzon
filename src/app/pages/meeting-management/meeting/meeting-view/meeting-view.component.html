@@ -23,7 +23,8 @@
                                     <div>Meeting Link : <span class="fw-medium"><a class="tagLink">{{meeting.meetingLink}}</a></span></div>    
                                 </div>
                             </div>
-                            <button type="button" class="mt-3 btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('meeting-management/view-meetings')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+                            <button *ngIf="!isViewOnly" type="button" class="mt-3 btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('meeting-management/view-meetings')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+                            <button *ngIf="isViewOnly" type="button" class="mt-3 btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/meeting-management/my-meetings')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
                         </div>
                     </div>
                     <div class="d-flex flex-row w-100 mt-2">
@@ -39,20 +40,20 @@
                             <li [ngbNavItem]="2" class="nav-item">
                                 <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Minutes of Meeting</a>
                                 <ng-template ngbNavContent>
-                                    <app-minutes-of-meeting></app-minutes-of-meeting>
+                                    <app-minutes-of-meeting [isViewOnly]="isViewOnly"></app-minutes-of-meeting>
                                 </ng-template>
                             </li>
                             
                             <li [ngbNavItem]="3" class="nav-item">
                                 <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">View / Attendance mark</a>
                                 <ng-template ngbNavContent>
-                                    <app-mark-attendance-meeting></app-mark-attendance-meeting>
+                                    <app-mark-attendance-meeting [isViewOnly]="isViewOnly"></app-mark-attendance-meeting>
                                 </ng-template>
                             </li>
                             <li [ngbNavItem]="4" class="nav-item">
                                 <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Action Items Summary</a>
                                 <ng-template ngbNavContent>
-                                    <app-action-items-summary></app-action-items-summary>
+                                    <app-action-items-summary [isViewOnly]="isViewOnly"></app-action-items-summary>
                                 </ng-template>
                             </li>
                             
@@ -90,7 +91,7 @@
                                     <li (click)="selectActionItems(agenda.actionItems, i); openModal(actionItemsGrid, 'lg')">
                                         <a class="dropdown-item" >Action Items</a>
                                     </li>
-                                    <li (click)="setAgenda(agenda);openModal(closeAgenda, 'lg')">
+                                    <li *ngIf="!isViewOnly" (click)="setAgenda(agenda);openModal(closeAgenda, 'lg')">
                                         <a class="dropdown-item" >Close Agenda</a>
                                     </li>
                                 </ul>
@@ -128,7 +129,7 @@
             </div>
             <div class="mt-3">
                 <div class="d-flex flex-row justify-content-end">
-                    <button (click)="closeModals(); openModal(addActionItem, 'lg');" type="button" class="btn btn-primary btn-label waves-effect waves-light"><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Action Item</button>
+                    <button *ngIf="!isViewOnly" (click)="closeModals(); openModal(addActionItem, 'lg');" type="button" class="btn btn-primary btn-label waves-effect waves-light"><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Action Item</button>
                 </div>
                 <div class="row">
                     <div class="col-md-12" *ngFor="let action of selectedActionItems; let i = index">
@@ -158,7 +159,7 @@
                                           </h2>
                                       </ng-template>
                                       <ng-template ngbPanelContent>
-                                        <div class="d-flex flex-row justify-content-end">
+                                        <div *ngIf="!isViewOnly" class="d-flex flex-row justify-content-end">
                                             <button (click)="closeModals(); openModal(addFollowup, 'lg'); setActionItemIndex(i)"  class="btn btn-sm btn-primary mb-1">
                                                 Add Followup
                                             </button>

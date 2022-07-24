@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -12,6 +12,15 @@ import {data} from './data';
   styleUrls: ['./minutes-of-meeting.component.scss']
 })
 export class MinutesOfMeetingComponent implements OnInit {
+
+  isViewOnly : boolean = false;
+  
+  @Input('isViewOnly') 
+  set isViewOnlyStatus(data: any){
+    this.isViewOnly = data;
+    console.log(this.isViewOnly)
+  };
+
 
   listData = data;
   meetingMinutesForm !: FormGroup;
