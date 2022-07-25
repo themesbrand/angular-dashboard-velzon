@@ -1,0 +1,24 @@
+<div class="row">
+    <ul ngbNav #ModifierCustom="ngbNav" [activeId]="1" class="nav nav-pills nav-customs nav-danger">
+        <li [ngbNavItem]="1">`
+            <a ngbNavLink class="nav-link">
+              Renewal Requests
+            </a>
+            <ng-template ngbNavContent>
+                <app-e-resource-renewal-request></app-e-resource-renewal-request>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+            <a ngbNavLink class="nav-link">
+                Expiring Requests
+            </a>
+            <ng-template ngbNavContent>
+                <app-expiry-e-resources></app-expiry-e-resources>
+            </ng-template>
+        </li>
+    </ul>
+    <div class="tab-content text-muted p-0">
+        <div [ngbNavOutlet]="ModifierCustom"></div>
+    </div>
+
+</div>

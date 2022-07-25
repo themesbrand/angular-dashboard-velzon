@@ -133,6 +133,14 @@ import { MarkAttendanceMeetingComponent } from './meeting-management/meeting/mee
 import { ActionItemsSummaryComponent } from './meeting-management/meeting/meeting-view/action-items-summary/action-items-summary.component';
 import { AgendaRequestComponent } from './meeting-management/agenda-request/agenda-request.component';
 import { MyMeetingsComponent } from './meeting-management/my-meetings/my-meetings.component';
+import { FinanceEResourceRequestComponent } from './finance-view/finance-medical-library/finance-e-resource-request/finance-e-resource-request.component';
+import { EResourceRequestComponent } from './medical-library/e-resource-request/e-resource-request.component';
+import { RenewalComponent } from './medical-library/renewal/renewal.component';
+import { ExpiryEResourcesComponent } from './medical-library/renewal/expiry-e-resources/expiry-e-resources.component';
+import { EResourceRenewalRequestComponent } from './medical-library/renewal/e-resource-renewal-request/e-resource-renewal-request.component';
+import { PurchaseMedicalBooksComponent } from './medical-library/purchase-medical-books/purchase-medical-books.component';
+import { ViewMedicalBookRequestsComponent } from './medical-library/purchase-medical-books/view-medical-book-requests/view-medical-book-requests.component';
+import { MedicalBookEstimatesComponent } from './medical-library/purchase-medical-books/medical-book-estimates/medical-book-estimates.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -231,7 +239,15 @@ FullCalendarModule.registerPlugins([
     MarkAttendanceMeetingComponent,
     ActionItemsSummaryComponent,
     AgendaRequestComponent,
-    MyMeetingsComponent
+    MyMeetingsComponent,
+    EResourceRequestComponent,
+    FinanceEResourceRequestComponent,
+    RenewalComponent,
+    ExpiryEResourcesComponent,
+    EResourceRenewalRequestComponent,
+    PurchaseMedicalBooksComponent,
+    ViewMedicalBookRequestsComponent,
+    MedicalBookEstimatesComponent
   ],
   imports: [
     CommonModule,

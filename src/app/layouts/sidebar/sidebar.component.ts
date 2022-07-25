@@ -27,38 +27,44 @@ export class SidebarComponent implements OnInit {
     // Menu Items
     const userType = localStorage.getItem('userType')
     switch (userType) {
-      case 'admin@omsb': {
+      case 'eportal@omsb.org': {
         this.httpClient.get("assets/menu/menu-items-admin.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'employer@omsb': {
+      case 'employer@omsb.org': {
         this.httpClient.get("assets/menu/menu-items-employer.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'interviewer@omsb': {
+      case 'interviewer@omsb.org': {
         this.httpClient.get("assets/menu/menu-items-interviewer.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'applicant@omsb': {
+      case 'applicant@omsb.org': {
         this.httpClient.get("assets/menu/menu-items-applicant.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'finance@omsb': {
+      case 'finance@omsb.org': {
         this.httpClient.get("assets/menu/menu-items-finance.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;
       }
-      case 'international@omsb': {
+      case 'international@omsb.org': {
         this.httpClient.get("assets/menu/menu-items-international.json").subscribe((response : any) =>{
+          this.menuItems = [...response];      
+        })   
+        break;
+      }
+      case 'pd@omsb.org': {
+        this.httpClient.get("assets/menu/menu-items-pd.json").subscribe((response : any) =>{
           this.menuItems = [...response];      
         })   
         break;

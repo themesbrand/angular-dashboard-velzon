@@ -1,0 +1,31 @@
+td a {
+    cursor: pointer !important;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+td, th {
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+.table-responsive {
+    overflow: visible;
+}
+
+.border-top {
+    border-top: 1.3px dashed grey !important;
+    padding-top: 10px;
+}
+.nav-customs.nav .nav-link.active, .nav-customs.nav .nav-link.active:before, .nav-customs.nav .nav-link.active:after {
+    background-color: #193239;
+    color: #fff;
+}
+.nav-customs.nav .nav-link.active {
+    background-color: #193239!important;
+}
+
+.nav {
+    background-color: #f6f6f6 !important;
+}

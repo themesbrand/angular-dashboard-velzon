@@ -1,0 +1,1088 @@
+<div class="card">
+    <div class="card-header">
+        <p class="h4 text-primary">E-Resource Request</p>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3 border border-dashed p-2">
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Program Name</label>
+                <ng-select [items]="[]"
+                placeholder="Please select Program Name">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Publisher</label>
+
+                <ng-select [items]="[]"
+                placeholder="Please select a Publisher">
+                </ng-select>
+            </div>
+            
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Requested By</label>
+
+                <ng-select [items]="[]"
+                placeholder="Please select Requested By User">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Status</label>
+
+                <ng-select [items]="[]"
+                placeholder="Please select the Status">
+                </ng-select>
+            </div>
+            <div class="col-md-6 mb-1">
+                <label class="form-label">Title</label>
+
+                <input class="form-control" type="text" placeholder="Please enter the Title">
+            </div>
+            <div class="d-flex flex-row mt-2">
+                <button class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-end">
+            <button (click)="clearForm(); openModal(addRequest, 'lg')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Request</button>
+        </div>
+        <div class="live-preview">                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-wrap table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Program Name</th>
+                            <th scope="col">Publisher</th>
+                            <th scope="col">Date of Request</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Requested By</th>
+                            <th scope="col">Status</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let request of listData.resourceRequestsTableData">
+                            <td>{{request.programName}}</td>
+                            <td>{{request.publisher}}</td>
+                            <td>{{request.dateOfRequest}}</td>
+                            <td>{{request.title}}</td>
+                            <td>{{request.requestedBy}}</td>
+                            <td (click)="openModal(requestStatus, 'md'); setRequest(request)" style="cursor: pointer; color: rgb(3, 3, 147)">{{request.status}}</td>
+                            <td>
+                                <div class="dropdown" ngbDropdown>
+                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                        <i class="ri-more-2-fill"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                        <li (click)="setRequest(request); openModal(requestView, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                        <li *ngIf="request.status === 'Initiated'" (click)="setRequest(request); openModal(uploadQuote, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Upload Quote</a></li>
+                                        <li *ngIf="request.status === 'Quote Received'" (click)="setRequest(request); openModal(approveQuote, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-ri-profile-line"></i>Approve</a></li>
+                                        <li *ngIf="request.status === 'Approved By Director'" (click)="setRequest(request); openModal(issueLpo, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-ri-profile-line"></i>Issue LPO</a></li>
+                                        <li *ngIf="request.status === 'LPO Issued'" (click)="setRequest(request); openModal(invoicing, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-ri-profile-line"></i>Invoicing</a></li>
+                                        <li *ngIf="request.status === 'Invoiced'" (click)="setRequest(request); openModal(updatePaymentStatus, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-ri-profile-line"></i>Update Payment Status</a></li>
+                                        <li *ngIf="request.status === 'Paid'" (click)="setRequest(request); openModal(enableResource, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-ri-profile-line"></i>Enable E-Resource</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #requestView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Request View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="" class="form-label">Request Description</label>
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-6 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3" *ngIf="requestFormValues.status === 'Rejected By Director'">
+                        <p class="h4 text-danger p-4">Rejected By Director</p>
+                    </div>
+                    <div class="card border shadow mt-3" *ngIf="requestFormValues.quoteDescription">
+                        <p class="h5 text-primary">Quote Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Quote</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Quote Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.quoteDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card border shadow mt-3" *ngIf="requestFormValues.lpoDescription">
+                        <p class="h5 text-primary">LPO Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3" *ngIf="requestFormValues.invoiceDescription">
+                        <p class="h5 text-primary">Invoice Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download License Agreement</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Invoice</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Invoice Number</label>
+                                    <label class="form-control">{{"Invoice Number : "}} <span class="text-muted">{{requestFormValues.invoiceNumber}}</span></label>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Invoice Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.invoiceDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3" *ngIf="requestFormValues.eResourceDescription">
+                        <p class="h5 text-primary">E-Resource Enabling Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">E-Resource Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.eResourceDescription}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">E-Resource Expiry Date</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.eResourceExpiryDate}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download E-Resource Enabling Documents</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #addRequest let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Program Name</label>
+                            <label class="form-control">Anaesthesia</label>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Date Of Request</label>
+                            <label class="form-control">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Title<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="title" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Publisher<span class="text-danger">*</span></label>
+                            <ng-select [items]="listData.userLists" formControlName="publisher"
+                            bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Description <span class="text-danger">*</span></label>
+                            <ckeditor [editor]="Editor" formControlName="description"></ckeditor>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">
+                                Upload your Supporting Documents.<span class="text-danger">{{
+                                " *"
+                                }}</span>
+                            </label>
+                            <ngx-dropzone (change)="onSelect($event, 'supportingFiles')">
+                                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview
+                                *ngFor="let f of supportingFiles"
+                                [removable]="true"
+                                (removed)="onRemove(f, 'supportingFiles')"
+                                >
+                                <ngx-dropzone-label
+                                    >{{ f.name }} ({{
+                                    f.type
+                                    }})</ngx-dropzone-label
+                                >
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary">Submit</button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #uploadQuote let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Upload Quote</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Created By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Created Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <p class="h5 text-primary">Quote Details</p>
+
+                        <div class="card-body">
+                            <div class="row border-top mt-2 border-top mt-2-dashed">
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Description <span class="text-danger">*</span></label>
+                                    <ckeditor [editor]="Editor"></ckeditor>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">
+                                        Upload your Quote<span class="text-danger">{{
+                                        " *"
+                                        }}</span>
+                                    </label>
+                                    <ngx-dropzone (change)="onSelect($event, 'quoteFile')">
+                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview
+                                        *ngFor="let f of quoteFile"
+                                        [removable]="true"
+                                        (removed)="onRemove(f, 'quoteFile')"
+                                        >
+                                        <ngx-dropzone-label
+                                            >{{ f.name }} ({{
+                                            f.type
+                                            }})</ngx-dropzone-label
+                                        >
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #approveQuote let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Approve Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="" class="form-label">Request Description</label>
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-6 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">Quote Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Quote</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Quote Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.quoteDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card border shadow">
+                        <div class="card-body">
+                            <div class="d-flex flex-row gap-3">
+                                <button class="btn btn-success">Approve</button>
+                                <button class="btn btn-danger">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #issueLpo let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Issue LPO</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="" class="form-label">Request Description</label>
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-6 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">Quote Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Quote</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Quote Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.quoteDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-border shadow mt-3">
+                        <p class="h5 text-primary">LPO Details</p>
+
+                        <div class="card-body">
+                            <div class="row border-top mt-2 border-top mt-2-dashed">
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">
+                                        Upload your LPO<span class="text-danger">{{
+                                        " *"
+                                        }}</span>
+                                    </label>
+                                    <ngx-dropzone (change)="onSelect($event, 'lpoFile')">
+                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview
+                                        *ngFor="let f of lpoFile"
+                                        [removable]="true"
+                                        (removed)="onRemove(f, 'lpoFile')"
+                                        >
+                                        <ngx-dropzone-label
+                                            >{{ f.name }} ({{
+                                            f.type
+                                            }})</ngx-dropzone-label
+                                        >
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">LPO Number</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">LPO Description <span class="text-danger">*</span></label>
+                                    <ckeditor [editor]="Editor"></ckeditor>
+                                </div>
+                                
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #invoicing let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Invoicing</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="" class="form-label">Request Description</label>
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-6 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">Quote Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Quote</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Quote Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.quoteDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">LPO Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3">
+                        <p class="h5 text-primary">Inovice Details</p>
+
+                        <div class="card-body">
+                            <div class="row border-top mt-2 border-top mt-2-dashed">
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">
+                                        Upload your Invoice<span class="text-danger">{{
+                                        " *"
+                                        }}</span>
+                                    </label>
+                                    <ngx-dropzone (change)="onSelect($event, 'invoiceFile')">
+                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview
+                                        *ngFor="let f of invoiceFile"
+                                        [removable]="true"
+                                        (removed)="onRemove(f, 'invoiceFile')"
+                                        >
+                                        <ngx-dropzone-label
+                                            >{{ f.name }} ({{
+                                            f.type
+                                            }})</ngx-dropzone-label
+                                        >
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Invoice Number</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">
+                                        Upload License Agreement<span class="text-danger">{{
+                                        " *"
+                                        }}</span>
+                                    </label>
+                                    <ngx-dropzone (change)="onSelect($event, 'licenseAgreementFile')">
+                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview
+                                        *ngFor="let f of licenseAgreementFile"
+                                        [removable]="true"
+                                        (removed)="onRemove(f, 'licenseAgreementFile')"
+                                        >
+                                        <ngx-dropzone-label
+                                            >{{ f.name }} ({{
+                                            f.type
+                                            }})</ngx-dropzone-label
+                                        >
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Invoice Description <span class="text-danger">*</span></label>
+                                    <ckeditor [editor]="Editor"></ckeditor>
+                                </div>
+                                
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #updatePaymentStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Update Payment Status</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="" class="form-label">Request Description</label>
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-6 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">Quote Details</p>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Quote</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Quote Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.quoteDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">LPO Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow border mt-3">
+                        <p class="h5 text-primary">License Agreement Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download License Agreement</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Invoice</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Invoice Number</label>
+                                    <label class="form-control">{{"Invoice Number : "}} <span class="text-muted">{{requestFormValues.invoiceNumber}}</span></label>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Invoice Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.invoiceDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Mark as Paid</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #enableResource let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Enable E-Resource</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Program Name : "}} <span class="text-muted">Anaesthesia</span></label>
+                        </div>
+                        
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Date Of Request : "}} <span class="text-muted">{{requestFormValues.dateOfRequest | date : 'M/d/yy'}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Title : "}} <span class="text-muted">{{requestFormValues.title}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Publisher : "}} <span class="text-muted">{{requestFormValues.publisher}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Requested By : "}} <span class="text-muted">{{requestFormValues.requestedBy}}</span></label>
+                        </div>
+                        <div class="col-md-4 mb-1">
+                            <label class="form-control">{{"Status : "}} <span class="text-muted">{{requestFormValues.status}}</span></label>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <label for="" class="form-label">Request Description</label>
+                            <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.description}}</span></label>
+                        </div>
+                        <div class="col-md-6 mb-1">
+                            <div class="d-flex flex-row">
+                                <p class="h6">Download Supporting Documents</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">Quote Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Quote</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Quote Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.quoteDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border shadow mt-3">
+                        <p class="h5 text-primary">LPO Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow border mt-3">
+                        <p class="h5 text-primary">License Agreement Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download License Agreement</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Invoice</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Invoice Number</label>
+                                    <label class="form-control">{{"Invoice Number : "}} <span class="text-muted">{{requestFormValues.invoiceNumber}}</span></label>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Invoice Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.invoiceDescription}}</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border mt-3">
+                        <p class="h5 text-primary">Enable E-Resource Details</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Description </label>
+                                    <ckeditor [editor]="Editor" ></ckeditor>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" >Expiry Date<span class="text-danger">{{ " *" }}</span></label>
+                                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">
+                                        Upload your Supporting Documents.<span class="text-danger">{{
+                                        " *"
+                                        }}</span>
+                                    </label>
+                                    <ngx-dropzone (change)="onSelect($event, 'eResourceEnableFile')">
+                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                        <ngx-dropzone-preview
+                                        *ngFor="let f of eResourceEnableFile"
+                                        [removable]="true"
+                                        (removed)="onRemove(f, 'eResourceEnableFile')"
+                                        >
+                                        <ngx-dropzone-label
+                                            >{{ f.name }} ({{
+                                            f.type
+                                            }})</ngx-dropzone-label
+                                        >
+                                        </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedRequest.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

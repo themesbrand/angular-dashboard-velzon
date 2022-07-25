@@ -57,7 +57,10 @@ import { MeetingTableViewComponent } from './meeting-management/meeting/meeting-
 import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
 import { AgendaRequestComponent } from './meeting-management/agenda-request/agenda-request.component';
 import { MyMeetingsComponent } from './meeting-management/my-meetings/my-meetings.component';
-// import { MeetingViewComponent } from './meeting-management/meeting/meeting-view/meeting-view.component';
+import { FinanceEResourceRequestComponent } from './finance-view/finance-medical-library/finance-e-resource-request/finance-e-resource-request.component';
+import { EResourceRequestComponent } from './medical-library/e-resource-request/e-resource-request.component';
+import { RenewalComponent } from './medical-library/renewal/renewal.component';
+import { PurchaseMedicalBooksComponent } from './medical-library/purchase-medical-books/purchase-medical-books.component';
 
 const routes: Routes = [
     //Default Routing
@@ -133,6 +136,11 @@ const routes: Routes = [
       { path : "agenda-request", component: AgendaRequestComponent },
       { path : "my-meetings", component: MyMeetingsComponent },
     ]},
+    { path: "medical-library", children : [
+      { path: "e-resource-request", component: EResourceRequestComponent },
+      { path: "renewal", component: RenewalComponent },
+      { path: "purchase-medical-books", component: PurchaseMedicalBooksComponent },
+    ] },
 
     //Employer Routing
     { path: "employer", children : [
@@ -157,15 +165,25 @@ const routes: Routes = [
     { path: "finance", children : [
       { path: "dashboard", component: FinanceDashboardComponent },
       { path: "scholarship-application-view", component: FinanceScholarshipApplicationViewComponent },
-      { path: "view-acceptance-letter", component: FinanceViewAcceptanceLetterComponent }
+      { path: "view-acceptance-letter", component: FinanceViewAcceptanceLetterComponent },
+      { path: "medical-library", children: [
+        { path: "e-resource-request", component: FinanceEResourceRequestComponent },
+      ] }
     ] },
    
-    //Finance Routing
+    //International Routing
     { path: "international", children : [
       { path: "dashboard", component: DashboardInternationalTraineeComponent},
       { path: "application", component: ApplicationInternationalTraineeComponent},
     ] },
 
+    //PD Routing
+    { path: "pd", children : [
+      
+
+    ] },
+
+    
 ];
 
 @NgModule({

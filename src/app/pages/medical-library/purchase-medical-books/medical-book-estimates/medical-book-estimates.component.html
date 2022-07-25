@@ -1,0 +1,817 @@
+<div class="card">
+    <div class="card-header">
+        <p class="h4 text-primary">Estimates</p>
+    </div>
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-end">
+            <button (click)="openModal(createEstimate, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Create new Estimate</button>
+        </div>
+        <div class="live-preview">                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-wrap table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Estimated By</th> 
+                            <th scope="col">Estimated Date</th> 
+                            <th scope="col">Status</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let request of listData.createdRequestsTableData">
+                            <td>{{request.estimatedBy}}</td>
+                            <td>{{request.estimatedDate}}</td>
+                            <td (click)="openModal(requestStatus, 'md'); setRequest(request)" style="cursor: pointer; color: rgb(3, 3, 147)">{{request.status}}</td>
+                            <td>
+                                <div class="dropdown" ngbDropdown>
+                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                        <i class="ri-more-2-fill"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                        <li (click)="setRequest(request); openModal(viewRequest, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Details</a></li>
+                                        <li *ngIf="request.status === 'Estimated'" (click)="setRequest(request); openModal(approveEstimate, 'xl')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Approve</a></li>
+                                        <li *ngIf="request.status === 'Approved By Director'" (click)="setRequest(request); openModal(lpoIssue, 'xl')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Issue LPO</a></li>
+                                        <li *ngIf="request.status === 'LPO Issued'" (click)="setRequest(request); openModal(purchaseDetails, 'xl')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Purchase Details</a></li>
+                                        <li *ngIf="request.status === 'Purchased'" (click)="setRequest(request); openModal(deliveryDetails, 'xl')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Delivery Details</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #createEstimate let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Create new Estimate</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="createEstimateForm">
+                    <div class="live-preview">                                    
+                        <div class="table-responsive">
+                            <table class="table align-middle table-wrap table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th scope="col">Program Name</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">Edition</th>
+                                        <th scope="col">ISBN</th>
+                                        <th scope="col">No of Copies</th>
+                                        <th scope="col">Requested By</th>
+                                        <th scope="col">Date of Request</th>
+                                        <th scope="col">Estimate Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="purchaseRequests">
+                                    <tr *ngFor="let request of purchaseRequestsControls; let i = index"
+                                    [formGroupName]="i">
+                                        <td>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" 
+                                                (change)="onChangeEstimate(i)"
+                                                formControlName="isChecked" type="checkbox" id="formCheck1{{i}}"><label class="form-check-label" for="formCheck1{{i}}">Select</label>
+                                            </div>
+                                        </td>
+                                        <td>{{request.value.programName}}</td>
+                                        <td>{{request.value.title}}</td>
+                                        <td>{{request.value.author}}</td>
+                                        <td>{{request.value.edition}}</td>
+                                        <td>{{request.value.isbn}}</td>
+                                        <td>{{request.value.noOfCopies}}</td>
+                                        <td>{{request.value.requestedBy}}</td>
+                                        <td>{{request.value.requestedDate}}</td>
+                                        <td>
+                                            <input type="number" formControlName="estimatedAmount" class="form-control" (keyup)="onChangeEstimate(i)">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">{{"Estimated By : "}}{{"Saleh Mahfoudh"}}</th>
+                                        <th colspan="3">{{"Estimated Date : "}}{{createEstimateFormValues.estimateDate | date : 'yyyy-MM-d'}}</th>
+                                        <th colspan="3" class="text-end"><span class="px-4">{{createEstimateFormValues.estimateTotal}}</span></th>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewRequest let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Estimate</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card mb-3">
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated By</label>
+                                <label class="form-control">{{selectedEstimate.estimatedBy}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated Date</label>
+                                <label class="form-control">{{selectedEstimate.estimatedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimate Total</label>
+                                <label class="form-control">{{selectedEstimate.estimateTotal}}</label>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="live-preview">                                    
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-wrap table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Program Name</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Author</th>
+                                                    <th scope="col">Edition</th>
+                                                    <th scope="col">ISBN</th>
+                                                    <th scope="col">No of Copies</th>
+                                                    <th scope="col">Requested By</th>
+                                                    <th scope="col">Date of Request</th>
+                                                    <th scope="col">Estimate Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let estimate of selectedEstimate.estimates">
+                                                    <td>{{estimate.programName}}</td>
+                                                    <td>{{estimate.title}}</td>
+                                                    <td>{{estimate.author}}</td>
+                                                    <td>{{estimate.edition}}</td>
+                                                    <td>{{estimate.isbn}}</td>
+                                                    <td>{{estimate.noOfCopies}}</td>
+                                                    <td>{{estimate.requestedBy}}</td>
+                                                    <td>{{estimate.requestedDate}}</td>
+                                                    <td>{{estimate.estimate}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" *ngIf="selectedEstimate.directorApprovalStatus">
+                    <p class="h5 text-primary">Director's Approval Status</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved Date</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved By</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedBy}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" *ngIf="selectedEstimate.lpoIssueDetails">
+                    <p class="h5 text-primary">LPO Details</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"LOP No : "}} <span class="text-muted">{{selectedEstimate.lpoIssueDetails.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.lpoIssueDetails.lpoDescription}}</span></label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" *ngIf="selectedEstimate.purchaseOrderDetails">
+                    <p class="h5 text-primary">Purchase Order Details</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">Purchase Order Number</label>
+                                    <label class="form-control">{{"Po Number : "}} <span class="text-muted">{{selectedEstimate.purchaseOrderDetails.purchaseOrderNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Purchase Order</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Purchase Order Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.purchaseOrderDetails.purchaseOrderDescription}}</span></label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" *ngIf="selectedEstimate.deliveryDetails">
+                    <p class="h5 text-primary">Delivery Details</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">Delivery reference Number</label>
+                                    <label class="form-control">{{"Delivery reference Number : "}} <span class="text-muted">{{selectedEstimate.deliveryDetails.deliveryNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Delivery Reference</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Delivery Reference Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.deliveryDetails.deliveryDescription}}</span></label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #approveEstimate let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Approve / Reject Estimate</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Estimated By</label>
+                        <label class="form-control">{{selectedEstimate.estimatedBy}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Estimated Date</label>
+                        <label class="form-control">{{selectedEstimate.estimatedDate}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Status</label>
+                        <label class="form-control">{{selectedEstimate.status}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Estimate Total</label>
+                        <label class="form-control">{{selectedEstimate.estimateTotal}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="live-preview">                                    
+                            <div class="table-responsive">
+                                <table class="table align-middle table-wrap table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Program Name</th>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Author</th>
+                                            <th scope="col">Edition</th>
+                                            <th scope="col">ISBN</th>
+                                            <th scope="col">No of Copies</th>
+                                            <th scope="col">Requested By</th>
+                                            <th scope="col">Date of Request</th>
+                                            <th scope="col">Estimate Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let estimate of selectedEstimate.estimates">
+                                            <td>{{estimate.programName}}</td>
+                                            <td>{{estimate.title}}</td>
+                                            <td>{{estimate.author}}</td>
+                                            <td>{{estimate.edition}}</td>
+                                            <td>{{estimate.isbn}}</td>
+                                            <td>{{estimate.noOfCopies}}</td>
+                                            <td>{{estimate.requestedBy}}</td>
+                                            <td>{{estimate.requestedDate}}</td>
+                                            <td>{{estimate.estimate}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row gap-3">
+                    <button class="btn btn-success">Approve</button>
+                    <button class="btn btn-danger">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #lpoIssue let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Issue LPO</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card mb-3">
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated By</label>
+                                <label class="form-control">{{selectedEstimate.estimatedBy}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated Date</label>
+                                <label class="form-control">{{selectedEstimate.estimatedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimate Total</label>
+                                <label class="form-control">{{selectedEstimate.estimateTotal}}</label>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="live-preview">                                    
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-wrap table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Program Name</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Author</th>
+                                                    <th scope="col">Edition</th>
+                                                    <th scope="col">ISBN</th>
+                                                    <th scope="col">No of Copies</th>
+                                                    <th scope="col">Requested By</th>
+                                                    <th scope="col">Date of Request</th>
+                                                    <th scope="col">Estimate Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let estimate of selectedEstimate.estimates">
+                                                    <td>{{estimate.programName}}</td>
+                                                    <td>{{estimate.title}}</td>
+                                                    <td>{{estimate.author}}</td>
+                                                    <td>{{estimate.edition}}</td>
+                                                    <td>{{estimate.isbn}}</td>
+                                                    <td>{{estimate.noOfCopies}}</td>
+                                                    <td>{{estimate.requestedBy}}</td>
+                                                    <td>{{estimate.requestedDate}}</td>
+                                                    <td>{{estimate.estimate}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Director's Approval Status</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved Date</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved By</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedBy}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Issue LPO</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">
+                                    Upload your LPO<span class="text-danger">{{
+                                    " *"
+                                    }}</span>
+                                </label>
+                                <ngx-dropzone (change)="onSelect($event, 'lpoFile')">
+                                    <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                    <ngx-dropzone-preview
+                                    *ngFor="let f of lpoFile"
+                                    [removable]="true"
+                                    (removed)="onRemove(f, 'lpoFile')"
+                                    >
+                                    <ngx-dropzone-label
+                                        >{{ f.name }} ({{
+                                        f.type
+                                        }})</ngx-dropzone-label
+                                    >
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">LPO Number</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">LPO Description <span class="text-danger">*</span></label>
+                                <ckeditor [editor]="Editor"></ckeditor>
+                            </div>
+                            
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #purchaseDetails let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Issue LPO</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card mb-3">
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated By</label>
+                                <label class="form-control">{{selectedEstimate.estimatedBy}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated Date</label>
+                                <label class="form-control">{{selectedEstimate.estimatedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimate Total</label>
+                                <label class="form-control">{{selectedEstimate.estimateTotal}}</label>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="live-preview">                                    
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-wrap table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Program Name</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Author</th>
+                                                    <th scope="col">Edition</th>
+                                                    <th scope="col">ISBN</th>
+                                                    <th scope="col">No of Copies</th>
+                                                    <th scope="col">Requested By</th>
+                                                    <th scope="col">Date of Request</th>
+                                                    <th scope="col">Estimate Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let estimate of selectedEstimate.estimates">
+                                                    <td>{{estimate.programName}}</td>
+                                                    <td>{{estimate.title}}</td>
+                                                    <td>{{estimate.author}}</td>
+                                                    <td>{{estimate.edition}}</td>
+                                                    <td>{{estimate.isbn}}</td>
+                                                    <td>{{estimate.noOfCopies}}</td>
+                                                    <td>{{estimate.requestedBy}}</td>
+                                                    <td>{{estimate.requestedDate}}</td>
+                                                    <td>{{estimate.estimate}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Director's Approval Status</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved Date</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved By</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedBy}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">LPO Details</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.lpoIssueDetails.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.lpoIssueDetails.lpoDescription}}</span></label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Purchase Order Details</p>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">
+                                    Upload your Purchase Order<span class="text-danger">{{
+                                    " *"
+                                    }}</span>
+                                </label>
+                                <ngx-dropzone (change)="onSelect($event, 'purchaseInvoiceFile')">
+                                    <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                    <ngx-dropzone-preview
+                                    *ngFor="let f of purchaseInvoiceFile"
+                                    [removable]="true"
+                                    (removed)="onRemove(f, 'purchaseInvoiceFile')"
+                                    >
+                                    <ngx-dropzone-label
+                                        >{{ f.name }} ({{
+                                        f.type
+                                        }})</ngx-dropzone-label
+                                    >
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Purchase Order Number</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Purchase Order Description <span class="text-danger">*</span></label>
+                                <ckeditor [editor]="Editor"></ckeditor>
+                            </div>
+                            
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #deliveryDetails let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Delivery Details</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card mb-3">
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated By</label>
+                                <label class="form-control">{{selectedEstimate.estimatedBy}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimated Date</label>
+                                <label class="form-control">{{selectedEstimate.estimatedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Estimate Total</label>
+                                <label class="form-control">{{selectedEstimate.estimateTotal}}</label>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="live-preview">                                    
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-wrap table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Program Name</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Author</th>
+                                                    <th scope="col">Edition</th>
+                                                    <th scope="col">ISBN</th>
+                                                    <th scope="col">No of Copies</th>
+                                                    <th scope="col">Requested By</th>
+                                                    <th scope="col">Date of Request</th>
+                                                    <th scope="col">Estimate Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let estimate of selectedEstimate.estimates">
+                                                    <td>{{estimate.programName}}</td>
+                                                    <td>{{estimate.title}}</td>
+                                                    <td>{{estimate.author}}</td>
+                                                    <td>{{estimate.edition}}</td>
+                                                    <td>{{estimate.isbn}}</td>
+                                                    <td>{{estimate.noOfCopies}}</td>
+                                                    <td>{{estimate.requestedBy}}</td>
+                                                    <td>{{estimate.requestedDate}}</td>
+                                                    <td>{{estimate.estimate}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Director's Approval Status</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Status</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.status}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved Date</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedDate}}</label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Approved By</label>
+                                <label class="form-control">{{selectedEstimate.directorApprovalStatus.approvedBy}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">LPO Details</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">LPO Number</label>
+                                    <label class="form-control">{{"LOP No : "}} <span class="text-muted">{{selectedEstimate.lpoIssueDetails.lpoNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download LPO</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">LPO Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.lpoIssueDetails.lpoDescription}}</span></label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Purchase Order Details</p>
+                    <div class="card-body shadow border">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">Purchase Order Number</label>
+                                    <label class="form-control">{{"Po Number : "}} <span class="text-muted">{{selectedEstimate.purchaseOrderDetails.purchaseOrderNumber}}</span></label>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <div class="d-flex flex-row">
+                                        <p class="h6">Download Purchase Order</p>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="" class="form-label">Purchase Order Description</label>
+                                    <label class="form-control">{{"Description : "}} <span class="text-muted">{{selectedEstimate.purchaseOrderDetails.purchaseOrderDescription}}</span></label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <p class="h5 text-primary">Delivery Details</p>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">
+                                    Upload your Delivery Confirmation<span class="text-danger">{{
+                                    " *"
+                                    }}</span>
+                                </label>
+                                <ngx-dropzone (change)="onSelect($event, 'purchaseInvoiceFile')">
+                                    <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                    <ngx-dropzone-preview
+                                    *ngFor="let f of purchaseInvoiceFile"
+                                    [removable]="true"
+                                    (removed)="onRemove(f, 'purchaseInvoiceFile')"
+                                    >
+                                    <ngx-dropzone-label
+                                        >{{ f.name }} ({{
+                                        f.type
+                                        }})</ngx-dropzone-label
+                                    >
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Delivery Reference Number</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Delivery Description <span class="text-danger">*</span></label>
+                                <ckeditor [editor]="Editor"></ckeditor>
+                            </div>
+                            
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Estimate Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedEstimate.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+

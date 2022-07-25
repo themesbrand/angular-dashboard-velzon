@@ -1,0 +1,163 @@
+<div class="card">
+    <div class="card-header">
+        <p class="h4 text-primary">Purchase Medical Books</p>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3 border border-dashed p-2">
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Program Name</label>
+                <ng-select [items]="[]"
+                placeholder="Please select Program Name">
+                </ng-select>
+            </div>
+            <div class="col-md-6 mb-1">
+                <label class="form-label">Title</label>
+                <input class="form-control" type="text" placeholder="Please enter the Title">
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Author</label>
+                <ng-select [items]="[]"
+                placeholder="Please select a Author">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Edition</label>
+                <ng-select [items]="[]"
+                placeholder="Please select the Edition">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">ISBN</label>
+                <input class="form-control" type="text" placeholder="Please enter the ISBN">
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Requested By</label>
+                <ng-select [items]="[]"
+                placeholder="Please select Requested By User">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <label class="form-label">Status</label>
+                <ng-select [items]="[]"
+                placeholder="Please select a Status">
+                </ng-select>
+            </div>
+            <div class="d-flex flex-row mt-2">
+                <button class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-end">
+            <button (click)="clearForm(); openModal(addRequest, 'lg')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Make a Request</button>
+        </div>
+        <div class="live-preview">                                    
+            <div class="table-responsive">
+                <table class="table align-middle table-wrap table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Program Name</th> 
+                            <th scope="col">Title</th> 
+                            <th scope="col">Author</th>
+                            <th scope="col">Edition</th>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">No Of Copies</th>
+                            <th scope="col">Requested By</th>
+                            <th scope="col">Requested Date</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let request of listData.resourceRequestsTableData">
+                            <td>{{request.programName}}</td>
+                            <td>{{request.title}}</td>
+                            <td>{{request.author}}</td>
+                            <td>{{request.edition}}</td>
+                            <td>{{request.isbn}}</td>
+                            <td>{{request.noOfCopies}}</td>
+                            <td>{{request.requestedBy}}</td>
+                            <td>{{request.requestedDate | date : 'yyyy-M-dd'}}</td>
+                            <td (click)="openModal(requestStatus, 'md'); setRequest(request)" style="cursor: pointer; color: rgb(3, 3, 147)">{{request.status}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<ng-template #addRequest let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Make a Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="requestForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Program Name</label>
+                            <label class="form-control">Anaesthesia</label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Title<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="title" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Author<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="author" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Edition<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="edition" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">ISBN<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="isbn" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">No of Copies<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="noOfCopies" class="form-control">
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary">Submit</button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedRequest.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -11,12 +11,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         // tslint:disable-next-line: max-line-length
-        const users: any[] = JSON.parse(localStorage.getItem('users')!) || [{ username: 'admin', email: 'admin@omsb', password: '123456' },
-        { username: 'admin', email: 'employer@omsb', password: '123456' },
-        { username: 'admin', email: 'interviewer@omsb', password: '123456' },
-        { username: 'admin', email: 'applicant@omsb', password: '123456' },
-        { username: 'admin', email: 'finance@omsb', password: '123456' },
-        { username: 'admin', email: 'international@omsb', password: '123456' }
+        const users: any[] = JSON.parse(localStorage.getItem('users')!) || [{ username: 'admin', email: 'eportal@omsb.org', password: '123456' },
+        { username: 'employer', email: 'employer@omsb.org', password: '123456' },
+        { username: 'interviewer', email: 'interviewer@omsb.org', password: '123456' },
+        { username: 'applicant', email: 'applicant@omsb.org', password: '123456' },
+        { username: 'finance', email: 'finance@omsb.org', password: '123456' },
+        { username: 'international', email: 'international@omsb.org', password: '123456' },
+        { username: 'pd', email: 'pd@omsb.org', password: '123456' }
     ];
 
         // wrap in delayed observable to simulate server api call

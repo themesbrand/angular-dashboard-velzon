@@ -7,76 +7,47 @@
     },
     {
         "id": 2,
-        "label": "Master Rotation",
-        "icon": "ri-file-paper-line",
-        "link": "/rotation-page-resident-mapping"
-    },
-    {
-        "id": 3,
         "label": "Block Diagram",
         "icon": " ri-archive-line",
         "link": "/residency-block-diagram"
     },
     {
-        "id": 4,
+        "id": 3,
         "label": "Curriculum",
         "icon": "ri-git-repository-line",
         "link": "/curriculum"
     },
     {
-        "id": 5,
-        "label": "Duty Hours",
-        "icon": " ri-briefcase-4-line",
-        "subItems" : [
-            {
-                "id": 6,
-                "label": "Log Hours",
-                "link": "/duty-hours/grid"
-            },
-            {
-                "id": 7,
-                "label": "View Hours",
-                "link": "/duty-hours/view"
-            }
-        ]
-    },
-    {
-        "id": 8,
-        "label": "Log Procedure",
-        "icon": "ri-newspaper-line",
-        "link": "/log-procedures"
-    },
-    {
-        "id": 9,
+        "id": 4,
         "label": "Leave Application",
         "icon": " ri-todo-line",
         "link": "/leave-application"
     },
     {
-        "id": 10,
+        "id": 5,
         "label": "Counselling",
         "icon": "ri-book-3-line",
         "subItems" : [
             {
-                "id": 11,
+                "id": 6,
                 "label": "Self Referral",
                 "icon": "ri-calendar-event-line",
                 "link": "/counselling/self-referral"
             },
             {
-                "id": 12,
+                "id": 7,
                 "label": "Program Referral",
                 "icon": "ri-calendar-event-line",
                 "link": "/counselling/program-referral"
             },
             {
-                "id": 13,
+                "id": 8,
                 "label": "MMR Dashboard",
                 "icon": "ri-calendar-event-line",
                 "link": "/counselling/mmr-dashboard"
             },
             {
-                "id": 13,
+                "id": 9,
                 "label": "My Appointments",
                 "icon": "ri-calendar-event-line",
                 "link": "/counselling/my-appointments"
@@ -84,62 +55,49 @@
         ]
     },
     {
-        "id": 14,
-        "label": "Scholarship",
-        "icon": "  ri-account-box-line",
-        "subItems" : [
-            {
-                "id": 15,
-                "label": "Scholarship Section",
-                "icon": "ri-calendar-event-line",
-                "link": "/scholarship/scholarship-section"
-            }
-        ]
-    },
-    {
-        "id": 16,
+        "id": 10,
         "label": "Meeting Management",
         "icon": " ri-calendar-todo-fill",
         "subItems" : [
             {
-                "id": 17,
+                "id": 11,
                 "label": "Configuration",
                 "link": "/meeting-management/configuration"
             },
             {
-                "id": 18,
+                "id": 12,
                 "label": "Invite",
                 "link": "/meeting-management/view-meetings"
             },
             {
-                "id": 19,
+                "id": 13,
                 "label": "Agenda Request",
                 "link": "/meeting-management/agenda-request"
             },
             {
-                "id": 20,
+                "id": 14,
                 "label": "My Meeting",
                 "link": "/meeting-management/my-meetings"
             }
         ]
     },
     {
-        "id": 21,
+        "id": 15,
         "label": "Medical Library",
-        "icon": " ri-clapperboard-line",
+        "icon": "  ri-clapperboard-line",
         "subItems" : [
             {
-                "id": 22,
+                "id": 16,
                 "label": "E-Resource Request",
                 "link": "medical-library/e-resource-request"
             },
             {
-                "id": 23,
+                "id": 17,
                 "label": "Renewal",
                 "link": "medical-library/renewal"
             },
             {
-                "id": 24,
+                "id": 18,
                 "label": "Purchase Medical Books",
                 "link": "medical-library/purchase-medical-books"
             }
