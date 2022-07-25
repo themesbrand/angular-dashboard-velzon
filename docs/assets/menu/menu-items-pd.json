@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "label": "Dashboard",
+        "icon": "ri-dashboard-line",
+        "link": "/dashboard"
+    },
+    {
+        "id": 2,
+        "label": "Block Diagram",
+        "icon": " ri-archive-line",
+        "link": "/residency-block-diagram"
+    },
+    {
+        "id": 3,
+        "label": "Curriculum",
+        "icon": "ri-git-repository-line",
+        "link": "/curriculum"
+    },
+    {
+        "id": 4,
+        "label": "Leave Application",
+        "icon": " ri-todo-line",
+        "link": "/leave-application"
+    },
+    {
+        "id": 5,
+        "label": "Counselling",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 6,
+                "label": "Self Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/self-referral"
+            },
+            {
+                "id": 7,
+                "label": "Program Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/program-referral"
+            },
+            {
+                "id": 8,
+                "label": "MMR Dashboard",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/mmr-dashboard"
+            },
+            {
+                "id": 9,
+                "label": "My Appointments",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/my-appointments"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "label": "Meeting Management",
+        "icon": " ri-calendar-todo-fill",
+        "subItems" : [
+            {
+                "id": 11,
+                "label": "Configuration",
+                "link": "/meeting-management/configuration"
+            },
+            {
+                "id": 12,
+                "label": "Invite",
+                "link": "/meeting-management/view-meetings"
+            },
+            {
+                "id": 13,
+                "label": "Agenda Request",
+                "link": "/meeting-management/agenda-request"
+            },
+            {
+                "id": 14,
+                "label": "My Meeting",
+                "link": "/meeting-management/my-meetings"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "label": "Medical Library",
+        "icon": "  ri-clapperboard-line",
+        "subItems" : [
+            {
+                "id": 16,
+                "label": "E-Resource Request",
+                "link": "medical-library/e-resource-request"
+            },
+            {
+                "id": 17,
+                "label": "Renewal",
+                "link": "medical-library/renewal"
+            },
+            {
+                "id": 18,
+                "label": "Purchase Medical Books",
+                "link": "medical-library/purchase-medical-books"
+            }
+        ]
+    }
+]
