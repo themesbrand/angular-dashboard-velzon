@@ -61,6 +61,7 @@ import { FinanceEResourceRequestComponent } from './finance-view/finance-medical
 import { EResourceRequestComponent } from './medical-library/e-resource-request/e-resource-request.component';
 import { RenewalComponent } from './medical-library/renewal/renewal.component';
 import { PurchaseMedicalBooksComponent } from './medical-library/purchase-medical-books/purchase-medical-books.component';
+import { FinanceRenewalComponent } from './finance-view/finance-medical-library/finance-renewal/finance-renewal.component';
 
 const routes: Routes = [
     //Default Routing
@@ -168,6 +169,7 @@ const routes: Routes = [
       { path: "view-acceptance-letter", component: FinanceViewAcceptanceLetterComponent },
       { path: "medical-library", children: [
         { path: "e-resource-request", component: FinanceEResourceRequestComponent },
+        { path: "renewal", component: FinanceRenewalComponent },
       ] }
     ] },
    

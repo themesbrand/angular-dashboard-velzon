@@ -141,6 +141,7 @@ import { EResourceRenewalRequestComponent } from './medical-library/renewal/e-re
 import { PurchaseMedicalBooksComponent } from './medical-library/purchase-medical-books/purchase-medical-books.component';
 import { ViewMedicalBookRequestsComponent } from './medical-library/purchase-medical-books/view-medical-book-requests/view-medical-book-requests.component';
 import { MedicalBookEstimatesComponent } from './medical-library/purchase-medical-books/medical-book-estimates/medical-book-estimates.component';
+import { FinanceRenewalComponent } from './finance-view/finance-medical-library/finance-renewal/finance-renewal.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -247,7 +248,8 @@ FullCalendarModule.registerPlugins([
     EResourceRenewalRequestComponent,
     PurchaseMedicalBooksComponent,
     ViewMedicalBookRequestsComponent,
-    MedicalBookEstimatesComponent
+    MedicalBookEstimatesComponent,
+    FinanceRenewalComponent
   ],
   imports: [
     CommonModule,

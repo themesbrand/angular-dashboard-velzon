@@ -6,11 +6,11 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {data} from './data';
 
 @Component({
-  selector: 'app-e-resource-renewal-request',
-  templateUrl: './e-resource-renewal-request.component.html',
-  styleUrls: ['./e-resource-renewal-request.component.scss']
+  selector: 'app-finance-renewal',
+  templateUrl: './finance-renewal.component.html',
+  styleUrls: ['./finance-renewal.component.scss']
 })
-export class EResourceRenewalRequestComponent implements OnInit {
+export class FinanceRenewalComponent implements OnInit {
 
   listData = data;
   public Editor = ClassicEditor;
