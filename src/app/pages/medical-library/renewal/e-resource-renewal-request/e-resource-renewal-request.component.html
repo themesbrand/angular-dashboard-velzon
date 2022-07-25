@@ -71,11 +71,11 @@
                                     <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                         <li (click)="setRequest(request); openModal(requestView, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                         <li *ngIf="request.status === 'Requested'" (click)="setRequest(request); openModal(uploadQuote, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Upload Quote</a></li>
-                                        <li *ngIf="request.status === 'Quote Received'" (click)="setRequest(request); openModal(approveQuote, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Approve</a></li>
-                                        <li *ngIf="request.status === 'Approved By Director'" (click)="setRequest(request); openModal(issueLpo, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Issue LPO</a></li>
-                                        <li *ngIf="request.status === 'LPO Issued'" (click)="setRequest(request); openModal(invoicing, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Invoicing</a></li>
-                                        <li *ngIf="request.status === 'Invoiced'" (click)="setRequest(request); openModal(updatePaymentStatus, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Update Payment Status</a></li>
-                                        <li *ngIf="request.status === 'Paid'" (click)="setRequest(request); openModal(enableResource, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-upload-cloud-line"></i>Enable E-Resource</a></li>
+                                        <li *ngIf="request.status === 'Quote Received'" (click)="setRequest(request); openModal(approveQuote, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Approve</a></li>
+                                        <li *ngIf="request.status === 'Approved By Director'" (click)="setRequest(request); openModal(issueLpo, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Issue LPO</a></li>
+                                        <li *ngIf="request.status === 'LPO Issued'" (click)="setRequest(request); openModal(invoicing, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Invoicing</a></li>
+                                        <li *ngIf="request.status === 'Invoiced'" (click)="setRequest(request); openModal(updatePaymentStatus, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Update Payment Status</a></li>
+                                        <li *ngIf="request.status === 'Paid'" (click)="setRequest(request); openModal(enableResource, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-profile-line"></i>Enable E-Resource</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -129,9 +129,10 @@
                         </div>
                     </div>
                     <div class="card border shadow mt-3" *ngIf="requestFormValues.status === 'Rejected By Director'">
-                        <p class="h4 text-danger p-4">Rejected By Director</p>
+                        <p class="h4 text-danger px-3 py-2">Rejected By Director</p>
                     </div>
                     <div class="card border shadow mt-3" *ngIf="requestFormValues.quoteDescription">
+                        <p class="h4 text-pimary px-3 py-2">Quote Details</p>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -149,9 +150,9 @@
                     </div>
                     
                     <div class="card border shadow mt-3" *ngIf="requestFormValues.lpoDescription">
+                        <p class="h4 text-pimary px-3 py-2">LPO Details</p>
                         <div class="card-body">
-                            <div class="row">
-                                
+                            <div class="row">                                
                                 <div class="col-md-6 mb-1">
                                     <label for="" class="form-label">LPO Number</label>
                                     <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.lpoNumber}}</span></label>
@@ -170,6 +171,7 @@
                         </div>
                     </div>
                     <div class="card shadow border mt-3" *ngIf="requestFormValues.invoiceDescription">
+                        <p class="h4 text-pimary px-3 py-2">License Agreement Details</p>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-1">
@@ -195,32 +197,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card shadow border mt-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="card shadow border mt-3" *ngIf="requestFormValues.eResourceDescription">
+                        <p class="h4 text-pimary px-3 py-2">E-Resource Details</p>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 mb-1">
-                                    <label for="" class="form-label">E-Resource Description</label>
+                                    <label for="" class="form-label">Description</label>
                                     <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.eResourceDescription}}</span></label>
                                 </div>
                                 <div class="col-md-6 mb-1">
-                                    <label for="" class="form-label">E-Resource Expiry Date</label>
+                                    <label for="" class="form-label">Expiry Date</label>
                                     <label class="form-control">{{"Description : "}} <span class="text-muted">{{requestFormValues.eResourceExpiryDate}}</span></label>
                                 </div>
                                 <div class="col-md-6 mb-1">
                                     <div class="d-flex flex-row">
-                                        <p class="h6">Download E-Resource Enabling Documents</p>
+                                        <p class="h6">Download Supporting Documents</p>
                                         <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
                                     </div>
                                 </div>
@@ -275,18 +266,7 @@
                         </div>
                     </div>
                     <div class="card shadow border">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Created By : "}}{{requestFormValues.updatedBy}}</p>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Created Date : "}}{{requestFormValues.updatedDate}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card shadow border">
+                        <p class="h4 text-pimary px-3 py-2">Quote Details</p>
                         <div class="card-body">
                             <div class="row border-top mt-2 border-top mt-2-dashed">
                                 <div class="col-md-12 mb-3">
@@ -366,6 +346,7 @@
                         </div>
                     </div>
                     <div class="card border shadow mt-3">
+                        <p class="h4 text-pimary px-3 py-2">Quote Details</p>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -380,20 +361,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card border shadow">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="card border shadow">
                         <div class="card-body">
                             <div class="d-flex flex-row gap-3">
@@ -452,6 +420,7 @@
                         </div>
                     </div>
                     <div class="card border shadow mt-3">
+                        <p class="h4 text-pimary px-3 py-2">Quote Details</p>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -467,19 +436,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card border shadow">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Updated By : "}}{{requestFormValues.updatedBy}}</p>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <p class="text-primary">{{"Updated Date : "}}{{requestFormValues.updatedDate}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="card-border shadow mt-3">
+                        <p class="h4 text-pimary px-3 py-2">LPO Details</p>
                         <div class="card-body">
                             <div class="row border-top mt-2 border-top mt-2-dashed">
                                 <div class="col-md-12 mb-3">

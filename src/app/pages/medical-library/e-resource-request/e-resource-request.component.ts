@@ -67,6 +67,7 @@ export class EResourceRequestComponent implements OnInit {
 
   setRequest(request : any) {
     this.selectedRequest = request;
+    this.requestForm.reset();
     this.requestForm.patchValue(request)
   }
 
