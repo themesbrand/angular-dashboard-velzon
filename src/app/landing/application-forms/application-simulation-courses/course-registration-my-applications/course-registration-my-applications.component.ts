@@ -1,15 +1,16 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { trigger, style, animate, transition } from '@angular/animations';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import {data} from './data'
+import {data} from './data';
+
 @Component({
-  selector: 'app-simulation-view-applications',
-  templateUrl: './simulation-view-applications.component.html',
-  styleUrls: ['./simulation-view-applications.component.scss'],
+  selector: 'app-course-registration-my-applications',
+  templateUrl: './course-registration-my-applications.component.html',
+  styleUrls: ['./course-registration-my-applications.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -25,13 +26,12 @@ import {data} from './data'
     )
   ]
 })
-export class SimulationViewApplicationsComponent implements OnInit {
+export class CourseRegistrationMyApplicationsComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
   listData = data;
   public Editor = ClassicEditor;
-  selectedApplication: any;
 
   constructor(
     private router : Router,
@@ -50,10 +50,6 @@ export class SimulationViewApplicationsComponent implements OnInit {
     }
   }
   
-  setApplication (application : any) {
-    this.selectedApplication = application;
-  }
-  
   onNavigate(url : any) {
     this.router.navigateByUrl(url);
   }
@@ -61,4 +57,5 @@ export class SimulationViewApplicationsComponent implements OnInit {
   openModal(modal :any, size : any) {
     this.modalService.open(modal, {size : size})
   }
+
 }

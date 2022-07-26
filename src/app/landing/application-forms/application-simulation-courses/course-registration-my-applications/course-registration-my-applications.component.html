@@ -1,0 +1,76 @@
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Course Name</label>
+                    <ng-select 
+                    [items]="listData.applicationDataList" placeholder="Please select">
+                </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Applied Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                          [convertModelValue]="true" mode="range">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Course Date Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                          [convertModelValue]="true" mode="range">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Application Id</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Applied Date</th>
+                                    <th scope="col">Course Start Date</th>
+                                    <th scope="col">Course End Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let application of listData.applicationDataList">
+                                    <td>{{application.applicationId}}</td>
+                                    <td>{{application.courseName}}</td>
+                                    <td>{{application.appliedDate}}</td>
+                                    <td>{{application.courseStartDate}}</td>
+                                    <td>{{application.courseEndDate}}</td>                                
+                                    <td>{{application.status}}</td>                                
+                                    <td>
+                                        <div *ngIf="application.status === 'Applied'" class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Refund</a></li>
+                                                <li><a class="dropdown-item" ><i class="mx-1  ri-file-shred-fill"></i>Reschedule</a></li>
+                                                <li><a class="dropdown-item" ><i class="mx-1  ri-file-chart-line"></i>Evaluation</a></li>
+                                                <li><a class="dropdown-item" ><i class="mx-1  ri-download-cloud-line"></i>Download Certificate</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                            </thead>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

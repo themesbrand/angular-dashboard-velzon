@@ -32,6 +32,7 @@ import { ApplicationSimulationCoursesComponent } from './application-forms/appli
 import { CourseRegistrationPageOneComponent } from './application-forms/application-simulation-courses/course-registration-page-one/course-registration-page-one.component';
 import { CourseRegistrationPageTwoComponent } from './application-forms/application-simulation-courses/course-registration-page-two/course-registration-page-two.component';
 import { CourseRegistrationSelectorPageOneComponent } from './application-forms/application-simulation-courses/course-registration-selector-page-one/course-registration-selector-page-one.component';
+import { CourseRegistrationMyApplicationsComponent } from './application-forms/application-simulation-courses/course-registration-my-applications/course-registration-my-applications.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CourseRegistrationSelectorPageOneComponent } from './application-forms/
     ApplicationSimulationCoursesComponent,
     CourseRegistrationPageOneComponent,
     CourseRegistrationPageTwoComponent,
-    CourseRegistrationSelectorPageOneComponent
+    CourseRegistrationSelectorPageOneComponent,
+    CourseRegistrationMyApplicationsComponent
   ],
   imports: [
     CommonModule,
