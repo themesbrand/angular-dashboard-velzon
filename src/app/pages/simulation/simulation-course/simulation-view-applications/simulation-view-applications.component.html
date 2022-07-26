@@ -55,11 +55,11 @@
                                     <td>{{application.courseEndDate}}</td>                                
                                     <td>{{application.status}}</td>                                
                                     <td>
-                                        <div class="dropdown" ngbDropdown>
+                                        <div *ngIf="application.status === 'Applied'" class="dropdown" ngbDropdown>
                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
-                                            <ul *ngIf="application.status === 'Applied'" class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Refund</a></li>
                                                 <li><a class="dropdown-item" ><i class="mx-1  ri-file-shred-fill"></i>Reschedule</a></li>
                                                 <li><a class="dropdown-item" ><i class="mx-1  ri-file-chart-line"></i>Evaluation</a></li>
