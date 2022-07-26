@@ -33,6 +33,8 @@ export class SimulationSchedulingComponent implements OnInit {
   listData = data;
   public Editor = ClassicEditor;
 
+  files : File[] = []
+
   createSchedulingForm !: FormGroup
 
   currentDate = new Date();
@@ -92,6 +94,14 @@ export class SimulationSchedulingComponent implements OnInit {
 
   setScheduling(scheduling : any) {
     this.selectedScheduling = scheduling
+  }
+
+  onRemove(event : any, type: any) {
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+  
+  onSelect(event : any, type: any) {
+    this.files.push(...event.addedFiles);
   }
 
   onNavigate(url : any) {

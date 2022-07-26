@@ -60,6 +60,7 @@
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="setScheduling(scheduling); openModal(viewScheduling, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <li (click)="setScheduling(scheduling); openModal(roleAssignment, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-user-2-fill"></i>Role Assignment</a></li>
+                                                <li (click)="setScheduling(scheduling); openModal(requestFood, 'lg')"><a class="dropdown-item" ><i class="mx-1   ri-shopping-basket-2-line"></i>Request for Food</a></li>
                                                 <li (click)="setScheduling(scheduling); openModal(attendanceQR, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-qr-code-line"></i>Attendance QR Code</a></li>
                                             </ul>
                                         </div>
@@ -328,6 +329,7 @@
         </div>
     </div>
 </ng-template>
+
 <ng-template #attendanceQR let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
@@ -395,6 +397,82 @@
 
             </div>
                       
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestFood let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Request for Food</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="form-lable">{{"Course Name : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedScheduling.courseName}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-lable">{{"From Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedScheduling.courseStartDate}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-lable">{{"To Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedScheduling.courseEndDate}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-lable">{{"Food Category : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedScheduling.foodRequired}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-lable">No. of Non-Vegetarian Applicants</label>
+                                <input type="number" [value]="12" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-lable">No. of Vegetarian Applicants</label>
+                                <input type="number" [value]="16" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-lable">Comments</label>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="col-md-12" >
+                              <p class="text-muted">
+                                  Upload supporting Documents<span class="text-danger"
+                                  >{{ " *" }}</span>
+                              </p>
+                              <ngx-dropzone (change)="onSelect($event, 'files')"
+                                  [multiple]="false">
+                                  <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                  <ngx-dropzone-preview *ngFor="let f of files"
+                                  [removable]="true" (removed)="onRemove(f, 'files')">
+                                  <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                  </ngx-dropzone-preview>
+                              </ngx-dropzone>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-primary">Request</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </ng-template>

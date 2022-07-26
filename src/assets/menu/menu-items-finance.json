@@ -16,9 +16,21 @@
                 "link": "finance/medical-library/e-resource-request"
             },
             {
-                "id": 3,
+                "id": 4,
                 "label": "Renewal",
                 "link": "finance/medical-library/renewal"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "label": "Simulation Program",
+        "icon": "  ri-pantone-line",
+        "subItems" : [
+            {
+                "id": 6,
+                "label": "Course",
+                "link": "finance/simulation/course"
             }
         ]
     }

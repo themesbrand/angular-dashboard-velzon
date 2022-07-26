@@ -149,6 +149,11 @@ import { SimulationStandardizedPatientsComponent } from './simulation/simulation
 import { SimulationCourseSetupComponent } from './simulation/simulation-course/simulation-course-setup/simulation-course-setup.component';
 import { SimulationSchedulingComponent } from './simulation/simulation-course/simulation-scheduling/simulation-scheduling.component';
 import { SimulationViewApplicationsComponent } from './simulation/simulation-course/simulation-view-applications/simulation-view-applications.component';
+import { SimulationOrderFoodComponent } from './simulation/simulation-course/simulation-order-food/simulation-order-food.component';
+import { FinanceOrderFoodComponent } from './finance-view/finance-simulation/finance-course/finance-order-food/finance-order-food.component';
+import { FinanceCourseComponent } from './finance-view/finance-simulation/finance-course/finance-course.component';
+import { SimulationRefundManagementComponent } from './simulation/simulation-course/simulation-refund-management/simulation-refund-management.component';
+import { FinanceRefundManagementComponent } from './finance-view/finance-simulation/finance-course/finance-refund-management/finance-refund-management.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -263,7 +268,12 @@ FullCalendarModule.registerPlugins([
     SimulationStandardizedPatientsComponent,
     SimulationCourseSetupComponent,
     SimulationSchedulingComponent,
-    SimulationViewApplicationsComponent
+    SimulationViewApplicationsComponent,
+    SimulationOrderFoodComponent,
+    FinanceOrderFoodComponent,
+    FinanceCourseComponent,
+    SimulationRefundManagementComponent,
+    FinanceRefundManagementComponent
   ],
   imports: [
     CommonModule,

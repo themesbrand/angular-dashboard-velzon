@@ -1,9 +1,9 @@
 const data = {
-    courseNameList: ['Course 1', 'Course 2', 'Course 3'],
+    courseNameList: ['Basic Life Support', 'Pediatric Advanced Life Support', 'Advanced Cardiovascular Life Support'],
     foodRequiredList: ['Lunch', 'Refreshments' , 'Both'],
     schedulingTableData : [
         {
-            courseName : 'Course 1',
+            courseName : 'Basic Life Support',
             registrationStartDate : '2022-08-06',
             registrationEndDate : '2022-08-15',
             courseStartDate : '2022-08-25',
