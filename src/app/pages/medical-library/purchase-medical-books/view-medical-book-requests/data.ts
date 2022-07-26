@@ -29,7 +29,7 @@ const data = {
             noOfCopies : '25',
             requestedBy : 'Madan Al Abri',
             requestedDate : '2022-07-25' ,
-            status: 'Requested',
+            status: 'Estimated',
             applicationStatus : [
                 { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
                 { stage : 'Estimated', status : 'Pending', date : ''},
@@ -39,7 +39,27 @@ const data = {
                 { stage : 'Delivered', status : 'Pending', date : ''},
                 { stage : 'Issued', status : 'Pending', date : ''},
             ]
-        }
+        },
+        {
+            programName : 'Anaesthesia',
+            title : 'Anaesthesia 2018 - Edition 2',
+            author : 'Faisal Gawas',
+            edition : '2018.V1.5',
+            isbn : '99831SC13-CS',
+            noOfCopies : '25',
+            requestedBy : 'Madan Al Abri',
+            requestedDate : '2022-07-25' ,
+            status: 'Delivered',
+            applicationStatus : [
+                { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Estimated', status : 'Pending', date : ''},
+                { stage : 'Approval Status', status : 'Pending', date : ''},
+                { stage : 'LPO Issued', status : 'Pending', date : ''},
+                { stage : 'Procured', status : 'Pending', date : ''},
+                { stage : 'Delivered', status : 'Pending', date : ''},
+                { stage : 'Issued', status : 'Pending', date : ''},
+            ]
+        },
     ],
     userLists : userListGenerator(),
 }

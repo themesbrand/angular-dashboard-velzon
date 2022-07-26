@@ -17,6 +17,8 @@ export class ViewMedicalBookRequestsComponent implements OnInit {
   public Editor = ClassicEditor;
 
   requestForm !: FormGroup
+  issueForm !: FormGroup
+
   selectedRequest: any;
 
   supportingFiles : File [] = [];
@@ -28,6 +30,7 @@ export class ViewMedicalBookRequestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestFormInit()
+    this.issueFormInit();
   }
 
   requestFormInit() {
@@ -46,14 +49,36 @@ export class ViewMedicalBookRequestsComponent implements OnInit {
     })
   }
 
+  issueFormInit() {
+    this.issueForm = this.formBuilder.group({
+      date : new FormControl(null),
+      noOfCopies : new FormControl(null),
+      noOfCopiesReceived : new FormControl(null),
+      remaining : new FormControl(0),
+      receivedBy : new FormControl(null),
+    })
+  }
+
   get requestFormValues() {
     return this.requestForm.value;
   }
   
+  get issueFormValues() {
+    return this.issueForm.value;
+  }
+  
+
   setRequest(request : any) {
     this.selectedRequest = request;
     this.requestForm.patchValue(request)
   }
+
+  setIssueRequest(request : any) {
+    console.log(request) 
+    this.issueForm.patchValue(request)
+    this.issueForm.get('date')?.patchValue(new Date())
+  }
+
 
   clearForm() {
     this.requestForm.reset();
@@ -81,6 +106,14 @@ export class ViewMedicalBookRequestsComponent implements OnInit {
         break;
       }
     }
+  }
+
+  onChangeNoOfCopiesReceived() {
+    const receivedCopies = this.issueForm.get('noOfCopiesReceived')?.value;
+
+    const remaining = this.issueForm.get('noOfCopies')?.value - this.issueForm.get('noOfCopiesReceived')?.value
+
+    this.issueForm.get('remaining')?.patchValue(remaining)
   }
 
   openModal(modal : any, size : any) {

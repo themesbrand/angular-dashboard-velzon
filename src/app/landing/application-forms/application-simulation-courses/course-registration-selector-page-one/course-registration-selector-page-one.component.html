@@ -1,0 +1,130 @@
+<section class="section p-0">
+    <div class="container-fluid px-5">
+        <div class="row">
+            <div class="profile-foreground position-relative">
+                <div class="profile-wid-bg">
+                    <img
+                    src="assets/images/profile-bg.jpg"
+                    alt=""
+                    class="profile-wid-img"
+                    />
+                </div>
+            </div>
+            <div class="row g-2 px-3">
+                <div class="col-md-1 mx-1">
+                    <div class="avatar-lg">
+                    <img
+                        src="assets/images/users/avatar-1.jpg"
+                        alt="user-img"
+                        class="img-thumbnail rounded-circle"
+                    />
+                    </div>
+                </div>
+                <!--end col-->
+                <div class="col-auto mt-3 mb-2">
+                    <div class="mb-1 d-flex flex-row">
+                        <label class="form-label text-white mx-3">Abbas Al Ajmi</label>
+                        <label class="form-label text-white mx-3">عباس أل أجمع</label>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label class="form-label text-white mx-3"><i class="mx-2 ri-smartphone-line"></i>+96813255618</label>
+                        <label class="form-label text-white mx-3"><i class="mx-2 ri-mail-line"></i>ajmi@gmail.com</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row px-5 justify-content-center">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="h5 text-primary">Course Registration</p>
+                    </div>
+                    <div class="card-body bg-light">
+                        <div class="card shadow border">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Course Name<span class="text-danger">{{ " *" }}</span></label>
+                                        <ng-select [items]="listData.courseList" 
+                                        [(ngModal)]="selectedCourse"
+                                        (change)="onChange($event)"
+                                        bindLabel="value" bindValue="value"
+                                        placeholder="Please select">
+                                        </ng-select>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body bg-light" *ngIf="selectedCourse">
+                        <div class="card shadow border">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-2">
+                                        <label class="form-label">Course Name</label>
+                                        <label class="form-control">{{selectedCourse?.value}}</label>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <label class="form-label">Course Type</label>
+                                        <label class="form-control">{{listData.courseDetails.courseType}}</label>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <label class="form-label">Course Code</label>
+                                        <label class="form-control">{{listData.courseDetails.courseCode}}</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card shadow border">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Pre-Requisite Course</label>
+                                        <label class="form-control">{{listData.courseDetails.preRequisiteCourse}}</label>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Course Duration (in Days)</label>
+                                        <label class="form-control">{{listData.courseDetails.courseDuration}}</label>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Course Provider</label>
+                                        <label class="form-control">{{listData.courseDetails.courseProvider}}</label>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Evaluation Form</label>
+                                        <label class="form-control">{{listData.courseDetails.evaluationForm}}</label>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Description</label>
+                                        <span class="form-control" [innerHTML]="listData.courseDetails.courseDescription" class="form-control"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow border">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Terms And Condition</label>
+                                        <span class="form-control" [innerHTML]="listData.courseDetails.termsAndConditions" class="form-control"></span>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                            <label class="form-check-label" for="formCheck1">I understand that failure to do the above conditions will cause the forfeiture of the entire registration fee that I paid and I will not be accepted for the course.</label>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <button class="btn btn-primary">Keep me in Waiting List</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  
+            </div>
+        </div>
+    </div>
+</section>

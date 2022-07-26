@@ -1,0 +1,625 @@
+<app-breadcrumbs title="Course Setup" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/simulation/course')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button (click)="openModal(addCourseSetup, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Create Course Setup</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Course Code <span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Course Name<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Course Type<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="listData.courseTypeList" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Course Provider</label>
+                    <ng-select 
+                        [items]="listData.courseProviderList" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="listData.manualTypeList" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Course Code</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Course Type</th>
+                                    <th scope="col">Course Provider</th>
+                                    <th scope="col">Manual Type</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let courseSetup of listData.courseSetupTableData">
+                                    <td>{{courseSetup.courseCode}}</td>
+                                    <td>{{courseSetup.courseName}}</td>
+                                    <td>{{courseSetup.courseType}}</td>
+                                    <td>{{courseSetup.courseProvider}}</td>
+                                    <td>{{courseSetup.manualType}}</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="setCourseSetup(courseSetup); openModal(viewCourseSetup, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addCourseSetup let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Add Course Setup</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form [formGroup]="createCourseSetupForm">
+                <div class="mt-3">
+                    <div class="card shadow border">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Course Code <span class="text-danger"></span></label>
+                                    <input type="text" formControlName="courseCode" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Course Name<span class="text-danger"></span></label>
+                                    <input formControlName="courseName" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Course Type<span class="text-danger"></span></label>
+                                    <ng-select 
+                                        [items]="listData.courseTypeList" formControlName="courseType" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseType === 'Other'">
+                                    <label class="form-lable">If Other, Course Type<span class="text-danger"></span></label>
+                                    <input formControlName="courseTypeOther" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-lable">Course Description<span class="text-danger"></span></label>
+                                    <ckeditor [editor]="Editor" formControlName="courseDescription"></ckeditor>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Pre-Requisite Course</label>
+                                    <ng-select 
+                                        [items]="[]" formControlName="preRequisiteCourse" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Course Duration (In Days)<span class="text-danger"></span></label>
+                                    <input formControlName="courseDuration" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Course Provider</label>
+                                    <ng-select 
+                                        [items]="listData.courseProviderList" formControlName="courseProvider" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseProvider === 'Other'">
+                                    <label class="form-lable">If Other, Course Provider<span class="text-danger"></span></label>
+                                    <input formControlName="courseProviderOther" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">Evaluation Form </label>
+                                    <ng-select 
+                                        [multiple]="true"
+                                        [items]="listData.evaluationFormList" formControlName="evaluationForm" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <p class="h5 px-3 py-2 text-primary">Course Coordinators</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">Staff</label>
+                                    <ng-select 
+                                        [multiple]="true"
+                                        [items]="listData.userLists" formControlName="courseStaffCoordinators" 
+                                        bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">Other Coordinators</label>
+                                    <ng-select 
+                                        [multiple]="true"
+                                        [items]="listData.userLists" formControlName="courseOtherCoordinators" 
+                                        bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">CPD Score <span class="text-danger"></span></label>
+                                    <input formControlName="cpdScore" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                                    <ng-select 
+                                        [items]="listData.manualTypeList" formControlName="manualType" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.manualType === 'eManual'">
+                                    <label class="form-lable">eManual Link</label>
+                                    <div class="d-flex flex-row gap-1">
+                                        <input formControlName="eManualLink" type="text" class="form-control">
+                                        <button class="btn btn-primary">Upload</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Minimum No. of manuals required<span class="text-danger"></span></label>
+                                    <input formControlName="manualsRequired" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Current no. of manuals available<span class="text-danger"></span></label>
+                                    <input formControlName="manualsAvailable" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseProvider === 'AHA'">
+                                    <label class="form-lable">No. of Heartcode Keys</label>
+                                    <input formControlName="heartCodeKeys" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseProvider === 'AHA'">
+                                    <label class="form-lable">No. of eCards</label>
+                                    <input formControlName="noOfECards" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="d-flex flex-row px-3 py-2 justify-content-between">
+                            <p class="h5 mb-0 text-primary">Roles</p>
+                            <button (click)="addRolesArray()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                        </div>
+                        <div class="card-body" formArrayName="roles">
+                            <div class="row mt-1 shadow" *ngFor="let roles of rolesControls; let i = index"
+                            [formGroupName]="i">
+                                <div class="d-flex flex-row justify-content-end">
+                                    <button (click)="deleteRolesArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">Role</label>
+                                    <ng-select 
+                                        [items]="listData.userRolesList" formControlName="role" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">No. of Roles<span class="text-danger"></span></label>
+                                    <input formControlName="noOfRoles" (change)="onChangeNoOfRoles(i)" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="row" *ngIf="usersRolePayControls(i).length != 0" formArrayName="usersArray">
+                                        <div class="col-md-6 mb-3" *ngFor="let roles of usersRolePayControls(i); let j = index"
+                                        [formGroupName]="j">
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <ng-select 
+                                                    [items]="listData.userLists" 
+                                                    bindLabel="labelValue" bindValue="name" formControlName="userName" placeholder="Please select a User">
+                                                </ng-select>
+                                                </div>
+                                                <div class="col-md-5">
+
+                                                    <div class="input-group input-group">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                                                        <input type="text" 
+                                                        formControlName="userPay" placeholder="Payable Amount" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    </div>
+
+                                                </div>
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="d-flex flex-row px-3 py-2 justify-content-between">
+                            <p class="h5 mb-0 text-primary">Fees</p>
+                            <button (click)="addFeesArray()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                        </div>
+                        <div class="card-body" formArrayName="fees">
+                            <div *ngFor="let fee of feesControls; let i = index"
+                            [formGroupName]="i" class="row">
+                                <div class="d-flex flex-row justify-content-end">
+                                    <button (click)="deleteFeesArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">Participant Type</label>
+                                    <ng-select [items]="listData.participantTypeList" formControlName="participantType" placeholder="Please select a User">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="" class="form-label">Fee</label>
+                                    <div class="input-group input-group">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                                        <input type="text" 
+                                        formControlName="fee" placeholder="Payable Amount" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="d-flex flex-row px-3 py-2 justify-content-between">
+                            <p class="h5 mb-0 text-primary">Standardized Patients</p>
+                            <button (click)="addStandardizedPatientsArray()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                        </div>
+                        <div class="card-body" formArrayName="standardizedPatients">
+                            <div class="row">
+                                <div class="col-md-4" *ngFor="let fee of standardizedPatientsControls; let i = index"
+                                [formGroupName]="i" >
+                                    <div class="row">
+                                        <div class="col-md-9 mb-1">
+                                            <label for="" class="form-label">Patients Name</label>
+                                            <ng-select [items]="listData.userLists" 
+                                            bindLabel="labelValue" bindValue="name" 
+                                            formControlName="patient" placeholder="Please select a Patient">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-3 mb-1">
+                                            <div class="d-flex flex-row justify-content-between">
+                                                <button (click)="openModal(standardizedPatientsPopUp,'lg')" type="button" class="btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class="ri-file-user-line"></i></button>
+                                                <button (click)="deleteStandardizedPatientsArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="d-flex flex-row px-3 py-2 justify-content-between">
+                            <p class="h5 mb-0 text-primary">Certificate And Signatories</p>
+                            <button (click)="addCertificateAndSignatoriesArray()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                        </div>
+                        <div class="card-body" formArrayName="certificateAndSignatories">
+                            <div *ngFor="let certificate of certificateAndSignatoriesControls; let i = index"
+                            [formGroupName]="i" class="row">
+                                <div class="d-flex flex-row justify-content-end">
+                                    <button (click)="deleteCertificateAndSignatoriesArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
+                                </div>
+                                <div class="col-md-4 mb-1">
+                                    <label for="" class="form-label">Certificate Type</label>
+                                    <ng-select [items]="listData.certificateType" formControlName="certificateType" placeholder="Please select a certificate">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-1">
+                                    <label class="form-label">Certificate Name</label>
+                                    <input type="text" class="form-control" formControlName="certificateName" >
+                                </div>
+                                <div class="col-md-4 mb-1">
+                                    <label for="" class="form-label">Signatories</label>
+                                    <ng-select [items]="listData.userLists" 
+                                    bindLabel="labelValue" bindValue="name" 
+                                    [multiple]="true"
+                                    formControlName="signatories" placeholder="Please select a User">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+            </form>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewCourseSetup let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Course Setup</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card shadow border">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Course Code <span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseCode}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Course Name<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseName}}</label>                                
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Course Type<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseType}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseTypeOther.courseType === 'Other'">
+                                <label class="form-lable">If Other, Course Type<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseTypeOther}}</label>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-lable">Course Description<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseDescription}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Pre-Requisite Course</label>
+                                <label class="form-control">{{selectedCourseSetup.preRequisiteCourse}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Course Duration (In Days)<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseDuration}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Course Provider</label>
+                                <label class="form-control">{{selectedCourseSetup.courseProvider}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseProvider === 'Other'">
+                                <label class="form-lable">If Other, Course Provider<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.courseProviderOther}}</label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Evaluation Form</label>
+                                <label class="form-control">{{selectedCourseSetup.evaluationForm}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <p class="h5 px-3 py-2 text-primary">Course Coordinators</p>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Staff</label>
+                                <label class="form-control">{{selectedCourseSetup.courseStaffCoordinators}}</label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Other Coordinators</label>
+                                <label class="form-control">{{selectedCourseSetup.courseOtherCoordinators}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">CPD Score <span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.cpdScore}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.manualType}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.manualType === 'eManual'">
+                                <label class="form-lable">eManual Link</label>
+                                <label class="form-control">{{selectedCourseSetup.eManualLink}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Minimum No. of manuals required<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.manualsRequired}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Current no. of manuals available<span class="text-danger"></span></label>
+                                <label class="form-control">{{selectedCourseSetup.manualsAvailable}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseProvider === 'AHA'">
+                                <label class="form-lable">No. of Heartcode Keys</label>
+                                <label class="form-control">{{selectedCourseSetup.heartCodeKeys}}</label>
+                            </div>
+                            <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseProvider === 'AHA'">
+                                <label class="form-lable">No. of eCards</label>
+                                <label class="form-control">{{selectedCourseSetup.noOfECards}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="d-flex flex-row px-3 py-2">
+                        <p class="h5 mb-0 text-primary">Roles</p>
+                    </div>
+                    <div class="card-body" >
+                        <div class="row mt-1 shadow" *ngFor="let role of selectedCourseSetup.roles;">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Role</label>
+                                <label class="form-control">{{role.role}}</label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">No. of Roles<span class="text-danger"></span></label>
+                                <label class="form-control">{{role.noOfRoles}}</label>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3" *ngFor="let user of role.usersArray;">
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <label class="form-lable">User Name</label>
+                                                <label class="form-control">{{user.userName}}</label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-lable">Payable Amount</label>
+                                                <div class="input-group input-group">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                                                    <input type="text" 
+                                                    [ngModel]="user.userPay"
+                                                    placeholder="Payable Amount" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="d-flex flex-row px-3 py-2">
+                        <p class="h5 mb-0 text-primary">Fees</p>
+                    </div>
+                    <div class="card-body" >
+                        <div *ngFor="let fee of selectedCourseSetup.fees" class="row">
+                            <div class="col-md-6 mb-1">
+                                <label for="" class="form-label">Participant Type</label>
+                                <label class="form-control">{{fee.participantType}}</label>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="" class="form-label">Fee</label>
+                                <div class="input-group input-group">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                                    <input type="text" 
+                                    [ngModel]="fee.fee"
+                                    placeholder="Payable Amount" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="d-flex flex-row px-3 py-2">
+                        <p class="h5 mb-0 text-primary">Standardized Patients</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let standardizedPatient of selectedCourseSetup.standardizedPatients">
+                                <div class="row">
+                                    <div class="col-md-9 mb-1">
+                                        <label for="" class="form-label">Patients Name</label>
+                                        <label class="form-control">{{standardizedPatient.patient}}</label>
+                                    </div>
+                                    <div class="col-md-3 mb-1">
+                                        <div class="d-flex flex-row justify-content-between">
+                                            <button (click)="openModal(standardizedPatientsPopUp,'lg')" type="button" class="btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class="ri-file-user-line"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="d-flex flex-row px-3 py-2">
+                        <p class="h5 mb-0 text-primary">Certificate And Signatories</p>
+                    </div>
+                    <div class="card-body">
+                        <div *ngFor="let certificate of selectedCourseSetup.certificateAndSignatories; let i = index" class="row">
+                            <div class="col-md-4 mb-1">
+                                <label for="" class="form-label">Certificate Type</label>
+                                <label class="form-control">{{certificate.certificateType}}</label>
+                            </div>
+                            <div class="col-md-4 mb-1">
+                                <label class="form-label">Certificate Name</label>
+                                <label class="form-control">{{certificate.certificateName}}</label>
+                            </div>
+                            <div class="col-md-4 mb-1">
+                                <label for="" class="form-label">Signatories</label>
+                                <label class="form-control">{{certificate.signatories}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #standardizedPatientsPopUp let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Standardized Patients Details</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Civil ID</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.civilID}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Full Name</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.fullName}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Gender</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.gender}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Date Of Birth</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.dateOfBirth}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nationality</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.nationality}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Registration Date</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.registrationDate}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Physical Information</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.physicalInformation}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Medical Information</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.medicalInformation}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Payable Amount</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.payableAmount}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+

@@ -1,0 +1,277 @@
+<section class="section p-0">
+    <div class="container-fluid px-5">
+        <div class="row">
+            <div class="profile-foreground position-relative">
+                <div class="profile-wid-bg">
+                    <img
+                    src="assets/images/profile-bg.jpg"
+                    alt=""
+                    class="profile-wid-img"
+                    />
+                </div>
+            </div>
+            <div class="row g-2 px-3">
+                <div class="col-md-1 mx-1">
+                    <div class="avatar-lg">
+                    <img
+                        src="assets/images/users/avatar-1.jpg"
+                        alt="user-img"
+                        class="img-thumbnail rounded-circle"
+                    />
+                    </div>
+                </div>
+                <!--end col-->
+                <div class="col-auto mt-3 mb-2">
+                    <div class="mb-1 d-flex flex-row">
+                        <label class="form-label text-white mx-3">Abbas Al Ajmi</label>
+                        <label class="form-label text-white mx-3">عباس أل أجمع</label>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label class="form-label text-white mx-3"><i class="mx-2 ri-smartphone-line"></i>+96813255618</label>
+                        <label class="form-label text-white mx-3"><i class="mx-2 ri-mail-line"></i>ajmi@gmail.com</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row px-5 justify-content-center">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Select by Date Range</label>
+                                <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                                [convertModelValue]="true" mode="range">
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <div class="d-flex flex-row justify-content-end">
+                                    <button (click)="onNavigate('home/application-forms/simulation-course-form/simulation-registration-select-page-one')" class="btn btn-primary">Register for Future Courses</button>
+                                </div>
+
+                            </div>
+                            <div class="-d-flex flex-row">
+                                <button class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card shadow border">
+                                    <div class="card-header bg-primary">
+                                        <p class="h4 text-light">July 2022</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <ngx-simplebar style="max-height: 300px;">
+                                            <div class="pe-2">
+                                                <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Pediatric Advanced Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-07-15</span>
+                                                            </p>
+                                                            <span class="badge bg-danger">No Slots Available</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Basic Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-07-20</span>
+                                                            </p>
+                                                            <span class="badge bg-danger">No Slots Available</span>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Advanced Cardivoascular Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-07-22</span>
+                                                            </p>
+                                                            <span class="badge bg-danger">No Slots Available</span>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="my-3 text-center">
+                                                    <button type="button" class="btn btn-soft-success waves-effect waves-light">View
+                                                        More Course <i class="ri-arrow-right-line align-middle"></i></button>
+                                                </div>
+                                            </div>
+                                        </ngx-simplebar>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card shadow border">
+                                    <div class="card-header bg-primary">
+                                        <p class="h4 text-light">August 2022</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <ngx-simplebar style="max-height: 300px;">
+                                            <div class="pe-2">
+                                                <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Pediatric Advanced Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-08-05</span>
+                                                            </p>
+                                                            <span class="badge bg-danger">No Slots Available</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Basic Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-08-20</span>
+                                                            </p>
+                                                            <span class="badge bg-danger">No Slots Available</span>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div (click)="onNavigate('home/application-forms/simulation-course-form/simulation-registration-page-one')" class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Advanced Cardivoascular Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-08-29</span>
+                                                            </p>
+                                                            <span class="badge bg-success">Available Slots : 2</span>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="my-3 text-center">
+                                                    <button type="button" class="btn btn-soft-success waves-effect waves-light">View
+                                                        More Course <i class="ri-arrow-right-line align-middle"></i></button>
+                                                </div>
+                                            </div>
+                                        </ngx-simplebar>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card shadow border">
+                                    <div class="card-header bg-primary">
+                                        <p class="h4 text-light">September 2022</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <ngx-simplebar style="max-height: 300px;">
+                                            <div class="pe-2">
+                                                <div (click)="onNavigate('home/application-forms/simulation-course-form/simulation-registration-page-one')" class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Pediatric Advanced Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-09-02</span>
+                                                            </p>
+                                                            <span class="badge bg-success">Available Slots : 8</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div (click)="onNavigate('home/application-forms/simulation-course-form/simulation-registration-page-one')" class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Basic Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-09-20</span>
+                                                            </p>
+                                                            <span class="badge bg-success">Available Slots : 5</span>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                                    <div class="d-flex">
+                                                        <div class="avatar-xs me-3">
+                                                            <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                                                <i class="ri-pages-line"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <a href="javascript:void(0);" class="stretched-link">
+                                                                <h6 class="mt-0 mb-0 lh-base">Advanced Cardivoascular Life Support</h6>
+                                                            </a>
+                                                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                                <i class="mdi mdi-clock-outline"></i><span class="mx-2">2022-09-22</span>
+                                                            </p>
+                                                            <span class="badge bg-danger">No Slots Available</span>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="my-3 text-center">
+                                                    <button type="button" class="btn btn-soft-success waves-effect waves-light">View
+                                                        More Course <i class="ri-arrow-right-line align-middle"></i></button>
+                                                </div>
+                                            </div>
+                                        </ngx-simplebar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  
+            </div>
+        </div>
+    </div>
+</section>

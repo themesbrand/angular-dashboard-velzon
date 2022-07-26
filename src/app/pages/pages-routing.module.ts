@@ -62,6 +62,12 @@ import { EResourceRequestComponent } from './medical-library/e-resource-request/
 import { RenewalComponent } from './medical-library/renewal/renewal.component';
 import { PurchaseMedicalBooksComponent } from './medical-library/purchase-medical-books/purchase-medical-books.component';
 import { FinanceRenewalComponent } from './finance-view/finance-medical-library/finance-renewal/finance-renewal.component';
+import { SimulationCourseComponent } from './simulation/simulation-course/simulation-course.component';
+import { SimulationWorkshopComponent } from './simulation/simulation-workshop/simulation-workshop.component';
+import { SimulationStandardizedPatientsComponent } from './simulation/simulation-standardized-patients/simulation-standardized-patients.component';
+import { SimulationCourseSetupComponent } from './simulation/simulation-course/simulation-course-setup/simulation-course-setup.component';
+import { SimulationSchedulingComponent } from './simulation/simulation-course/simulation-scheduling/simulation-scheduling.component';
+import { SimulationViewApplicationsComponent } from './simulation/simulation-course/simulation-view-applications/simulation-view-applications.component';
 
 const routes: Routes = [
     //Default Routing
@@ -141,7 +147,17 @@ const routes: Routes = [
       { path: "e-resource-request", component: EResourceRequestComponent },
       { path: "renewal", component: RenewalComponent },
       { path: "purchase-medical-books", component: PurchaseMedicalBooksComponent },
-    ] },
+    ]},
+    { path: "simulation", children : [
+      { path: "course", children:[
+        { path: "", component: SimulationCourseComponent },
+        { path: "course-setup", component: SimulationCourseSetupComponent },
+        { path: "scheduling", component: SimulationSchedulingComponent },
+        { path: "view-application", component: SimulationViewApplicationsComponent },
+      ] },
+      { path: "workshop", component: SimulationWorkshopComponent },
+      { path: "standardized-patients", component: SimulationStandardizedPatientsComponent }
+    ]},
 
     //Employer Routing
     { path: "employer", children : [

@@ -28,7 +28,10 @@ import { PageThreeComponent } from './application-forms/application-residency-pr
 import { PageOneComponent } from './application-forms/application-residency-program/page-one/page-one.component';
 import { PageTwoComponent } from './application-forms/application-residency-program/page-two/page-two.component';
 import { ApplicationForScholarshipComponent } from './application-forms/application-for-scholarship/application-for-scholarship.component';
-
+import { ApplicationSimulationCoursesComponent } from './application-forms/application-simulation-courses/application-simulation-courses.component';
+import { CourseRegistrationPageOneComponent } from './application-forms/application-simulation-courses/course-registration-page-one/course-registration-page-one.component';
+import { CourseRegistrationPageTwoComponent } from './application-forms/application-simulation-courses/course-registration-page-two/course-registration-page-two.component';
+import { CourseRegistrationSelectorPageOneComponent } from './application-forms/application-simulation-courses/course-registration-selector-page-one/course-registration-selector-page-one.component';
 
 
 @NgModule({
@@ -42,7 +45,11 @@ import { ApplicationForScholarshipComponent } from './application-forms/applicat
     PageThreeComponent,
     PageOneComponent,
     PageTwoComponent,
-    ApplicationForScholarshipComponent
+    ApplicationForScholarshipComponent,
+    ApplicationSimulationCoursesComponent,
+    CourseRegistrationPageOneComponent,
+    CourseRegistrationPageTwoComponent,
+    CourseRegistrationSelectorPageOneComponent
   ],
   imports: [
     CommonModule,

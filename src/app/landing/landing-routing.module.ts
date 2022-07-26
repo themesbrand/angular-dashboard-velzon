@@ -4,6 +4,10 @@ import { AuthGuard } from "../core/guards/auth.guard";
 import { ApplicationForScholarshipComponent } from "./application-forms/application-for-scholarship/application-for-scholarship.component";
 import { ApplicationFormsComponent } from "./application-forms/application-forms.component";
 import { ApplicationResidencyProgramComponent } from "./application-forms/application-residency-program/application-residency-program.component";
+import { ApplicationSimulationCoursesComponent } from "./application-forms/application-simulation-courses/application-simulation-courses.component";
+import { CourseRegistrationPageOneComponent } from "./application-forms/application-simulation-courses/course-registration-page-one/course-registration-page-one.component";
+import { CourseRegistrationPageTwoComponent } from "./application-forms/application-simulation-courses/course-registration-page-two/course-registration-page-two.component";
+import { CourseRegistrationSelectorPageOneComponent } from "./application-forms/application-simulation-courses/course-registration-selector-page-one/course-registration-selector-page-one.component";
 
 import { HomeComponent } from "./home/home.component";
 
@@ -32,6 +36,27 @@ const routes: Routes = [
           {
             path: "scholarship-program-form",
             component: ApplicationForScholarshipComponent,
+          },
+          {
+            path: "simulation-course-form",
+            children:[
+              {
+                path: "",
+                component: ApplicationSimulationCoursesComponent,
+              },
+              {
+                path: "simulation-registration-page-one",
+                component: CourseRegistrationPageOneComponent,
+              },
+              {
+                path: "simulation-registration-page-two",
+                component: CourseRegistrationPageTwoComponent,
+              },
+              {
+                path: "simulation-registration-select-page-one",
+                component: CourseRegistrationSelectorPageOneComponent,
+              }
+            ],
           },
         ],
       },

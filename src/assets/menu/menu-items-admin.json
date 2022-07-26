@@ -144,5 +144,27 @@
                 "link": "medical-library/purchase-medical-books"
             }
         ]
+    },
+    {
+        "id": 25,
+        "label": "Simulation Program",
+        "icon": "  ri-pantone-line",
+        "subItems" : [
+            {
+                "id": 26,
+                "label": "Course",
+                "link": "simulation/course"
+            },
+            {
+                "id": 27,
+                "label": "Workshop",
+                "link": "simulation/workshop"
+            },
+            {
+                "id": 28,
+                "label": "Standardized Patients",
+                "link": "simulation/standardized-patients"
+            }
+        ]
     }
 ]

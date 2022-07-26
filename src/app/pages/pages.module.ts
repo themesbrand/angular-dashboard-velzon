@@ -143,6 +143,12 @@ import { ViewMedicalBookRequestsComponent } from './medical-library/purchase-med
 import { MedicalBookEstimatesComponent } from './medical-library/purchase-medical-books/medical-book-estimates/medical-book-estimates.component';
 import { FinanceRenewalComponent } from './finance-view/finance-medical-library/finance-renewal/finance-renewal.component';
 import { FinanceExpiryEResourcesComponent } from './finance-view/finance-medical-library/finance-renewal/finance-expiry-e-resources/finance-expiry-e-resources.component';
+import { SimulationCourseComponent } from './simulation/simulation-course/simulation-course.component';
+import { SimulationWorkshopComponent } from './simulation/simulation-workshop/simulation-workshop.component';
+import { SimulationStandardizedPatientsComponent } from './simulation/simulation-standardized-patients/simulation-standardized-patients.component';
+import { SimulationCourseSetupComponent } from './simulation/simulation-course/simulation-course-setup/simulation-course-setup.component';
+import { SimulationSchedulingComponent } from './simulation/simulation-course/simulation-scheduling/simulation-scheduling.component';
+import { SimulationViewApplicationsComponent } from './simulation/simulation-course/simulation-view-applications/simulation-view-applications.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -251,7 +257,13 @@ FullCalendarModule.registerPlugins([
     ViewMedicalBookRequestsComponent,
     MedicalBookEstimatesComponent,
     FinanceRenewalComponent,
-    FinanceExpiryEResourcesComponent
+    FinanceExpiryEResourcesComponent,
+    SimulationCourseComponent,
+    SimulationWorkshopComponent,
+    SimulationStandardizedPatientsComponent,
+    SimulationCourseSetupComponent,
+    SimulationSchedulingComponent,
+    SimulationViewApplicationsComponent
   ],
   imports: [
     CommonModule,
