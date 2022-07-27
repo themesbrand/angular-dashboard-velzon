@@ -73,6 +73,12 @@ import { FinanceOrderFoodComponent } from './finance-view/finance-simulation/fin
 import { FinanceCourseComponent } from './finance-view/finance-simulation/finance-course/finance-course.component';
 import { SimulationRefundManagementComponent } from './simulation/simulation-course/simulation-refund-management/simulation-refund-management.component';
 import { FinanceRefundManagementComponent } from './finance-view/finance-simulation/finance-course/finance-refund-management/finance-refund-management.component';
+import { SimulationWorkshopSchedulingComponent } from './simulation/simulation-workshop/simulation-workshop-scheduling/simulation-workshop-scheduling.component';
+import { SimulationWorkshopSetupComponent } from './simulation/simulation-workshop/simulation-workshop-setup/simulation-workshop-setup.component';
+import { SimulationWorkshopViewApplicationComponent } from './simulation/simulation-workshop/simulation-workshop-view-application/simulation-workshop-view-application.component';
+import { SimulationWorkshopOrderFoodComponent } from './simulation/simulation-workshop/simulation-workshop-order-food/simulation-workshop-order-food.component';
+import { SimulationCreateFormComponent } from './simulation/simulation-workshop/simulation-create-form/simulation-create-form.component';
+import { SimulationCourseCreateFormComponent } from './simulation/simulation-course/simulation-course-create-form/simulation-course-create-form.component';
 
 const routes: Routes = [
     //Default Routing
@@ -161,8 +167,16 @@ const routes: Routes = [
         { path: "view-application", component: SimulationViewApplicationsComponent },
         { path: "order-food", component: SimulationOrderFoodComponent },
         { path: "refund-management", component: SimulationRefundManagementComponent },
+        { path: "create-form", component: SimulationCourseCreateFormComponent },
       ] },
-      { path: "workshop", component: SimulationWorkshopComponent },
+      { path: "workshop", children: [
+        { path: "", component: SimulationWorkshopComponent},
+        { path: "workshop-setup", component: SimulationWorkshopSetupComponent },
+        { path: "scheduling", component: SimulationWorkshopSchedulingComponent },
+        { path: "view-application", component: SimulationWorkshopViewApplicationComponent },
+        { path: "order-food", component: SimulationWorkshopOrderFoodComponent },
+        { path: "create-form", component: SimulationCreateFormComponent },
+      ] },
       { path: "standardized-patients", component: SimulationStandardizedPatientsComponent }
     ]},
 

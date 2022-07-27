@@ -1,0 +1,309 @@
+<app-breadcrumbs title="Workshop-Order Food" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/simulation/workshop')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Workshop Name</label>
+                    <ng-select 
+                    [items]="listData.workshopNameList" placeholder="Please select">
+                </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Requested Date Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                          [convertModelValue]="true" mode="range">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Workshop Date Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                          [convertModelValue]="true" mode="range">
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Workshop Name</th>
+                                    <th scope="col">From Date</th>
+                                    <th scope="col">To Date</th>
+                                    <th scope="col" class="text-center">Status</th>
+                                    <th scope="col" ></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let order of listData.requestTableData">
+                                    <td>{{order.workshopName}}</td>
+                                    <td>{{order.fromDate}}</td>
+                                    <td>{{order.toDate}}</td>
+                                    <td class="text-center">
+                                        <span class="badge" [ngClass]="{'bg-primary' : order.status === 'Requested', 'bg-secondary' : order.status === 'Approved', 'bg-danger' : order.status === 'Rejected', 'bg-warning' : order.status === 'Planned', 'bg-success' : order.status === 'Paid'}">{{order.status}}</span>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li  (click)="setOrderDetails(order); openModal(viewOrderDetails, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>
+                                                    <span>{{order.status === 'Requested' ? 'View & Approve' : 'View'}}</span>
+                                                </a></li>
+                                                <li *ngIf="order.status === 'Approved'" (click)="setOrderDetails(order); openModal(setOrderRequirement, 'lg')"><a class="dropdown-item"><i class="mx-1  ri-luggage-cart-line"></i>Order Requirement</a></li>
+                                                <li *ngIf="order.status === 'Planned'" (click)="setOrderDetails(order); openModal(setPaymentDetails, 'lg')"><a class="dropdown-item"><i class="mx-1 ri-secure-payment-line"></i>Payment Details</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                            </thead>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #viewOrderDetails let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Food Order Details</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"Workshop Name : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.workshopName}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"From Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.fromDate}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"To Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.toDate}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"Food Category : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.foodCategory}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"No. of Non-Vegetarian Applicants : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.vegApplicants}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"No. of Vegetarian Applicants : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.nonVegApplicants}}</label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <label class="form-lable">{{"Comments : "}}</label>
+                                <label class="form-control">{{selectedOrderDetails.comments}}</label>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex flex-row">
+                                    <p class="h6">Download Supporting Documents</p>
+                                    <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" *ngIf="selectedOrderDetails.status ==='Requested'">
+                    <div class="card-body">
+                        <div class="d-flex flex-row gap-3">
+                            <button class="btn btn-success">Approve</button>
+                            <button class="btn btn-danger">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #setOrderRequirement let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Order Requirements</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"Workshop Name : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.workshopName}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"From Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.fromDate}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"To Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.toDate}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"Food Category : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.foodCategory}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"No. of Non-Vegetarian Applicants : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.vegApplicants}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"No. of Vegetarian Applicants : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.nonVegApplicants}}</label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <label class="form-lable">{{"Comments : "}}</label>
+                                <label class="form-control">{{selectedOrderDetails.comments}}</label>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex flex-row">
+                                    <p class="h6">Download Supporting Documents</p>
+                                    <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form [formGroup]="orderRequirementForm">
+                    <div class="card">
+                        <div class="card-body" formArrayName="requestsArray">
+                            <div class="d-flex flex-row justify-content-end">
+                                <button (click)="addRequestsArray()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-file-add-line"></i></button>
+                            </div>
+                            <div class="row shadow border" *ngFor="let request of RequestsArrayControls; let i = index" [formGroupName]="i">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Food Preference<span class="text-danger">{{ " *" }}</span></label>
+                                    <ng-select
+                                        [items]="listData.foodPreference"
+                                        formControlName="foodPreference">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Food Preference<span class="text-danger">{{ " *" }}</span></label>
+                                    <textarea formControlName="foodItems" rows="3" class="form-control"></textarea>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <p class="text-muted">Upload supporting Documents<span class="text-danger">{{ " *" }}</span></p>
+                                    <ngx-dropzone (change)="onSelect($event, 'filesOrderRequest')"
+                                    [multiple]="false">
+                                    <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                                    <ngx-dropzone-preview *ngFor="let f of filesOrderRequest"
+                                        [removable]="true" (removed)="onRemove(f, 'filesOrderRequest')">
+                                        <ngx-dropzone-label
+                                        >{{ f.name }} ({{
+                                            f.type
+                                        }})</ngx-dropzone-label
+                                        >
+                                    </ngx-dropzone-preview>
+                                    </ngx-dropzone>
+                                </div>
+    
+                            </div>
+                            <div class="d-flex flex-row justify-content-end">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #setPaymentDetails let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Payment Details</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"Workshop Name : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.workshopName}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"From Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.fromDate}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"To Date : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.toDate}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"Food Category : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.foodCategory}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"No. of Non-Vegetarian Applicants : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.vegApplicants}}</label>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label class="form-lable">{{"No. of Vegetarian Applicants : "}}</label>
+                                <label class="form-lable text-muted mx-2">{{selectedOrderDetails.nonVegApplicants}}</label>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <label class="form-lable">{{"Comments : "}}</label>
+                                <label class="form-control">{{selectedOrderDetails.comments}}</label>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex flex-row">
+                                    <p class="h6">Download Supporting Documents</p>
+                                    <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <p class="text-muted">Upload supporting Documents<span class="text-danger">{{ " *" }}</span></p>
+                                <ngx-dropzone (change)="onSelect($event, 'filesOrderRequest')"
+                                [multiple]="false">
+                                <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of filesOrderRequest"
+                                    [removable]="true" (removed)="onRemove(f, 'filesOrderRequest')">
+                                    <ngx-dropzone-label
+                                    >{{ f.name }} ({{
+                                        f.type
+                                    }})</ngx-dropzone-label
+                                    >
+                                </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end">
+                            <button class="btn btn-primary">Mark as Paid</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

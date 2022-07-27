@@ -1,1 +1,251 @@
-<p>simulation-standardized-patients works!</p>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button (click)="openModal(addStandardizedPatients, 'lg')" type="button" class="mx-3 btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Standardized Patient</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Civil ID</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Full Name</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Gender</label>
+                    <ng-select 
+                    [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Gender</label>
+                    <ng-select 
+                    [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Nationality</label>
+                    <ng-select 
+                    [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Date of Birth</label>
+                    <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          [altInput]="true"
+                          [convertModelValue]="true"
+                        />
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Civil ID</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Date of Birth</th>
+                                    <th scope="col">Nationality</th>
+                                    <th scope="col" ></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let patient of listData.requestTableData">
+                                    <td>{{patient.civilID}}</td>
+                                    <td>{{patient.fullName}}</td>
+                                    <td>{{patient.gender}}</td>
+                                    <td>{{patient.dateOfBirth}}</td>
+                                    <td>{{patient.nationality}}</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(standardizedPatientsPopUp, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li (click)="openModal(participationPopUp, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-file-list-line"></i>Participation</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addStandardizedPatients let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Add Standardized Patients</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <label class="form-label">Civil ID<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md mb-3">
+                        <label class="form-label">Full Name<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Gender<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="['Male', 'Female']"  placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Date of Birth</label>
+                        <input
+                              class="form-control flatpickr-input"
+                              type="text"
+                              mwlFlatpickr
+                              [altInput]="true"
+                              [convertModelValue]="true"
+                            />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Nationality<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="listData.nationalities" 
+                        bindLabel="name" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Registration Date<span class="text-danger">{{ " *" }}</span></label>
+                        <input
+                              class="form-control flatpickr-input"
+                              type="text"
+                              mwlFlatpickr
+                              [altInput]="true"
+                              [convertModelValue]="true"
+                            />
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Physical Information<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Medical Information<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group input-group">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                            <input type="text"  placeholder="Payable Amount" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary mt-3">Submit</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #standardizedPatientsPopUp let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Standardized Patients Details</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Civil ID</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.civilID}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Full Name</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.fullName}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Gender</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.gender}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Date Of Birth</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.dateOfBirth}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nationality</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.nationality}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Registration Date</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.registrationDate}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Physical Information</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.physicalInformation}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Medical Information</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.medicalInformation}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Payable Amount</label>
+                        <label class="form-control">{{listData.standardizedPatientsSampleObject.payableAmount}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #participationPopUp let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Participation Lists</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="live-preview">     
+                        <div class="table-responsive">
+                            <table class="table align-middle table-hover table-wrap mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Course / Workshop Name</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let participation of listData.participationTableData">
+                                        <td>{{participation.courseOrWorkshopName}}</td>
+                                        <td>{{participation.date}}</td>
+                                        <td>{{participation.amount}}</td>
+                                        <td>{{participation.status}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import {data} from './data';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
 @Component({
-  selector: 'app-simulation-standardized-patients',
-  templateUrl: './simulation-standardized-patients.component.html',
-  styleUrls: ['./simulation-standardized-patients.component.scss'],
+  selector: 'app-simulation-workshop-view-application',
+  templateUrl: './simulation-workshop-view-application.component.html',
+  styleUrls: ['./simulation-workshop-view-application.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -22,13 +24,18 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
         ])
       ]
     )
-  ],
+  ]
 })
-export class SimulationStandardizedPatientsComponent implements OnInit {
+export class SimulationWorkshopViewApplicationComponent implements OnInit {
 
+  breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
-  selectedApplication: any;
   listData = data;
+  public Editor = ClassicEditor;
+
+  standardizedPatientsForm !: FormGroup;
+
+  selectedApplication: any;
 
   constructor(
     private router : Router,
@@ -37,8 +44,30 @@ export class SimulationStandardizedPatientsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.standardizedPatientsFormInit();
   }
 
+  standardizedPatientsFormInit() {
+    this.standardizedPatientsForm = this.formBuilder.group({
+      standardizedPatients : new FormArray([])
+    })
+    this.addStandardizedPatientsArray();
+
+  }
+  get standardizedPatientsControls() {
+    return (<FormArray>this.standardizedPatientsForm.get('standardizedPatients')).controls;
+  }
+  addStandardizedPatientsArray() {
+    (<FormArray>this.standardizedPatientsForm.get('standardizedPatients')).push(
+      new FormGroup({
+        patient : new FormControl(null, [])
+      })
+    );
+  }
+  deleteStandardizedPatientsArray(i : any) {
+    (<FormArray>this.standardizedPatientsForm.get('standardizedPatients')).removeAt(i)
+  }
+  
   onFilter() {
     if(this.isFilterOpened) {
       this.isFilterOpened = false;
@@ -46,10 +75,12 @@ export class SimulationStandardizedPatientsComponent implements OnInit {
       this.isFilterOpened = true
     }
   }
-  
+
+    
   setApplication (application : any) {
     this.selectedApplication = application;
   }
+  
   
   onNavigate(url : any) {
     this.router.navigateByUrl(url);

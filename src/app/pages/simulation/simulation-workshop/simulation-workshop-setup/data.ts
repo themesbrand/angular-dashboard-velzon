@@ -1,14 +1,14 @@
 const data = {
-    courseTypeList : [
+    workshopTypeList : [
         'Face-to-face', 'Online', 'Hybrid', 'Other'
     ],
-    courseProviderList : [
+    workshopProviderList : [
         'OMSB', 'AHA', 'Other'
     ],
     evaluationFormList: ['Review & Confirm rotation curriculum', 'Trainer Evaluation Form','Research Mentor Evaluation Form','Rotation Evaluation Form', 'ITAR', 'WPBA (On-Demand Evaluations)', 'Six monthly and Annual Evaluation', 'Academic Activity Attendance', 'Logging of Duty Hours', 'Life support certifications BLS, PALS, NRP', 'Resident Development Workshops', 'Procedures Logged'],
     userLists : userListGenerator(),
     manualTypeList: ['Hard copy', 'eManual', 'N/A'],
-    userRolesList : ['Course Director', 'Course Instructor', 'Course Facilitator', 'Moderator'],
+    userRolesList : ['Instructor', 'Facilitator', 'Moderator'],
     participantTypeList : [
         'OMSB trainee', 'OMSB Faculty', 'OMSB Staff', 'Physician', 'Nurse/Paramedic', 'Other healthcare professional'
     ],
@@ -24,7 +24,7 @@ const data = {
         medicalInformation: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquid nostrum, nulla commodi sunt est, vero distinctio iste obcaecati asperiores quibusdam, eligendi atque pariatur deserunt.',
         payableAmount : 'ر.ع.25000',
     },
-    courseSetupTableData : [
+    workshopSetupTableData : [
         {
             certificateAndSignatories: [
                 { certificateName: "Certificate 1", certificateType: "OMSB", signatories: [
@@ -34,19 +34,19 @@ const data = {
                     "Al Abri Ibraham", "Madan Al Abri"
                 ]},
             ],
-            courseCode: "135SCA",
-            courseDescription: "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil dolores magni libero laborum odio ipsum sapiente totam, laudantium explicabo cum harum eveniet et! Nulla magnam in velit dicta, quibusdam aperiam asperiores distinctio quam delectus dolore magni!</p>",
-            courseDuration: "10",
-            courseName: "Anaesthesia",
-            courseOtherCoordinators: ["Madan Khan",  "Faisal Gawas"],
-            courseProvider: "AHA",
-            courseProviderOther: null,
-            courseStaffCoordinators: ["Madan Khan",  "Faisal Gawas"],
-            courseType: "Other",
-            courseTypeOther: "Other Type - Value",
+            workshopCode: "135SCA",
+            workshopDescription: "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil dolores magni libero laborum odio ipsum sapiente totam, laudantium explicabo cum harum eveniet et! Nulla magnam in velit dicta, quibusdam aperiam asperiores distinctio quam delectus dolore magni!</p>",
+            workshopDuration: "10",
+            workshopName: "Anaesthesia",
+            workshopOtherCoordinators: ["Madan Khan",  "Faisal Gawas"],
+            workshopProvider: "AHA",
+            workshopProviderOther: null,
+            workshopStaffCoordinators: ["Madan Khan",  "Faisal Gawas"],
+            workshopType: "Other",
+            workshopTypeOther: "Other Type - Value",
             cpdScore: "23",
             eManualLink: "link/link",
-            evaluationForm: ['Rotation Evaluation Form', 'ITAR'],
+            evaluationForm: ['Review & Confirm rotation curriculum', 'Trainer Evaluation Form'],
             fees: [
                 { fee: "1200", participantType: "OMSB trainee"},
                 { fee: "1350", participantType: "OMSB Faculty"}
@@ -56,16 +56,16 @@ const data = {
             manualsAvailable: "12",
             manualsRequired: "50",
             noOfECards: "30",
-            preRequisiteCourse: 'Course 1',
+            preRequisiteWorkshop: 'Workshop 1',
             roles : [
                 {
-                    noOfRoles: "2", role: "Course Instructor", usersArray : [
+                    noOfRoles: "2", role: "Instructor", usersArray : [
                         { userName: "Abbas Al Ajmi", userPay: "3600" },
                         { userName: "Madan Khan", userPay: "2500" },
                     ]
                 },
                 {
-                    noOfRoles: "1", role: "Course Director", usersArray : [
+                    noOfRoles: "1", role: "Facilitator", usersArray : [
                         { userName: "Al Abri Ibraham", userPay: "5600" }
                     ]
                 }

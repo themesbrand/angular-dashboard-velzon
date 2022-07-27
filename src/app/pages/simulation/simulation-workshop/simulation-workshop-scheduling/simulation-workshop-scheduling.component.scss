@@ -20,12 +20,9 @@ td, th {
 }
 .mgLink {
     text-decoration: underline;
-    cursor: pointer;
     color: blue;
+    cursor: pointer;
 }
 .mgLink:hover {
     color: red;
-}
-.badge {
-    font-size: 0.95em !important;
 }

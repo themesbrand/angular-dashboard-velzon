@@ -154,6 +154,12 @@ import { FinanceOrderFoodComponent } from './finance-view/finance-simulation/fin
 import { FinanceCourseComponent } from './finance-view/finance-simulation/finance-course/finance-course.component';
 import { SimulationRefundManagementComponent } from './simulation/simulation-course/simulation-refund-management/simulation-refund-management.component';
 import { FinanceRefundManagementComponent } from './finance-view/finance-simulation/finance-course/finance-refund-management/finance-refund-management.component';
+import { SimulationWorkshopSetupComponent } from './simulation/simulation-workshop/simulation-workshop-setup/simulation-workshop-setup.component';
+import { SimulationWorkshopSchedulingComponent } from './simulation/simulation-workshop/simulation-workshop-scheduling/simulation-workshop-scheduling.component';
+import { SimulationWorkshopViewApplicationComponent } from './simulation/simulation-workshop/simulation-workshop-view-application/simulation-workshop-view-application.component';
+import { SimulationWorkshopOrderFoodComponent } from './simulation/simulation-workshop/simulation-workshop-order-food/simulation-workshop-order-food.component';
+import { SimulationCreateFormComponent } from './simulation/simulation-workshop/simulation-create-form/simulation-create-form.component';
+import { SimulationCourseCreateFormComponent } from './simulation/simulation-course/simulation-course-create-form/simulation-course-create-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -273,7 +279,13 @@ FullCalendarModule.registerPlugins([
     FinanceOrderFoodComponent,
     FinanceCourseComponent,
     SimulationRefundManagementComponent,
-    FinanceRefundManagementComponent
+    FinanceRefundManagementComponent,
+    SimulationWorkshopSetupComponent,
+    SimulationWorkshopSchedulingComponent,
+    SimulationWorkshopViewApplicationComponent,
+    SimulationWorkshopOrderFoodComponent,
+    SimulationCreateFormComponent,
+    SimulationCourseCreateFormComponent
   ],
   imports: [
     CommonModule,
