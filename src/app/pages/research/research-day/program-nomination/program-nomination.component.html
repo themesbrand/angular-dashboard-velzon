@@ -1,0 +1,245 @@
+<app-breadcrumbs title="Program Nomination" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('research/research-day')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button (click)="openModal(addProgramNomination, 'lg')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Program Nomination</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Program Name</th>
+                                    <th scope="col">Research Day (Year)</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let winner of listData.dataTable">
+                                    <td>{{winner.program}}</td>
+                                    <td>{{winner.researchDay}}</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(viewProgramNomination, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addProgramNomination let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Add Program Nomination</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form [formGroup]="nominationForm">
+                <div class="mt-3">
+                    <div class="card shadow border">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">Program Name</label>
+                                    <label class="form-control">Anesthesia</label>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-lable">Research Day (Year)</label>
+                                    <ng-select 
+                                        [items]="listData.yearsList" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="d-flex flex-row px-3 py-2 justify-content-between">
+                            <p class="h5 mb-0 text-primary">Winners</p>
+                            <button (click)="addWinnersArray()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+                        </div>
+                        <div class="card-body" formArrayName="winnersArray">
+                            <div class="row mt-1" *ngFor="let winner of winnersArrayControls; let i = index"
+                            [formGroupName]="i">
+                                <div class="d-flex flex-row justify-content-end">
+                                    <button (click)="deleteWinnersArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Winner Position<span class="text-danger"></span></label>
+                                    <ng-select 
+                                    [items]="['1st Position', '2nd Position', '3rd Position']" formControlName="position" placeholder="Please select a User">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Winner Name<span class="text-danger"></span></label>
+                                    <ng-select 
+                                    [items]="listData.userLists"
+                                    bindLabel="labelValue" formControlName="name" placeholder="Please select a User">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-lable">Level<span class="text-danger"></span></label>
+                                    <label class="form-control">{{winnersArrayControls[i].value.name === null ? 'Please select a User' : winnersArrayControls[i].value?.name?.level}}</label>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewProgramNomination let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Program Nomination</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card shadow border">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Program Name</label>
+                                <label class="form-control">{{listData.sampleProgramNomination.program}}</label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Research Day (Year)</label>
+                                <label class="form-control">{{listData.sampleProgramNomination.researchDay}}</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="live-preview">     
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-hover table-wrap mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Winner Position</th>
+                                                <th scope="col">Winner Name</th>
+                                                <th scope="col">Level</th>
+                                                <th scope="col">Open for Audience</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let winner of listData.sampleProgramNomination.winners">
+                                                <td>{{winner.position}}</td>
+                                                <td>{{winner.name}}</td>
+                                                <td>{{winner.level}}</td>
+                                                <td>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                        </div>
+                                                        
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown" ngbDropdown>
+                                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                            <i class="ri-more-2-fill"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                            <li (click)="closeOtherModals(); openModal(viewUploadPresentations, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-download-cloud-line"></i>View Uploaded Presentation</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewUploadPresentations let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Upload Presentations</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mt-2">
+                        <div class="d-flex flex-column p-2 shadow">
+                            <div>
+                                <label class="form-label mb-2">Presentation Category</label>
+                                <label class="form-control mb-2">Category -1</label>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between mt-2">
+                                <p class="h6">Download Presentation</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <div class="d-flex flex-column shadow p-2">
+                            <div >
+                                <label class="form-label mb-2">Presentation Category</label>
+                                <label class="form-control mb-2">Category -2</label>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between mt-2">
+                                <p class="h6">Download Presentation</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6  mt-2">
+                        <div class="d-flex flex-column shadow p-2">
+                            <div >
+                                <label class="form-label mb-2">Presentation Category</label>
+                                <label class="form-control mb-2">Category -3</label>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between mt-2">
+                                <p class="h6">Download Presentation</p>
+                                <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+

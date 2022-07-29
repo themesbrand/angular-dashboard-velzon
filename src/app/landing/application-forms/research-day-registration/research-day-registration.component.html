@@ -1,0 +1,70 @@
+<section class="section p-0">
+    <div class="container p-0">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12">
+          <div class="card border">
+            <div class="card-header text-center">
+              <h3>Research Day Registration</h3>
+            </div>
+            <form [formGroup]="registrationForm">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Full Name<span class="text-danger">{{" *"}}</span></label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Email<span class="text-danger">{{" *"}}</span></label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Gender<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.gender" placeholder="Please select">
+                            </ng-select>
+                          </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Register as<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.registerAsList"
+                            formControlName="registerAs" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="registerFormValues.registerAs === 'Other'">
+                            <label class="form-label">If, Other<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Institution of Study / Work<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.institutionOfStudy"
+                            formControlName="institutionOfStudy" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="registerFormValues.institutionOfStudy === 'Other'">
+                            <label class="form-label">If, Other<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="registerFormValues.institutionOfStudy === 'Ministry of Health'">
+                            <label class="form-label">Hospitals<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.hospitals"
+                            placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+    
+    
+    
+                    <div class="row">
+                        <div class="d-flex flex-row w-100 justify-content-end">
+                          <button class="btn btn-primary mt-3" type="submit">Submit</button>
+                        </div>
+                      </div>
+                </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

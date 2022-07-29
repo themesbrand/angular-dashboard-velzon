@@ -36,6 +36,7 @@ import { CourseRegistrationMyApplicationsComponent } from './application-forms/a
 import { ResearchEthicalApprovalFormComponent } from './application-forms/research-ethical-approval-form/research-ethical-approval-form.component';
 import { ResearchFundingOpportunitiesFormComponent } from './application-forms/research-funding-opportunities-form/research-funding-opportunities-form.component';
 import { ResearchConsultationRequestFormComponent } from './application-forms/research-consultation-request-form/research-consultation-request-form.component';
+import { ResearchDayRegistrationComponent } from './application-forms/research-day-registration/research-day-registration.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ResearchConsultationRequestFormComponent } from './application-forms/re
     CourseRegistrationMyApplicationsComponent,
     ResearchEthicalApprovalFormComponent,
     ResearchFundingOpportunitiesFormComponent,
-    ResearchConsultationRequestFormComponent
+    ResearchConsultationRequestFormComponent,
+    ResearchDayRegistrationComponent
   ],
   imports: [
     CommonModule,

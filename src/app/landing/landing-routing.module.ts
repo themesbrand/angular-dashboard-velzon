@@ -9,6 +9,7 @@ import { CourseRegistrationPageOneComponent } from "./application-forms/applicat
 import { CourseRegistrationPageTwoComponent } from "./application-forms/application-simulation-courses/course-registration-page-two/course-registration-page-two.component";
 import { CourseRegistrationSelectorPageOneComponent } from "./application-forms/application-simulation-courses/course-registration-selector-page-one/course-registration-selector-page-one.component";
 import { ResearchConsultationRequestFormComponent } from "./application-forms/research-consultation-request-form/research-consultation-request-form.component";
+import { ResearchDayRegistrationComponent } from "./application-forms/research-day-registration/research-day-registration.component";
 import { ResearchEthicalApprovalFormComponent } from "./application-forms/research-ethical-approval-form/research-ethical-approval-form.component";
 import { ResearchFundingOpportunitiesFormComponent } from "./application-forms/research-funding-opportunities-form/research-funding-opportunities-form.component";
 
@@ -75,6 +76,7 @@ const routes: Routes = [
           },
         ],
       },
+      { path: "research-day-registration", component: ResearchDayRegistrationComponent },
     ],
   },
 ];

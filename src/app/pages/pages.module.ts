@@ -169,6 +169,16 @@ import { ResearchConsultationRequestComponent } from './research/research-consul
 import { RecEvaluationFormComponent } from './research/research-view-applications/research-ethical-approval/rec-evaluation-form/rec-evaluation-form.component';
 import { EvaluationFormComponent } from './research/research-view-applications/research-other-funding-opportunities/evaluation-form/evaluation-form.component';
 import { ResearchFundingOpportunitiesFormComponent } from './research/research-view-applications/research-funding-opportunities/research-funding-opportunities-form/research-funding-opportunities-form.component';
+import { ResearchDayComponent } from './research/research-day/research-day.component';
+import { ProgramNominationComponent } from './research/research-day/program-nomination/program-nomination.component';
+import { UploadPresentationComponent } from './research/research-day/upload-presentation/upload-presentation.component';
+import { CompetitionGroupingComponent } from './research/research-day/competition-grouping/competition-grouping.component';
+import { PresentationEvaluationComponent } from './research/research-day/presentation-evaluation/presentation-evaluation.component';
+import { PresentationEvaluationResultComponent } from './research/research-day/presentation-evaluation-result/presentation-evaluation-result.component';
+import { BoothEvaluationComponent } from './research/research-day/booth-evaluation/booth-evaluation.component';
+import { BoothEvaluationResultComponent } from './research/research-day/booth-evaluation-result/booth-evaluation-result.component';
+import { EvaluationFormOralPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-oral-presentation/evaluation-form-oral-presentation.component';
+import { EvaluationFormPosterPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-poster-presentation/evaluation-form-poster-presentation.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -303,7 +313,17 @@ FullCalendarModule.registerPlugins([
     ResearchConsultationRequestComponent,
     RecEvaluationFormComponent,
     EvaluationFormComponent,
-    ResearchFundingOpportunitiesFormComponent
+    ResearchFundingOpportunitiesFormComponent,
+    ResearchDayComponent,
+    ProgramNominationComponent,
+    UploadPresentationComponent,
+    CompetitionGroupingComponent,
+    PresentationEvaluationComponent,
+    PresentationEvaluationResultComponent,
+    BoothEvaluationComponent,
+    BoothEvaluationResultComponent,
+    EvaluationFormOralPresentationComponent,
+    EvaluationFormPosterPresentationComponent
   ],
   imports: [
     CommonModule,

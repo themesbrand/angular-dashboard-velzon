@@ -1,0 +1,64 @@
+<app-breadcrumbs title="Research Day Evaluation Form (Oral Presentation)" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/research/research-day/presentation-evaluation')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="evaluationForm">
+                <div class="row">
+                    <div class="live-preview">     
+                        <div class="table-responsive">
+                            <table class="table align-middle table-hover table-wrap mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Criteria</th>
+                                        <th scope="col" style="min-width: 80px">Score (1-5)</th>
+                                        <th scope="col">N/A</th>
+                                    </tr>
+                                </thead>
+                                <thead formArrayName="questionsArray">
+                                    <tr *ngFor="let question of questionsArrayControls; let i = index" [formGroupName]="i" >
+                                        <td *ngIf="question.value.isTitle" colspan="4" style="background-color: #165e72; color: white; font-weight: 600;">{{question.value.question}}</td>
+                                        <td *ngIf="question.value.isTitle === false">
+                                            {{question.value.index}}
+                                        </td>
+                                        <td *ngIf="question.value.isTitle === false">
+                                            {{question.value.question}}
+                                        </td>
+                                        <td *ngIf="question.value.isTitle === false">
+                                            <ng-select [items]="[1,2,3,4,5]" 
+                                            (change)="onChangeQuestion($event,  i)"
+                                            formControlName="score" placeholder="Please select">
+                                            </ng-select>
+                                        </td>
+                                        <td *ngIf="question.value.isTitle === false">
+                                            <div class="form-check">
+                                                <input class="form-check-input" 
+                                                (change)="onCheckQuestion($event,  i)"
+                                                type="checkbox" id="formCheck{{i}}" formControlName="notApplicable" >
+                                            </div>
+                                        </td>
+    
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #165e72; color: white; font-weight: 600;"colspan="2">Total Score</td>
+                                        <td style="background-color: #165e72; color: white; font-weight: 600;">{{evaluationFormValues.totalScore  | number : '1.2-2'}}</td>
+                                        <td style="background-color: #165e72; color: white; font-weight: 600;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #165e72; color: white; font-weight: 600;" colspan="2" >Final Score</td>
+                                        <td style="background-color: #165e72; color: white; font-weight: 600;">{{evaluationFormValues.finalScore  | number : '1.2-2'}}</td>
+                                        <td style="background-color: #165e72; color: white; font-weight: 600;"></td>
+                                    </tr>
+                                    
+                                </thead>
+                            </table>
+                        </div>                             
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

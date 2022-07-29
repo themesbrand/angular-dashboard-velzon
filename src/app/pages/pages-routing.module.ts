@@ -84,6 +84,16 @@ import { ResearchEthicalApprovalComponent } from './research/research-view-appli
 import { ResearchFundingOpportunitiesComponent } from './research/research-view-applications/research-funding-opportunities/research-funding-opportunities.component';
 import { ResearchOtherFundingOpportunitiesComponent } from './research/research-view-applications/research-other-funding-opportunities/research-other-funding-opportunities.component';
 import { ResearchConsultationRequestComponent } from './research/research-consultation-request/research-consultation-request.component';
+import { ResearchDayComponent } from './research/research-day/research-day.component';
+import { ProgramNominationComponent } from './research/research-day/program-nomination/program-nomination.component';
+import { UploadPresentationComponent } from './research/research-day/upload-presentation/upload-presentation.component';
+import { CompetitionGroupingComponent } from './research/research-day/competition-grouping/competition-grouping.component';
+import { PresentationEvaluationComponent } from './research/research-day/presentation-evaluation/presentation-evaluation.component';
+import { PresentationEvaluationResultComponent } from './research/research-day/presentation-evaluation-result/presentation-evaluation-result.component';
+import { BoothEvaluationComponent } from './research/research-day/booth-evaluation/booth-evaluation.component';
+import { BoothEvaluationResultComponent } from './research/research-day/booth-evaluation-result/booth-evaluation-result.component';
+import { EvaluationFormOralPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-oral-presentation/evaluation-form-oral-presentation.component';
+import { EvaluationFormPosterPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-poster-presentation/evaluation-form-poster-presentation.component';
 
 const routes: Routes = [
     //Default Routing
@@ -192,7 +202,20 @@ const routes: Routes = [
         { path: "research-other-funding-opportunities", component: ResearchOtherFundingOpportunitiesComponent },
       ] },
       { path: "consultation-request", component: ResearchConsultationRequestComponent },
-      { path: "consultation-request", component: ResearchConsultationRequestComponent }
+      { path: "research-day", children: [
+        { path : "", component: ResearchDayComponent},
+        { path : "program-nomination", component: ProgramNominationComponent},
+        { path : "upload-presentation", component: UploadPresentationComponent},
+        { path : "competition-grouping", component: CompetitionGroupingComponent},
+        { path : "presentation-evaluation", children: [
+          { path : "", component: PresentationEvaluationComponent},
+          { path : "evaluation-form-oral-presentation", component: EvaluationFormOralPresentationComponent},
+          { path : "evaluation-form-poster-presentation", component: EvaluationFormPosterPresentationComponent},
+        ]},
+        { path : "presentation-evaluation-result", component: PresentationEvaluationResultComponent},
+        { path : "booth-evaluation", component: BoothEvaluationComponent},
+        { path : "booth-evaluation-result", component: BoothEvaluationResultComponent},
+      ] }
 
     ]},
 
