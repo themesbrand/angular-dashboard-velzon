@@ -191,6 +191,7 @@ const routes: Routes = [
         { path: "research-funding-opportunities", component: ResearchFundingOpportunitiesComponent },
         { path: "research-other-funding-opportunities", component: ResearchOtherFundingOpportunitiesComponent },
       ] },
+      { path: "consultation-request", component: ResearchConsultationRequestComponent },
       { path: "consultation-request", component: ResearchConsultationRequestComponent }
 
     ]},
