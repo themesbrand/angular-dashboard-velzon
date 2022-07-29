@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-mark-attendance-meeting',
@@ -28,7 +29,9 @@ export class MarkAttendanceMeetingComponent implements OnInit {
     {name : 'Faisal Gawas', availability : 'No'},
     {name : 'Hilal basheer', availability : 'No'},
   ]
-  constructor() { }
+  constructor(
+    private modalService : NgbModal
+  ) { }
 
   ngOnInit(): void {
     
@@ -53,4 +56,7 @@ export class MarkAttendanceMeetingComponent implements OnInit {
     };
   }
 
+  openModal(modal : any, size : any) {
+    this.modalService.open(modal, {size : size})
+  }
 }
