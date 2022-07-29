@@ -1,0 +1,726 @@
+<section class="section p-0">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="profile-foreground position-relative">
+          <div class="profile-wid-bg">
+            <img
+              src="assets/images/profile-bg.jpg"
+              alt=""
+              class="profile-wid-img"
+            />
+          </div>
+        </div>
+        <div class="row g-2 px-3">
+          <div class="col-md-1 mx-1">
+            <div class="avatar-lg">
+              <img
+                src="assets/images/users/avatar-1.jpg"
+                alt="user-img"
+                class="img-thumbnail rounded-circle"
+              />
+            </div>
+          </div>
+          <!--end col-->
+          <div class="col-auto mt-3 mb-2">
+            <div class="mb-1 d-flex flex-row">
+              <label class="form-label text-white mx-3">Abbas Al Ajmi</label>
+              <label class="form-label text-white mx-3">عباس أل أجمع</label>
+            </div>
+            <div class="d-flex flex-column">
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
+              >
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-mail-line"></i>ajmi@gmail.com</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row px-5 justify-content-center">
+        <div class="col-lg-11">
+            <div class="d-flex">
+                <!-- Nav tabs -->
+                <ul ngbNav #customNav="ngbNav"
+                  [activeId]="1"
+                  class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+                  role="tablist" >
+                  <li [ngbNavItem]="1" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">Application Form</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                        <form [formGroup]="applicationForm">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Applicant Name<span class="text-danger">*</span></label>
+                                                    <label type="text" class="form-control">Abbas Al Ajmi</label>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Title of Research Project<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Type of Research<span class="text-danger">*</span></label>
+                                                    <ng-select [items]="listData.projectType"    
+                                                        formControlName="researchType"
+                                                        placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-6 mb-1" *ngIf="applicationFormValues.researchType === 'Other'">
+                                                    <label class="form-label">If other, Research Type<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Type of the study design<span class="text-danger">*</span></label>
+                                                    <ng-select [items]="listData.typeOfStudyDesign"    
+                                                        formControlName="typeOfStudyDesign"
+                                                        placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-6 mb-1" *ngIf="applicationFormValues.typeOfStudyDesign === 'Other'">
+                                                    <label class="form-label">If other, Study Design<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Abstract <span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border" formArrayName="researchTeam">
+                                        <div class="card-body">
+                                            <div class="d-flex mt-4 flex-row justify-content-between">
+                                                <p class="h4 text-success">Research Team</p>
+                                                <a
+                                                  (click)="addResearchTeam()"
+                                                  href="javascript:void(0);"
+                                                  class="link-primary"
+                                                  ><i class="ri-add-box-line"></i>Add more</a
+                                                >
+                                              </div>
+                                            <div class="row" *ngFor="let teamMember of researchTeamControls; let i = index" [formGroupName]="i">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Name of Research Team Member</label>
+                                                    <ng-select [items]="listData.userLists" formControlName="researchMemberName"
+                                                    bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <button (click)="onDeleteResearchTeam(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Responsibility/ Tasks <span class="text-danger">*</span></label>
+                                                    <textarea type="text" 
+                                                    formControlName="tasks" class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border" formArrayName="researchProposal">
+                                        <div class="card-body">
+                                            <div class="d-flex mt-4 flex-row justify-content-between">
+                                                <p class="h4 text-success">Complete Research Proposals</p>
+                                                <a
+                                                  (click)="addResearchProposals()"
+                                                  href="javascript:void(0);"
+                                                  class="link-primary"
+                                                  ><i class="ri-add-box-line"></i>Add more</a
+                                                >
+                                              </div>
+                                            <div class="row" *ngFor="let teamMember of researchProposalControls; let i = index" [formGroupName]="i">
+                                                <div class="d-flex flex-row justify-content-end">
+                                                    <button (click)="onDeleteResearchProposal(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Introduction and literature review<span class="text-danger">*</span></label>
+                                                    <textarea type="text" formControlName="review" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Objectives and hypothesis of the study <span class="text-danger">*</span></label>
+                                                    <textarea type="text" formControlName="objectives" class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <p class="h4 text-success">Methods</p>
+                                            <div class="row">
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Research design<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Characteristics of study area and target population <span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Sampling and sample size<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Variable definitions and measurements<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Data collection tools and methods<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Pilot study<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Data quality and entry<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Data analysis<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Ethical considerations<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Results Dissemination<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Limitations and difficulties of the study<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Expected duration for the study in months<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border" formArrayName="timelineAndWorkPlan">
+                                        <div class="card-body">
+                                            <div class="d-flex mt-4 flex-row justify-content-between">
+                                                <p class="h4 text-success">Timeline / work plan of the study</p>
+                                                <a
+                                                  (click)="addTimelineAndWorkPlan()"
+                                                  href="javascript:void(0);"
+                                                  class="link-primary"
+                                                  ><i class="ri-add-box-line"></i>Add more</a
+                                                >
+                                              </div>
+                                            <div class="row" *ngFor="let timeline of timelineAndWorkPlanControls; let i = index" [formGroupName]="i">
+                                                <div class="d-flex flex-row justify-content-end">
+                                                    <button (click)="onDeleteTimelineAndWorkPlan(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Research activity<span class="text-danger">*</span></label>
+                                                    <textarea type="text" formControlName="activity" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Time <span class="text-danger">*</span></label>
+                                                    <input type="text" formControlName="time" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <p class="h4 text-success">Other Details</p>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label mb-2">If other health institutions involved in this research: </label>
+                                                    <div class="d-flex flex-row" >
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input"
+                                                          formControlName="isHealthInstitutionsInvolved" type="radio" id="radioCheck1" value="yes">
+                                                          <label for="radioCheck1">Yes</label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input" 
+                                                          formControlName="isHealthInstitutionsInvolved"type="radio" id="radioCheck2"  value="no">
+                                                          <label class="mx-2" for="radioCheck2">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-1" *ngIf="applicationFormValues.isHealthInstitutionsInvolved === 'yes'">
+                                                    <label class="form-label">If Yes,<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label mb-2">If research funding required:</label>
+                                                    <div class="d-flex flex-row" >
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input"
+                                                          formControlName="isResearchFundingRequired" type="radio" id="radioCheck3" value="yes">
+                                                          <label for="radioCheck3">Yes</label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input" 
+                                                          formControlName="isResearchFundingRequired"type="radio" id="radioCheck4"  value="no">
+                                                          <label class="mx-2" for="radioCheck4">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 mb-1" *ngIf="applicationFormValues.isResearchFundingRequired === 'yes'">
+                                                    <label for="" class="form-label">  Required budget</label>
+                                                    <div class="input-group input-group">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                                                        <input type="text" 
+                                                        placeholder="Payable Amount" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 mb-1" *ngIf="applicationFormValues.isResearchFundingRequired === 'yes'">
+                                                    <label for="" class="form-label"> Potential funding institution</label>
+                                                    <ng-select [items]="['MoHERI', 'MOH', 'WHO', 'OMSB']" placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <p class="h4 text-success">Documents</p>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <p class="text-muted">Data collection sheet<span class="text-danger">{{ " *" }}</span>
+                                                    </p>
+                                                    <ngx-dropzone (change)="onSelect($event, 'dataCollectionSheetFiles')" [multiple]="false">
+                                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                                        <ngx-dropzone-preview *ngFor="let f of dataCollectionSheetFiles"
+                                                        [removable]="true" (removed)="onRemove(f, 'dataCollectionSheetFiles')">
+                                                        <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                                        </ngx-dropzone-preview>
+                                                    </ngx-dropzone>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <p class="text-muted">Consent form if applicable<span class="text-danger">{{ " *" }}</span>
+                                                    </p>
+                                                    <ngx-dropzone (change)="onSelect($event, 'consentFiles')" [multiple]="false">
+                                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                                        <ngx-dropzone-preview *ngFor="let f of consentFiles"
+                                                        [removable]="true" (removed)="onRemove(f, 'consentFiles')">
+                                                        <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                                        </ngx-dropzone-preview>
+                                                    </ngx-dropzone>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <p class="text-muted">CV<span class="text-danger">{{ " *" }}</span>
+                                                    </p>
+                                                    <ngx-dropzone (change)="onSelect($event, 'cvFiles')" [multiple]="false">
+                                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                                        <ngx-dropzone-preview *ngFor="let f of cvFiles"
+                                                        [removable]="true" (removed)="onRemove(f, 'cvFiles')">
+                                                        <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                                        </ngx-dropzone-preview>
+                                                    </ngx-dropzone>
+                                                </div>
+                                                <div class="col-md-6 mb-1" *ngIf="applicationFormValues.isHealthInstitutionsInvolved === 'yes'">
+                                                    <p class="text-muted">Ethical approval from other institution<span class="text-danger">{{ " *" }}</span>
+                                                    </p>
+                                                    <ngx-dropzone (change)="onSelect($event, 'ethicalApprovalFiles')" [multiple]="false">
+                                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                                        <ngx-dropzone-preview *ngFor="let f of ethicalApprovalFiles"
+                                                        [removable]="true" (removed)="onRemove(f, 'ethicalApprovalFiles')">
+                                                        <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                                        </ngx-dropzone-preview>
+                                                    </ngx-dropzone>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <p class="text-muted">Other documents<span class="text-danger">{{ " *" }}</span>
+                                                    </p>
+                                                    <ngx-dropzone (change)="onSelect($event, 'otherDocumentsFiles')" [multiple]="false">
+                                                        <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                                                        <ngx-dropzone-preview *ngFor="let f of otherDocumentsFiles"
+                                                        [removable]="true" (removed)="onRemove(f, 'otherDocumentsFiles')">
+                                                        <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                                        </ngx-dropzone-preview>
+                                                    </ngx-dropzone>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                <label class="form-check-label" for="formCheck1">
+                                                    I agree to submit this final draft of ethical approval application form for ethical approval by OMSB Research and Innovation Committee. I will have full responsibility to manage the project and to follow up various activities in order to finish it in expected time. I will ensure that the research will not deviate from the protocol described. If significant protocol amendments are required as the research progresses, I shall submit these to the OMSB Research and Innovation Committee for approval. By submitting this application form I ensure that all research team members have approved this final version of the proposal and agreed for submission. Also, I will be responsible to provide final report.	
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row gap-3 my-2">
+                                        <button class="btn btn-secondary">Save and Submit later</button>
+                                        <button class="btn btn-primary">Submit</button>
+                                        <button class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">My Applications</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="d-flex flex-row justify-content-end gap-3">
+                                            <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Title of Research Project</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Ref No</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Type of research</label>
+                                        <ng-select [items]="[]" placeholder="Please select">
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Type of the study design</label>
+                                        <ng-select [items]="[]" placeholder="Please select">
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Status</label>
+                                        <ng-select [items]="[]" placeholder="Please select">
+                                        </ng-select>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <button class="btn btn-primary my-2">Filter</button>
+                                    </div>
+                                </div>
+                    
+                                <div class="row">
+                                    <div class="live-preview">     
+                                        <div class="table-responsive">
+                                            <table class="table align-middle table-hover table-wrap mb-0">
+                                                <thead>
+                                                    <tr>                                    
+                                                        <th scope="col">Applicant Name</th>
+                                                        <th scope="col">Title of Research Project</th>	
+                                                        <th scope="col">Ref No</th>
+                                                        <th scope="col">Type of research</th>
+                                                        <th scope="col">Type of the study design</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <thead>
+                                                    <tr *ngFor="let application of listData.applicationListData">
+                                                        <td>{{application.applicantName}}</td>
+                                                        <td>{{application.titleOfResearchProject}}</td>
+                                                        <td>{{application.refNumber}}</td>
+                                                        <td>{{application.typeOfResearch}}</td>
+                                                        <td>{{application.typeOfTheStudyDesign}}</td>
+                                                        <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td>
+                                                        <td>
+                                                            <button (click)="openModal(applicationView, 'xl')" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                                                        </td>
+                                                    </tr>
+                    
+                    
+                                                </thead>
+                                            </table>
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="3" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">Personal Details</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                      <app-register [userDetails]="userDetails"></app-register>
+                    </ng-template>
+                  </li>
+                </ul>
+              </div>
+              <!-- Tab panes -->
+              <div class="tab-content pt-4 text-muted">
+                <div [ngbNavOutlet]="customNav"></div>
+              </div>
+              <!--end tab-content-->
+              
+            
+            
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <ng-template #applicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Application View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <ng-container *ngTemplateOutlet="applicationViewCards"></ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationViewCards>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Title of Research Project</label>
+                    <label class="form-control">{{listData.applicationListObject.researchTitle}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Type of Research</label>
+                    <label class="form-control">{{listData.applicationListObject.researchType}}</label>
+                </div>
+                <div class="col-md-6 mb-1" *ngIf="listData.applicationListObject.researchType === 'Other'">
+                    <label class="form-label">If other, Research Type</label>
+                    <label class="form-control">{{listData.applicationListObject.researchTypeOther}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Type of the study design</label>
+                    <label class="form-control">{{listData.applicationListObject.typeOfStudyDesign}}</label>
+                </div>
+                <div class="col-md-6 mb-1" *ngIf="listData.applicationListObject.typeOfStudyDesign === 'Other'">
+                    <label class="form-label">If other, Study Design</label>
+                    <label class="form-control">{{listData.applicationListObject.typeOfStudyDesignOther}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Abstract </label>
+                    <label class="form-control">{{listData.applicationListObject.abstract}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Research Team</p>
+            <div class="row" *ngFor="let teamMember of listData.applicationListObject.researchTeam">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Name of Research Team Member</label>
+                    <label class="form-control">{{teamMember.teamMember}}</label>
+
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Responsibility/ Tasks </label>
+                    <label class="form-control">{{teamMember.tasks}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Complete Research Proposals</p>
+            <div class="row" *ngFor="let proposal of listData.applicationListObject.researchProposal">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Introduction and literature review</label>
+                    <label class="form-control">{{proposal.literatureReview}}</label>
+
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Objectives and hypothesis of the study</label>
+                    <label class="form-control">{{proposal.objectives}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Methods</p>
+            <div class="row">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Research design</label>
+                    <label class="form-control">{{listData.applicationListObject.researchDesign}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Characteristics of study area and target population </label>
+                    <label class="form-control">{{listData.applicationListObject.targetPopulation}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Sampling and sample size</label>
+                    <label class="form-control">{{listData.applicationListObject.samplingAndSampleSize}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Variable definitions and measurements</label>
+                    <label class="form-control">{{listData.applicationListObject.variableDefinitions}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Data collection tools and methods</label>
+                    <label class="form-control">{{listData.applicationListObject.dataCollectionTools}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Pilot study</label>
+                    <label class="form-control">{{listData.applicationListObject.pilotStudy}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Data quality and entry</label>
+                    <label class="form-control">{{listData.applicationListObject.dataQualityAndEntry}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Data analysis</label>
+                    <label class="form-control">{{listData.applicationListObject.dataAnalysis}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Ethical considerations</label>
+                    <label class="form-control">{{listData.applicationListObject.ethicalConsiderations}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Results Dissemination</label>
+                    <label class="form-control">{{listData.applicationListObject.resultsDissemination}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Limitations and difficulties of the study</label>
+                    <label class="form-control">{{listData.applicationListObject.limitationsAndDifficulties}}</label>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Expected duration for the study in months</label>
+                    <label class="form-control">{{listData.applicationListObject.expectedDuration}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Timeline / work plan of the study</p>
+            <div class="row" *ngFor="let timeline of listData.applicationListObject.timelineAndWorkPlan">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Research activity</label>
+                    <label class="form-control">{{timeline.activity}}</label>
+
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Time</label>
+                    <label class="form-control">{{timeline.time}}</label>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Other Details</p>
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">If other health institutions involved in this research: </label>
+                    <label class="form-control">{{listData.applicationListObject.isHealthInstitutionsInvolved}}</label>
+
+                </div>
+                <div class="col-md-6 mb-1" *ngIf="listData.applicationListObject.isHealthInstitutionsInvolved === 'Yes'">
+                    <label class="form-label">If Yes,<span class="text-danger">*</span></label>
+                    <label class="form-control">{{listData.applicationListObject.healthInstitutionsInvolved}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">If research funding required:</label>
+                    <label class="form-control">{{listData.applicationListObject.isResearchFundingRequired}}</label>
+
+                </div>
+                <div class="col-md-3 mb-1" *ngIf="listData.applicationListObject.isResearchFundingRequired === 'Yes'">
+                    <label for="" class="form-label">  Required budget</label>
+                    <label class="form-control">{{listData.applicationListObject.researchFundBudget}}</label>
+
+                </div>
+                <div class="col-md-3 mb-1" *ngIf="listData.applicationListObject.isResearchFundingRequired === 'Yes'">
+                    <label for="" class="form-label"> Potential funding institution</label>
+                    <label class="form-control">{{listData.applicationListObject.researchFundingInstitution}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Documents</p>
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download Data collection sheets</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download Consent form</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download CV</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download Other documents</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,528 @@
+<app-breadcrumbs title="Ethical Approval" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/research/view-application')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Applicant Name</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Title of Research Project</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Ref No</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Type of research</label>
+                    <ng-select [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Type of the study design</label>
+                    <ng-select [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Status</label>
+                    <ng-select [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>                                    
+                                    <th scope="col">Applicant Name</th>
+                                    <th scope="col">Title of Research Project</th>	
+                                    <th scope="col">Ref No</th>
+                                    <th scope="col">Type of research</th>
+                                    <th scope="col">Type of the study design</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let application of listData.applicationListData">
+                                    <td>{{application.applicantName}}</td>
+                                    <td>{{application.titleOfResearchProject}}</td>
+                                    <td>{{application.refNumber}}</td>
+                                    <td>{{application.typeOfResearch}}</td>
+                                    <td>{{application.typeOfTheStudyDesign}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li  (click)="openModal(applicationView, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li *ngIf="application.status === 'Applied' || application.status === 'Resubmitted' " (click)="openModal(applicationReview, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Review</a></li>
+                                                <li *ngIf="application.status === 'Accepted'" (click)="openModal(applicationAssignReviewers, 'xl')"><a class="dropdown-item" ><i class="mx-1  ri-user-2-fill"></i>Assign Reviewers</a></li>
+                                                <li *ngIf="application.status === 'RIC Rejected'"><a class="dropdown-item" ><i class="mx-1  ri-newspaper-line"></i>Rejection Letter</a></li>
+                                                <li *ngIf="application.status === 'Assigned Reviewers' || application.status === 'Resubmitted'" (click)="openModal(recEvaluationForm, 'xl')"><a class="dropdown-item" ><i class="mx-1  ri-newspaper-line"></i>Fill Evaluation Form</a></li>
+                                                <li *ngIf="application.status === 'Approve'"><a class="dropdown-item" ><i class="mx-1  ri-newspaper-line"></i>Final Approval</a></li>
+                                                <li *ngIf="application.status === 'Final Approval'"><a class="dropdown-item" ><i class="mx-1  ri-newspaper-line"></i>Ethical Approval Letter</a></li>
+
+                                                <li *ngIf="application.status === 'Ethical Approval Issued'" (click)="openModal(annualReport, 'lg')"><a class="dropdown-item" ><i class="mx-1   ri-article-line
+                                                    "></i>Submit Annual Report</a></li>
+                                                <li *ngIf="application.status === 'Ethical Approval Issued'"><a class="dropdown-item" ><i class="mx-1  ri-newspaper-line"></i>Submit Final Report</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                            </thead>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #applicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Application View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <ng-container *ngTemplateOutlet="applicationViewCards"></ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationReview let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Application Review</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <ng-container *ngTemplateOutlet="applicationViewCards"></ng-container>
+                        <div class="card shadow border">
+                            <div class="card-body">
+                                <p class="h4 text-success">Review application</p>
+                                <div class="row">
+                                    <div class="col-md-6 mb-1">
+                                        <label class="form-label">Review Status<span class="text-danger">{{ " *" }}</span></label>
+                                        <ng-select [items]="['Accept the Application', 'Reject', 'Ask for Resubmission']"
+                                        placeholder="Please select" (change)="onChangeApplicationReviewStatus($event)" >
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-12 mb-1" *ngIf="applicationReviewStatus === 'Reject' || applicationReviewStatus === 'Ask for Resubmission'">
+                                        <label class="form-label">Comment<span class="text-danger">{{ " *" }}</span></label>
+                                        <textarea type="text" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #annualReport let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Annual Report</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Current stage of the project<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">What have been done/achieved so far<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Any deviations from the original protocol<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">List of actual outcomes, results obtained<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Financial audit report<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control mb-2"></textarea>
+                        <ngx-dropzone (change)="onSelect($event, 'auditReportFiles')" [multiple]="false">
+                            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of auditReportFiles" [removable]="true"
+                            (removed)="onRemove(f, 'auditReportFiles')">
+                            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Equipments purchased<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control mb-2"></textarea>
+                        <ngx-dropzone (change)="onSelect($event, 'equipmentPurchasedFiles')" [multiple]="false">
+                            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of equipmentPurchasedFiles" [removable]="true"
+                            (removed)="onRemove(f, 'equipmentPurchasedFiles')">
+                            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Publication if any<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control mb-2"></textarea>
+                        <ngx-dropzone (change)="onSelect($event, 'publicationsFiles')" [multiple]="false">
+                            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of equipmentPurchasedFiles" [removable]="true"
+                            (removed)="onRemove(f, 'publicationsFiles')">
+                            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Any contribution from other parties involved in the project<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">The plan for the coming period<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea type="text" rows="2" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationAssignReviewers let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Assign Reviewers</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <ng-container *ngTemplateOutlet="applicationViewCards"></ng-container>
+                        <div class="card shadow border">
+                            <div class="card-body">
+                                <p class="h4 text-success">Assign Reviewers</p>
+                                <div class="row">
+                                    <div class="col-md-6 mb-1">
+                                        <label class="form-label">Status<span class="text-danger">{{ " *" }}</span></label>
+                                        <ng-select [items]="['Assign Reviewer', 'Reject']"
+                                        placeholder="Please select" (change)="onChangeAssignReviewersStatus($event)" >
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-12 mb-1" *ngIf="assignReviewersStatus === 'Reject'">
+                                        <label class="form-label">Comment<span class="text-danger">{{ " *" }}</span></label>
+                                        <textarea type="text" class="form-control"></textarea>
+                                    </div>
+                                    <div class="col-md-12 mb-1" *ngIf="assignReviewersStatus === 'Assign Reviewer'">
+                                        <label class="form-label">Select Reviewers</label>
+                                        <ng-select [items]="listData.userLists" 
+                                        [multiple]="true"
+                                        bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #recEvaluationForm let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-rec-evaluation-form></app-rec-evaluation-form>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #applicationViewCards>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Title of Research Project</label>
+                    <label class="form-control">{{listData.applicationListObject.researchTitle}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Type of Research</label>
+                    <label class="form-control">{{listData.applicationListObject.researchType}}</label>
+                </div>
+                <div class="col-md-6 mb-1" *ngIf="listData.applicationListObject.researchType === 'Other'">
+                    <label class="form-label">If other, Research Type</label>
+                    <label class="form-control">{{listData.applicationListObject.researchTypeOther}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Type of the study design</label>
+                    <label class="form-control">{{listData.applicationListObject.typeOfStudyDesign}}</label>
+                </div>
+                <div class="col-md-6 mb-1" *ngIf="listData.applicationListObject.typeOfStudyDesign === 'Other'">
+                    <label class="form-label">If other, Study Design</label>
+                    <label class="form-control">{{listData.applicationListObject.typeOfStudyDesignOther}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Abstract </label>
+                    <label class="form-control">{{listData.applicationListObject.abstract}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Research Team</p>
+            <div class="row" *ngFor="let teamMember of listData.applicationListObject.researchTeam">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Name of Research Team Member</label>
+                    <label class="form-control">{{teamMember.teamMember}}</label>
+
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Responsibility/ Tasks </label>
+                    <label class="form-control">{{teamMember.tasks}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Complete Research Proposals</p>
+            <div class="row" *ngFor="let proposal of listData.applicationListObject.researchProposal">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Introduction and literature review</label>
+                    <label class="form-control">{{proposal.literatureReview}}</label>
+
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Objectives and hypothesis of the study</label>
+                    <label class="form-control">{{proposal.objectives}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Methods</p>
+            <div class="row">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Research design</label>
+                    <label class="form-control">{{listData.applicationListObject.researchDesign}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Characteristics of study area and target population </label>
+                    <label class="form-control">{{listData.applicationListObject.targetPopulation}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Sampling and sample size</label>
+                    <label class="form-control">{{listData.applicationListObject.samplingAndSampleSize}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Variable definitions and measurements</label>
+                    <label class="form-control">{{listData.applicationListObject.variableDefinitions}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Data collection tools and methods</label>
+                    <label class="form-control">{{listData.applicationListObject.dataCollectionTools}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Pilot study</label>
+                    <label class="form-control">{{listData.applicationListObject.pilotStudy}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Data quality and entry</label>
+                    <label class="form-control">{{listData.applicationListObject.dataQualityAndEntry}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Data analysis</label>
+                    <label class="form-control">{{listData.applicationListObject.dataAnalysis}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Ethical considerations</label>
+                    <label class="form-control">{{listData.applicationListObject.ethicalConsiderations}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Results Dissemination</label>
+                    <label class="form-control">{{listData.applicationListObject.resultsDissemination}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Limitations and difficulties of the study</label>
+                    <label class="form-control">{{listData.applicationListObject.limitationsAndDifficulties}}</label>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Expected duration for the study in months</label>
+                    <label class="form-control">{{listData.applicationListObject.expectedDuration}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Timeline / work plan of the study</p>
+            <div class="row" *ngFor="let timeline of listData.applicationListObject.timelineAndWorkPlan">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Research activity</label>
+                    <label class="form-control">{{timeline.activity}}</label>
+
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Time</label>
+                    <label class="form-control">{{timeline.time}}</label>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Other Details</p>
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">If other health institutions involved in this research: </label>
+                    <label class="form-control">{{listData.applicationListObject.isHealthInstitutionsInvolved}}</label>
+
+                </div>
+                <div class="col-md-6 mb-1" *ngIf="listData.applicationListObject.isHealthInstitutionsInvolved === 'Yes'">
+                    <label class="form-label">If Yes,<span class="text-danger">*</span></label>
+                    <label class="form-control">{{listData.applicationListObject.healthInstitutionsInvolved}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">If research funding required:</label>
+                    <label class="form-control">{{listData.applicationListObject.isResearchFundingRequired}}</label>
+
+                </div>
+                <div class="col-md-3 mb-1" *ngIf="listData.applicationListObject.isResearchFundingRequired === 'Yes'">
+                    <label for="" class="form-label">  Required budget</label>
+                    <label class="form-control">{{listData.applicationListObject.researchFundBudget}}</label>
+
+                </div>
+                <div class="col-md-3 mb-1" *ngIf="listData.applicationListObject.isResearchFundingRequired === 'Yes'">
+                    <label for="" class="form-label"> Potential funding institution</label>
+                    <label class="form-control">{{listData.applicationListObject.researchFundingInstitution}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Documents</p>
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download Data collection sheets</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download Consent form</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download CV</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">Download Other documents</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+

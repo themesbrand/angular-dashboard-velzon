@@ -1,0 +1,658 @@
+<section class="section p-0">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="profile-foreground position-relative">
+          <div class="profile-wid-bg">
+            <img
+              src="assets/images/profile-bg.jpg"
+              alt=""
+              class="profile-wid-img"
+            />
+          </div>
+        </div>
+        <div class="row g-2 px-3">
+          <div class="col-md-1 mx-1">
+            <div class="avatar-lg">
+              <img
+                src="assets/images/users/avatar-1.jpg"
+                alt="user-img"
+                class="img-thumbnail rounded-circle"
+              />
+            </div>
+          </div>
+          <!--end col-->
+          <div class="col-auto mt-3 mb-2">
+            <div class="mb-1 d-flex flex-row">
+              <label class="form-label text-white mx-3">Abbas Al Ajmi</label>
+              <label class="form-label text-white mx-3">عباس أل أجمع</label>
+            </div>
+            <div class="d-flex flex-column">
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
+              >
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-mail-line"></i>ajmi@gmail.com</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row px-5 justify-content-center">
+        <div class="col-lg-11">
+            <div class="d-flex">
+                <!-- Nav tabs -->
+                <ul ngbNav #customNav="ngbNav"
+                  [activeId]="1"
+                  class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+                  role="tablist" >
+                  <li [ngbNavItem]="1" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">Application Form</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                        <form [formGroup]="applicationForm">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Applicant Name<span class="text-danger">*</span></label>
+                                                    <label type="text" class="form-control">Abbas Al Ajmi</label>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Title<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Proposal ID<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Type of Project Application<span class="text-danger">*</span></label>
+                                                    <ng-select [items]="listData.projectApplicationList"    
+                                                        formControlName="projectApplicationType"
+                                                        placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Current Status<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Collaborative Partners<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border" formArrayName="expectedOutcomes">
+                                        <div class="card-body">
+                                            <div class="d-flex mt-4 flex-row justify-content-between">
+                                                <p class="h4 text-success">Expected Outcomes</p>
+                                                <a
+                                                  (click)="addExpectedOutcomes()"
+                                                  href="javascript:void(0);"
+                                                  class="link-primary"
+                                                  ><i class="ri-add-box-line"></i>Add more</a
+                                                >
+                                              </div>
+                                            <div class="row" *ngFor="let teamMember of expectedOutcomesControls; let i = index" [formGroupName]="i">
+                                                <div class="d-flex flex-row justify-content-end">
+                                                    <button (click)="onDeleteExpectedOutcomes(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                                                </div>
+                                                <div class="col-md-4 mb-1">
+                                                    <label class="form-label">Outcome Type<span class="text-danger">*</span></label>
+                                                    <input type="text" 
+                                                    formControlName="outcomeType" class="form-control">
+                                                </div>
+                                                <div class="col-md-4 mb-1">
+                                                    <label class="form-label">Omani<span class="text-danger">*</span></label>
+                                                    <input type="number" 
+                                                    formControlName="omani" class="form-control">
+                                                </div>
+                                                <div class="col-md-4 mb-1">
+                                                    <label class="form-label">Non Omani<span class="text-danger">*</span></label>
+                                                    <input type="number" 
+                                                    formControlName="nonOmani" class="form-control">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-4 mb-1">
+                                                    <label class="form-label">No of Expected Publications<span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control">
+                                                </div>
+                                                <div class="col-md-4 mb-1">
+                                                    <label class="form-label">No of Expected Patents<span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control">
+                                                </div>
+                                                <div class="col-md-4 mb-1">
+                                                    <label class="form-label">Sector Name<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Additional KPIs<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border" formArrayName="teamDetails">
+                                        <div class="card-body">
+                                            <div class="d-flex mt-4 flex-row justify-content-between">
+                                                <p class="h4 text-success">Team Details</p>
+                                                <a
+                                                  (click)="addTeamDetails()"
+                                                  href="javascript:void(0);"
+                                                  class="link-primary"
+                                                  ><i class="ri-add-box-line"></i>Add more</a
+                                                >
+                                              </div>
+                                            <div class="row" *ngFor="let teamMember of teamDetailsControls; let i = index" [formGroupName]="i">
+                                                <div class="d-flex flex-row justify-content-end">
+                                                    <button (click)="onDeleteTeamDetails(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                                                </div>
+                                                <div class="col-md-3 mb-1">
+                                                    <label for="" class="form-label"> Position</label>
+                                                    <ng-select [items]="['Team Leader', 'Supervisor', 'Team Member']" 
+                                                    formControlName="position" 
+                                                    placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-3 mb-1">
+                                                    <label class="form-label">Name<span class="text-danger">*</span></label>
+                                                    <input type="text" 
+                                                    formControlName="name" class="form-control">
+                                                </div>
+                                                <div class="col-md-3 mb-1">
+                                                    <label class="form-label">Civil ID<span class="text-danger">*</span></label>
+                                                    <input type="text" 
+                                                    formControlName="civilId" class="form-control">
+                                                </div>
+                                                <div class="col-md-3 mb-1">
+                                                    <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                                                    <input type="text" 
+                                                    formControlName="email" class="form-control">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Technology Readiness Level (TRL)<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Priority Area<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Executive Summary<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Introduction and Statement of the Problem / Project<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Literature Review and Analysis of Related Work<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Objectives<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Research Methodology [Describe your Implementation Plan,Time-line and Milestones]<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Benefits to Oman<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">Academic, Scientific and/or Innovation Significance<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <label class="form-label">References<span class="text-danger">*</span></label>
+                                                    <textarea type="text" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label mb-2">Is this project going to result in a patent?</label>
+                                                    <div class="d-flex flex-row" >
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input"
+                                                          name="isResultInPatent" type="radio" id="radioCheck1" value="yes">
+                                                          <label for="radioCheck1">Yes</label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input" 
+                                                          name="isResultInPatent"type="radio" id="radioCheck2"  value="no">
+                                                          <label class="mx-2" for="radioCheck2">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Duration in months<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border" formArrayName="budgetSummary">
+                                        <div class="card-body">
+                                            <div class="d-flex mt-4 flex-row justify-content-between">
+                                                <p class="h4 text-success">Budget Summary</p>
+                                                <a
+                                                  (click)="addBudgetSummary()"
+                                                  href="javascript:void(0);"
+                                                  class="link-primary"
+                                                  ><i class="ri-add-box-line"></i>Add more</a
+                                                >
+                                              </div>
+                                            <div class="row" *ngFor="let budget of budgetSummaryControls; let i = index" [formGroupName]="i">
+                                                <div class="d-flex flex-row justify-content-end">
+                                                    <button (click)="onDeleteBudgetSummary(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Budget Category</label>
+                                                    <input type="text" 
+                                                    formControlName="budgetCategory" class="form-control">
+
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label for="" class="form-label">  Required budget</label>
+                                                    <div class="input-group input-group">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                                                        <input type="text" 
+                                                        placeholder="Budget" class="form-control" aria-label="Sizing example input" 
+                                                        formControlName="budget" aria-describedby="inputGroup-sizing-sm">
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label">Overall TRC Requested Funding (OMR)<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row gap-3 my-2">
+                                        <button class="btn btn-secondary">Save and Submit later</button>
+                                        <button class="btn btn-primary">Submit</button>
+                                        <button class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">My Applications</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                        <div class="row mt-1">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="d-flex flex-row justify-content-end gap-3">
+                                                <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">	Title of Project</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Proposal ID	</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Type of Project</label>
+                                            <ng-select [items]="[]" placeholder="Please select">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Status</label>
+                                            <ng-select [items]="[]" placeholder="Please select">
+                                            </ng-select>
+                                        </div>
+                                        <div class="d-flex flex-row">
+                                            <button class="btn btn-primary my-2">Filter</button>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="row">
+                                        <div class="live-preview">     
+                                            <div class="table-responsive">
+                                                <table class="table align-middle table-hover table-wrap mb-0">
+                                                    <thead>
+                                                        <tr>                                    
+                                                            <th scope="col">Applicant Name</th>
+                                                            <th scope="col">Title of Project</th>	
+                                                            <th scope="col">Type of Project</th>
+                                                            <th scope="col">Proposal ID</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <thead>
+                                                        <tr *ngFor="let application of listData.applicationListData">
+                                                            <td>{{application.applicantName}}</td>
+                                                            <td>{{application.titleOfProject}}</td>
+                                                            <td>{{application.typeOfProject}}</td>
+                                                            <td>{{application.proposalId}}</td>
+                                                            <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td>
+                                                            <td>
+                                                                <div class="dropdown" ngbDropdown>
+                                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                        <i class="ri-more-2-fill"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                        <li (click)="openModal(applicationView, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                        
+                        
+                                                    </thead>
+                                                </table>
+                                            </div>                             
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="3" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">Personal Details</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                      <app-register [userDetails]="userDetails"></app-register>
+                    </ng-template>
+                  </li>
+                </ul>
+              </div>
+              <!-- Tab panes -->
+              <div class="tab-content pt-4 text-muted">
+                <div [ngbNavOutlet]="customNav"></div>
+              </div>
+              <!--end tab-content-->
+              
+            
+            
+        </div>
+      </div>
+    </div>
+</section>
+
+<ng-template #applicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Application View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <ng-container *ngTemplateOutlet="applicationViewCards"></ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationViewCards>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Applicant Name<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.applicantName}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Title<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.titleOfProject}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Proposal ID<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.proposalId}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Type of Project Application<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.typeOfProject}}</label>
+
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Current Status<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.currentStatus}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Collaborative Partners<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.collaborativePartners}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Expected Outcomes</p>
+
+            <div class="row" *ngFor="let outcome of listData.applicationListObject.expectedOutcome;">
+
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Outcome Type<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{outcome.outcomeType}}</label>
+
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Omani<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{outcome.omani}}</label>
+
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Non Omani<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{outcome.nonOmani}}</label>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">No of Expected Publications<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.noOfExpectedPublications}}</label>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">No of Expected Patents<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.noOfExpectedPatents}}</label>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Sector Name<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.sectorName}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Additional KPIs<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.additionalKPIs}}</label>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Team Details</p>
+            <div class="row" *ngFor="let team of listData.applicationListObject.teamDetails">
+                <div class="col-md-3 mb-1">
+                    <label for="" class="form-label"> Position</label>
+                    <label type="text" class="form-control">{{team.position}}</label>
+
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label class="form-label">Name<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{team.name}}</label>
+
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label class="form-label">Civil ID<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{team.civilID}}</label>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{team.email}}</label>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Technology Readiness Level (TRL)<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.technologyReadinessLevel}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Priority Area<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.priorityArea}}</label>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Executive Summary<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.executiveSummary}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Introduction and Statement of the Problem / Project<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.introductionAndStatementProblemOrProject}}</label>                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Literature Review and Analysis of Related Work<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.literatureReview}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Objectives<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.objectives}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Research Methodology [Describe your Implementation Plan,Time-line and Milestones]<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.researchMethodology}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Benefits to Oman<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.benefits}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Academic, Scientific and/or Innovation Significance<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.significance}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Patent Review<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.patentReview}}</label>                
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">References<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.references}}</label>                
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">Is this project going to result in a patent?</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.isResultInPatent}}</label>                
+
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Duration in months<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.duration}}</label>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <p class="h4 text-success">Budget Summary</p>
+            <div class="row" *ngFor="let budget of listData.applicationListObject.budgets">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Budget Category</label>
+                    <label type="text" class="form-control">{{budget.budgetCategory}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label for="" class="form-label">  Required budget</label>
+                    <label type="text" class="form-control">{{budget.Budget | currency:'OMR'}}</label>
+                </div>
+                
+            </div>
+        </div>
+    </div>                                    
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Overall TRC Requested Funding (OMR)<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.overallFundingRequested | currency:'OMR'}}</label>                
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

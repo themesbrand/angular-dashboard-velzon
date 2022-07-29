@@ -1,0 +1,248 @@
+<form [formGroup]="applicationForm">
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Applicant Name<span class="text-danger">*</span></label>
+                    <label type="text" class="form-control">Abbas Al Ajmi</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Title<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Proposal ID<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Type of Project Application<span class="text-danger">*</span></label>
+                    <ng-select [items]="listData.projectApplicationList"    
+                        formControlName="projectApplicationType"
+                        placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Current Status<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Collaborative Partners<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border" formArrayName="expectedOutcomes">
+        <div class="card-body">
+            <div class="d-flex mt-4 flex-row justify-content-between">
+                <p class="h4 text-success">Expected Outcomes</p>
+                <a
+                  (click)="addExpectedOutcomes()"
+                  href="javascript:void(0);"
+                  class="link-primary"
+                  ><i class="ri-add-box-line"></i>Add more</a
+                >
+              </div>
+            <div class="row" *ngFor="let teamMember of expectedOutcomesControls; let i = index" [formGroupName]="i">
+                <div class="d-flex flex-row justify-content-end">
+                    <button (click)="onDeleteExpectedOutcomes(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Outcome Type<span class="text-danger">*</span></label>
+                    <input type="text" 
+                    formControlName="outcomeType" class="form-control">
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Omani<span class="text-danger">*</span></label>
+                    <input type="number" 
+                    formControlName="omani" class="form-control">
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Non Omani<span class="text-danger">*</span></label>
+                    <input type="number" 
+                    formControlName="nonOmani" class="form-control">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">No of Expected Publications<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control">
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">No of Expected Patents<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control">
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label class="form-label">Sector Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Additional KPIs<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border" formArrayName="teamDetails">
+        <div class="card-body">
+            <div class="d-flex mt-4 flex-row justify-content-between">
+                <p class="h4 text-success">Team Details</p>
+                <a
+                  (click)="addTeamDetails()"
+                  href="javascript:void(0);"
+                  class="link-primary"
+                  ><i class="ri-add-box-line"></i>Add more</a
+                >
+              </div>
+            <div class="row" *ngFor="let teamMember of teamDetailsControls; let i = index" [formGroupName]="i">
+                <div class="d-flex flex-row justify-content-end">
+                    <button (click)="onDeleteTeamDetails(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label for="" class="form-label"> Position</label>
+                    <ng-select [items]="['Team Leader', 'Supervisor', 'Team Member']" 
+                    formControlName="position" 
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label class="form-label">Name<span class="text-danger">*</span></label>
+                    <input type="text" 
+                    formControlName="name" class="form-control">
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label class="form-label">Civil ID<span class="text-danger">*</span></label>
+                    <input type="text" 
+                    formControlName="civilId" class="form-control">
+                </div>
+                <div class="col-md-3 mb-1">
+                    <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                    <input type="text" 
+                    formControlName="email" class="form-control">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Technology Readiness Level (TRL)<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Priority Area<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Executive Summary<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Introduction and Statement of the Problem / Project<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Literature Review and Analysis of Related Work<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Objectives<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Research Methodology [Describe your Implementation Plan,Time-line and Milestones]<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Benefits to Oman<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">Academic, Scientific and/or Innovation Significance<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-12 mb-1">
+                    <label class="form-label">References<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">Is this project going to result in a patent?</label>
+                    <div class="d-flex flex-row" >
+                        <div class="form-check mx-3">
+                          <input class="form-check-input"
+                          name="isResultInPatent" type="radio" id="radioCheck1" value="yes">
+                          <label for="radioCheck1">Yes</label>
+                        </div>
+                        <div class="form-check mx-3">
+                          <input class="form-check-input" 
+                          name="isResultInPatent"type="radio" id="radioCheck2"  value="no">
+                          <label class="mx-2" for="radioCheck2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Duration in months<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border" formArrayName="budgetSummary">
+        <div class="card-body">
+            <div class="d-flex mt-4 flex-row justify-content-between">
+                <p class="h4 text-success">Budget Summary</p>
+                <a
+                  (click)="addBudgetSummary()"
+                  href="javascript:void(0);"
+                  class="link-primary"
+                  ><i class="ri-add-box-line"></i>Add more</a
+                >
+              </div>
+            <div class="row" *ngFor="let budget of budgetSummaryControls; let i = index" [formGroupName]="i">
+                <div class="d-flex flex-row justify-content-end">
+                    <button (click)="onDeleteBudgetSummary(i)" type="button" class="btn btn-outline-danger mb-1 btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-line"></i></button>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Budget Category</label>
+                    <input type="text" 
+                    formControlName="budgetCategory" class="form-control">
+
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label for="" class="form-label">  Required budget</label>
+                    <div class="input-group input-group">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
+                        <input type="text" 
+                        placeholder="Budget" class="form-control" aria-label="Sizing example input" 
+                        formControlName="budget" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>                                    
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Overall TRC Requested Funding (OMR)<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row gap-3 my-2">
+        <button class="btn btn-secondary">Save and Submit later</button>
+        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-danger">Cancel</button>
+    </div>
+</form>

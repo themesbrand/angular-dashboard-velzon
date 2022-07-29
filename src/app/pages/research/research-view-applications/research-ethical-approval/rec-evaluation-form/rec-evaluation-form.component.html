@@ -1,0 +1,55 @@
+<div class="card bg-light">
+    <div class="card-header pb-0 bg-light">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="/assets/images/logo_2.png" class="img-fluid">
+            </div>
+            <div class="col-md-10">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex flex-column text-center">
+                        <p class="h2">Research Proposal Evaluation Form</p>
+                        <p class="h4 mb-4">Research & Ethics Committee (REC)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 text-success">Reviewer’s opinion</p>
+                <div class="row" *ngFor="let opinion of listData.opinions; let i = index">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-2">{{opinion.object}}</label>
+                        <div class="d-flex flex-row" >
+                            <div class="form-check mx-3">
+                                <input class="form-check-input"type="radio" 
+                                name="radioCheckOption{{i}}" id="radioCheck{{i}}" value="Yes">
+                                <label for="radioCheck{{i}}">Yes</label>
+                            </div>
+                            <div class="form-check mx-3">
+                                <input class="form-check-input" type="radio" 
+                                name="radioCheckOption{{i}}" id="radioCheck{{(i+1)}}"  value="Yes">
+                                <label class="mx-2" for="radioCheck{{(i+1)}}">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label mb-2">Comment</label>
+                        <textarea rows="2" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label">Decision<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="['Approve', 'Approve with Minor Modification', 'Approve with Major Modification', 'Reject']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

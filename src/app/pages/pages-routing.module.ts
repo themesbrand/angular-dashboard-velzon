@@ -79,6 +79,11 @@ import { SimulationWorkshopViewApplicationComponent } from './simulation/simulat
 import { SimulationWorkshopOrderFoodComponent } from './simulation/simulation-workshop/simulation-workshop-order-food/simulation-workshop-order-food.component';
 import { SimulationCreateFormComponent } from './simulation/simulation-workshop/simulation-create-form/simulation-create-form.component';
 import { SimulationCourseCreateFormComponent } from './simulation/simulation-course/simulation-course-create-form/simulation-course-create-form.component';
+import { ResearchViewApplicationsComponent } from './research/research-view-applications/research-view-applications.component';
+import { ResearchEthicalApprovalComponent } from './research/research-view-applications/research-ethical-approval/research-ethical-approval.component';
+import { ResearchFundingOpportunitiesComponent } from './research/research-view-applications/research-funding-opportunities/research-funding-opportunities.component';
+import { ResearchOtherFundingOpportunitiesComponent } from './research/research-view-applications/research-other-funding-opportunities/research-other-funding-opportunities.component';
+import { ResearchConsultationRequestComponent } from './research/research-consultation-request/research-consultation-request.component';
 
 const routes: Routes = [
     //Default Routing
@@ -178,6 +183,16 @@ const routes: Routes = [
         { path: "create-form", component: SimulationCreateFormComponent },
       ] },
       { path: "standardized-patients", component: SimulationStandardizedPatientsComponent }
+    ]},
+    { path: "research", children : [
+      { path: "view-application", children: [
+        { path: "", component: ResearchViewApplicationsComponent},
+        { path: "ethical-approval", component: ResearchEthicalApprovalComponent },
+        { path: "research-funding-opportunities", component: ResearchFundingOpportunitiesComponent },
+        { path: "research-other-funding-opportunities", component: ResearchOtherFundingOpportunitiesComponent },
+      ] },
+      { path: "consultation-request", component: ResearchConsultationRequestComponent }
+
     ]},
 
     //Employer Routing

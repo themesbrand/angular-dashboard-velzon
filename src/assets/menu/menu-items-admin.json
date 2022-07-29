@@ -166,5 +166,27 @@
                 "link": "simulation/standardized-patients"
             }
         ]
+    },
+    {
+        "id": 29,
+        "label": "Research",
+        "icon": "ri-contacts-book-upload-line",
+        "subItems" : [
+            {
+                "id": 30,
+                "label": "View Application",
+                "link": "research/view-application"
+            },
+            {
+                "id": 31,
+                "label": "Consultation Request",
+                "link": "research/consultation-request"
+            },
+            {
+                "id": 32,
+                "label": "Research Day",
+                "link": "research/research-day"
+            }
+        ]
     }
 ]

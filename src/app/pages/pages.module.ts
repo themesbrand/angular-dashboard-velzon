@@ -160,6 +160,15 @@ import { SimulationWorkshopViewApplicationComponent } from './simulation/simulat
 import { SimulationWorkshopOrderFoodComponent } from './simulation/simulation-workshop/simulation-workshop-order-food/simulation-workshop-order-food.component';
 import { SimulationCreateFormComponent } from './simulation/simulation-workshop/simulation-create-form/simulation-create-form.component';
 import { SimulationCourseCreateFormComponent } from './simulation/simulation-course/simulation-course-create-form/simulation-course-create-form.component';
+import { ResearchComponent } from './research/research.component';
+import { ResearchViewApplicationsComponent } from './research/research-view-applications/research-view-applications.component';
+import { ResearchEthicalApprovalComponent } from './research/research-view-applications/research-ethical-approval/research-ethical-approval.component';
+import { ResearchFundingOpportunitiesComponent } from './research/research-view-applications/research-funding-opportunities/research-funding-opportunities.component';
+import { ResearchOtherFundingOpportunitiesComponent } from './research/research-view-applications/research-other-funding-opportunities/research-other-funding-opportunities.component';
+import { ResearchConsultationRequestComponent } from './research/research-consultation-request/research-consultation-request.component';
+import { RecEvaluationFormComponent } from './research/research-view-applications/research-ethical-approval/rec-evaluation-form/rec-evaluation-form.component';
+import { EvaluationFormComponent } from './research/research-view-applications/research-other-funding-opportunities/evaluation-form/evaluation-form.component';
+import { ResearchFundingOpportunitiesFormComponent } from './research/research-view-applications/research-funding-opportunities/research-funding-opportunities-form/research-funding-opportunities-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -285,7 +294,16 @@ FullCalendarModule.registerPlugins([
     SimulationWorkshopViewApplicationComponent,
     SimulationWorkshopOrderFoodComponent,
     SimulationCreateFormComponent,
-    SimulationCourseCreateFormComponent
+    SimulationCourseCreateFormComponent,
+    ResearchComponent,
+    ResearchViewApplicationsComponent,
+    ResearchEthicalApprovalComponent,
+    ResearchFundingOpportunitiesComponent,
+    ResearchOtherFundingOpportunitiesComponent,
+    ResearchConsultationRequestComponent,
+    RecEvaluationFormComponent,
+    EvaluationFormComponent,
+    ResearchFundingOpportunitiesFormComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,574 @@
+<section class="section p-0">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="profile-foreground position-relative">
+          <div class="profile-wid-bg">
+            <img
+              src="assets/images/profile-bg.jpg"
+              alt=""
+              class="profile-wid-img"
+            />
+          </div>
+        </div>
+        <div class="row g-2 px-3">
+          <div class="col-md-1 mx-1">
+            <div class="avatar-lg">
+              <img
+                src="assets/images/users/avatar-1.jpg"
+                alt="user-img"
+                class="img-thumbnail rounded-circle"
+              />
+            </div>
+          </div>
+          <!--end col-->
+          <div class="col-auto mt-3 mb-2">
+            <div class="mb-1 d-flex flex-row">
+              <label class="form-label text-white mx-3">Abbas Al Ajmi</label>
+              <label class="form-label text-white mx-3">عباس أل أجمع</label>
+            </div>
+            <div class="d-flex flex-column">
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
+              >
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-mail-line"></i>ajmi@gmail.com</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row px-5 justify-content-center">
+        <div class="col-lg-11">
+            <div class="d-flex">
+                <!-- Nav tabs -->
+                <ul ngbNav #customNav="ngbNav"
+                  [activeId]="1"
+                  class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+                  role="tablist" >
+                  <li [ngbNavItem]="1" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">Application Form</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                        <form [formGroup]="applicationForm">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">Requester Name</label>
+                                                    <label type="text" class="form-control">Abbas Al Ajmi</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">National ID</label>
+                                                    <label type="text" class="form-control">9876554845</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">Designation</label>
+                                                    <label type="text" class="form-control">GFP Trainee</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">OMSB ID</label>
+                                                    <label type="text" class="form-control">201-19</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">Employer</label>
+                                                    <label type="text" class="form-control">Khoula Hospital</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">Email</label>
+                                                    <label type="text" class="form-control">Abbas@email.com</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">Program</label>
+                                                    <label type="text" class="form-control">Anesthesia</label>
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label class="form-label">Residency Year</label>
+                                                    <label type="text" class="form-control">R3</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label mb-2">Is this project a mandatory research project undertaken by any OMSB resident?</label>
+                                                    <div class="d-flex flex-row" >
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input"
+                                                          formControlName="isMandatoryResearch"  type="radio" id="radioCheck1" value="Yes">
+                                                          <label for="radioCheck1">Yes</label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input" 
+                                                          formControlName="isMandatoryResearch" type="radio" id="radioCheck2"  value="No">
+                                                          <label class="mx-2" for="radioCheck2">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label class="form-label">Name of the Principal Investigator </label>
+                                                    <label type="text" class="form-control">Madan Khan</label>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label class="form-label">Name of the Supervisor</label>
+                                                    <label type="text" class="form-control">Hilal basheer</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label class="form-label">Type of Support</label>
+                                                    <ng-select [items]="listData.typeOfSupport" 
+                                                    formControlName="typeOfSupport" placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-4 mb-3" *ngIf="applicationFormValues.typeOfSupport === 'Other'">
+                                                    <label class="form-label">If other</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label class="form-label">Select a support Service Person</label>
+                                                    <ng-select [items]="listData.userLists" 
+                                                    bindLabel="labelValue" bindValue="name" 
+                                                    placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label class="form-label">Comments if any</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label mb-2">Is this project a mandatory research project undertaken by any OMSB resident?</label>
+                                                    <div class="d-flex flex-row" >
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input"
+                                                          formControlName="isConsulted"  type="radio" id="radioCheck3" value="Yes">
+                                                          <label for="radioCheck3">Yes</label>
+                                                        </div>
+                                                        <div class="form-check mx-3">
+                                                          <input class="form-check-input" 
+                                                          formControlName="isConsulted" type="radio" id="radioCheck4"  value="No">
+                                                          <label class="mx-2" for="radioCheck4">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 mb-3" *ngIf="applicationFormValues.isConsulted === 'Yes'">
+                                                    <label class="form-label">Select a support Service Person</label>
+                                                    <ng-select [items]="listData.userLists" 
+                                                    bindLabel="labelValue" bindValue="name" 
+                                                    placeholder="Please select">
+                                                    </ng-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow border">
+                                        <div class="card-body">
+                                            <label class="form-label text-muted" >Your convenient date and time</label>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-label" >Date<span class="text-danger">{{ " *" }}</span></label>
+                                                    <input class="form-control flatpickr-input" type="text"
+                                                    mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <label class="form-lable">Time<span class="text-danger">{{ " *" }}</span></label>
+                                                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                                    [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row gap-3 my-2">
+                                        <button class="btn btn-secondary">Save and Submit later</button>
+                                        <button class="btn btn-primary">Submit</button>
+                                        <button class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">My Applications</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                        <div class="row mt-1">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="d-flex flex-row justify-content-end gap-3">
+                                                <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Requester Name</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">OMSB ID</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Program Name</label>
+                                            <ng-select [items]="[]" placeholder="Please select">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Designation</label>
+                                            <ng-select [items]="[]" placeholder="Please select">
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Status</label>
+                                            <ng-select [items]="[]" placeholder="Please select">
+                                            </ng-select>
+                                        </div>
+                                        <div class="d-flex flex-row">
+                                            <button class="btn btn-primary my-2">Filter</button>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="row">
+                                        <div class="live-preview">     
+                                            <div class="table-responsive">
+                                                <table class="table align-middle table-hover table-wrap mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Requester Name</th>
+                                                            <th scope="col">National ID</th>	
+                                                            <th scope="col">Designation</th>
+                                                            <th scope="col">OMSB ID</th>
+                                                            <th scope="col">Program Name</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <thead>
+                                                        <tr *ngFor="let application of listData.applicationListData">
+                                                            <td>{{application.requesterName}}</td>
+                                                            <td>{{application.nationalID}}</td>
+                                                            <td>{{application.designation}}</td>
+                                                            <td>{{application.omsbID}}</td>
+                                                            <td>{{application.programName}}</td>
+                                                            <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td>
+                                                            <td>
+                                                                <div class="dropdown" ngbDropdown>
+                                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                        <i class="ri-more-2-fill"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                        <li (click)="openModal(applicationView, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                                        <li (click)="openModal(feedbackForm, 'xl')"*ngIf="application.status === 'Meeting Scheduled'"><a class="dropdown-item" ><i class="mx-1 ri-newspaper-line"></i>Feedback Form</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                        
+                        
+                                                    </thead>
+                                                </table>
+                                            </div>                             
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="3" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">Personal Details</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                      <app-register [userDetails]="userDetails"></app-register>
+                    </ng-template>
+                  </li>
+                </ul>
+              </div>
+              <!-- Tab panes -->
+              <div class="tab-content pt-4 text-muted">
+                <div [ngbNavOutlet]="customNav"></div>
+              </div>
+              <!--end tab-content-->
+              
+            
+            
+        </div>
+      </div>
+    </div>
+</section>
+
+<ng-template #applicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Application View</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <ng-container *ngTemplateOutlet="applicationViewCards"></ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationViewCards>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Requester Name</label>
+                    <label type="text" class="form-control">Abbas Al Ajmi</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">National ID</label>
+                    <label type="text" class="form-control">9876554845</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Designation</label>
+                    <label type="text" class="form-control">GFP Trainee</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">OMSB ID</label>
+                    <label type="text" class="form-control">201-19</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Employer</label>
+                    <label type="text" class="form-control">Khoula Hospital</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Email</label>
+                    <label type="text" class="form-control">Abbas@email.com</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Program</label>
+                    <label type="text" class="form-control">Anesthesia</label>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Residency Year</label>
+                    <label type="text" class="form-control">R3</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">Is this project a mandatory research project undertaken by any OMSB resident?</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.isMandatoryResearch}}</label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Name of the Principal Investigator </label>
+                    <label type="text" class="form-control">Madan Khan</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Name of the Supervisor</label>
+                    <label type="text" class="form-control">Hilal basheer</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Type of Support</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.typeOfSupport}}</label>
+
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="listData.applicationListObject.typeOfSupport === 'Other'">
+                    <label class="form-label">If other</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Select a support Service Person</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.supportPersons}}</label>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Comments if any</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.comments}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-label mb-2">Is this project a mandatory research project undertaken by any OMSB resident?</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.isConsulted}}</label>
+
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="listData.applicationListObject.isConsulted === 'Yes'">
+                    <label class="form-label">Select a support Service Person</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.supportPersons}}</label>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow border">
+        <div class="card-body">
+            <label class="form-label text-muted" >Your convenient date and time</label>
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class="form-label">Date</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.consultantDate}}</label>
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="form-lable">Time</label>
+                    <label type="text" class="form-control">{{listData.applicationListObject.consultantTime}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #feedbackForm let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Confirm Application</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="consultantFeedbackForm">
+                    <div class="card shadow border">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Requester Name</label>
+                                    <label type="text" class="form-control">Abbas Al Ajmi</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">National ID</label>
+                                    <label type="text" class="form-control">9876554845</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Designation</label>
+                                    <label type="text" class="form-control">GFP Trainee</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">OMSB ID</label>
+                                    <label type="text" class="form-control">201-19</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Employer</label>
+                                    <label type="text" class="form-control">Khoula Hospital</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Email</label>
+                                    <label type="text" class="form-control">Abbas@email.com</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Program</label>
+                                    <label type="text" class="form-control">Anesthesia</label>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Residency Year</label>
+                                    <label type="text" class="form-control">R3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Whom did you consult?</label>
+                                    <ng-select [items]="listData.userLists" 
+                                    formControlName="consultant"
+                                    bindLabel="labelValue" bindValue="name" 
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6 mb-3" *ngIf="feedbackFormValues.consultant === 'Other'">
+                                    <label class="form-label">If other</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Mode of consultation</label>
+                                    <ng-select [items]="['Face-to-Face', 'Online']" 
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">I received the response for my consultation request within:</label>
+                                    <ng-select [items]="[ '1-2 working days', '3-5 working days', '>5 working days' ]" 
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">I was given an appointment within:</label>
+                                    <ng-select [items]="listData.appointmentGivenList" 
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">To what extent you are satisfied from the quality and benefit from this consultation</label>
+                                    <ng-select [items]="listData.satisfaction" 
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label class="form-label">Suggestions for Improvement<span class="text-danger">{{ " *" }}</span></label>
+                                    <textarea type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>

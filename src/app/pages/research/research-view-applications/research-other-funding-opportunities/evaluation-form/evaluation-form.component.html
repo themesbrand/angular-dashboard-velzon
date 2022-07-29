@@ -1,0 +1,135 @@
+<div class="card bg-light">
+    <div class="card-header pb-0 bg-light">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="/assets/images/logo_2.png" class="img-fluid">
+            </div>
+            <div class="col-md-10">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex flex-column text-center">
+                        <p class="h2">Oman Medical Specialty Board</p>
+                        <p class="h4 mb-4">Evaluation Form for Research Grant by The Ministry of Higher Education, Research and Innovation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="evaluationForm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="live-preview">     
+                            <div class="table-responsive">
+                                <table class="table align-middle table-hover table-wrap mb-0">
+                                    <thead>
+                                        <tr>                                    
+                                            <th scope="col">S.No.</th>
+                                            <th scope="col">Impact criteria (40%)</th>	
+                                            <th scope="col"  style="min-width: 100px !important">Score</th>
+                                        </tr>
+                                    </thead>
+                                    <thead formArrayName="questionSetOne">
+                                        <tr *ngFor="let question of questionSetOneArray; let i = index" [formGroupName]="i">
+                                            <td>{{(i+1)}}</td>
+                                            <td>{{question.value.question}}</td>
+                                            <td>
+                                                <ng-select  [items]="[1,2,3,4,5]"
+                                                formControlName="score" >
+                                                </ng-select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">Total Score </th>
+                                            <th >{{ 
+                                                (questionSetOneArray[0].value.score
+                                                + +questionSetOneArray[1].value.score
+                                                + +questionSetOneArray[2].value.score
+                                                + +questionSetOneArray[3].value.score
+                                                + +questionSetOneArray[4].value.score
+                                                + +questionSetOneArray[5].value.score
+                                                + +questionSetOneArray[6].value.score)/7 | number : '1.2-2' }} </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>                             
+                        </div>
+                        <div class="live-preview mt-3">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-hover table-wrap mb-0">
+                                    <thead>
+                                        <tr>                                    
+                                            <th scope="col">S.No.</th>
+                                            <th scope="col">Impact criteria (40%)</th>	
+                                            <th scope="col"  style="min-width: 100px !important">Score</th>
+                                        </tr>
+                                    </thead>
+                                    <thead formArrayName="questionSetTwo">
+                                        <tr *ngFor="let question of questionSetTwoArray; let i = index" [formGroupName]="i">
+                                            <td>{{(i+1)}}</td>
+                                            <td>{{question.value.question}}</td>
+                                            <td>
+                                                <ng-select  [items]="[
+                                                {value : 1},
+                                                {value : 2},
+                                                {value : 3},
+                                                {value : 4},
+                                                {value : 5},
+                                                ]"
+                                                bindLabel="value" bindValue="value"
+                                                formControlName="score" >
+                                                </ng-select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">Total Score </th>
+                                            <th >{{ 
+                                                (questionSetTwoArray[0].value.score
+                                                + +questionSetTwoArray[1].value.score
+                                                + +questionSetTwoArray[2].value.score
+                                                + +questionSetTwoArray[3].value.score
+                                                + +questionSetTwoArray[4].value.score
+                                                + +questionSetTwoArray[5].value.score
+                                                + +questionSetTwoArray[6].value.score)/7 | number : '1.2-2' }} </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>                             
+                        </div>
+                        <div class="live-preview mt-3">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-hover table-wrap mb-0">
+                                    <thead>
+                                        <tr>                                    
+                                            <th scope="col">S.No.</th>
+                                            <th scope="col">Impact criteria (20%)</th>	
+                                            <th scope="col"  style="min-width: 100px !important">Score</th>
+                                        </tr>
+                                    </thead>
+                                    <thead formArrayName="questionSetThree">
+                                        <tr *ngFor="let question of questionSetThreeArray; let i = index" [formGroupName]="i">
+                                            <td>{{(i+1)}}</td>
+                                            <td>{{question.value.question}}</td>
+                                            <td>
+                                                <ng-select  [items]="[1,2,3,4,5]"
+                                                formControlName="score" >
+                                                </ng-select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">Total Score </th>
+                                            <th >{{ 
+                                                (questionSetThreeArray[0].value.score
+                                                + +questionSetThreeArray[1].value.score
+                                                + +questionSetTwoArray[2].value.score)/7 | number : '1.2-2' }} </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>       
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
