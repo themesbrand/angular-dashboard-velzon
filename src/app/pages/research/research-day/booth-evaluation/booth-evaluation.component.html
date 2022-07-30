@@ -1,1 +1,58 @@
-<p>booth-evaluation works!</p>
+<app-breadcrumbs title="Competition Grouping" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('research/research-day')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="searchForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Section Booth Group</label>
+                        <ng-select formControlName="sectionBooth"
+                            [items]="listData.sectionBoothGroupList" placeholder="Please select" (change)="getSectionBootGroup($event, 'Section Booth')">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Program Booth Group</label>
+                        <ng-select formControlName="programBooth"
+                            [items]="listData.programBoothGroupList" placeholder="Please select" (change)="getProgramBootGroup($event, 'Program Booth')">
+                        </ng-select>
+                    </div>
+                </div>
+            </form>
+            <div class="row" *ngIf="selectedBooth">
+                <div class="col-md-12 mb-3">
+                    <p class="h5 text-success">{{selectedBooth}}</p>
+                    <div class="border rounded border-dashed p-3 mb-2">
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 mb-2" *ngFor="let member of listData.group">
+                                <div class="card round mb-0 shadow team-box">
+                                    <div class="card-body p-1">
+                                        <div class="team-profile-img">
+                                            <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
+                                                <img src="{{member.photoLink}}" alt="" class="rounded-circle img-fluid userprofile" />
+                                            </div>
+                                            <div class="d-flex flex-column text-center">
+                                                <h5 class="fs-16 mb-1">{{member.name}}</h5>
+                                                <p class="text-muted mb-0">{{"Civil ID : "}}{{member.civilId}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-center">
+                                            <div class="d-flex flex-column">
+                                                <p class="text-muted mb-0 mx-2">{{"Level : "}}{{member.level}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-end align-items-center">
+                                            <button *ngIf="groupType === 'Section Booth'" (click)="onNavigate('research/research-day/booth-evaluation/section-booth-evaluation')" type="button" class="btn btn-sm mx-1 btn-outline-primary btn-icon waves-effect waves-light mx-1"><i class="ri-newspaper-line"></i></button>
+                                            <button *ngIf="groupType === 'Program Booth'" (click)="onNavigate('research/research-day/booth-evaluation/program-booth-evaluation')" type="button" class="btn btn-sm mx-1 btn-outline-primary btn-icon waves-effect waves-light mx-1"><i class="ri-newspaper-line"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

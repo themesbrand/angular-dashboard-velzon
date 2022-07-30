@@ -179,6 +179,8 @@ import { BoothEvaluationComponent } from './research/research-day/booth-evaluati
 import { BoothEvaluationResultComponent } from './research/research-day/booth-evaluation-result/booth-evaluation-result.component';
 import { EvaluationFormOralPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-oral-presentation/evaluation-form-oral-presentation.component';
 import { EvaluationFormPosterPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-poster-presentation/evaluation-form-poster-presentation.component';
+import { SectionBoothEvaluationComponent } from './research/research-day/booth-evaluation/section-booth-evaluation/section-booth-evaluation.component';
+import { ProgramBoothEvaluationComponent } from './research/research-day/booth-evaluation/program-booth-evaluation/program-booth-evaluation.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -323,7 +325,9 @@ FullCalendarModule.registerPlugins([
     BoothEvaluationComponent,
     BoothEvaluationResultComponent,
     EvaluationFormOralPresentationComponent,
-    EvaluationFormPosterPresentationComponent
+    EvaluationFormPosterPresentationComponent,
+    SectionBoothEvaluationComponent,
+    ProgramBoothEvaluationComponent
   ],
   imports: [
     CommonModule,

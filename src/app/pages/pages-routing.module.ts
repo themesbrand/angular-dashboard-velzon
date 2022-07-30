@@ -94,6 +94,8 @@ import { BoothEvaluationComponent } from './research/research-day/booth-evaluati
 import { BoothEvaluationResultComponent } from './research/research-day/booth-evaluation-result/booth-evaluation-result.component';
 import { EvaluationFormOralPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-oral-presentation/evaluation-form-oral-presentation.component';
 import { EvaluationFormPosterPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-poster-presentation/evaluation-form-poster-presentation.component';
+import { ProgramBoothEvaluationComponent } from './research/research-day/booth-evaluation/program-booth-evaluation/program-booth-evaluation.component';
+import { SectionBoothEvaluationComponent } from './research/research-day/booth-evaluation/section-booth-evaluation/section-booth-evaluation.component';
 
 const routes: Routes = [
     //Default Routing
@@ -213,7 +215,11 @@ const routes: Routes = [
           { path : "evaluation-form-poster-presentation", component: EvaluationFormPosterPresentationComponent},
         ]},
         { path : "presentation-evaluation-result", component: PresentationEvaluationResultComponent},
-        { path : "booth-evaluation", component: BoothEvaluationComponent},
+        { path : "booth-evaluation", children: [
+          { path : "", component: BoothEvaluationComponent},
+          { path : "program-booth-evaluation", component: ProgramBoothEvaluationComponent},
+          { path : "section-booth-evaluation", component: SectionBoothEvaluationComponent},
+        ] },
         { path : "booth-evaluation-result", component: BoothEvaluationResultComponent},
       ] }
 
