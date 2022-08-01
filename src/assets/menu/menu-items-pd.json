@@ -102,5 +102,17 @@
                 "link": "medical-library/purchase-medical-books"
             }
         ]
+    },
+    {
+        "id": 19,
+        "label": "Simulation Program",
+        "icon": "  ri-pantone-line",
+        "subItems" : [
+            {
+                "id": 27,
+                "label": "Workshop",
+                "link": "simulation/workshop"
+            }
+        ]
     }
 ]

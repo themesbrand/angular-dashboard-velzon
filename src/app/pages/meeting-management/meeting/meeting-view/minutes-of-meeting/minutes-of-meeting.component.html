@@ -1,14 +1,15 @@
 <div class="card">
     <div class="card-body">
         <div class="d-flex flex-row justify-content-end">
-            <button *ngIf="!isViewOnly"  (click)="openModal(addMeeting, 'lg')" type="button" class="mx-2 btn btn-primary btn-label waves-effect waves-light"><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Minutes</button>
+            <button *ngIf="!isViewOnly"  (click)="addNewMeetingValue() ;openModal(addMeeting, 'lg')" type="button" class="mx-2 btn btn-primary btn-label waves-effect waves-light"><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Minutes</button>
+            <button *ngIf="!isViewOnly"  (click)="editMeetingValue(); openModal(editMeeting, 'lg')"  type="button" class="mx-2 btn btn-primary btn-label waves-effect waves-light"><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Edit Minutes</button>
             <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-printer-line"></i></button>
         </div>
         <div class="row mt-3">
             <div class="col-md-12" *ngFor="let minute of listData.meetingMinutesList; let i = index">
                 <div class="shadow border border-dashed p-2 my-2">
                     <div class="d-flex flex-row justify-content-between py-2">
-                        <p class="h4 mb-0 text-success">{{(i+1)}}{{" : Meeting Minute"}}</p>
+                        <p class="h4 mb-0 text-success">{{"Meeting Minute"}}</p>
                         <div class="dropdown" ngbDropdown>
                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                 <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-more-2-fill"></i></button>
@@ -37,6 +38,49 @@
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
                 <label class="form-label mt-2 h5"> Add Meeting</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="meetingMinutesForm">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Meeting Minutes <span class="text-danger">*</span> </label>
+                            <ckeditor formControlName="content" [editor]="Editor" ></ckeditor>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <p class="text-muted">
+                              Upload Supporting Documents<span
+                              class="text-danger"
+                              >{{ " *" }}</span
+                              >
+                            </p>
+                            <ngx-dropzone (change)="onSelect($event, 'supportFiles')" [multiple]="true">
+                              <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                              <ngx-dropzone-preview
+                              *ngFor="let f of supportFiles"
+                              [removable]="true"
+                              (removed)="onRemove(f, 'supportFiles')"
+                              >
+                              <ngx-dropzone-label
+                                  >{{ f.name }} ({{
+                                  f.type
+                                  }})</ngx-dropzone-label
+                              >
+                              </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                          </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="onSaveMeetingMinutes()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #editMeeting let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5"> Edit Meeting</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3">

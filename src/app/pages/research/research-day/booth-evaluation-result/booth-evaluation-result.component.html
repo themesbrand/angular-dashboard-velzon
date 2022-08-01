@@ -1,1 +1,82 @@
-<p>booth-evaluation-result works!</p>
+<app-breadcrumbs title="Booth Evaluation Result" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('research/research-day')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class="ri-printer-line label-icon align-middle fs-16 me-2"></i>Export to Excel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Competition Group</label>
+                    <ng-select 
+                        [(ngModal)]="competitionGroup"
+                        [items]="listData.competitionGroup" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-lable">Research Day (Year)</label>
+                    <ng-select 
+                        [(ngModal)]="researchDay"
+                        [items]="listData.yearsList" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2" (click)="onSearch()">Get Result</button>
+                </div>
+            </div>
+            <div class="row" *ngIf="isSearchResultShow">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Program Name</th>
+                                    <th scope="col">Maden Gawas</th>
+                                    <th scope="col">Gawas Al Abrid</th>
+                                    <th scope="col">Abu Abdel</th>
+                                    <th scope="col">Median Score</th>
+                                    <th scope="col">Mean Score</th>
+                                    <th scope="col">Accepted Score</th>
+                                    <th scope="col">Rank</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of listData.tableData">
+                                    <td>{{row.programName}}</td>
+                                    <td>{{row.judgeOne}}</td>
+                                    <td>{{row.judgeTwo}}</td>
+                                    <td>{{row.judgeThree}}</td>
+                                    <td>{{row.medianScore}}</td>
+                                    <td>{{row.meanScore}}</td>
+                                    <td>
+                                        <input type="text" [value]="row.meanScore" class="form-control">
+                                    </td>
+                                    <td>{{row.rank}}</td>
+                                    <td>
+                                        <div *ngIf="row.rank === 1 || row.rank ===2 || row.rank ===3" class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li><a class="dropdown-item" ><i class="mx-1  ri-file-user-line"></i>Declare as Winner</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

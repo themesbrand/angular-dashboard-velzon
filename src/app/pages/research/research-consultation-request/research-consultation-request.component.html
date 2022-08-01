@@ -253,39 +253,41 @@
             <div class="mt-3">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Consultant Type </label>
-                                <ng-select [items]="['Epidemiologist', 'Statistician', 'Other']" 
-                                placeholder="Please select">
-                                </ng-select>
+                        <form [formGroup]="confirmApplicationForm">
+                            <div class="row">
+                                <div class="col-md-3 mb-1">
+                                    <label class="form-label">Date and Time</label>
+                                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                                        formControlName="dateAndTime"
+                                        [enableTime]="true" [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Consultant Type </label>
+                                    <ng-select [items]="['Epidemiologist', 'Statistician', 'Other']" 
+                                    formControlName="consultantType"
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Consultant</label>
+                                    <ng-select [items]="listData.userLists" 
+                                    bindLabel="labelValue"
+                                    formControlName="consultant"
+                                    placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Consultant Amiability</label>
+                                    <span class="form-control" *ngIf="confirmApplicationFormValues.dateAndTime != null && confirmApplicationFormValues.consultantType != null && confirmApplicationFormValues.consultant != null"><span class="badge fs-12" [ngClass]="{'bg-success' : confirmApplicationFormValues.consultant.status === 'Free', 'bg-danger' : confirmApplicationFormValues.consultant.status === 'Busy'}">{{confirmApplicationFormValues.consultant.status === 'Free'? 'Available' : 'Not Available'}}</span></span>
+                                    <span class="form-control" *ngIf="confirmApplicationFormValues.dateAndTime === null || confirmApplicationFormValues.consultantType === null || confirmApplicationFormValues.consultant === null">Please select Data and Consultant</span>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Comments</label>
+                                    <textarea rows="2" class="form-control"></textarea>
+                                </div>
+                                
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Consultant</label>
-                                <ng-select [items]="listData.userLists" 
-                                bindLabel="labelValue" bindValue="name" 
-                                placeholder="Please select">
-                                </ng-select>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label class="form-label">Comments</label>
-                                <textarea rows="2" class="form-control"></textarea>
-                            </div>
-                            <div class="d-flex flex-row">
-                                <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-calendar-todo-line
-                                    "></i></button>
-                            </div>
-                            <div class="col-md-6 mb-1">
-                                <label class="form-label">Date</label>
-                                <input class="form-control flatpickr-input" type="text"
-                                mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
-                            </div>
-                            <div class="col-md-6 mb-1">
-                                <label class="form-lable">Time</label>
-                                <input class="form-control flatpickr-input" type="text" mwlFlatpickr
-                                    [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
-                            </div>
-                        </div>
+                        </form>
                         <div class="d-flex flex-row">
                             <button class="btn btn-primary">Submit</button>
                         </div>

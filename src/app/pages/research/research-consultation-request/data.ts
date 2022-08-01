@@ -106,53 +106,52 @@ function userListGenerator() {
         {
             name : 'Abbas Al Ajmi',
             email : 'Abbas@email.com',
-            omsb: '19-204'
+            omsb: '19-204',
+            status :'Busy'
         }, 
         {
             name : 'Madan Khan',
             email : 'Madan@email.com',
-            omsb: '19-210'
+            omsb: '19-210',
+            status :'Free'
         }, 
         {
             name : 'Madan Al Abri',
             email : 'Madan@email.com',
-            omsb: '19-209'
+            omsb: '19-209',
+            status :'Free'
         }, 
         {
             name : 'Faisal Gawas',
             email : 'Faisal@email.com',
-            omsb: '19-206'
+            omsb: '19-206',
+            status :'Free'
         },
         {
             name : 'Al Abri Ibraham',
             email : 'Abri@email.com',
-            omsb: '19-219'
+            omsb: '19-219',
+            status :'Free'
         },
         {
             name : 'Hilal basheer',
             email : 'Hilal@email.com',
-            omsb: '19-221'
+            omsb: '19-221',
+            status :'Free'
         },
     ]
-    const userDefinedList: { name: string; email: string; labelValue: string; }[] = [];
+    const userDefinedList: any[] = [];
 
     users.forEach(user=> {
         userDefinedList.push(
             {
                 name : user.name,
                 email : user.email,
+                status : user.status,
                 labelValue : `${user.name} | ${user.email} | ${user.omsb} `
             }
         )
     })
-
-    userDefinedList.push(
-        {
-            name : 'Other',
-            email : 'Other',
-            labelValue : 'Other'
-        }
-    )
 
     return userDefinedList;
 }

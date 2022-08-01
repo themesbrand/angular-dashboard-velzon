@@ -6,12 +6,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./simulation-workshop.component.scss']
 })
 export class SimulationWorkshopComponent implements OnInit {
+  
+  userType: string | null = null;
 
   constructor(
     private router : Router
   ) { }
 
   ngOnInit(): void {
+    this.userType = localStorage.getItem('userType')
   }
 
   onNavigate(url : any) {

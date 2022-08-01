@@ -78,6 +78,14 @@ export class MinutesOfMeetingComponent implements OnInit {
     }    
   }
 
+  addNewMeetingValue() {
+    this.meetingMinutesForm.reset()
+  }
+
+  editMeetingValue() {
+    this.meetingMinutesForm.patchValue(this.listData.meetingMinutesList[0])
+  }
+
   onRemove(event : any, type: any) {
     switch(type) {
       case 'supportFiles' : {

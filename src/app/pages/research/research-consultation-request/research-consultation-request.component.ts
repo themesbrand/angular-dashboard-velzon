@@ -32,7 +32,8 @@ export class ResearchConsultationRequestComponent implements OnInit {
   selectedApplication: any;
 
   consultantFeedbackForm !: FormGroup;
-
+  confirmApplicationForm !: FormGroup;
+  
   constructor(
     private formBuilder : FormBuilder,
     private modalService : NgbModal,
@@ -41,6 +42,16 @@ export class ResearchConsultationRequestComponent implements OnInit {
 
   ngOnInit(): void {
     this.feedbackFormInit();
+    this.confirmApplicationFormInit();
+  }
+
+  confirmApplicationFormInit() {
+    this.confirmApplicationForm = this.formBuilder.group({
+      dateAndTime : new FormControl(null),
+      consultantType : new FormControl(null),
+      consultant : new FormControl(null),
+      availability : new FormControl(null),
+    })
   }
 
   feedbackFormInit() {
@@ -54,6 +65,9 @@ export class ResearchConsultationRequestComponent implements OnInit {
     return this.consultantFeedbackForm.value
   }
 
+  get confirmApplicationFormValues () {
+    return this.confirmApplicationForm.value
+  }
 
   setApplication(application : any) {
     this.selectedApplication = application;
