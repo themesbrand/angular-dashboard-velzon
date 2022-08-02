@@ -188,5 +188,42 @@
                 "link": "research/research-day"
             }
         ]
+    },
+    {
+        "id": 31,
+        "label": "Admission",
+        "icon": " ri-file-paper-2-line",
+        "subItems" : [
+            {
+                "id": 32,
+                "label": "Admission",
+                "link": "admission/admission"
+            },
+            {
+                "id": 33,
+                "label": "Transfer",
+                "link": "admission/transfer"
+            },
+            {
+                "id": 34,
+                "label": "Interruption",
+                "link": "admission/interruption"
+            },
+            {
+                "id": 35,
+                "label": "Withdrawal",
+                "link": "admission/withdrawal"
+            },
+            {
+                "id": 36,
+                "label": "Rejoining",
+                "link": "admission/rejoining"
+            },
+            {
+                "id": 37,
+                "label": "Supplementary Training",
+                "link": "admission/supplementaryTraining"
+            }
+        ]
     }
 ]

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, style, animate, transition } from '@angular/animations';
-
-import {data} from './data';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
+import {data} from './data';
 
 @Component({
   selector: 'app-view-scholarship-applications',
@@ -29,7 +29,7 @@ export class ViewScholarshipApplicationsComponent implements OnInit {
 
   listData = data;
   breadCrumbItems!: Array<{}>;
-
+  screeningForm !: FormGroup;
   isFilterOpened: boolean = false;
 
   files: File[] = [];
@@ -45,6 +45,16 @@ export class ViewScholarshipApplicationsComponent implements OnInit {
       { label: "View Applications", active : true }
     ];
     this.acceptanceLetterFormInit()
+    this.screeningFormInit();
+  }
+
+  screeningFormInit() {
+    this.screeningForm = this.formBuilder.group({
+      screeningStatus : new FormControl(null),
+      screeningFailedReason : new FormControl(null),
+      screeningFailedOtherReason : new FormControl(null),
+      ifOtherStatus : new FormControl(null),
+    })
   }
 
   acceptanceLetterFormInit() {
@@ -66,13 +76,22 @@ export class ViewScholarshipApplicationsComponent implements OnInit {
   get formValues () {
     return this.acceptanceLetterForm.value;
   }
-
+  get screeningFormValues () {
+    return this.screeningForm.value
+  }
   onFilter() {
     if(this.isFilterOpened) {
       this.isFilterOpened = false;
     } else {
       this.isFilterOpened = true
     }
+  }
+
+  onChange(){
+    this.screeningForm.get('screeningFailedReason')?.patchValue(null)
+    this.screeningForm.get('screeningFailedOtherReason')?.patchValue(null)
+    this.screeningForm.get('ifOtherStatus')?.patchValue(null)
+
   }
 
   onChangeFromDate(event : any) {

@@ -114,5 +114,17 @@
                 "link": "simulation/workshop"
             }
         ]
+    },
+    {
+        "id": 31,
+        "label": "Admission",
+        "icon": " ri-file-paper-2-line",
+        "subItems" : [
+            {
+                "id": 32,
+                "label": "Admission",
+                "link": "admission/admission"
+            }
+        ]
     }
 ]

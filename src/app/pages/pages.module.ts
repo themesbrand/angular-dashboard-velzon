@@ -181,6 +181,12 @@ import { EvaluationFormOralPresentationComponent } from './research/research-day
 import { EvaluationFormPosterPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-poster-presentation/evaluation-form-poster-presentation.component';
 import { SectionBoothEvaluationComponent } from './research/research-day/booth-evaluation/section-booth-evaluation/section-booth-evaluation.component';
 import { ProgramBoothEvaluationComponent } from './research/research-day/booth-evaluation/program-booth-evaluation/program-booth-evaluation.component';
+import { AdmissionComponent } from './admission/admission/admission.component';
+import { AdmissionSetupComponent } from './admission/admission/admission-setup/admission-setup.component';
+import { AdmissionSetupEvaluationFormComponent } from './admission/admission/admission-setup/admission-setup-evaluation-form/admission-setup-evaluation-form.component';
+import { SponsorSetupComponent } from './admission/admission/sponsor-setup/sponsor-setup.component';
+import { ViewApplicationsComponent } from './admission/admission/view-applications/view-applications.component';
+import { AdmissionViewApplicationComponent } from './admission/admission/view-applications/admission-view-application/admission-view-application.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -327,7 +333,13 @@ FullCalendarModule.registerPlugins([
     EvaluationFormOralPresentationComponent,
     EvaluationFormPosterPresentationComponent,
     SectionBoothEvaluationComponent,
-    ProgramBoothEvaluationComponent
+    ProgramBoothEvaluationComponent,
+    AdmissionComponent,
+    AdmissionSetupComponent,
+    AdmissionSetupEvaluationFormComponent,
+    SponsorSetupComponent,
+    ViewApplicationsComponent,
+    AdmissionViewApplicationComponent
   ],
   imports: [
     CommonModule,

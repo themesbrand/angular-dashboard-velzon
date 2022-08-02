@@ -91,6 +91,7 @@
                                 <th scope="col">ACLS Expiry Date</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <thead>
@@ -112,6 +113,9 @@
                                             <li (click)="onNavigate('/scholarship/show-application-form')">
                                                 <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
                                             </li>
+                                            <li (click)="openModal(screeningStatus, 'lg')">
+                                                <a class="dropdown-item" ><i class="mx-1   ri-picture-in-picture-line"></i>Screening</a>
+                                            </li>
                                             <li (click)="openModal(uploadAcceptanceLetter, 'xl')">
                                                 <a class="dropdown-item" ><i class="mx-1   ri-profile-line"></i> Upload Acceptance Letter</a>
                                             </li>
@@ -123,6 +127,14 @@
                                             </li>
                                         </ul>
                                     </div>          
+                                </td>
+                                <td>
+                                    <span *ngIf="application.action === 'green'" class="badge rounded-pill bg-success"> 
+                                        <span class="text-success">.</span>
+                                    </span>
+                                    <span tooltip="No Valid BLS Certificate Found" *ngIf="application.action === 'red'" class="badge rounded-pill bg-danger"> 
+                                        <span class="text-danger">.</span>
+                                    </span>
                                 </td>
                             </tr>
                         </thead>
@@ -263,4 +275,40 @@
             </div>
         </div>
     </div>
+</ng-template>
+
+<ng-template #screeningStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Schedule Appointment</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <form [formGroup]="screeningForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Screening Status<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select (change)="onChange()" [items]="listData.screeningStatus" placeholder="Please select" formControlName="screeningStatus">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningStatus === 'Not Eligible'">
+                            <label class="form-label">Reason for being Not Eligible<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="listData.screeningFailedReason" placeholder="Please select" formControlName="screeningFailedReason">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningFailedReason === 'Other'">
+                            <label class="form-label">if, Other reason for being Not Eligible<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" class="form-control" formControlName="screeningFailedOtherReason">
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningStatus === 'Other'">
+                            <label class="form-label">if, Other Screening Status<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" class="form-control" formControlName="ifOtherStatus">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
 </ng-template>

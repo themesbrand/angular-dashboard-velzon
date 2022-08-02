@@ -96,6 +96,11 @@ import { EvaluationFormOralPresentationComponent } from './research/research-day
 import { EvaluationFormPosterPresentationComponent } from './research/research-day/presentation-evaluation/evaluation-form-poster-presentation/evaluation-form-poster-presentation.component';
 import { ProgramBoothEvaluationComponent } from './research/research-day/booth-evaluation/program-booth-evaluation/program-booth-evaluation.component';
 import { SectionBoothEvaluationComponent } from './research/research-day/booth-evaluation/section-booth-evaluation/section-booth-evaluation.component';
+import { AdmissionComponent } from './admission/admission/admission.component';
+import { AdmissionSetupComponent } from './admission/admission/admission-setup/admission-setup.component';
+import { AdmissionSetupEvaluationFormComponent } from './admission/admission/admission-setup/admission-setup-evaluation-form/admission-setup-evaluation-form.component';
+import { SponsorSetupComponent } from './admission/admission/sponsor-setup/sponsor-setup.component';
+import { ViewApplicationsComponent } from './admission/admission/view-applications/view-applications.component';
 
 const routes: Routes = [
     //Default Routing
@@ -120,9 +125,11 @@ const routes: Routes = [
         { path: "allocate-procedure", component: AllocateProcedureComponent },
       ] 
     },
+
     {
       path: 'graduate-medical-education', loadChildren: () => import('./graduate_medical_education/medical-education.module').then(m => m.AppsModule)
     },
+
     { path: "duty-hours", children: [
         { path: "grid", component: LogHoursComponent },
         { path: "view", component: ViewHoursComponent },
@@ -134,7 +141,9 @@ const routes: Routes = [
         { path: "leave-return-application", component: LeaveReturnApplicationComponent },
       ] 
     },
+
     { path: "log-procedures", component: LogProcedureComponent },
+
     { path: "counselling", children: [
       { path: "self-referral", children : [
         {path : "", component: SelfReferralRequestComponent},
@@ -154,6 +163,7 @@ const routes: Routes = [
         {path : "assessment-form", component: AssessmentFormComponent },
       ] },  
     ]},
+
     { path: "scholarship", children : [
       { path : "scholarship-section", component: ScholarshipSectionComponent },
       { path : "create-program-type", component: CreateProgramTypeComponent },
@@ -163,6 +173,7 @@ const routes: Routes = [
       { path : "view-acceptance-letter", component: ViewAcceptanceLetterComponent },
       { path : "international-trainee-applications", component: InternationalTraineeApplicationsViewComponent },
     ]},
+
     { path: "meeting-management", children : [
       { path : "configuration", component: DefineMeetingTypesComponent },
       { path : "invite", component: MeetingInviteComponent },
@@ -171,11 +182,13 @@ const routes: Routes = [
       { path : "agenda-request", component: AgendaRequestComponent },
       { path : "my-meetings", component: MyMeetingsComponent },
     ]},
+
     { path: "medical-library", children : [
       { path: "e-resource-request", component: EResourceRequestComponent },
       { path: "renewal", component: RenewalComponent },
       { path: "purchase-medical-books", component: PurchaseMedicalBooksComponent },
     ]},
+
     { path: "simulation", children : [
       { path: "course", children:[
         { path: "", component: SimulationCourseComponent },
@@ -196,6 +209,7 @@ const routes: Routes = [
       ] },
       { path: "standardized-patients", component: SimulationStandardizedPatientsComponent }
     ]},
+
     { path: "research", children : [
       { path: "view-application", children: [
         { path: "", component: ResearchViewApplicationsComponent},
@@ -217,12 +231,20 @@ const routes: Routes = [
         { path : "presentation-evaluation-result", component: PresentationEvaluationResultComponent},
         { path : "booth-evaluation", children: [
           { path : "", component: BoothEvaluationComponent},
-          { path : "program-booth-evaluation", component: ProgramBoothEvaluationComponent},
-          { path : "section-booth-evaluation", component: SectionBoothEvaluationComponent},
+          { path : "program-booth-evaluation", component: ProgramBoothEvaluationComponent },
+          { path : "section-booth-evaluation", component: SectionBoothEvaluationComponent },
         ] },
-        { path : "booth-evaluation-result", component: BoothEvaluationResultComponent},
+        { path : "booth-evaluation-result", component: BoothEvaluationResultComponent },
       ] }
+    ]},
 
+    { path : 'admission', children: [
+      { path : 'admission', children: [
+        {path : "", component :  AdmissionComponent },
+        {path : "admission-setup", component :  AdmissionSetupComponent },
+        {path : "sponsor-setup", component :  SponsorSetupComponent },
+        {path : "view-application", component :  ViewApplicationsComponent }
+      ]}
     ]},
 
     //Employer Routing
