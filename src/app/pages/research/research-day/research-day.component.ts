@@ -7,12 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./research-day.component.scss']
 })
 export class ResearchDayComponent implements OnInit {
+  userRole: string | null = null;
 
   constructor(
     private router : Router
   ) { }
 
   ngOnInit(): void {
+    this.userRole = localStorage.getItem('userType');
+
   }
 
   onNavigate(url : any) {

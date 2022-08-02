@@ -17,7 +17,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         { username: 'applicant', email: 'applicant@omsb.org', password: '123456' },
         { username: 'finance', email: 'finance@omsb.org', password: '123456' },
         { username: 'international', email: 'international@omsb.org', password: '123456' },
-        { username: 'pd', email: 'pd@omsb.org', password: '123456' }
+        { username: 'pd', email: 'pd@omsb.org', password: '123456' },
+        { username: 'trainee', email: 'trainee@omsb.org', password: '123456' }
     ];
 
         // wrap in delayed observable to simulate server api call

@@ -187,6 +187,20 @@ import { AdmissionSetupEvaluationFormComponent } from './admission/admission/adm
 import { SponsorSetupComponent } from './admission/admission/sponsor-setup/sponsor-setup.component';
 import { ViewApplicationsComponent } from './admission/admission/view-applications/view-applications.component';
 import { AdmissionViewApplicationComponent } from './admission/admission/view-applications/admission-view-application/admission-view-application.component';
+import { AdmissionScheduleInterviewComponent } from './admission/admission/view-applications/admission-schedule-interview/admission-schedule-interview.component';
+import { AdmissionInterviewComponent } from './admission/admission/admission-interview/admission-interview.component';
+import { AdmissionInterviewEvaluationFormComponent } from './admission/admission/admission-interview/admission-interview-evaluation-form/admission-interview-evaluation-form.component';
+import { ScholarshipSectionInterviewResultComponent } from './scholarship-section/scholarship-section-interview-result/scholarship-section-interview-result.component';
+import { ScholarshipInterviewApplicationComponent } from './scholarship-section/scholarship-section-interview-result/scholarship-interview-application/scholarship-interview-application.component';
+import { ViewInterviewerResultComponent } from './scholarship-section/scholarship-section-interview-result/view-interviewer-result/view-interviewer-result.component';
+import { AdmissionInterviewResultComponent } from './admission/admission/admission-interview-result/admission-interview-result.component';
+import { AdmissionViewInterviewResultComponent } from './admission/admission/admission-interview-result/admission-view-interview-result/admission-view-interview-result.component';
+import { TransferComponent } from './admission/transfer/transfer.component';
+import { TransferApplicationComponent } from './admission/transfer/transfer-application/transfer-application.component';
+import { TransferViewApplicationComponent } from './admission/transfer/transfer-view-application/transfer-view-application.component';
+import { InterruptionComponent } from './admission/interruption/interruption.component';
+import { InterruptionApplicationComponent } from './admission/interruption/interruption-application/interruption-application.component';
+import { InterruptionViewApplicationsComponent } from './admission/interruption/interruption-view-applications/interruption-view-applications.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -339,7 +353,21 @@ FullCalendarModule.registerPlugins([
     AdmissionSetupEvaluationFormComponent,
     SponsorSetupComponent,
     ViewApplicationsComponent,
-    AdmissionViewApplicationComponent
+    AdmissionViewApplicationComponent,
+    AdmissionScheduleInterviewComponent,
+    AdmissionInterviewComponent,
+    AdmissionInterviewEvaluationFormComponent,
+    ScholarshipSectionInterviewResultComponent,
+    ScholarshipInterviewApplicationComponent,
+    ViewInterviewerResultComponent,
+    AdmissionInterviewResultComponent,
+    AdmissionViewInterviewResultComponent,
+    TransferComponent,
+    TransferApplicationComponent,
+    TransferViewApplicationComponent,
+    InterruptionComponent,
+    InterruptionApplicationComponent,
+    InterruptionViewApplicationsComponent
   ],
   imports: [
     CommonModule,

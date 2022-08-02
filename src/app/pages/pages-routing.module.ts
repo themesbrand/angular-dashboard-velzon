@@ -101,6 +101,15 @@ import { AdmissionSetupComponent } from './admission/admission/admission-setup/a
 import { AdmissionSetupEvaluationFormComponent } from './admission/admission/admission-setup/admission-setup-evaluation-form/admission-setup-evaluation-form.component';
 import { SponsorSetupComponent } from './admission/admission/sponsor-setup/sponsor-setup.component';
 import { ViewApplicationsComponent } from './admission/admission/view-applications/view-applications.component';
+import { AdmissionInterviewComponent } from './admission/admission/admission-interview/admission-interview.component';
+import { ScholarshipSectionInterviewResultComponent } from './scholarship-section/scholarship-section-interview-result/scholarship-section-interview-result.component';
+import { AdmissionInterviewResultComponent } from './admission/admission/admission-interview-result/admission-interview-result.component';
+import { TransferComponent } from './admission/transfer/transfer.component';
+import { TransferApplicationComponent } from './admission/transfer/transfer-application/transfer-application.component';
+import { TransferViewApplicationComponent } from './admission/transfer/transfer-view-application/transfer-view-application.component';
+import { InterruptionComponent } from './admission/interruption/interruption.component';
+import { InterruptionApplicationComponent } from './admission/interruption/interruption-application/interruption-application.component';
+import { InterruptionViewApplicationsComponent } from './admission/interruption/interruption-view-applications/interruption-view-applications.component';
 
 const routes: Routes = [
     //Default Routing
@@ -172,6 +181,7 @@ const routes: Routes = [
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
       { path : "view-acceptance-letter", component: ViewAcceptanceLetterComponent },
       { path : "international-trainee-applications", component: InternationalTraineeApplicationsViewComponent },
+      { path : "interview-result", component: ScholarshipSectionInterviewResultComponent },
     ]},
 
     { path: "meeting-management", children : [
@@ -243,8 +253,20 @@ const routes: Routes = [
         {path : "", component :  AdmissionComponent },
         {path : "admission-setup", component :  AdmissionSetupComponent },
         {path : "sponsor-setup", component :  SponsorSetupComponent },
-        {path : "view-application", component :  ViewApplicationsComponent }
-      ]}
+        {path : "view-application", component :  ViewApplicationsComponent },
+        {path : "interview", component :  AdmissionInterviewComponent },
+        {path : "interview-result", component :  AdmissionInterviewResultComponent }
+      ]},
+      { path : 'transfer', children: [
+        {path : "", component :  TransferComponent },
+        {path : "application", component :  TransferApplicationComponent },
+        {path : "view-application", component :  TransferViewApplicationComponent },
+      ]},
+      { path : 'interruption', children: [
+        {path : "", component :  InterruptionComponent },
+        {path : "application", component :  InterruptionApplicationComponent },
+        {path : "view-application", component :  InterruptionViewApplicationsComponent },
+      ]},
     ]},
 
     //Employer Routing

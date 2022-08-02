@@ -1,0 +1,196 @@
+<app-breadcrumbs title="Interview Result" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate('/scholarship/scholarship-section')" class="btn btn-primary btn-label waves-effect waves-light mb-1"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-end">
+                    <button (click)="onFilter()" type="button" class="btn-sm my-2 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Specialty">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Project specialization">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Sub Specialization">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Country">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Academic Year">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Employment Status">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Employer">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select Obtained Degree">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <input class="form-control" type="text" placeholder="Please enter OMSB Selection Exam score">
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select OMSB Selection Exam score">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select OMSB specialty certificate">
+                </ng-select>
+            </div>
+            <div class="col-md-3 mb-1">
+                <input class="form-control" type="text" placeholder="Please enter International Exams/Qualifications">
+            </div>
+            <div class="col-md-3 mb-1">
+                <ng-select [items]="[]"
+                placeholder="Please select BLS Certificate validity">
+                </ng-select>
+            </div>
+            <div class="d-flex flex-row">
+                <button (click)="onSearch()" class="btn btn-primary my-2">Filter</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Specialty</th>
+                                <th scope="col">Sponsored By</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Contact Number</th>
+                                <th scope="col">BLS Expiry Date</th>
+                                <th scope="col">ACLS Expiry Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr *ngFor="let application of listData.applicationTableDate">
+                                <td>{{application.fullName}}</td>
+                                <td>{{application.program}}</td>
+                                <td>{{application.sponsoredBy}}</td>
+                                <td>{{application.email}}</td>
+                                <td>{{application.contactNumber}}</td>
+                                <td>{{application.blsExpiryDate}}</td>
+                                <td>{{application.aclsExpiryDate}}</td>
+                                <td>{{application.status}}</td>
+                                <td class="text-center">
+                                    <div class="dropdown" ngbDropdown>
+                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                            <i class="ri-more-2-fill"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <li (click)="openModal(viewApplication, 'xl')">
+                                                <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
+                                            </li>
+                                            
+                                            <li (click)="openModal(viewInterviewResult,'xl')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>View Interview Result</a></li>
+                                            <li (click)="openModal(committeeReview,'lg')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Committee Review Status</a></li>
+                                            
+                                        </ul>
+                                    </div>          
+                                </td>
+                                <td>
+                                    <span *ngIf="application.action === 'green'" class="badge rounded-pill bg-success"> 
+                                        <span class="text-success">.</span>
+                                    </span>
+                                    <span tooltip="No Valid BLS Certificate Found" *ngIf="application.action === 'red'" class="badge rounded-pill bg-danger"> 
+                                        <span class="text-danger">.</span>
+                                    </span>
+                                </td>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #committeeReview let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Committee Review Status</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form [formGroup]="committeeReviewForm">
+                <div class="mt-2 row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Review Status<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="listData.screeningStatus" placeholder="Please select" formControlName="reviewStatus">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3" *ngIf="committeeReviewFormValues.reviewStatus === 'Not Approved'">
+                        <label class="form-label">Not approved reason<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control" formControlName="notApprovedStatus">
+                    </div>
+                    <div class="col-md-12 mb-3" *ngIf="committeeReviewFormValues.reviewStatus === 'Other'">
+                        <label class="form-label">If Other<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control" formControlName="otherStatus">
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #viewApplication let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Application</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-scholarship-interview-application></app-scholarship-interview-application>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+<ng-template #viewInterviewResult let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Interview Result</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-view-interviewer-result></app-view-interviewer-result>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

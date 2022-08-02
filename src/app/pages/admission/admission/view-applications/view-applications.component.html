@@ -179,7 +179,7 @@
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Schedule Appointment</label>
+                <label class="form-label mt-2 h5">Screening</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-2">
@@ -198,10 +198,6 @@
                         <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningFailedReason === 'Other'">
                             <label class="form-label">if, Other reason for being Not Eligible<span class="text-danger">{{ " *" }}</span></label>
                             <input type="text" class="form-control" formControlName="screeningFailedOtherReason">
-                        </div>
-                        <div class="col-md-6 mb-3" *ngIf="screeningFormValues.screeningStatus === 'Other'">
-                            <label class="form-label">if, Other Screening Status<span class="text-danger">{{ " *" }}</span></label>
-                            <input type="text" class="form-control" formControlName="ifOtherStatus">
                         </div>
                     </div>
                     <button class="btn btn-primary">Submit</button>
@@ -233,7 +229,7 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-2">
-                <app-admission-view-application></app-admission-view-application>
+                <app-admission-schedule-interview></app-admission-schedule-interview>
             </div>
         </div>
     </div><!-- /.modal-content -->

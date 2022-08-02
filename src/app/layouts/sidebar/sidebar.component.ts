@@ -69,6 +69,12 @@ export class SidebarComponent implements OnInit {
         })   
         break;
       }
+      case 'trainee@omsb.org': {
+        this.httpClient.get("assets/menu/menu-items-trainee.json").subscribe((response : any) =>{
+          this.menuItems = [...response];      
+        })   
+        break;
+      }
       default : break;
     }
 

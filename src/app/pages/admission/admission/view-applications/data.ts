@@ -257,12 +257,19 @@ const data = {
       nationalities : Nationalities.nationalities,
       age : getAges(),
       screeningStatus: [
-        'Eligible & submitted for Initial Employer screening',
-        'Not Eligible',
-        'Other'
+        'Shortlisted for Interview',
+        'Not Eligible'
       ],
       screeningFailedReason: [
-        'OMSB Selection Exam not passed', 'No International Qualifying Exam for the Country of Interest', 'No Valid BLS or ACLS', 'No Employer Approval', 'No Specialty Certificate', 'Other'
+        'OMSB Selection Exam not passed',
+        'No Valid BLS Certificate',
+        'No Valid ACLS Certificate',
+        'No Valid PALS Certificate',
+        'Medical Qualification is not Valid',
+        'No Employer Approval',
+        'No Specialty Certificate',
+        'No Membership of Faculty in Dentistry certificate (Show only if the program = General Dentistry program and Oral / Maxillofacial surgery program)',
+        'Other'
       ],
       programType : [
         'International Residency Program', 'International Fellowship program', 'Stroke Units Residency Program', 'Stroke Units Fellowship program', 'other projects funded by OMSB'

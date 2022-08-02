@@ -3,152 +3,156 @@
 <p class="h6">CV Section</p>
 <p class="text-muted">Fill all Information as below.</p>
 <form [formGroup]="applicationFormThree">
-  <div class="row">
-    <p class="h5">DEMOGRAPHIC INFORMATION SECTION</p>
-    <div class="col-md-4">
-      <div class="mb-3">
+  <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+    <div class="row">
+      <p class="h5">DEMOGRAPHIC INFORMATION SECTION</p>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Name (As per passport)<span class="text-danger">{{
+              " *"
+            }}</span></label
+          >
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Birthday<span class="text-danger">{{ " *" }}</span></label
+          >
+          <input
+            class="form-control flatpickr-input"
+            formControlName="birthday"
+            type="text"
+            mwlFlatpickr
+            [altInput]="true"
+            [convertModelValue]="true"
+          />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="mb-3">
+          <label class="form-control-label"
+            >Nationality<span class="text-danger">{{ " *" }}</span></label
+          >
+          <ng-select
+            name="nationality"
+            formControlName="nationality"
+            [items]="listData.nationalities"
+            bindLabel="name"
+            bindValue="code"
+            placeholder="Select your nationality"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >National ID No<span class="text-danger">{{ " *" }}</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="nationalIDNo"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Passport No<span class="text-danger">{{ " *" }}</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="passportNo"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Marital Status<span class="text-danger">{{ " *" }}</span></label
+          >
+          <ng-select
+            [items]="listData.maritalStatus"
+            placeholder="Select your Marital Status"
+            bindLabel="name"
+            formControlName="maritalStatus"
+            bindValue="value"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Permanent Address<span class="text-danger">{{ " *" }}</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="permanentAddress"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Wilayat/Region<span class="text-danger">{{ " *" }}</span></label
+          >
+          <ng-select
+            [items]="listData.wilayatList"
+            placeholder="Select your Wilayat/Region"
+            bindLabel="name"
+            formControlName="wilayatRegion"
+            bindValue="value"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-lg-4">
         <label class="form-label"
-          >Name (As per passport)<span class="text-danger">{{
-            " *"
-          }}</span></label
+          >Mobile Number<span class="text-danger">{{ " *" }}</span></label
         >
-        <input type="text" class="form-control" formControlName="name" />
+        <ngx-intl-tel-input [cssClass]="'custom'" 
+            [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+            [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="mobileNumber">
+        </ngx-intl-tel-input>
       </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="mb-3">
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label class="form-label"
+            >Name of Next of Kin (NOK)<span class="text-danger">{{
+              " *"
+            }}</span></label
+          >
+          <input
+            type="text"
+            formControlName="nameNextKin"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-lg-4">
         <label class="form-label"
-          >Birthday<span class="text-danger">{{ " *" }}</span></label
+          >Contact No. of NOK<span class="text-danger">{{ " *" }}</span></label
         >
-        <input
-          class="form-control flatpickr-input"
-          formControlName="birthday"
-          type="text"
-          mwlFlatpickr
-          [altInput]="true"
-          [convertModelValue]="true"
-        />
+        <ngx-intl-tel-input [cssClass]="'custom'" 
+            [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+            [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="contactNextKin">
+        </ngx-intl-tel-input>
       </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="mb-3">
-        <label class="form-control-label"
-          >Nationality<span class="text-danger">{{ " *" }}</span></label
-        >
-        <ng-select
-          name="nationality"
-          formControlName="nationality"
-          [items]="listData.nationalities"
-          bindLabel="name"
-          bindValue="code"
-          placeholder="Select your nationality"
-        >
-        </ng-select>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label class="form-label"
-          >National ID No<span class="text-danger">{{ " *" }}</span></label
-        >
-        <input
-          type="text"
-          class="form-control"
-          formControlName="nationalIDNo"
-        />
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label class="form-label"
-          >Passport No<span class="text-danger">{{ " *" }}</span></label
-        >
-        <input
-          type="text"
-          class="form-control"
-          formControlName="passportNo"
-        />
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label class="form-label"
-          >Marital Status<span class="text-danger">{{ " *" }}</span></label
-        >
-        <ng-select
-          [items]="listData.maritalStatus"
-          placeholder="Select your Marital Status"
-          bindLabel="name"
-          formControlName="maritalStatus"
-          bindValue="value"
-        >
-        </ng-select>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label class="form-label"
-          >Permanent Address<span class="text-danger">{{ " *" }}</span></label
-        >
-        <input
-          type="text"
-          class="form-control"
-          formControlName="permanentAddress"
-        />
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label class="form-label"
-          >Wilayat/Region<span class="text-danger">{{ " *" }}</span></label
-        >
-        <ng-select
-          [items]="listData.wilayatList"
-          placeholder="Select your Wilayat/Region"
-          bindLabel="name"
-          formControlName="wilayatRegion"
-          bindValue="value"
-        >
-        </ng-select>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <label class="form-label"
-        >Mobile Number<span class="text-danger">{{ " *" }}</span></label
-      >
-      <ngx-intl-tel-input [cssClass]="'custom'" 
-          [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
-          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-          [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
-          [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="mobileNumber">
-      </ngx-intl-tel-input>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label class="form-label"
-          >Name of Next of Kin (NOK)<span class="text-danger">{{
-            " *"
-          }}</span></label
-        >
-        <input
-          type="text"
-          formControlName="nameNextKin"
-          class="form-control"
-        />
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <label class="form-label"
-        >Contact No. of NOK<span class="text-danger">{{ " *" }}</span></label
-      >
-      <ngx-intl-tel-input [cssClass]="'custom'" 
-          [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
-          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-          [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
-          [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="contactNextKin">
-      </ngx-intl-tel-input>
     </div>
   </div>
+
+  
   <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
   <div class="d-flex flex-row justify-content-between">
     <p class="h5">1. Secondary School</p>
@@ -161,7 +165,7 @@
   </div>
   <div formArrayName="secondarySchool">
     <div
-      class="mt-2 d-flex flex-column border p-3"
+      class="mt-2 d-flex flex-column  p-3 bg-light"
       *ngFor="let schools of secondarySchoolControls; let i = index"
       [formGroupName]="i"
     >
@@ -170,7 +174,7 @@
           ><i class="ri-delete-bin-5-line"></i
         ></a>
       </div>
-      <div class="row">
+      <div class="row ">
         <div class="col-md-3">
           <label class="form-label"
             >School<span class="text-danger">{{ " *" }}</span></label
@@ -230,7 +234,7 @@
   </div>
   <div formArrayName="medicineSchool">
     <div
-      class="mt-2 d-flex flex-column p-3 border"
+      class="mt-2 d-flex flex-column p-3  bg-light"
       *ngFor="let schools of medicineSchoolControls; let i = index"
       [formGroupName]="i"
     >
@@ -299,7 +303,7 @@
   </div>
   <div formArrayName="clinicalElectives">
     <div
-      class="mt-2 d-flex flex-column p-3 border"
+      class="mt-2 d-flex flex-column p-3  bg-light"
       *ngFor="let clinics of clinicalElectivesControls; let i = index"
       [formGroupName]="i"
     >
@@ -338,40 +342,43 @@
     </div>
   </div>
   <p class="h5 mt-3">4. The Basic Certificates Courses:</p>
-  <div class="row" formGroupName="certificateCourses">
-    <div class="col-md-4 d-flex flex-row">
-      <label class="form-label">BLS Certificate</label>
-      <div class="mb-3 mx-5">
-        <label class="form-label"
-          >Expiry Date<span class="text-danger">{{ " *" }}</span></label
-        >
-        <input
-          class="form-control flatpickr-input"
-          type="text"
-          mwlFlatpickr
-          formControlName="blsCertificateExpiry"
-          [altInput]="true"
-          [convertModelValue]="true"
-        />
+  <div class="mt-2 d-flex flex-column p-3  bg-light">
+    <div class="row" formGroupName="certificateCourses">
+      <div class="col-md-6 d-flex flex-row">
+        <label class="form-label">BLS Certificate</label>
+        <div class="mb-3 mx-5">
+          <label class="form-label"
+            >Expiry Date<span class="text-danger">{{ " *" }}</span></label
+          >
+          <input
+            class="form-control flatpickr-input"
+            type="text"
+            mwlFlatpickr
+            formControlName="blsCertificateExpiry"
+            [altInput]="true"
+            [convertModelValue]="true"
+          />
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 d-flex flex-row">
-      <label class="form-label">ACLS Certificate</label>
-      <div class="mb-3 mx-5">
-        <label class="form-label"
-          >Expiry Date<span class="text-danger">{{ " *" }}</span></label
-        >
-        <input
-          class="form-control flatpickr-input"
-          type="text"
-          mwlFlatpickr
-          formControlName="aclsCertificateExpiry"
-          [altInput]="true"
-          [convertModelValue]="true"
-        />
+      <div class="col-md-6 d-flex flex-row">
+        <label class="form-label">ACLS Certificate</label>
+        <div class="mb-3 mx-5">
+          <label class="form-label"
+            >Expiry Date<span class="text-danger">{{ " *" }}</span></label
+          >
+          <input
+            class="form-control flatpickr-input"
+            type="text"
+            mwlFlatpickr
+            formControlName="aclsCertificateExpiry"
+            [altInput]="true"
+            [convertModelValue]="true"
+          />
+        </div>
       </div>
     </div>
   </div>
+
   <div class="mt-3 d-flex flex-row justify-content-between">
     <p class="h5">INTERNSHIP</p>
     <a
@@ -383,7 +390,7 @@
   </div>
   <div formArrayName="internship">
     <div
-      class="mt-2 d-flex flex-column p-3 border"
+      class="mt-2 d-flex flex-column p-3  bg-light"
       *ngFor="let schools of internshipControls; let i = index"
       [formGroupName]="i"
     >
@@ -456,7 +463,7 @@
       >
   </div>
   <div formArrayName="research">
-      <div class="mt-2 d-flex flex-column p-3 border"
+      <div class="mt-2 d-flex flex-column p-3  bg-light"
       *ngFor="let schools of researchControls; let i = index"
       [formGroupName]="i">
           <div class="d-flex flex-row justify-content-end align-items-center">
@@ -498,56 +505,64 @@
       </div>
   </div>
   <p class="h5 mt-3">2. Publications</p>
-  <div class="row shadow">
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label class="form-label"
-          >Last, First, Middle Initial of authors as listed in the paper.
-          Underline your name. Title of article, Journal, Publication date;
-          vol (issue): pages. (Should include abstracts).<span
-            class="text-danger"
-            >{{ " *" }}</span
-          >
-        </label>
-        <textarea type="text" class="form-control"></textarea>
+  <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label"
+            >Last, First, Middle Initial of authors as listed in the paper.
+            Underline your name. Title of article, Journal, Publication date;
+            vol (issue): pages. (Should include abstracts).<span
+              class="text-danger"
+              >{{ " *" }}</span
+            >
+          </label>
+          <textarea type="text" class="form-control"></textarea>
+        </div>
       </div>
     </div>
   </div>
   <p class="h5 mt-3">3. Presentations</p>
-  <div class="row shadow">
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label class="form-label"
-          >Name of Conference, Presentation title, (if ‘placed’, list here),
-          Date and Location
-          <span class="text-danger">{{ " *" }}</span>
-        </label>
-        <textarea type="text" class="form-control"></textarea>
+  <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label"
+            >Name of Conference, Presentation title, (if ‘placed’, list here),
+            Date and Location
+            <span class="text-danger">{{ " *" }}</span>
+          </label>
+          <textarea type="text" class="form-control"></textarea>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row shadow">
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label class="form-label"
-          >Name of Conference, Presentation title, (if ‘placed’, list here),
-          Date and Location
-          <span class="text-danger">{{ " *" }}</span>
-        </label>
-        <textarea type="text" class="form-control"></textarea>
+  <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label"
+            >Name of Conference, Presentation title, (if ‘placed’, list here),
+            Date and Location
+            <span class="text-danger">{{ " *" }}</span>
+          </label>
+          <textarea type="text" class="form-control"></textarea>
+        </div>
       </div>
     </div>
   </div>
   <p class="h5 mt-3">4. Honors and Awards</p>
-  <div class="row shadow">
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label class="form-label"
-          >Award, Institution, Date Conferred<span class="text-danger">{{
-            " *"
-          }}</span></label
-        >
-        <textarea type="text" formControlName="honorsAndAwards" class="form-control"></textarea>
+  <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label"
+            >Award, Institution, Date Conferred<span class="text-danger">{{
+              " *"
+            }}</span></label
+          >
+          <textarea type="text" formControlName="honorsAndAwards" class="form-control"></textarea>
+        </div>
       </div>
     </div>
   </div>
@@ -561,7 +576,7 @@
       >
   </div>
   <div formArrayName="communityService">
-      <div class="mt-2 d-flex flex-column p-3 border"
+      <div class="mt-2 d-flex flex-column p-3  bg-light"
       *ngFor="let schools of addCommunityServiceControls; let i = index"
       [formGroupName]="i">
           <div class="d-flex flex-row justify-content-end align-items-center">

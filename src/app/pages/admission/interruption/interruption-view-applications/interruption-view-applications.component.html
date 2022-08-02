@@ -1,0 +1,241 @@
+<app-breadcrumbs title="View Application" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/admission/interruption')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Interruption Type</label>
+                    <ng-select 
+                        [items]="['Residency Program to GFP', 'Residency Program to another']"  placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Civil ID</label>
+                    <input class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Academic Year<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Interruption Type</th>
+                                    <th scope="col">Civil ID</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">OMSB Number</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let application of listData.tableData">
+                                    <td>{{application.interruptionType}}</td>
+                                    <td>{{application.civilId}}</td>
+                                    <td>{{application.name}}</td>
+                                    <td>{{application.ombsNumber}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td> 
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(transferApplication, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li *ngIf="application.status === 'Applied' && application.interruptionType === '1 Block'">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
+                                                <li *ngIf="application.status === 'Applied' && application.interruptionType != '1 Block'" (click)="openModal(applicationApproval, 'lg')">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
+                                                <li *ngIf="application.status === 'Sponsor Approved'">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approval</a></li>
+                                                <li *ngIf="application.status === 'Approved'">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Create Qarar</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #transferApplication let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Interruption Application</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Interruption Type<span class="text-danger">{{ " *" }}</span></label>
+                                        <label class="form-control">{{listData.applicationForm.interruptionType}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Civil ID:</label>
+                                        <label class="form-control">9485131321321</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Full Name:</label>
+                                        <label class="form-control">Abbas Al Ajmi</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">OMSB Registration Number:</label>
+                                        <label class="form-control">210-19</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Staff Number:</label>
+                                        <label class="form-control">210-19</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Level of Training:</label>
+                                        <label class="form-control">L4</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Current Training Program:</label>
+                                        <label class="form-control">Anesthesia</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Current Program Start Date: </label>
+                                        <label class="form-control">2020-01-08</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Sponsor: </label>
+                                        <label class="form-control">MOH</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" >
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Period of Interruption<span class="text-danger">{{ " *" }}</span></label>
+                                        <div class="d-flex flex-row gap-2">
+                                            <label class="form-control">{{"From Block : "}} <span class="text-muted">{{listData.applicationForm.periodOfInterruption.from}}</span> </label>
+                                            <label class="form-control">{{"To Block : "}} <span class="text-muted">{{listData.applicationForm.periodOfInterruption.to}}</span> </label>
+                                        </div>
+    
+                                    </div>
+                                    
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Reasons for requesting an interruption:<span class="text-danger">{{ " *" }}</span></label>
+                                        <label class="form-control">{{listData.applicationForm.reason}}</label>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationApproval let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Sponsor Approval </p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="approvalForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-lable">Approval Status</label>
+                            <ng-select 
+                                [items]="['Approve', 'Reject']"  
+                                formControlName="approvalStatus"
+                                placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="approvalFormValues.approvalStatus === 'Rejected'">
+                            <label class="form-lable">Reason</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row my-2">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+            </div>      
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"Last Updated By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

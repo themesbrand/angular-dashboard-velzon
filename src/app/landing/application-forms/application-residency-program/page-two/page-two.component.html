@@ -3,7 +3,8 @@
     Fill all Information as below
 </p>
 <form [formGroup]="applicationFormTwo">
-    <div class="row">
+    <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+      <div class="row py-2">
         <div class="col-md-4">
         <div class="mb-3">
             <label class="form-label">Marital Status<span class="text-danger">{{ " *" }}</span></label>
@@ -95,8 +96,8 @@
             <input type="number" formControlName="omsbAdmissionScore" class="form-control"/>
         </div>
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-4 mt-3 mb-3">
         <div class="form-check form-switch">
             <input
@@ -127,7 +128,10 @@
         </div>
         </div>
     </div>
-    <div class="d-flex flex-row justify-content-between">
+    </div>
+    
+
+    <div class="mt-3 d-flex flex-row justify-content-between">
         <p class="h5">Education</p>
         <a
           (click)="addEducation()"
@@ -138,7 +142,7 @@
       </div>
       <div formArrayName="education">
         <div
-          class="mt-2 d-flex flex-column border p-3"
+          class="mt-2 d-flex flex-column  p-3 bg-light"
           *ngFor="let schools of educationControls; let i = index"
           [formGroupName]="i"
         >
@@ -229,7 +233,7 @@
       </div>
       <div formArrayName="internship">
         <div
-          class="mt-2 d-flex flex-column p-3 border"
+          class="mt-2 d-flex flex-column p-3  bg-light"
           *ngFor="let schools of internshipControls; let i = index"
           [formGroupName]="i"
         >
@@ -288,227 +292,238 @@
           </div>
         </div>
       </div>
-    <div class="d-flex flex-column mt-2">
+    <div class="d-flex flex-column mt-3">
         <p class="h5">Certificates</p>
-        <div class="row">
-        <div class="col-md-6 border p-3" formGroupName="blsCertificate">
-            <p class="h6">BLS Certificate</p>
-            <div class="row">
-                <div class="col-md-6" >
-                    <div class="mb-3">
-                    <label class="form-label"
-                        >Expiry Date<span
-                        class="text-danger"
-                        >{{ " *" }}</span
-                        ></label
-                    >
-                    <input
-                        class="form-control flatpickr-input"
-                        type="text"
-                        mwlFlatpickr
-                        [minDate]="todayDate"
-                        formControlName="expiryDate"
-                        [altInput]="true"
-                        [convertModelValue]="true"
-                    />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <p class="text-muted">
-                    Upload your BLS Certificate.<span
-                        class="text-danger"
-                        >{{ " *" }}</span
-                    >
-                    </p>
-                    <input type="hidden" formControlName="uploadLink">
-                    <ngx-dropzone (change)="onSelect($event, 'filesBLSCertificate')"
-                    [multiple]="false">
-                    <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-                    <ngx-dropzone-preview *ngFor="let f of filesBLSCertificate"
-                        [removable]="true" (removed)="onRemove(f, 'filesBLSCertificate')">
-                        <ngx-dropzone-label
-                        >{{ f.name }} ({{
-                            f.type
-                        }})</ngx-dropzone-label
-                        >
-                    </ngx-dropzone-preview>
-                    </ngx-dropzone>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 border p-3" formGroupName="aclsCertificate">
-            <p class="h6">ACLS Certificate</p>
-            <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                <label class="form-label"
-                    >Expiry Date<span
-                    class="text-danger"
-                    >{{ " *" }}</span
-                    ></label
-                >
-                <input
-                    class="form-control flatpickr-input"
-                    type="text"
-                    mwlFlatpickr
-                    [minDate]="todayDate"
-                    formControlName="expiryDate"
-                    [altInput]="true"
-                    [convertModelValue]="true"
-                />
-                </div>
-            </div>
-            <div class="col-md-6">
-                <p class="text-muted">
-                Upload your ACLS Certificate.<span
-                    class="text-danger"
-                    >{{ " *" }}</span
-                >
-                </p>
-                <input type="hidden" formControlName="uploadLink">
-                <ngx-dropzone
-                (change)="
-                    onSelect($event, 'filesACLSCertificate')
-                "
-                [multiple]="false"
-                >
-                <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-                <ngx-dropzone-preview
-                    *ngFor="let f of filesACLSCertificate" [removable]="true"
-                    (removed)="onRemove(f, 'filesACLSCertificate')">
-                    <ngx-dropzone-label
-                    >{{ f.name }} ({{
-                        f.type
-                    }})</ngx-dropzone-label
-                    >
-                </ngx-dropzone-preview>
-                </ngx-dropzone>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <div class="row mt-2">
-        <p class="h5">
-        Postgraduate Qualifications/Training
-        Experience
-        </p>
-        <div class="col-md-6">
-        <div class="mb-3">
-            <label class="form-label">
-            Please provide a summary of your
-            Postgraduate Qualifications / Training
-            Experience</label
-            >
-            <textarea formControlName="qualificationsAndTrainings"
-            type="text"
-            class="form-control"
-            rows="5"
-            ></textarea>
-        </div>
-        </div>
-        <div class="col-md-6">
-        <p class="text-muted">
-            Upload your proof of Documents.
-        </p>
-        <input type="hidden" formControlName="proofOfDocumentsLinks">
-        <ngx-dropzone (change)="onSelect($event, 'filesProofDocs')">
-            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-            <ngx-dropzone-preview *ngFor="let f of filesProofDocs" [removable]="true" (removed)="onRemove(f, 'filesProofDocs')">
-            <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-            </ngx-dropzone-preview>
-        </ngx-dropzone>
+        <div class="d-flex flex-column mt-2 p-3  bg-light">
+          <div class="row">
+          <div class="col-md-6 p-3" formGroupName="blsCertificate">
+              <p class="h6">BLS Certificate</p>
+              <div class="row">
+                  <div class="col-md-6" >
+                      <div class="mb-3">
+                      <label class="form-label"
+                          >Expiry Date<span
+                          class="text-danger"
+                          >{{ " *" }}</span
+                          ></label
+                      >
+                      <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          [minDate]="todayDate"
+                          formControlName="expiryDate"
+                          [altInput]="true"
+                          [convertModelValue]="true"
+                      />
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <p class="text-muted">
+                      Upload your BLS Certificate.<span
+                          class="text-danger"
+                          >{{ " *" }}</span
+                      >
+                      </p>
+                      <input type="hidden" formControlName="uploadLink">
+                      <ngx-dropzone (change)="onSelect($event, 'filesBLSCertificate')"
+                      [multiple]="false">
+                      <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                      <ngx-dropzone-preview *ngFor="let f of filesBLSCertificate"
+                          [removable]="true" (removed)="onRemove(f, 'filesBLSCertificate')">
+                          <ngx-dropzone-label
+                          >{{ f.name }} ({{
+                              f.type
+                          }})</ngx-dropzone-label
+                          >
+                      </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6  p-3" formGroupName="aclsCertificate">
+              <p class="h6">ACLS Certificate</p>
+              <div class="row">
+              <div class="col-md-6">
+                  <div class="mb-3">
+                  <label class="form-label"
+                      >Expiry Date<span
+                      class="text-danger"
+                      >{{ " *" }}</span
+                      ></label
+                  >
+                  <input
+                      class="form-control flatpickr-input"
+                      type="text"
+                      mwlFlatpickr
+                      [minDate]="todayDate"
+                      formControlName="expiryDate"
+                      [altInput]="true"
+                      [convertModelValue]="true"
+                  />
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <p class="text-muted">
+                  Upload your ACLS Certificate.<span
+                      class="text-danger"
+                      >{{ " *" }}</span
+                  >
+                  </p>
+                  <input type="hidden" formControlName="uploadLink">
+                  <ngx-dropzone
+                  (change)="
+                      onSelect($event, 'filesACLSCertificate')
+                  "
+                  [multiple]="false"
+                  >
+                  <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                  <ngx-dropzone-preview
+                      *ngFor="let f of filesACLSCertificate" [removable]="true"
+                      (removed)="onRemove(f, 'filesACLSCertificate')">
+                      <ngx-dropzone-label
+                      >{{ f.name }} ({{
+                          f.type
+                      }})</ngx-dropzone-label
+                      >
+                  </ngx-dropzone-preview>
+                  </ngx-dropzone>
+              </div>
+              </div>
+          </div>
+          </div>
         </div>
     </div>
-    <div class="row mt-2" *ngIf="!formValues.haveDiseases">
-        <p class="h5">
-        Selection of Choice of Specialty programs
-        </p>
-        <div class="col-md-4">
-        <div class="mb-3">
-            <label class="form-label"
-            >1st Choice<span class="text-danger">{{
-                " *"
-            }}</span></label
-            >
-            <ng-select formControlName="specialtyProgramOne" [items]="listData.trainingProgramsList"
-            bindLabel="name"
-            bindValue="value"
-            placeholder="Current Position"></ng-select>
-        </div>
-        </div>
-        <div class="col-md-4">
-        <div class="mb-3">
-            <label class="form-label"
-            >2nd Choice<span class="text-danger">{{
-                " *"
-            }}</span></label
-            >
-            <ng-select formControlName="specialtyProgramTwo" [items]="listData.trainingProgramsList" placeholder="Current Position"
-            bindLabel="name"
-            bindValue="value"
-            ></ng-select>
-        </div>
-        </div>
+    <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+      <div class="row">
+          <p class="h5">
+          Postgraduate Qualifications / Training
+          Experience
+          </p>
+          <div class="col-md-6">
+          <div class="mb-3">
+              <label class="form-label">
+              Please provide a summary of your
+              Postgraduate Qualifications / Training
+              Experience</label
+              >
+              <textarea formControlName="qualificationsAndTrainings"
+              type="text"
+              class="form-control"
+              rows="5"
+              ></textarea>
+          </div>
+          </div>
+          <div class="col-md-6">
+          <p class="text-muted">
+              Upload your proof of Documents.
+          </p>
+          <input type="hidden" formControlName="proofOfDocumentsLinks">
+          <ngx-dropzone (change)="onSelect($event, 'filesProofDocs')">
+              <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+              <ngx-dropzone-preview *ngFor="let f of filesProofDocs" [removable]="true" (removed)="onRemove(f, 'filesProofDocs')">
+              <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-preview>
+          </ngx-dropzone>
+          </div>
+      </div>
+
     </div>
-    <hr />
-    <div class="row my-3">
-        <div class="col-md-4 mt-4">
-        <div class="form-check form-switch">
-            <input
-            class="form-check-input"
-            type="checkbox"
-            role="switch"
-            formControlName="isRequiredLabCoat"
-            id="flexSwitchCheckDefault"/>
-            <label
-            class="form-check-label"
-            for="flexSwitchCheckDefault"
-            ><span class="text-danger px-2">{{
-                " * "
-            }}</span
-            >Do you require a Lab Coat</label
-            >
-        </div>
-        </div>
-        <div
-        class="col-md-4" *ngIf="formValues.isRequiredLabCoat">
-        <div class="mb-3">
-            <label class="form-label">Please select your Lab Coat Size
-            <span class="text-danger">{{" *"}}</span></label>
-            <ng-select
-            [items]="listData.labCoatSize"
-            placeholder="Please select your White Lab Coat Size"
-            bindLabel="name"
-            bindValue="value"
-            ></ng-select>
-        </div>
-        </div>
+    <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+      <div class="row" *ngIf="!formValues.haveDiseases">
+          <p class="h5">
+          Selection of Choice of Specialty programs
+          </p>
+          <div class="col-md-4">
+          <div class="mb-3">
+              <label class="form-label"
+              >1st Choice<span class="text-danger">{{
+                  " *"
+              }}</span></label
+              >
+              <ng-select formControlName="specialtyProgramOne" [items]="listData.trainingProgramsList"
+              bindLabel="name"
+              bindValue="value"
+              placeholder="Current Position"></ng-select>
+          </div>
+          </div>
+          <div class="col-md-4">
+          <div class="mb-3">
+              <label class="form-label"
+              >2nd Choice<span class="text-danger">{{
+                  " *"
+              }}</span></label
+              >
+              <ng-select formControlName="specialtyProgramTwo" [items]="listData.trainingProgramsList" placeholder="Current Position"
+              bindLabel="name"
+              bindValue="value"
+              ></ng-select>
+          </div>
+          </div>
+      </div>
     </div>
     <hr />
-    <div class="row">
-        <div class="col-md-4">
-        <p class="text-muted">
-            Upload your Sponsorship letter from
-            Employer.<span class="text-danger">{{
-            " *"
-            }}</span>
-        </p>
-        <input type="hidden" formControlName="sponsorshipLetterLink">
-        <ngx-dropzone (change)="onSelect($event, 'filesSponsorshipLetter')" [multiple]="false">
-            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
-            <ngx-dropzone-preview
-            *ngFor="let f of filesSponsorshipLetter"
-            [removable]="true"
-            (removed)="onRemove(f, 'filesSponsorshipLetter')"
-            >
-            <ngx-dropzone-label
-                >{{ f.name }} ({{
-                f.type
-                }})</ngx-dropzone-label
-            >
-            </ngx-dropzone-preview>
-        </ngx-dropzone>
-        </div>
-    </div>    
+    <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+      <div class="row">
+          <div class="col-md-4 mt-4">
+          <div class="form-check form-switch">
+              <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              formControlName="isRequiredLabCoat"
+              id="flexSwitchCheckDefault"/>
+              <label
+              class="form-check-label"
+              for="flexSwitchCheckDefault"
+              ><span class="text-danger px-2">{{
+                  " * "
+              }}</span
+              >Do you require a Lab Coat</label
+              >
+          </div>
+          </div>
+          <div
+          class="col-md-4" *ngIf="formValues.isRequiredLabCoat">
+          <div class="mb-3">
+              <label class="form-label">Please select your Lab Coat Size
+              <span class="text-danger">{{" *"}}</span></label>
+              <ng-select
+              [items]="listData.labCoatSize"
+              placeholder="Please select your White Lab Coat Size"
+              bindLabel="name"
+              bindValue="value"
+              ></ng-select>
+          </div>
+          </div>
+      </div>
+    </div>
+    <hr />
+    <div class="mt-3 d-flex flex-column mt-2 p-3  bg-light">
+      <div class="row">
+          <div class="col-md-4">
+          <p class="text-muted">
+              Upload your Sponsorship letter from
+              Employer.<span class="text-danger">{{
+              " *"
+              }}</span>
+          </p>
+          <input type="hidden" formControlName="sponsorshipLetterLink">
+          <ngx-dropzone (change)="onSelect($event, 'filesSponsorshipLetter')" [multiple]="false">
+              <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+              <ngx-dropzone-preview
+              *ngFor="let f of filesSponsorshipLetter"
+              [removable]="true"
+              (removed)="onRemove(f, 'filesSponsorshipLetter')"
+              >
+              <ngx-dropzone-label
+                  >{{ f.name }} ({{
+                  f.type
+                  }})</ngx-dropzone-label
+              >
+              </ngx-dropzone-preview>
+          </ngx-dropzone>
+          </div>
+      </div>    
+    </div>
 </form>
