@@ -1,0 +1,795 @@
+<app-breadcrumbs title="View Application" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/admission/rejoining')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Civil ID</label>
+                    <input class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Academic Year<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Civil ID</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">OMSB Number</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let application of listData.tableData">
+                                    <td>{{application.civilId}}</td>
+                                    <td>{{application.name}}</td>
+                                    <td>{{application.ombsNumber}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td> 
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(rejoiningApplication, 'xl')" ><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li *ngIf="application.status === 'Applied'">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
+
+                                                <li *ngIf="application.status === 'Sponsor Approved'">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approval</a></li>
+                                                <li *ngIf="application.status === 'Approved'">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Create Qarar</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #rejoiningApplication let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Rejoining Application Form</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ng-container *ngTemplateOutlet="applicationFormTemplate"></ng-container>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #applicationFormTemplate>
+    <form [formGroup]="applicationForm" class="p-0">
+        <div class="card">
+            <div class="card-body">
+                <div class="user-thumb mb-2" *ngIf="applicationFormValues.assessmentUploadLink === null">
+                    <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
+                </div>
+                <p class="h5">DEMOGRAPHIC INFORMATION SECTION</p>
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Name (As per passport)</label>
+                        <input type="text" class="form-control" formControlName="name" />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Birthday</label>
+                        <input class="form-control flatpickr-input"
+                          formControlName="birthday" type="text"
+                          mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-control-label" >Nationality</label>
+                        <ng-select name="nationality"
+                            formControlName="nationality" [items]="listData.nationalities" bindLabel="name" bindValue="code"
+                            placeholder="Select your nationality">
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">National ID No</label>
+                        <input type="text" class="form-control"
+                          formControlName="nationalIDNo"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Passport No</label>
+                        <input type="text" class="form-control"
+                          formControlName="passportNo"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Marital Status</label>
+                        <ng-select
+                          [items]="['Married','Unmarried']"
+                          placeholder="Select your Marital Status"
+                          bindLabel="name" formControlName="maritalStatus"
+                          bindValue="value">
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Permanent Address</label>
+                        <input type="text" class="form-control"
+                          formControlName="permanentAddress"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Wilayat/Region</label>
+                        <ng-select
+                          [items]="listData.wilayatList"
+                          placeholder="Select your Wilayat/Region"
+                          bindLabel="name"
+                          formControlName="wilayatOrRegion"
+                          bindValue="value">
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Mobile Number</label>
+                      <ngx-intl-tel-input [cssClass]="'custom'" 
+                          [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                          [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                          [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="mobileNumber">
+                      </ngx-intl-tel-input>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Name of Next of Kin (NOK)</label>
+                        <input type="text" formControlName="nameNextKin"
+                          class="form-control"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Contact No. of NOK</label>
+                      <ngx-intl-tel-input [cssClass]="'custom'" 
+                          [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                          [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                          [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="contactNextKin">
+                      </ngx-intl-tel-input>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Diseases / Disabilities</label>
+                        <textarea rows="2" formControlName="diseases" class="form-control"></textarea>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Current Employment Status</label>
+                        <ng-select
+                            formControlName="isEmployed" [items]="['Employed', 'Unemployed']" 
+                            placeholder="Select your employment Status">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Name of Institution</label>
+                        <ng-select
+                            formControlName="nameOfInstitution" [items]="['Khoula Hospital', 'Al Nahdah Hospital', 'Armed Forces Hospital']"
+                            placeholder="Select your Institution">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Department</label>
+                        <ng-select
+                            formControlName="department" [items]="['ENT']"
+                            placeholder="Select your Department">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Current Position</label>
+                        <ng-select
+                            formControlName="currentPosition" [items]="['Trainee']"
+                            placeholder="Select your current Position">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Date of Joining OMSB</label>
+                        <label class="form-control">2020-01-09</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Date of Withdrawal</label>
+                        <label class="form-control">2021-10-15</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Date of Withdrawal</label>
+                        <label class="form-control">2021-10-15</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Program at the time of withdrawal</label>
+                        <label class="form-control">Anesthesia</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Level of Training at time of withdrawal:</label>
+                        <label class="form-control">L2</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Post Graduate Qualifications</label>
+                        <textarea rows="2" formControlName="postGraduateQualifications" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Post Graduate Training experience</label>
+                        <textarea rows="2" formControlName="postGraduateTrainingExperience" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Sponsorship</label>
+                        <ng-select
+                            formControlName="sponsorship" [items]="['MOH']" 
+                            placeholder="Select your Sponsorship">
+                        </ng-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
+                <div class="d-flex flex-row justify-content-between">
+                  <p class="h5">1. Secondary School</p>
+                </div>
+                <div formArrayName="secondarySchool">
+                  <div
+                    class="mt-2 d-flex flex-column  p-3 bg-light"
+                    *ngFor="let schools of secondarySchoolControls; let i = index"
+                    [formGroupName]="i">
+                    <div class="row ">
+                      <div class="col-md-3">
+                        <label class="form-label"
+                          >School</label
+                        >
+                        <input type="text" formControlName="school" class="form-control" />
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label"
+                          >Start Date</label
+                        >
+                        <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          [altInput]="true"
+                          formControlName="startDate"
+                          [convertModelValue]="true"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label"
+                          >End Date</label
+                        >
+                        <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          formControlName="endDate"
+                          mwlFlatpickr
+                          [altInput]="true"
+                          [convertModelValue]="true"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label"
+                          >Country
+                        </label>
+                        <ng-select
+                          [items]="listData.countryList"
+                          placeholder="Country"
+                          bindLabel="name"
+                          formControlName="country"
+                          bindValue="code"
+                        >
+                        </ng-select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">2. BSc/Medical School</p>
+                  </div>
+                  <div formArrayName="medicineSchool">
+                    <div
+                      class="mt-2 d-flex flex-column p-3  bg-light"
+                      *ngFor="let schools of medicineSchoolControls; let i = index"
+                      [formGroupName]="i">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >School</label
+                          >
+                          <input type="text" formControlName="school" class="form-control" />
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >Start Date</label
+                          >
+                          <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            formControlName="startDate"
+                            [convertModelValue]="true"
+                          />
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >End Date</label
+                          >
+                          <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            formControlName="endDate"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            [convertModelValue]="true"
+                          />
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >Country
+                          </label>
+                          <ng-select
+                            [items]="listData.countryList"
+                            placeholder="Country"
+                            bindLabel="name"
+                            formControlName="country"
+                            bindValue="code"
+                          >
+                          </ng-select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">3. Clinical Electives</p>
+                  </div>
+                  <div formArrayName="clinicalElectives">
+                    <div
+                      class="mt-2 d-flex flex-column p-3  bg-light"
+                      *ngFor="let clinics of clinicalElectivesControls; let i = index"
+                      [formGroupName]="i">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label class="form-label"
+                            >Department, Institution<span class="text-danger">{{
+                              " *"
+                            }}</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            formControlName="department"
+                          />
+                        </div>
+                        <div class="col-md-4">
+                          <label class="form-label"
+                            >Date</label
+                          >
+                          <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            formControlName="date"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            [convertModelValue]="true"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">4. The Basic Certificates Courses:</p>
+                <div class="mt-2 d-flex flex-column p-3  bg-light">
+                  <div class="row" formGroupName="certificateCourses">
+                    <div class="col-md-6 d-flex flex-row">
+                      <label class="form-label">BLS Certificate</label>
+                      <div class="mb-3 mx-5">
+                        <label class="form-label"
+                          >Expiry Date</label
+                        >
+                        <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          formControlName="blsCertificateExpiry"
+                          [altInput]="true"
+                          [convertModelValue]="true"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 d-flex flex-row">
+                      <label class="form-label">ACLS Certificate</label>
+                      <div class="mb-3 mx-5">
+                        <label class="form-label"
+                          >Expiry Date</label
+                        >
+                        <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          formControlName="aclsCertificateExpiry"
+                          [altInput]="true"
+                          [convertModelValue]="true"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">INTERNSHIP</p>
+                  </div>
+                  <div formArrayName="internship">
+                    <div
+                      class="mt-2 d-flex flex-column p-3  bg-light"
+                      *ngFor="let schools of internshipControls; let i = index"
+                      [formGroupName]="i">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >Start Date</label
+                          >
+                          <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            formControlName="startDate"
+                            [convertModelValue]="true"
+                          />
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >End Date</label
+                          >
+                          <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            formControlName="endDate"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            [convertModelValue]="true"
+                          />
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >Institution of Internship</label
+                          >
+                          <input
+                            type="text"
+                            formControlName="institution"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label"
+                            >Country
+                          </label>
+                          <ng-select
+                            [items]="listData.countryList"
+                            placeholder="Country"
+                            bindLabel="name"
+                            formControlName="country"
+                            bindValue="code"
+                          >
+                          </ng-select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 mt-4">SCHOLARLY ACTIVITIES SECTION</p>
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">1. Research</p>
+                </div>
+                <div formArrayName="research">
+                    <div class="mt-2 d-flex flex-column p-3  bg-light"
+                    *ngFor="let schools of researchControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="form-label">Project Title</label>
+                                <input type="text" class="form-control" formControlName="projectTitle" />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Position</label>
+                                <input type="text" class="form-control" formControlName="position"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Inclusive Dates</label>
+                                <input
+                                class="form-control flatpickr-input"
+                                type="text"
+                                mwlFlatpickr
+                                [altInput]="true"
+                                formControlName="inclusiveDates"
+                                [convertModelValue]="true"
+                                mode="range"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Institution</label>
+                                <input type="text" class="form-control" formControlName="institution"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Department</label>
+                                <input type="text" class="form-control" formControlName="department"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Mentor</label>
+                                <input type="text" class="form-control" formControlName="mentor"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">2. Publications</p>
+                <div class="mt-3 d-flex flex-column mt-2 p-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >Last, First, Middle Initial of authors as listed in the paper.
+                          Underline your name. Title of article, Journal, Publication date;
+                          vol (issue): pages. (Should include abstracts).<span
+                            class="text-danger"
+                            >{{ " *" }}</span
+                          >
+                        </label>
+                        <textarea type="text" formControlName="publications" class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">3. Presentations</p>
+                <div class="mt-3 d-flex flex-column mt-2 p-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >Name of Conference, Presentation title, (if ‘placed’, list here),
+                          Date and Location
+                          
+                        </label>
+                        <textarea type="text" formControlName="presentations"  class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">4. Honors and Awards</p>
+                <div class="mt-3 d-flex flex-column mt-2 p-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >Award, Institution, Date Conferred<span class="text-danger">{{
+                            " *"
+                          }}</span></label
+                        >
+                        <textarea type="text" formControlName="honorsAndAwards" class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">4. Community Service/Volunteer Experience (Health-Related Fields)</p>
+                </div>
+                <div formArrayName="communityService">
+                    <div class="mt-2 d-flex flex-column p-3  bg-light"
+                    *ngFor="let schools of addCommunityServiceControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="form-label"
+                                  >From Date</label
+                                >
+                                <input
+                                  class="form-control flatpickr-input"
+                                  type="text"
+                                  formControlName="fromDate"
+                                  mwlFlatpickr
+                                  [altInput]="true"
+                                  [convertModelValue]="true"
+                                />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label"
+                                  >To Date</label
+                                >
+                                <input
+                                  class="form-control flatpickr-input"
+                                  type="text"
+                                  mwlFlatpickr
+                                  formControlName="toDate"
+                                  [altInput]="true"
+                                  [convertModelValue]="true"
+                                />
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <textarea type="text" formControlName="description" class="form-control"></textarea>
+              
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" >
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <p class="text-muted">Previous clinical experience assessment reports during withdrawal period (outside OMSB)
+                        </p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <p class="text-muted">Personal statement – reasons for withdrawal and rejoining and selection of program
+                        </p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <p class="text-muted">Photocopy of any results of entry exams, international exams or other postgraduate exams
+                        </p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <p class="text-muted">Passport size photograph with blue background
+                        </p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #applicationApproval let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Sponsor Approval </p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="approvalForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-lable">Approval Status</label>
+                            <ng-select 
+                                [items]="['Approve', 'Reject']"  
+                                formControlName="approvalStatus"
+                                placeholder="Please select">
+                            </ng-select>
+                        </div>
+                        <div class="col-md-6 mb-3" *ngIf="approvalFormValues.approvalStatus === 'Reject'">
+                            <label class="form-lable">Reason</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row my-2">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+            </div>      
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"Last Updated By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

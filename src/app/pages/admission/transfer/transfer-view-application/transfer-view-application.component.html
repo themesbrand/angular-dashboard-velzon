@@ -190,7 +190,7 @@
                                 placeholder="Please select">
                             </ng-select>
                         </div>
-                        <div class="col-md-6 mb-3" *ngIf="approvalFormValues.approvalStatus === 'Rejected'">
+                        <div class="col-md-6 mb-3" *ngIf="approvalFormValues.approvalStatus === 'Reject'">
                             <label class="form-lable">Reason</label>
                             <input type="text" class="form-control">
                         </div>
@@ -230,7 +230,7 @@
                                 <br>
                                 <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
                                 <br>
-                                <small class="my-3 text-muted">{{"Last Updated By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
                             </div>
                         </div>
                     </div>

@@ -19,6 +19,21 @@
                 "id": 4,
                 "label": "Interruption",
                 "link": "admission/interruption"
+            },
+            {
+                "id": 5,
+                "label": "Withdrawal",
+                "link": "admission/withdrawal"
+            },
+            {
+                "id": 6,
+                "label": "Rejoining",
+                "link": "admission/rejoining"
+            },
+            {
+                "id": 7,
+                "label": "Supplementary Training",
+                "link": "admission/supplementary-training"
             }
         ]
     }

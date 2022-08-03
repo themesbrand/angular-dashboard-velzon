@@ -222,7 +222,7 @@
             {
                 "id": 37,
                 "label": "Supplementary Training",
-                "link": "admission/supplementaryTraining"
+                "link": "admission/supplementary-training"
             }
         ]
     }

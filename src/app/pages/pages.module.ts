@@ -201,6 +201,15 @@ import { TransferViewApplicationComponent } from './admission/transfer/transfer-
 import { InterruptionComponent } from './admission/interruption/interruption.component';
 import { InterruptionApplicationComponent } from './admission/interruption/interruption-application/interruption-application.component';
 import { InterruptionViewApplicationsComponent } from './admission/interruption/interruption-view-applications/interruption-view-applications.component';
+import { WithdrawalComponent } from './admission/withdrawal/withdrawal.component';
+import { WithdrawalViewApplicationComponent } from './admission/withdrawal/withdrawal-view-application/withdrawal-view-application.component';
+import { WithdrawalApplicationComponent } from './admission/withdrawal/withdrawal-application/withdrawal-application.component';
+import { RejoiningComponent } from './admission/rejoining/rejoining.component';
+import { RejoiningApplicationFormComponent } from './admission/rejoining/rejoining-application-form/rejoining-application-form.component';
+import { RejoiningApplicationListComponent } from './admission/rejoining/rejoining-application-list/rejoining-application-list.component';
+import { SupplementaryTrainingComponent } from './admission/supplementary-training/supplementary-training.component';
+import { SupplementaryTrainingApplicationFormComponent } from './admission/supplementary-training/supplementary-training-application-form/supplementary-training-application-form.component';
+import { SupplementaryTrainingApplicationListComponent } from './admission/supplementary-training/supplementary-training-application-list/supplementary-training-application-list.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -367,7 +376,16 @@ FullCalendarModule.registerPlugins([
     TransferViewApplicationComponent,
     InterruptionComponent,
     InterruptionApplicationComponent,
-    InterruptionViewApplicationsComponent
+    InterruptionViewApplicationsComponent,
+    WithdrawalComponent,
+    WithdrawalViewApplicationComponent,
+    WithdrawalApplicationComponent,
+    RejoiningComponent,
+    RejoiningApplicationFormComponent,
+    RejoiningApplicationListComponent,
+    SupplementaryTrainingComponent,
+    SupplementaryTrainingApplicationFormComponent,
+    SupplementaryTrainingApplicationListComponent
   ],
   imports: [
     CommonModule,

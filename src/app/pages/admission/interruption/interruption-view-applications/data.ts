@@ -33,7 +33,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -54,7 +55,8 @@ const data = {
             status : 'Applied',
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''}
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
             ]
         },
         {
@@ -75,7 +77,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -97,7 +100,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Rejected', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -119,7 +123,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'Hilal basheer'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -163,7 +168,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'Hilal basheer'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Complete', date : '2022-08-01', by :'Abu Nasser'}
             ]
         },
@@ -187,7 +193,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -209,7 +216,8 @@ const data = {
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -230,7 +238,8 @@ const data = {
             status : 'Applied',
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''}
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Hilal basheer'},  
             ]
         }
     ]

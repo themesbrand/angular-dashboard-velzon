@@ -110,6 +110,15 @@ import { TransferViewApplicationComponent } from './admission/transfer/transfer-
 import { InterruptionComponent } from './admission/interruption/interruption.component';
 import { InterruptionApplicationComponent } from './admission/interruption/interruption-application/interruption-application.component';
 import { InterruptionViewApplicationsComponent } from './admission/interruption/interruption-view-applications/interruption-view-applications.component';
+import { WithdrawalComponent } from './admission/withdrawal/withdrawal.component';
+import { WithdrawalApplicationComponent } from './admission/withdrawal/withdrawal-application/withdrawal-application.component';
+import { WithdrawalViewApplicationComponent } from './admission/withdrawal/withdrawal-view-application/withdrawal-view-application.component';
+import { RejoiningComponent } from './admission/rejoining/rejoining.component';
+import { RejoiningApplicationFormComponent } from './admission/rejoining/rejoining-application-form/rejoining-application-form.component';
+import { RejoiningApplicationListComponent } from './admission/rejoining/rejoining-application-list/rejoining-application-list.component';
+import { SupplementaryTrainingComponent } from './admission/supplementary-training/supplementary-training.component';
+import { SupplementaryTrainingApplicationFormComponent } from './admission/supplementary-training/supplementary-training-application-form/supplementary-training-application-form.component';
+import { SupplementaryTrainingApplicationListComponent } from './admission/supplementary-training/supplementary-training-application-list/supplementary-training-application-list.component';
 
 const routes: Routes = [
     //Default Routing
@@ -266,6 +275,21 @@ const routes: Routes = [
         {path : "", component :  InterruptionComponent },
         {path : "application", component :  InterruptionApplicationComponent },
         {path : "view-application", component :  InterruptionViewApplicationsComponent },
+      ]},
+      { path : 'withdrawal', children: [
+        {path : "", component :  WithdrawalComponent },
+        {path : "application", component :  WithdrawalApplicationComponent },
+        {path : "view-application", component :  WithdrawalViewApplicationComponent },
+      ]},
+      { path : 'rejoining', children: [
+        {path : "", component :  RejoiningComponent },
+        {path : "application", component :  RejoiningApplicationFormComponent },
+        {path : "view-application", component :  RejoiningApplicationListComponent },
+      ]},
+      { path : 'supplementary-training', children: [
+        {path : "", component :  SupplementaryTrainingComponent },
+        {path : "application", component :  SupplementaryTrainingApplicationFormComponent },
+        {path : "view-application", component :  SupplementaryTrainingApplicationListComponent },
       ]},
     ]},
 
