@@ -2,115 +2,124 @@
     <div class="col-md-4 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
         <div class="card card-animate shadow" >
             <div class="card-body py-2">  
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-8">
-                            <div class="flex flex-column">
-                                <div class="p-3">
-                                    <p class="fs-19 mb-0 ">Admission Setup</p>
-                                </div>
-                                <div class="p-3">
-                                    <a (click)="onNavigate('/admission/admission/admission-setup')" class="btn btn-success">View</a>
-                                  </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 p-0 ">
-                            <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                        </div>
+                <div class="d-flex flex-row justify-content-between align-items-center" >
+                    <div class="flex flex-column">
+                        <p class="fs-16 mb-3 ">Admission Setup</p>
+                        <a (click)="onNavigate('/admission/admission/admission-setup')" class="btn btn-success">View</a>
                     </div>
-                             
+                    <img src="assets/images/verification-img.png" class="img-fluid">
+                </div>            
             </div>
         </div>
     </div>
     <div class="col-md-4 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org'">
         <div class="card card-animate shadow" >
             <div class="card-body py-2">  
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-8">
-                            <div class="flex flex-column">
-                                <div class="p-3">
-                                    <p class="fs-19 mb-0 ">Sponsor Setup</p>
-                                </div>
-                                <div class="p-3">
-                                    <a (click)="onNavigate('/admission/admission/sponsor-setup')" class="btn btn-success">View</a>
-                                  </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 p-0 ">
-                            <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                        </div>
+                <div class="d-flex flex-row justify-content-between align-items-center" >
+                    <div class="flex flex-column">
+                        <p class="fs-16 mb-3 ">Sponsor Setup</p>
+                        <a (click)="onNavigate('/admission/admission/sponsor-setup')" class="btn btn-success">View</a>
                     </div>
-                             
+                    <img src="assets/images/file.png" class="img-fluid">
+                </div> 
             </div>
         </div>
     </div>
     <div class="col-md-4 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
         <div class="card card-animate shadow" >
             <div class="card-body py-2">  
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-8">
-                            <div class="flex flex-column">
-                                <div class="p-3">
-                                    <p class="fs-19 mb-0 ">View Application</p>
-                                </div>
-                                <div class="p-3">
-                                    <a (click)="onNavigate('/admission/admission/view-application')" class="btn btn-success">View</a>
-                                  </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 p-0 ">
-                            <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                        </div>
+                <div class="d-flex flex-row justify-content-between align-items-center" >
+                    <div class="flex flex-column">
+                        <p class="fs-16 mb-3 ">View Application</p>
+                        <a (click)="onNavigate('/admission/admission/view-application')" class="btn btn-success">View</a>
                     </div>
-                             
+                    <img src="assets/images/illustrator-1.png" class="img-fluid">
+                </div>                             
             </div>
         </div>
     </div>
     <div class="col-md-4 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org'|| userRole === 'interviewer@omsb.org'">
         <div class="card card-animate shadow" >
             <div class="card-body py-2">  
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-8">
-                            <div class="flex flex-column">
-                                <div class="p-3">
-                                    <p class="fs-19 mb-0 ">Interview</p>
-                                </div>
-                                <div class="p-3">
-                                    <a (click)="onNavigate('/admission/admission/interview')" class="btn btn-success">View</a>
-                                  </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 p-0 ">
-                            <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                        </div>
+                <div class="d-flex flex-row justify-content-between align-items-center" >
+                    <div class="flex flex-column">
+                        <p class="fs-16 mb-3 ">Interview</p>
+                        <a (click)="onNavigate('/admission/admission/interview')" class="btn btn-success">View</a>
                     </div>
-                             
+                    <img src="assets/images/widget-img.png" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-4 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org'">
         <div class="card card-animate shadow" >
             <div class="card-body py-2">  
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-8">
-                            <div class="flex flex-column">
-                                <div class="p-3">
-                                    <p class="fs-19 mb-0 ">Interview Result</p>
-                                </div>
-                                <div class="p-3">
-                                    <a (click)="onNavigate('/admission/admission/interview-result')" class="btn btn-success">View</a>
-                                  </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 p-0 ">
-                            <img src="assets/images/verification-img.png" class="img-fluid" alt="">
-                        </div>
+                <div class="d-flex flex-row justify-content-between align-items-center" >
+                    <div class="flex flex-column">
+                        <p class="fs-16 mb-3 ">Interview Result</p>
+                        <a (click)="onNavigate('/admission/admission/interview-result')" class="btn btn-success">View</a>
                     </div>
-                             
+                    <img src="assets/images/error500.png" class="img-fluid">
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
+        <div class="card card-animate shadow" >
+            <div class="card-body py-2">  
+                <div class="d-flex flex-column justify-content-between align-items-center" >
+                    <p class="fs-16 mb-2">Admission Setup</p>
+                    <img src="assets/images/verification-img.png" class="img-fluid">
+                    <a (click)="onNavigate('/admission/admission/admission-setup')" class="btn btn-success mt-3 w-100">View</a>
+
+                </div>            
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate shadow" >
+            <div class="card-body py-2">  
+                <div class="d-flex flex-column justify-content-between align-items-center" >
+                    <p class="fs-16 mb-2">Sponsor Setup</p>
+                    <img src="assets/images/file.png" class="img-fluid">
+                    <a (click)="onNavigate('/admission/admission/sponsor-setup')" class="btn btn-success mt-3 w-100">View</a>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
+        <div class="card card-animate shadow" >
+            <div class="card-body py-2">  
+                <div class="d-flex flex-column justify-content-between align-items-center" >
+                    <p class="fs-16 mb-2">View Application</p>
+                    <img src="assets/images/illustrator-1.png" class="img-fluid">
+                    <a (click)="onNavigate('/admission/admission/view-application')" class="btn btn-success mt-3 w-100">View</a>
+                </div>                          
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org'|| userRole === 'interviewer@omsb.org'">
+        <div class="card card-animate shadow" >
+            <div class="card-body py-2">  
+                <div class="d-flex flex-column justify-content-between align-items-center" >
+                    <p class="fs-16 mb-2">Interview</p>
+                    <img src="assets/images/widget-img.png" class="img-fluid">
+                    <a (click)="onNavigate('/admission/admission/interview')" class="btn btn-success mt-3 w-100">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-1" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate shadow" >
+            <div class="card-body py-2">  
+                <div class="d-flex flex-column justify-content-between align-items-center" >
+                    <p class="fs-16 mb-2">Interview Result</p>
+                    <img src="assets/images/error500.png" class="img-fluid">
+                    <a (click)="onNavigate('/admission/admission/interview-result')" class="btn btn-success mt-3 w-100">View</a>
+                </div>                             
             </div>
         </div>
     </div>
