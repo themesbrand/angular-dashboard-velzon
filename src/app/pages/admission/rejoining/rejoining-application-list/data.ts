@@ -90,20 +90,11 @@ const data = {
             ombsNumber: '255-19',
             status : 'Applied',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
-            ]
-        },
-        {
-            civilId: '98213543213',
-            name: 'Abdel Maddali',
-            ombsNumber: '255-19',
-            status : 'Applied',
-            applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''}
             ]
         },
         {
@@ -112,9 +103,10 @@ const data = {
             ombsNumber: '210-19',
             status : 'Sponsor Approved',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -124,10 +116,8 @@ const data = {
             ombsNumber: '255-19',
             status : 'Sponsor Rejected',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Sponsor Rejected', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Sponsor Rejected', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
             ]
         },
         {
@@ -136,9 +126,10 @@ const data = {
             ombsNumber: '210-19',
             status : 'Approved',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'Hilal basheer'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'Program Director - Abu Nasser'},
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -148,10 +139,9 @@ const data = {
             ombsNumber: '255-19',
             status : 'Rejected',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Rejected', status : 'Complete', date : '2022-07-30', by :'Hilal basheer'},
-                { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
+                { stage : 'Rejected', status : 'Complete', date : '2022-07-30 10:00:00 AM', by :'Hilal basheer'}
             ]
         },
         {
@@ -160,10 +150,11 @@ const data = {
             ombsNumber: '210-19',
             status : 'Qarar Issued',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28', by :'Al Abri Ibraham'},
-                { stage : 'Approved', status : 'Complete', date : '2022-07-30', by :'Hilal basheer'},
-                { stage : 'Qarar Issued', status : 'Complete', date : '2022-08-01', by :'Abu Nasser'}
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'Program Director - Abu Nasser'},
+                { stage : 'Qarar Issued', status : 'Complete', date : '2022-08-01 08:00:00 AM', by :'Abu Nasser'}
             ]
         },
     ],
@@ -174,9 +165,10 @@ const data = {
             ombsNumber: '255-19',
             status : 'Applied',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -186,9 +178,10 @@ const data = {
             ombsNumber: '210-19',
             status : 'Applied',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
-                { stage : 'Approval', status : 'Pending', date : '', by :''},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
                 { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
             ]
         },
@@ -198,8 +191,11 @@ const data = {
             ombsNumber: '255-19',
             status : 'Applied',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Approval', status : 'Pending', date : '', by :''}
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+                { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
+                { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
+
             ]
         }
     ],

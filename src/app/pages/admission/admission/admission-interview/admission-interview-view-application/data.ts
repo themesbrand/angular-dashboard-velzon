@@ -2,56 +2,7 @@ import { Countries } from "src/app/enums/countries";
 import { Nationalities } from "src/app/enums/nationality";
 
 const data = {
-    applicationTableDate : [
-        {
-            fullName : 'Madan Al Abri',
-            program :  'Anaesthesia',
-            programType : 'Value 1',
-            sponsoredBy : 'MOHERI',
-            email : 'Madan@email.com',
-            contactNumber : '+9681224568',
-            blsExpiryDate : '2029-02-06',
-            aclsExpiryDate : '2029-05-06',
-            status : 'Applied',
-            action: 'red',
-            applicationStatus : [
-              { stage : 'Applied', status : 'Submit', date : '2022-05-06 10:00:00 AM', by : 'Madan Al Abri'},
-              { stage : 'Shortlisted for Interview', status : 'Pending', date : null, by : null }
-            ]
-        },
-        {
-            fullName : 'Saleh Mahfoudh',
-            program :  'Anaesthesia',
-            programType : 'Value 1',
-            sponsoredBy : 'MOHERI',
-            email : 'Saleh@email.com',
-            contactNumber : '+9689994568',
-            blsExpiryDate : '2028-02-16',
-            aclsExpiryDate : '2028-01-16',
-            status : 'Shortlisted for Interview',
-            action: 'green',
-            applicationStatus : [
-              { stage : 'Applied', status : 'Submit', date : '2022-05-06 10:00:00 AM', by : 'Saleh Mahfoudh'},
-              { stage : 'Shortlisted for Interview', status : 'Submit', date : '2022-05-06 10:00:00 AM', by : 'Abdel Maddali'}
-            ]
-        },
-        {
-            fullName : 'Madan Khan',
-            program :  'Anaesthesia',
-            programType : 'Value 1',
-            sponsoredBy : 'OMSB',
-            email : 'Khan@email.com',
-            contactNumber : '+9681743687',
-            blsExpiryDate : '2025-12-26',
-            aclsExpiryDate : '2025-05-05',
-            status : 'Not Eligible',
-            action: 'red',
-            applicationStatus : [
-              { stage : 'Applied', status : 'Submit', date : '2022-05-06 10:00:00 AM', by : 'Madan Khan'},
-              { stage : 'Not Eligible', status : 'Submit', date : '2022-05-08', by : 'Abdel Maddali'}
-            ]
-        },
-    ],
+
     userDetails : {
         'residencyStatus' : 'Omani National',
         'isOmsbMember' : 'true',
@@ -257,19 +208,12 @@ const data = {
       nationalities : Nationalities.nationalities,
       age : getAges(),
       screeningStatus: [
-        'Shortlisted for Interview',
-        'Not Eligible'
+        'Eligible & submitted for Initial Employer screening',
+        'Not Eligible',
+        'Other'
       ],
       screeningFailedReason: [
-        'OMSB Selection Exam not passed',
-        'No Valid BLS Certificate',
-        'No Valid ACLS Certificate',
-        'No Valid PALS Certificate',
-        'Medical Qualification is not Valid',
-        'No Employer Approval',
-        'No Specialty Certificate',
-        'No Membership of Faculty in Dentistry certificate (Show only if the program = General Dentistry program and Oral / Maxillofacial surgery program)',
-        'Other'
+        'OMSB Selection Exam not passed', 'No International Qualifying Exam for the Country of Interest', 'No Valid BLS or ACLS', 'No Employer Approval', 'No Specialty Certificate', 'Other'
       ],
       programType : [
         'International Residency Program', 'International Fellowship program', 'Stroke Units Residency Program', 'Stroke Units Fellowship program', 'other projects funded by OMSB'

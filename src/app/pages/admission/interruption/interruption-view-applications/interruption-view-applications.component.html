@@ -67,11 +67,11 @@
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="openModal(transferApplication, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <li *ngIf="application.status === 'Applied' && application.interruptionType === '1 Block'">
-                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approve</a></li>
                                                 <li *ngIf="application.status === 'Applied' && application.interruptionType != '1 Block'" (click)="openModal(applicationApproval, 'lg')">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
                                                 <li *ngIf="application.status === 'Sponsor Approved'">
-                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approval</a></li>
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approve</a></li>
                                                 <li *ngIf="application.status === 'Approved'">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Create Qarar</a></li>
                                             </ul>
@@ -162,6 +162,13 @@
                                         <label class="form-control">{{listData.applicationForm.reason}}</label>
                                     </div>
     
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Reasons <span class="text-danger">{{ " *" }}</span></label>
+                                        <textarea  rows="2" class="form-control" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi voluptatum vitae fugit veniam est temporibus minima!"></textarea>
+    
+                                    </div>
                                 </div>
                             </div>
                         </div>

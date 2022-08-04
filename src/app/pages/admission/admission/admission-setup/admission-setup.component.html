@@ -84,12 +84,81 @@
     <div class="card bg-light">
         <div class="card-body">
             <div class="row">
+                <ng-container *ngTemplateOutlet="viewAdmission"></ng-container>  
                 <div class="d-flex flex-row gap-3 justify-content-end">
                     <button type="button" (click)="openModal(addInterviewPanel, 'lg')" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class=" ri-user-2-line label-icon align-middle fs-16 me-2"></i>Add Interview Panel members</button>
-                    <button type="button" (click)="openModal(addFilterExam, 'lg')" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-user-4-line label-icon align-middle fs-16 me-2"></i>Add Filter exam</button>
-
                 </div>
-                <ng-container *ngTemplateOutlet="viewAdmission"></ng-container>                
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5 mt-2">Interview Panel members</p>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Civil ID<span class="text-danger"></span></label>
+                                <label class="form-control">9831321321</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Panel Member Name<span class="text-danger"></span></label>
+                                <label class="form-control">Al Abri Ibraham</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Employer Details<span class="text-danger"></span></label>
+                                <label class="form-control">MOH</label>
+                            </div>
+                            <!-- <div class="col-md-4 mb-3" *ngIf="interviewPanelFormValue.employerDetails === 'Other'">
+                                <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                                <input type="text" class="form-control">
+                            </div> -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Authorized Employer Name<span class="text-danger"></span></label>
+                                <label class="form-control">Faisal Gawas</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Authorized Employer Civil ID<span class="text-danger"></span></label>
+                                <label class="form-control">98321321321</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Authorized Employer Email ID<span class="text-danger"></span></label>
+                                <label class="form-control">Faisal@email.com</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="d-flex flex-row gap-3 justify-content-end">
+                    <button type="button" (click)="openModal(addFilterExam, 'lg')" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-user-4-line label-icon align-middle fs-16 me-2"></i>Add Filter exam</button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5 mt-2">Filter exam</p>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Is filter examination required?<span class="text-danger"></span></label>
+                                <label class="form-control">Yes</label>
+
+                            </div>
+                            <div class="col-md-4 mb-3" >
+                                <label class="form-lable">Exam Type<span class="text-danger"></span></label>
+                                <label class="form-control">Type - 1</label>
+
+                            </div>
+                            <div class="col-md-4 mb-3" >
+                                <label class="form-lable">Exam Date<span class="text-danger"></span></label>
+                                <label class="form-control">2022-10-08</label>
+
+                            </div>
+                            <div class="col-md-4 mb-3" >
+                                <label class="form-lable">Start Time<span class="text-danger"></span></label>
+                                <label class="form-control">08:00AM</label>
+
+                            </div>
+                            <div class="col-md-4 mb-3" >
+                                <label class="form-lable">End Time<span class="text-danger"></span></label>
+                                <label class="form-control">10:00AM</label>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>            
             </div>
         </div>
     </div>
@@ -146,23 +215,23 @@
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label class="form-lable">Medical Qualifications<span class="text-danger"></span></label>
-                                    <ng-select 
-                                    formControlName="medicalQualifications"
+                                    <ng-select  [multiple]="true"
+                                    formControlName="medicalQualifications" 
                                     [items]="['MD', 'MBBS' , 'BMBS', 'MBChB', 'MBBCh','Other']" placeholder="Please select">
                                     </ng-select>
                                 </div>
-                                <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue.medicalQualifications === 'Other'">
+                                <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue?.medicalQualifications?.includes('Other') ">
                                     <label class="form-lable">If Other,<span class="text-danger"></span></label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label class="form-lable">Certifications required<span class="text-danger"></span></label>
                                     <ng-select 
-                                    formControlName="certificationsRequired"
-                                    [items]="['MD', 'MBBS' , 'BMBS', 'MBChB', 'MBBCh','Other']" placeholder="Please select">
+                                    formControlName="certificationsRequired"  [multiple]="true"
+                                    [items]="['BLS','ACLS', 'PALS','Other']" placeholder="Please select">
                                     </ng-select>
                                 </div>
-                                <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue.certificationsRequired === 'Other'">
+                                <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue?.certificationsRequired?.includes('Other') ">
                                     <label class="form-lable">If Other,<span class="text-danger"></span></label>
                                     <input type="text" class="form-control">
                                 </div>
@@ -400,7 +469,7 @@
                         <div class="col-md-4 mb-3" *ngIf="filterExamFormValue.isFilterExamRequired === 'Yes'">
                             <label class="form-lable">Exam Date<span class="text-danger"></span></label>
                             <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
-                                    [enableTime]="true" [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'">
+                                    [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'">
                         </div>
                         <div class="col-md-4 mb-3" *ngIf="filterExamFormValue.isFilterExamRequired === 'Yes'">
                             <label class="form-lable">Start Time<span class="text-danger"></span></label>

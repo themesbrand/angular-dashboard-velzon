@@ -37,12 +37,15 @@
     <form [formGroup]="applicationForm" class="p-0">
         <div class="card">
             <div class="card-body">
-                <div class="user-thumb mb-2" *ngIf="applicationFormValues.assessmentUploadLink === null">
-                    <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
-                </div>
-                <p class="h5">DEMOGRAPHIC INFORMATION SECTION</p>
+                <p class="h5 mb-3">DEMOGRAPHIC INFORMATION SECTION</p>
                 <div class="row">
-                    <div class="col-md-4">
+                  <div class="col-md-2 mb-4" *ngIf="applicationFormValues.assessmentUploadLink != null">
+                    <div class="user-thumb mb-2 d-flex flex-row" >
+                      <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
+
+                    </div>
+                  </div>
+                  <div [ngClass]="{'col-md-4' : applicationFormValues.assessmentUploadLink === null, 'col-md-6' : applicationFormValues.assessmentUploadLink !== null}">
                       <div class="mb-3">
                         <label class="form-label">Name (As per passport)<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" formControlName="name" />

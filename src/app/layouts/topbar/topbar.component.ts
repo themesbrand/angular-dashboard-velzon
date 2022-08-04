@@ -20,6 +20,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TopbarComponent implements OnInit {
 
+  userRole: string | null = null;
+
   element: any;
   viewSwitch : boolean = false;
   mode: string | undefined;
@@ -35,6 +37,7 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.element = document.documentElement;
+    this.userRole = localStorage.getItem('userType');
 
     if(this._cookiesService.get('viewMode') === 'RTL') {
       this.viewSwitch = true;

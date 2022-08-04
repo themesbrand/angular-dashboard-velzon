@@ -192,22 +192,35 @@
                             </div>
                         </div>
                         <div class="card" >
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Name of the Institution / Department</label>
-                                        <label class="form-control">Armed Forces Hospital</label>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Name of the authorized person</label>
-                                        <label class="form-control">Faisal Gawas</label>
-                                    </div>
-                                    <div class="col-md-12 mb-3">
-                                        <label class="form-label">Remarks<span class="text-danger">{{ " *" }}</span></label>
-                                        <textarea rows="2" class="form-control"></textarea>
+                            <form [formGroup]="approvalForm">
+                                <div class="card-body" formArrayName="remarksArray">
+                                    <div class="d-flex mt-4 flex-row justify-content-between">
+                                        <p class="h4 text-success">Clearance Details</p>
+                                        <a
+                                          (click)="addRemarks()"
+                                          href="javascript:void(0);"
+                                          class="link-primary"
+                                          ><i class="ri-add-box-line"></i>Add more</a
+                                        >
+                                      </div>
+                                    <div class="row border shadow"  *ngFor="let remark of remarksControls; let i = index"
+                                    [formGroupName]="i">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Name of the Institution / Department</label>
+                                            <label class="form-control">Armed Forces Hospital</label>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Name of the authorized person</label>
+                                            <label class="form-control">Faisal Gawas</label>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label class="form-label">Remarks<span class="text-danger">{{ " *" }}</span></label>
+                                            <textarea rows="2" class="form-control"></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                            </form>
                         </div>
                         <div class="d-flex flex-row">
                             <button class="btn btn-primary">Submit</button>
@@ -277,7 +290,7 @@
                                 <br>
                                 <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
                                 <br>
-                                <small class="my-3 text-muted">{{"Last Updated By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
                             </div>
                         </div>
                     </div>

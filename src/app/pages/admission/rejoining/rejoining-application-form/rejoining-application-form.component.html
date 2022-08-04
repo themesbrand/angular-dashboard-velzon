@@ -34,15 +34,18 @@
 </ng-template>
 
 <ng-template #applicationFormTemplate>
-    <form [formGroup]="applicationForm" class="p-0">
+    <form [formGroup]="applicationForm" class="p-0" >
         <div class="card">
             <div class="card-body">
-                <div class="user-thumb mb-2" *ngIf="applicationFormValues.assessmentUploadLink === null">
-                    <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
-                </div>
-                <p class="h5">DEMOGRAPHIC INFORMATION SECTION</p>
+                <p class="h5 mb-3">DEMOGRAPHIC INFORMATION SECTION</p>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2 mb-4" *ngIf="applicationFormValues.assessmentUploadLink != null">
+                      <div class="user-thumb mb-2 d-flex flex-row" >
+                        <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
+
+                      </div>
+                    </div>
+                    <div [ngClass]="{'col-md-4' : applicationFormValues.assessmentUploadLink === null, 'col-md-6' : applicationFormValues.assessmentUploadLink !== null}">
                       <div class="mb-3">
                         <label class="form-label">Name (As per passport)<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" formControlName="name" />
@@ -56,6 +59,7 @@
                           mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
                       </div>
                     </div>
+                    
                     <div class="col-md-4">
                       <div class="mb-3">
                         <label class="form-control-label" >Nationality<span class="text-danger">{{ " *" }}</span></label>
@@ -181,10 +185,6 @@
                         <label class="form-control">2021-10-15</label>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-control-label">Date of Withdrawal</label>
-                        <label class="form-control">2021-10-15</label>
-                    </div>
-                    <div class="col-md-4 mb-3">
                         <label class="form-control-label">Program at the time of withdrawal</label>
                         <label class="form-control">Anesthesia</label>
                     </div>
@@ -200,11 +200,11 @@
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <label class="form-label">Post Graduate Qualifications<span class="text-danger">{{ " *" }}</span></label>
-                        <textarea rows="2" formControlName="postGraduateQualifications" class="form-control"></textarea>
+                        <input  formControlName="postGraduateQualifications" class="form-control">
                     </div>
                     <div class="col-md-12 mb-3">
                         <label class="form-label">Post Graduate Training experience<span class="text-danger">{{ " *" }}</span></label>
-                        <textarea rows="2" formControlName="postGraduateTrainingExperience" class="form-control"></textarea>
+                        <input formControlName="postGraduateTrainingExperience" class="form-control">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-control-label">Sponsorship<span class="text-danger">{{ " *" }}</span></label>
@@ -707,22 +707,23 @@
         <div class="card" *ngIf="applicationFormValues.assessmentUploadLink === null">
             <div class="card-body">
                 <div class="row">
+                    
                     <div class="col-md-6 mb-3">
-                        <p class="text-muted">Previous clinical experience assessment reports during withdrawal period (outside OMSB)<span class="text-danger">{{ " *" }}</span>
-                        </p>
-                        <ngx-dropzone (change)="onSelect($event, 'filesAssessment')"
-                        [multiple]="false">
-                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-                        <ngx-dropzone-preview *ngFor="let f of filesAssessment"
-                            [removable]="true" (removed)="onRemove(f, 'filesAssessment')">
-                            <ngx-dropzone-label
-                            >{{ f.name }} ({{
-                                f.type
-                            }})</ngx-dropzone-label
-                            >
-                        </ngx-dropzone-preview>
-                        </ngx-dropzone>
-                    </div>
+                      <p class="text-muted">Passport size photograph with blue background<span class="text-danger">{{ " *" }}</span>
+                      </p>
+                      <ngx-dropzone (change)="onSelect($event, 'filesPassportPhoto')"
+                      [multiple]="false">
+                      <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                      <ngx-dropzone-preview *ngFor="let f of filesPassportPhoto"
+                          [removable]="true" (removed)="onRemove(f, 'filesPassportPhoto')">
+                          <ngx-dropzone-label
+                          >{{ f.name }} ({{
+                              f.type
+                          }})</ngx-dropzone-label
+                          >
+                      </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                  </div>
                     <div class="col-md-6 mb-3">
                         <p class="text-muted">Personal statement – reasons for withdrawal and rejoining and selection of program<span class="text-danger">{{ " *" }}</span>
                         </p>
@@ -756,21 +757,21 @@
                         </ngx-dropzone>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <p class="text-muted">Passport size photograph with blue background<span class="text-danger">{{ " *" }}</span>
-                        </p>
-                        <ngx-dropzone (change)="onSelect($event, 'filesPassportPhoto')"
-                        [multiple]="false">
-                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-                        <ngx-dropzone-preview *ngFor="let f of filesPassportPhoto"
-                            [removable]="true" (removed)="onRemove(f, 'filesPassportPhoto')">
-                            <ngx-dropzone-label
-                            >{{ f.name }} ({{
-                                f.type
-                            }})</ngx-dropzone-label
-                            >
-                        </ngx-dropzone-preview>
-                        </ngx-dropzone>
-                    </div>
+                      <p class="text-muted">Previous clinical experience assessment reports during withdrawal period (outside OMSB)<span class="text-danger">{{ " *" }}</span>
+                      </p>
+                      <ngx-dropzone (change)="onSelect($event, 'filesAssessment')"
+                      [multiple]="false">
+                      <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                      <ngx-dropzone-preview *ngFor="let f of filesAssessment"
+                          [removable]="true" (removed)="onRemove(f, 'filesAssessment')">
+                          <ngx-dropzone-label
+                          >{{ f.name }} ({{
+                              f.type
+                          }})</ngx-dropzone-label
+                          >
+                      </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                  </div>
                 </div>
             </div>
         </div>

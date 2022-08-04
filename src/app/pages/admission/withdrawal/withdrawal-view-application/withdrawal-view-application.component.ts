@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { trigger, style, animate, transition } from '@angular/animations';
@@ -32,8 +32,10 @@ export class WithdrawalViewApplicationComponent implements OnInit {
   isFilterOpened: boolean = false;
   listData = data;
 
+
   approvalForm !: FormGroup
   selectedApplication: any;
+  clearanceForm !: FormGroup;
 
   constructor(
     private router : Router,
@@ -51,7 +53,15 @@ export class WithdrawalViewApplicationComponent implements OnInit {
    
     this.approvalFormInit();
     //Change according to the backend
-    this.checkUserRole()
+    this.checkUserRole();
+    this.clearanceFormInit()
+  }
+
+  clearanceFormInit() {
+    this.clearanceForm = this.formBuilder.group({
+      remarksArray : new FormArray([])
+    })
+    this.addRemarks()
   }
 
   approvalFormInit() {
@@ -62,6 +72,23 @@ export class WithdrawalViewApplicationComponent implements OnInit {
 
   get approvalFormValues() {
     return this.approvalForm.value
+  }
+
+  get remarksControls() {
+    return (<FormArray>this.clearanceForm.get('remarksArray')).controls;
+  }
+
+  addRemarks() {
+    (<FormArray>this.clearanceForm.get('remarksArray')).push(
+      new FormGroup({
+        remarks : new FormControl(null, []),
+      })
+    );
+  }
+  onDeleteRemarks(index : number) {
+    if((<FormArray>this.clearanceForm.get('remarksArray')).length != 1) {
+      (<FormArray>this.clearanceForm.get('remarksArray')).removeAt(index);
+    }
   }
 
   checkUserRole() {

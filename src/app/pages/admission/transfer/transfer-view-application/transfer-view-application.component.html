@@ -67,7 +67,7 @@
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="openModal(transferApplication, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <li *ngIf="application.status === 'Applied'" (click)="openModal(applicationApproval, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
-                                                <li *ngIf="application.status === 'Sponsor Approved'"><a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approval</a></li>
+                                                <li *ngIf="application.status === 'Sponsor Approved'"><a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approve</a></li>
                                                 <li *ngIf="application.status === 'Approved'"><a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Create Qarar</a></li>
                                             </ul>
                                         </div>

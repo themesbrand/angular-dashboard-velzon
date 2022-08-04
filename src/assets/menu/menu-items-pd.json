@@ -109,19 +109,31 @@
         "icon": "  ri-pantone-line",
         "subItems" : [
             {
-                "id": 27,
+                "id": 20,
                 "label": "Workshop",
                 "link": "simulation/workshop"
             }
         ]
     },
     {
-        "id": 31,
+        "id": 21,
+        "label": "Research",
+        "icon": "ri-contacts-book-upload-line",
+        "subItems" : [
+            {
+                "id": 22,
+                "label": "Research Day",
+                "link": "research/research-day"
+            }
+        ]
+    },
+    {
+        "id": 23,
         "label": "Admission",
         "icon": " ri-file-paper-2-line",
         "subItems" : [
             {
-                "id": 32,
+                "id": 24,
                 "label": "Admission",
                 "link": "admission/admission"
             }

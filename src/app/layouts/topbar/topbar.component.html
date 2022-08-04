@@ -230,9 +230,44 @@
                         aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
-                                alt="Header Avatar">
+                                alt="Header Avatar" *ngIf="userRole === 'eportal@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-2.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'pd@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'trainee@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-4.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'interviewer@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-5.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'finance@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-6.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'employer@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-7.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'applicant@omsb.org'">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-8.jpg"
+                                alt="Header Avatar" *ngIf="userRole === 'international@omsb.org'">
+                                
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Abbas Al Ajmi</span>
+                                <span *ngIf="userRole === 'eportal@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Abbas Al Ajmi</span>
+                                <span *ngIf="userRole === 'pd@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Saleh Mahfoudh</span>
+                                <span *ngIf="userRole === 'trainee@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Madan Khan</span>
+                                <span *ngIf="userRole === 'interviewer@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Abdel Maddali</span>
+                                <span *ngIf="userRole === 'finance@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Al Abri Falsal</span>
+                                <span *ngIf="userRole === 'employer@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Al Abri Ibraham</span>
+                                <span *ngIf="userRole === 'applicant@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Abu Nasser</span>
+                                <span *ngIf="userRole === 'international@omsb.org'" class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Faisal Gawas</span>
+
+
+
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+
+
                             </span>
                         </span>
                     </button>

@@ -9,7 +9,6 @@ import {
   NgbPaginationModule
 } from '@ng-bootstrap/ng-bootstrap';
 
-import { FlatpickrModule } from 'angularx-flatpickr';
 import { CountToModule } from 'angular-count-to';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -17,6 +16,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
 // Swiper Slider
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -190,6 +190,8 @@ import { AdmissionViewApplicationComponent } from './admission/admission/view-ap
 import { AdmissionScheduleInterviewComponent } from './admission/admission/view-applications/admission-schedule-interview/admission-schedule-interview.component';
 import { AdmissionInterviewComponent } from './admission/admission/admission-interview/admission-interview.component';
 import { AdmissionInterviewEvaluationFormComponent } from './admission/admission/admission-interview/admission-interview-evaluation-form/admission-interview-evaluation-form.component';
+import { AdmissionInterviewViewApplicationComponent } from './admission/admission/admission-interview/admission-interview-view-application/admission-interview-view-application.component';
+
 import { ScholarshipSectionInterviewResultComponent } from './scholarship-section/scholarship-section-interview-result/scholarship-section-interview-result.component';
 import { ScholarshipInterviewApplicationComponent } from './scholarship-section/scholarship-section-interview-result/scholarship-interview-application/scholarship-interview-application.component';
 import { ViewInterviewerResultComponent } from './scholarship-section/scholarship-section-interview-result/view-interviewer-result/view-interviewer-result.component';
@@ -385,12 +387,13 @@ FullCalendarModule.registerPlugins([
     RejoiningApplicationListComponent,
     SupplementaryTrainingComponent,
     SupplementaryTrainingApplicationFormComponent,
-    SupplementaryTrainingApplicationListComponent
+    SupplementaryTrainingApplicationListComponent,
+    AdmissionInterviewViewApplicationComponent
   ],
   imports: [
     CommonModule,
-    NgbToastModule,
     FlatpickrModule.forRoot(),
+    NgbToastModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
