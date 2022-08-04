@@ -37,6 +37,11 @@ import { ResearchEthicalApprovalFormComponent } from './application-forms/resear
 import { ResearchFundingOpportunitiesFormComponent } from './application-forms/research-funding-opportunities-form/research-funding-opportunities-form.component';
 import { ResearchConsultationRequestFormComponent } from './application-forms/research-consultation-request-form/research-consultation-request-form.component';
 import { ResearchDayRegistrationComponent } from './application-forms/research-day-registration/research-day-registration.component';
+import { ApplicationForFellowshipComponent } from './application-forms/application-for-fellowship/application-for-fellowship.component';
+import { FellowshipPageOneComponent } from './application-forms/application-for-fellowship/fellowship-page-one/fellowship-page-one.component';
+import { FellowshipPageTwoComponent } from './application-forms/application-for-fellowship/fellowship-page-two/fellowship-page-two.component';
+import { ResidencyProgramListComponent } from './application-forms/application-residency-program/residency-program-list/residency-program-list.component';
+import { ResidencyProgramViewComponent } from './application-forms/application-residency-program/residency-program-view/residency-program-view.component';
 
 
 @NgModule({
@@ -59,7 +64,12 @@ import { ResearchDayRegistrationComponent } from './application-forms/research-d
     ResearchEthicalApprovalFormComponent,
     ResearchFundingOpportunitiesFormComponent,
     ResearchConsultationRequestFormComponent,
-    ResearchDayRegistrationComponent
+    ResearchDayRegistrationComponent,
+    ApplicationForFellowshipComponent,
+    FellowshipPageOneComponent,
+    FellowshipPageTwoComponent,
+    ResidencyProgramListComponent,
+    ResidencyProgramViewComponent
   ],
   imports: [
     CommonModule,

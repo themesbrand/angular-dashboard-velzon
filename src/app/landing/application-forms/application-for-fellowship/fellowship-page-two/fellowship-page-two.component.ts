@@ -4,13 +4,13 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
 
 import { data } from '../data';
 
-@Component({
-  selector: 'app-page-three',
-  templateUrl: './page-three.component.html',
-  styleUrls: ['./page-three.component.scss']
-})
-export class PageThreeComponent implements OnInit {
 
+@Component({
+  selector: 'app-fellowship-page-two',
+  templateUrl: './fellowship-page-two.component.html',
+  styleUrls: ['./fellowship-page-two.component.scss']
+})
+export class FellowshipPageTwoComponent implements OnInit {
   listData = data;
 
   applicationFormThree !: FormGroup;

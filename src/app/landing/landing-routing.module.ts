@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from "../core/guards/auth.guard";
+import { ApplicationForFellowshipComponent } from "./application-forms/application-for-fellowship/application-for-fellowship.component";
 import { ApplicationForScholarshipComponent } from "./application-forms/application-for-scholarship/application-for-scholarship.component";
 import { ApplicationFormsComponent } from "./application-forms/application-forms.component";
 import { ApplicationResidencyProgramComponent } from "./application-forms/application-residency-program/application-residency-program.component";
@@ -36,6 +37,10 @@ const routes: Routes = [
           {
             path: "residency-program",
             component: ApplicationResidencyProgramComponent,
+          },
+          {
+            path: "application-for-fellowship",
+            component: ApplicationForFellowshipComponent,
           },
           {
             path: "scholarship-program-form",

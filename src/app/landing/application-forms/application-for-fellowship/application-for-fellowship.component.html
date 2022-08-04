@@ -1,0 +1,191 @@
+<section class="section p-0">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="profile-foreground position-relative">
+          <div class="profile-wid-bg">
+            <img
+              src="assets/images/profile-bg.jpg"
+              alt=""
+              class="profile-wid-img"
+            />
+          </div>
+        </div>
+        <div class="row g-2 px-3">
+          <div class="col-md-1 mx-1">
+            <div class="avatar-lg">
+              <img
+                src="assets/images/users/avatar-1.jpg"
+                alt="user-img"
+                class="img-thumbnail rounded-circle"
+              />
+            </div>
+          </div>
+          <!--end col-->
+          <div class="col-auto mt-3 mb-2">
+            <div class="mb-1 d-flex flex-row">
+              <label class="form-label text-white mx-3">Abbas Al Ajmi</label>
+              <label class="form-label text-white mx-3">عباس أل أجمع</label>
+            </div>
+            <div class="d-flex flex-column">
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-smartphone-line"></i>+96813255618</label
+              >
+              <label class="form-label text-white mx-3"
+                ><i class="mx-2 ri-mail-line"></i>ajmi@gmail..com</label
+              >
+            </div>
+          </div>
+  
+          <!--end col-->
+        </div>
+      </div>
+  
+      <div class="row px-5 justify-content-center">
+        <div class="col-lg-11">
+          <div>
+            <div class="d-flex">
+              <!-- Nav tabs -->
+              <ul ngbNav #customNav="ngbNav"
+                [activeId]="1"
+                class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+                role="tablist" >
+                <li [ngbNavItem]="1" class="nav-item">
+                  <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                    <i class="ri-airplay-fill d-inline-block d-md-none"></i>
+                    <span class="d-none d-md-inline-block">Application Form</span>
+                  </a>
+                  <ng-template ngbNavContent>
+                    <div class="card border shadow mb-2">
+                      <div class="card-body">
+                        <h5 class="card-title mb-5">Complete Your Profile</h5>
+                        <div
+                          class="progress animated-progess custom-progress progress-label"
+                        >
+                          <div
+                            class="progress-bar bg-danger"
+                            role="progressbar"
+                            [style]="progressBarSize.width"
+                            ([aria-valuenow])="(progressBarSize.value)"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          >
+                            <div class="label">
+                              {{ progressBarSize.value }}{{ "%" }}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card border shadow">
+                      <div class="card-body form-steps">
+                        <aw-wizard id="wizard"
+                          [navBarLayout]="'large-empty-symbols'"
+                          class="nav nav-pills progress-bar-tab custom-nav">
+                          <!-- Application Page - 1 -->
+                          <aw-wizard-step>
+                            <ng-template awWizardStepSymbol>
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link rounded-pill active"
+                                  data-progressbar="custom-progress-bar"
+                                  id="pills-gen-info-tab"
+                                  data-bs-toggle="pill"
+                                  data-bs-target="#pills-gen-info"
+                                  type="button"
+                                  role="tab"
+                                  aria-controls="pills-gen-info"
+                                  aria-selected="true"
+                                >
+                                  1
+                                </button>
+                              </li>
+                            </ng-template>
+                            <app-fellowship-page-one></app-fellowship-page-one>
+                            <!-- wizard-tab -->
+                            <div class="d-flex align-items-start gap-3 mt-4">
+                              <button
+                                type="button"
+                                class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                data-nexttab="pills-info-desc-tab"
+                                (click)="enterStep(1)"
+                              >
+                                <i
+                                  class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"
+                                ></i
+                                >Next Step
+                              </button>
+                            </div>
+                          </aw-wizard-step>
+                          <aw-wizard-step>
+                            <ng-template awWizardStepSymbol>
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link rounded-pill"
+                                  data-progressbar="custom-progress-bar"
+                                  id="pills-success-tab"
+                                  data-bs-toggle="pill"
+                                  data-bs-target="#pills-success"
+                                  type="button"
+                                  role="tab"
+                                  aria-controls="pills-success"
+                                  aria-selected="false"
+                                >
+                                  2
+                                </button>
+                              </li>
+                            </ng-template>
+                            <app-fellowship-page-two></app-fellowship-page-two>
+                            <div class="d-flex align-items-start gap-3 mt-4">
+                              <button
+                                type="button"
+                                class="btn btn-link text-decoration-none btn-label previestab"
+                                data-previous="pills-gen-info-tab"
+                                awPreviousStep
+                              >
+                                <i
+                                  class="ri-arrow-left-line label-icon align-middle fs-16 me-2"
+                                ></i>
+                                Application - Page 1
+                              </button>
+                              <button
+                                type="button"
+                                class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                data-nexttab="pills-success-tab"
+                              >
+                                <i
+                                  class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"
+                                ></i
+                                >Submit Application
+                              </button>
+                            </div>
+                          </aw-wizard-step>
+                          <!-- Application - Page 3 End -->
+                        </aw-wizard>
+                      </div>
+                    </div>
+                  </ng-template>
+                </li>
+                <li [ngbNavItem]="2" class="nav-item">
+                  <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                    <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                    <span class="d-none d-md-inline-block">Personal Details</span>
+                  </a>
+                  <ng-template ngbNavContent>
+                    <app-register [userDetails]="userDetails"></app-register>
+                  </ng-template>
+                </li>
+              </ul>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content pt-4 text-muted">
+              <div [ngbNavOutlet]="customNav"></div>
+            </div>
+            <!--end tab-content-->
+          </div>
+        </div>
+        <!--end col-->
+      </div>
+      <!--end row-->
+    </div>
+  </section>
+  
