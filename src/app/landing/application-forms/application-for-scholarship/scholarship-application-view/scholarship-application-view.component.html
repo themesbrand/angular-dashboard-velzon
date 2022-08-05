@@ -16,9 +16,7 @@
                       <label class="form-control">{{listData.formObject.examType}}</label>
                   </div>
               </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4" *ngIf="listData.formObject.examType === 'MFD'">
+              <div class="col-md-4" *ngIf="listData.formObject.examType === 'MFD'">
                 <div class="form-check form-switch">
                   <input class="form-check-input"
                   type="checkbox"
@@ -218,6 +216,33 @@
           <div class="col-md-6">
             <label class="form-label">1st Choice</label>
             <label class="form-control">Biochemistry</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-light">
+      <div class="card-body">
+        <p class="h5 text-success">Specialty</p>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">Scholarship Project Type</label>
+            <label class="form-control">Anesthesia</label>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Scholarship Project</label>
+            <label class="form-control">Biochemistry</label>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Specialty Applied For</label>
+            <label class="form-control">Biochemistry</label>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Sub-Specialty</label>
+            <label class="form-control">Biochemistry</label>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Country of Interest</label>
+            <label class="form-control">Oman</label>
           </div>
         </div>
       </div>
@@ -451,24 +476,12 @@
                   <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
                   <div class="d-flex flex-row justify-content-between">
                     <p class="h5">1. Secondary School</p>
-                    <a
-                      (click)="addSecondarySchool()"
-                      href="javascript:void(0);"
-                      class="link-primary"
-                      ><i class="ri-add-box-line"></i>Add more</a
-                    >
                   </div>
                   <div formArrayName="secondarySchool">
                     <div
                       class="mt-2 d-flex flex-column  p-3 bg-light"
                       *ngFor="let schools of secondarySchoolControls; let i = index"
-                      [formGroupName]="i"
-                    >
-                      <div class="d-flex flex-row justify-content-end align-items-center">
-                        <a (click)="onDeleteSecondarySchool(i)" class="link-danger"
-                          ><i class="ri-delete-bin-5-line"></i
-                        ></a>
-                      </div>
+                      [formGroupName]="i">
                       <div class="row ">
                         <div class="col-md-3">
                           <label class="form-label"
@@ -524,24 +537,12 @@
               <div class="card-body">
                   <div class="mt-3 d-flex flex-row justify-content-between">
                       <p class="h5">2. BSc/Medical School</p>
-                      <a
-                        (click)="addMedicineSchool()"
-                        href="javascript:void(0);"
-                        class="link-primary"
-                        ><i class="ri-add-box-line"></i>Add more</a
-                      >
                     </div>
                     <div formArrayName="medicineSchool">
                       <div
                         class="mt-2 d-flex flex-column p-3  bg-light"
                         *ngFor="let schools of medicineSchoolControls; let i = index"
-                        [formGroupName]="i"
-                      >
-                        <div class="d-flex flex-row justify-content-end align-items-center">
-                          <a (click)="onDeleteMedicineSchool(i)" class="link-danger"
-                            ><i class="ri-delete-bin-5-line"></i
-                          ></a>
-                        </div>
+                        [formGroupName]="i">
                         <div class="row">
                           <div class="col-md-3">
                             <label class="form-label"
@@ -597,24 +598,12 @@
               <div class="card-body">
                   <div class="mt-3 d-flex flex-row justify-content-between">
                       <p class="h5">3. Clinical Electives</p>
-                      <a
-                        (click)="addClinicalElectives()"
-                        href="javascript:void(0);"
-                        class="link-primary"
-                        ><i class="ri-add-box-line"></i>Add more</a
-                      >
                     </div>
                     <div formArrayName="clinicalElectives">
                       <div
                         class="mt-2 d-flex flex-column p-3  bg-light"
                         *ngFor="let clinics of clinicalElectivesControls; let i = index"
-                        [formGroupName]="i"
-                      >
-                        <div class="d-flex flex-row justify-content-end align-items-center">
-                          <a (click)="onDeleteClinicalElectives(i)" class="link-danger"
-                            ><i class="ri-delete-bin-5-line"></i
-                          ></a>
-                        </div>
+                        [formGroupName]="i">
                         <div class="row">
                           <div class="col-md-4">
                             <label class="form-label"
@@ -691,12 +680,6 @@
               <div class="card-body">
                   <div class="mt-3 d-flex flex-row justify-content-between">
                       <p class="h5">INTERNSHIP</p>
-                      <a
-                        (click)="addInternship()"
-                        href="javascript:void(0);"
-                        class="link-primary"
-                        ><i class="ri-add-box-line"></i>Add more</a
-                      >
                     </div>
                     <div formArrayName="internship">
                       <div
@@ -704,11 +687,6 @@
                         *ngFor="let schools of internshipControls; let i = index"
                         [formGroupName]="i"
                       >
-                        <div class="d-flex flex-row justify-content-end align-items-center">
-                          <a (click)="onDeleteInternship(i)" class="link-danger"
-                            ><i class="ri-delete-bin-5-line"></i
-                          ></a>
-                        </div>
                         <div class="row">
                           <div class="col-md-3">
                             <label class="form-label"
@@ -769,20 +747,11 @@
                   <p class="h5 mt-4">SCHOLARLY ACTIVITIES SECTION</p>
                   <div class="mt-3 d-flex flex-row justify-content-between">
                       <p class="h5">1. Research</p>
-                      <a
-                        (click)="addResearch()"
-                        href="javascript:void(0);"
-                        class="link-primary"
-                        ><i class="ri-add-box-line"></i>Add more</a
-                      >
                   </div>
                   <div formArrayName="research">
                       <div class="mt-2 d-flex flex-column p-3  bg-light"
                       *ngFor="let schools of researchControls; let i = index"
                       [formGroupName]="i">
-                          <div class="d-flex flex-row justify-content-end align-items-center">
-                          <a (click)="onDeleteResearch(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
-                          </div>
                           <div class="row">
                               <div class="col-md-4">
                                   <label class="form-label">Project Title<span class="text-danger">{{ " *" }}</span></label>
@@ -884,20 +853,11 @@
               <div class="card-body">
                   <div class="mt-3 d-flex flex-row justify-content-between">
                       <p class="h5">4. Community Service/Volunteer Experience (Health-Related Fields)</p>
-                      <a
-                        (click)="addCommunityService()"
-                        href="javascript:void(0);"
-                        class="link-primary"
-                        ><i class="ri-add-box-line"></i>Add more</a
-                      >
                   </div>
                   <div formArrayName="communityService">
                       <div class="mt-2 d-flex flex-column p-3  bg-light"
                       *ngFor="let schools of addCommunityServiceControls; let i = index"
                       [formGroupName]="i">
-                          <div class="d-flex flex-row justify-content-end align-items-center">
-                          <a (click)="onDeleteCommunityService(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
-                          </div>
                           <div class="row">
                               <div class="col-md-4">
                                   <label class="form-label"

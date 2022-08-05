@@ -839,6 +839,15 @@
                       <app-register [userDetails]="userDetails"></app-register>
                     </ng-template>
                   </li>
+                  <li [ngbNavItem]="3" class="nav-item">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                      <i class="ri-list-unordered d-inline-block d-md-none"></i>
+                      <span class="d-none d-md-inline-block">My Applications</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                      <app-scholarship-application-list></app-scholarship-application-list>
+                    </ng-template>
+                  </li>
                 </ul>
               </div>
               <!-- Tab panes -->

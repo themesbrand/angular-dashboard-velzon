@@ -42,6 +42,10 @@ import { FellowshipPageOneComponent } from './application-forms/application-for-
 import { FellowshipPageTwoComponent } from './application-forms/application-for-fellowship/fellowship-page-two/fellowship-page-two.component';
 import { ResidencyProgramListComponent } from './application-forms/application-residency-program/residency-program-list/residency-program-list.component';
 import { ResidencyProgramViewComponent } from './application-forms/application-residency-program/residency-program-view/residency-program-view.component';
+import { FellowshipListViewComponent } from './application-forms/application-for-fellowship/fellowship-list-view/fellowship-list-view.component';
+import { FellowshipApplicationViewComponent } from './application-forms/application-for-fellowship/fellowship-application-view/fellowship-application-view.component';
+import { ScholarshipApplicationListComponent } from './application-forms/application-for-scholarship/scholarship-application-list/scholarship-application-list.component';
+import { ScholarshipApplicationViewComponent } from './application-forms/application-for-scholarship/scholarship-application-view/scholarship-application-view.component';
 
 
 @NgModule({
@@ -69,7 +73,11 @@ import { ResidencyProgramViewComponent } from './application-forms/application-r
     FellowshipPageOneComponent,
     FellowshipPageTwoComponent,
     ResidencyProgramListComponent,
-    ResidencyProgramViewComponent
+    ResidencyProgramViewComponent,
+    FellowshipListViewComponent,
+    FellowshipApplicationViewComponent,
+    ScholarshipApplicationListComponent,
+    ScholarshipApplicationViewComponent
   ],
   imports: [
     CommonModule,

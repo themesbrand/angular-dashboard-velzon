@@ -16,9 +16,7 @@
                       <label class="form-control">{{listData.formObject.examType}}</label>
                   </div>
               </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4" *ngIf="listData.formObject.examType === 'MFD'">
+              <div class="col-md-4" *ngIf="listData.formObject.examType === 'MFD'">
                 <div class="form-check form-switch">
                   <input class="form-check-input"
                   type="checkbox"
@@ -238,6 +236,26 @@
             <div class="col-md-4 mt-3 mb-3">
               <label class="form-label">Please select your Lab Coat Size</label>
               <label class="form-control">L</label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4 mt-3 mb-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchChzeckDefault" checked/>
+                <label class="form-check-label"
+                for="flexSwitchCheckDefault" >Have you completed the specialty Program</label>
+              </div>
+            </div>
+            <div class="col-md-4 mt-3 mb-3">
+              <label class="form-label">Please provide the specialty Program Name</label>
+              <label class="form-control">Anesthesia</label>
             </div>
         </div>
       </div>

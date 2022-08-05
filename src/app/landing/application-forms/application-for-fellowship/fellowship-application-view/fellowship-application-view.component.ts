@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
-import {data} from './data';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import {data} from './data'
 @Component({
-  selector: 'app-admission-view-application',
-  templateUrl: './admission-view-application.component.html',
-  styleUrls: ['./admission-view-application.component.scss']
+  selector: 'app-fellowship-application-view',
+  templateUrl: './fellowship-application-view.component.html',
+  styleUrls: ['./fellowship-application-view.component.scss']
 })
-export class AdmissionViewApplicationComponent implements OnInit {
-
+export class FellowshipApplicationViewComponent implements OnInit {
   isCvSection : boolean = false;
   
   listData = data;
@@ -280,4 +278,5 @@ export class AdmissionViewApplicationComponent implements OnInit {
       this.formPatchValue();
     })
   }
+
 }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
-import {data} from '../data';
+import {data} from './data';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,192 +13,272 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdmissionInterviewViewApplicationComponent implements OnInit {
 
+  isCvSection : boolean = false;
+  
   listData = data;
-  breadCrumbItems!: Array<{}>;
-
-  applicationForm !: FormGroup;
-  screeningForm !: FormGroup;
-
-  todayDate : Date = new Date();
-
-  intakeYears: any[] = []
-  trainingProgramsList: any[] = []
-
-  filesBLSCertificate: File[] = [];
-  filesACLSCertificate: File[] = [];
-  filesProofDocs: File[] = [];
-  filesSponsorshipLetter: File[] = [];
-  filesMFD: File[] = [];
-  filesCertificate: File[] = [];
 
   SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
 	preferredCountries: CountryISO[] = [CountryISO.Oman];
 
-  constructor(private router : Router,
-    private formBuilder : FormBuilder,
-    private modalService : NgbModal) { }
+  applicationForm !: FormGroup
+  filesAssessment: any[] = [];
+  filesPersonalStatements: any[] = [];
+  filesExams: any[] = [];
+  filesPassportPhoto: any[] = [];
+
+  constructor(
+    private router : Router,
+    private modalService : NgbModal,
+    private formBuilder : FormBuilder
+  ) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [
-      { label: "Scholarship", link : '/scholarship/scholarship-section' },
-      { label: "View Applications", active : true }
-    ];
-    this.ApplicationFormInit();
-    this.screeningFormInit();
+    this.applicationFormInit()
+    this.formPatchValue()
   }
 
-  screeningFormInit() {
-    this.screeningForm = this.formBuilder.group({
-      screeningStatus : new FormControl(null),
-      screeningFailedReason : new FormControl(null),
-      screeningFailedOtherReason : new FormControl(null),
-      ifOtherStatus : new FormControl(null),
-    })
+  formPatchValue(){
+    this.applicationForm.patchValue(this.listData.formObjectValues)
+
   }
 
-  ApplicationFormInit() {
+  applicationFormInit() {
     this.applicationForm = this.formBuilder.group({
-      'applyingYear' : new FormControl(null, []),
+      name : new FormControl('', []),
+      birthday : new FormControl(null, []),
+      nationality : new FormControl(null, []),
+      nationalIDNo : new FormControl('', []),
+      passportNo : new FormControl('', []),
+      maritalStatus : new FormControl(null, []),
+      permanentAddress : new FormControl('', []),
+      wilayatOrRegion : new FormControl(null, []),
+      mobileNumber : new FormControl('', []),
+      nameNextKin : new FormControl('', []),
+      contactNextKin : new FormControl('', []),
+      diseases  : new FormControl('', []),
 
-      'fullName' : new FormControl('', []),
-      'placeOfBirth' : new FormControl(null, []),
-      'age' : new FormControl(null, []),
-      'gender' : new FormControl(null, []),
-      'nationality' : new FormControl(null, []),
-      'birthDate' : new FormControl(null, []),
-      'email' : new FormControl(null, []),
-      'contactNumber' : new FormControl(null, []),
+      isEmployed  : new FormControl(null, []),
+      nameOfInstitution  : new FormControl(null, []),
+      department  : new FormControl(null, []),
+      currentPosition  : new FormControl(null, []),
 
-      'maritalStatus' : new FormControl(null, []),
-      'address' : new FormControl('', []),
-      'governorate' : new FormControl(null, []),
-      'wilayatOrRegion' : new FormControl(null, []),
-      'nextOfKin' : new FormControl('', []),
-      'contactNextOfKin' : new FormControl('', []),
+      dateOfJoiningOmsb  : new FormControl(null, []),
+      dateOfWithdrawal  : new FormControl(null, []),
+      programAtWithdrawal  : new FormControl(null, []),
+      levelOfTrainingAtWithdrawal  : new FormControl(null, []),
 
-      'examType' : new FormControl(null, []),
-      'omsbSelectionExamScore' : new FormControl('', []),
-      'isMfdPassed' : new FormControl(null, []),
-      'mfdUploadLink' : new FormControl('', []),
-      'certificateUploadLink' : new FormControl('', []),
-      
-      'nationIdNumber' : new FormControl('', []),
-      'nationIdLink' : new FormControl('', []),
+      postGraduateQualifications  : new FormControl(null, []),
+      postGraduateTrainingExperience  : new FormControl(null, []),
 
-      'haveDiseases' : new FormControl(null, []),
-      'diseasesOrDisabilities' : new FormControl('', []),
-      'specialty' : new FormArray([]),
-      'education' : new FormArray([]),
-      'internship' : new FormArray([]),
-      'blsCertificate' : new FormGroup({
-        'expiryDate' : new FormControl(null, []),
-        'uploadLink' : new FormControl('', []),
+      sponsorship  : new FormControl(null, []),
+
+      //QUALIFICATION DATA SECTION
+      secondarySchool : new FormArray([]),
+      medicineSchool : new FormArray([]),
+      clinicalElectives : new FormArray([]),
+      certificateCourses : this.formBuilder.group({
+        blsCertificateExpiry : new FormControl(null, []),
+        aclsCertificateExpiry : new FormControl(null, [])
       }),
-      'aclsCertificate' : new FormGroup({
-        'expiryDate' : new FormControl(null, []),
-        'uploadLink' : new FormControl('', []),
-      }),
+      internship : new FormArray([]),
+      research : new FormArray([]),
+      publications : new FormControl('', []),
+      presentations : new FormControl('', []),
+      honorsAndAwards : new FormControl('', []),
+      communityService : new FormArray([]),
 
-      'sponsorshipLetterLink' : new FormControl('', []),
-      
-      'isCompletedResidencyProgram' : new FormControl(null, []),      
-      'completedResidencyProgramName' : new FormControl(null, []),      
-      
-      'holdsEnglishProficiency' : new FormControl(null, []),      
-      'overallScore' : new FormControl(null, []),      
-      
-      'isDeclared' : new FormControl('', []),
+      assessmentUploadLink : new FormControl(null)
     })
-    this.applicationForm.patchValue(this.listData.userDetails)
-    console.log(this.applicationForm)
-    this.addEducation();
-    this.addInternship();
-    this.addSpecialty();
 
+    this.addSecondarySchool();
+    this.addMedicineSchool();
+    this.addClinicalElectives();
+    this.addInternship();
+    this.addResearch();
+    this.addCommunityService();
   }
 
-  get formValues () {
+  get applicationFormValues() {
     return this.applicationForm.value
   }
-  get screeningFormValues () {
-    return this.screeningForm.value
-  }
 
-  getIntakeYears() {
-    const currentYear = new Date().getFullYear(), years = [];
-    let startYear = 1980;  
-    while ( startYear <= currentYear ) {
-        this.intakeYears.push(startYear++);
-    }  
-    this.intakeYears.reverse()
+  get secondarySchoolControls() {
+    return (<FormArray>this.applicationForm.get('secondarySchool')).controls;
   }
-
-  get educationControls() {
-    return (<FormArray>this.applicationForm.get('education')).controls;
+  get medicineSchoolControls() {
+    return (<FormArray>this.applicationForm.get('medicineSchool')).controls;
+  }
+  get clinicalElectivesControls() {
+    return (<FormArray>this.applicationForm.get('clinicalElectives')).controls;
   }
   get internshipControls() {
     return (<FormArray>this.applicationForm.get('internship')).controls;
   }
-  get specialtyControls() {
-    return (<FormArray>this.applicationForm.get('specialty')).controls;
+  get researchControls() {
+    return (<FormArray>this.applicationForm.get('research')).controls;
   }
-  addEducation() {
-    this.listData.userDetails.education.forEach(element => {
-      (<FormArray>this.applicationForm.get('education')).push(
-        new FormGroup({
-          'school' : new FormControl(element.school),
-          'otherName' : new FormControl(null),
-          'country' : new FormControl(element.country),
-          'degreeObtained' : new FormControl(element.degreeObtained),
-          'gpa' : new FormControl(element.gpa),
-          'dateOfGraduation' : new FormControl(element.dateOfGraduation)
-        })
-      );
-    });
-    
+  get addCommunityServiceControls() {
+    return (<FormArray>this.applicationForm.get('communityService')).controls;
+  }
+  addSecondarySchool() {
+    (<FormArray>this.applicationForm.get('secondarySchool')).push(
+      new FormGroup({
+        'school' : new FormControl('', []),
+        'startDate' : new FormControl(null, []),
+        'endDate' : new FormControl(null, []),
+        'country' : new FormControl(null, [])
+      })
+    );
+  }
+  addMedicineSchool() {
+    (<FormArray>this.applicationForm.get('medicineSchool')).push(
+      new FormGroup({
+        'school' : new FormControl('', []),
+        'startDate' : new FormControl(null, []),
+        'endDate' : new FormControl(null, []),
+        'country' : new FormControl(null, [])
+      })
+    );
+  }
+  addClinicalElectives() {
+    (<FormArray>this.applicationForm.get('clinicalElectives')).push(
+      new FormGroup({
+        'department' : new FormControl('', []),
+        'date' : new FormControl(null, [])
+      })
+    );
   }
   addInternship() {
-    this.listData.userDetails.internship.forEach(element => {
-      (<FormArray>this.applicationForm.get('internship')).push(
-        new FormGroup({
-          'startDate' : new FormControl(element.startDate),
-          'endDate' : new FormControl(element.endDate),
-          'institution' : new FormControl(element.institution),
-          'position' : new FormControl(element.position)
-        })
-      );
-    });
+    (<FormArray>this.applicationForm.get('internship')).push(
+      new FormGroup({
+        'startDate' : new FormControl(null, []),
+        'endDate' : new FormControl(null, []),
+        'institution' : new FormControl('', []),
+        'country' : new FormControl(null, []),
+      })
+    );
+  }
+  addResearch() {
+    (<FormArray>this.applicationForm.get('research')).push(
+      new FormGroup({
+        'projectTitle' : new FormControl('', []),
+        'position' : new FormControl('', []),
+        'inclusiveDates' : new FormControl(null, []),
+        'institution' : new FormControl('', []),
+        'department' : new FormControl('', []),
+        'mentor' : new FormControl('', [])
+      })
+    );
+  }
+  addCommunityService() {
+    (<FormArray>this.applicationForm.get('communityService')).push(
+      new FormGroup({
+        'fromDate' : new FormControl(null, []),
+        'toDate' : new FormControl(null, []),
+        'description' : new FormControl('', [])
+      })
+    );
+  }
+  onDeleteSecondarySchool(index : number) {
+    if((<FormArray>this.applicationForm.get('secondarySchool')).length != 1) {
+      (<FormArray>this.applicationForm.get('secondarySchool')).removeAt(index);
+    }
+  }
+  onDeleteMedicineSchool(index : number) {
+    if((<FormArray>this.applicationForm.get('medicineSchool')).length != 1) {
+      (<FormArray>this.applicationForm.get('medicineSchool')).removeAt(index);
+
+    }
+  }
+  onDeleteClinicalElectives(index : number) {
+    if((<FormArray>this.applicationForm.get('clinicalElectives')).length != 1) {
+      (<FormArray>this.applicationForm.get('clinicalElectives')).removeAt(index);
+
+    }
+  }
+  onDeleteInternship(index : number) {
+    if((<FormArray>this.applicationForm.get('internship')).length != 1) {
+      (<FormArray>this.applicationForm.get('internship')).removeAt(index);
+
+    }
+  }
+  onDeleteResearch(index : number) {
+    if((<FormArray>this.applicationForm.get('research')).length != 1) {
+      (<FormArray>this.applicationForm.get('research')).removeAt(index);
+
+    }
+  }
+  onDeleteCommunityService(index : number) {
+    if((<FormArray>this.applicationForm.get('communityService')).length != 1) {
+      (<FormArray>this.applicationForm.get('communityService')).removeAt(index);
+
+    }
   }
 
-  addSpecialty() {
-    this.listData.userDetails.specialty.forEach((element: any) => {
-      (<FormArray>this.applicationForm.get('specialty')).push(
-        new FormGroup({
-          'scholarshipProjectType' : new FormControl(null, []),
-          'scholarshipProject' : new FormControl(null, []),
-          'specialtyName' : new FormControl(null, []),
-          'sub-specialty' : new FormControl(null, []),
-          'country' : new FormControl(null, [])
-        })
-      );
-    })
+
+  onRemove(event : any, type: any) {
+    switch(type) {
+      case 'filesAssessment' : {
+        this.filesAssessment.splice(this.filesAssessment.indexOf(event), 1);
+        return
+      }
+      case 'filesPersonalStatements' : {
+        this.filesPersonalStatements.splice(this.filesPersonalStatements.indexOf(event), 1);
+        return
+      }
+      case 'filesExams' : {
+        this.filesExams.splice(this.filesExams.indexOf(event), 1);
+        return
+      }
+      case 'filesPassportPhoto' : {
+        this.filesPassportPhoto.splice(this.filesPassportPhoto.indexOf(event), 1);
+        return
+      }
+      default : {
+        break;
+      }
+    }
+  }
+  onSelect(event : any, type: any) {
+    switch(type) {
+      case 'filesAssessment' : {
+        this.filesAssessment.push(...event.addedFiles);
+        return
+      }
+      case 'filesPersonalStatements' : {
+        this.filesPersonalStatements.push(...event.addedFiles);
+        return
+      }
+      case 'filesExams' : {
+        this.filesExams.push(...event.addedFiles);
+        return
+      }
+      case 'filesPassportPhoto' : {
+        this.filesPassportPhoto.push(...event.addedFiles);
+        return
+      }
+      default : {
+        break;
+      }
+    }
+  }
+
+  onNavigate(url : any) {
+    this.modalService.dismissAll();
+    this.router.navigateByUrl(url);
+  }
+
+  openModal(modal :any, size : any) {
+    const modalRef =  this.modalService.open(modal, {size : size})
+
+    this.applicationForm.reset();
     
-  }
-
-  onChange(){
-    this.screeningForm.get('screeningFailedReason')?.patchValue(null)
-    this.screeningForm.get('screeningFailedOtherReason')?.patchValue(null)
-    this.screeningForm.get('ifOtherStatus')?.patchValue(null)
-
-  }
-  onNavigate(url: any) {
-    this.router.navigateByUrl(url)
-  }
-
-  openModal(modal : any) {
-    this.modalService.open(modal, {size : 'lg'})
+    modalRef.result.catch(data =>{ 
+      console.log(data)
+      this.formPatchValue();
+    })
   }
 
 

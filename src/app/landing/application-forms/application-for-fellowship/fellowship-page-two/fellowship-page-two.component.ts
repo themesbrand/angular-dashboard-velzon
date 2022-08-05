@@ -61,8 +61,10 @@ export class FellowshipPageTwoComponent implements OnInit {
       'publications' : new FormControl('', []),
       'presentations' : new FormControl('', []),
       'honorsAndAwards' : new FormControl('', []),
-      'communityService' : new FormArray([])
 
+      'communityService' : new FormArray([]),
+      
+      'isDeclared' : new FormControl('', []),
     })
     
     this.addSecondarySchool();

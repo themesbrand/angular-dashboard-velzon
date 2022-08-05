@@ -47,6 +47,7 @@ export class FellowshipPageOneComponent implements OnInit {
       'address' : new FormControl('', []),
       'governorate' : new FormControl(null, []),
       'wilayatOrRegion' : new FormControl(null, []),
+      'intakeYear' : new FormControl(null, []),
       'nextOfKin' : new FormControl('', []),
       'contactNextOfKin' : new FormControl('', []),
       'omsbAdmissionScore' : new FormControl('', []),
@@ -70,7 +71,9 @@ export class FellowshipPageOneComponent implements OnInit {
 
       'isRequiredLabCoat' : new FormControl(null, []),
       'labCoatSize' : new FormControl(null, []),
-      'sponsorshipLetterLink' : new FormControl('', [])
+      'sponsorshipLetterLink' : new FormControl('', []),
+      
+      'isDeclared' : new FormControl('', [])
     })
     this.addEducation();
     this.addInternship();
