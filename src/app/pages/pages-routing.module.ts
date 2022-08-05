@@ -119,6 +119,8 @@ import { RejoiningApplicationListComponent } from './admission/rejoining/rejoini
 import { SupplementaryTrainingComponent } from './admission/supplementary-training/supplementary-training.component';
 import { SupplementaryTrainingApplicationFormComponent } from './admission/supplementary-training/supplementary-training-application-form/supplementary-training-application-form.component';
 import { SupplementaryTrainingApplicationListComponent } from './admission/supplementary-training/supplementary-training-application-list/supplementary-training-application-list.component';
+import { ApplicantApplicationsListComponent } from './applicant-view/applicant-applications-list/applicant-applications-list.component';
+import { ApplicantRecidencyProgramApplicationsComponent } from './applicant-view/applicant-applications-list/applicant-recidency-program-applications/applicant-recidency-program-applications.component';
 
 const routes: Routes = [
     //Default Routing
@@ -309,7 +311,10 @@ const routes: Routes = [
 
     //Applicant Routing
     { path: "applicant", children : [
-      { path: "application", component: ApplicantApplicationFormComponent }
+      { path: "application-list", children: [
+        { path: "", component: ApplicantApplicationsListComponent },
+        { path: "residency-program-applications", component: ApplicantRecidencyProgramApplicationsComponent }
+      ] }
     ] },
     
     //Finance Routing

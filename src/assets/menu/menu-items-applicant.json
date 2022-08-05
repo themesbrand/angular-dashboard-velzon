@@ -3,6 +3,6 @@
         "id": 1,
         "label": "My Application",
         "icon": " ri-profile-line",
-        "link": "/applicant/applicant-form"
+        "link": "/applicant/application-list"
     }
 ]
