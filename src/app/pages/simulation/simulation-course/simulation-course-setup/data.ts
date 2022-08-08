@@ -22,7 +22,7 @@ const data = {
         registrationDate : '2010-06-08',
         physicalInformation :'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquid nostrum, nulla commodi sunt est, vero distinctio iste obcaecati asperiores quibusdam, eligendi atque pariatur deserunt.',
         medicalInformation: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquid nostrum, nulla commodi sunt est, vero distinctio iste obcaecati asperiores quibusdam, eligendi atque pariatur deserunt.',
-        payableAmount : 'ر.ع.25000',
+        payableAmount : 'ر.ع.250',
     },
     courseSetupTableData : [
         {
@@ -48,8 +48,8 @@ const data = {
             eManualLink: "link/link",
             evaluationForm: ['Rotation Evaluation Form', 'ITAR'],
             fees: [
-                { fee: "1200", participantType: "OMSB trainee"},
-                { fee: "1350", participantType: "OMSB Faculty"}
+                { fee: "120", participantType: "OMSB trainee"},
+                { fee: "135", participantType: "OMSB Faculty"}
             ],
             heartCodeKeys: "50",
             manualType: "eManual",
@@ -60,13 +60,13 @@ const data = {
             roles : [
                 {
                     noOfRoles: "2", role: "Course Instructor", usersArray : [
-                        { userName: "Abbas Al Ajmi", userPay: "3600" },
-                        { userName: "Madan Khan", userPay: "2500" },
+                        { userName: "Abbas Al Ajmi", userPay: "160" },
+                        { userName: "Madan Khan", userPay: "250" },
                     ]
                 },
                 {
                     noOfRoles: "1", role: "Course Director", usersArray : [
-                        { userName: "Al Abri Ibraham", userPay: "5600" }
+                        { userName: "Al Abri Ibraham", userPay: "300" }
                     ]
                 }
                 

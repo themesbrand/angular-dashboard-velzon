@@ -17,12 +17,16 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
                                 <th>Attendance</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let user of userList">
                                 <td>{{user.name}}</td>
+                                <td>{{user.mobile}}</td>
+                                <td>{{user.email}}</td>
                                 <td>{{user.availability}}</td>
                             </tr>
 

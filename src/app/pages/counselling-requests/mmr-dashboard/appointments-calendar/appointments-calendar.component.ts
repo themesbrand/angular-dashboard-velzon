@@ -88,7 +88,7 @@ export class AppointmentsCalendarComponent implements OnInit {
   }
 
   onNavigate() {
-    this.router.navigateByUrl('/counselling/self-referral')
+    this.router.navigateByUrl('counselling/mmr-dashboard/mini-medical-record')
     this.modalService.dismissAll()
   }
 

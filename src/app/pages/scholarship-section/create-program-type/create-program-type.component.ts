@@ -2,13 +2,28 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 import {data} from './data';
 
 @Component({
   selector: 'app-create-program-type',
   templateUrl: './create-program-type.component.html',
-  styleUrls: ['./create-program-type.component.scss']
+  styleUrls: ['./create-program-type.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateY(-100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateY(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateY(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateY(-100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 export class CreateProgramTypeComponent implements OnInit {
   listData = data;
@@ -16,6 +31,7 @@ export class CreateProgramTypeComponent implements OnInit {
 
   programTypeControl: any
   typeControl: any
+  isFilterOpened: boolean = false;
 
   selectedProgramTypeIndex : any ;
 
@@ -43,6 +59,14 @@ export class CreateProgramTypeComponent implements OnInit {
     })
 
     this.patchFormArray()
+  }
+
+  onFilter() {
+    if(this.isFilterOpened) {
+      this.isFilterOpened = false;
+    } else {
+      this.isFilterOpened = true
+    }
   }
 
   get formValues () {

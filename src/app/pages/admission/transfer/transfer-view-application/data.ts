@@ -15,7 +15,7 @@ const data = {
     tableData : [
         {
             civilId: '98213543213',
-            name: 'Abdel Maddali',
+            name: 'Abbas Al Ajmi',
             ombsNumber: '255-19',
             staffNumber: '255-19',
             levelOfTraining: 'L5',
@@ -62,7 +62,7 @@ const data = {
         },
         {
             civilId: '98213543213',
-            name: 'Abdel Maddali',
+            name: 'Abbas Al Ajmi',
             ombsNumber: '255-19',
             staffNumber: '255-19',
             levelOfTraining: 'L5',

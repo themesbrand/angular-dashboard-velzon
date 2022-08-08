@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div class="row">
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
             <div class="col-md-4 mb-3">
                 <label class="form-label">Name of Counselee</label>
                 <ng-select [items]="listData.nameOfCounselee"
@@ -69,10 +69,13 @@
                 <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                     [convertModelValue]="true" mode="range">
             </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary my-2">Filter</button>
+            </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-            <button class="btn btn-primary">Search</button>
             <span style="cursor: pointer" (mouseenter)="openModal(scenarioStatistics, 'sm')" class="my-auto badge rounded-pill badge-soft-secondary">Scenario Statistics</span>
+            <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
         </div>
     </div>
     <div class="card-body">

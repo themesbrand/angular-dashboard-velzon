@@ -1,3 +1,105 @@
+<div class="row card-box">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org' ">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/program-nomination')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    PN
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Program Nomination</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'trainee@omsb.org' ">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/upload-presentation')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    UP
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Upload Presentation</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/competition-grouping')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    CG
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Competition Grouping</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/presentation-evaluation')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    PE
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Presentation Evaluation</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/presentation-evaluation-result')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    PR
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Presentation Evaluation Result</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/booth-evaluation')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    BE
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Booth Evaluation</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/research/research-day/booth-evaluation-result')" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    BR
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Booth Evaluation Result</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
 <div class="row">
     <div class="col-md-4 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org' ">
         <div class="card card-animate shadow">
@@ -164,4 +266,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

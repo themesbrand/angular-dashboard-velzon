@@ -19,15 +19,15 @@ export class MarkAttendanceMeetingComponent implements OnInit {
   simpleDonutChart: any;
 
   userList : any[] = [
-    {name : 'Madan Al Abri', availability : 'Yes'},
-    {name : 'Saleh Mahfoudh', availability : 'Yes'},
-    {name : 'Madan Khan', availability : 'Yes'},
-    {name : 'Abdel Maddali', availability : 'Yes'},
-    {name : 'Al Abri Falsal', availability : 'Yes'},
-    {name : 'Al Abri Ibraham', availability : 'Yes'},
-    {name : 'Abu Nasser', availability : 'No'},
-    {name : 'Faisal Gawas', availability : 'No'},
-    {name : 'Hilal basheer', availability : 'No'},
+    {name : 'Madan Al Abri', availability : 'Yes', mobile : '+968648213', email: 'madan@email.com'},
+    {name : 'Saleh Mahfoudh', availability : 'Yes', mobile : '+968999785', email: 'saleh@email.com'},
+    {name : 'Madan Khan', availability : 'Yes', mobile : '+968456132', email: 'abdel@email.com'},
+    {name : 'Abdel Maddali', availability : 'Yes', mobile : '+968478965', email: 'madan@email.com'},
+    {name : 'Al Abri Falsal', availability : 'Yes', mobile : '+968648213', email: 'abri@email.com'},
+    {name : 'Al Abri Ibraham', availability : 'Yes', mobile : '+968132486', email: 'madan@email.com'},
+    {name : 'Abu Nasser', availability : 'No', mobile : '+968648213', email: 'madan@email.com'},
+    {name : 'Faisal Gawas', availability : 'No', mobile : '+968648213', email: 'madan@email.com'},
+    {name : 'Hilal basheer', availability : 'No', mobile : '+968415782', email: 'madan@email.com'},
   ]
   constructor(
     private modalService : NgbModal

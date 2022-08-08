@@ -2,7 +2,7 @@
 
 <div class="card">
     <div class="card-body">
-        <div class="row">
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
             <div class="col-md-4 mb-3">
                 <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
                 <ng-select [items]="listData.department"
@@ -27,8 +27,17 @@
                     </ng-template>
                 </ng-select>
             </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary my-2">Filter</button>
+            </div>
         </div>
-        <button class="btn btn-primary mb-3">Search</button>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-end gap-3">
+                    <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
         <div class="live-preview" >                                    
             <div class="table-responsive">
                 <table class="table align-middle mb-0">

@@ -215,6 +215,8 @@ import { SupplementaryTrainingApplicationListComponent } from './admission/suppl
 import { ApplicantApplicationsListComponent } from './applicant-view/applicant-applications-list/applicant-applications-list.component';
 import { ApplicantRecidencyProgramApplicationsComponent } from './applicant-view/applicant-applications-list/applicant-recidency-program-applications/applicant-recidency-program-applications.component';
 import { ApplicantRecidencyProgramApplicationsViewComponent } from './applicant-view/applicant-applications-list/applicant-recidency-program-applications-view/applicant-recidency-program-applications-view.component';
+import { MmrDashboardMiniMedicalRecordComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard-mini-medical-record/mmr-dashboard-mini-medical-record.component';
+import { TraineeDatabaseComponent } from './scholarship-section/trainee-database/trainee-database.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -394,7 +396,9 @@ FullCalendarModule.registerPlugins([
     AdmissionInterviewViewApplicationComponent,
     ApplicantApplicationsListComponent,
     ApplicantRecidencyProgramApplicationsComponent,
-    ApplicantRecidencyProgramApplicationsViewComponent
+    ApplicantRecidencyProgramApplicationsViewComponent,
+    MmrDashboardMiniMedicalRecordComponent,
+    TraineeDatabaseComponent
   ],
   imports: [
     CommonModule,

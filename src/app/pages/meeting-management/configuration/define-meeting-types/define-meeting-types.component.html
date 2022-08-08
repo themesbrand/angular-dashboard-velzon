@@ -43,7 +43,7 @@
                             <input type="text" formControlName="meetingType" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Number of Items occurred per Calendar year<span class="text-danger">*</span></label>
+                            <label class="form-label">Number of Times occurred per Calendar year<span class="text-danger">*</span></label>
                             <input type="text" formControlName="numberOfMeetingPerCalendar" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3 my-auto">
@@ -129,6 +129,18 @@
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label">Select Authorized users<span class="text-danger">{{ " *" }}</span></label>
                                     <ng-select [items]="listData.userLists" formControlName="authorizedUsersArray"
+                                    [multiple]="true"
+                                    bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3 shadow border border-dashed p-3">
+                            <p class="h5 text-success">Organizers' names</p>
+                            <div class="d-flex flex-row">
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Select Organizers<span class="text-danger">{{ " *" }}</span></label>
+                                    <ng-select [items]="listData.userLists" formControlName="organizersNamesArray"
                                     [multiple]="true"
                                     bindLabel="labelValue" bindValue="name" placeholder="Please select">
                                     </ng-select>

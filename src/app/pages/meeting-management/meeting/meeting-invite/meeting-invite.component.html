@@ -90,6 +90,14 @@
                         <ng-container *ngTemplateOutlet="newAgenda"></ng-container> 
                     </ng-template>
                 </li>
+                <li [ngbNavItem]="4">
+                    <a ngbNavLink class="nav-link">
+                      Pre Meeting Activities
+                    </a>
+                    <ng-template ngbNavContent>
+                        <ng-container *ngTemplateOutlet="newPreMeeting"></ng-container> 
+                    </ng-template>
+                </li>
             </ul>
             <div class="tab-content text-muted">
                 <div [ngbNavOutlet]="ModifierCustom"></div>
@@ -172,6 +180,32 @@
     </div>
 </ng-template>
 
+<ng-template #newPreMeeting>
+    <div class="row mt-3" >
+        <div class="d-flex flex-row">
+            <button (click)="openModal(addPreMeeting, 'lg')" type="button" class="btn btn-primary waves-effect waves-light"><i class=" ri-file-add-line"></i></button>
+        </div>       
+        <div class="col-md-12" *ngFor="let meeting of preMeetingArrayControls; let i = index">
+            <div class="shadow border border-dashed p-2 my-2">
+                <div class="d-flex flex-row justify-content-between py-2">
+                    <p class="h4 mb-0 text-success">{{(i+1)}}{{" : Pre Meeting Activity"}}</p>
+                    <div class="d-flex flex-row justify-content-end">
+
+                        <button (click)="onEditPreMeetingArray(meeting.value, i)" type="button" class="btn mx-2 btn-primary waves-effect waves-light"><i class="  ri-edit-line"></i></button>
+                        <button (click)="onDeletePreMeetingArray(i)" type="button" class="btn btn-danger waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                    </div>
+                </div>
+                <div class="d-flex flex-row gap-2">
+                    <label class="form-control"><span class="text-muted">{{"Attendees : "}}</span>{{meeting.value.attendees}}</label>
+                </div>
+                <label class="text-wrap form-control" [innerHtml]="meeting.value.preMeetingActivity"></label>
+                
+            </div>
+        </div>
+        
+    </div>
+</ng-template>
+
 <ng-template #addAgenda let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
@@ -203,6 +237,7 @@
         </div>
     </div>
 </ng-template>
+
 <ng-template #updateAgenda let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
@@ -235,6 +270,65 @@
     </div>
 </ng-template>
 
+<ng-template #addPreMeeting let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Pre Meeting Activities</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="preMeetingForm">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Pre Meeting Activity <span class="text-danger">*</span></label>
+                            <ckeditor formControlName="preMeetingActivity" [editor]="Editor" ></ckeditor>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Select Attendees</label>
+                            <ng-select [items]="listData.userLists" formControlName="attendees"
+                            [multiple]="true"
+                            bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary" (click)="onSubmitPreMeeting()">Submit</button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #updatePreMeeting let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Edit Pre Meeting</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <form [formGroup]="preMeetingForm">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Pre Meeting Activity <span class="text-danger">*</span></label>
+                            <ckeditor formControlName="preMeetingActivity" [editor]="Editor" ></ckeditor>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Select Attendees</label>
+                            <ng-select [items]="listData.userLists" formControlName="attendees"
+                            [multiple]="true"
+                            bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                            </ng-select>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary" (click)="onUpdatePreMeeting()">Update</button>
+            </div>
+            
+        </div>
+    </div>
+</ng-template>
 <ng-template #viewPollResult let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">

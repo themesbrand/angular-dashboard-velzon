@@ -15,6 +15,10 @@ td, th {
 }
 
 .border-top {
-    border-top: 1.3px dashed grey !important;
+    border-top: 1.2px dashed grey !important;
     padding-top: 10px;
+}
+
+.acitivity-timeline .acitivity-item:before {
+    border-left : 1.5px dashed grey !important;
 }

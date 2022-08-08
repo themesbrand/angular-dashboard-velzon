@@ -39,8 +39,8 @@ const data = {
         },
         {
             questionName : '8 - Presence of commercial advertisement or other inappropriate bias',
-            answers : [0,5,10],
-            answerValues : ['Yes', 'No']
+            answers : [0,10],
+            answerValues : ['Yes = 0','No = 10']
         },
     ]
 }

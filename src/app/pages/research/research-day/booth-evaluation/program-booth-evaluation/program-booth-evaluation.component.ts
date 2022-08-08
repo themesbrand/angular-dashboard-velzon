@@ -44,7 +44,8 @@ export class ProgramBoothEvaluationComponent implements OnInit {
       question3 : new FormControl(null),
       question4 : new FormControl(null),
       question5 : new FormControl(null),
-      question6 : new FormControl(null)
+      question6 : new FormControl(null),
+      question7 : new FormControl(null)
     })
   }
 
@@ -52,7 +53,7 @@ export class ProgramBoothEvaluationComponent implements OnInit {
   onFormValueChange() {
     this.boothEvaluationForm.valueChanges.subscribe(res => {
       console.log(res)
-      this.evaluationTotal = res.question0 +  res.question1 +  res.question2 +  res.question3 +  res.question4 +  res.question5 +  res.question6
+      this.evaluationTotal = res.question0 +  res.question1 +  res.question2 +  res.question3 +  res.question4 +  res.question5 +  res.question6 +  res.question7
 
 
     })

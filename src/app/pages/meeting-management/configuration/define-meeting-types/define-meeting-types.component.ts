@@ -47,6 +47,7 @@ export class DefineMeetingTypesComponent implements OnInit {
       agendaArray: new FormArray([]),
       attendeesGroupArray: new FormControl([]),
       authorizedUsersArray: new FormControl([]),
+      organizersNamesArray: new FormControl([]),
     })
   }
 
@@ -187,6 +188,7 @@ export class DefineMeetingTypesComponent implements OnInit {
       agendaArray: agendaArray,
       attendeesGroupArray: meeting.attendeesGroupArray,
       authorizedUsersArray: meeting.authorizedUsersArray,
+      organizersNamesArray: meeting.organizersNamesArray
 
     })
   }

@@ -1,9 +1,17 @@
 <div class="card">
     <div class="card-header">
-        <p class="h4 text-primary">E-Resource Renewal Request</p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h4 text-primary">E-Resource Renewal Request</p>
+
+                    <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        <div class="row mb-3 border border-dashed p-2">
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
             <div class="col-md-3 mb-1">
                 <label class="form-label">Program Name</label>
                 <ng-select [items]="[]"
@@ -37,8 +45,8 @@
 
                 <input class="form-control" type="text" placeholder="Please enter the Title">
             </div>
-            <div class="d-flex flex-row mt-2">
-                <button class="btn btn-primary">Filter</button>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary my-2">Filter</button>
             </div>
         </div>
         <div class="live-preview">                                    

@@ -121,6 +121,8 @@ import { SupplementaryTrainingApplicationFormComponent } from './admission/suppl
 import { SupplementaryTrainingApplicationListComponent } from './admission/supplementary-training/supplementary-training-application-list/supplementary-training-application-list.component';
 import { ApplicantApplicationsListComponent } from './applicant-view/applicant-applications-list/applicant-applications-list.component';
 import { ApplicantRecidencyProgramApplicationsComponent } from './applicant-view/applicant-applications-list/applicant-recidency-program-applications/applicant-recidency-program-applications.component';
+import { MmrDashboardMiniMedicalRecordComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard-mini-medical-record/mmr-dashboard-mini-medical-record.component';
+import { TraineeDatabaseComponent } from './scholarship-section/trainee-database/trainee-database.component';
 
 const routes: Routes = [
     //Default Routing
@@ -177,6 +179,7 @@ const routes: Routes = [
       ] },
       { path: "mmr-dashboard", children : [
         {path : "", component: MmrDashboardComponent},
+        {path : "mini-medical-record", component: MmrDashboardMiniMedicalRecordComponent},
       ] },
       { path: "my-appointments", children : [
         {path : "", component: MyAppointmentsComponent},
@@ -192,6 +195,7 @@ const routes: Routes = [
       { path : "show-application-form", component: ScholarshipApplicationFormComponent },
       { path : "view-acceptance-letter", component: ViewAcceptanceLetterComponent },
       { path : "international-trainee-applications", component: InternationalTraineeApplicationsViewComponent },
+      { path : "trainee-database", component: TraineeDatabaseComponent },
       { path : "interview-result", component: ScholarshipSectionInterviewResultComponent },
     ]},
 

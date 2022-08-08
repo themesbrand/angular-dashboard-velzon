@@ -94,5 +94,7 @@ function getYearsList() {
     for (var i = min; i <= max; i++) {
       years.push(i)
     }
+    years.reverse()
+    console.log(years)
     return years
 }

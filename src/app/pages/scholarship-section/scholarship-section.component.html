@@ -1,4 +1,95 @@
-<div class="row ">
+<div class="row card-box">
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card  border shadow">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    SP
+                </div>
+            </div>
+            <div class="card-body py-2 w-100">
+                <div class="d-flex flex-row no-wrap justify-content-between">
+                    <p class="h5 text-wrap" style="margin-right: 10px;">Scholarship Project Setup</p>
+                    <div class="dropdown" ngbDropdown>
+                        <a href="javascript:void(0);" class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                            <i class="ri-more-2-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                            <li (click)="onNavigate('/scholarship/create-program-type')">
+                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
+                                    "></i>Create Project Type</a>
+                            </li>
+                            <li (click)="onNavigate('/scholarship/create-program')">
+                                <a class="dropdown-item" ><i class="mx-1  ri-file-text-line"></i>Create Project</a>
+                            </li>
+                        </ul>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card  border shadow" (click)="onNavigate('/scholarship/view-applications')" >
+            <div class="card-header bg-success">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    SA
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Scholarship Application</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card  border shadow" >
+            <div class="card-header bg-warning">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    IT
+                </div>
+            </div>
+            <div class="card-body py-2 w-100">
+                <div class="d-flex flex-row no-wrap justify-content-between">
+                    <p class="h5 text-wrap" style="margin-right: 10px;">International Trainee</p>
+                    <div class="dropdown" ngbDropdown>
+                        <a href="javascript:void(0);" class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                            <i class="ri-more-2-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                            <li (click)="onNavigate('/scholarship/trainee-database')">
+                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
+                                    "></i>Trainee Database</a>
+                            </li>
+                            <li  (click)="onNavigate('/scholarship/international-trainee-applications')">
+                                <a class="dropdown-item" ><i class="mx-1  ri-file-text-line"></i>View Applications</a>
+                            </li>
+                        </ul>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card  border shadow" (click)="onNavigate('/scholarship/interview-result')" >
+            <div class="card-header bg-warning">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    IR
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Interview Result</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row ">
     <div class="col-md-6 col-12 mb-3">
         <div class="card card-animate shadow">
             <div class="card-body py-2">  
@@ -22,7 +113,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div>
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3">
@@ -47,7 +138,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3">
@@ -72,7 +163,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3">
@@ -97,7 +188,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
-</div>
+</div> -->

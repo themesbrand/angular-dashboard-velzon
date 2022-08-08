@@ -63,6 +63,20 @@ const data = {
                         actionItems: []
                     },
                 ],
+                preMeetingActivities : [
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ],
+                    },
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ]
+                    }
+                ]
             }
         }, 
         {
@@ -128,6 +142,20 @@ const data = {
                         actionItems: []
                     },
                 ],
+                preMeetingActivities : [
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ],
+                    },
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ]
+                    }
+                ]
             }
         }, 
         {
@@ -179,6 +207,20 @@ const data = {
                         presenter: "Abbas Al Ajmi",
                         timeDuration: "45 MInutes"
                     },
+                ],
+                preMeetingActivities : [
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ],
+                    },
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ]
+                    }
                 ]
             }
         },
@@ -231,6 +273,20 @@ const data = {
                         presenter: "Abbas Al Ajmi",
                         timeDuration: "45 MInutes"
                     },
+                ],
+                preMeetingActivities : [
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ],
+                    },
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ]
+                    }
                 ]
             }
         },
@@ -283,6 +339,20 @@ const data = {
                         presenter: "Abbas Al Ajmi",
                         timeDuration: "45 MInutes"
                     },
+                ],
+                preMeetingActivities : [
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ],
+                    },
+                    {
+                        activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                        attendees : [
+                            'Madan Khan', 'Abbas Al Ajmi'
+                        ]
+                    }
                 ]
             }
         },

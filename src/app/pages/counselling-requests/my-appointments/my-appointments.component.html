@@ -2,7 +2,7 @@
 
 <div class="card">
     <div class="card-body">
-        <div class="row">
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
             <div class="col-md-4 mb-3">
                 <label class="form-label">Name of Counselee</label>
                 <ng-select [items]="listData.nameOfCounselee"
@@ -32,11 +32,20 @@
                 <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                     [convertModelValue]="true" mode="range">
             </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary my-2">Filter</button>
+            </div>
         </div>
-        <button class="btn btn-primary">Search</button>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-end gap-3">
+                    <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
 
     </div>
-    <div class="card-body">
+    <div class="card-body pt-0">
         <!-- <div class="d-flex flex-row">
             <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate()"><i class=" ri-file-list-3-line label-icon align-middle fs-16 me-2"></i>Leave Request</button>
         </div> -->

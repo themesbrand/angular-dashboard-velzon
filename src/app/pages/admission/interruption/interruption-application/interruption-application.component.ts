@@ -20,6 +20,7 @@ export class InterruptionApplicationComponent implements OnInit {
   listBlockTo : any = []
 
   applicationForm !: FormGroup
+  selectedApplication: any;
 
   constructor(
     private router : Router,
@@ -82,6 +83,10 @@ export class InterruptionApplicationComponent implements OnInit {
     return this.applicationForm.value
   }
 
+  setApplication(application : any) {
+    this.selectedApplication = application;
+  }
+  
   onNavigate(url : any) {
     this.modalService.dismissAll();
     this.router.navigateByUrl(url);

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -28,6 +28,9 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
   filesPersonalStatements: any[] = [];
   filesExams: any[] = [];
   filesPassportPhoto: any[] = [];
+  selectedApplication: any;
+
+  @ViewChild("supplementaryTrainingApplication") supplementaryTrainingApplication !: TemplateRef<any>;
 
   constructor(
     private router : Router,
@@ -282,16 +285,26 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
+
+  setApplication(application : any) {
+    this.selectedApplication = application;
+  }
+  
+  viewApplication() {
+    this.formPatchValue();
+    console.log(this.applicationFormValues)
+    this.openModal(this.supplementaryTrainingApplication, 'xl')
+  }
+
+  openAddApplication() {
+    this.applicationForm.reset()
+    this.openModal(this.supplementaryTrainingApplication, 'xl')
+  }
+
   openModal(modal :any, size : any) {
     const modalRef =  this.modalService.open(modal, {size : size})
-
-    this.applicationForm.reset();
-    
-    modalRef.result.catch(data =>{ 
-      console.log(data)
-      this.formPatchValue();
-    })
   }
+
 
 
 

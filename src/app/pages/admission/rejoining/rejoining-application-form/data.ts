@@ -159,7 +159,35 @@ const data = {
           }
         ],
         assessmentUploadLink: 'link'
-  }
+  },
+  tableData : [
+    {
+        civilId: '98213543213',
+        name: 'Abdel Maddali',
+        ombsNumber: '255-19',
+        status : 'Applied',
+        applicationStatus : [
+            { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+            { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
+            { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+            { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
+            { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
+        ]
+    },
+    {
+        civilId: '98431321355',
+        name: 'Abbas Al Ajmi',
+        ombsNumber: '210-19',
+        status : 'Sponsor Approved',
+        applicationStatus : [
+            { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
+            { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
+            { stage : 'Approval', status : 'Pending', date : '', by :'TA Director - Al Abri Ibraham'},
+            { stage : 'Approval', status : 'Pending', date : '', by :'Program Director - Abu Nasser'},
+            { stage : 'Qarar Issued', status : 'Pending', date : '', by :''}
+        ]
+    }
+],
 };
 
 export { data };

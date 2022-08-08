@@ -1,0 +1,30 @@
+.profile-wid-bg  {
+    height: 140px !important;
+}
+.profile-wid-bg::before {
+    background: #a0b4f5;
+    background: linear-gradient(to top, #15338f, #8998c9);
+}
+
+.avatar-lg img {
+    margin: auto;
+}
+.border-right-dashed {
+    border-right-style: dashed;
+    border-right-color: white;
+    border-right-width: 2px;
+}
+.nav-customs.nav .nav-link.active, .nav-customs.nav .nav-link.active:before, .nav-customs.nav .nav-link.active:after {
+    background-color: #193239;
+    color: #fff;
+}
+.nav-customs.nav .nav-link.active {
+    background-color: #193239!important;
+}
+
+.nav {
+    background-color: #f6f6f6 !important;
+}
+ngx-simplebar {
+    height: 250px !important;
+}

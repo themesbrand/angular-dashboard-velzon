@@ -1,29 +1,37 @@
 <app-breadcrumbs title="Program Referral" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <div class="card">
     <div class="card-body pb-0">
-        <div class="row">
-            <div class="col-md-3 mb-3">
+        <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+            <div class="col-md-4 mb-3">
                 <label class="form-label">Name of Counselee</label>
                 <ng-select [items]="listData.nameOfCounselee"
                 placeholder="Please select">
                 </ng-select>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
                 <label class="form-label">Scenario</label>
                 <ng-select [items]="listData.scenario"
                 placeholder="Please select">
                 </ng-select>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
                 <label class="form-label">Date Range</label>
                 <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                     [convertModelValue]="true" mode="range">
             </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary my-2">Filter</button>
+            </div>
         </div>
-        <button class="btn btn-primary">Search</button>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-row justify-content-end gap-3">
+                    <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        <p class="h4 text-success py-2">New Request for Appointment</p>
         <div class="live-preview" >                                    
             <div class="table-responsive">
                 <table class="table align-middle table-nowrap mb-0">
@@ -40,9 +48,16 @@
                             <td>{{event.nameOfCounselee}}</td>
                             <td>{{event.dateOfRequest}}</td>
                             <td>{{event.scenario}}</td>
-                            <td class="text-end">
-                                <button (click)="onNavigate('/counselling/program-referral/program-referral-request-form')" type="button" class="btn btn-primary mx-2 waves-effect waves-light btn-sm">Program Referral Request</button>
-                                <button (click)="onNavigate('/counselling/self-referral')" class="btn btn-primary waves-effect waves-light btn-sm">Mini Medical Record</button>
+                            <td>
+                                <div class="dropdown" ngbDropdown>
+                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                        <i class="ri-more-2-fill"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                        <li  (click)="onNavigate('/counselling/program-referral/program-referral-request-form')"><a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Program Referral Request</a></li>
+                                        <li  (click)="onNavigate('/counselling/self-referral')" ><a class="dropdown-item" ><i class="mx-1 ri-file-text-line"></i>Mini Medical Record</a></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         

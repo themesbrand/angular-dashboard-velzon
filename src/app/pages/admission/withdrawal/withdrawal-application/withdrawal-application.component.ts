@@ -17,6 +17,7 @@ export class WithdrawalApplicationComponent implements OnInit {
   listData = data;
 
   applicationForm !: FormGroup
+  selectedApplication: any;
 
   constructor(
     private router : Router,
@@ -43,6 +44,11 @@ export class WithdrawalApplicationComponent implements OnInit {
 
   get applicationFormValues() {
     return this.applicationForm.value
+  }
+
+  
+  setApplication(application : any) {
+    this.selectedApplication = application;
   }
 
   onNavigate(url : any) {

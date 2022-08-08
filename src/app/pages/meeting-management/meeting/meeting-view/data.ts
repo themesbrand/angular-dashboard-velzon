@@ -57,6 +57,20 @@ const data = {
                 actionItems: []
             },
         ],
+        preMeetingActivities : [
+            {
+                activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                attendees : [
+                    'Madan Khan', 'Abbas Al Ajmi'
+                ],
+            },
+            {
+                activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                attendees : [
+                    'Madan Khan', 'Abbas Al Ajmi'
+                ]
+            }
+        ]
     },
     userLists : userListGenerator(),
 

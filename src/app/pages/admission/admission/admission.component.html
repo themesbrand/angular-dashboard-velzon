@@ -1,7 +1,7 @@
-<p class="h5 text-success my-3">Dashboard 1</p>
+<!-- <p class="h5 text-success my-3">Dashboard 1</p>
 <div class="row">
     <div class="col-md-4 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-row justify-content-between align-items-center" >
                     <div class="flex flex-column">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-md-4 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-row justify-content-between align-items-center" >
                     <div class="flex flex-column">
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="col-md-4 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-row justify-content-between align-items-center" >
                     <div class="flex flex-column">
@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="col-md-4 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'|| userRole === 'interviewer@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-row justify-content-between align-items-center" >
                     <div class="flex flex-column">
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="col-md-4 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-row justify-content-between align-items-center" >
                     <div class="flex flex-column">
@@ -70,7 +70,7 @@
 <p class="h5 text-success my-3">Dashboard 2</p>
 <div class="row">
     <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-column justify-content-between align-items-center" >
                     <p class="fs-16 mb-2">Admission Setup</p>
@@ -82,7 +82,7 @@
         </div>
     </div>
     <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-column justify-content-between align-items-center" >
                     <p class="fs-16 mb-2">Sponsor Setup</p>
@@ -93,7 +93,7 @@
         </div>
     </div>
     <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-column justify-content-between align-items-center" >
                     <p class="fs-16 mb-2">View Application</p>
@@ -104,7 +104,7 @@
         </div>
     </div>
     <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'|| userRole === 'interviewer@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-column justify-content-between align-items-center" >
                     <p class="fs-16 mb-2">Interview</p>
@@ -115,7 +115,7 @@
         </div>
     </div>
     <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate shadow" >
+        <div class="card card-card-animate shadow" >
             <div class="card-body py-2">  
                 <div class="d-flex flex-column justify-content-between align-items-center" >
                     <p class="fs-16 mb-2">Interview Result</p>
@@ -125,12 +125,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<p class="h4 text-success">Single Action</p>
 <div class="row card-box">
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/admission/admission/admission-setup')">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
@@ -143,8 +142,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/admission/admission/sponsor-setup')">
             <div class="card-header bg-warning">
             </div>
             <div class="card-body">
@@ -157,8 +156,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/admission/admission/view-application')">
             <div class="card-header bg-danger">
             </div>
             <div class="card-body">
@@ -171,8 +170,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'|| userRole === 'interviewer@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/admission/admission/interview')" >
             <div class="card-header bg-secondary">
             </div>
             <div class="card-body ">
@@ -185,8 +184,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
+    <div class="col-md-3 col-12 mb-3"  *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/admission/admission/interview-result')" >
             <div class="card-header bg-info">
             </div>
             <div class="card-body">
@@ -201,10 +200,10 @@
     </div>
 </div>
 
-<p class="h4 text-success mt-3">Multiple Action</p>
+<!-- <p class="h4 text-success mt-3">Multiple Action</p>
 <div class="row card-box">
     <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
+        <div class="card card-animate border shadow">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
@@ -233,124 +232,4 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
-            <div class="card-header bg-warning">
-            </div>
-            <div class="card-body">
-                <div class="d-flex card-thumbnail">
-                    SS
-                </div>
-            </div>
-            <div class="card-body py-2 w-100">
-                <div class="d-flex flex-row no-wrap justify-content-between">
-                    <p class="h5 text-wrap" style="margin-right: 10px;">Sponsor Setup</p>
-                    <div class="dropdown" ngbDropdown>
-                        <a href="javascript:void(0);" class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            <i class="ri-more-2-fill"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
-                                    "></i>Action 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Action 2</a>
-                            </li>
-                        </ul>
-                    </div>   
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
-            <div class="card-header bg-danger">
-            </div>
-            <div class="card-body">
-                <div class="d-flex card-thumbnail">
-                    VA
-                </div>
-            </div>
-            <div class="card-body py-2 w-100">
-                <div class="d-flex flex-row no-wrap justify-content-between">
-                    <p class="h5 text-wrap" style="margin-right: 10px;">View Application</p>
-                    <div class="dropdown" ngbDropdown>
-                        <a href="javascript:void(0);" class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            <i class="ri-more-2-fill"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
-                                    "></i>Action 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Action 2</a>
-                            </li>
-                        </ul>
-                    </div>   
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
-            <div class="card-header bg-secondary">
-            </div>
-            <div class="card-body ">
-                <div class="d-flex card-thumbnail">
-                    In
-                </div>
-            </div>
-            <div class="card-body py-2 w-100">
-                <div class="d-flex flex-row no-wrap justify-content-between">
-                    <p class="h5 text-wrap" style="margin-right: 10px;">Interview</p>
-                    <div class="dropdown" ngbDropdown>
-                        <a href="javascript:void(0);" class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            <i class="ri-more-2-fill"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
-                                    "></i>Action 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Action 2</a>
-                            </li>
-                        </ul>
-                    </div>   
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-12 mb-3">
-        <div class="card animated border shadow">
-            <div class="card-header bg-info">
-            </div>
-            <div class="card-body">
-                <div class="d-flex card-thumbnail">
-                    IR
-                </div>
-            </div>
-            <div class="card-body py-2 w-100">
-                <div class="d-flex flex-row no-wrap justify-content-between">
-                    <p class="h5 text-wrap" style="margin-right: 10px;">Interview Result</p>
-                    <div class="dropdown" ngbDropdown>
-                        <a href="javascript:void(0);" class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            <i class="ri-more-2-fill"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
-                                    "></i>Action 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>Action 2</a>
-                            </li>
-                        </ul>
-                    </div>   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</div> -->

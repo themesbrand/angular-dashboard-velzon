@@ -28,7 +28,7 @@ export class BoothEvaluationComponent implements OnInit {
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Research Day", link: 'research/research-day'},
-      { label: "Competition Grouping", active : true }
+      { label: "Booth Evaluation", active : true }
     ];
     this.searchFormInit()
   }

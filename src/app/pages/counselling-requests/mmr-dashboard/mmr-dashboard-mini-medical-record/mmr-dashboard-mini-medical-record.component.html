@@ -1,0 +1,190 @@
+<app-breadcrumbs title="Mini Medical Record" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate('counselling/mmr-dashboard')" class="btn btn-primary btn-label waves-effect waves-light mb-3"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row headerClass">
+    <div class="profile-foreground position-relative">
+      <div class="profile-wid-bg">
+        <img
+          src="assets/images/profile-bg.jpg"
+          alt=""
+          class="profile-wid-img"
+        />
+      </div>
+    </div>
+    <div class="row g-2 px-3 align-items-center">
+      <div class="col-md-2 border-right border-right-dashed">
+        <div class="avatar-lg ">
+          <img
+            src="assets/images/users/avatar-1.jpg"
+            alt="user-img"
+            class="img-thumbnail rounded-circle mx-auto"
+          />
+        </div>
+      </div>
+      <div class="col-md-10 px-4">
+        <div class="row">
+            <div class="col-md-3">
+              <p class="fs-16 text-white mb-1">Name</p>
+              <p class="fs-12 text-white">{{listData.userDetailsObject.name}}</p>
+            </div>
+            <div class="col-md-3">
+              <p class="fs-16 text-white mb-1">OMSB Number</p>
+              <p class="fs-12 text-white">{{listData.userDetailsObject.omsb}}</p>
+            </div>
+            <div class="col-md-3">
+              <p class="fs-16 text-white mb-1">Academic Year</p>
+              <p class="fs-12 text-white">{{listData.userDetailsObject.academicYear}}</p>
+            </div>
+            <div class="col-md-3">
+              <p class="fs-16 text-white mb-1">Program Name</p>
+              <p class="fs-12 text-white">{{listData.userDetailsObject.trainingProgram}}</p>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <p class="fs-16 text-white mb-1">Year Of Training</p>
+                <p class="fs-12 text-white">{{listData.userDetailsObject.yearOfTraining}}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="fs-16 text-white mb-1">Telephone</p>
+                <p class="fs-12 text-white">{{listData.userDetailsObject.telephoneNumber}}</p>
+            </div>
+            <div class="col-md-3">
+                <p class="fs-16 text-white mb-1">Email</p>
+                <p class="fs-12 text-white">{{listData.userDetailsObject.emailAddress}}</p>
+            </div>         
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 p-0">
+      <div class="card px-0">
+        <div class="card-body">
+            <div class="row">
+              <div [ngClass]="isAssessmentVisible === false ? 'col-md-12' : 'col-md-8'">
+                <div class="card-header justify-content-end align-items-xl-center d-xl-flex pt-0">
+                  <div class="flex-shrink-0">
+                      <ul ngbNav #Header="ngbNav" [activeId]="1" class="nav nav-pills card-header-pills">
+                          <li [ngbNavItem]="1">
+                              <a ngbNavLink>Upcoming Appointments</a>
+                              <ng-template ngbNavContent>
+                                  <div class="card card-height-100">
+                                      <div class="card-body p-0">
+                                        <ngx-simplebar class="p-3" style="max-height: 364px;">
+                                          <div class="acitivity-timeline acitivity-main" *ngFor="let event of listData.upcomingEvents">
+                                              <div class="acitivity-item py-3 d-flex border shadow px-2 my-1">
+                                                  <div class="flex-shrink-0">
+                                                      <div class="avatar-xs acitivity-avatar">
+                                                          <div class="avatar-title rounded-circle bg-secondary">
+                                                              <i class=" ri-calendar-event-line fs-14"></i>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="flex-grow-1 ms-3">
+                                                      <h6 class="mb-1 ">{{event.name}}
+                                                      <a *ngIf="event.date" class="link-secondary" style="margin-left : 10px">{{event.date}}</a>
+                                                      <a *ngIf="event.date === null" class="link-secondary text-warning" style="margin-left : 10px">{{'Not Scheduled'}}</a></h6>
+                                                      <p class="text-muted mb-2">{{"Counselor Name : "}}<small class="mb-0 text-muted">{{event.counselorName}}</small></p>
+                                                      <div class="d-flex flex-row gap-3 flex-wrap">
+                                                        <button (click)="onNavigate('/counselling/self-referral/confidentiality-form')" *ngIf="event.date"  type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="ri-check-double-fill label-icon align-middle fs-16 me-2"></i>Confidentiality Declaration 1</button>
+                                                        <button (click)="onNavigate('/counselling/self-referral/confidentiality-form-two')" *ngIf="event.date"  type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class=" ri-check-double-fill label-icon align-middle fs-16 me-2"></i>Confidentiality Declaration 2</button>
+                                                      </div>
+                                                  </div>
+                                                  <div class="flex-grow-1 ms-3" *ngIf="event.date != null">
+                                                    <p class="h6 text-primary">Number of Assessments : 3</p>
+                                                    <button (click)="this.isAssessmentVisible = true" *ngIf="event.date"  type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="ri-article-fill label-icon align-middle fs-16 me-2"></i>Show Assessments</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </ngx-simplebar>
+                                      </div><!-- end card body -->
+                                  </div><!-- end card -->
+                              </ng-template>
+                          </li>
+                          <li [ngbNavItem]="2">
+                              <a ngbNavLink>Past Appointments</a>
+                              <ng-template ngbNavContent>
+                                <div class="card card-height-100">
+                                    <div class="card-body p-0">
+                                      <ngx-simplebar class="p-3" style="max-height: 364px;">
+                                        <div class="acitivity-timeline acitivity-main" *ngFor="let event of listData.pastEvents">
+                                            <div class="acitivity-item py-3 d-flex border shadow px-2 my-1">
+                                                <div class="flex-shrink-0">
+                                                    <div class="avatar-xs acitivity-avatar">
+                                                        <div class="avatar-title rounded-circle bg-secondary">
+                                                            <i class=" ri-calendar-event-line fs-14"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-grow-1 ms-3">
+                                                    <h6 class="mb-1 ">{{event.name}}
+                                                    <a *ngIf="event.date" class="link-secondary" style="margin-left : 10px">{{event.date}}</a>
+                                                    <a *ngIf="event.date === null" class="link-secondary text-warning" style="margin-left : 10px">{{'Not Scheduled'}}</a></h6>
+                                                    <p class="text-muted mb-2">{{"Counselor Name : "}}<small class="mb-0 text-muted">{{event.counselorName}}</small></p>
+                                                    <!-- <button (click)="onNavigation('/counselling/self-referral/confidentiality-form')" *ngIf="event.date"  type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class=" ri-check-double-fill label-icon align-middle fs-16 me-2"></i>Confidentiality Declaration 1</button>
+                                                    <button (click)="onNavigation('/counselling/self-referral/confidentiality-form-two')" *ngIf="event.date"  type="button" class="mx-2 btn btn-primary btn-sm btn-label waves-effect waves-light"><i class=" ri-check-double-fill label-icon align-middle fs-16 me-2"></i>Confidentiality Declaration 2</button> -->
+                                                </div>
+                                                <div class="flex-grow-1 ms-3" *ngIf="event.date != null">
+                                                  <p class="h6 text-primary">Number of Assessments : 3</p>
+                                                  <button (click)="this.isAssessmentVisible = true" *ngIf="event.date"  type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="ri-article-fill label-icon align-middle fs-16 me-2"></i>Show Assessments</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </ngx-simplebar>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </ng-template>
+                          </li>
+                        </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content text-muted">
+                    <div [ngbNavOutlet]="Header"></div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-4" *ngIf="isAssessmentVisible">
+                <div class="card-header">
+                  <div class="d-flex flex-row justify-content-between">
+                    <label class="form-label mt-2 h5">Assessments</label>
+                    <button type="button" class="btn-close text-end" (click)="this.isAssessmentVisible = false"></button>
+                  </div>
+                </div>
+                <div class="card-body" style="max-height: 250px !important; overflow-y: scroll;">
+                  <div class="d-flex flex-column" *ngFor="let assessment of listData.assessmentData">
+                    <div class="d-flex flex-column p-1 border border-dashed">
+                      <div class="d-flex flex-row justify-content-between">
+                        <p class="h6">{{assessment.name}}</p>
+                        <button (click)="openModal(openAssessmentView, 'xl')" type="button" class="btn-sm btn btn-primary waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <p class="h8 text-primary">{{"Counselor Name : "}}<span class="text-muted">{{assessment.assessmentPerformedBy}}</span></p>
+                        <p class="h8 text-primary">{{"Assessment Date : "}}<span class="text-muted">{{assessment.assessmentData}}</span></p>
+                      </div>
+      
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #openAssessmentView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-end">
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+              <app-assessment-form-view></app-assessment-form-view>
+            </div>
+        </div>
+    </div>
+</ng-template>

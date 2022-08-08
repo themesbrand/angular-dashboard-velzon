@@ -63,7 +63,9 @@ export class MyMeetingsComponent implements OnInit {
     this.router.navigateByUrl('/meeting-management/view', {
       state : {
         meetingObject : this.selectedEvent,
-        isViewOnly : true
+        isViewOnly : true,
+        isResponse : true,
+        returnUrl: '/meeting-management/my-meetings'
       }
     })
     this.modalService.dismissAll()

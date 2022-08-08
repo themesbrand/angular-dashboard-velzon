@@ -17,7 +17,7 @@
                                 Select All</label>
                             </div>
                         </div>
-                        <ngx-simplebar class="p-3" style="max-height: 320px;" formArrayName="nomineeGroupOneArray">
+                        <ngx-simplebar class="p-3 border shadow mb-2" style="max-height: 320px;" formArrayName="nomineeGroupOneArray">
                             <div class="acitivity-timeline acitivity-main">
                                 <div class="acitivity-item d-flex mb-3" *ngFor="let nominee of nomineeGroupOneControls; let i = index"
                                 [formGroupName]="i">
@@ -49,7 +49,7 @@
                                 Select All</label>
                             </div>
                         </div>
-                        <ngx-simplebar class="p-3" style="max-height: 320px;" formArrayName="nomineeGroupTwoAndThreeArray">
+                        <ngx-simplebar class="p-3 border shadow mb-2" style="max-height: 320px;" formArrayName="nomineeGroupTwoAndThreeArray">
                             <div class="acitivity-timeline acitivity-main">
                                 <div class="acitivity-item d-flex mb-3" *ngFor="let nominee of nomineeGroupTwoAndThreeControls; let i = index"
                                 [formGroupName]="i">
@@ -76,28 +76,51 @@
                     </div>
                     <div class="col-md-6 p-0 mb-3 border shadow " *ngIf="isGroupCreated">
                         <div class="p-4 m-2 border border-dashed">
-                            <div class="card bg-light w-100">
+                            <div class="card border shadow w-100">
                                 <div class="card-body">
                                     <p class="h5 text-primary">Oral Presentation Competition Group</p>
                                     <p class="h8">{{"Assigned Nominees : 3"}}</p>
-                                    <button class="btn btn-primary">Add Judge</button>
-                                    <button class="btn btn-primary mx-2">Edit Nominees</button>
+                                    <button class="btn btn-primary btn-sm" (click)="openModal(addJudge, 'md')">Add Judge</button>
+                                    <button class="btn btn-primary mx-2 btn-sm">Edit Nominees</button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="live-preview">
+                                        <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="true">
+                                          <ngb-panel id="static-1">
+                                              <ng-template ngbPanelTitle class="accordion-header">
+                                                  <h2 class="accordion-header" id="gen-ques-headingOne">
+                                                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                          data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                                                          aria-controls="gen-ques-collapseOne">
+                                                          Judges
+                                                      </button>
+                                                  </h2>
+                                              </ng-template>
+                                              <ng-template ngbPanelContent>
+                                                <div class="d-flex flex-row flex-wrap">
+                                                    <label class="form-control">abbas@email.com</label>
+                                                    <label class="form-control">shela@email.com</label>
+                                                </div>
+                                              </ng-template>
+                                          </ngb-panel>
+                                        </ngb-accordion>
+                                      </div>                                    
                                 </div>
                             </div>
-                            <div class="card bg-light w-100">
+                            <div class="card border shadow  w-100">
                                 <div class="card-body">
                                     <p class="h5 text-primary">Poster Presentation Competition Group 1</p>
                                     <p class="h8">{{"Assigned Nominees : 4"}}</p>
-                                    <button class="btn btn-primary">Add Judge</button>
-                                    <button class="btn btn-primary mx-2">Edit Nominees</button>
+                                    <button class="btn btn-primary btn-sm" (click)="openModal(addJudge, 'md')">Add Judge</button>
+                                    <button class="btn btn-primary mx-2 btn-sm">Edit Nominees</button>
                                 </div>
                             </div>
-                            <div class="card bg-light w-100">
+                            <div class="card border shadow w-100">
                                 <div class="card-body">
                                     <p class="h5 text-primary">Poster Presentation Competition Group 2</p>
                                     <p class="h8">{{"Assigned Nominees : 2"}}</p>
-                                    <button class="btn btn-primary">Add Judge</button>
-                                    <button class="btn btn-primary mx-2">Edit Nominees</button>
+                                    <button class="btn btn-primary btn-sm" (click)="openModal(addJudge, 'md')">Add Judge</button>
+                                    <button class="btn btn-primary mx-2 btn-sm">Edit Nominees</button>
                                 </div>
                             </div>
                         </div>
@@ -109,3 +132,31 @@
         </div>
     </div>
 </div>
+
+<ng-template #addJudge let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Judge</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Select Judge<span class="text-danger">{{ " *" }}</span></label>
+                                <ng-select [items]="listData.userLists" 
+                                bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

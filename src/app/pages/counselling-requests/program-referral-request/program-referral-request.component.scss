@@ -1,9 +1,15 @@
+td a {
+    cursor: pointer !important;
+}
 th {
     background-color: #193239 !important;   
     color: white;
     align-items: center;
 }
-td {
+td, th {
+    vertical-align: middle;
     word-wrap: break-word;
-    padding: 0.45rem 0.6rem;
+}
+.table-responsive {
+    overflow: visible;
 }

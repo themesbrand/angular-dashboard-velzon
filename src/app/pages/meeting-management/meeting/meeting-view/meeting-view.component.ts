@@ -14,6 +14,7 @@ import {data} from './data';
 export class MeetingViewComponent implements OnInit {
 
   listData = data;
+  currentData = new Date();
   public Editor = ClassicEditor;
 
   breadCrumbItems!: Array<{}>;
@@ -35,6 +36,9 @@ export class MeetingViewComponent implements OnInit {
   selectedAgenda: any;
 
   isViewOnly: boolean = false;
+  returnUrl: any;
+  isResponse: any;
+  filesResponseFiles: any;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -46,7 +50,10 @@ export class MeetingViewComponent implements OnInit {
     
     this.meeting = history.state.meetingObject
     this.isViewOnly = history.state.isViewOnly
-    
+    this.returnUrl = history.state.returnUrl
+    this.isResponse  = history.state?.isResponse 
+    console.log(history.state)
+    console.log(this.returnUrl)
       // For Testing Purpose Only ***********************
       // this.meeting = this.listData.meetingObject
       // this.isViewOnly = true
@@ -143,6 +150,11 @@ export class MeetingViewComponent implements OnInit {
         return
       }
       
+      case 'filesResponseFiles' : {
+        this.filesResponseFiles.splice(this.filesResponseFiles.indexOf(event), 1);
+        return
+      }
+      
       default : {
         break;
       }
@@ -156,6 +168,10 @@ export class MeetingViewComponent implements OnInit {
       }
       case 'feedbackFiles' : {
         this.feedbackFiles.push(...event.addedFiles);
+        return
+      }
+      case 'filesResponseFiles' : {
+        this.filesResponseFiles.push(...event.addedFiles);
         return
       }
       

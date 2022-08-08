@@ -2,19 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 import { data } from './data';
 
 @Component({
   selector: 'app-mmr-dashboard',
   templateUrl: './mmr-dashboard.component.html',
-  styleUrls: ['./mmr-dashboard.component.scss']
+  styleUrls: ['./mmr-dashboard.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateY(-100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateY(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateY(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateY(-100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 export class MmrDashboardComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
   listData = data;
   selectedAppointmentId: any;
+  isFilterOpened: boolean = false;
 
   appointmentScheduleForm !: FormGroup
 
@@ -28,6 +44,15 @@ export class MmrDashboardComponent implements OnInit {
     ];
     this.appointmentScheduleFormInit()
   }
+
+  onFilter() {
+    if(this.isFilterOpened) {
+      this.isFilterOpened = false;
+    } else {
+      this.isFilterOpened = true
+    }
+  }
+
 
   appointmentScheduleFormInit() {
     this.appointmentScheduleForm = this.formBuilder.group({
@@ -135,7 +160,7 @@ export class MmrDashboardComponent implements OnInit {
   }
 
   onNavigate() {
-    this.router.navigate(['/counselling/self-referral']);
+    this.router.navigate(['/counselling/mmr-dashboard/mini-medical-record']);
   }
 
 }

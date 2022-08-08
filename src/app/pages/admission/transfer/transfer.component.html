@@ -1,25 +1,84 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-6 col-12 mb-1">
         <div class="card card-animate shadow" >
             <div class="card-body py-2">  
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-8">
-                            <div class="flex flex-column">
-                                <div class="p-3">
-                                    <p class="fs-19 mb-0 ">Transfer Request</p>
-                                </div>
-                                <div class="p-3 d-flex flex-row gap-2">
-                                    <a *ngIf="userRole === 'eportal@omsb.org' || userRole === 'trainee@omsb.org'" (click)="onNavigate('admission/transfer/application')" class="btn btn-success">Application</a>
-                                    <a *ngIf="userRole === 'eportal@omsb.org' || userRole === 'employer@omsb.org'" (click)="onNavigate('admission/transfer/view-application')" class="btn btn-success">View Applications</a>
-                                  </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-8">
+                        <div class="flex flex-column">
+                            <div class="p-3">
+                                <p class="fs-19 mb-0 ">Transfer Request</p>
                             </div>
-                            
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 p-0 ">
-                            <img src="assets/images/verification-img.png" class="img-fluid" alt="">
+                            <div class="p-3 d-flex flex-row gap-2">
+                                <a *ngIf="userRole === 'eportal@omsb.org' || userRole === 'trainee@omsb.org'" (click)="onNavigate('admission/transfer/application')" class="btn btn-success">Application</a>
+                                <a *ngIf="userRole === 'eportal@omsb.org' || userRole === 'employer@omsb.org' || userRole === 'trainee@omsb.org'" (click)="onNavigate('admission/transfer/view-application')" class="btn btn-success">View Applications</a>
+                            </div>
                         </div>
                     </div>
-                             
+                    <div class="col-md-4 col-sm-4 col-4 p-0 ">
+                        <img src="assets/images/verification-img.png" class="img-fluid" alt="">
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="row card-box">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" >
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    TR
+                </div>
+            </div>
+            <div class="card-body py-2 w-100">
+                <div class="d-flex flex-row no-wrap justify-content-between">
+                    <p class="h5 text-wrap" style="margin-right: 10px;">Transfer Request</p>
+                    <div class="dropdown" ngbDropdown>
+                        <a class="arrow-none btn btn-outline-primary btn-icon waves-effect waves-light" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                            <i class="ri-more-2-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                            <li (click)="onNavigate('admission/transfer/application')">
+                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line
+                                    "></i>Application</a>
+                            </li>
+                            <li (click)="onNavigate('admission/transfer/view-application')">
+                                <a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>View Application</a>
+                            </li>
+                        </ul>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'employer@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('admission/transfer/view-application')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    AS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Transfer Request</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'trainee@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('admission/transfer/application')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    AS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Transfer Request</p>
             </div>
         </div>
     </div>

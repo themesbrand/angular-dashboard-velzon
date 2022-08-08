@@ -7,87 +7,52 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex flex-row justify-content-end">
-                        <button (click)="openModal(transferApplication, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Interruption Application</button>
+                        <button (click)="openModal(addInterruptionApplication, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Interruption Application</button>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Interruption Type<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{listData.applicationForm.interruptionType}}</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Civil ID:</label>
-                                    <label class="form-control">9485131321321</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Full Name:</label>
-                                    <label class="form-control">Abbas Al Ajmi</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">OMSB Registration Number:</label>
-                                    <label class="form-control">210-19</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Staff Number:</label>
-                                    <label class="form-control">210-19</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Level of Training:</label>
-                                    <label class="form-control">L4</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Current Training Program:</label>
-                                    <label class="form-control">Anesthesia</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Current Program Start Date: </label>
-                                    <label class="form-control">2020-01-08</label>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">Sponsor: </label>
-                                    <label class="form-control">MOH</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <label class="form-label">Period of Interruption<span class="text-danger">{{ " *" }}</span></label>
-                                    <div class="d-flex flex-row gap-2">
-                                        <label class="form-control">{{"From Block : "}} <span class="text-muted">{{listData.applicationForm.periodOfInterruption.from}}</span> </label>
-                                        <label class="form-control">{{"To Block : "}} <span class="text-muted">{{listData.applicationForm.periodOfInterruption.to}}</span> </label>
-                                    </div>
-
-                                </div>
-                                
-                                <div class="col-md-12 mb-3">
-                                    <label class="form-label">Reasons for requesting an interruption:<span class="text-danger">{{ " *" }}</span></label>
-                                    <label class="form-control">{{listData.applicationForm.reason}}</label>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Interruption Type</th>
+                                    <th scope="col">Civil ID</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">OMSB Number</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let application of listData.tableData">
+                                    <td>{{application.interruptionType}}</td>
+                                    <td>{{application.civilId}}</td>
+                                    <td>{{application.name}}</td>
+                                    <td>{{application.ombsNumber}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td> 
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(transferApplication, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<ng-template #transferApplication let-modal>
+<ng-template #addInterruptionApplication let-modal>
     <div class="modal-content bg-light">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
@@ -186,5 +151,131 @@
 
 </ng-template>
 
+<ng-template #transferApplication let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Interruption Application</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Interruption Type<span class="text-danger">{{ " *" }}</span></label>
+                                        <label class="form-control">{{listData.applicationForm.interruptionType}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Civil ID:</label>
+                                        <label class="form-control">9485131321321</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Full Name:</label>
+                                        <label class="form-control">Abbas Al Ajmi</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">OMSB Registration Number:</label>
+                                        <label class="form-control">210-19</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Staff Number:</label>
+                                        <label class="form-control">210-19</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Level of Training:</label>
+                                        <label class="form-control">L4</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Current Training Program:</label>
+                                        <label class="form-control">Anesthesia</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Current Program Start Date: </label>
+                                        <label class="form-control">2020-01-08</label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Sponsor: </label>
+                                        <label class="form-control">MOH</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" >
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Period of Interruption<span class="text-danger">{{ " *" }}</span></label>
+                                        <div class="d-flex flex-row gap-2">
+                                            <label class="form-control">{{"From Block : "}} <span class="text-muted">{{listData.applicationForm.periodOfInterruption.from}}</span> </label>
+                                            <label class="form-control">{{"To Block : "}} <span class="text-muted">{{listData.applicationForm.periodOfInterruption.to}}</span> </label>
+                                        </div>
+    
+                                    </div>
+                                    
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Reasons for requesting an interruption:<span class="text-danger">{{ " *" }}</span></label>
+                                        <label class="form-control">{{listData.applicationForm.reason}}</label>
+                                    </div>
+    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Reasons <span class="text-danger">{{ " *" }}</span></label>
+                                        <textarea  rows="2" class="form-control" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi voluptatum vitae fugit veniam est temporibus minima!"></textarea>
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</ng-template>
 
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedApplication.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>
 

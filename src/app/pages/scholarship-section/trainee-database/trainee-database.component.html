@@ -1,0 +1,360 @@
+<app-breadcrumbs title="Trainee Database" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" (click)="onNavigate('/scholarship/scholarship-section')" class="btn btn-primary btn-label waves-effect waves-light mb-1"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Name<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Specialty<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Subspecialty<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Training Type<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button (click)="openModal(addInternationalTrainee, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add International Trainee</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">National ID</th>
+                                    <th scope="col">Specialty</th>
+                                    <th scope="col">Subspecialty</th>
+                                    <th scope="col">Training Type</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">International Phone No</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let application of listData.tableData">
+                                    <td>{{application.name}}</td>
+                                    <td>{{application.nationalID}}</td>
+                                    <td>{{application.specialty}}</td>
+                                    <td>{{application.subspecialty}}</td>
+                                    <td>{{application.trainingType}}</td>
+                                    <td>{{application.email1}}</td>
+                                    <td>{{application.internationalPhoneNo}}</td>
+                                    <td class="text-center">
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(viewInternationalTrainee, 'xl')">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
+                                                </li>
+                                            </ul>
+                                        </div>          
+                                    </td>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #addInternationalTrainee let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Add International Trainee</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-lable">Name<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-lable">Arabic Name<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">National ID<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Specialty<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="['ENT', 'Anesthesia']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Subspecialty<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="['ENT', 'Anesthesia']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Training Type<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="[]" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Institution<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="['Khoula Hospital', 'Al Nahdah Hospital']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Country<span class="text-danger"></span></label>
+                        <ng-select
+                          [items]="listData.countryList"
+                          placeholder="Please select"
+                          bindLabel="name"
+                          bindValue="code">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Start Date<span class="text-danger"></span></label>
+                        <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          [altInput]="true"
+                          [convertModelValue]="true"/>
+                    </div>  
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Completion Date<span class="text-danger"></span></label>
+                        <input
+                          class="form-control flatpickr-input"
+                          type="text"
+                          mwlFlatpickr
+                          [altInput]="true"
+                          [convertModelValue]="true"/>
+                    </div>  
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Gender<span class="text-danger"></span></label>
+                        <ng-select
+                          [items]="['Male', 'Female']"
+                          placeholder="Please select"
+                          bindLabel="name"
+                          bindValue="code">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Training Status<span class="text-danger"></span></label>
+                        <ng-select
+                          [items]="[]"
+                          placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Training Status Remark<span class="text-danger"></span></label>
+                        <textarea rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Sponsor<span class="text-danger"></span></label>
+                        <ng-select
+                          [items]="['MOH']"
+                          placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Employer<span class="text-danger"></span></label>
+                        <ng-select
+                          [items]="[]"
+                          placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Evaluation Reports<span class="text-danger"></span></label>
+                        <textarea rows="2" class="form-control"></textarea>
+                        <p class="h6 text-muted my-2">Please attach your files</p>
+                        <ngx-dropzone (change)="onSelect($event, 'filesEvaluation')"
+                        [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of filesEvaluation"
+                            [removable]="true" (removed)="onRemove(f, 'filesEvaluation')">
+                            <ngx-dropzone-label
+                            >{{ f.name }} ({{
+                                f.type
+                            }})</ngx-dropzone-label
+                            >
+                        </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Submitted Certificate of Completion</label>
+                        <ng-select
+                          [items]="['Yes', 'No']"
+                          placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Email 1<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Email 2</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Local Phone No.</label>
+                        <ngx-intl-tel-input [cssClass]="'custom'" 
+                            [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                            [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National">
+                        </ngx-intl-tel-input>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">International Phone No.</label>
+                        <ngx-intl-tel-input [cssClass]="'custom'" 
+                            [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                            [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National">
+                        </ngx-intl-tel-input>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+                
+            </div>           
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewInternationalTrainee let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Add International Trainee</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-lable">Name<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.name}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-lable">Arabic Name<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.arabicName}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">National ID<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.nationalID}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Specialty<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.specialty}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Subspecialty<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.subspecialty}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Training Type<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.trainingType}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Institution<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.institution}}</label>
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Country<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.country}}</label>
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Start Date<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.startDate}}</label>
+                    </div>  
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Completion Date<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.completionDate}}</label>
+                    </div>  
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Gender<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.gender}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Training Status<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.trainingStatus}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Training Status Remark<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.trainingStatusRemark}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Sponsor<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.sponsor}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Employer<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.employer}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Evaluation Reports<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.evaluationReports}}</label>
+                        <p class="h6 text-muted my-2">Download supporting files</p>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Submitted Certificate of Completion</label>
+                        <label class="form-control">{{listData.formData.submittedCertificateOfCompletion}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Email 1<span class="text-danger"></span></label>
+                        <label class="form-control">{{listData.formData.email1}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Email 2</label>
+                        <label class="form-control">{{listData.formData.email2}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">Local Phone No.</label>
+                        <label class="form-control">{{listData.formData.localPhoneNo}}</label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-lable">International Phone No.</label>
+                        <label class="form-control">{{listData.formData.internationalPhoneNo}}</label>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+</ng-template>

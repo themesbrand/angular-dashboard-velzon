@@ -14,6 +14,7 @@ const data = {
             ],
             attendeesGroupArray : ['Madan Khan','Abbas Al Ajmi'],
             authorizedUsersArray : ["Faisal Gawas","Madan Al Abri"],
+            organizersNamesArray : ["Faisal Gawas","Madan Al Abri"],
             numberOfReminders: 3,
             remindersArray : [
                 {
@@ -41,6 +42,7 @@ const data = {
             ],
             attendeesGroupArray : ['Faisal Gawas','Abbas Al Ajmi'],
             authorizedUsersArray : ["Faisal Gawas","Madan Al Abri"],
+            organizersNamesArray : ["Faisal Gawas","Madan Al Abri"],
             numberOfReminders: 3,
             remindersArray : [
                 {
@@ -68,6 +70,7 @@ const data = {
             ],
             attendeesGroupArray : ['Faisal Gawas'],
             authorizedUsersArray : ["Faisal Gawas","Madan Al Abri"],
+            organizersNamesArray : ["Faisal Gawas","Madan Al Abri"],
             numberOfReminders: 2,
             remindersArray : [
                 {

@@ -28,7 +28,21 @@ const data = {
                     isPollCreated : false
                 },
             ],
-            selectedAttendees : ['Madan Khan', 'Abbas Al Ajmi']
+            selectedAttendees : ['Madan Khan', 'Abbas Al Ajmi'],
+            preMeetingActivities : [
+                {
+                    activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                    attendees : [
+                        'Madan Khan', 'Abbas Al Ajmi'
+                    ],
+                },
+                {
+                    activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                    attendees : [
+                        'Madan Khan', 'Abbas Al Ajmi'
+                    ]
+                }
+            ]
         },
         {
             meetingType : 'Curriculum Review', 
@@ -47,7 +61,37 @@ const data = {
                     timeDuration: "45 MInutes"
                 },
             ],
-            selectedAttendees : ['Madan Khan', 'Abbas Al Ajmi', 'Madan Al Abri', 'Faisal Gawas']
+            departmentAgenda : [
+                {
+                    presenter: "Abbas Al Ajmi",
+                    serviceName : 'Rotation Evaluation',
+                    serviceLink : '/forms/rotation-evaluation-form',
+                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    isPollCreated : true
+                },
+                {
+                    presenter: "Faisal Gawas",
+                    serviceName : 'Rotation Evaluation',
+                    serviceLink : '/forms/rotation-evaluation-form',
+                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p>",
+                    isPollCreated : false
+                },
+            ],
+            selectedAttendees : ['Madan Khan', 'Abbas Al Ajmi', 'Madan Al Abri', 'Faisal Gawas'],
+            preMeetingActivities : [
+                {
+                    activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                    attendees : [
+                        'Madan Khan', 'Abbas Al Ajmi'
+                    ],
+                },
+                {
+                    activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                    attendees : [
+                        'Madan Khan', 'Abbas Al Ajmi'
+                    ]
+                }
+            ]
 
         },
         {
@@ -62,7 +106,37 @@ const data = {
                     timeDuration: "45 MInutes"
                 }
             ],
-            selectedAttendees : ['Faisal Gawas', 'Abbas Al Ajmi']
+            departmentAgenda : [
+                {
+                    presenter: "Abbas Al Ajmi",
+                    serviceName : 'Rotation Evaluation',
+                    serviceLink : '/forms/rotation-evaluation-form',
+                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p><ul><li>Lorem, ipsum.</li><li>Lorem ipsum dolor sit.</li><li>Lorem ipsum dolor sit amet consectetur.</li><li>Lorem, ipsum dolor.</li></ul>",
+                    isPollCreated : true
+                },
+                {
+                    presenter: "Faisal Gawas",
+                    serviceName : 'Rotation Evaluation',
+                    serviceLink : '/forms/rotation-evaluation-form',
+                    comments : "<h2>Lorem ipsum dolor sit amet.</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima molestias nulla.</p>",
+                    isPollCreated : false
+                },
+            ],
+            selectedAttendees : ['Faisal Gawas', 'Abbas Al Ajmi'],
+            preMeetingActivities : [
+                {
+                    activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                    attendees : [
+                        'Madan Khan', 'Abbas Al Ajmi'
+                    ],
+                },
+                {
+                    activity: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error animi sint, placeat possimus nesciunt libero quaerat eaque facilis vero.',
+                    attendees : [
+                        'Madan Khan', 'Abbas Al Ajmi'
+                    ]
+                }
+            ]
 
         }
     ],

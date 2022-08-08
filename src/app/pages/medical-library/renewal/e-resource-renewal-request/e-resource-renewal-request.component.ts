@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { trigger, style, animate, transition } from '@angular/animations';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import {data} from './data';
@@ -8,12 +9,27 @@ import {data} from './data';
 @Component({
   selector: 'app-e-resource-renewal-request',
   templateUrl: './e-resource-renewal-request.component.html',
-  styleUrls: ['./e-resource-renewal-request.component.scss']
+  styleUrls: ['./e-resource-renewal-request.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateY(-100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateY(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateY(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateY(-100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class EResourceRenewalRequestComponent implements OnInit {
 
   listData = data;
   public Editor = ClassicEditor;
+  isFilterOpened: boolean = false;
 
   supportingFiles : File [] = [];
   quoteFile : File [] = [];
@@ -67,6 +83,7 @@ export class EResourceRenewalRequestComponent implements OnInit {
     this.selectedRequest = request;
     this.requestForm.reset();
     this.requestForm.patchValue(request)
+    console.log(this.selectedRequest)
   }
 
   clearForm() {
@@ -135,6 +152,14 @@ export class EResourceRenewalRequestComponent implements OnInit {
       default : {
         break;
       }
+    }
+  }
+
+  onFilter() {
+    if(this.isFilterOpened) {
+      this.isFilterOpened = false;
+    } else {
+      this.isFilterOpened = true
     }
   }
 

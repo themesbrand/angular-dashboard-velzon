@@ -18,6 +18,7 @@ export class TransferApplicationComponent implements OnInit {
   listData = data;
 
   applicationForm !: FormGroup
+  selectedApplication: any;
 
   constructor(
     private router : Router,
@@ -41,6 +42,11 @@ export class TransferApplicationComponent implements OnInit {
 
     })
   }
+
+  setApplication(application : any) {
+    this.selectedApplication = application;
+  }
+  
 
   get applicationFormValues() {
     return this.applicationForm.value

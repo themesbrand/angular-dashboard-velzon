@@ -1,4 +1,77 @@
-<div class="row ">
+<div class="row card-box">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/simulation/workshop/workshop-setup')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    AS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Workshop Setup</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org' || userType === 'pd@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/simulation/workshop/scheduling')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    Sc
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Scheduling</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/simulation/workshop/create-form')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    CF
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Create Form</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/simulation/workshop/view-application')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    VA
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">View Applications</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/simulation/workshop/order-food')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    OF
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Order Food</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row ">
     <div class="col-md-6 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
         <div class="card card-animate shadow">
             <div class="card-body py-2">  
@@ -21,7 +94,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org' || userType === 'pd@omsb.org' ">
@@ -46,7 +119,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
@@ -71,7 +144,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
@@ -96,7 +169,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
     <div class="col-md-6 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org'">
@@ -121,7 +194,7 @@
                         </div>
                     </div>
                              
-            </div> <!-- end card-body-->
+            </div> 
         </div>
     </div>
-</div>
+</div> -->

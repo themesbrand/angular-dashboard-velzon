@@ -18,9 +18,11 @@ export class MeetingInviteComponent implements OnInit {
 
   meetingInviteForm !: FormGroup;
   agendaForm !: FormGroup;
+  preMeetingForm !: FormGroup;
   simpleDonutChart: any;
 
   @ViewChild('updateAgenda') updateAgenda !: TemplateRef<any>;
+  @ViewChild('updatePreMeeting') updatePreMeeting !: TemplateRef<any>;
   selectedAgendaIndex: any;
 
   constructor(
@@ -36,6 +38,7 @@ export class MeetingInviteComponent implements OnInit {
     ];
     this.meetingInviteFormInit();
     this.agendaFormInit();
+    this.preMeetingFormInit();
 
     this.simpleDonutChart = {
       series: [10, 4, 5],
@@ -74,7 +77,8 @@ export class MeetingInviteComponent implements OnInit {
       onlineLink : new FormControl(null),
       predefinedAgenda: new FormControl(null),
       departmentAgenda: new FormControl(null),
-      otherAgenda: new FormArray([])
+      otherAgenda: new FormArray([]),
+      preMeetingArray: new FormArray([])
     })  
   }
 
@@ -83,6 +87,13 @@ export class MeetingInviteComponent implements OnInit {
       agendaItem : new FormControl(null),
       timeDuration : new FormControl(null),
       presenter : new FormControl(null)
+    })
+  }
+
+  preMeetingFormInit() {
+    this.preMeetingForm = this.formBuilder.group({
+      preMeetingActivity : new FormControl(null),
+      attendees: new FormControl(null),
     })
   }
 
@@ -110,6 +121,10 @@ export class MeetingInviteComponent implements OnInit {
     return (<FormArray>this.meetingInviteForm.get('otherAgenda')).controls; 
   }
 
+  get preMeetingArrayControls() {
+    return (<FormArray>this.meetingInviteForm.get('preMeetingArray')).controls; 
+  }
+
   addAgendaArray() {
     (<FormArray>this.meetingInviteForm.get('otherAgenda')).insert(0,
       new FormGroup({
@@ -123,8 +138,23 @@ export class MeetingInviteComponent implements OnInit {
     this.modalService.dismissAll();
   }
 
+  addPreMeetingArray() {
+    (<FormArray>this.meetingInviteForm.get('preMeetingArray')).insert(0,
+      new FormGroup({
+        'preMeetingActivity' : new FormControl(this.preMeetingForm.value.preMeetingActivity, []),
+        'attendees' : new FormControl(this.preMeetingForm.value.attendees, [])
+      })
+    );
+    this.preMeetingForm.reset();
+    this.modalService.dismissAll();
+  }
+
   onDeleteAgenda(i : any) {
     (<FormArray>this.meetingInviteForm.get('otherAgenda')).removeAt(i)
+  }
+  
+  onDeletePreMeetingArray(i : any) {
+    (<FormArray>this.meetingInviteForm.get('preMeetingArray')).removeAt(i)
   }
   
   onEditAgenda(agenda : any, i : any) {
@@ -135,13 +165,31 @@ export class MeetingInviteComponent implements OnInit {
     this.agendaForm.reset();
   }
 
+  onEditPreMeetingArray(preMeeting : any, i : any) {
+    console.log(preMeeting)
+    this.selectedAgendaIndex = i;
+    this.preMeetingForm.patchValue(preMeeting);
+    this.openModal(this.updatePreMeeting, 'lg')
+    this.agendaForm.reset();
+  }
+
   onSubmitAgenda() {
     this.addAgendaArray();
+  }
+
+  onSubmitPreMeeting() {
+    this.addPreMeetingArray()
   }
 
   onUpdateAgenda() {
     (<FormArray>this.meetingInviteForm.get('otherAgenda')).at(this.selectedAgendaIndex).patchValue(this.agendaForm.value)
     console.log(this.agendaForm.value)
+    this.modalService.dismissAll();
+  }
+
+  onUpdatePreMeeting() {
+    (<FormArray>this.preMeetingForm.get('preMeetingArray')).at(this.selectedAgendaIndex).patchValue(this.preMeetingForm.value)
+    console.log(this.preMeetingForm.value)
     this.modalService.dismissAll();
   }
 

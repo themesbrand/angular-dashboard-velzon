@@ -9,16 +9,21 @@ const data = {
         emailAddress: 'Abbas@email.com',
     },
     upcomingEvents : [
-        { name : 'Counseling Event 1', date : '2022-08-16', counselorName : 'Madan Al Abri' },
-        { name : 'Counseling Event 2', date : '2022-08-16', counselorName : 'Saleh Mahfoudh' },
-        { name : 'Counseling Event 3', date : null , counselorName : 'Madan Khan' },
-        { name : 'Counseling Event 4', date : null , counselorName : 'Madan Khan' },
-        { name : 'Counseling Event 5', date : null , counselorName : 'Madan Khan' },
-        { name : 'Counseling Event 6', date : null , counselorName : 'Madan Khan' }
+        { name : 'Counseling Event 1', date : '2022-08-16 08:00:00 AM', counselorName : 'Madan Al Abri' , assessmentCount : 5},
+        { name : 'Counseling Event 2', date : '2022-08-16 08:00:00 AM', counselorName : 'Saleh Mahfoudh' , assessmentCount : 2},
+        { name : 'Counseling Event 3', date : null , counselorName : 'N/A' , assessmentCount : 0}
+    ],
+    pastEvents : [
+        { name : 'Counseling Event 1', date : '2022-05-16 08:00:00 AM', counselorName : 'Madan Al Abri' , assessmentCount : 5},
+        { name : 'Counseling Event 2', date : '2022-05-22 08:00:00 AM', counselorName : 'Saleh Mahfoudh', assessmentCount : 2 },
+        { name : 'Counseling Event 3', date : '2022-05-26 08:00:00 AM', counselorName : 'Madan Al Abri' , assessmentCount : 7},
+        { name : 'Counseling Event 4', date : '2022-06-10 08:00:00 AM', counselorName : 'Saleh Mahfoudh' , assessmentCount : 4},
+        { name : 'Counseling Event 5', date : '2022-06-15 08:00:00 AM', counselorName : 'Madan Al Abri', assessmentCount : 3 },
+        { name : 'Counseling Event 6', date : '2022-06-26 08:00:00 AM', counselorName : 'Saleh Mahfoudh' , assessmentCount : 2},
     ],
     programReferralEvents : [
-        { nameOfCounselee : 'Madan Khan', dateOfRequest : '2022-07-15', scenario : 'Transfer'},
-        { nameOfCounselee : 'Madan Al Abri', dateOfRequest : '2022-07-12', scenario : 'Interruption'}
+        { nameOfCounselee : 'Madan Khan', dateOfRequest : '2022-07-15 08:00:00 AM', scenario : 'Transfer'},
+        { nameOfCounselee : 'Madan Al Abri', dateOfRequest : '2022-07-12 08:00:00 AM', scenario : 'Interruption'}
     ],
     nameOfCounselee : ['Madan Khan', 'Madan Al Abri'],
     scenario : ['Transfer', 'Interruption'],
@@ -47,9 +52,9 @@ const data = {
         {column1 : 'Antisocial', column2 : 'Patient'},
     ],
     assessmentData : [
-        {name : 'Assessment 1', assessmentPerformedBy : 'Madan Al Abri', assessmentData : '2020-06-10'},
-        {name : 'Assessment 2', assessmentPerformedBy : 'Madan Khan', assessmentData : '2020-07-10'},
-        {name : 'Assessment 3', assessmentPerformedBy : 'Madan Al Abri', assessmentData : '2020-07-15'},
+        {name : 'Assessment 1', assessmentPerformedBy : 'Madan Al Abri', assessmentData : '2020-06-10 08:00:00 AM'},
+        {name : 'Assessment 2', assessmentPerformedBy : 'Madan Khan', assessmentData : '2020-07-10 08:00:00 AM'},
+        {name : 'Assessment 3', assessmentPerformedBy : 'Madan Al Abri', assessmentData : '2020-07-15 08:00:00 AM'},
     ]
 }
 
