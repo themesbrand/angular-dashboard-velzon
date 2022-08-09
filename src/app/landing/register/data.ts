@@ -1,5 +1,6 @@
 import { Countries } from "src/app/enums/countries";
 import { Nationalities } from "src/app/enums/nationality";
+import { sharedData } from "src/app/shared/data/shared.data";
 
 const data = {
   residencyStatus: [
@@ -117,31 +118,11 @@ const data = {
     'Other'
   ],
   programs : [ 'Anesthesia', 'ENT', 'Medical Microbiology', 'Histopathology', 'General Surgery' ],
-  programTypes : [
-    'Specialty program',
-    'Fellowship program',
-    'GFP program',
-  ],
-  specialtyPrograms : [
-    'Anastasia',
-    'ENT',
-    'Medical Microbiology',
-    'Pediatrics',
-    'Histopathology',
-    'Emergency Medicine',
-    'General Surgery'
-  ],
-  fellowshipPrograms : [
-    'Adult Cardiology Fellowship'
-  ],
-  gfpPrograms : [
-    'Family Medicine',
-    'Emergency Medicine',
-    'Pediatrics',
-    'OBGYN',
-    'Medical',
-    'Surgical',
-  ],
+  programTypes : sharedData.programTypes,
+
+  specialtyPrograms : sharedData.specialtyPrograms,
+  fellowshipPrograms : sharedData.fellowshipPrograms,
+  gfpPrograms : sharedData.gfpPrograms,
   rolesOther: [
     'Faculty-Full Load',
     'Faculty-Partial- Load',

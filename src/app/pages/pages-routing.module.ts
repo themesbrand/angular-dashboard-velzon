@@ -123,6 +123,8 @@ import { ApplicantApplicationsListComponent } from './applicant-view/applicant-a
 import { ApplicantRecidencyProgramApplicationsComponent } from './applicant-view/applicant-applications-list/applicant-recidency-program-applications/applicant-recidency-program-applications.component';
 import { MmrDashboardMiniMedicalRecordComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard-mini-medical-record/mmr-dashboard-mini-medical-record.component';
 import { TraineeDatabaseComponent } from './scholarship-section/trainee-database/trainee-database.component';
+import { ManageExamsComponent } from './examinations/manage-exams/manage-exams.component';
+import { ManageExamsCreateExamComponent } from './examinations/manage-exams/manage-exams-create-exam/manage-exams-create-exam.component';
 
 const routes: Routes = [
     //Default Routing
@@ -296,6 +298,13 @@ const routes: Routes = [
         {path : "", component :  SupplementaryTrainingComponent },
         {path : "application", component :  SupplementaryTrainingApplicationFormComponent },
         {path : "view-application", component :  SupplementaryTrainingApplicationListComponent },
+      ]},
+    ]},
+
+    { path : 'examinations', children: [
+      { path : 'manage-exams', children: [
+        {path : "", component :  ManageExamsComponent },
+        {path : "create-exam", component :  ManageExamsCreateExamComponent },
       ]},
     ]},
 

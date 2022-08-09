@@ -225,5 +225,32 @@
                 "link": "admission/supplementary-training"
             }
         ]
+    },
+    {
+        "id": 39,
+        "label": "Examinations",
+        "icon": "  ri-pages-line",
+        "subItems" : [
+            {
+                "id": 40,
+                "label": "Manage Exams",
+                "link": "examinations/manage-exams"
+            },
+            {
+                "id": 41,
+                "label": "Registration",
+                "link": "examinations/registration"
+            },
+            {
+                "id": 42,
+                "label": "Withdrawal",
+                "link": "examinations/withdrawal"
+            },
+            {
+                "id": 43,
+                "label": "Results",
+                "link": "examinations/results"
+            }
+        ]
     }
 ]

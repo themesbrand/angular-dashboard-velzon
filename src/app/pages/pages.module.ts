@@ -217,6 +217,8 @@ import { ApplicantRecidencyProgramApplicationsComponent } from './applicant-view
 import { ApplicantRecidencyProgramApplicationsViewComponent } from './applicant-view/applicant-applications-list/applicant-recidency-program-applications-view/applicant-recidency-program-applications-view.component';
 import { MmrDashboardMiniMedicalRecordComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard-mini-medical-record/mmr-dashboard-mini-medical-record.component';
 import { TraineeDatabaseComponent } from './scholarship-section/trainee-database/trainee-database.component';
+import { ManageExamsComponent } from './examinations/manage-exams/manage-exams.component';
+import { ManageExamsCreateExamComponent } from './examinations/manage-exams/manage-exams-create-exam/manage-exams-create-exam.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -398,7 +400,9 @@ FullCalendarModule.registerPlugins([
     ApplicantRecidencyProgramApplicationsComponent,
     ApplicantRecidencyProgramApplicationsViewComponent,
     MmrDashboardMiniMedicalRecordComponent,
-    TraineeDatabaseComponent
+    TraineeDatabaseComponent,
+    ManageExamsComponent,
+    ManageExamsCreateExamComponent
   ],
   imports: [
     CommonModule,
