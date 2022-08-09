@@ -11,65 +11,170 @@
               <div class="card">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="d-flex flex-row w-100 justify-content-between align-items-center">
-                          <label class="form-label mb-0 text-nowrap" >Residency Status</label>
-                          <ng-select [items]="listData.residencyType" class="mx-3"
-                            formControlName="residencyStatus"
-                            placeholder="Please select" style="width: 285px !important">
-                          </ng-select>
-                      </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Nationality / Residency Status<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select 
+                          formControlName="residencyStatus" [items]="listData.residencyStatus" 
+                          placeholder="Please select">
+                      </ng-select>
                     </div>
-                    <div class="col-md-6">
-                      <div class="d-flex flex-row w-100 h-100 justify-content-between align-items-center">
-                        <label class="form-label mb-0 text-nowrap">Are you an OMSB member?</label>
-                        <div class="d-flex flex-row mx-3">
-                          <div class="form-check mx-1">
-                            <input class="form-check-input" type="radio" id="omsbMemeberCheckRadio1" formControlName="isOmsbMember" value="true">
-                            <label class="form-check-label" for="omsbMemeberCheckRadio1">Yes</label>
-                          </div>
-                          <div class="form-check mx-1">
-                            <input class="form-check-input" type="radio" id="omsbMemeberCheckRadio2" formControlName="isOmsbMember" value="false">
-                            <label class="form-check-label" for="omsbMemeberCheckRadio2">No</label>
-                          </div>
-                        </div>
-                      </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.residencyStatus === 'Omani National'">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">National ID<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" class="form-control" formControlName="nationalID">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Passport Number<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" class="form-control" formControlName="passportNumber">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Passport Expiry Date<span class="text-danger">{{ " *" }}</span></label>
+                      <input
+                          class="form-control flatpickr-input"
+                          type="text" mwlFlatpickr
+                          [altInput]="true" formControlName="passportExpiryDate"
+                          [convertModelValue]="true"
+                        />
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.residencyStatus === 'Omani National'">
+                    <div class="col-md-6 mb-3" *ngIf="!userDetailObject">
+                      <label class="form-label">Attach National ID<span class="text-danger">{{ " *" }}</span></label>
+                      <ngx-dropzone (change)="onSelect($event, 'nationalIdFiles')" [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of nationalIdFiles" [removable]="true" (removed)="onRemove(f, 'nationalIdFiles')">
+                        <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="!userDetailObject">
+                      <label class="form-label">Attach Passport<span class="text-danger">{{ " *" }}</span></label>
+                      <ngx-dropzone (change)="onSelect($event, 'passportFiles')" [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of passportFiles" [removable]="true" (removed)="onRemove(f, 'passportFiles')">
+                        <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="userDetailObject">
+                      <label class="form-label">Download National ID<span class="text-danger">{{ " *" }}</span></label>
+                      <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="userDetailObject">
+                      <label class="form-label">Download Passport<span class="text-danger">{{ " *" }}</span></label>
+                      <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.residencyStatus === 'Non Omani with a Civil ID'">
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Civil ID<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" class="form-control" formControlName="civilID">
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Country of Nationality<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select
+                        [items]="listData.countryList"
+                        placeholder="Please select"
+                        bindLabel="name"
+                        formControlName="countryOfNationality"
+                        bindValue="code">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Passport Number<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" class="form-control" formControlName="passportNumber">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Passport Issued Country<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select
+                        [items]="listData.countryList"
+                        placeholder="Please select"
+                        bindLabel="name"
+                        formControlName="passportIssuedCountry"
+                        bindValue="code">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Passport Expiry Date<span class="text-danger">{{ " *" }}</span></label>
+                      <input
+                          class="form-control flatpickr-input"
+                          type="text" mwlFlatpickr
+                          [altInput]="true" formControlName="passportExpiryDate"
+                          [convertModelValue]="true"
+                        />
+                    </div>
+                  </div>
+                  
+                  <div class="row" *ngIf="registrationFormValues.residencyStatus === 'Non Omani with a Civil ID'">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Attach Civil ID<span class="text-danger">{{ " *" }}</span></label>
+                      <ngx-dropzone (change)="onSelect($event, 'civilIdFiles')" [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of civilIdFiles" [removable]="true" (removed)="onRemove(f, 'civilIdFiles')">
+                        <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Attach Passport<span class="text-danger">{{ " *" }}</span></label>
+                      <ngx-dropzone (change)="onSelect($event, 'passportFiles')" [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of passportFiles" [removable]="true" (removed)="onRemove(f, 'passportFiles')">
+                        <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                    </div>
+                  </div>
+
+                  <div class="row" *ngIf="registrationFormValues.residencyStatus === 'Non Omani with no Civil ID'">
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Country of Nationality<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select
+                        [items]="listData.countryList"
+                        placeholder="Please select"
+                        bindLabel="name"
+                        formControlName="countryOfNationality"
+                        bindValue="code">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Passport Number<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" class="form-control" formControlName="passportNumber">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Passport Issued Country<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select
+                        [items]="listData.countryList"
+                        placeholder="Please select"
+                        bindLabel="name"
+                        formControlName="passportIssuedCountry"
+                        bindValue="code">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label class="form-label">Passport Expiry Date<span class="text-danger">{{ " *" }}</span></label>
+                      <input
+                          class="form-control flatpickr-input"
+                          type="text" mwlFlatpickr
+                          [altInput]="true" formControlName="passportExpiryDate"
+                          [convertModelValue]="true"
+                        />
+                    </div>                    
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Attach Passport<span class="text-danger">{{ " *" }}</span></label>
+                      <ngx-dropzone (change)="onSelect($event, 'passportFiles')" [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of passportFiles" [removable]="true" (removed)="onRemove(f, 'passportFiles')">
+                        <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                      </ngx-dropzone>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="row mt-3">
-                    <div class="col-md-6" *ngIf="formValues.isOmsbMember === 'true'">
-                      <div class="d-flex flex-row w-100 justify-content-between align-items-center">
-                          <label class="form-label mb-0 text-nowrap">Membership Type</label>
-                          <ng-select [items]="listData.membershipType" class="mx-3"
-                            formControlName="membershipType"
-                            placeholder="Please select" style="width: 285px !important">
-                          </ng-select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="d-flex flex-row w-100 h-100 justify-content-between align-items-center">
-                        <label class="form-label mb-0 text-nowrap">Are you employed?</label>
-                        <div class="d-flex flex-row mx-3">
-                          <div class="form-check mx-1">
-                            <input class="form-check-input" type="radio" id="isEmployedCheckRadio1" formControlName="isEmployed" value="true">
-                            <label class="form-check-label" for="isEmployedCheckRadio1">Yes</label>
-                          </div>
-                          <div class="form-check mx-1">
-                            <input class="form-check-input" type="radio" id="isEmployedCheckRadio2" formControlName="isEmployed" value="false">
-                            <label class="form-check-label" for="isEmployedCheckRadio2">No</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Personal Details -->
-              <p class="h4 my-3">Personal Details</p>
               <div class="card">
                 <div class="card-body">
                   <div class="row mt-3">
@@ -78,7 +183,7 @@
                       <input type="text" formControlName="firstName" class="form-control"/>
                     </div>
                     <div class="col-md-3 mb-3">
-                      <label class="form-label">Second Name (English)<span *ngIf="formValues.residencyStatus === 'Omani National'" class="text-danger">{{" *"}}</span></label>
+                      <label class="form-label">Second Name (English)<span *ngIf="registrationFormValues.residencyStatus === 'Omani National'" class="text-danger">{{" *"}}</span></label>
                       <input type="text" formControlName="secondName" class="form-control"/>
                     </div>
                     <div class="col-md-3 mb-3">
@@ -95,8 +200,7 @@
                     </div>
                     <div class="col-md-3 mb-3">
                       <label class="form-label">Gender<span class="text-danger">{{ " *" }}</span></label>
-                      <ng-select [items]="listData.gender" formControlName="gender"
-                        bindLabel="name" bindValue="value" placeholder="Please select">
+                      <ng-select [items]="['Male', 'Female']" formControlName="gender" placeholder="Please select">
                       </ng-select>
                     </div>
                     <div class="col-md-3 mb-3">
@@ -126,256 +230,434 @@
                   </div>
                 </div>
               </div>
-              <!-- Identification Details -->
-              <p class="h4 my-3">Identification Details</p>
               <div class="card">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                      <label class="form-label">Omani Resident/National/Government ID No.</label>
-                      <input type="text" formControlName="idNumber" class="form-control"/>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox"
+                        role="switch" id="flexSwitchCheckDefault" formControlName="isAssociatedWithOmsb"  (change)="onChange($event)"/>
+                        <label class="form-check-label" for="flexSwitchCheckDefault"
+                        >Are you associated with the OMSB organization?<span class="text-danger px-2">{{" * "}}</span></label>
+                      </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                      <p class="text-muted">Upload your Id (Front Side)</p>
-                      <input type="hidden" formControlName="idLinkFront">
-                      <ngx-dropzone (change)="onSelect($event, 'filesResidentIdFront')" [multiple]="false">
-                          <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of filesResidentIdFront" [removable]="true" (removed)="onRemove(f, 'filesResidentIdFront')">
-                            <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
+                    <div class="col-md-6 mb-3" *ngIf="registrationFormValues.isAssociatedWithOmsb === true">
+                      <label class="form-label">Role<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="role" 
+                        [items]="listData.role" 
+                        placeholder="Please select">
+                      </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3">
-                      <p class="text-muted">Upload your Id (Back Side)</p>
-                      <input type="hidden" formControlName="idLinkBack">
-                      <ngx-dropzone (change)="onSelect($event, 'filesResidentIdBack')" [multiple]="false">
-                          <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of filesResidentIdBack" [removable]="true" (removed)="onRemove(f, 'filesResidentIdBack')">
-                            <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
+                    <div class="col-md-6 mb-3" *ngIf="registrationFormValues.isAssociatedWithOmsb === false">
+                      <label class="form-label">Purpose<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="purpose" 
+                        [items]="listData.purposes" 
+                        placeholder="Please select">
+                      </ng-select>
                     </div>
-                    <div class="col-md-3 mb-3">
-                      <label class="form-label">Passport Number</label>
-                      <input type="text" formControlName="passportNumber" class="form-control"/>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <p class="text-muted">Upload your Passport</p>
-                      <input type="hidden" formControlName="passportLink">
-                      <ngx-dropzone (change)="onSelect($event, 'filesPassport')" [multiple]="false">
-                          <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of filesPassport" [removable]="true" (removed)="onRemove(f, 'filesPassport')">
-                            <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
-                    </div>
-                    <div class="col-md-3 mb-3" *ngIf="formValues.isEmployed === 'true'">
-                      <label class="form-label">Staff ID No./Work ID No.</label>
-                      <input type="text" formControlName="staffIdOrWorkId" class="form-control"/>
-                    </div>
-                    <div class="col-md-3 mb-3" *ngIf="formValues.isEmployed === 'true'">
-                      <p class="text-muted">Upload you Staff Id / Work Id</p>
-                      <input type="hidden" formControlName="staffIdLink">
-                      <ngx-dropzone (change)="onSelect($event, 'filesStaffId')" [multiple]="false">
-                          <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of filesStaffId" [removable]="true" (removed)="onRemove(f, 'filesStaffId')">
-                            <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                        </ngx-dropzone>
-                    </div>
-                    
                   </div>
-                </div>
-              </div>
-              <!-- Employment Details  -->
-              <p class="h4 my-3">Employment Details </p>
-              <div class="card">
-                <div class="card-body">
-                  <div class="row">
+                  <div class="row" *ngIf="registrationFormValues.role === 'Staff'">
                     <div class="col-md-4 mb-3">
-                      <label class="form-label">Profession<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.profession" formControlName="profession"
+                      <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="department" 
+                        [items]="listData.departments" 
+                        bindLabel="name"
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.department?.sections !== null">
+                      <label class="form-label">Section<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="section" 
+                        [items]="registrationFormValues.department.sections" 
                         placeholder="Please select">
                       </ng-select>
                     </div>
                     <div class="col-md-4 mb-3">
-                      <label class="form-label">Primary specialty<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.specialty" formControlName="primarySpecialty" placeholder="Please select">
+                      <label class="form-label">Position
+                        <span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="position" 
+                        [items]="listData.positions" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.primarySpecialty === 'Other'">
-                      <label class="form-label">Specify if other Specialty<span class="text-danger">{{" *"}}</span></label>
-                      <input type="text" formControlName="ifOtherPrimarySpecialty" class="form-control"/>
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.position === 'Other'">
+                      <label class="form-label">If other, position
+                        <span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control" formControlName="ifOtherPosition">
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.position === 'Program Administrator'">
+                      <label class="form-label">Program
+                        <span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="program" 
+                        [items]="listData.programs" 
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.role === 'Faculty'">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Program Type<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="programType" 
+                        [items]="listData.programTypes" 
+                        placeholder="Please select">
+                      </ng-select>
                     </div>
                     <div class="col-md-4 mb-3">
-                      <label class="form-label">Secondary specialty<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.specialty" formControlName="secondarySpecialty" placeholder="Please select">
+                      <label class="form-label">Program Name<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="programName" 
+                        [items]="programNames" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.secondarySpecialty === 'Other'">
-                      <label class="form-label">Specify if other Specialty<span class="text-danger">{{" *"}}</span></label>
-                      <input type="text" formControlName="ifOtherSecondarySpecialty" class="form-control"/>
-                    </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.isEmployed === 'true'">
-                      <label class="form-label">Job Title / Designation<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.jobTitle" formControlName="jobTitle" placeholder="Please select">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Role<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="facultyRole" 
+                        [items]="listData.rolesOther" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.isEmployed === 'true'">
-                      <label class="form-label">Primary Workplace Sector Type<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.sector" formControlName="primaryWorkplaceSectorType" placeholder="Please select">
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.role === 'Trainee'">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Program Type<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="programType" 
+                        [items]="listData.programTypes" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable' && formValues.isEmployed === 'true'">
-                      <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.governmentSectorInstitutes" formControlName="primarySectorName" placeholder="Please select">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Program Name<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="programName" 
+                        [items]="programNames" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.privateSectorInstitutes" formControlName="primarySectorName" placeholder="Please select">
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.role === 'Subject Matter Expert'">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="department" 
+                        [items]="listData.departments" 
+                        bindLabel="name"
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.primarySectorName === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Specify if other Sector Name<span class="text-danger">{{" *"}}</span></label>
-                      <input type="text" formControlName="ifOtherPrimarySector" class="form-control">
-                    </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Region of Primary Workplace<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.regions" formControlName="regionOfPrimaryWorkplace" placeholder="Please select">
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.department?.sections !== null">
+                      <label class="form-label">Section<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="section" 
+                        [items]="registrationFormValues.department.sections" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Secondary Workplace Sector Type<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.sector" formControlName="secondaryWorkplaceSectorType" placeholder="Please select">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Position
+                        <span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="position" 
+                        [items]="listData.positions" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Government' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Secondary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.governmentSectorInstitutes" formControlName="secondarySectorName" placeholder="Please select">
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.position === 'Other'">
+                      <label class="form-label">If other, position
+                        <span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control" formControlName="ifOtherPosition">
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.purpose === 'Join as a new Faculty/Education Committee member'">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Program Type<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="programType" 
+                        [items]="listData.programTypes" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Private' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Secondary Sector Name/Institution<span class="text-danger">{{" *"}}</span></label>
-                      <ng-select [items]="listData.privateSectorInstitutes" formControlName="secondarySectorName" placeholder="Please select">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Program Name<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="programName" 
+                        [items]="programNames" 
+                        placeholder="Please select">
                       </ng-select>
                     </div>
-                    <div class="col-md-4 mb-3" *ngIf="formValues.secondaryWorkplaceSectorType === 'Other' && formValues.primaryWorkplaceSectorType != 'Non-Applicable'  && formValues.isEmployed === 'true'">
-                      <label class="form-label">Specify if other Sector Name<span class="text-danger">{{" *"}}</span></label>
-                      <input type="text" formControlName="ifOtherSecondarySectorName" class="form-control">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Role in the program<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="roleInTheProgram" 
+                        [items]="listData.rolesOther" 
+                        placeholder="Please select">
+                      </ng-select>
                     </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.purpose === 'Join as Subject Matter Expert'">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Department<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="department" 
+                        [items]="listData.departments" 
+                        bindLabel="name"
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.department?.sections !== null">
+                      <label class="form-label">Section<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="section" 
+                        [items]="registrationFormValues.department.sections" 
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Position
+                        <span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="position" 
+                        [items]="listData.positions" 
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="registrationFormValues.position === 'Other'">
+                      <label class="form-label">If other, position
+                        <span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control" formControlName="ifOtherPosition">
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.purpose === 'Apply for verification of Certificates'">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Dataflow Reference Number, if available<span class="text-danger">{{ " *" }}</span></label>
+                      <input type="text" formControlName="dataFlowRef" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="registrationFormValues.purpose === 'Join Interview or judging panel'">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Purpose<span class="text-danger">{{ " *" }}</span></label>
+                      <ng-select formControlName="purposeOther" 
+                        [items]="listData.purposesOther" 
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card" >
+                <div class="card-body" formArrayName="employment" >
+                  <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">Employment</p>
+                    <a
+                      (click)="addEmployment()"
+                      href="javascript:void(0);"
+                      class="link-primary"
+                      ><i class="ri-add-box-line"></i>Add more</a
+                    >
+                  </div>
+                  <div class="mt-2 d-flex flex-column  p-3 bg-light"
+                      *ngFor="let employer of employmentControls; let i = index"
+                      [formGroupName]="i">
+                      <div class="d-flex flex-row justify-content-end align-items-center">
+                        <a (click)="onDeleteEmployment(i)" class="link-danger"
+                          ><i class="ri-delete-bin-5-line"></i
+                        ></a>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Profession
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.professions"
+                            placeholder="Please select"
+                            formControlName="profession">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.profession === 'Other'">
+                          <label class="form-label">If Other, profession
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Primary specialty
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.primarySpecialty"
+                            placeholder="Please select"
+                            formControlName="primarySpecialty">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.primarySpecialty === 'Other'">
+                          <label class="form-label">If Other, Primary specialty
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Secondary specialty, if any<span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.primarySpecialty"
+                            placeholder="Please select"
+                            formControlName="secondarySpecialty">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.secondarySpecialty === 'Other'">
+                          <label class="form-label">If Other, Primary specialty
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Job title/designation<span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.jobDesignations"
+                            placeholder="Please select"
+                            formControlName="jobDesignation">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.jobDesignation === 'Other'">
+                          <label class="form-label">If Other, Job Title / designation
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Primary Workplace Sector Type <span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.primaryWorkPlaceSectors"
+                            placeholder="Please select"
+                            formControlName="primaryWorkPlaceSector">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.primaryWorkPlaceSector === 'Other'">
+                          <label class="form-label">If Other, Primary Workplace Sector Type<span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Primary Sector Name/Institution<span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.primarySectorNames"
+                            placeholder="Please select"
+                            formControlName="primarySectorName">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.primarySectorName === 'Other'">
+                          <label class="form-label">If Other, Primary Sector Name/Institution<span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label class="form-label">Region/Location of Primary Workplace<span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.primaryWorkRegions"
+                            placeholder="Please select"
+                            formControlName="primaryWorkRegion">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3" *ngIf="employmentControls[i].value.primaryWorkRegion === 'Other'">
+                          <label class="form-label">If Other, Region/Location of Primary Workplace<span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+
                   </div>
                 </div>
               </div>
-              <!-- Employment Details  -->
-              <div class="d-flex flex-row justify-content-between">
-                <p class="h4">Education Details</p>
-                <a
-                  (click)="addEducation()"
-                  href="javascript:void(0);"
-                  class="link-primary"
-                  ><i class="ri-add-box-line"></i>Add more</a
-                >
-              </div>
-              <div formArrayName="education">
-                <div class="d-flex flex-column"
-                  *ngFor="let schools of educationControls; let i = index"
-                  [formGroupName]="i">
-                  <div class="d-flex flex-row justify-content-end align-items-center">
-                    <a (click)="onDeleteEducation(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+              <div class="card" >
+                <div class="card-body" formArrayName="education" >
+                  <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">Education</p>
+                    <a
+                      (click)="addEducation()"
+                      href="javascript:void(0);"
+                      class="link-primary"
+                      ><i class="ri-add-box-line"></i>Add more</a
+                    >
                   </div>
-                  <div class="card">
-                    <div class="card-body">
+                  <div class="mt-2 d-flex flex-column  p-3 bg-light"
+                      *ngFor="let schools of educationControls; let i = index"
+                      [formGroupName]="i">
+                      <div class="d-flex flex-row justify-content-end align-items-center">
+                        <a (click)="onDeleteEducation(i)" class="link-danger"
+                          ><i class="ri-delete-bin-5-line"></i
+                        ></a>
+                      </div>
                       <div class="row">
                         <div class="col-md-3 mb-3">
-                          <label class="form-label">Qualification<span class="text-danger">{{ " *" }}</span></label>
-                          <input type="text" formControlName="qualification" class="form-control" />
+                          <label class="form-label">Qualification
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.qualifications"
+                            placeholder="Please select"
+                            bindLabel="name"
+                            formControlName="qualification">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-3 mb-3" *ngIf="educationControls[i].value.qualification === 'Other'">
+                          <label class="form-label">If other, qualification
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <input type="text" class="form-control">
                         </div>
                         <div class="col-md-3 mb-3">
                           <label class="form-label">Country of Institution<span class="text-danger">{{ " *" }}</span></label>
-                          <ng-select [items]="listData.countryList"
-                            placeholder="Please select" bindLabel="name" formControlName="country"
-                            bindValue="name">
+                          <ng-select
+                            [items]="listData.countryList"
+                            placeholder="Please select"
+                            bindLabel="name"
+                            formControlName="country"
+                            bindValue="code">
                           </ng-select>
                         </div>
                         <div class="col-md-3 mb-3">
-                          <label class="form-label">University / Institution<span class="text-danger">{{ " *" }}</span></label>
-                          <ng-select [items]="listData.universities"
-                            placeholder="Please select" formControlName="universityOrInstitution">
+                          <label class="form-label">University/Institution
+                          <span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                            [items]="listData.institution"
+                            placeholder="Please select"
+                            bindLabel="name"
+                            formControlName="institution">
                           </ng-select>
                         </div>
-                        <div class="col-md-3 mb-3" *ngIf="formValues.education[i].universityOrInstitution === 'Other'">
-                          <label class="form-label" >Specify if Institution<span class="text-danger">{{ " *" }}</span></label>
-                          <input type="text" formControlName="ifOtherUniversityOrInstitution" class="form-control" />
-                        </div>
-                        <div class="col-md-3">
-                          <label class="form-label">Year of Graduation<span class="text-danger">{{ " *" }}</span></label>
-                          <ng-select [items]="listData.intakeYears"
-                            placeholder="Please select" formControlName="graduationYear">
-                          </ng-select>
-                        </div>
-                        
                       </div>
-                    </div>
+
                   </div>
                 </div>
-              </div>
-              <p class="h4 my-3">Verification Details </p>
-              <div class="card">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label">Dataflow Reference Number, if available<span class="text-danger">{{" *"}}</span></label>
-                      <input type="text" formControlName="dataflowRef" class="form-control">
+                    <div class="col-md-12 mb-3" *ngIf="!userDetailObject">
+                      <label class="form-label">Attach your CV<span class="text-danger">{{ " *" }}</span></label>
+                      <ngx-dropzone (change)="onSelect($event, 'nationalIdFiles')" [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of cvFiles" [removable]="true" (removed)="onRemove(f, 'cvFiles')">
+                        <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                      </ngx-dropzone>
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="userDetailObject">
+                      <label class="form-label">Download CV<span class="text-danger">{{ " *" }}</span></label>
+                      <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
                     </div>
                   </div>
                 </div>
               </div>
-              <p class="h4 my-3" *ngIf="userDetailObject === undefined">Confirmation</p>
-              <div class="card">
+              <div class="card" *ngIf="!userDetailObject">
                 <div class="card-body">
-                  <div class="row mt-3" *ngIf="userDetailObject === undefined">
-                    <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <label class="form-label">Username<span class="text-danger">{{" *"}}</span></label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-12 mb-3">
                       <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleOne" formControlName="confirmationToggleOne"/>
-                          <label class="form-check-label" for="confirmationToggleOne">I agree to have my general information (name, specialty and workplace) presented.</label>
+                        <input class="form-check-input" type="checkbox"
+                        role="switch" id="flexSwitchCheckDefault" />
+                        <label class="form-check-label" for="flexSwitchCheckDefault"
+                        >I agree to have my general information (name, specialty and workplace) presented in the OMSB Public Healthcare Professionals Directory.<span class="text-danger px-2">{{" * "}}</span></label>
                       </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                       <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleTwo" formControlName="confirmationToggleTwo"/>
-                          <label class="form-check-label" for="confirmationToggleTwo">In the OMSB Public Healthcare Professionals Directory.</label>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleThree" formControlName="confirmationToggleThree"/>
-                          <label class="form-check-label" for="confirmationToggleThree">I do not agree to have my general information (name, specialty and workplace) presented.</label>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleFour" formControlName="confirmationToggleFour"/>
-                          <label class="form-check-label" for="confirmationToggleFour">In the OMSB Public Healthcare Professionals Directory.</label>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="confirmationToggleFive" formControlName="confirmationToggleFive"/>
-                          <label class="form-check-label" for="confirmationToggleFive">I declare that all of the information provided by me in this form is true and correct to the best of my knowledge.</label>
+                        <input class="form-check-input" type="checkbox"
+                        role="switch" id="flexSwitchCheckDefault" />
+                        <label class="form-check-label" for="flexSwitchCheckDefault"
+                        >I declare that all of the information provided by me in this form is true and correct to the best of my knowledge.<span class="text-danger px-2">{{" * "}}</span></label>
                       </div>
                     </div>
                   </div>
+                  <div class="d-flex flex-row">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>                  
                 </div>
               </div>
-              <div class="row">
-                <div class="d-flex flex-row w-100 justify-content-end">
-                  <button class="btn btn-primary mt-3" type="submit">Submit</button>
-                </div>
-              </div>
+
             </form>
           </div>
-          <!-- end card body -->
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 
 import {data} from './data';
 
+import {userDetails} from 'src/app/landing/application-forms/data';
 
 @Component({
   selector: 'app-research-consultation-request-form',
@@ -33,43 +34,7 @@ export class ResearchConsultationRequestFormComponent implements OnInit {
 
   consultantFeedbackForm !: FormGroup;
 
-  userDetails: any = {
-    'residencyStatus' : 'Omani National',
-    'isOmsbMember' : 'true',
-    'membershipType' : 'Staff',
-    'isEmployed' : 'true',
-    'firstName' : 'Abbas',
-    'thirdName' : 'Al',
-    'familyName' : 'Ajmi',
-    'fullNameInArabic' : 'عباس أل أجمع',
-    'gender' : 'male',
-    'nationality' : 'Omani',
-    'birthDate' : '1984-09-15',
-    'email' : 'abbas@gmail.com',
-    'contactNumber' : '132153213',
-  
-    'idNumber' : '97513256',
-    'passportNumber' : '26934345',
-    'staffIdOrWorkId' : '24651923',
-
-    'profession' : 'Doctor',
-    'primarySpecialty' : 'Medical',
-    'secondarySpecialty' : 'Other',
-    'ifOtherSecondarySpecialty' : 'Other',
-    'jobTitle' : 'OPD Consultant Doctor',
-    'primaryWorkplaceSectorType' : 'Government',
-    'primarySectorName' : 'Diwan Medical Service',
-    'regionOfPrimaryWorkplace' : 'Value 1',
-    'secondaryWorkplaceSectorType' : 'Non-Applicable',  
-    'education' : [
-      {'qualification' : 'BSC', 
-      'country' : 'Oman', 
-      'universityOrInstitution': 'Other', 
-      'ifOtherUniversityOrInstitution' : 'Dhofar University',
-      'graduationYear' : '2015'}
-    ],
-    'dataflowRef' : '#SC56-513213548' 
-  };
+  userDetails: any = userDetails;
 
   applicationForm !: FormGroup
 
