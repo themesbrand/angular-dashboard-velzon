@@ -40,8 +40,31 @@
             {
                 "id": 8,
                 "label": "Supplementary Training",
-                "link": "admission/supplementaryTraining"
+                "link": "admission/supplementary-training"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "label": "Examinations",
+        "icon": "  ri-pages-line",
+        "subItems" : [
+            {
+                "id": 10,
+                "label": "Registration",
+                "link": "examinations/registration"
+            },
+            {
+                "id": 11,
+                "label": "Withdrawal",
+                "link": "examinations/withdrawal"
+            },
+            {
+                "id": 12,
+                "label": "Results",
+                "link": "examinations/results"
             }
         ]
     }
+    
 ]

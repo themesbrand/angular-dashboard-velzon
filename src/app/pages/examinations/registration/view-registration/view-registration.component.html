@@ -1,0 +1,208 @@
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-2 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+                    <label class="form-lable">Trainee Name</label>
+                    <ng-select 
+                    [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Program Name</label>
+                    <ng-select 
+                    [items]="listData.residencyPrograms" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Type</label>
+                    <ng-select 
+                    [items]="listData.typeOfExams" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Start and End Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                                    [convertModelValue]="true" mode="range">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Status</label>
+                    <ng-select 
+                    [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <button class="btn btn-primary" (click)="onSearch()">Search</button>
+                </div>
+            </div>
+            <div class="row mt-1" *ngIf="isSearched">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Program Name</th>
+                                    <th scope="col">Exam Type</th>
+                                    <th scope="col">Exam Start Date</th>
+                                    <th scope="col">Exam End Date</th>
+                                    <th scope="col">Attempt No</th>
+                                    <th scope="col">Reg Fee</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let exam of listData.tableData">
+                                <tr>
+                                    <td>{{exam.programName}}</td>
+                                    <td>{{exam.examType}}</td>
+                                    <td>{{exam.examStartDate}}</td>
+                                    <td>{{exam.examEndDate}}</td>
+                                    <td>{{exam.attempt}}</td>
+                                    <td>{{exam.registrationFee}}</td>
+                                    <td class="text-end">
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(viewExam, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Details</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="4" class="p-0">
+                                        <div class="live-preview">     
+                                            <div class="table-responsive">
+                                                <table class="table align-middle table-hover table-wrap mb-0">
+                                                    <thead>
+                                                        <th scope="col">Exam Date</th>
+                                                        <th scope="col">Exam Time</th>
+                                                        <th scope="col">Venue</th>
+                                                        <th scope="col">Seats Remaining</th>
+                                                        <th scope="col"></th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let examDate of exam.examDates">
+                                                            <td>{{examDate.examDate}}</td>
+                                                            <td>{{examDate.examTime}}</td>
+                                                            <td>{{examDate.venue}}</td>
+                                                            <td>{{examDate.seatsRemaining}}</td>
+                                                            <td class="text-end">
+                                                                <div class="dropdown" ngbDropdown>
+                                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                        <i class="ri-more-2-fill"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                        <li  (click)="openModal(registerTrainee, 'xl')">
+                                                                            <a class="dropdown-item" ><i class="mx-1 ri-book-2-line"></i>Register</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+            <div class="row mt-1" *ngIf="isSearched">
+                <p class="h5 text-success my-3">Registered Exams</p>
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Exam Date</th>
+                                    <th scope="col">Exam Time</th>
+                                    <th scope="col">Days Remaining</th>
+                                    <th scope="col">Payment Date</th>
+                                    <th scope="col">Venue</th>
+                                    <th scope="col">Registered On</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col" *ngIf="userRole === 'trainee@omsb.org'"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let examData of pageData.registeredExamData">
+                                    <td>{{examData.examDate}}</td>
+                                    <td>{{examData.examTime}}</td>
+                                    <td>{{examData.daysRemaining}}</td>
+                                    <td>{{examData.paymentDate}}</td>
+                                    <td>{{examData.venue}}</td>
+                                    <td>{{examData.registeredOn}}</td>
+                                    <td>{{examData.status}}</td>
+                                    <td class="text-end" *ngIf="userRole === 'trainee@omsb.org'">
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li *ngIf="examData.status === 'Payment Pending'">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-coins-fill"></i>Complete Payment</a></li>
+                                                <li  (click)="openModal(withdrawalRequest, 'xl')" *ngIf="examData.status != 'Withdrawn'" >
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-download-line"></i>Withdraw</a></li>
+                                                <li *ngIf="examData.status === 'Withdrawn'">
+                                                    <a class="dropdown-item" >No Action</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #viewExam let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Exam</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-exam [examData]="pageData.examObject"></app-create-exam>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #registerTrainee let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Register</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-registration></app-create-registration>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #withdrawalRequest let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Withdrawal Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-withdrawal-request></app-withdrawal-request>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+

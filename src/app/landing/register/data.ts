@@ -120,7 +120,7 @@ const data = {
   programs : [ 'Anesthesia', 'ENT', 'Medical Microbiology', 'Histopathology', 'General Surgery' ],
   programTypes : sharedData.programTypes,
 
-  specialtyPrograms : sharedData.specialtyPrograms,
+  residencyPrograms : sharedData.residencyPrograms,
   fellowshipPrograms : sharedData.fellowshipPrograms,
   gfpPrograms : sharedData.gfpPrograms,
   rolesOther: [

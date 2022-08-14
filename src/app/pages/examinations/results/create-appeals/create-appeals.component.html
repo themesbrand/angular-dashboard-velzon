@@ -1,0 +1,82 @@
+<div class="mt-3">
+    <form [formGroup]="createAppealForm">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Exam Ref ID</label>
+                        <input type="text" class="form-control" value="XS-1334191" [disabled]="true">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Exam Name</label>
+                        <ng-select formControlName="examName" [disabled]="true"
+                            [items]="['Part 1 Exam']" placeholder="Please select">
+                            </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Exam Date</label>
+                        <input class="form-control flatpickr-input"     
+                        formControlName="examDate" [disabled]="true"
+                            type="text"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            [convertModelValue]="true"/>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Exam Time</label>
+                        <input type="text" class="form-control" value="08:00 AM to 10:00 AM" [disabled]="true">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Result</label>
+                        <ng-select formControlName="result" [disabled]="true"
+                            [items]="['Pass']" placeholder="Please select">
+                            </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Percentage</label>
+                        <input type="text" class="form-control" value="86%" [disabled]="true">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Applicable Fees</label>
+                        <input type="text" class="form-control" value=" ر.ع.250 " [disabled]="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body"  formArrayName="supportingDocuments">
+                <div class="d-flex flex-row justify-content-end">
+                    <a  (click)="addSupportingDocumentsArray()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="mt-2 d-flex flex-column border shadow p-3"
+                *ngFor="let document of supportingDocumentsArrayControls; let i = index"
+                [formGroupName]="i">
+                    <div  class="d-flex flex-row justify-content-end align-items-center">
+                        <a (click)="onDeleteSupportingDocumentsArray(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="text" class="form-control" formControlName="title">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p class="text-muted">Supporting Documents.<span class="text-danger">{{ " *" }}</span>
+                            </p>
+                            <ngx-dropzone (change)="onSelect($event, 'filesSupportingDocuments')"
+                            [multiple]="false">
+                            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of filesSupportingDocuments"
+                                [removable]="true" (removed)="onRemove(f, 'filesSupportingDocuments')">
+                                <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,230 @@
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-2 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button  *ngIf="userRole === 'trainee@omsb.org'"  (click)="onNavigate('/examinations/registration')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Withdrawal Request</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+                    <label class="form-lable">Trainee Name</label>
+                    <ng-select 
+                    [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Program Name</label>
+                    <ng-select 
+                    [items]="listData.residencyPrograms" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Type</label>
+                    <ng-select 
+                    [items]="listData.typeOfExams" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Start and End Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [convertModelValue]="true" mode="range">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Status</label>
+                    <ng-select 
+                    [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>     
+            <div class="row mt-1">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Program Name</th>
+                                    <th scope="col">Exam Type</th>
+                                    <th scope="col">Exam Date</th>
+                                    <th scope="col">Exam Time</th>
+                                    <th scope="col">Reason</th>
+                                    <th scope="col">Attachments</th>
+                                    <th scope="col">Created On</th>
+                                    <th scope="col" *ngIf="userRole === 'eportal@omsb.org'">Created By</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let examData of tableData">
+                                <tr>
+                                    <td>{{examData.programName}}</td>
+                                    <td>{{examData.examType}}</td>
+                                    <td>{{examData.examDate}}</td>
+                                    <td>{{examData.examTime}}</td>
+                                    <td>{{examData.reason}}</td>
+                                    <td>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </td>
+                                    <td>{{examData.createdOn}}</td>
+                                    <td *ngIf="userRole === 'eportal@omsb.org'">{{examData.createdBy}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setExamData(examData)" style="cursor: pointer; color: rgb(3, 3, 147)">{{examData.status}}</td>
+                                    <td *ngIf="userRole === 'trainee@omsb.org'" class="text-end">
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(withdrawalRequest, 'lg')">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-edit-line"></i>Edit</a></li>
+                                                <li>
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-send-plane-fill"></i>Send</a></li>
+                                                <li (click)="openModal(addComments, 'md')">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-chat-1-line"></i>Add Comments</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td *ngIf="userRole === 'eportal@omsb.org'" class="text-end">
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li>
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-check-double-fill"></i>Approve</a></li>
+                                                <li>
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-close-line"></i>Reject</a></li>
+                                                <li>
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-arrow-go-forward-fill"></i>Return</a></li>
+                                                <li (click)="openModal(addComments, 'md')">
+                                                    <a class="dropdown-item" ><i class="mx-1   ri-chat-1-line"></i>Add Comment</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td *ngIf="userRole === 'trainee@omsb.org'" ></td>
+                                    <td *ngIf="userRole === 'eportal@omsb.org'" colspan="2"></td>
+                                    <td colspan="6" class="p-0">
+                                        <div class="live-preview">     
+                                            <div class="table-responsive">
+                                                <table class="table align-middle table-hover table-wrap mb-0">
+                                                    <thead>
+                                                        <th scope="col">Comments</th>
+                                                        <th scope="col">Created On</th>
+                                                        <th scope="col">Created By</th>
+                                                        <th scope="col"></th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let comment of examData.comments">
+                                                            <td>{{comment.comments}}</td>
+                                                            <td>{{comment.createdOn}}</td>
+                                                            <td>{{comment.createdBy}}</td>
+                                                            <td class="text-end">
+                                                                <div class="dropdown" ngbDropdown>
+                                                                    <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                                        <i class="ri-more-2-fill"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                                        <li (click)="openModal(editComments, 'md')">
+                                                                            <a class="dropdown-item" ><i class="mx-1 ri-edit-line"></i>Edit</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #withdrawalRequest let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Withdrawal Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-withdrawal-request [withdrawalRequest]="formObject"></app-withdrawal-request>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #addComments let-modal>
+    <div class="modal-content ">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Comments</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-withdrawal-add-comments></app-withdrawal-add-comments>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #editComments let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Edit Comments</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-withdrawal-add-comments [comment]="commentObject"></app-withdrawal-add-comments>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #requestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Application Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedRequest.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Complete' ? 'badge-soft-secondary' : 'badge-soft-warning' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === null ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === null ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

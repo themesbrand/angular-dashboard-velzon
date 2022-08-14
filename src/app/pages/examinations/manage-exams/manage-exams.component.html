@@ -1,20 +1,20 @@
 <div class="row card-box">
-    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate border shadow" (click)="onNavigate('/examinations/manage-exams/create-exam')">
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card card-animate border shadow" (click)="onNavigate('/examinations/manage-exams/view-exam')">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
                 <div class="d-flex card-thumbnail">
-                    CE
+                    Ex
                 </div>
             </div>
             <div class="card-body py-2">
-                <p class="h5">Create Exam</p>
+                <p class="h5">View Exam</p>
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate border shadow" (click)="onNavigate('/examinations/manage-exams/exam-dates')">
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card card-animate border shadow" (click)="onNavigate('/examinations/manage-exams/view-exam/view-exam-dates')">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
@@ -23,21 +23,21 @@
                 </div>
             </div>
             <div class="card-body py-2">
-                <p class="h5">Exam Dates</p>
+                <p class="h5">View Exam Dates</p>
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate border shadow" (click)="onNavigate('/examinations/manage-exams/notifications')">
+    <div class="col-md-3 col-12 mb-3">
+        <div class="card card-animate border shadow" (click)="onNavigate('/examinations/manage-exams/view-exam/view-notifications')">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
                 <div class="d-flex card-thumbnail">
-                    No
+                    EN
                 </div>
             </div>
             <div class="card-body py-2">
-                <p class="h5">Notifications</p>
+                <p class="h5">View Exam Notifications</p>
             </div>
         </div>
     </div>

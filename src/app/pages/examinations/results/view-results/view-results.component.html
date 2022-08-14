@@ -1,0 +1,143 @@
+<app-breadcrumbs title="View Results" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/examinations/results')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-2 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button *ngIf="userRole === 'eportal@omsb.org'" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class="ri-file-excel-2-line label-icon align-middle fs-16 me-2"></i>Upload Results</button>
+                        <button *ngIf="userRole === 'eportal@omsb.org'" (click)="openModal(addResult, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add Result</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+                    <label class="form-lable">Trainee Name</label>
+                    <ng-select 
+                    [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Program Name</label>
+                    <ng-select 
+                    [items]="listData.residencyPrograms" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Type</label>
+                    <ng-select 
+                    [items]="listData.typeOfExams" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Start and End Range</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                                    [convertModelValue]="true" mode="range">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Status</label>
+                    <ng-select 
+                    [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" *ngIf="userRole === 'eportal@omsb.org'">Trainee</th>
+                                    <th scope="col">Exam Ref ID</th>
+                                    <th scope="col">Exam Name</th>
+                                    <th scope="col">Exam Date</th>
+                                    <th scope="col">Result</th>
+                                    <th scope="col">Percentage</th>
+                                    <th scope="col">Performance Report</th>
+                                    <th scope="col">No of Appeals</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let result of pageData.tableData">
+                                <tr>
+                                    <td *ngIf="userRole === 'eportal@omsb.org'">{{result.trainee}}</td>
+                                    <td>{{result.examRefId}}</td>
+                                    <td>{{result.examType}}</td>
+                                    <td>{{result.examDate}}</td>
+                                    <td>{{result.results}}</td>
+                                    <td>{{result.percentage}}</td>
+                                    <td>
+                                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                    </td>
+                                    <td>{{result.noOfAppeals}}</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class=" ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li *ngIf="userRole === 'eportal@omsb.org'" (click)="openModal(editResult, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-edit-line"></i>Edit</a></li>
+                                                <li *ngIf="userRole === 'trainee@omsb.org'" (click)="openModal(appealResult, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-file-paper-line"></i>Appeal</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addResult let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add Result</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-result></app-create-result>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #editResult let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Edit Result</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-result [examResult]="pageData.tableData[0]"></app-create-result>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #appealResult let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Submit Appeal</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-appeals></app-create-appeals>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

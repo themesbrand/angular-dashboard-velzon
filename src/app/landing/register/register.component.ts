@@ -133,10 +133,10 @@ export class RegistrationComponent implements OnInit {
 
   onChangeFormValues() {
     this.registrationForm.valueChanges.subscribe(res => {
-      if(res.programType === "Specialty program") {
-        this.programNames = this.listData.specialtyPrograms
+      if(res.programType === "Residency Program") {
+        this.programNames = this.listData.residencyPrograms
       }
-      if(res.programType === "Fellowship program") {
+      if(res.programType === 'Fellowship Program') {
         this.programNames = this.listData.fellowshipPrograms
       }
       if(res.programType === "GFP program") {

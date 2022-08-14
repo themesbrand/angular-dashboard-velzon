@@ -1,0 +1,269 @@
+<div class="mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Type<span class="text-danger">*</span></label>
+                    <ng-select
+                        [items]="['Fellowship Exit Exam']"
+                        ngModel="Fellowship Exit Exam" [disabled]=true
+                        placeholder="Please select"
+                    ></ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Date<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="2022-10-03" [disabled]="true">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Exam Time<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="08:00 AM to 11:00 PM" [disabled]="true">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Program Name<span class="text-danger">*</span></label>
+                    <ng-select
+                        [items]="['ENT']"
+                        ngModel="ENT" [disabled]=true
+                        placeholder="Please select"
+                    ></ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Attempt No<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="1" [disabled]="true">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">Trainee Details</p>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">First Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="Abbas">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Second Name</label>
+                    <input type="text" class="form-control" value="Al">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Third Name</label>
+                    <input type="text" class="form-control" value="N/A">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Family Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="Ajmi">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">First Name Arabic</label>
+                    <input type="text" class="form-control" value="عباس">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Second Name Arabic</label>
+                    <input type="text" class="form-control" value="ال">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Third Name Arabic</label>
+                    <input type="text" class="form-control" value="N/A">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Family Name Arabic</label>
+                    <input type="text" class="form-control" value="العجمي">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Nationality<span class="text-danger">*</span></label>
+                    <ng-select
+                        name="nationality"
+                        [items]="listData.nationalities"
+                        bindLabel="name"
+                        ngModel="OM"
+                        bindValue="code"
+                        placeholder="Please select"
+                    ></ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Place of Birth<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="Muscat, Oman" [disabled]="true">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Gender<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="Male" [disabled]="true">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">DoB<span 
+                        class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="1970-10-15" [disabled]="true">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">Passport Details</p>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Passport Number<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="12348529317">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Passport expiry Date</label>
+                    <input class="form-control flatpickr-input"
+                        type="text"
+                        mwlFlatpickr
+                        [altInput]="true"
+                        ngModel="2030-10-15"
+                        [convertModelValue]="true"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">National ID Info</p>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">National/Resident ID No.<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="456789131321" [disabled]="true">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">National/Resident ID Card Expiry Date</label>
+                    <input class="form-control flatpickr-input"
+                        type="text"
+                        mwlFlatpickr
+                        [altInput]="true"
+                        ngModel="2030-10-15"
+                        [convertModelValue]="true"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">Contact Details</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Home Telephone</label>
+                    <input type="text" class="form-control" value="+968123456">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Mobile<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="+968123456">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Email<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="+968123456">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">Education Details</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Qualification</label>
+                    <ng-select
+                        [items]="['BSC']"
+                        ngModel="BSC"
+                        placeholder="Please select"
+                    ></ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <p class="text-muted">Qualification Attachments<span class="text-danger">{{ " *" }}</span></p>
+                    <ngx-dropzone (change)="onSelect($event, 'qualificationAttachmentFile')"
+                    [multiple]="false">
+                    <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngFor="let f of qualificationAttachmentFile"
+                        [removable]="true" (removed)="onRemove(f, 'qualificationAttachmentFile')">
+                        <ngx-dropzone-label
+                        >{{ f.name }} ({{
+                            f.type
+                        }})</ngx-dropzone-label
+                        >
+                    </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Country of institution<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select
+                      [items]="listData.countryList"
+                      placeholder="Please select"
+                      ngModel="OM"
+                      bindLabel="name"
+                      bindValue="code"></ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">University<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select
+                      [items]="['Sultan Qaboos University']"
+                      placeholder="Please select"
+                      ngModel="Sultan Qaboos University"></ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Year of Graduation<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select
+                      [items]="listData.yearsList"
+                      placeholder="Please select"
+                      ngModel="2016"></ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Language used in College<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select
+                      [items]="['English', 'Arabic']"
+                      placeholder="Please select" 
+                      ngModel="English"></ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Internship/Training<span class="text-danger">{{ " *" }}</span></label>
+                    <ng-select
+                      [items]="['Completed', 'On Going', 'Not Applicable']"
+                      placeholder="Please select" 
+                      ngModel="Completed"></ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <p class="text-muted">Internship/Training Certificate<span class="text-danger">{{ " *" }}</span></p>
+                    <ngx-dropzone (change)="onSelect($event, 'qualificationAttachmentFile')"
+                    [multiple]="false">
+                    <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngFor="let f of qualificationAttachmentFile"
+                        [removable]="true" (removed)="onRemove(f, 'qualificationAttachmentFile')">
+                        <ngx-dropzone-label
+                        >{{ f.name }} ({{
+                            f.type
+                        }})</ngx-dropzone-label
+                        >
+                    </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Internship/Training Dates</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true" [ngModel]="dateRangeObject" 
+                                    [convertModelValue]="true" mode="range">
+
+                </div>
+                <button (click)="onChange($event)" class="btn">cick</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">Concent</p>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="formCheck1">
+                        <label class="form-check-label" style="text-align: justify !important" for="formCheck1">I authorize OMSB to conduct source verification of my educational credentials from the institution stated above.</label>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="formCheck2">
+                        <label class="form-check-label" style="text-align: justify !important" for="formCheck2">I declare that all of the information provided by me in this form is true and correct to the best of my knowledge.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+</div>

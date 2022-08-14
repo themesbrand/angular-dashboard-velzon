@@ -1,0 +1,77 @@
+<div class="mt-2">
+    <form [formGroup]="createExamDatesForm">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Type of exam<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select formControlName="examType" [items]="listData.typeOfExams" 
+                placeholder="Please select">
+              </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program Type<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select [items]="listData.programTypes" formControlName="programType"
+                placeholder="Please select">
+              </ng-select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Program Name<span class="text-danger">{{ " *" }}</span></label>
+                <ng-select [items]="programNames" formControlName="programName"
+                placeholder="Please select">
+              </ng-select>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Start date of application process for exam<span class="text-danger">{{ " *" }}</span></label>
+              <input
+                class="form-control flatpickr-input"
+                type="text" mwlFlatpickr 
+                [minDate]="currentDate"
+                formControlName="startDateOfApplication"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">End date of application process for exam<span class="text-danger">{{ " *" }}</span></label>
+              <input
+                class="form-control flatpickr-input"
+                [minDate]="createExamFormValues.startDateOfApplication"
+                type="text" mwlFlatpickr formControlName="endDateOfApplication"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Date of exam<span class="text-danger">{{ " *" }}</span></label>
+              <input
+                class="form-control flatpickr-input"
+                type="text" mwlFlatpickr
+                formControlName="dateOfExam"
+                [minDate]="createExamFormValues.endDateOfApplication"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Time of exam (From)<span class="text-danger">{{ " *" }}</span></label>
+                <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                formControlName="fromTimeOfExam"
+                [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Time of exam (To)<span class="text-danger">{{ " *" }}</span></label>
+                <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                formControlName="toTimeOfExam"
+                [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">No of seats<span class="text-danger">{{ " *" }}</span></label>
+                <input type="number" class="form-control" formControlName="seats">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Venue of exam<span class="text-danger">{{ " *" }}</span></label>
+                <div class="d-flex flex-row gap-1">
+                    <input type="text" class="form-control" formControlName="venue">
+                    <button type="button" class="btn btn-primary waves-effect waves-light"><i class="ri-map-pin-line"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

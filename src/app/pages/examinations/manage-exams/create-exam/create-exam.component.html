@@ -1,0 +1,325 @@
+<div class="mt-2">
+    <form [formGroup]="createExamForm">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Type of exam<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="listData.typeOfExams" formControlName="typeOfExam"
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Results source<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="['Manual Entry', 'Rehal']" formControlName="resultsSource"
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Misc Exam Information</label>
+                        <ckeditor [editor]="Editor" formControlName="information"></ckeditor>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Start date of application process for exam<span class="text-danger">{{ " *" }}</span></label>
+                      <input
+                        class="form-control flatpickr-input"
+                        type="text" mwlFlatpickr 
+                        [minDate]="currentDate"
+                        formControlName="startDateOfApplication"
+                        [altInput]="true" [convertModelValue]="true"/>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">End date of application process for exam<span class="text-danger">{{ " *" }}</span></label>
+                      <input
+                        class="form-control flatpickr-input"
+                        type="text" mwlFlatpickr 
+                        [minDate]="createExamFormValues.startDateOfApplication"
+                        formControlName="endDateOfApplication"
+                        [altInput]="true" [convertModelValue]="true"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Eligibility I<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select formControlName="eligibilityOne" [items]="['None', 'Level 1', 'Level 2', 'Level 3']" 
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" 
+            formArrayName="eligibilityTwo">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h6">Eligibility II<span class="text-danger">{{ " *" }}</span></p>
+                    <a *ngIf="examData === null" (click)="addEligibilityTwo()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="row" >
+                    <div class="col-md-6" *ngFor="let element of eligibilityTwoControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row border shadow">
+                            <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
+                                <a (click)="onDeleteEligibilityTwo(i)" class="link-danger"
+                                  ><i class="ri-delete-bin-5-line"></i
+                                ></a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Available Levels<span class="text-danger">{{ " *" }}</span></label>
+                                <ng-select formControlName="availableLevels" [items]="['None', 'Level 1', 'Level 2', 'Level 3']" 
+                                placeholder="Please select">
+                              </ng-select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Type of exam<span class="text-danger">{{ " *" }}</span></label>
+                                <ng-select formControlName="examType" [items]="listData.typeOfExams" 
+                                placeholder="Please select">
+                              </ng-select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="h6 text-primary">Early bird fees<span class="text-danger">{{ " *" }}</span></p>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">No of days after application start date, that this is applicable<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" class="form-control" formControlName="earlyBidDays">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Fee Amount<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" class="form-control" formControlName="fee">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" formArrayName="regularFees">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h6 text-primary">Regular fees<span class="text-danger">{{ " *" }}</span></p>
+                    <a *ngIf="examData === null" (click)="addRegularFees()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let element of regularFeesControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row border shadow">
+                            <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
+                                <a (click)="onDeleteRegularFees(i)" class="link-danger"
+                                  ><i class="ri-delete-bin-5-line"></i
+                                ></a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">The number of attempts greater than which the fee is applicable<span class="text-danger">{{ " *" }}</span></label>
+                                <input type="number" class="form-control" formControlName="attempts">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-4">Fee Amount<span class="text-danger">{{ " *" }}</span></label>
+                                <input type="number" class="form-control mt-1" formControlName="fee">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" >
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h6 text-primary">Withdrawal fees<span class="text-danger">{{ " *" }}</span></p>
+                    <a *ngIf="examData === null" (click)="addWithdrawalFees()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="row" formArrayName="withdrawalFees">
+                    <div class="col-md-6" *ngFor="let element of withdrawalFeesControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row border shadow">
+                            <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
+                                <a (click)="onDeleteWithdrawalFees(i)" class="link-danger"
+                                  ><i class="ri-delete-bin-5-line"></i
+                                ></a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Number of days before the exam date that the refund percentage is applicable<span class="text-danger">{{ " *" }}</span></label>
+                                <input type="number" class="form-control" formControlName="numberOfDays">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-4">Percentage of refund<span class="text-danger">{{ " *" }}</span></label>
+                                <input type="number" class="form-control mt-1" formControlName="refundPercentage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Appeal Window<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" class="form-control" formControlName="appealWindow">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Re-Appeal Window
+                            <span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" class="form-control" formControlName="reAppealWindow">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Appeal Fees<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" class="form-control" formControlName="appealFee">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Re-Appeal Fees<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" class="form-control" formControlName="reAppealFee">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label mb-2">Is exam frequency single or multiple?</label>
+                        <div class="d-flex flex-row" >
+                            <div class="form-check mx-3">
+                              <input class="form-check-input"
+                              formControlName="examFrequency" type="radio" id="radioCheck1" value="Single">
+                              <label for="radioCheck1">Single</label>
+                            </div>
+                            <div class="form-check mx-3">
+                              <input class="form-check-input" 
+                              formControlName="examFrequency"type="radio" id="radioCheck2"  value="Multiple">
+                              <label class="mx-2" for="radioCheck2">Multiple</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Program Type<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="listData.programTypes" formControlName="programType"
+                        placeholder="Please select">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Program Name<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select [items]="programNames" formControlName="programName" [multiple]="true"
+                        placeholder="Please select" (change)="onChangeProgramName($event)">
+                      </ng-select>
+                    </div>
+                </div>
+                
+
+                <!-- ******************** -->
+                <div  *ngIf="createExamFormValues.examFrequency === 'Single'" formArrayName="singleExamDates">
+                    <div class="row px-3 py-1 my-1 border shadow" *ngFor="let element of singleExamDatesControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Program Name</label>
+                            <input type="text" class="form-control" formControlName="programName">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Start Date of exam<span class="text-danger">{{ " *" }}</span></label>
+                            <input
+                                class="form-control flatpickr-input"
+                                type="text" mwlFlatpickr
+                                [minDate]="currentDate"
+                                formControlName="startDateOfExam"
+                                [altInput]="true" [convertModelValue]="true"/>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">End Date of exam<span class="text-danger">{{ " *" }}</span></label>
+                            <input
+                                class="form-control flatpickr-input"
+                                type="text" mwlFlatpickr
+                                [minDate]="singleExamDatesControls[i].value.startDateOfExam"
+                                formControlName="endDateOfExam"
+                                [altInput]="true" [convertModelValue]="true"/>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Time of exam (From)<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                            formControlName="fromTimeOfExam"
+                            [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Time of exam (To)<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                            formControlName="toTimeOfExam"
+                            [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">No of seats<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="number" class="form-control" formControlName="seats">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Venue of exam<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row gap-1">
+                                <input type="text" class="form-control" formControlName="venue">
+                                <button type="button" class="btn btn-primary waves-effect waves-light"><i class="ri-map-pin-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div  *ngIf="createExamFormValues.examFrequency === 'Multiple'" formArrayName="multipleExamDates">
+                    <div *ngIf="examData === null" class="d-flex flex-row justify-content-end">
+                        <a (click)="addMultipleExamDates()" href="javascript:void(0);"
+                        class="link-primary"><i class="ri-add-box-line"></i>Add more</a>
+                    </div>
+                    <div class="row border shadow" *ngFor="let element of multipleExamDatesControls; let i = index"
+                    [formGroupName]="i">
+                        <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
+                            <a (click)="onDeleteMultipleExamDates(i)" class="link-danger"
+                            ><i class="ri-delete-bin-5-line"></i
+                            ></a>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Days of week<span class="text-danger">{{ " *" }}</span></label>
+                            <ng-select [items]="['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" 
+                            placeholder="Please select" formControlName="daysOfWeek">
+                          </ng-select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">No of seats<span class="text-danger">{{ " *" }}</span></label>
+                            <input type="number" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Date range<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                            [convertModelValue]="true" mode="range">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Time of exam (From)<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                            [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Time of exam (To)<span class="text-danger">{{ " *" }}</span></label>
+                            <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                            [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Venue of exam<span class="text-danger">{{ " *" }}</span></label>
+                            <div class="d-flex flex-row gap-1">
+                                <input type="text" class="form-control">
+                                <button type="button" class="btn btn-primary waves-effect waves-light"><i class="ri-map-pin-line"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

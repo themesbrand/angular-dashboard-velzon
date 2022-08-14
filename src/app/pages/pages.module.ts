@@ -218,7 +218,24 @@ import { ApplicantRecidencyProgramApplicationsViewComponent } from './applicant-
 import { MmrDashboardMiniMedicalRecordComponent } from './counselling-requests/mmr-dashboard/mmr-dashboard-mini-medical-record/mmr-dashboard-mini-medical-record.component';
 import { TraineeDatabaseComponent } from './scholarship-section/trainee-database/trainee-database.component';
 import { ManageExamsComponent } from './examinations/manage-exams/manage-exams.component';
-import { ManageExamsCreateExamComponent } from './examinations/manage-exams/manage-exams-create-exam/manage-exams-create-exam.component';
+import { CreateExamComponent } from './examinations/manage-exams/create-exam/create-exam.component';
+import { CreateExamDatesComponent } from './examinations/manage-exams/create-exam-dates/create-exam-dates.component';
+import { ViewExamDatesComponent } from './examinations/manage-exams/view-exam-dates/view-exam-dates.component';
+import { ViewExamRegistrationsComponent } from './examinations/manage-exams/view-exam-registrations/view-exam-registrations.component';
+import { ViewNotificationComponent } from './examinations/manage-exams/view-notification/view-notification.component';
+import { CreateNotificationComponent } from './examinations/manage-exams/create-notification/create-notification.component';
+import { ViewExamsComponent } from './examinations/manage-exams/view-exams/view-exams.component';
+import { ViewRegistrationComponent } from './examinations/registration/view-registration/view-registration.component';
+import { CreateRegistrationComponent } from './examinations/registration/create-registration/create-registration.component';
+import { WithdrawalRequestComponent } from './examinations/withdrawal/withdrawal-request/withdrawal-request.component';
+import { ViewWithdrawalRequestsComponent } from './examinations/withdrawal/view-withdrawal-requests/view-withdrawal-requests.component';
+import { WithdrawalAddCommentsComponent } from './examinations/withdrawal/withdrawal-add-comments/withdrawal-add-comments.component';
+import { ViewResultsComponent } from './examinations/results/view-results/view-results.component';
+import { CreateResultComponent } from './examinations/results/create-result/create-result.component';
+import { ResultsComponent } from './examinations/results/results.component';
+import { ViewAppealsComponent } from './examinations/results/view-appeals/view-appeals.component';
+import { CreateAppealsComponent } from './examinations/results/create-appeals/create-appeals.component';
+import { AppealResponseFormComponent } from './examinations/results/appeal-response-form/appeal-response-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -402,7 +419,24 @@ FullCalendarModule.registerPlugins([
     MmrDashboardMiniMedicalRecordComponent,
     TraineeDatabaseComponent,
     ManageExamsComponent,
-    ManageExamsCreateExamComponent
+    CreateExamComponent,
+    CreateExamDatesComponent,
+    ViewExamDatesComponent,
+    ViewExamRegistrationsComponent,
+    ViewNotificationComponent,
+    CreateNotificationComponent,
+    ViewExamsComponent,
+    ViewRegistrationComponent,
+    CreateRegistrationComponent,
+    WithdrawalRequestComponent,
+    ViewWithdrawalRequestsComponent,
+    WithdrawalAddCommentsComponent,
+    ViewResultsComponent,
+    CreateResultComponent,
+    ResultsComponent,
+    ViewAppealsComponent,
+    CreateAppealsComponent,
+    AppealResponseFormComponent
   ],
   imports: [
     CommonModule,

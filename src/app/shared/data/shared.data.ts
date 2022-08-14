@@ -1,10 +1,10 @@
 const sharedData = {
     programTypes : [
-        'Specialty program',
-        'Fellowship program',
+        'Residency Program',
+        'Fellowship Program',
         'GFP program',
       ],
-      specialtyPrograms : [
+      residencyPrograms : [
         'Anastasia',
         'ENT',
         'Medical Microbiology',
