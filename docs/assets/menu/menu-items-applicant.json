@@ -1,0 +1,8 @@
+[
+    {
+        "id": 1,
+        "label": "My Application",
+        "icon": " ri-profile-line",
+        "link": "/applicant/application-list"
+    }
+]
