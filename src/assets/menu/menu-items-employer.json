@@ -36,5 +36,17 @@
                 "link": "admission/supplementary-training"
             }
         ]
+    },
+    {
+        "id": 8,
+        "label": "VEHPC",
+        "icon": "ri-window-2-line",
+        "subItems" : [
+            {
+                "id":9,
+                "label": "Equivalency",
+                "link": "vehpc/equivalency"
+            }
+        ]
     }
 ]

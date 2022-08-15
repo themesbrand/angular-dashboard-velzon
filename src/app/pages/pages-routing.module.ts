@@ -134,6 +134,11 @@ import { ViewWithdrawalRequestsComponent } from './examinations/withdrawal/view-
 import { ViewResultsComponent } from './examinations/results/view-results/view-results.component';
 import { ResultsComponent } from './examinations/results/results.component';
 import { ViewAppealsComponent } from './examinations/results/view-appeals/view-appeals.component';
+import { VerifyMenuComponent } from './vehpc/verification/verify-menu/verify-menu.component';
+import { VerifyCertificationComponent } from './vehpc/verification/verify-certification/verify-certification.component';
+import { ViewVerificationComponent } from './vehpc/verification/view-verification/view-verification.component';
+import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalency-list/view-equivalency-list.component';
+import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 
 const routes: Routes = [
     //Default Routing
@@ -331,6 +336,18 @@ const routes: Routes = [
         { path: 'view-appeals',  component :  ViewAppealsComponent}
       ] },
     ]},
+    { path : 'vehpc', children: [
+      { path : 'verification', children:[
+        { path: '',  component :  VerifyMenuComponent},
+        { path: 'verify-certificate',  component :  VerifyCertificationComponent},
+        { path: 'verify-certificate-two',  component :  VerifyCertificationTwoComponent},
+        { path: 'view-verification',  component :  ViewVerificationComponent},
+      ]},
+      { path : 'equivalency', children:[
+        { path: '',  component :  ViewEquivalencyListComponent},
+      ]}
+    ]},
+
 
     //Employer Routing
     { path: "employer", children : [

@@ -1,0 +1,57 @@
+<app-breadcrumbs title="View Verification" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/vehpc/verification')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Select a Trainee</label>
+                    <ng-select [items]="listData.userLists" 
+                    bindLabel="labelValue" bindValue="name" 
+                    placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row justify-content-between" *ngIf="!isLoading">
+                    <button (click)="onSubmit()" class="btn btn-primary">Get Profile Info from Dataflow</button>
+                    <button *ngIf="isSearched" type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-line"></i></button>
+    
+                </div>
+                <div class="d-flex flex-row" *ngIf="isLoading">
+                    <button class="btn btn-outline-primary btn-load">
+                        <span class="d-flex align-items-center">
+                            <span class="spinner-border flex-shrink-0" role="status">
+                            <span class="visually-hidden">Fetching Data...</span>
+                        </span>
+                            <span class="flex-grow-1 ms-2">Fetching Data...</span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="userRole === 'trainee@omsb.org'">
+        <div class="card-body">
+            <div class="d-flex flex-row justify-content-between" *ngIf="!isLoading">
+                <button (click)="onSubmit()" class="btn btn-primary">Get Profile Info from Dataflow</button>
+                <button *ngIf="isSearched" type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-line"></i></button>
+
+            </div>
+            <div class="d-flex flex-row" *ngIf="isLoading">
+                <button class="btn btn-outline-primary btn-load">
+                    <span class="d-flex align-items-center">
+                        <span class="spinner-border flex-shrink-0" role="status">
+                        <span class="visually-hidden">Fetching Data...</span>
+                    </span>
+                        <span class="flex-grow-1 ms-2">Fetching Data...</span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card bg-light" *ngIf="isSearched">
+        <div class="card-body">
+            <p class="h4 text-secondary text-center">Verification Report from Dataflow</p>
+            <div class="row">
+                <app-dataflow-view></app-dataflow-view>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {data} from '../data';
 
 @Component({
@@ -7,7 +7,12 @@ import {data} from '../data';
   styleUrls: ['./create-registration.component.scss']
 })
 export class CreateRegistrationComponent implements OnInit {
+  isViewOnly: boolean = false;
   
+  @Input('isViewOnly') 
+  set setIsViewOnly(data: any){
+    this.isViewOnly = data;
+  }
   listData = data;
   qualificationAttachmentFile: any;
   dateRangeObject : any = {

@@ -236,6 +236,12 @@ import { ResultsComponent } from './examinations/results/results.component';
 import { ViewAppealsComponent } from './examinations/results/view-appeals/view-appeals.component';
 import { CreateAppealsComponent } from './examinations/results/create-appeals/create-appeals.component';
 import { AppealResponseFormComponent } from './examinations/results/appeal-response-form/appeal-response-form.component';
+import { VerifyMenuComponent } from './vehpc/verification/verify-menu/verify-menu.component';
+import { VerifyCertificationComponent } from './vehpc/verification/verify-certification/verify-certification.component';
+import { ViewVerificationComponent } from './vehpc/verification/view-verification/view-verification.component';
+import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalency-list/view-equivalency-list.component';
+import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
+import { DataflowViewComponent } from './vehpc/verification/dataflow-view/dataflow-view.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -436,7 +442,13 @@ FullCalendarModule.registerPlugins([
     ResultsComponent,
     ViewAppealsComponent,
     CreateAppealsComponent,
-    AppealResponseFormComponent
+    AppealResponseFormComponent,
+    VerifyMenuComponent,
+    VerifyCertificationComponent,
+    ViewVerificationComponent,
+    ViewEquivalencyListComponent,
+    VerifyCertificationTwoComponent,
+    DataflowViewComponent
   ],
   imports: [
     CommonModule,

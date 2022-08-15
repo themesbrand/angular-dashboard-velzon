@@ -1,0 +1,30 @@
+<app-breadcrumbs title="Verify Certificates & Profile Info" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/vehpc/verification')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <p class="h6 mb-3 text-primary">{{"If you do not have a Data Flow Ref Number (DFRN) please register with Dataflow using the link following: "}}<a class="mgLink">link</a></p>
+            <p class="h6 mb-3 text-primary mb-2">{{"Otherwise, you may get your profile information from Dataflow by entering your DFRN below:"}}</p>
+            <div class="row my-2">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Data Flow Reference Number
+                    <span class="text-danger">{{"*"}}</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="d-flex flex-row" *ngIf="!isLoading">
+                    <button (click)="onSubmit()" class="btn btn-primary">Get Profile Info from Dataflow</button>
+                </div>
+                <div class="d-flex flex-row" *ngIf="isLoading">
+                    <button class="btn btn-outline-primary btn-load">
+                        <span class="d-flex align-items-center">
+                            <span class="spinner-border flex-shrink-0" role="status">
+                            <span class="visually-hidden">Fetching Data...</span>
+                        </span>
+                            <span class="flex-grow-1 ms-2">Fetching Data...</span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

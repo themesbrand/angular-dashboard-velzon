@@ -65,6 +65,23 @@
                 "link": "examinations/results"
             }
         ]
+    },
+    {
+        "id": 13,
+        "label": "VEHPC",
+        "icon": "ri-window-2-line",
+        "subItems" : [
+            {
+                "id": 14,
+                "label": "Verification",
+                "link": "vehpc/verification"
+            },
+            {
+                "id": 15,
+                "label": "Equivalency",
+                "link": "vehpc/equivalency"
+            }
+        ]
     }
     
 ]
