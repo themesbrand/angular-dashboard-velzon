@@ -242,6 +242,9 @@ import { ViewVerificationComponent } from './vehpc/verification/view-verificatio
 import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalency-list/view-equivalency-list.component';
 import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 import { DataflowViewComponent } from './vehpc/verification/dataflow-view/dataflow-view.component';
+import { CreateEquivalencyRequestComponent } from './vehpc/equivalency/create-equivalency-request/create-equivalency-request.component';
+import { ReturnEquivalencyRequestComponent } from './vehpc/equivalency/return-equivalency-request/return-equivalency-request.component';
+import { EquateCertificatesComponent } from './vehpc/equivalency/equate-certificates/equate-certificates.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -448,7 +451,10 @@ FullCalendarModule.registerPlugins([
     ViewVerificationComponent,
     ViewEquivalencyListComponent,
     VerifyCertificationTwoComponent,
-    DataflowViewComponent
+    DataflowViewComponent,
+    CreateEquivalencyRequestComponent,
+    ReturnEquivalencyRequestComponent,
+    EquateCertificatesComponent
   ],
   imports: [
     CommonModule,
