@@ -1,5 +1,11 @@
 [
     {
+        "id": 0,
+        "label": "Dashboard",
+        "icon": "ri-dashboard-line",
+        "link": "/dashboard-trainee"
+    },
+    {
         "id": 1,
         "label": "Research",
         "icon": "ri-contacts-book-upload-line",

@@ -140,11 +140,13 @@ import { ViewVerificationComponent } from './vehpc/verification/view-verificatio
 import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalency-list/view-equivalency-list.component';
 import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
+import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
 
 const routes: Routes = [
     //Default Routing
     { path: "dashboard", component: DashboardComponent },
     { path: "dashboard-2", component: DashboardTemplateComponent },
+    { path: "dashboard-trainee", component: DashboardTraineeComponent },
     { path: "residency-block-diagram", component: ResidentBlockDiagramComponent },
     { path: "rotation-page-resident-mapping", component: RotationPageResidentMappingComponent },
     { path: "forms", children: [

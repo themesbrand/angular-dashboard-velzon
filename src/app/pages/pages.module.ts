@@ -246,6 +246,8 @@ import { CreateEquivalencyRequestComponent } from './vehpc/equivalency/create-eq
 import { ReturnEquivalencyRequestComponent } from './vehpc/equivalency/return-equivalency-request/return-equivalency-request.component';
 import { EquateCertificatesComponent } from './vehpc/equivalency/equate-certificates/equate-certificates.component';
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
+import { TraineeDashboardComponent } from './dashboards/trainee-dashboard/trainee-dashboard.component';
+import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -456,7 +458,9 @@ FullCalendarModule.registerPlugins([
     CreateEquivalencyRequestComponent,
     ReturnEquivalencyRequestComponent,
     EquateCertificatesComponent,
-    DashboardTemplateComponent
+    DashboardTemplateComponent,
+    TraineeDashboardComponent,
+    DashboardTraineeComponent
   ],
   imports: [
     CommonModule,

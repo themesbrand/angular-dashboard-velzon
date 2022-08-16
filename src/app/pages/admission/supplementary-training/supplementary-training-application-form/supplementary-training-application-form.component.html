@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex flex-row justify-content-end">
-                        <button (click)="openModal(supplementaryTrainingApplication, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Supplementary Training Application</button>
+                        <button (click)="openAddApplication()" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Supplementary Training Application</button>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                                               <i class="ri-more-2-fill"></i>
                                           </a>
                                           <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                              <li (click)="openModal(supplementaryTrainingApplication, 'xl')" ><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                              <li (click)="viewApplication()" ><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                           </ul>
                                       </div>
                                   </td>
@@ -59,7 +59,7 @@
             </div>
             <div class="mt-3">
                 <ng-container *ngTemplateOutlet="applicationFormTemplate"></ng-container>
-                <div-d-flex class="flex-row" *ngIf="applicationFormValues.assessmentUploadLink === null">
+                <div-d-flex class="flex-row" *ngIf="isEditable === true">
                     <button class="btn btn-primary">Submit</button>
                 </div-d-flex>
             </div>            
@@ -73,13 +73,13 @@
             <div class="card-body">
                 <p class="h5 mb-3">DEMOGRAPHIC INFORMATION SECTION</p>
                 <div class="row">
-                  <div class="col-md-2 mb-4" *ngIf="applicationFormValues.assessmentUploadLink != null">
+                  <div class="col-md-2 mb-4">
                     <div class="user-thumb mb-2 d-flex flex-row" >
                       <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
 
                     </div>
                   </div>
-                  <div [ngClass]="{'col-md-4' : applicationFormValues.assessmentUploadLink === null, 'col-md-6' : applicationFormValues.assessmentUploadLink !== null}">
+                  <div class="col-md-6">
                       <div class="mb-3">
                         <label class="form-label">Name (As per passport)<span class="text-danger">{{" *"}}</span></label>
                         <input type="text" class="form-control" formControlName="name" />
@@ -736,7 +736,7 @@
                 </div>
             </div>
         </div>
-        <div class="card" *ngIf="applicationFormValues.assessmentUploadLink === null">
+        <div class="card" *ngIf="isEditable === true">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -821,7 +821,7 @@
                 </div>
             </div>
         </div>
-        <div class="card" *ngIf="applicationFormValues.assessmentUploadLink != null">
+        <div class="card" *ngIf="isEditable === false">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 mb-3">

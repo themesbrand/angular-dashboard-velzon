@@ -31,6 +31,7 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
   selectedApplication: any;
 
   @ViewChild("supplementaryTrainingApplication") supplementaryTrainingApplication !: TemplateRef<any>;
+  isEditable: boolean = false;
 
   constructor(
     private router : Router,
@@ -291,13 +292,14 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
   }
   
   viewApplication() {
-    this.formPatchValue();
-    console.log(this.applicationFormValues)
+    this.isEditable = false
+
     this.openModal(this.supplementaryTrainingApplication, 'xl')
   }
 
   openAddApplication() {
-    this.applicationForm.reset()
+    this.isEditable = true
+
     this.openModal(this.supplementaryTrainingApplication, 'xl')
   }
 

@@ -121,7 +121,7 @@ export class LoginComponent implements OnInit {
                 }
                 case 'trainee@omsb.org' : {
                   localStorage.setItem('userType' , 'trainee@omsb.org')
-                  this.router.navigateByUrl("/admission/transfer");
+                  this.router.navigateByUrl("/dashboard-trainee");
                   break;
                 }
                 default : break;
