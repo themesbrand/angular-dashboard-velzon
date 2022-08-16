@@ -244,7 +244,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label class="form-lable">Terms and Conditions<span class="text-danger">{{"*"}}</span></label>
-                        <label class="form-control">{{selectedScheduling.termsAndConditions}}</label>
+                        <span class="form-control" [innerHTML]="selectedScheduling.termsAndConditions"></span>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label" for="formCheck1">
