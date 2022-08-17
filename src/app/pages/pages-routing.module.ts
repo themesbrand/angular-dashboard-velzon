@@ -141,6 +141,7 @@ import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalen
 import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
 import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
+import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/courses/professional-competiency-view-course/professional-competiency-view-course.component';
 
 const routes: Routes = [
     //Default Routing
@@ -351,6 +352,9 @@ const routes: Routes = [
         { path: '',  component :  ViewEquivalencyListComponent},
       ]}
     ]},
+    { path : 'professional-competiency', children: [
+      { path: 'courses',  component :  ProfessionalCompetiencyViewCourseComponent},
+    ]},
 
 
     //Employer Routing
@@ -398,13 +402,6 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardInternationalTraineeComponent},
       { path: "application", component: ApplicationInternationalTraineeComponent},
     ] },
-
-    //PD Routing
-    { path: "pd", children : [
-      
-
-    ] },
-
     
 ];
 

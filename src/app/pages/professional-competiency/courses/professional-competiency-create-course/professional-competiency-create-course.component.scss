@@ -1,0 +1,20 @@
+ngx-dropzone {
+    height: 100px;
+    justify-content: center !important;
+}
+
+::ng-deep ngx-dropzone-label {
+    font-size: 12px;
+}
+::ng-deep  ngx-dropzone-preview{
+    min-height: 60px !important;
+    height: 60px !important;
+}
+
+::ng-deep ng-select.ng-select.ng-select-multiple.ng-select-disabled>.ng-select-container .ng-value-container .ng-value {
+    border: 1px solid #1a0101;
+}
+
+::ng-deep ng-select.ng-select.ng-select-multiple.ng-select-disabled>.ng-select-container .ng-value-container .ng-value span {
+    color: black;
+}

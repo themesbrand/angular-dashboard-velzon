@@ -4,10 +4,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
 import {data} from './data';
+
 @Component({
-  selector: 'app-view-equivalency-list',
-  templateUrl: './view-equivalency-list.component.html',
-  styleUrls: ['./view-equivalency-list.component.scss'],
+  selector: 'app-professional-competiency-view-course',
+  templateUrl: './professional-competiency-view-course.component.html',
+  styleUrls: ['./professional-competiency-view-course.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -23,19 +24,22 @@ import {data} from './data';
     )
   ],
 })
-export class ViewEquivalencyListComponent implements OnInit {
+export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
 
   listData = data;
   tableData : any[] = []
 
-  selectedUser :any =  'Admin';
+  selectedUser : any =  'Admin';
 
-  selectedRequest: any;
+  selectedCourse: any;
   
   userRole: string | null = null;
 
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
+  selectedComments: any[]  = [];
+  
+  supportingFiles: File[] = [];
 
   constructor(
     private router : Router,
@@ -44,18 +48,18 @@ export class ViewEquivalencyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userRole = localStorage.getItem('userType');
-    if(this.userRole === 'employer@omsb.org') {
-      this.tableData = this.listData.tableDataEmployer;
+    if(this.userRole === 'trainee@omsb.org') {
+      this.tableData = this.listData.tableDataTrainee;
     } else if(this.userRole === 'eportal@omsb.org') {
       if(this.selectedUser === 'Admin') {
         this.tableData = this.listData.tableDataAdmin;
-      }
+      } 
     }
 
   }
 
-  setRequest(request : any) {
-    this.selectedRequest = request;
+  setCourse(course : any) {
+    this.selectedCourse = course;
   }
 
   onChangeUser(event : any) {
@@ -64,10 +68,17 @@ export class ViewEquivalencyListComponent implements OnInit {
     
     if(event === 'Admin') {
       this.tableData = this.listData.tableDataAdmin;
-    } else {
-      this.tableData = this.listData.tableDataCommittee;
-    }
+    } else if (this.selectedUser === 'Team User' || this.selectedUser === 'Team Chair' || this.selectedUser === 'SDS User') {
+      this.tableData = this.listData.tableDataTeam;
+    } 
+  }
 
+  setSelectedComments(course : any) {
+    if(course?.comments === undefined || course?.comments?.length === 0) {
+      this.selectedComments = []
+    } else {
+      this.selectedComments = course.comments
+    }
   }
 
   onFilter() {
@@ -75,6 +86,28 @@ export class ViewEquivalencyListComponent implements OnInit {
       this.isFilterOpened = false;
     } else {
       this.isFilterOpened = true
+    }
+  }
+  onRemove(event : any, type: any) {
+    switch(type) {
+      case 'supportingFiles' : {
+        this.supportingFiles.splice(this.supportingFiles.indexOf(event), 1);
+        return
+      }
+      default : {
+        break;
+      }
+    }
+  }
+  onSelect(event : any, type: any) {
+    switch(type) {
+      case 'supportingFiles' : {
+        this.supportingFiles.push(...event.addedFiles);
+        return
+      }
+      default : {
+        break;
+      }
     }
   }
 

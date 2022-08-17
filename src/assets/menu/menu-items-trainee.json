@@ -88,6 +88,17 @@
                 "link": "vehpc/equivalency"
             }
         ]
+    },
+    {
+        "id": 16,
+        "label": "Professional Competency",
+        "icon": "ri-archive-drawer-line",
+        "subItems" : [
+            {
+                "id": 17,
+                "label": "Courses",
+                "link": "professional-competiency/courses"
+            }
+        ]
     }
-    
 ]

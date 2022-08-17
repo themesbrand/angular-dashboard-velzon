@@ -248,6 +248,9 @@ import { EquateCertificatesComponent } from './vehpc/equivalency/equate-certific
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
 import { TraineeDashboardComponent } from './dashboards/trainee-dashboard/trainee-dashboard.component';
 import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
+import { ProfessionalCompetiencyCreateCourseComponent } from './professional-competiency/courses/professional-competiency-create-course/professional-competiency-create-course.component';
+import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/courses/professional-competiency-view-course/professional-competiency-view-course.component';
+import { ProfessionalCompetiencyAddCommentsComponent } from './professional-competiency/courses/professional-competiency-add-comments/professional-competiency-add-comments.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -460,7 +463,10 @@ FullCalendarModule.registerPlugins([
     EquateCertificatesComponent,
     DashboardTemplateComponent,
     TraineeDashboardComponent,
-    DashboardTraineeComponent
+    DashboardTraineeComponent,
+    ProfessionalCompetiencyCreateCourseComponent,
+    ProfessionalCompetiencyViewCourseComponent,
+    ProfessionalCompetiencyAddCommentsComponent
   ],
   imports: [
     CommonModule,

@@ -269,5 +269,17 @@
                 "link": "vehpc/equivalency"
             }
         ]
+    },
+    {
+        "id": 47,
+        "label": "Professional Competency",
+        "icon": "ri-archive-drawer-line",
+        "subItems" : [
+            {
+                "id": 48,
+                "label": "Courses",
+                "link": "professional-competiency/courses"
+            }
+        ]
     }
 ]

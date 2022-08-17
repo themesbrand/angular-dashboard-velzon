@@ -161,6 +161,56 @@ const data = {
             ]
         },
     ],
+    tableDataCommittee : [
+        {
+            name : 'Al Abri Ibraham',
+            nationality : 'Omani',
+            passportNumber : '6548975321',
+            profession : 'Doctor',
+            mobile : '+968456789',
+            dfrn : 'HC-D21325-1321',
+            certsToEvaluate : '5',
+            recievedEvalutations : '3',
+            createdOn : '2022-09-10',
+            status : 'In Progress',
+            applicationStatus : [
+                { stage : 'Received By Equivalency Committee', status : 'Complete', date : '2022-09-15', by : 'Al Abri Falsal'},
+                { stage : 'Equivalency Process Status', status : 'Pending', date : 'N/A', by : 'N/A'}                
+            ]
+        },
+        {
+            name : 'Al Abri Ibraham',
+            nationality : 'Omani',
+            passportNumber : '6548975321',
+            profession : 'Doctor',
+            mobile : '+968456789',
+            dfrn : 'HC-D21325-1321',
+            certsToEvaluate : '6',
+            recievedEvalutations : '2',
+            createdOn : '2022-09-10',
+            status : 'Insufficient',
+            applicationStatus : [
+                { stage : 'Received By Equivalency Committee', status : 'Complete', date : '2022-09-15', by : 'Al Abri Falsal'},
+                { stage : 'Marked as Insufficient', status : 'Complete', date : '2022-09-16', by : 'Al Abri Ibraham'}                
+            ]
+        },
+        {
+            name : 'Faisal Gawas',
+            nationality : 'Omani',
+            passportNumber : '6548975321',
+            profession : 'Doctor',
+            mobile : '+968456789',
+            dfrn : 'HC-D21325-1321',
+            certsToEvaluate : '4',
+            recievedEvalutations : '1',
+            createdOn : '2022-09-10',
+            status : 'Completed',
+            applicationStatus : [
+                { stage : 'Received By Equivalency Committee', status : 'Complete', date : '2022-09-15', by : 'Al Abri Falsal'},
+                { stage : 'Marked as Completed', status : 'Complete', date : '2022-09-16', by : 'Al Abri Ibraham'}                
+            ]
+        },
+    ],
     equivalencyRequestObject: {
         name : 'Madan Al Abri',
         nationality : 'OM',
