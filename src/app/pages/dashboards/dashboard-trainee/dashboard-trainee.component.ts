@@ -346,7 +346,7 @@ export class DashboardTraineeComponent implements OnInit {
       series: [34, 55],
       labels: ['Procedures Confirmed', 'Pending Procedures'],
       chart: {
-        height: 300,
+        height: 350,
         type: "donut",
       },
       legend: {
