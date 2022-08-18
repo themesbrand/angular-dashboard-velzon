@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "label": "Dashboard",
+        "label": "My Portfolio",
         "icon": "ri-dashboard-line",
         "link": "/dashboard-trainee"
     },
@@ -81,21 +81,16 @@
                 "id": 14,
                 "label": "Verification",
                 "link": "vehpc/verification"
-            },
-            {
-                "id": 15,
-                "label": "Equivalency",
-                "link": "vehpc/equivalency"
             }
         ]
     },
     {
-        "id": 16,
+        "id": 15,
         "label": "Professional Competency",
         "icon": "ri-archive-drawer-line",
         "subItems" : [
             {
-                "id": 17,
+                "id": 16,
                 "label": "Courses",
                 "link": "professional-competiency/courses"
             }

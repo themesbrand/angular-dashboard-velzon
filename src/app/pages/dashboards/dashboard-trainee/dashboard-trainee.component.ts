@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastService } from '../toast-service';
 
+import {data} from './data'
 @Component({
   selector: 'app-dashboard-trainee',
   templateUrl: './dashboard-trainee.component.html',
   styleUrls: ['./dashboard-trainee.component.scss']
 })
 export class DashboardTraineeComponent implements OnInit {
+
+  listData = data;
 
   arrayData = [
     {
@@ -140,6 +143,9 @@ export class DashboardTraineeComponent implements OnInit {
 
   dynamicLoadedChart: any;
   dynamicQuarterLoadedChart:any;
+  proceduresLoggedChart:any;
+  rotationRequirementsChart:any;
+
 
   constructor(public toastService: ToastService,
     private router : Router) { }
@@ -152,7 +158,207 @@ export class DashboardTraineeComponent implements OnInit {
     
     this._dynamicQuarterLoadedChart('["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-dark", "--vz-info"]');
     this._dynamicLoadedChart('["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-dark", "--vz-info"]');
-    
+    this._proceduresLoggedChart('["--vz-success", "--vz-primary"]');
+    this._rotationRequirementsChart('["--vz-success", "--vz-primary"]');
+
+  }
+
+  private _rotationRequirementsChart(colors:any) {
+    colors = this.getChartColorsArray(colors);
+    this.rotationRequirementsChart = {
+      series: [{
+        name: "Actual",
+        data: [{
+            x: "Anesthesia for General Surgery",
+            y: 2.5,
+            goals: [{
+              name: "Expected",
+              value: 3,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Anesthesia for General Surgery - Ambulatory Cases",
+            y: 1.8,
+            goals: [{
+              name: "Expected",
+              value: 3.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Anesthesia for General Surgery – Urology Surgery",
+            y: 2,
+            goals: [{
+              name: "Expected",
+              value: 3.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Anesthesia for General Surgery – Vascular Surgery",
+            y: 2.1,
+            goals: [{
+              name: "Expected",
+              value: 3.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Anesthesia for ENT/Ophthalmology/ Oral & Maxillofacial Surgery",
+            y: 1.6,
+            goals: [{
+              name: "Expected",
+              value: 3.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Obstetrics and Gynecology Anesthesia",
+            y: 2.5,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Regional Anesthesia",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Anesthesia for Orthopedic Surgery",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Pre-Anesthesia Clinic (PAC)",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Pre-Anesthesia Clinic (PAC)",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Pre-Anesthesia Clinic (PAC)",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Pre-Anesthesia Clinic (PAC)",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Pre-Anesthesia Clinic (PAC)",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+          {
+            x: "Pre-Anesthesia Clinic (PAC)",
+            y: 2.2,
+            goals: [{
+              name: "Expected",
+              value: 2.5,
+              strokeWidth: 5,
+              strokeColor: "#564ab1",
+            }, ],
+          },
+        ],
+        }, ],
+        chart: {
+          height: 450,
+          type: "bar",
+          toolbar: {
+            show: false,
+          },
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          },
+        },
+        colors: colors,
+        dataLabels: {
+            formatter: function (val:any) {
+                return val.toString();
+            }
+        },
+        legend: {
+          show: true,
+          showForSingleSeries: true,
+          customLegendItems: ["Actual", "Expected"],
+          markers: {
+            fillColors: ["#0AB39C", "#2d0689"],
+          },
+        },
+    };
+  }
+
+  private _proceduresLoggedChart(colors: any) {
+
+    colors = this.getChartColorsArray(colors);
+    this.proceduresLoggedChart = {
+      series: [34, 55],
+      labels: ['Procedures Confirmed', 'Pending Procedures'],
+      chart: {
+        height: 300,
+        type: "donut",
+      },
+      legend: {
+        position: "bottom",
+      },
+      dataLabels: {
+        dropShadow: {
+          enabled: false,
+        },
+      },
+      colors: colors,
+    };
   }
   
   private _dynamicLoadedChart(colors:any) {

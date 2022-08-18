@@ -5,41 +5,114 @@
                 <div class="col-12">
                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                         <div class="flex-grow-1">
-                            <h4 class="fs-16 mb-1">Good Morning, Abbas!</h4>
+                            <h2 class="text-primary">My Portfolio</h2>
+                            <h4 class="fs-16 mb-1">Good Morning, Madan!</h4>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8 ">
+                <div class="col-md-7">
                     <div class="card card-height-100">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Results Sheet</h4>
+                            <h4 class="card-title mb-0 flex-grow-1">Curriculum Confirmed</h4>
                         </div>
                         <div class="card-body px-3">
-                            <div id="dynamicloadedchart-wrap" dir="ltr">
-                                <div id="chart-year" class="apex-charts">
-                                  <apx-chart [series]="dynamicLoadedChart.series" [chart]="dynamicLoadedChart.chart"
-                                      [dataLabels]="dynamicLoadedChart.dataLabels" [plotOptions]="dynamicLoadedChart.plotOptions"
-                                      [yaxis]="dynamicLoadedChart.yaxis" [xaxis]="dynamicLoadedChart.xaxis"
-                                      [subtitle]="dynamicLoadedChart.subtitle" [colors]="dynamicLoadedChart.colors"
-                                      [states]="dynamicLoadedChart.states" [title]="dynamicLoadedChart.title"
-                                      [tooltip]="dynamicLoadedChart.tooltip"></apx-chart>
-                                  </div>
-                                  <div id="chart-quarter" class="apex-charts">
-                                      <apx-chart [series]="dynamicQuarterLoadedChart.series" [chart]="dynamicQuarterLoadedChart.chart"
-                                          [legend]="dynamicQuarterLoadedChart.legend"
-                                          [plotOptions]="dynamicQuarterLoadedChart.plotOptions"
-                                          [yaxis]="dynamicQuarterLoadedChart.yaxis" [xaxis]="dynamicQuarterLoadedChart.xaxis"
-                                          [grid]="dynamicQuarterLoadedChart.grid" [title]="dynamicQuarterLoadedChart.title" [colors]="dynamicQuarterLoadedChart.colors">
-                                      </apx-chart>
-                                  </div>
-                              </div>
+                            <div class="live-preview">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-wrap mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Rotation</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">End Date</th>
+                                                <th scope="col">Reviewed Curriculum</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of listData.curriculumConfirmedTableData">
+                                                <td>{{data.name}}</td>
+                                                <td>{{data.startDate}}</td>
+                                                <td>{{data.endDate}}</td>
+                                                <td class="text-end" scope="row" *ngIf="data.status != 'in-progress'">
+                                                    <div class="form-check d-flex flex-row justify-content-end">
+                                                        <input class="form-check-input" type="checkbox" value="" id="responsivetableCheck01">
+                                                    </div>
+                                                </td>
+                                                <td class="text-end align-items-end" scope="row" *ngIf="data.status === 'in-progress'">
+                                                    <span class="badge rounded-pill badge-outline-primary">In-Progress</span>
+
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 ">
+                <div class="col-md-5">
+                    <div class="card card-height-100">
+                        <div class="card-body shadow border m-1">
+                            <div class="d-flex flex-row gap-3">
+                                <div class="user-thumb mb-2 d-flex flex-row" >
+                                    <img src="assets/images/users/avatar-3.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <p class="h5 text-primary"><span>{{"Name : "}}</span> Madan Khan</p>
+                                    <p class="h6 text-primary"><span>{{"Email : "}}</span>abbas@gmail.com</p>
+                                    <p class="h6 text-primary"><span>{{"Mobile : "}}</span>+968-125468654</p>
+                                    <p class="h6 text-primary"><span>{{"OMSB Number : "}}</span>19-207</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Resident Training Records</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="live-preview">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-wrap mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">End Date</th>
+                                                <th scope="col">Program Year</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of listData.trainingRecordsTableData; let i = index">      
+                                                <td>{{data.startDate}}</td>
+                                                <td>{{data.endDate}}</td>
+                                                <td>{{data.year}}</td>
+                                                <td>{{data.status}}</td>                   
+                                            </tr>                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div>
+                <div class="col-md-8">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Rotation Requirements</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <apx-chart [series]="rotationRequirementsChart.series" [chart]="rotationRequirementsChart.chart"
+                            [legend]="rotationRequirementsChart.legend" [dataLabels]="rotationRequirementsChart.dataLabels"
+                            [colors]="rotationRequirementsChart.colors" [plotOptions]="rotationRequirementsChart.plotOptions"></apx-chart>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
                     <div class="card card-height-100">
                         <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">My Tasks</h4>
@@ -50,10 +123,9 @@
                                 <div class="flex-shrink-0">
                                     <div class="text-muted"><span class="fw-semibold">4</span> of <span class="fw-semibold">10</span> remaining</div>
                                 </div>
-                                <button type="button" class="btn btn-sm btn-success"><i class="ri-add-line align-middle me-1"></i> Add Task</button>
                             </div>
                             
-                            <ngx-simplebar style="max-height: 330px;">
+                            <ngx-simplebar style="max-height: 320px;">
                                 <ul class="list-group list-group-flush border-dashed px-3">
                                     <li class="list-group-item ps-0">
                                         <div class="d-flex align-items-start">
@@ -126,9 +198,396 @@
                             <div class="p-3 pt-2">
                                 <a href="javascript:void(0);" class="text-muted text-decoration-underline">Show more...</a>
                             </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="col-md-8">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Conference Attendance</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="live-preview">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-wrap mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Level</th>
+                                                <th scope="col">Category</th>
+                                                <th scope="col">No. Of Conference</th>
+                                                <th scope="col">No. Of Required</th>
+                                                <th scope="col">Present</th>
+                                                <th scope="col">Tardy</th>
+                                                <th scope="col">Excused</th>
+                                                <th scope="col">% Required</th>
+                                                <th scope="col">% Attended</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of listData.conferenceAttendanceTableData; let i = index">      
+                                                <td>{{data.level}}</td>
+                                                <td>{{data.category}}</td>
+                                                <td>{{data.conference}}</td>
+                                                <td>{{data.required}}</td>
+                                                <td>{{data.present}}</td>
+                                                <td>{{data.tardy}}</td>
+                                                <td>{{data.excused}}</td>
+                                                <td>{{data.requiredPercentage}}</td>
+                                                <td>{{data.attendedPercentage}}</td>                                          
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">My Leaves</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <ngx-simplebar style="max-height: 140px;">
+                                <div class="acitivity-timeline acitivity-main" *ngFor="let event of listData.myLeaves">
+                                    <div class="acitivity-item py-1 d-flex border shadow px-2 my-1">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar-xs acitivity-avatar">
+                                                <div class="avatar-title rounded-circle bg-secondary">
+                                                    <i class=" ri-calendar-event-line fs-14"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 ">{{event.type}}
+                                            <a *ngIf="event.date" class="link-secondary" style="margin-left : 10px">{{event.date}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngx-simplebar>
+
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">My Requests</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <ngx-simplebar style="max-height: 220px;">
+                                <div class="acitivity-timeline acitivity-main" *ngFor="let event of listData.myRequests">
+                                    <div class="acitivity-item py-3 d-flex border shadow px-2 my-1">
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1">{{event.transferType}}</h6>
+                                            <p class="h6 text-primary">{{"Current Status : "}}{{event.status}}</p>
+                                            <button class="btn btn-info btn-sm" (click)="onNavigate(event.link)">View Request</button>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar-xs acitivity-avatar">
+                                                <div class="avatar-title rounded-circle bg-secondary">
+                                                    <i class="ri-profile-line fs-14"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngx-simplebar>
+                        </div>
+                    </div>
+    
+                </div>
+
+
+                
+
+                <div class="col-md-8">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Compliance Per Rotation</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="live-preview">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-wrap mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Rotation</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">End Date</th>
+                                                <th scope="col">Evaluation of Rotation</th>
+                                                <th scope="col">Evaluation of Faculty</th>
+                                                <th scope="col">Evaluation of Curriculum</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of listData.compliancePerRotationTableData; let i = index">
+                                                <td>{{data.name}}</td>
+                                                <td>{{data.startDate}}</td>
+                                                <td>{{data.endDate}}</td>
+                                                <td scope="row" *ngIf="data.status === 'in-progress'">
+                                                    <span class="badge rounded-pill badge-outline-primary">In-Progress</span>
+
+                                                </td>
+                                                <td scope="row" *ngIf="data.status === 'in-progress'">
+                                                    <span class="badge rounded-pill badge-outline-primary">In-Progress</span>
+
+                                                </td>
+                                                <td scope="row" *ngIf="data.status === 'in-progress'">
+                                                    <span class="badge rounded-pill badge-outline-primary">In-Progress</span>
+
+                                                </td>
+                                                <td *ngIf="data.status != 'in-progress'">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" [checked]="data.rotationChecked" id="responsivetableCheck01{{i}}">
+                                                        <label class="mx-2 form-check-label" for="responsivetableCheck01{{i}}">{{data.rotationValue}}</label>
+                                                    </div>
+                                                </td>
+                                                <td *ngIf="data.status != 'in-progress'">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" [checked]="data.facultyChecked" id="responsivetableCheck02{{i}}">
+                                                        <label class="mx-2 form-check-label" for="responsivetableCheck02{{i}}">{{data.facultyValue}}</label>
+                                                    </div>
+                                                </td>
+                                                <td *ngIf="data.status != 'in-progress'">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" [checked]="data.curriculumChecked" id="responsivetableCheck02{{i}}">
+                                                        <label class="mx-2 form-check-label" for="responsivetableCheck02{{i}}">{{data.curriculumValue}}</label>
+                                                    </div>
+                                                </td>
+                                                
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Procedures Logged</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="d-flex flex-column text-center jutify-content-center">
+                                    <p class="h6 text-muted">No. Of Procedures Logged : 89</p>
+                                    <apx-chart [series]="proceduresLoggedChart.series" [chart]="proceduresLoggedChart.chart"
+                                    [labels]="proceduresLoggedChart.labels" [responsive]="proceduresLoggedChart.responsive"
+                                    [legend]="proceduresLoggedChart.legend" [dataLabels]="proceduresLoggedChart.dataLabels"
+                                    [colors]="proceduresLoggedChart.colors"></apx-chart>
+                                </div>
+                                <div class="live-preview">
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-wrap mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col">Procedure Name</th>
+                                                    <th scope="col">No. Of Procedures Logged</th>
+                                                    <th scope="col">No. Of Procedures Confirmed</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of listData.proceduresLoggedTableData; let i = index">
+                                                    <td>{{data.name}}</td>
+                                                    <td>{{data.logged}}</td>
+                                                    <td>{{data.confirmed}}</td>                                                   
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-5">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">My Current Block</h4>
+                            <p class="mb-0 flex-grow-1 h6 text-secondary">R3 - Block 6</p>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
+                                <div>
+                                    <span class="text-muted pe-5">Review & Confirm rotation curriculum</span>
+                                </div>
+                                <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-success align-middle me-2"></i> Completed</p>
+                            </div><!-- end -->
+                            <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
+                                <div>
+                                    <span class="text-muted pe-5">Trainer Evaluation Form</span>
+                                </div>
+                                <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-primary align-middle me-2"></i> In Progress</p>
+                            </div><!-- end -->
+                            <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
+                                <div>
+                                    <span class="text-muted pe-5">Rotation Evaluation Form</span>
+                                </div>
+                                <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-primary align-middle me-2"></i> In Progress</p>
+                            </div><!-- end -->
+                            <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
+                                <div>
+                                    <span class="text-muted pe-5">Logging of Duty Hours</span>
+                                </div>
+                                <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-warning align-middle me-2"></i> Yet to Start</p>
+                            </div><!-- end -->
+                            <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
+                                <div>
+                                    <span class="text-muted pe-5">Procedures Logged</span>
+                                </div>
+                                <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-warning align-middle me-2"></i> Yet to Start</p>
+                            </div><!-- end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Duty Hour Rule Violations</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="live-preview">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-wrap mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Rotation</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">End Date</th>
+                                                <th scope="col">Hrs/Wk</th>
+                                                <th scope="col">80 Hr</th>
+                                                <th scope="col">24+</th>
+                                                <th scope="col">Short Break</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let data of listData.dutyHourViolationsTableData">
+                                                <td>{{data.name}}</td>
+                                                <td>{{data.startDate}}</td>
+                                                <td>{{data.endDate}}</td>
+                                                <td>{{data.perWeek}}</td>
+                                                <td>{{data.hr}}</td>
+                                                <td>{{data.twentyFourPlus}}</td>
+                                                <td>{{data.shortBreak}}</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Upcoming Appointments</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            <ngx-simplebar style="max-height: 300px;">
+                                <div class="acitivity-timeline acitivity-main" *ngFor="let event of listData.counselingEvents">
+                                    <div class="acitivity-item py-3 d-flex border shadow px-2 my-1">
+                                        <div class="flex-shrink-0">
+                                            <div class="avatar-xs acitivity-avatar">
+                                                <div class="avatar-title rounded-circle bg-secondary">
+                                                    <i class=" ri-calendar-event-line fs-14"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 ">{{event.name}}
+                                            <a *ngIf="event.date" class="link-secondary" style="margin-left : 10px">{{event.date}}</a>
+                                            <a *ngIf="event.date === null" class="link-secondary text-warning" style="margin-left : 10px">{{'Not Scheduled'}}</a></h6>
+                                            <p class="text-muted mb-2">{{"Counselor Name : "}}<small class="mb-0 text-muted">{{event.counselorName}}</small></p>
+                                            <p class="h6 text-primary">{{"Number of Assessments : "}}{{event.assessmentCount}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngx-simplebar>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-height-100">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">My Blocks</h4>
+                        </div>
+                        <div class="card-body px-3">
+                            
+                            <div class="live-preview">
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-nowrap mb-0">
+                                        <thead class="table-light">
+                                            <tr class="text-center">
+                                                <th scope="col">Block 1</th>
+                                                <th scope="col">Block 2</th>
+                                                <th scope="col">Block 3</th>
+                                                <th scope="col">Block 4</th>
+                                                <th scope="col">Block 5</th>
+                                                <th scope="col">Block 6</th>
+                                                <th scope="col">Block 7</th>
+                                                <th scope="col">Block 8</th>
+                                                <th scope="col">Block 9</th>
+                                                <th scope="col">Block 10</th>
+                                                <th scope="col">Block 11</th>
+                                                <th scope="col">Block 12</th>
+                                                <th scope="col">Block 13</th>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <th scope="col">01/09/2019 - 28/09/2019</th>
+                                                <th scope="col">29/09/2019 - 26/10/2019</th>
+                                                <th scope="col">27/10/2019 - 23/11/2019</th>
+                                                <th scope="col">24/11/2019 - 21/12/2019</th>
+                                                <th scope="col">22/12/2019 - 18/01/2020</th>
+                                                <th scope="col">19/01/2020 - 15/02/2020</th>
+                                                <th scope="col">16/02/2020 - 14/03/2020</th>
+                                                <th scope="col">15/03/2020 - 11/04/2020</th>
+                                                <th scope="col">12/04/2020 - 09/05/2020</th>
+                                                <th scope="col">10/05/2020 - 06/06/2020</th>
+                                                <th scope="col">07/06/2020 - 04/07/2020</th>
+                                                <th scope="col">05/07/2020 - 01/08/2020</th>
+                                                <th scope="col">02/08/2020 - 31/08/2020</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>OBGYN-ANW-RH</td>
+                                                <td>OBGYN-CLINIC-RH	</td>
+                                                <td>OBGYN-OT-RH	</td>
+                                                <td>OBGYN-CLINIC-SQUH	</td>
+                                                <td>PEDS-NICU-RH</td>
+                                                <td>OBGYN-ANX-RH</td>
+                                                <td>OBGYN-ANA-RH</td>
+                                                <td>OBGYN-ON-RH</td>
+                                                <td>PEDS-NICU-SQUH</td>
+                                                <td>OBGYN-ANB-RH</td>
+                                                <td>OBGYN-ANC-RH</td>
+                                                <td>PEDS-CLINIC-SQUH</td>
+                                                <td>OBGYN-ANJ-RH</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
             </div>
         </div>
 

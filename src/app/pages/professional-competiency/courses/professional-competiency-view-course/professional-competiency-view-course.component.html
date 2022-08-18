@@ -318,11 +318,11 @@
                 <div class="card-body">
                     <div class="row mt-2">
                         <div class="col-md-12 mb-1">
-                            <label class="form-label">Attachment</label>
+                            <label class="form-label">Comment</label>
                             <textarea rows="2" class="form-control"></textarea>
                         </div>
                         <div class="col-md-12 mb-1">
-                            <p class="text-muted">Upload your BLS Certificate.<span class="text-danger">{{ " *" }}</span></p>
+                            <p class="text-muted">Upload your attachments<span class="text-danger">{{ " *" }}</span></p>
                             <ngx-dropzone (change)="onSelect($event, 'supportingFiles')"
                             [multiple]="false">
                                 <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
