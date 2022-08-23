@@ -281,5 +281,37 @@
                 "link": "professional-competiency/courses"
             }
         ]
+    },
+    {
+        "id": 49,
+        "label": "Innovation Centre",
+        "icon": "ri-community-line",
+        "subItems" : [
+            {
+                "id": 50,
+                "label": "Innovation Initiative",
+                "link": "innovation-centre/innovation-initiative"
+            },
+            {
+                "id": 51,
+                "label": "Immersive & Interactive room",
+                "link": "innovation-centre/immersive-interactive-room"
+            },
+            {
+                "id": 52,
+                "label": "Preventative Maintenance",
+                "link": "innovation-centre/preventative-maintenance"
+            },
+            {
+                "id": 53,
+                "label": "Repair Requests",
+                "link": "innovation-centre/repair-requests"
+            },
+            {
+                "id": 54,
+                "label": "3D Object request",
+                "link": "innovation-centre/3d-object-request"
+            }
+        ]
     }
 ]

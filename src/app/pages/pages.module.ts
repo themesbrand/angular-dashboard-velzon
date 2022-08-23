@@ -251,6 +251,10 @@ import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashbo
 import { ProfessionalCompetiencyCreateCourseComponent } from './professional-competiency/courses/professional-competiency-create-course/professional-competiency-create-course.component';
 import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/courses/professional-competiency-view-course/professional-competiency-view-course.component';
 import { ProfessionalCompetiencyAddCommentsComponent } from './professional-competiency/courses/professional-competiency-add-comments/professional-competiency-add-comments.component';
+import { InnovationInitiativeComponent } from './innovation-centre/innovation-initiative/innovation-initiative.component';
+import { CreateInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/create-innovation-initiative/create-innovation-initiative.component';
+import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
+import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-proposals-innovation-initiative/page-proposals-innovation-initiative.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -466,7 +470,11 @@ FullCalendarModule.registerPlugins([
     DashboardTraineeComponent,
     ProfessionalCompetiencyCreateCourseComponent,
     ProfessionalCompetiencyViewCourseComponent,
-    ProfessionalCompetiencyAddCommentsComponent
+    ProfessionalCompetiencyAddCommentsComponent,
+    InnovationInitiativeComponent,
+    CreateInnovationInitiativeComponent,
+    PageInnovationInitiativeComponent,
+    PageProposalsInnovationInitiativeComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,78 @@
+<form [formGroup]="announceInitiativeForm">
+    <div class="mt-3">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Initiative name<span class="text-danger">{{ " *" }}</span></label>
+                <input type="text" class="form-control" formControlName="initiativeName">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Start of the initiative<span class="text-danger">{{ " *" }}</span></label>
+                <input
+                class="form-control flatpickr-input"
+                type="text" mwlFlatpickr 
+                [minDate]="currentDate"
+                formControlName="startDate"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">End of the Initiative<span class="text-danger">{{ " *" }}</span></label>
+                <input
+                class="form-control flatpickr-input"
+                type="text" mwlFlatpickr 
+                [minDate]="announceInitiativeFormValues.startDate"
+                formControlName="endDate"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Eligibility<span class="text-danger">{{ " *" }}</span></label>
+                <textarea formControlName="eligibility" rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Terms and Conditions<span class="text-danger">{{ " *" }}</span></label>
+                <textarea formControlName="terms" rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Start date of accepting proposals<span class="text-danger">{{ " *" }}</span></label>
+                <input
+                class="form-control flatpickr-input"
+                type="text" mwlFlatpickr 
+                [minDate]="currentDate"
+                formControlName="startDateOfAcceptingProposals"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Final Date of submission the proposals<span class="text-danger">{{ " *" }}</span></label>
+                <input
+                class="form-control flatpickr-input"
+                type="text" mwlFlatpickr 
+                [minDate]="announceInitiativeFormValues.startDateOfAcceptingProposals"
+                formControlName="endDateOfAcceptingProposals"
+                [altInput]="true" [convertModelValue]="true"/>
+            </div>
+        </div>
+        <hr>
+        <div class="row" *ngIf="initiativeStatus === 'Sent to Media Department'">
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Comments<span class="text-danger">{{ " *" }}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Attach your files<span class="text-danger">{{ " *" }}</span></label>
+                <ngx-dropzone (change)="onSelect($event, 'mediaFiles')"
+                        [multiple]="true">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of mediaFiles"
+                            [removable]="true" (removed)="onRemove(f, 'mediaFiles')">
+                            <ngx-dropzone-label
+                            >{{ f.name }} ({{
+                                f.type
+                            }})</ngx-dropzone-label
+                            >
+                        </ngx-dropzone-preview>
+                        </ngx-dropzone>
+            </div>
+
+        </div>
+    </div>
+</form>
+

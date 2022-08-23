@@ -142,6 +142,9 @@ import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-cer
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
 import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
 import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/courses/professional-competiency-view-course/professional-competiency-view-course.component';
+import { InnovationInitiativeComponent } from './innovation-centre/innovation-initiative/innovation-initiative.component';
+import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
+import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-proposals-innovation-initiative/page-proposals-innovation-initiative.component';
 
 const routes: Routes = [
     //Default Routing
@@ -355,7 +358,20 @@ const routes: Routes = [
     { path : 'professional-competiency', children: [
       { path: 'courses',  component :  ProfessionalCompetiencyViewCourseComponent},
     ]},
+    { path : 'innovation-centre', children: [
+      { path: 'innovation-initiative',  children : [
+        { path: '',  component :  InnovationInitiativeComponent},
+        { path: 'page-innovation-initiative',  component : PageInnovationInitiativeComponent },
+        { path: 'page-proposals-innovation-initiative',  component : PageProposalsInnovationInitiativeComponent}
+      ]},
+    ]},
 
+
+    // innovation-initiative
+    // immersive-interactive-room
+    // preventative-maintenance
+    // repair-requests
+    // 3d-object-request
 
     //Employer Routing
     { path: "employer", children : [
