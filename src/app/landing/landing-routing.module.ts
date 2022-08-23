@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from "../core/guards/auth.guard";
 import { ApplicationForFellowshipComponent } from "./application-forms/application-for-fellowship/application-for-fellowship.component";
+import { ApplicationForInnovationInitiativeComponent } from "./application-forms/application-for-innovation-initiative/application-for-innovation-initiative.component";
 import { ApplicationForScholarshipComponent } from "./application-forms/application-for-scholarship/application-for-scholarship.component";
 import { ApplicationFormsComponent } from "./application-forms/application-forms.component";
 import { ApplicationResidencyProgramComponent } from "./application-forms/application-residency-program/application-residency-program.component";
@@ -78,6 +79,10 @@ const routes: Routes = [
           {
             path: "research-consultation-request-form",
             component: ResearchConsultationRequestFormComponent,
+          },
+          {
+            path: "innovation-initiative-form",
+            component: ApplicationForInnovationInitiativeComponent,
           },
         ],
       },

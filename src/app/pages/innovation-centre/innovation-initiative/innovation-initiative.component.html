@@ -1,11 +1,11 @@
 <div class="row card-box">
-    <div class="col-md-3 col-12 mb-3" >
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
         <div class="card card-animate border shadow" (click)="onNavigate('/innovation-centre/innovation-initiative/page-innovation-initiative')">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
                 <div class="d-flex card-thumbnail">
-                    II
+                    IIN
                 </div>
             </div>
             <div class="card-body py-2">
@@ -13,17 +13,31 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3" >
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
         <div class="card card-animate border shadow" (click)="onNavigate('/innovation-centre/innovation-initiative/page-proposals-innovation-initiative')">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
                 <div class="d-flex card-thumbnail">
-                    PI
+                    PII
                 </div>
             </div>
             <div class="card-body py-2">
                 <p class="h5">Proposals for Innovation Initiative</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'trainee@omsb.org' ">
+        <div class="card card-animate border shadow" (click)="onNavigate('/innovation-centre/innovation-initiative/proposal-assessment-result')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    PAS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Proposal Assessment Results</p>
             </div>
         </div>
     </div>

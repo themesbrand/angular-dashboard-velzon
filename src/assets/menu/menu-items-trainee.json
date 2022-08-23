@@ -95,5 +95,17 @@
                 "link": "professional-competiency/courses"
             }
         ]
+    },
+    {
+        "id": 17,
+        "label": "Innovation Centre",
+        "icon": "ri-community-line",
+        "subItems" : [
+            {
+                "id": 18,
+                "label": "Innovation Initiative",
+                "link": "innovation-centre/innovation-initiative"
+            }
+        ]
     }
 ]

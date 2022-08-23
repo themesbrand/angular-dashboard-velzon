@@ -1,0 +1,23 @@
+th, td {
+    vertical-align: middle;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+}
+td .badge {
+    cursor: pointer;
+}
+td {
+    padding: 0.25rem 0.6rem;
+}
+.table-responsive {
+    overflow: visible !important;
+}
+td a  {
+    cursor: pointer !important;
+}
+
+.acitivity-timeline .acitivity-item:before {
+    border-left: 1.2px dashed grey;
+}

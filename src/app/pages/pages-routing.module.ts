@@ -145,6 +145,7 @@ import { ProfessionalCompetiencyViewCourseComponent } from './professional-compe
 import { InnovationInitiativeComponent } from './innovation-centre/innovation-initiative/innovation-initiative.component';
 import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
 import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-proposals-innovation-initiative/page-proposals-innovation-initiative.component';
+import { ProposalAssessmentResultsComponent } from './innovation-centre/innovation-initiative/proposal-assessment-results/proposal-assessment-results.component';
 
 const routes: Routes = [
     //Default Routing
@@ -362,7 +363,8 @@ const routes: Routes = [
       { path: 'innovation-initiative',  children : [
         { path: '',  component :  InnovationInitiativeComponent},
         { path: 'page-innovation-initiative',  component : PageInnovationInitiativeComponent },
-        { path: 'page-proposals-innovation-initiative',  component : PageProposalsInnovationInitiativeComponent}
+        { path: 'page-proposals-innovation-initiative',  component : PageProposalsInnovationInitiativeComponent},
+        { path: 'proposal-assessment-result',  component : ProposalAssessmentResultsComponent}
       ]},
     ]},
 

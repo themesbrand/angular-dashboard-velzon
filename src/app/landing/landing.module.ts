@@ -47,6 +47,10 @@ import { FellowshipApplicationViewComponent } from './application-forms/applicat
 import { ScholarshipApplicationListComponent } from './application-forms/application-for-scholarship/scholarship-application-list/scholarship-application-list.component';
 import { ScholarshipApplicationViewComponent } from './application-forms/application-for-scholarship/scholarship-application-view/scholarship-application-view.component';
 import { MyApplicationsComponent } from './application-forms/my-applications/my-applications.component';
+import { ApplicationForInnovationInitiativeComponent } from './application-forms/application-for-innovation-initiative/application-for-innovation-initiative.component';
+import { ApplicationFormComponent } from './application-forms/application-for-innovation-initiative/application-form/application-form.component';
+import { InnovationInitiativeListComponent } from './application-forms/application-for-innovation-initiative/innovation-initiative-list/innovation-initiative-list.component';
+import { InnovationInitiativeViewComponent } from './application-forms/application-for-innovation-initiative/innovation-initiative-view/innovation-initiative-view.component';
 
 
 @NgModule({
@@ -79,7 +83,11 @@ import { MyApplicationsComponent } from './application-forms/my-applications/my-
     FellowshipApplicationViewComponent,
     ScholarshipApplicationListComponent,
     ScholarshipApplicationViewComponent,
-    MyApplicationsComponent
+    MyApplicationsComponent,
+    ApplicationForInnovationInitiativeComponent,
+    ApplicationFormComponent,
+    InnovationInitiativeListComponent,
+    InnovationInitiativeViewComponent
   ],
   imports: [
     CommonModule,

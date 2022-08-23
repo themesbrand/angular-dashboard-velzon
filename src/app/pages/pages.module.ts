@@ -255,6 +255,9 @@ import { InnovationInitiativeComponent } from './innovation-centre/innovation-in
 import { CreateInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/create-innovation-initiative/create-innovation-initiative.component';
 import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
 import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-proposals-innovation-initiative/page-proposals-innovation-initiative.component';
+import { ViewProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/view-proposals-innovation-initiative/view-proposals-innovation-initiative.component';
+import { ProposalAssessmentComponent } from './innovation-centre/innovation-initiative/proposal-assessment/proposal-assessment.component';
+import { ProposalAssessmentResultsComponent } from './innovation-centre/innovation-initiative/proposal-assessment-results/proposal-assessment-results.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -474,7 +477,10 @@ FullCalendarModule.registerPlugins([
     InnovationInitiativeComponent,
     CreateInnovationInitiativeComponent,
     PageInnovationInitiativeComponent,
-    PageProposalsInnovationInitiativeComponent
+    PageProposalsInnovationInitiativeComponent,
+    ViewProposalsInnovationInitiativeComponent,
+    ProposalAssessmentComponent,
+    ProposalAssessmentResultsComponent
   ],
   imports: [
     CommonModule,

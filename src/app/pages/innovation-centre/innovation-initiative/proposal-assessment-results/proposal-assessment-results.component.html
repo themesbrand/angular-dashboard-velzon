@@ -1,0 +1,76 @@
+<app-breadcrumbs title="Proposal Assessment Result" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/innovation-centre/innovation-initiative')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3 mb-3" >
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Applicant Name<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Project Title<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-lable">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead *ngIf="userRole === 'eportal@omsb.org'">
+                                <tr>
+                                    <th scope="col" colspan="2"></th>
+                                    <th scope="col">Reviewer : Al Abri Falsal</th>
+                                    <th scope="col">Reviewer : Abdel Maddali</th>
+                                </tr>
+                                <tr>   
+                                    <th scope="col">Project Title</th>
+                                    <th scope="col">Applicant Name</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Score</th>
+                                </tr>
+                            </thead>
+                            <thead *ngIf="userRole === 'trainee@omsb.org'">
+                                <tr>
+                                    <th scope="col" ></th>
+                                    <th scope="col">Reviewer : Al Abri Falsal</th>
+                                    <th scope="col">Reviewer : Abdel Maddali</th>
+                                </tr>
+                                <tr>   
+                                    <th scope="col">Project Title</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor="let initiative of tableData">                           
+                                    <td>{{initiative.title}}</td>
+                                    <td *ngIf="userRole != 'trainee@omsb.org'">{{initiative.applicantName}}</td>
+                                    <td>{{initiative.scoreOne}}</td>
+                                    <td>{{initiative.scoreTwo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

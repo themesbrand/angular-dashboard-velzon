@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import {data} from './data'
+
 @Component({
-  selector: 'app-page-proposals-innovation-initiative',
-  templateUrl: './page-proposals-innovation-initiative.component.html',
-  styleUrls: ['./page-proposals-innovation-initiative.component.scss'],
+  selector: 'app-proposal-assessment-results',
+  templateUrl: './proposal-assessment-results.component.html',
+  styleUrls: ['./proposal-assessment-results.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -23,24 +24,32 @@ import {data} from './data'
     )
   ]
 })
-export class PageProposalsInnovationInitiativeComponent implements OnInit {
+export class ProposalAssessmentResultsComponent implements OnInit {
 
+  breadCrumbItems!: Array<{}>;
+  userRole: string | null = null;
 
   listData = data;
-  breadCrumbItems!: Array<{}>;
+  tableData : any[] = [];
   isFilterOpened: boolean = false;
-  selectedInitiative: any;
+
 
   constructor(
-    private router : Router,
-    private modalService : NgbModal
+    private router : Router
   ) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Innovation Center", link: '/innovation-centre/innovation-initiative'},
-      { label: "Proposals for Innovation Initiative", active : true }
+      { label: "Proposal Assessment Result", active : true }
     ];
+    this.userRole = localStorage.getItem('userType');
+
+    if (this.userRole === 'eportal@omsb.org') {
+      this.tableData = this.listData.tableDataAdmin
+    } else if (this.userRole === 'trainee@omsb.org') {
+      this.tableData = this.listData.tableDataTrainee
+    } 
   }
 
   onFilter() {
@@ -51,17 +60,9 @@ export class PageProposalsInnovationInitiativeComponent implements OnInit {
     }
   }
 
-  setInitiative(initiative : any) {
-    this.selectedInitiative = initiative;
-  }
 
   onNavigate(url : any) {
-    this.modalService.dismissAll();
     this.router.navigateByUrl(url);
-  }
-
-  openModal(modal :any, size : any) {
-    this.modalService.open(modal, {size : size})
   }
 
 }
