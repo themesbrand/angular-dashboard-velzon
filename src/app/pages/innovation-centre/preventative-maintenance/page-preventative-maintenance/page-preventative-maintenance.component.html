@@ -1,0 +1,178 @@
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3 mb-3" >
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        <button (click)="openModal(createPreventativeMaintenance, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Track Preventative Maintenance</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Applicant Name<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Date Range<span class="text-danger"></span></label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                    [convertModelValue]="true" mode="range">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Model<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-lable">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name of the equipment</th>
+                                    <th scope="col">Model</th>
+                                    <th scope="col">Serial Number</th>
+                                    <th scope="col">Date of the next maintenance</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor="let request of listData.tableData">               
+                                    <td>{{request.equipmentName}}</td>
+                                    <td>{{request.model}}</td>
+                                    <td>{{request.serialNumber}}</td>
+                                    <td>{{request.nextMaintenance}}</td>
+                                    <td (click)="openModal(preventativeMaintenanceRequestStatus, 'lg'); setRequest(request)" style="cursor: pointer; color: rgb(3, 3, 147)">{{request.status}}</td> 
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(viewPreventativeMaintenance, 'lg'); setRequest(request)">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a>
+                                                </li>               
+                                                <li *ngIf="request.status === 'Not Scheduled'" (click)="openModal(schedulePreventativeMaintenance, 'lg'); setRequest(request)">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-calendar-event-line"></i>Schedule</a>
+                                                </li>               
+                                                <li *ngIf="request.status === 'Pending'" (click)="openModal(updatePreventativeMaintenance, 'lg'); setRequest(request)">
+                                                    <a class="dropdown-item" ><i class="mx-1  ri-check-double-fill"></i>Approval</a>
+                                                </li>               
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #createPreventativeMaintenance let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Track Preventative Maintenance</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-preventative-maintenance></app-create-preventative-maintenance>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #viewPreventativeMaintenance let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Preventative Maintenance Activity</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-preventative-maintenance [requestFormData]="selectedRequest"></app-create-preventative-maintenance>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #schedulePreventativeMaintenance let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Preventative Maintenance Activity</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-preventative-maintenance [requestFormData]="selectedRequest" [isEditable]="true"></app-create-preventative-maintenance>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Submit Schedule</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #updatePreventativeMaintenance let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Preventative Maintenance Activity</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-create-preventative-maintenance [requestFormData]="selectedRequest" [isEditable]="true"></app-create-preventative-maintenance>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #preventativeMaintenanceRequestStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Preventative Maintenance Status Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedRequest.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

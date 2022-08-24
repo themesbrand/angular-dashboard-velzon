@@ -258,6 +258,14 @@ import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/
 import { ViewProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/view-proposals-innovation-initiative/view-proposals-innovation-initiative.component';
 import { ProposalAssessmentComponent } from './innovation-centre/innovation-initiative/proposal-assessment/proposal-assessment.component';
 import { ProposalAssessmentResultsComponent } from './innovation-centre/innovation-initiative/proposal-assessment-results/proposal-assessment-results.component';
+import { PageImmersiveInteractiveRoomComponent } from './innovation-centre/immersive-interactive-room/page-immersive-interactive-room/page-immersive-interactive-room.component';
+import { CreateImmersiveInteractiveRoomComponent } from './innovation-centre/immersive-interactive-room/create-immersive-interactive-room/create-immersive-interactive-room.component';
+import { PagePreventativeMaintenanceComponent } from './innovation-centre/preventative-maintenance/page-preventative-maintenance/page-preventative-maintenance.component';
+import { CreatePreventativeMaintenanceComponent } from './innovation-centre/preventative-maintenance/create-preventative-maintenance/create-preventative-maintenance.component';
+import { PageRepairRequestsComponent } from './innovation-centre/repair-requests/page-repair-requests/page-repair-requests.component';
+import { CreateRepairRequestsComponent } from './innovation-centre/repair-requests/create-repair-requests/create-repair-requests.component';
+import { CreateThreedObjectRequestComponent } from './innovation-centre/3d-object-request/create-threed-object-request/create-threed-object-request.component';
+import { PageThreedObjectRequestComponent } from './innovation-centre/3d-object-request/page-threed-object-request/page-threed-object-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -480,7 +488,15 @@ FullCalendarModule.registerPlugins([
     PageProposalsInnovationInitiativeComponent,
     ViewProposalsInnovationInitiativeComponent,
     ProposalAssessmentComponent,
-    ProposalAssessmentResultsComponent
+    ProposalAssessmentResultsComponent,
+    PageImmersiveInteractiveRoomComponent,
+    CreateImmersiveInteractiveRoomComponent,
+    PagePreventativeMaintenanceComponent,
+    CreatePreventativeMaintenanceComponent,
+    PageRepairRequestsComponent,
+    CreateRepairRequestsComponent,
+    CreateThreedObjectRequestComponent,
+    PageThreedObjectRequestComponent
   ],
   imports: [
     CommonModule,

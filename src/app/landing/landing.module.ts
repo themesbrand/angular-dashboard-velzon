@@ -51,6 +51,10 @@ import { ApplicationForInnovationInitiativeComponent } from './application-forms
 import { ApplicationFormComponent } from './application-forms/application-for-innovation-initiative/application-form/application-form.component';
 import { InnovationInitiativeListComponent } from './application-forms/application-for-innovation-initiative/innovation-initiative-list/innovation-initiative-list.component';
 import { InnovationInitiativeViewComponent } from './application-forms/application-for-innovation-initiative/innovation-initiative-view/innovation-initiative-view.component';
+import { ThreeDObjectRequestFormComponent } from './application-forms/three-d-object-request-form/three-d-object-request-form.component';
+import { ThreeDObjectApplicationFormComponent } from './application-forms/three-d-object-request-form/three-d-object-application-form/three-d-object-application-form.component';
+import { ThreeDObjectApplicationsListComponent } from './application-forms/three-d-object-request-form/three-d-object-applications-list/three-d-object-applications-list.component';
+import { ThreeDObjectApplicationViewComponent } from './application-forms/three-d-object-request-form/three-d-object-application-view/three-d-object-application-view.component';
 
 
 @NgModule({
@@ -87,7 +91,11 @@ import { InnovationInitiativeViewComponent } from './application-forms/applicati
     ApplicationForInnovationInitiativeComponent,
     ApplicationFormComponent,
     InnovationInitiativeListComponent,
-    InnovationInitiativeViewComponent
+    InnovationInitiativeViewComponent,
+    ThreeDObjectRequestFormComponent,
+    ThreeDObjectApplicationFormComponent,
+    ThreeDObjectApplicationsListComponent,
+    ThreeDObjectApplicationViewComponent
   ],
   imports: [
     CommonModule,

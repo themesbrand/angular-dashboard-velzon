@@ -1,0 +1,104 @@
+<form [formGroup]="requestForm">
+    <div class="mt-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Name of the equipment</label>
+                        <input type="text" class="form-control" formControlName="equipmentName">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Model</label>
+                        <input type="text" class="form-control" formControlName="model">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Supplier Name</label>
+                        <input type="text" class="form-control" formControlName="supplierName">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Serial Number</label>
+                        <input type="text" class="form-control" formControlName="serialNumber">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Date of purchase</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="dateOfPurchase"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">End of Warranty</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="endOfWarranty"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                    <div class="col-md-12 mb-3" *ngIf="requestFormObject === null">
+                        <label class="form-label">Attachments</label>
+                        <ngx-dropzone (change)="onSelect($event, 'attachmentFiles')"
+                                [multiple]="false">
+                            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of attachmentFiles"
+                                [removable]="true" (removed)="onRemove(f, 'attachmentFiles')">
+                                <ngx-dropzone-label
+                                >{{ f.name }} ({{
+                                    f.type
+                                }})</ngx-dropzone-label
+                                >
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="requestFormObject != null">
+                        <label class="form-label">Download Attachments</label>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="requestFormObject?.maintenanceStartDate != 'N/A'">
+                        <label class="form-label">Maintenance Start Date</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="maintenanceStartDate"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="requestFormObject?.maintenanceEndDate != 'N/A'">
+                        <label class="form-label">Maintenance End Date</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="maintenanceEndDate"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="requestFormObject?.status ==='Pass' ||requestFormObject?.status ==='Fail'  ">
+                        <label class="form-label">Status</label>
+                        <ng-select [items]="['Pass', 'Fail']" formControlName="status"></ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="requestFormObject?.status ==='Pass' || requestFormObject?.status ==='Overdue' ">
+                        <label class="form-label">Date of the next maintenance</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="nextMaintenance"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card" *ngIf="isEditable === true">
+            <div class="card-body">
+                <div class="row" >
+                    <div class="col-md-6 mb-3" *ngIf="requestFormObject?.status ==='Not Scheduled'">
+                        <label class="form-label">Maintenance Start Date</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="maintenanceStartDate"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="requestFormObject?.status ==='Not Scheduled'">
+                        <label class="form-label">Maintenance End Date</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="maintenanceEndDate"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3" *ngIf="requestFormObject?.status ==='Pending'">
+                        <label class="form-label">Status</label>
+                        <ng-select [items]="['Pass', 'Fail']" formControlName="approvalStatus"></ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="requestFormValues?.approvalStatus ==='Pass'">
+                        <label class="form-label">Date of the next maintenance</label>
+                        <input class="form-control flatpickr-input" type="text" id="example-week-input" formControlName="nextMaintenance"
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</form>

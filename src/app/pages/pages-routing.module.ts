@@ -146,6 +146,10 @@ import { InnovationInitiativeComponent } from './innovation-centre/innovation-in
 import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
 import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-proposals-innovation-initiative/page-proposals-innovation-initiative.component';
 import { ProposalAssessmentResultsComponent } from './innovation-centre/innovation-initiative/proposal-assessment-results/proposal-assessment-results.component';
+import { PageImmersiveInteractiveRoomComponent } from './innovation-centre/immersive-interactive-room/page-immersive-interactive-room/page-immersive-interactive-room.component';
+import { PagePreventativeMaintenanceComponent } from './innovation-centre/preventative-maintenance/page-preventative-maintenance/page-preventative-maintenance.component';
+import { PageRepairRequestsComponent } from './innovation-centre/repair-requests/page-repair-requests/page-repair-requests.component';
+import { PageThreedObjectRequestComponent } from './innovation-centre/3d-object-request/page-threed-object-request/page-threed-object-request.component';
 
 const routes: Routes = [
     //Default Routing
@@ -366,16 +370,12 @@ const routes: Routes = [
         { path: 'page-proposals-innovation-initiative',  component : PageProposalsInnovationInitiativeComponent},
         { path: 'proposal-assessment-result',  component : ProposalAssessmentResultsComponent}
       ]},
+      { path: 'immersive-interactive-room',  component :  PageImmersiveInteractiveRoomComponent},
+      { path: 'preventative-maintenance',  component :  PagePreventativeMaintenanceComponent},
+      { path: 'repair-requests',  component :  PageRepairRequestsComponent},
+      { path: '3d-object-request',  component :  PageThreedObjectRequestComponent},
     ]},
 
-
-    // innovation-initiative
-    // immersive-interactive-room
-    // preventative-maintenance
-    // repair-requests
-    // 3d-object-request
-
-    //Employer Routing
     { path: "employer", children : [
       { path: "dashboard", component: DashboardsEmployerComponent },
       { path: "employer-view-applications", component: ScholarshipApplicationViewComponent },

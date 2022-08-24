@@ -1,0 +1,54 @@
+<div class="mt-3" *ngIf="interactiveData === null">
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Purpose for using the Immersion/Interactive room</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Date</label>
+            <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+            [convertModelValue]="true">
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Time slots - Start Time</label>
+            <input class="form-control flatpickr-input" type="text" mwlFlatpickr [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">Time slots - End Time</label>
+            <input class="form-control flatpickr-input" type="text" mwlFlatpickr [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+        </div>
+        <div class="col-md-3 mb-3">
+            <label class="form-label">The Number of attends</label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Other requirement</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+</div>
+<div class="mt-3" *ngIf="interactiveData != null">
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Purpose for using the Immersion/Interactive room</label>
+            <label class="form-control">{{interactiveData.purpose}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Date</label>
+            <label class="form-control">{{interactiveData.date}}</label>
+
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Time slot</label>
+            <label class="form-control">{{interactiveData.timeSlot}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">The Number of attends</label>
+            <label class="form-control">{{interactiveData.attends}}</label>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Other requirement</label>
+            <textarea rows="3" class="form-control" [ngModel]="interactiveData.requirements"></textarea>
+        </div>
+    </div>
+</div>

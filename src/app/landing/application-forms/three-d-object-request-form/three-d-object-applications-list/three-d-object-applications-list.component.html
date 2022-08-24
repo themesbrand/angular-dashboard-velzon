@@ -1,0 +1,92 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Req. No.</th>
+                                <th scope="col">Model Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Date Requested</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr  *ngFor="let request of listData.tableData">               
+                                <td>{{request.reqNo}}</td>
+                                <td>{{request.modelName}}</td>
+                                <td>{{request.quantity}}</td>
+                                <td>{{request.dateRequested}}</td>
+                                <td (click)="openModal(requestStatusTracker, 'lg'); setRequest(request)" style="cursor: pointer; color: rgb(3, 3, 147)">{{request.status}}</td> 
+                                <td>
+                                    <div class="dropdown" ngbDropdown>
+                                        <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                            <i class="ri-more-2-fill"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <li (click)="setRequest(request); openModal(viewApplication, 'lg')">
+                                                <a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #viewApplication let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Application</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-three-d-object-application-view [requestFormData]="selectedRequest"></app-three-d-object-application-view>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestStatusTracker let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">3D Object Request Status Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedRequest.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

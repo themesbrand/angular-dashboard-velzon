@@ -20,41 +20,42 @@ const data = {
         },
     ],
     curriculumConfirmedTableData : [
+        
+        {
+            name : 'Internal Medicine',
+            startDate : '29/04/2022',
+            endDate : '26/04/2022',
+            status : 'completed'
+        },
+        {
+            name : 'Pathology',
+            startDate : '27/05/2022',
+            endDate : '23/05/2022',
+            status : 'completed'
+        },
+        {
+            name : 'Pediatrics',
+            startDate : '24/06/2022',
+            endDate : '21/06/2022',
+            status : 'completed'
+        },
+        {
+            name : 'Psychology',
+            startDate : '01/07/2022',
+            endDate : '30/07/2020',
+            status : 'completed'
+        },
+        {
+            name : 'Family Medicine',
+            startDate : '01/08/2022',
+            endDate : '30/08/2022',
+            status : 'completed'
+        },
         {
             name : 'Gynecology',
             startDate : '01/09/2022',
             endDate : '28/09/2022',
-            status : ''
-        },
-        {
-            name : 'Internal Medicine',
-            startDate : '29/09/2022',
-            endDate : '26/10/2022',
-            status : ''
-        },
-        {
-            name : 'Pathology',
-            startDate : '27/10/2022',
-            endDate : '23/11/2022',
-            status : ''
-        },
-        {
-            name : 'Pediatrics',
-            startDate : '24/11/2022',
-            endDate : '21/12/2022',
             status : 'in-progress'
-        },
-        {
-            name : 'Psychology',
-            startDate : '22/12/2022',
-            endDate : '18/01/2020',
-            status : 'in-progress'
-        },
-        {
-            name : 'Family Medicine',
-            startDate : '24/11/2022',
-            endDate : '21/12/2022',
-            status : ''
         }
     ],
     dutyHourViolationsTableData : [
@@ -116,8 +117,8 @@ const data = {
     compliancePerRotationTableData : [
         {
             name : 'Gynecology',
-            startDate : '01/09/2022',
-            endDate : '28/09/2022',
+            startDate : '01/05/2022',
+            endDate : '28/05/2022',
             rotationValue : '1 of 1',
             rotationChecked : true,
             facultyValue : '1 of 1',
@@ -127,19 +128,19 @@ const data = {
         },
         {
             name : 'Pathology',
-            startDate : '27/10/2022',
-            endDate : '23/11/2022',
+            startDate : '27/06/2022',
+            endDate : '23/06/2022',
             rotationValue : '1 of 2',
-            rotationChecked : true,
+            rotationChecked : false,
             facultyValue : '1 of 2',
-            facultyChecked : true,
+            facultyChecked : false,
             curriculumValue : '1 of 2',
-            curriculumChecked : true,
+            curriculumChecked : false,
         },
         {
             name : 'Pediatrics',
-            startDate : '24/11/2022',
-            endDate : '21/12/2022',
+            startDate : '24/07/2022',
+            endDate : '21/07/2022',
             rotationValue : '1 of 1',
             rotationChecked : true,
             facultyValue : '1 of 1',
@@ -149,8 +150,8 @@ const data = {
         },
         {
             name : 'Psychology',
-            startDate : '22/12/2022',
-            endDate : '18/01/2020',
+            startDate : '22/08/2022',
+            endDate : '18/08/2020',
             rotationValue : '0 of 1',
             rotationChecked : false,
             facultyValue : '1 of 1',
@@ -160,12 +161,12 @@ const data = {
         },
         {
             name : 'Family Medicine',
-            startDate : '24/11/2022',
-            endDate : '21/12/2022',
+            startDate : '24/09/2022',
+            endDate : '21/09/2022',
             rotationValue : '0 of 1',
             rotationChecked : false,
             facultyValue : '1 of 1',
-            facultyChecked : false,
+            facultyChecked : true,
             curriculumValue : '1 of 2',
             curriculumChecked : false,
             status : 'in-progress'

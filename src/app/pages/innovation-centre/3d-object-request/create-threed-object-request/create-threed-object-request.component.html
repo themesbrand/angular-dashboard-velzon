@@ -1,0 +1,72 @@
+<form [formGroup]="requestForm">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9 mb-3">
+                    <label class="form-label">Model Name</label>
+                    <input type="text" class="form-control" formControlName="modelName">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Quantity</label>
+                    <input type="number" class="form-control" formControlName="quantity">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Details of the 3D Model (Function, Size, Color, etc.)</label>
+                    <textarea rows="2" formControlName="details" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row" *ngIf="requestFormObject != null && requestFormObject.status != 'Submitted'">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Date & Time Start2</label>
+                    <label class="form-control">{{requestFormValues.startDateTime}}</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Date & Time Finish</label>
+                    <label class="form-control">{{requestFormValues.endDateTime}}</label>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">3D printer  Operator Comments</label>
+                    <label class="form-control">{{requestFormValues.operatorComment}}</label>
+                </div>
+            </div>
+            <div class="row" *ngIf="requestFormObject != null && requestFormObject.directorComment != ''">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Comments from the Director</label>
+                    <label class="form-control">{{requestFormValues.directorComment}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="requestFormObject?.status === 'Submitted' && this.isEditable === true">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Date & Time Start</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                    [enableTime]="true" [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'" formControlName="startDateTime" >
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Date & Time Finish</label>
+                    <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
+                    [enableTime]="true" [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'" formControlName="endDateTime" >
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">3D printer  Operator Comments</label>
+                    <textarea rows="2" formControlName="operatorComment" class="form-control"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="requestFormObject?.status === 'Sent for Approval' && this.isEditable === true">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Comments from the Director</label>
+                    <textarea rows="2" formControlName="directorComment" class="form-control"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

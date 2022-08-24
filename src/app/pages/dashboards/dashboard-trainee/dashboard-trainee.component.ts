@@ -180,7 +180,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Anesthesia for General Surgery - Ambulatory Cases",
-            y: 1.8,
+            y: 1,
             goals: [{
               name: "Expected",
               value: 3.5,
@@ -200,7 +200,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Anesthesia for General Surgery – Vascular Surgery",
-            y: 2.1,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 3.5,
@@ -210,7 +210,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Anesthesia for ENT/Ophthalmology/ Oral & Maxillofacial Surgery",
-            y: 1.6,
+            y: 1,
             goals: [{
               name: "Expected",
               value: 3.5,
@@ -230,7 +230,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Regional Anesthesia",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -240,7 +240,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Anesthesia for Orthopedic Surgery",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -250,7 +250,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Pre-Anesthesia Clinic (PAC)",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -260,7 +260,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Pre-Anesthesia Clinic (PAC)",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -270,7 +270,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Pre-Anesthesia Clinic (PAC)",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -280,7 +280,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Pre-Anesthesia Clinic (PAC)",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -290,7 +290,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Pre-Anesthesia Clinic (PAC)",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,
@@ -300,7 +300,7 @@ export class DashboardTraineeComponent implements OnInit {
           },
           {
             x: "Pre-Anesthesia Clinic (PAC)",
-            y: 2.2,
+            y: 2,
             goals: [{
               name: "Expected",
               value: 2.5,

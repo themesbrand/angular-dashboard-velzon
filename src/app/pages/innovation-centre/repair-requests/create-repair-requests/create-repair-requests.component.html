@@ -1,0 +1,86 @@
+<form [formGroup]="requestForm">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Name of the equipment</label>
+                        <ng-select [items]="['Equipment Name - 1', 'Equipment Name - 2']" formControlName="equipmentName"></ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Model</label>
+                        <ng-select [items]="['Model - 1', 'Model - 2']" formControlName="model"></ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Supplier Name</label>
+                        <ng-select [items]="['Supplier Name - 1','Supplier Name - 2']" formControlName="supplierName"></ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Serial Number</label>
+                        <ng-select [items]="['Serial Number - 1', 'Serial Number - 2']" formControlName="serialNumber"></ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Problems / Complaints</label>
+                        <textarea formControlName="complains" rows="2" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" *ngIf="isEquipmentStatusChangeable">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Equipment Status</label>
+                        <ng-select [items]="['Repaired', 'For system update',
+                        'Parts for replacement', 'Repair to be done in the service center',
+                        'To be condemned']" formControlName="equipmentStatus"></ng-select>
+                    </div>
+                    <div class="col-md-9 mb-3">
+                        <label class="form-label">Attachments</label>
+                        <ngx-dropzone (change)="onSelect($event, 'attachmentFiles')"
+                        [multiple]="false">
+                            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of attachmentFiles"
+                                [removable]="true" (removed)="onRemove(f, 'attachmentFiles')">
+                                <ngx-dropzone-label
+                                >{{ f.name }} ({{
+                                    f.type
+                                }})</ngx-dropzone-label
+                                >
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                    <div class="col-md-12 mb-3" *ngIf="requestFormValues.equipmentStatus === 'To be condemned'">
+                        <label class="form-label">Condemnation Reason</label>
+                        <ng-select [items]="['Irreparable', 'More than 10 years in service',
+                        'Obsolete ', 'No commercial part', 'Battery depleted',
+                        'No service manual', 'No supplier support', 'Others specify' ]" formControlName="condemnationReason"></ng-select>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3" *ngIf="requestFormValues.condemnationReason === 'Others specify'">
+                        <label class="form-label">If Other,</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card" *ngIf="requestFormValues.equipmentStatus === 'To be condemned'">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Equipment Status</label>
+                        <label class="form-control">{{requestFormValues.equipmentStatus}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Attachments</label>
+                        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    </div>
+                    <div class="col-md-12 mb-3" >
+                        <label class="form-label">Condemnation Reason</label>
+                        <label class="form-control">{{requestFormValues.condemnationReason}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+

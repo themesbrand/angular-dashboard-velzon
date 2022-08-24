@@ -14,6 +14,7 @@ import { ResearchConsultationRequestFormComponent } from "./application-forms/re
 import { ResearchDayRegistrationComponent } from "./application-forms/research-day-registration/research-day-registration.component";
 import { ResearchEthicalApprovalFormComponent } from "./application-forms/research-ethical-approval-form/research-ethical-approval-form.component";
 import { ResearchFundingOpportunitiesFormComponent } from "./application-forms/research-funding-opportunities-form/research-funding-opportunities-form.component";
+import { ThreeDObjectRequestFormComponent } from "./application-forms/three-d-object-request-form/three-d-object-request-form.component";
 
 import { HomeComponent } from "./home/home.component";
 
@@ -84,9 +85,11 @@ const routes: Routes = [
             path: "innovation-initiative-form",
             component: ApplicationForInnovationInitiativeComponent,
           },
+          { path: "3d-object-request-form", component: ThreeDObjectRequestFormComponent },
         ],
       },
       { path: "research-day-registration", component: ResearchDayRegistrationComponent },
+
     ],
   },
 ];
