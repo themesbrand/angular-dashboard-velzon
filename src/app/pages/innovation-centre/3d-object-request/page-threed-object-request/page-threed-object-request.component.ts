@@ -40,6 +40,7 @@ export class PageThreedObjectRequestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userRole = localStorage.getItem('userType');
     // if(this.userRole === 'eportal@omsb.org') {
     //   this.tableData = this.listData.adminTableData
     // } else if (this.userRole === 'trainee@omsb.org') {
