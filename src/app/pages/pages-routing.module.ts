@@ -150,6 +150,7 @@ import { PageImmersiveInteractiveRoomComponent } from './innovation-centre/immer
 import { PagePreventativeMaintenanceComponent } from './innovation-centre/preventative-maintenance/page-preventative-maintenance/page-preventative-maintenance.component';
 import { PageRepairRequestsComponent } from './innovation-centre/repair-requests/page-repair-requests/page-repair-requests.component';
 import { PageThreedObjectRequestComponent } from './innovation-centre/3d-object-request/page-threed-object-request/page-threed-object-request.component';
+import { SelectTopicAndMentorComponent } from './research/select-topic-and-mentor/select-topic-and-mentor.component';
 
 const routes: Routes = [
     //Default Routing
@@ -289,7 +290,9 @@ const routes: Routes = [
           { path : "section-booth-evaluation", component: SectionBoothEvaluationComponent },
         ] },
         { path : "booth-evaluation-result", component: BoothEvaluationResultComponent },
-      ] }
+      ] },
+      { path: "select-topic-and-mentor", component: SelectTopicAndMentorComponent },
+
     ]},
 
     { path : 'admission', children: [

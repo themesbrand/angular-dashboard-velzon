@@ -266,6 +266,7 @@ import { PageRepairRequestsComponent } from './innovation-centre/repair-requests
 import { CreateRepairRequestsComponent } from './innovation-centre/repair-requests/create-repair-requests/create-repair-requests.component';
 import { CreateThreedObjectRequestComponent } from './innovation-centre/3d-object-request/create-threed-object-request/create-threed-object-request.component';
 import { PageThreedObjectRequestComponent } from './innovation-centre/3d-object-request/page-threed-object-request/page-threed-object-request.component';
+import { SelectTopicAndMentorComponent } from './research/select-topic-and-mentor/select-topic-and-mentor.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -496,7 +497,8 @@ FullCalendarModule.registerPlugins([
     PageRepairRequestsComponent,
     CreateRepairRequestsComponent,
     CreateThreedObjectRequestComponent,
-    PageThreedObjectRequestComponent
+    PageThreedObjectRequestComponent,
+    SelectTopicAndMentorComponent
   ],
   imports: [
     CommonModule,

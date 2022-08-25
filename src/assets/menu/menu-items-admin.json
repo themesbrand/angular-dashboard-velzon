@@ -186,6 +186,31 @@
                 "id": 32,
                 "label": "Research Day",
                 "link": "research/research-day"
+            },
+            {
+                "id": 33,
+                "label": "Select topic and Mentor",
+                "link": "research/select-topic-and-mentor"
+            },
+            {
+                "id": 34,
+                "label": "Proposal Review",
+                "link": "research/proposal-review"
+            },
+            {
+                "id": 35,
+                "label": "Research Evaluations",
+                "link": "research/research-evaluations"
+            },
+            {
+                "id": 36,
+                "label": "Interim Report",
+                "link": "research/interim-report"
+            },
+            {
+                "id": 37,
+                "label": "Final Report",
+                "link": "research/final-report"
             }
         ]
     },
