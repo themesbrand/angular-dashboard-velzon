@@ -267,6 +267,14 @@ import { CreateRepairRequestsComponent } from './innovation-centre/repair-reques
 import { CreateThreedObjectRequestComponent } from './innovation-centre/3d-object-request/create-threed-object-request/create-threed-object-request.component';
 import { PageThreedObjectRequestComponent } from './innovation-centre/3d-object-request/page-threed-object-request/page-threed-object-request.component';
 import { SelectTopicAndMentorComponent } from './research/select-topic-and-mentor/select-topic-and-mentor.component';
+import { SubmitProposalComponent } from './research/proposal-review/submit-proposal/submit-proposal.component';
+import { PageProposalReviewComponent } from './research/proposal-review/page-proposal-review/page-proposal-review.component';
+import { PageResearchEvaluationComponent } from './research/research-evaluation/page-research-evaluation/page-research-evaluation.component';
+import { FormResearchEvaluationComponent } from './research/research-evaluation/form-research-evaluation/form-research-evaluation.component';
+import { PageInterimReportComponent } from './research/submit-interim-report/page-interim-report/page-interim-report.component';
+import { FormInterimProposalComponent } from './research/submit-interim-report/form-interim-proposal/form-interim-proposal.component';
+import { PageFinalProposalsComponent } from './research/submit-final-proposal/page-final-proposals/page-final-proposals.component';
+import { FormFinalProposalsComponent } from './research/submit-final-proposal/form-final-proposals/form-final-proposals.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -498,7 +506,15 @@ FullCalendarModule.registerPlugins([
     CreateRepairRequestsComponent,
     CreateThreedObjectRequestComponent,
     PageThreedObjectRequestComponent,
-    SelectTopicAndMentorComponent
+    SelectTopicAndMentorComponent,
+    SubmitProposalComponent,
+    PageProposalReviewComponent,
+    PageResearchEvaluationComponent,
+    FormResearchEvaluationComponent,
+    PageInterimReportComponent,
+    FormInterimProposalComponent,
+    PageFinalProposalsComponent,
+    FormFinalProposalsComponent
   ],
   imports: [
     CommonModule,

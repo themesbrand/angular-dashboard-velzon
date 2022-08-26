@@ -151,6 +151,10 @@ import { PagePreventativeMaintenanceComponent } from './innovation-centre/preven
 import { PageRepairRequestsComponent } from './innovation-centre/repair-requests/page-repair-requests/page-repair-requests.component';
 import { PageThreedObjectRequestComponent } from './innovation-centre/3d-object-request/page-threed-object-request/page-threed-object-request.component';
 import { SelectTopicAndMentorComponent } from './research/select-topic-and-mentor/select-topic-and-mentor.component';
+import { PageProposalReviewComponent } from './research/proposal-review/page-proposal-review/page-proposal-review.component';
+import { PageResearchEvaluationComponent } from './research/research-evaluation/page-research-evaluation/page-research-evaluation.component';
+import { PageInterimReportComponent } from './research/submit-interim-report/page-interim-report/page-interim-report.component';
+import { PageFinalProposalsComponent } from './research/submit-final-proposal/page-final-proposals/page-final-proposals.component';
 
 const routes: Routes = [
     //Default Routing
@@ -292,6 +296,10 @@ const routes: Routes = [
         { path : "booth-evaluation-result", component: BoothEvaluationResultComponent },
       ] },
       { path: "select-topic-and-mentor", component: SelectTopicAndMentorComponent },
+      { path: "proposal-review", component: PageProposalReviewComponent },
+      { path: "research-evaluations", component: PageResearchEvaluationComponent },
+      { path: "interim-report", component: PageInterimReportComponent },
+      { path: "final-report", component: PageFinalProposalsComponent },
 
     ]},
 

@@ -8,7 +8,7 @@ const data = {
             programName	: 'Anesthesia',
             status: 'Requested',
             applicationStatus : [
-                { stage : 'Requested', status : 'Complete', date : '2022-07-25'},
+                { stage : 'Requested', status : 'Complete', date : '2022-07-25 08:00:00 AM'},
                 { stage : 'Confirmation', status : 'Pending', date : ''},
                 { stage : 'Meeting Schedule', status : 'Pending', date : ''},
                 { stage : 'Feedback ', status : 'Pending', date : ''},
@@ -23,8 +23,8 @@ const data = {
             programName	: 'Anesthesia',
             status: 'Confirmed',
             applicationStatus : [
-                { stage : 'Requested', status : 'Complete', date : '2022-07-25'},
-                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28'},
+                { stage : 'Requested', status : 'Complete', date : '2022-07-25 08:00:00 AM'},
+                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28 08:00:00 AM'},
                 { stage : 'Meeting Schedule', status : 'Pending', date : ''},
                 { stage : 'Feedback ', status : 'Pending', date : ''},
                 { stage : 'Completion', status : 'Pending', date : ''}
@@ -38,9 +38,9 @@ const data = {
             programName	: 'Anesthesia',
             status: 'Meeting Scheduled',
             applicationStatus : [
-                { stage : 'Requested', status : 'Complete', date : '2022-07-25'},
-                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28'},
-                { stage : 'Meeting Scheduled', status : 'Complete', date : '2022-08-01'},
+                { stage : 'Requested', status : 'Complete', date : '2022-07-25 08:00:00 AM'},
+                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28 08:00:00 AM'},
+                { stage : 'Meeting Scheduled', status : 'Complete', date : '2022-08-01 08:00:00 AM'},
                 { stage : 'Feedback ', status : 'Pending', date : ''},
                 { stage : 'Completion', status : 'Pending', date : ''}
             ]
@@ -53,10 +53,10 @@ const data = {
             programName	: 'Anesthesia',
             status: 'Feedback Received',
             applicationStatus : [
-                { stage : 'Requested', status : 'Complete', date : '2022-07-25'},
-                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28'},
-                { stage : 'Meeting Scheduled', status : 'Complete', date : '2022-08-01'},
-                { stage : 'Feedback Received', status : 'Complete', date : '2022-08-01'},
+                { stage : 'Requested', status : 'Complete', date : '2022-07-25 08:00:00 AM'},
+                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28 08:00:00 AM'},
+                { stage : 'Meeting Scheduled', status : 'Complete', date : '2022-08-01 08:00:00 AM'},
+                { stage : 'Feedback Received', status : 'Complete', date : '2022-08-01 08:00:00 AM'},
                 { stage : 'Completion', status : 'Pending', date : ''}
             ]
         },
@@ -68,11 +68,11 @@ const data = {
             programName	: 'Anesthesia',
             status: 'Completed',
             applicationStatus : [
-                { stage : 'Requested', status : 'Complete', date : '2022-07-25'},
-                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28'},
-                { stage : 'Meeting Scheduled', status : 'Complete', date : '2022-08-01'},
-                { stage : 'Feedback Received', status : 'Complete', date : '2022-08-01'},
-                { stage : 'Completion', status : 'Complete', date : '2022-08-03'}
+                { stage : 'Requested', status : 'Complete', date : '2022-07-25 08:00:00 AM'},
+                { stage : 'Confirmed', status : 'Complete', date : '2022-07-28 08:00:00 AM'},
+                { stage : 'Meeting Scheduled', status : 'Complete', date : '2022-08-01 08:00:00 AM'},
+                { stage : 'Feedback Received', status : 'Complete', date : '2022-08-01 08:00:00 AM'},
+                { stage : 'Completion', status : 'Complete', date : '2022-08-03 08:00:00 AM'}
             ]
         },
     ],
