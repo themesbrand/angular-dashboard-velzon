@@ -85,7 +85,7 @@ const data = {
             typeOfTheStudyDesign : 'Retrospective cohort',
             status : 'Applied',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:15:00 AM'},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'Assign Reviewers', status : 'Pending', date : ''},
                 { stage : 'Approval', status : 'Pending', date : ''},
@@ -101,10 +101,10 @@ const data = {
             typeOfTheStudyDesign : 'Randomized controlled trials',
             status : 'Approve',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25'},
-                { stage : 'Rejected', status : 'Complete', date : '2022-07-28'},
-                { stage : 'Assigned Reviewers', status : 'Complete', date : '2022-07-30'},
-                { stage : 'Approval', status : 'Complete', date : '2022-08-02'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:15:00 AM'},
+                { stage : 'Rejected', status : 'Complete', date : '2022-07-28 08:15:00 AM'},
+                { stage : 'Assigned Reviewers', status : 'Complete', date : '2022-07-30 08:15:00 AM'},
+                { stage : 'Approval', status : 'Complete', date : '2022-08-02 08:15:00 AM'},
                 { stage : 'Final Approval', status : 'Pending', date : ''},
                 { stage : 'Ethical Approval Issued', status : 'Pending', date : ''},
             ]
@@ -117,11 +117,11 @@ const data = {
             typeOfTheStudyDesign : 'Randomized controlled trials',
             status : 'Final Approval',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25'},
-                { stage : 'Rejected', status : 'Complete', date : '2022-07-28'},
-                { stage : 'Assigned Reviewers', status : 'Complete', date : '2022-07-30'},
-                { stage : 'Approval', status : 'Complete', date : '2022-08-02'},
-                { stage : 'Final Approval', status : 'Complete', date : '2022-08-03'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:15:00 AM'},
+                { stage : 'Rejected', status : 'Complete', date : '2022-07-28 08:15:00 AM'},
+                { stage : 'Assigned Reviewers', status : 'Complete', date : '2022-07-30 08:15:00 AM'},
+                { stage : 'Approval', status : 'Complete', date : '2022-08-02 08:15:00 AM'},
+                { stage : 'Final Approval', status : 'Complete', date : '2022-08-03 08:15:00 AM'},
                 { stage : 'Ethical Approval Issued', status : 'Pending', date : ''},
             ]
         }

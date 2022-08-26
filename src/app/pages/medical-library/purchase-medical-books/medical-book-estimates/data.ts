@@ -11,7 +11,7 @@ const data = {
             requestedDate : '2022-07-25' ,
             status: 'Requested',
             applicationStatus : [
-                { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Requested', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
                 { stage : 'Estimated', status : 'Pending', date : ''},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
@@ -31,7 +31,7 @@ const data = {
             requestedDate : '2022-07-25' ,
             status: 'Requested',
             applicationStatus : [
-                { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Requested', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
                 { stage : 'Estimated', status : 'Pending', date : ''},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
@@ -72,7 +72,7 @@ const data = {
             estimateTotal : '4000.00',
             status : 'Estimated',
             applicationStatus : [
-                { stage : 'Estimated', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Estimated', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
                 { stage : '	Approval by Director', status : 'Pending', date : ''},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
                 { stage : 'Purchased', status : 'Pending', date : ''},
@@ -114,8 +114,8 @@ const data = {
                 approvedDate : '2020-08-10',
             },
             applicationStatus : [
-                { stage : 'Estimated', status : 'Submit', date : '2022-07-25'},
-                { stage : '	Approved by Director', status : 'Submit', date : '2022-07-28'},
+                { stage : 'Estimated', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
+                { stage : '	Approved by Director', status : 'Submit', date : '2022-07-28 08:00:00 AM'},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
                 { stage : 'Purchased', status : 'Pending', date : ''},
                 { stage : 'Delivered', status : 'Pending', date : ''}
@@ -157,8 +157,8 @@ const data = {
                 approvedDate : '2020-08-10',
             },
             applicationStatus : [
-                { stage : 'Estimated', status : 'Submit', date : '2022-07-25'},
-                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28'},
+                { stage : 'Estimated', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
+                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28 08:00:00 AM'},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
                 { stage : 'Purchased', status : 'Pending', date : ''},
                 { stage : 'Delivered', status : 'Pending', date : ''}
@@ -203,9 +203,9 @@ const data = {
                 lpoDescription : "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rerum iure numquam a impedit aperiam!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rerum iure numquam a impedit aperiam!</p>",
             },
             applicationStatus : [
-                { stage : 'Estimated', status : 'Submit', date : '2022-07-25'},
-                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28'},
-                { stage : 'LPO Issued', status : 'Submit', date : '2022-08-01'},
+                { stage : 'Estimated', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
+                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28 08:00:00 AM'},
+                { stage : 'LPO Issued', status : 'Submit', date : '2022-08-01 08:00:00 AM'},
                 { stage : 'Purchased', status : 'Pending', date : ''},
                 { stage : 'Delivered', status : 'Pending', date : ''}
             ]
@@ -253,10 +253,10 @@ const data = {
                 purchaseOrderDescription : "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rerum iure numquam a impedit aperiam!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rerum iure numquam a impedit aperiam!</p>",
             },
             applicationStatus : [
-                { stage : 'Estimated', status : 'Submit', date : '2022-07-25'},
-                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28'},
-                { stage : 'LPO Issued', status : 'Submit', date : '2022-08-01'},
-                { stage : 'Purchased', status : 'Submit', date : '2022-08-03'},
+                { stage : 'Estimated', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
+                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28 08:00:00 AM'},
+                { stage : 'LPO Issued', status : 'Submit', date : '2022-08-01 08:00:00 AM'},
+                { stage : 'Purchased', status : 'Submit', date : '2022-08-03 08:00:00 AM'},
                 { stage : 'Delivered', status : 'Pending', date : ''}
             ]
         },
@@ -307,11 +307,11 @@ const data = {
                 deliveryDescription : "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rerum iure numquam a impedit aperiam!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rerum iure numquam a impedit aperiam!</p>",
             },
             applicationStatus : [
-                { stage : 'Estimated', status : 'Submit', date : '2022-07-25'},
-                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28'},
-                { stage : 'LPO Issued', status : 'Submit', date : '2022-08-01'},
-                { stage : 'Purchased', status : 'Submit', date : '2022-08-03'},
-                { stage : 'Delivered', status : 'Submit', date : '2022-08-10'}
+                { stage : 'Estimated', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
+                { stage : '	Rejected by Director', status : 'Submit', date : '2022-07-28 08:00:00 AM'},
+                { stage : 'LPO Issued', status : 'Submit', date : '2022-08-01 08:00:00 AM'},
+                { stage : 'Purchased', status : 'Submit', date : '2022-08-03 08:00:00 AM'},
+                { stage : 'Delivered', status : 'Submit', date : '2022-08-10 08:00:00 AM'}
             ]
         },
     ],

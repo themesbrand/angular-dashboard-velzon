@@ -6,7 +6,7 @@ const data = {
             endOfTheInitiative : '2022-09-20',
             status : 'Created',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
                 { stage : 'Sent to Media Department', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Submit by Media Department', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Approval Status', status : 'Pending', date : 'N/A', by : 'N/A'},
@@ -18,8 +18,8 @@ const data = {
             endOfTheInitiative : '2022-09-20',
             status : 'Sent to Media Department',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Sent to Media Department', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Sent to Media Department', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
                 { stage : 'Submit by Media Department', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Approval Status', status : 'Pending', date : 'N/A', by : 'N/A'},
             ],
@@ -30,9 +30,9 @@ const data = {
             endOfTheInitiative : '2022-09-20',
             status : 'Submit by Media Department',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Sent to Media Department', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Submit by Media Department', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Sent to Media Department', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Submit by Media Department', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
                 { stage : 'Approval Status', status : 'Pending', date : 'N/A', by : 'N/A'},
             ],
         },
@@ -42,10 +42,10 @@ const data = {
             endOfTheInitiative : '2022-09-20',
             status : 'Approved',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Sent to Media Department', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Submit by Media Department', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Approved', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Sent to Media Department', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Submit by Media Department', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Approved', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
             ],
         },
 

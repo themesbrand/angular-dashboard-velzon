@@ -29,7 +29,7 @@ const data = {
             teamQarar : '',
             status : 'Draft',
             applicationStatus : [
-                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
+                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
                 { stage : 'Send to Course Team', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Reviewed by Course Team', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Reviewed by SDS', status : 'Pending', date : 'N/A', by : 'N/A'},
@@ -66,8 +66,8 @@ const data = {
             teamQarar : '',
             status : 'With Course Team',
             applicationStatus : [
-                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},                
-                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
+                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},                
+                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
                 { stage : 'Reviewed by Course Team', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Reviewed by SDS', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Pending Approval From Chairperson', status : 'Pending', date : 'N/A', by : 'N/A'},
@@ -103,9 +103,9 @@ const data = {
             teamQarar : '',
             status : 'With SDS',
             applicationStatus : [
-                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},                
-                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
-                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
+                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},                
+                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
+                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
                 { stage : 'Reviewed by SDS', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Pending Approval From Chairperson', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Publish', status : 'Pending', date : 'N/A', by : 'N/A'}
@@ -140,11 +140,11 @@ const data = {
             teamQarar : '',
             status : 'Approved',
             applicationStatus : [
-                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},                
-                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
-                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25', by : 'Faisal Gawas'},
-                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25', by : 'Hilal basheer'},
+                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},                
+                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
+                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Faisal Gawas'},
+                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Hilal basheer'},
                 { stage : 'Publish', status : 'Pending', date : 'N/A', by : 'N/A'}
             ],
         },
@@ -177,12 +177,12 @@ const data = {
             teamQarar : '',
             status : 'Published',
             applicationStatus : [
-                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},                
-                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
-                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25', by : 'Faisal Gawas'},
-                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25', by : 'Hilal basheer'},
-                { stage : 'Publish', status : 'Complete', date : '2022-07-25', by : 'Hilal basheer'}
+                { stage : 'Submit as a Draft', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},                
+                { stage : 'Send to Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
+                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Faisal Gawas'},
+                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Hilal basheer'},
+                { stage : 'Publish', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Hilal basheer'}
             ],
         },
     ],
@@ -250,7 +250,7 @@ const data = {
                 }
             ],
             applicationStatus : [             
-                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
+                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
                 { stage : 'Reviewed by Course Team', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Reviewed by SDS', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Pending Approval From Chairperson', status : 'Pending', date : 'N/A', by : 'N/A'},
@@ -286,8 +286,8 @@ const data = {
             teamQarar : '',
             status : 'With SDS',
             applicationStatus : [
-                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
-                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
+                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
+                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
                 { stage : 'Reviewed by SDS', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Pending Approval From Chairperson', status : 'Pending', date : 'N/A', by : 'N/A'},
                 { stage : 'Publish', status : 'Pending', date : 'N/A', by : 'N/A'}
@@ -356,10 +356,10 @@ const data = {
             teamQarar : '',
             status : 'Approved',
             applicationStatus : [
-                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
-                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25', by : 'Faisal Gawas'},
-                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25', by : 'Hilal basheer'},
+                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
+                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Faisal Gawas'},
+                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Hilal basheer'},
                 { stage : 'Publish', status : 'Pending', date : 'N/A', by : 'N/A'}
             ],
         },
@@ -392,11 +392,11 @@ const data = {
             teamQarar : '',
             status : 'Published',
             applicationStatus : [
-                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},
-                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25', by : 'Abdel Maddali'},
-                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25', by : 'Faisal Gawas'},
-                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25', by : 'Hilal basheer'},
-                { stage : 'Publish', status : 'Complete', date : '2022-07-25', by : 'Hilal basheer'}
+                { stage : 'Received by Course Team', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},
+                { stage : 'Reviewed by Course Team',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
+                { stage : 'Reviewed by SDS', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Faisal Gawas'},
+                { stage : 'Approved By Chairperson',  status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Hilal basheer'},
+                { stage : 'Publish', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Hilal basheer'}
             ],
         },
     ],

@@ -12,7 +12,7 @@ const data = {
             nextMaintenance : 'N/A',
             status : 'Not Scheduled',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},    
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},    
                 { stage : 'Scheduled', status : 'Pending', date : 'N/A', by : 'N/A'},    
                 { stage : 'Pass / Fail Status', status : 'Pending', date : 'N/A', by : 'N/A'},    
             ]
@@ -29,8 +29,8 @@ const data = {
             nextMaintenance : 'N/A',
             status : 'Pending',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},    
-                { stage : 'Scheduled', status : 'Complete', date : '2022-07-25', by : 'Al Abri Ibraham'},    
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},    
+                { stage : 'Scheduled', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Ibraham'},    
                 { stage : 'Pass / Fail Status', status : 'Pending', date : 'N/A', by : 'N/A'},    
             ]
         },
@@ -46,9 +46,9 @@ const data = {
             nextMaintenance : '2022-12-16',
             status : 'Pass',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},    
-                { stage : 'Scheduled', status : 'Complete', date : '2022-07-29', by : 'Al Abri Ibraham'},    
-                { stage : 'Pass', status : 'Complete', date : '2022-07-30', by : 'Al Abri Falsal'},    
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},    
+                { stage : 'Scheduled', status : 'Complete', date : '2022-07-29 08:00:00 AM', by : 'Al Abri Ibraham'},    
+                { stage : 'Pass', status : 'Complete', date : '2022-07-30 08:00:00 AM', by : 'Al Abri Falsal'},    
             ]
         },
         {
@@ -63,9 +63,9 @@ const data = {
             nextMaintenance : 'N/A',
             status : 'Fail',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},    
-                { stage : 'Scheduled', status : 'Complete', date : '2022-07-29', by : 'Al Abri Ibraham'},    
-                { stage : 'Fail', status : 'Complete', date : '2022-07-30', by : 'Al Abri Falsal'},    
+                { stage : 'Created', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},    
+                { stage : 'Scheduled', status : 'Complete', date : '2022-07-29 08:00:00 AM', by : 'Al Abri Ibraham'},    
+                { stage : 'Fail', status : 'Complete', date : '2022-07-30 08:00:00 AM', by : 'Al Abri Falsal'},    
             ]
         },
         {
@@ -80,8 +80,8 @@ const data = {
             nextMaintenance : '2022-06-16',
             status : 'Overdue',
             applicationStatus : [
-                { stage : 'Created', status : 'Complete', date : '2022-01-25', by : 'Al Abri Falsal'},    
-                { stage : 'Scheduled', status : 'Complete', date : '2022-03-29', by : 'Al Abri Ibraham'},    
+                { stage : 'Created', status : 'Complete', date : '2022-01-25 08:00:00 AM', by : 'Al Abri Falsal'},    
+                { stage : 'Scheduled', status : 'Complete', date : '2022-03-29 08:00:00 AM', by : 'Al Abri Ibraham'},    
                 { stage : 'Overdue', status : 'Complete', date : 'N/A', by : 'N/A'},    
             ]
         },

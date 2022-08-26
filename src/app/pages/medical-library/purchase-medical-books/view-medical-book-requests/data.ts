@@ -11,7 +11,7 @@ const data = {
             requestedDate : '2022-07-25' ,
             status: 'Requested',
             applicationStatus : [
-                { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Requested', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
                 { stage : 'Estimated', status : 'Pending', date : ''},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
@@ -31,7 +31,7 @@ const data = {
             requestedDate : '2022-07-25' ,
             status: 'Estimated',
             applicationStatus : [
-                { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Requested', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
                 { stage : 'Estimated', status : 'Pending', date : ''},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},
@@ -51,7 +51,7 @@ const data = {
             requestedDate : '2022-07-25' ,
             status: 'Delivered',
             applicationStatus : [
-                { stage : 'Requested', status : 'Submit', date : '2022-07-25'},
+                { stage : 'Requested', status : 'Submit', date : '2022-07-25 08:00:00 AM'},
                 { stage : 'Estimated', status : 'Pending', date : ''},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'LPO Issued', status : 'Pending', date : ''},

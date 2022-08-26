@@ -2,11 +2,11 @@ const data = {
     tableData : [
         {
             applicantName : 'Saleh Mahfoudh',
-            date : '2022-09-10',
+            date : '2022-09-10 08:15:00 AM',
             timeSlot : '08:00 AM - 12:00PM',
             status : 'Applied',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:15:00 AM', by : 'Al Abri Falsal'},
                 { stage : 'Approval Status', status : 'Pending', date : 'N/A', by : 'N/A'},
                 
             ],
@@ -14,12 +14,12 @@ const data = {
         },
         {
             applicantName : 'Al Abri Ibraham',
-            date : '2022-09-10',
+            date : '2022-09-10 08:15:00 AM',
             timeSlot : '08:00 AM - 12:00PM',
             status : 'Approved',
             applicationStatus : [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25', by : 'Al Abri Falsal'},
-                { stage : 'Approval Status - Approved', status : 'Complete', date : '2022-07-28', by : 'Abdel Maddali'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:15:00 AM', by : 'Al Abri Falsal'},
+                { stage : 'Approval Status - Approved', status : 'Complete', date : '2022-07-28 08:15:00 AM', by : 'Abdel Maddali'},
             ],
         },
     ],

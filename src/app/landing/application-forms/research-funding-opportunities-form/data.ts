@@ -8,7 +8,7 @@ const data = {
             proposalId : 'CS-10546444',	
             status : 'Applied',
             applicationStatus: [
-                { stage : 'Applied', status : 'Complete', date : '2022-07-25'},
+                { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:15:00 AM'},
                 { stage : 'Approval Status', status : 'Pending', date : ''},
                 { stage : 'Assign Reviewers', status : 'Pending', date : ''},
                 { stage : 'Approval', status : 'Pending', date : ''},

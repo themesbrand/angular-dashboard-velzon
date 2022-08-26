@@ -17,16 +17,16 @@ const data = {
             leaveStatus : 'Approved',
             leaveApprovalStatus : [
                 {
-                    stage : 'Trainee', name : 'Abbas Al Ajmi', date : '2022-05-25', status: 'Applied For Leave'
+                    stage : 'Trainee', name : 'Abbas Al Ajmi', date : '2022-05-25 08:00:00 AM', status: 'Applied For Leave'
                 },
                 {
-                    stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-05-26', status: 'Approved'
+                    stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-05-26 08:00:00 AM', status: 'Approved'
                 },
                 {
-                    stage : 'Rotation Supervisor', name : 'Yousuf Mahmood Mahfoudh', date : '2022-05-26' , status: 'Approved'
+                    stage : 'Rotation Supervisor', name : 'Yousuf Mahmood Mahfoudh', date : '2022-05-26 08:00:00 AM' , status: 'Approved'
                 },
                 {
-                    stage : 'Associate Program Director', name : 'Saleh Mahfoudh', date : '2022-05-26' , status: 'Approved'
+                    stage : 'Associate Program Director', name : 'Saleh Mahfoudh', date : '2022-05-26 08:00:00 AM' , status: 'Approved'
                 },
             ],
             leaveReturnForm: {
@@ -34,13 +34,13 @@ const data = {
                 reasonsForDelay : 'Doctors appointment got rescheduled.',
                 returnApprovalStatus: [
                     {
-                        stage : 'Trainee', name : 'Abbas Al Ajmi', date : '2022-05-25', status: 'Applied For Leave Return'
+                        stage : 'Trainee', name : 'Abbas Al Ajmi', date : '2022-05-25 08:00:00 AM', status: 'Applied For Leave Return'
                     },
                     {
-                        stage : 'Program Director of the Affected Rotation', name : 'Madan Al Abri', date : '2022-05-27', status: 'Approved'
+                        stage : 'Program Director of the Affected Rotation', name : 'Madan Al Abri', date : '2022-05-27 08:00:00 AM', status: 'Approved'
                     },
                     {
-                        stage : 'Assistant Program Director', name : 'Yousuf Mahmood Mahfoudh', date : '2022-05-28' , status: 'Awaiting Approval'
+                        stage : 'Assistant Program Director', name : 'Yousuf Mahmood Mahfoudh', date : '2022-05-28 08:00:00 AM' , status: 'Awaiting Approval'
                     }
                 ]
             }
@@ -51,13 +51,13 @@ const data = {
             leaveStatus : 'Approved',
             leaveApprovalStatus : [
                 {
-                    stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-07-10', status: 'Approved'
+                    stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-07-10 08:00:00 AM', status: 'Approved'
                 },
                 {
-                    stage : 'Rotation Supervisor', name : 'Yousuf Mahmood Mahfoudh', date : '2022-07-10' , status: 'Approved'
+                    stage : 'Rotation Supervisor', name : 'Yousuf Mahmood Mahfoudh', date : '2022-07-10 08:00:00 AM' , status: 'Approved'
                 },
                 {
-                    stage : 'Associate Program Director', name : 'Saleh Mahfoudh', date : '2022-07-10' , status: 'Approved'
+                    stage : 'Associate Program Director', name : 'Saleh Mahfoudh', date : '2022-07-10 08:00:00 AM' , status: 'Approved'
                 },
             ],
             leaveReturnForm: null
@@ -67,7 +67,7 @@ const data = {
             leaveStatus : 'Awaiting Approval',
             leaveApprovalStatus : [
                 {
-                    stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-07-15', status: 'Approved'
+                    stage : 'Chief Resident', name : 'Madan Al Abri', date : '2022-07-15 08:00:00 AM', status: 'Approved'
                 },
                 {
                     stage : 'Rotation Supervisor', name : 'Yousuf Mahmood Mahfoudh', date : null , status: 'Awaiting Approval'
