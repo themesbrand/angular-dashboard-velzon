@@ -141,7 +141,7 @@ import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalen
 import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
 import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
-import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/courses/professional-competiency-view-course/professional-competiency-view-course.component';
+import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-view-course/professional-competiency-view-course.component';
 import { InnovationInitiativeComponent } from './innovation-centre/innovation-initiative/innovation-initiative.component';
 import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
 import { PageProposalsInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-proposals-innovation-initiative/page-proposals-innovation-initiative.component';
@@ -155,6 +155,8 @@ import { PageProposalReviewComponent } from './research/proposal-review/page-pro
 import { PageResearchEvaluationComponent } from './research/research-evaluation/page-research-evaluation/page-research-evaluation.component';
 import { PageInterimReportComponent } from './research/submit-interim-report/page-interim-report/page-interim-report.component';
 import { PageFinalProposalsComponent } from './research/submit-final-proposal/page-final-proposals/page-final-proposals.component';
+import { ProfessionalCompetiencyCoursesComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses.component';
+import { ProfessionalCompetiencyCoursesReviewComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses-review/professional-competiency-courses-review.component';
 
 const routes: Routes = [
     //Default Routing
@@ -372,7 +374,12 @@ const routes: Routes = [
       ]}
     ]},
     { path : 'professional-competiency', children: [
-      { path: 'courses',  component :  ProfessionalCompetiencyViewCourseComponent},
+      { path: 'courses',  children:[
+        { path: '',  component :  ProfessionalCompetiencyCoursesComponent},
+        { path: 'course-requests',  component :  ProfessionalCompetiencyViewCourseComponent},
+        { path: 'course-review-requests',  component :  ProfessionalCompetiencyCoursesReviewComponent},
+
+      ]},
     ]},
     { path : 'innovation-centre', children: [
       { path: 'innovation-initiative',  children : [

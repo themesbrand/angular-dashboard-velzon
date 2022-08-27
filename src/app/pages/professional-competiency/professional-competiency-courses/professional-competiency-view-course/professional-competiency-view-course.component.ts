@@ -29,7 +29,7 @@ export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
   listData = data;
   tableData : any[] = []
 
-  selectedUser : any =  'Admin';
+  selectedUser : any =  'PCD Admin';
 
   selectedCourse: any;
   
@@ -40,6 +40,7 @@ export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
   selectedComments: any[]  = [];
   
   supportingFiles: File[] = [];
+  qararFile: File[] = [];
 
   constructor(
     private router : Router,
@@ -47,11 +48,16 @@ export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [
+      { label: "Professional Competiency - Courses", link: '/professional-competiency/courses'},
+      { label: "Course Requests", active : true }
+    ];
+
     this.userRole = localStorage.getItem('userType');
     if(this.userRole === 'trainee@omsb.org') {
       this.tableData = this.listData.tableDataTrainee;
     } else if(this.userRole === 'eportal@omsb.org') {
-      if(this.selectedUser === 'Admin') {
+      if(this.selectedUser === 'PCD Admin') {
         this.tableData = this.listData.tableDataAdmin;
       } 
     }
@@ -65,10 +71,11 @@ export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
   onChangeUser(event : any) {
     console.log(event)
     console.log(this.selectedUser)
+    this.selectedUser = event
     
-    if(event === 'Admin') {
+    if(event === 'PCD Admin') {
       this.tableData = this.listData.tableDataAdmin;
-    } else if (this.selectedUser === 'Team User' || this.selectedUser === 'Team Chair' || this.selectedUser === 'SDS User') {
+    } else  {
       this.tableData = this.listData.tableDataTeam;
     } 
   }
@@ -94,6 +101,10 @@ export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
         this.supportingFiles.splice(this.supportingFiles.indexOf(event), 1);
         return
       }
+      case 'qararFile' : {
+        this.qararFile.splice(this.qararFile.indexOf(event), 1);
+        return
+      }
       default : {
         break;
       }
@@ -103,6 +114,10 @@ export class ProfessionalCompetiencyViewCourseComponent implements OnInit {
     switch(type) {
       case 'supportingFiles' : {
         this.supportingFiles.push(...event.addedFiles);
+        return
+      }
+      case 'qararFile' : {
+        this.qararFile.push(...event.addedFiles);
         return
       }
       default : {

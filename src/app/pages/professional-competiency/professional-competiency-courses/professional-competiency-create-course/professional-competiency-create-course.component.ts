@@ -11,28 +11,6 @@ import {data} from './data'
 export class ProfessionalCompetiencyCreateCourseComponent implements OnInit {
 
   
-  isEditable: boolean = false;
-  isUploadOnly: boolean = false;
-  isCreateNewVersion: boolean = false;
-
-  courseObject: any = null;
-  
-  @Input('isEditable') set setIsEditable(data : any) {
-    this.isEditable = data
-  }
-
-  @Input('isCreateNewVersion') set setIsCreateNewVersion(data : any) {
-    this.isCreateNewVersion = data
-  }
-
-  @Input('isUploadOnly') set setIsUploadOnly(data : any) {
-    this.isUploadOnly = data
-  }
-  
-  @Input('courseObject') set setCourseObject(data : any) {
-    this.courseObject = data
-  }
-  
   listData = data;
 
   createNewCourseForm !: FormGroup
@@ -45,22 +23,6 @@ export class ProfessionalCompetiencyCreateCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewCourseInit();
-    if(this.courseObject != null) {
-      this.createNewCourseForm.patchValue(this.courseObject)
-      if(this.isEditable === false || this.isUploadOnly === true) {
-        this.createNewCourseForm.get('courseName')?.disable();
-        this.createNewCourseForm.get('courseDescription')?.disable();
-        this.createNewCourseForm.get('courseReferenceNumber')?.disable();
-        this.createNewCourseForm.get('courseVersion')?.disable();
-        this.createNewCourseForm.get('courseTeam')?.disable();
-        this.createNewCourseForm.get('courseTeamChairperson')?.disable();
-      }
-      if(this.isCreateNewVersion === true) {
-        this.createNewCourseForm.get('courseTeam')?.patchValue(null)
-        this.createNewCourseForm.get('courseTeamChairperson')?.patchValue(null)
-        this.createNewCourseForm.get('courseVersion')?.patchValue(+this.courseObject.courseVersion + 1)
-      }
-    }
   }
 
   createNewCourseInit() {

@@ -248,9 +248,9 @@ import { EquateCertificatesComponent } from './vehpc/equivalency/equate-certific
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
 import { TraineeDashboardComponent } from './dashboards/trainee-dashboard/trainee-dashboard.component';
 import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
-import { ProfessionalCompetiencyCreateCourseComponent } from './professional-competiency/courses/professional-competiency-create-course/professional-competiency-create-course.component';
-import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/courses/professional-competiency-view-course/professional-competiency-view-course.component';
-import { ProfessionalCompetiencyAddCommentsComponent } from './professional-competiency/courses/professional-competiency-add-comments/professional-competiency-add-comments.component';
+import { ProfessionalCompetiencyCreateCourseComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-create-course/professional-competiency-create-course.component';
+import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-view-course/professional-competiency-view-course.component';
+import { ProfessionalCompetiencyAddCommentsComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-add-comments/professional-competiency-add-comments.component';
 import { InnovationInitiativeComponent } from './innovation-centre/innovation-initiative/innovation-initiative.component';
 import { CreateInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/create-innovation-initiative/create-innovation-initiative.component';
 import { PageInnovationInitiativeComponent } from './innovation-centre/innovation-initiative/page-innovation-initiative/page-innovation-initiative.component';
@@ -275,6 +275,9 @@ import { PageInterimReportComponent } from './research/submit-interim-report/pag
 import { FormInterimProposalComponent } from './research/submit-interim-report/form-interim-proposal/form-interim-proposal.component';
 import { PageFinalProposalsComponent } from './research/submit-final-proposal/page-final-proposals/page-final-proposals.component';
 import { FormFinalProposalsComponent } from './research/submit-final-proposal/form-final-proposals/form-final-proposals.component';
+import { ProfessionalCompetiencyCoursesComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses.component';
+import { ProfessionalCompetiencyCoursesReviewComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses-review/professional-competiency-courses-review.component';
+import { ProfessionalCompetiencyAddSmeTeamComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-add-sme-team/professional-competiency-add-sme-team.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -514,7 +517,10 @@ FullCalendarModule.registerPlugins([
     PageInterimReportComponent,
     FormInterimProposalComponent,
     PageFinalProposalsComponent,
-    FormFinalProposalsComponent
+    FormFinalProposalsComponent,
+    ProfessionalCompetiencyCoursesComponent,
+    ProfessionalCompetiencyCoursesReviewComponent,
+    ProfessionalCompetiencyAddSmeTeamComponent
   ],
   imports: [
     CommonModule,

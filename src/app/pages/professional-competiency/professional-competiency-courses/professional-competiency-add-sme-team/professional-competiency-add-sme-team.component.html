@@ -1,0 +1,121 @@
+<div class="d-flex flex-row justify-content-end mb-3">
+    <button class="btn btn-primary" (click)="openModal(addNewCourseRequest, 'xl')">Add New Member</button>
+</div>
+<div class="live-preview">     
+    <div class="table-responsive">
+        <table class="table align-middle table-hover table-wrap mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Second Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Civil ID</th>
+                    <th scope="col">Institution</th>
+                    <th scope="col">Is Team Rapporteur</th>
+                    <th scope="col">Is Team Chair</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let member of smeTeam">
+                    <td>{{member.firstName}}</td>
+                    <td>{{member.secondName}}</td>
+                    <td>{{member.lastName}}</td>
+                    <td>{{member.email}}</td>
+                    <td>{{member.phoneNumber}}</td>
+                    <td>{{member.position}}</td>
+                    <td>{{member.civilID}}</td>
+                    <td>{{member.institution}}</td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [checked]="member.isTeamRapporteur">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [checked]="member.isTeamChair">
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>                             
+</div>
+
+<ng-template #addNewCourseRequest let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Add new Team Member</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">First Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Second Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Last Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Email<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Phone Number<span class="text-danger">*</span></label>
+                        <ngx-intl-tel-input [cssClass]="'custom'" 
+                        [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                        [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Oman"
+                        [maxLength]="15" [phoneValidation]="true" [numberFormat]="PhoneNumberFormat.National" formControlName="mobileNumber">
+                    </ngx-intl-tel-input>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Position<span class="text-danger">*</span></label>
+                        <ng-select [items]="['Doctor', 'Nurse', 'Pharmacist', 'Allied Healthcare Staff', 'Other']"
+                        placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Civil ID<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-lable">Institution<span class="text-danger">*</span></label>
+                        <ng-select [items]="[]"
+                        placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Is Team Rapporteur</label>
+                        </div>                        
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox2">Is Team Chair</label>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-row mt-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
