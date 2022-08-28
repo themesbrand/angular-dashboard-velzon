@@ -12,6 +12,8 @@ export class DashboardTraineeComponent implements OnInit {
 
   listData = data;
 
+  isDataToggle : boolean = false;
+
   arrayData = [
     {
       y: 2.2,
@@ -343,10 +345,10 @@ export class DashboardTraineeComponent implements OnInit {
 
     colors = this.getChartColorsArray(colors);
     this.proceduresLoggedChart = {
-      series: [34, 55],
+      series: [52, 45],
       labels: ['Procedures Confirmed', 'Pending Procedures'],
       chart: {
-        height: 350,
+        height: 400,
         type: "donut",
       },
       legend: {
@@ -622,6 +624,11 @@ export class DashboardTraineeComponent implements OnInit {
     }
   }
   
+  onChangeView(event : any) {
+    console.log(event)
+    console.log(this.isDataToggle)
+  }
+
   onNavigate(url : any) {
     this.router.navigateByUrl(url)
   }

@@ -4,19 +4,19 @@ const data = {
             startDate : '01/02/2020',
             endDate : '30/01/2021',
             year : '1st Year in Residency',
-            status : 'RL1',
+            status : 'R1',
         },
         {
             startDate : '01/02/2021',
             endDate : '30/01/2022',
             year : '2nd Year in Residency',
-            status : 'RL2',
+            status : 'R2',
         },
         {
             startDate : '01/02/2022',
             endDate : '30/01/2023',
             year : '3rd Year in Residency',
-            status : 'RL3',
+            status : 'R3',
         },
     ],
     curriculumConfirmedTableData : [
@@ -66,7 +66,8 @@ const data = {
             perWeek : '50.5',
             hr : '0',
             twentyFourPlus : '0',
-            shortBreak : '0'
+            call : '0', 
+            daysOff : '0'
         },
         {
             name : 'Internal Medicine',
@@ -75,7 +76,8 @@ const data = {
             perWeek : '54.5',
             hr : '0',
             twentyFourPlus : '0',
-            shortBreak : '0'
+            call : '0', 
+            daysOff : '0'
         },
         {
             name : 'Pathology',
@@ -84,7 +86,8 @@ const data = {
             perWeek : '42.5',
             hr : '0',
             twentyFourPlus : '0',
-            shortBreak : '0'
+            call : '0', 
+            daysOff : '0'
         },
         {
             name : 'Pediatrics',
@@ -93,7 +96,8 @@ const data = {
             perWeek : '36.5',
             hr : '0',
             twentyFourPlus : '0',
-            shortBreak : '0'
+            call : '0', 
+            daysOff : '0'
         },
         {
             name : 'Psychology',
@@ -102,7 +106,8 @@ const data = {
             perWeek : '16.5',
             hr : '0',
             twentyFourPlus : '0',
-            shortBreak : '0'
+            call : '0', 
+            daysOff : '0'
         },
         {
             name : 'Family Medicine',
@@ -111,7 +116,8 @@ const data = {
             perWeek : '48.5',
             hr : '0',
             twentyFourPlus : '0',
-            shortBreak : '0'
+            call : '0', 
+            daysOff : '0'
         }
     ],
     compliancePerRotationTableData : [
@@ -175,18 +181,43 @@ const data = {
     proceduresLoggedTableData : [
         {
             name : 'ICU Patient',
-            logged : 15,
-            confirmed : 10
+            logged : 10,
+            confirmed : 5
         },
         {
             name : 'Spinal Taps',
-            logged : 23,
-            confirmed : 10
+            logged : 5,
+            confirmed : 5
         },
         {
             name : 'Suture Removal',
-            logged : 23,
+            logged : 18,
+            confirmed : 8
+        },
+        {
+            name : 'Carotid Endarterectomy',
+            logged : 15,
+            confirmed : 8
+        },
+        {
+            name : 'Cholecystectomy',
+            logged : 12,
+            confirmed : 8
+        },
+        {
+            name : 'Coronary artery bypass',
+            logged : 6,
+            confirmed : 3
+        },
+        {
+            name : 'Free skin graft',
+            logged : 19,
             confirmed : 10
+        },
+        {
+            name : 'Hemorrhoidectomy',
+            logged : 12,
+            confirmed : 5
         },
     ],
     conferenceAttendanceTableData : [
@@ -210,29 +241,51 @@ const data = {
             tardy : 0,
             excused : 2,
             requiredPercentage : '50%',
-            attendedPercentage : '0%',
-        }
+            attendedPercentage : '---',
+        },
+        {
+            level : 'L2',
+            category : 'Journal Club - 2',
+            conference : 2,
+            required : 2,
+            present : 0,
+            tardy : 0,
+            excused : 2,
+            requiredPercentage : '50%',
+            attendedPercentage : '---',
+        },
+        {
+            level : 'L2',
+            category : 'Journal Club - 3',
+            conference : 2,
+            required : 2,
+            present : 0,
+            tardy : 0,
+            excused : 2,
+            requiredPercentage : '50%',
+            attendedPercentage : '---',
+        },
     ],
     myLeaves : [
         {
             type : 'Annual',
-            date : '2022-Jan-20'
+            date : '2022-Jan-20 To 2022-Jan-28'
         },
         {
             type : 'Medical',
-            date : '2022-Mar-05'
+            date : '2022-Mar-05 To 2022-Mar-07'
         },
         {
             type : 'Annual',
-            date : '2022-Apr-15'
+            date : '2022-Apr-15 To 2022-Apr-22'
         },
         {
-            type : 'Annual',
-            date : '2022-Apr-16'
+            type : 'Medical',
+            date : '2022-Aug-05 To 2022-Aug-07'
         },
         {
-            type : 'Annual',
-            date : '2022-Apr-17'
+            type : 'Medical',
+            date : '2022-Sep-05 To 2022-Sep-07'
         },
     ],
     counselingEvents : [
