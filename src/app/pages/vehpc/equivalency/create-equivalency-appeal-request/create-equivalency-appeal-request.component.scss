@@ -1,0 +1,12 @@
+ngx-dropzone {
+    height: 100px;
+    justify-content: center !important;
+}
+
+::ng-deep ngx-dropzone-label {
+    font-size: 12px;
+}
+::ng-deep  ngx-dropzone-preview{
+    min-height: 60px !important;
+    height: 60px !important;
+}

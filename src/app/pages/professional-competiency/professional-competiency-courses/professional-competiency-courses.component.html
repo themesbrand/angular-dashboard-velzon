@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
         <div class="card card-animate border shadow" (click)="onNavigate('/professional-competiency/courses/course-review-requests')">
             <div class="card-header bg-primary">
             </div>

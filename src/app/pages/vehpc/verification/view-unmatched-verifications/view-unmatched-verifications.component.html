@@ -1,0 +1,87 @@
+<app-breadcrumbs title="View Unmatched Verification" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/vehpc/verification')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row" *ngIf="!isSearch">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">DFRN</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Dob</label>
+                    <input class="form-control flatpickr-input" type="text" 
+                        mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary" *ngIf="!isLoading" (click)="onSearch()">Search</button>
+                    <div class="d-flex flex-row" *ngIf="isLoading">
+                        <button class="btn btn-outline-primary btn-load">
+                            <span class="d-flex align-items-center">
+                                <span class="spinner-border flex-shrink-0" role="status">
+                                <span class="visually-hidden">Searching Data...</span>
+                            </span>
+                                <span class="flex-grow-1 ms-2">Searching Data...</span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isSearch">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>               
+                                    <th scope="col">Trainee Name</th>
+                                    <th scope="col">DoB</th>
+                                    <th scope="col">Passport No</th>
+                                    <th scope="col">Civil ID</th>
+                                    <th scope="col">DFRN</th>
+                                    <th scope="col">Date of Verification</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Al Abri Falsal</td>
+                                    <td>1988-10-15</td>
+                                    <td>78465312685</td>
+                                    <td>9874568522</td>
+                                    <td>BG-S321S312-5</td>
+                                    <td>2022-08-28</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class=" ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(applicationView, 'xl')">
+                                                    <a class="dropdown-item" ><i class="mx-1 ri-file-user-line"></i>Add to Profile</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #applicationView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Report from Dataflow</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-dataflow-view></app-dataflow-view>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Update Profile</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

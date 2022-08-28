@@ -1,0 +1,64 @@
+<form [formGroup]="newRequestForm">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Result of Appeal</label>
+                    <ng-select [items]="['Approve', 'Reject']"
+                              placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Reason for result</label>
+                    <textarea rows="2" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row" formArrayName="supportingFileArray">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h5 text-primary">Supporting Documents</p>
+                    <a (click)="addSupportingFileArray()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="col-md-6 mb-3 border shadow p-3" *ngFor="let document of supportingFileArrayControls; let i = index"
+                [formGroupName]="i">
+                    <div class="row">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row justify-content-between align-items-center">
+                                <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
+                                <a (click)="onDeleteSupportingFileArray(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                            </div>
+                            <input type="text" class="form-control" formControlName="title">
+                            <p class="text-muted mt-2">Supporting Documents.<span class="text-danger">{{ " *" }}</span></p>
+                            <ngx-dropzone (change)="onSelect($event, 'supportingFiles')"
+                            [multiple]="false">
+                            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of supportingFiles"
+                                [removable]="true" (removed)="onRemove(f, 'supportingFiles')">
+                                <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Equivalency Level After Appeal</label>
+                    <ng-select [items]="['L1', 'L2', 'L3', 'L4']" formControlName="level"
+                              placeholder="Please select">
+                    </ng-select>
+                </div>
+            </div>        
+        </div>
+    </div>
+</form>

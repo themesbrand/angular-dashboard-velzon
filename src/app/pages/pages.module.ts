@@ -236,11 +236,6 @@ import { ResultsComponent } from './examinations/results/results.component';
 import { ViewAppealsComponent } from './examinations/results/view-appeals/view-appeals.component';
 import { CreateAppealsComponent } from './examinations/results/create-appeals/create-appeals.component';
 import { AppealResponseFormComponent } from './examinations/results/appeal-response-form/appeal-response-form.component';
-import { VerifyMenuComponent } from './vehpc/verification/verify-menu/verify-menu.component';
-import { VerifyCertificationComponent } from './vehpc/verification/verify-certification/verify-certification.component';
-import { ViewVerificationComponent } from './vehpc/verification/view-verification/view-verification.component';
-import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalency-list/view-equivalency-list.component';
-import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 import { DataflowViewComponent } from './vehpc/verification/dataflow-view/dataflow-view.component';
 import { CreateEquivalencyRequestComponent } from './vehpc/equivalency/create-equivalency-request/create-equivalency-request.component';
 import { ReturnEquivalencyRequestComponent } from './vehpc/equivalency/return-equivalency-request/return-equivalency-request.component';
@@ -276,8 +271,16 @@ import { FormInterimProposalComponent } from './research/submit-interim-report/f
 import { PageFinalProposalsComponent } from './research/submit-final-proposal/page-final-proposals/page-final-proposals.component';
 import { FormFinalProposalsComponent } from './research/submit-final-proposal/form-final-proposals/form-final-proposals.component';
 import { ProfessionalCompetiencyCoursesComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses.component';
-import { ProfessionalCompetiencyCoursesReviewComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses-review/professional-competiency-courses-review.component';
 import { ProfessionalCompetiencyAddSmeTeamComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-add-sme-team/professional-competiency-add-sme-team.component';
+import { ProfessionalCompetiencyViewCourseReviewsComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-view-course-reviews/professional-competiency-view-course-reviews.component';
+import { ProfessionalCompetiencyCreateCourseReviewsComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-create-course-reviews/professional-competiency-create-course-reviews.component';
+import { VerificationPageComponent } from './vehpc/verification/verification-page/verification-page.component';
+import { ViewUnmatchedVerificationsComponent } from './vehpc/verification/view-unmatched-verifications/view-unmatched-verifications.component';
+import { EquivalencyComponent } from './vehpc/equivalency/equivalency.component';
+import { PageEquivalencyRequestsComponent } from './vehpc/equivalency/page-equivalency-requests/page-equivalency-requests.component';
+import { PageEquivalencyAppealsComponent } from './vehpc/equivalency/page-equivalency-appeals/page-equivalency-appeals.component';
+import { CreateEquivalencyAppealRequestComponent } from './vehpc/equivalency/create-equivalency-appeal-request/create-equivalency-appeal-request.component';
+import { ReviseEquivalencyLevelComponent } from './vehpc/equivalency/revise-equivalency-level/revise-equivalency-level.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -479,11 +482,6 @@ FullCalendarModule.registerPlugins([
     ViewAppealsComponent,
     CreateAppealsComponent,
     AppealResponseFormComponent,
-    VerifyMenuComponent,
-    VerifyCertificationComponent,
-    ViewVerificationComponent,
-    ViewEquivalencyListComponent,
-    VerifyCertificationTwoComponent,
     DataflowViewComponent,
     CreateEquivalencyRequestComponent,
     ReturnEquivalencyRequestComponent,
@@ -519,8 +517,16 @@ FullCalendarModule.registerPlugins([
     PageFinalProposalsComponent,
     FormFinalProposalsComponent,
     ProfessionalCompetiencyCoursesComponent,
-    ProfessionalCompetiencyCoursesReviewComponent,
-    ProfessionalCompetiencyAddSmeTeamComponent
+    ProfessionalCompetiencyAddSmeTeamComponent,
+    ProfessionalCompetiencyViewCourseReviewsComponent,
+    ProfessionalCompetiencyCreateCourseReviewsComponent,
+    VerificationPageComponent,
+    ViewUnmatchedVerificationsComponent,
+    EquivalencyComponent,
+    PageEquivalencyRequestsComponent,
+    PageEquivalencyAppealsComponent,
+    CreateEquivalencyAppealRequestComponent,
+    ReviseEquivalencyLevelComponent
   ],
   imports: [
     CommonModule,

@@ -40,6 +40,8 @@ export class CreateEquivalencyRequestComponent implements OnInit {
       this.addOtherOtherDocumentsArray();
       this.addCertificatesToBeEvaluate();
     } else {
+      console.log(this.formDataObject)
+
       this.newRequestForm.patchValue(this.formDataObject)
 
       this.formDataObject.certificatesToBeEvaluate.forEach((element : any) => {
@@ -77,6 +79,7 @@ export class CreateEquivalencyRequestComponent implements OnInit {
     this.newRequestForm = this.formBuilder.group({
       name : new FormControl(null, []),
       nationality : new FormControl(null, []),
+      dob : new FormControl(null, []),
       passportNumber : new FormControl(null, []),
       passportExpiry : new FormControl(null, []),
       nationalIdNumber : new FormControl(null, []),

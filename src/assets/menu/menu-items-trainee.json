@@ -81,6 +81,11 @@
                 "id": 14,
                 "label": "Verification",
                 "link": "vehpc/verification"
+            },
+            {
+                "id":15,
+                "label": "Equivalency",
+                "link": "vehpc/equivalency"
             }
         ]
     },

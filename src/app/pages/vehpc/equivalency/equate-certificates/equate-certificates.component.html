@@ -43,17 +43,23 @@
                                 <tr *ngFor="let certificate of listData.tableData">
                                     <td>{{certificate.srNumber}}</td>
                                     <td>{{certificate.qualificationName}}</td>
-                                    <td>
+                                    <td *ngIf="!isViewOnly">
                                         <ng-select
                                             [ngModel]="certificate.matchedCertificate" [items]="['BSC', 'MBB', 'PHD']" 
                                             placeholder="Please select">
                                         </ng-select>
                                     </td>
-                                    <td>
+                                    <td *ngIf="!isViewOnly">
                                         <ng-select
                                             [ngModel]="certificate.equivalencyLevel" [items]="['L1', 'L2', 'L3', 'L4', 'L5']" 
                                             placeholder="Please select">
                                         </ng-select>
+                                    </td>
+                                    <td *ngIf="isViewOnly">
+                                        {{certificate.viewMatchedCertificate}}
+                                    </td>
+                                    <td *ngIf="isViewOnly">
+                                        {{certificate.viewEquivalencyLevel}}
                                     </td>
 
                                 </tr>
@@ -65,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="d-flex flex-row my-3">
+    <div class="d-flex flex-row my-3" *ngIf="!isViewOnly">
         <button class="btn btn-primary">Save Equivalency Rating</button>
     </div>
     

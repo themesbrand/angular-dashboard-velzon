@@ -1,4 +1,4 @@
-<app-breadcrumbs title="Course Requests" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Course Review Requests" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/professional-competiency/courses')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 
 <div class="row mt-1">
@@ -6,8 +6,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex flex-row" [ngClass]="userRole != 'trainee@omsb.org' ? 'justify-content-between' : 'justify-content-end'">
-                        <div class="d-flex flex-row w-25" *ngIf="userRole != 'trainee@omsb.org'" >
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-row w-25">
                             <ng-select [(ngModel)]="selectedUser" (change)="onChangeUser($event)"  class="w-100"
                                 [items]="[
                                     'SDS Admin',
@@ -20,13 +20,13 @@
                         </div>
                         <div class="d-flex flex-row justify-content-end gap-3 mb-3" >
                             <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
-                            <button *ngIf="userRole != 'trainee@omsb.org' && selectedUser === 'SDS Admin'" (click)="openModal(addNewCourseRequest, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Course Request</button>
+                            <button *ngIf="selectedUser === 'SDS Admin'" (click)="openModal(addNewCourseRequest, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Course Request</button>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <div class="row" *ngIf="isFilterOpened && userRole != 'trainee@omsb.org'" [@enterAnimation]>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-4 mb-3">
                     <label class="form-lable">Course Name<span class="text-danger"></span></label>
                     <input type="text" class="form-control">
@@ -82,13 +82,11 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                
                                                 <container-element [ngSwitch]="selectedUser">
                                                     <some-element *ngSwitchCase="'PCD Admin'">
                                                         <container-element [ngSwitch]="course.status">
-                                                            <some-element *ngSwitchCase="'With SDS'">
-                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
-                                                                </li> 
+                                                            <some-element *ngSwitchCase="'Draft'">
                                                                 <li (click)="openModal(addQarar, 'md'); setCourse(course)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-todo-line"></i>Add QARAR</a>
                                                                 </li> 
@@ -98,21 +96,6 @@
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-mail-send-line"></i>Send to SME Team</a>
                                                                 </li> 
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'With SME Team'">
-                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
-                                                                </li> 
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'With PCD Admin'">
-                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
-                                                                </li> 
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Draft'">
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-mail-send-line"></i>Send to SDS</a>
-                                                                </li>
                                                             </some-element>
                                                             <some-element *ngSwitchCase="'Completed'">
                                                                 <li>
@@ -126,26 +109,12 @@
                                                             </some-element>
                                                         </container-element>
                                                     </some-element>
-                                                    <some-element *ngSwitchCase="'SDS User'">
-                                                        <container-element [ngSwitch]="course.status">
-                                                            <some-element *ngSwitchCase="'With SDS'">
-                                                                <li (click)="openModal(addCourseReft, 'md'); setCourse(course)">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Add Course Ref No</a>
-                                                                </li> 
-                                                            </some-element>
-                                                            <some-element *ngSwitchDefault>
-                                                                <li >
-                                                                    <a class="dropdown-item" >No Actions Available</a>
-                                                                </li> 
-                                                            </some-element>
-                                                          </container-element>
-                                                    </some-element>
                                                     <some-element *ngSwitchCase="'SME Team Chair'">
                                                         <container-element [ngSwitch]="course.status">
                                                             <some-element *ngSwitchCase="'Completed'">
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-mail-send-line"></i>Send to SME Team</a>
-                                                                </li> 
+                                                                </li>
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-mail-send-line"></i>Send to PCD Admin</a>
                                                                 </li> 
@@ -155,7 +124,7 @@
                                                                     <a class="dropdown-item" >No Actions Available</a>
                                                                 </li> 
                                                             </some-element>
-                                                          </container-element>
+                                                        </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'SME Team User'">
                                                         <container-element [ngSwitch]="course.status">
@@ -163,13 +132,16 @@
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-keynote-line"></i>View Course in Tebyan</a>
                                                                 </li> 
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
                                                             </some-element>
                                                             <some-element *ngSwitchDefault>
                                                                 <li >
                                                                     <a class="dropdown-item" >No Actions Available</a>
                                                                 </li> 
                                                             </some-element>
-                                                          </container-element>
+                                                        </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'SME Team Rapporteur'">
                                                         <container-element [ngSwitch]="course.status">
@@ -200,41 +172,6 @@
                     </div>                             
                 </div>
             </div>
-            <div class="row" *ngIf="userRole === 'trainee@omsb.org'">
-                <div class="live-preview">     
-                    <div class="table-responsive">
-                        <table class="table align-middle table-hover table-wrap mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Course Name</th>
-                                    <th scope="col">Course Description</th>
-                                    <th scope="col">Course Ref No</th>
-                                    <th scope="col">Course Version</th>
-                                    <th scope="col">Course PPT</th>
-                                    <th scope="col">Completion Certificate</th>
-                                    <th scope="col">Completion Version</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let course of tableData">
-                                    <td>{{course.courseName}}</td>
-                                    <td>{{course.courseDescription}}</td>
-                                    <td>{{course.courseReferenceNumber}}</td>
-                                    <td>{{course.courseVersion}}</td>
-                                    <td>
-                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
-                                    </td>
-                                    <td>{{course.completedVersion}}</td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
-                    </div>                             
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -246,7 +183,7 @@
                 <label class="form-label mt-2 h5">New Course Request</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
-            <app-professional-competiency-create-course></app-professional-competiency-create-course>
+            <app-professional-competiency-create-course-reviews></app-professional-competiency-create-course-reviews>
             <div class="d-flex flex-row">
                 <button class="btn btn-primary">Submit</button>
             </div>

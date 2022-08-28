@@ -134,11 +134,6 @@ import { ViewWithdrawalRequestsComponent } from './examinations/withdrawal/view-
 import { ViewResultsComponent } from './examinations/results/view-results/view-results.component';
 import { ResultsComponent } from './examinations/results/results.component';
 import { ViewAppealsComponent } from './examinations/results/view-appeals/view-appeals.component';
-import { VerifyMenuComponent } from './vehpc/verification/verify-menu/verify-menu.component';
-import { VerifyCertificationComponent } from './vehpc/verification/verify-certification/verify-certification.component';
-import { ViewVerificationComponent } from './vehpc/verification/view-verification/view-verification.component';
-import { ViewEquivalencyListComponent } from './vehpc/equivalency/view-equivalency-list/view-equivalency-list.component';
-import { VerifyCertificationTwoComponent } from './vehpc/verification/verify-certification-two/verify-certification-two.component';
 import { DashboardTemplateComponent } from './dashboards/dashboard-template/dashboard-template.component';
 import { DashboardTraineeComponent } from './dashboards/dashboard-trainee/dashboard-trainee.component';
 import { ProfessionalCompetiencyViewCourseComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-view-course/professional-competiency-view-course.component';
@@ -156,7 +151,12 @@ import { PageResearchEvaluationComponent } from './research/research-evaluation/
 import { PageInterimReportComponent } from './research/submit-interim-report/page-interim-report/page-interim-report.component';
 import { PageFinalProposalsComponent } from './research/submit-final-proposal/page-final-proposals/page-final-proposals.component';
 import { ProfessionalCompetiencyCoursesComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses.component';
-import { ProfessionalCompetiencyCoursesReviewComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-courses-review/professional-competiency-courses-review.component';
+import { ProfessionalCompetiencyViewCourseReviewsComponent } from './professional-competiency/professional-competiency-courses/professional-competiency-view-course-reviews/professional-competiency-view-course-reviews.component';
+import { VerificationPageComponent } from './vehpc/verification/verification-page/verification-page.component';
+import { ViewUnmatchedVerificationsComponent } from './vehpc/verification/view-unmatched-verifications/view-unmatched-verifications.component';
+import { EquivalencyComponent } from './vehpc/equivalency/equivalency.component';
+import { PageEquivalencyRequestsComponent } from './vehpc/equivalency/page-equivalency-requests/page-equivalency-requests.component';
+import { PageEquivalencyAppealsComponent } from './vehpc/equivalency/page-equivalency-appeals/page-equivalency-appeals.component';
 
 const routes: Routes = [
     //Default Routing
@@ -364,20 +364,22 @@ const routes: Routes = [
     ]},
     { path : 'vehpc', children: [
       { path : 'verification', children:[
-        { path: '',  component :  VerifyMenuComponent},
-        { path: 'verify-certificate',  component :  VerifyCertificationComponent},
-        { path: 'verify-certificate-two',  component :  VerifyCertificationTwoComponent},
-        { path: 'view-verification',  component :  ViewVerificationComponent},
+        { path: '',  component :  VerificationPageComponent},
+        { path: 'view-unmatched-verifications',  component :  ViewUnmatchedVerificationsComponent},
+
       ]},
       { path : 'equivalency', children:[
-        { path: '',  component :  ViewEquivalencyListComponent},
+        { path: '',  component :  EquivalencyComponent},
+        { path: 'page-equivalency-requests',  component :  PageEquivalencyRequestsComponent},
+        { path: 'page-equivalency-appeals',  component :  PageEquivalencyAppealsComponent},
+
       ]}
     ]},
     { path : 'professional-competiency', children: [
       { path: 'courses',  children:[
         { path: '',  component :  ProfessionalCompetiencyCoursesComponent},
         { path: 'course-requests',  component :  ProfessionalCompetiencyViewCourseComponent},
-        { path: 'course-review-requests',  component :  ProfessionalCompetiencyCoursesReviewComponent},
+        { path: 'course-review-requests',  component :  ProfessionalCompetiencyViewCourseReviewsComponent},
 
       ]},
     ]},

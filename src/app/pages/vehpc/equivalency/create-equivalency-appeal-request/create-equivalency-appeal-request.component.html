@@ -1,0 +1,59 @@
+<form [formGroup]="newRequestForm">
+    <div class="mt-3">
+        <div class="card">
+            <div class="card-body">
+                <p class="h5 text-primary">Trainee Details</p>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-control-label">Equivalency Certificate to appeal against<span class="text-danger">{{ " *" }}</span></label>
+                          <ng-select
+                          formControlName="certificate"
+                          [items]="[]" 
+                              placeholder="Please select">
+                          </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-control-label">Reason for appeal<span class="text-danger">{{ " *" }}</span></label>
+                        <textarea formControlName="reason" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" formArrayName="supportingDocumentsArray">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h5 text-primary">Supporting Documents</p>
+                    <a *ngIf="formDataObject === null" (click)="addSupportingDocuments()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3 border shadow p-3" *ngFor="let document of supportingDocumentsControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-row justify-content-between align-items-center">
+                                    <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
+                                    <a *ngIf="formDataObject === null" (click)="onDeleteSupportingDocuments(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                                </div>
+                                <input type="text" class="form-control" formControlName="title">
+                                <p class="text-muted mt-2">Supporting Documents.<span class="text-danger">{{ " *" }}</span>
+                                </p>
+                                <button *ngIf="formDataObject != null" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                <ngx-dropzone *ngIf="formDataObject === null" (change)="onSelect($event, 'supportingFiles')"
+                                [multiple]="false">
+                                <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of supportingFiles"
+                                    [removable]="true" (removed)="onRemove(f, 'supportingFiles')">
+                                    <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

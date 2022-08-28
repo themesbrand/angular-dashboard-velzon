@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import {data} from './data'
 
@@ -9,6 +9,12 @@ import {data} from './data'
 })
 export class EquateCertificatesComponent implements OnInit {
 
+  isViewOnly: boolean = false;
+
+  @Input('isViewOnly') set viewOnlyStatus(data : any) {
+    console.log(data)
+    this.isViewOnly = data;
+  }
   listData = data;
   
   constructor() { }
