@@ -281,6 +281,15 @@ import { PageEquivalencyRequestsComponent } from './vehpc/equivalency/page-equiv
 import { PageEquivalencyAppealsComponent } from './vehpc/equivalency/page-equivalency-appeals/page-equivalency-appeals.component';
 import { CreateEquivalencyAppealRequestComponent } from './vehpc/equivalency/create-equivalency-appeal-request/create-equivalency-appeal-request.component';
 import { ReviseEquivalencyLevelComponent } from './vehpc/equivalency/revise-equivalency-level/revise-equivalency-level.component';
+import { OcManageExamsComponent } from './oc-examinations/oc-manage-exams/oc-manage-exams.component';
+import { OcResultComponent } from './oc-examinations/oc-result/oc-result.component';
+import { OcCreateRegistrationComponent } from './oc-examinations/oc-registration/oc-create-registration/oc-create-registration.component';
+import { OcViewRegistrationComponent } from './oc-examinations/oc-registration/oc-view-registration/oc-view-registration.component';
+import { OcViewWithdrawalRequestComponent } from './oc-examinations/oc-withdrawal/oc-view-withdrawal-request/oc-view-withdrawal-request.component';
+import { OcWithdrawalAddCommentComponent } from './oc-examinations/oc-withdrawal/oc-withdrawal-add-comment/oc-withdrawal-add-comment.component';
+import { OcWithdrawalRequestComponent } from './oc-examinations/oc-withdrawal/oc-withdrawal-request/oc-withdrawal-request.component';
+import { OcCreateRescheduleComponent } from './oc-examinations/oc-reschedule/oc-create-reschedule/oc-create-reschedule.component';
+import { OcViewRescheduleComponent } from './oc-examinations/oc-reschedule/oc-view-reschedule/oc-view-reschedule.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -526,7 +535,16 @@ FullCalendarModule.registerPlugins([
     PageEquivalencyRequestsComponent,
     PageEquivalencyAppealsComponent,
     CreateEquivalencyAppealRequestComponent,
-    ReviseEquivalencyLevelComponent
+    ReviseEquivalencyLevelComponent,
+    OcManageExamsComponent,
+    OcResultComponent,
+    OcCreateRegistrationComponent,
+    OcViewRegistrationComponent,
+    OcViewWithdrawalRequestComponent,
+    OcWithdrawalAddCommentComponent,
+    OcWithdrawalRequestComponent,
+    OcCreateRescheduleComponent,
+    OcViewRescheduleComponent
   ],
   imports: [
     CommonModule,
