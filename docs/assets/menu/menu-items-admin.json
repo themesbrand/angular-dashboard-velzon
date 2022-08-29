@@ -1,0 +1,342 @@
+[
+    {
+        "id": 1,
+        "label": "Dashboard",
+        "icon": "ri-dashboard-line",
+        "link": "/dashboard"
+    },
+    {
+        "id": 2,
+        "label": "Master Rotation",
+        "icon": "ri-file-paper-line",
+        "link": "/rotation-page-resident-mapping"
+    },
+    {
+        "id": 3,
+        "label": "Block Diagram",
+        "icon": " ri-archive-line",
+        "link": "/residency-block-diagram"
+    },
+    {
+        "id": 4,
+        "label": "Curriculum",
+        "icon": "ri-git-repository-line",
+        "link": "/curriculum"
+    },
+    {
+        "id": 5,
+        "label": "Duty Hours",
+        "icon": " ri-briefcase-4-line",
+        "subItems" : [
+            {
+                "id": 6,
+                "label": "Log Hours",
+                "link": "/duty-hours/grid"
+            },
+            {
+                "id": 7,
+                "label": "View Hours",
+                "link": "/duty-hours/view"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "label": "Log Procedure",
+        "icon": "ri-newspaper-line",
+        "link": "/log-procedures"
+    },
+    {
+        "id": 9,
+        "label": "Leave Application",
+        "icon": " ri-todo-line",
+        "link": "/leave-application"
+    },
+    {
+        "id": 10,
+        "label": "Counselling",
+        "icon": "ri-book-3-line",
+        "subItems" : [
+            {
+                "id": 11,
+                "label": "Self Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/self-referral"
+            },
+            {
+                "id": 12,
+                "label": "Program Referral",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/program-referral"
+            },
+            {
+                "id": 13,
+                "label": "MMR Dashboard",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/mmr-dashboard"
+            },
+            {
+                "id": 13,
+                "label": "My Appointments",
+                "icon": "ri-calendar-event-line",
+                "link": "/counselling/my-appointments"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "label": "Scholarship",
+        "icon": "  ri-account-box-line",
+        "subItems" : [
+            {
+                "id": 15,
+                "label": "Scholarship Section",
+                "icon": "ri-calendar-event-line",
+                "link": "/scholarship/scholarship-section"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "label": "Meeting Management",
+        "icon": " ri-calendar-todo-fill",
+        "subItems" : [
+            {
+                "id": 17,
+                "label": "Configuration",
+                "link": "/meeting-management/configuration"
+            },
+            {
+                "id": 18,
+                "label": "Invite",
+                "link": "/meeting-management/view-meetings"
+            },
+            {
+                "id": 19,
+                "label": "Agenda Request",
+                "link": "/meeting-management/agenda-request"
+            },
+            {
+                "id": 20,
+                "label": "My Meeting",
+                "link": "/meeting-management/my-meetings"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "label": "Medical Library",
+        "icon": " ri-clapperboard-line",
+        "subItems" : [
+            {
+                "id": 22,
+                "label": "E-Resource Request",
+                "link": "medical-library/e-resource-request"
+            },
+            {
+                "id": 23,
+                "label": "Renewal",
+                "link": "medical-library/renewal"
+            },
+            {
+                "id": 24,
+                "label": "Purchase Medical Books",
+                "link": "medical-library/purchase-medical-books"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "label": "Simulation Program",
+        "icon": "  ri-pantone-line",
+        "subItems" : [
+            {
+                "id": 26,
+                "label": "Course",
+                "link": "simulation/course"
+            },
+            {
+                "id": 27,
+                "label": "Workshop",
+                "link": "simulation/workshop"
+            },
+            {
+                "id": 28,
+                "label": "Standardized Patients",
+                "link": "simulation/standardized-patients"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "label": "Research",
+        "icon": "ri-contacts-book-upload-line",
+        "subItems" : [
+            {
+                "id": 30,
+                "label": "View Application",
+                "link": "research/view-application"
+            },
+            {
+                "id": 31,
+                "label": "Consultation Request",
+                "link": "research/consultation-request"
+            },
+            {
+                "id": 32,
+                "label": "Research Day",
+                "link": "research/research-day"
+            },
+            {
+                "id": 33,
+                "label": "Select topic and Mentor",
+                "link": "research/select-topic-and-mentor"
+            },
+            {
+                "id": 34,
+                "label": "Proposal Review",
+                "link": "research/proposal-review"
+            },
+            {
+                "id": 35,
+                "label": "Research Evaluations",
+                "link": "research/research-evaluations"
+            },
+            {
+                "id": 36,
+                "label": "Interim Report",
+                "link": "research/interim-report"
+            },
+            {
+                "id": 37,
+                "label": "Final Report",
+                "link": "research/final-report"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "label": "Admission",
+        "icon": " ri-file-paper-2-line",
+        "subItems" : [
+            {
+                "id": 32,
+                "label": "Admission",
+                "link": "admission/admission"
+            },
+            {
+                "id": 33,
+                "label": "Transfer",
+                "link": "admission/transfer"
+            },
+            {
+                "id": 34,
+                "label": "Interruption",
+                "link": "admission/interruption"
+            },
+            {
+                "id": 35,
+                "label": "Withdrawal",
+                "link": "admission/withdrawal"
+            },
+            {
+                "id": 36,
+                "label": "Rejoining",
+                "link": "admission/rejoining"
+            },
+            {
+                "id": 37,
+                "label": "Supplementary Training",
+                "link": "admission/supplementary-training"
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "label": "Examinations",
+        "icon": "  ri-pages-line",
+        "subItems" : [
+            {
+                "id": 40,
+                "label": "Manage Exams",
+                "link": "examinations/manage-exams"
+            },
+            {
+                "id": 41,
+                "label": "Registration",
+                "link": "examinations/registration"
+            },
+            {
+                "id": 42,
+                "label": "Withdrawal",
+                "link": "examinations/withdrawal"
+            },
+            {
+                "id": 43,
+                "label": "Results",
+                "link": "examinations/results"
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "label": "VEHPC",
+        "icon": "ri-window-2-line",
+        "subItems" : [
+            {
+                "id": 45,
+                "label": "Verification",
+                "link": "vehpc/verification"
+            },
+            {
+                "id": 46,
+                "label": "Equivalency",
+                "link": "vehpc/equivalency"
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "label": "Professional Competency",
+        "icon": "ri-archive-drawer-line",
+        "subItems" : [
+            {
+                "id": 48,
+                "label": "Courses",
+                "link": "professional-competiency/courses"
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "label": "Innovation Centre",
+        "icon": "ri-community-line",
+        "subItems" : [
+            {
+                "id": 50,
+                "label": "Innovation Initiative",
+                "link": "innovation-centre/innovation-initiative"
+            },
+            {
+                "id": 51,
+                "label": "Immersive & Interactive room",
+                "link": "innovation-centre/immersive-interactive-room"
+            },
+            {
+                "id": 52,
+                "label": "Preventative Maintenance",
+                "link": "innovation-centre/preventative-maintenance"
+            },
+            {
+                "id": 53,
+                "label": "Repair Requests",
+                "link": "innovation-centre/repair-requests"
+            },
+            {
+                "id": 54,
+                "label": "3D Object request",
+                "link": "innovation-centre/3d-object-request"
+            }
+        ]
+    }
+]
