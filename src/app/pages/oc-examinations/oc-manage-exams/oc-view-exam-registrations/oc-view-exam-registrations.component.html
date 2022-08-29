@@ -1,0 +1,32 @@
+<div class="mt-3">
+    <div class="row">
+        <div class="live-preview">     
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-wrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">DoB</th>
+                            <th scope="col">Civil ID</th>
+                            <th scope="col">Passport No</th>
+                            <th scope="col">Attempt No</th>
+                            <th scope="col">Registered On</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr *ngFor="let application of listData.tableData">
+                            <td>{{application.name}}</td>
+                            <td>{{application.dob}}</td>
+                            <td>{{application.civilId}}</td>
+                            <td>{{application.passportNumber}}</td>
+                            <td>{{application.attemptNumber}}</td>
+                            <td>{{application.registeredOn}}</td>
+                        </tr>
+
+
+                    </thead>
+                </table>
+            </div>                             
+        </div>
+    </div>
+</div>

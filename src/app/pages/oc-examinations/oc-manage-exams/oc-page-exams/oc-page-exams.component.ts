@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { animate, style, transition, trigger } from '@angular/animations';
 
-import {data} from '../data';
-import {pageData} from './data'
+import {data} from './data';
 
 @Component({
-  selector: 'app-oc-view-registration',
-  templateUrl: './oc-view-registration.component.html',
-  styleUrls: ['./oc-view-registration.component.scss'],
+  selector: 'app-oc-page-exams',
+  templateUrl: './oc-page-exams.component.html',
+  styleUrls: ['./oc-page-exams.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -25,32 +25,27 @@ import {pageData} from './data'
     )
   ]
 })
-export class OcViewRegistrationComponent implements OnInit {
+export class OcPageExamsComponent implements OnInit {
 
   listData = data;
-  pageData = pageData;
-
-  tableData: any[] = []
-
-  isFilterOpened: boolean = true;
-  isSearched: boolean = false;
+  isFilterOpened: boolean = false;
+  breadCrumbItems!: Array<{}>;
 
   userRole: string | null = null;
-  
-  selectedRequest:any;
+
 
   constructor(
     private router : Router,
     private modalService : NgbModal,
+    private formBuilder : FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.userRole = localStorage.getItem('userType');
-    if(this.userRole === 'trainee@omsb.org') {
-      this.tableData = this.listData.tableDataTrainee
-    } else if(this.userRole === 'eportal@omsb.org') {
-      this.tableData = this.listData.tableDataAdmin
-    }
+    this.breadCrumbItems = [
+      { label: "Manage Exams", link: '/oc-examinations/manage-exams'},
+      { label: "View Exams", active : true }
+    ];
   }
 
   onFilter() {
@@ -61,21 +56,19 @@ export class OcViewRegistrationComponent implements OnInit {
     }
   }
   
-  onSearch() {
-    this.isSearched = true;
-    this.isFilterOpened = false;
-  }
-  setRequest(data : any) {
-    this.selectedRequest = data;
-  }
-
   onNavigate(url : any) {
     this.modalService.dismissAll();
-    this.router.navigateByUrl(url);
+
+    if(url === '/oc-examinations/manage-exams/view-exam/view-exam-dates') {
+      this.router.navigateByUrl(url, { state : {
+        returnUrl : 'view-exams'
+      }});
+    } else {
+      this.router.navigateByUrl(url);
+    }
   }
 
   openModal(modal :any, size : any) {
     this.modalService.open(modal, {size : size})
   }
-
 }

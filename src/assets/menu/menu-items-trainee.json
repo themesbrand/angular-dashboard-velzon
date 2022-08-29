@@ -117,5 +117,27 @@
                 "link": "innovation-centre/3d-object-request"
             }
         ]
+    },
+    {
+        "id": 20,
+        "label": "OC Examinations",
+        "icon": "ri-file-list-line",
+        "subItems" : [
+            {
+                "id": 21,
+                "label": "Registration",
+                "link": "oc-examinations/registration"
+            },
+            {
+                "id": 22,
+                "label": "Withdrawal",
+                "link": "oc-examinations/withdrawal"
+            },
+            {
+                "id": 23,
+                "label": "Results",
+                "link": "oc-examinations/results"
+            }
+        ]
     }
 ]

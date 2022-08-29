@@ -290,6 +290,11 @@ import { OcWithdrawalAddCommentComponent } from './oc-examinations/oc-withdrawal
 import { OcWithdrawalRequestComponent } from './oc-examinations/oc-withdrawal/oc-withdrawal-request/oc-withdrawal-request.component';
 import { OcCreateRescheduleComponent } from './oc-examinations/oc-reschedule/oc-create-reschedule/oc-create-reschedule.component';
 import { OcViewRescheduleComponent } from './oc-examinations/oc-reschedule/oc-view-reschedule/oc-view-reschedule.component';
+import { OcPageExamsComponent } from './oc-examinations/oc-manage-exams/oc-page-exams/oc-page-exams.component';
+import { OcCreateExamsComponent } from './oc-examinations/oc-manage-exams/oc-create-exams/oc-create-exams.component';
+import { OcCreateExamsDatesComponent } from './oc-examinations/oc-manage-exams/oc-create-exams-dates/oc-create-exams-dates.component';
+import { OcViewExamRegistrationsComponent } from './oc-examinations/oc-manage-exams/oc-view-exam-registrations/oc-view-exam-registrations.component';
+import { OcViewExamDatesComponent } from './oc-examinations/oc-manage-exams/oc-view-exam-dates/oc-view-exam-dates.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -544,7 +549,12 @@ FullCalendarModule.registerPlugins([
     OcWithdrawalAddCommentComponent,
     OcWithdrawalRequestComponent,
     OcCreateRescheduleComponent,
-    OcViewRescheduleComponent
+    OcViewRescheduleComponent,
+    OcPageExamsComponent,
+    OcCreateExamsComponent,
+    OcCreateExamsDatesComponent,
+    OcViewExamRegistrationsComponent,
+    OcViewExamDatesComponent
   ],
   imports: [
     CommonModule,

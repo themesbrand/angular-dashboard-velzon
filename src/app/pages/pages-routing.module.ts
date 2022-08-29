@@ -157,6 +157,12 @@ import { ViewUnmatchedVerificationsComponent } from './vehpc/verification/view-u
 import { EquivalencyComponent } from './vehpc/equivalency/equivalency.component';
 import { PageEquivalencyRequestsComponent } from './vehpc/equivalency/page-equivalency-requests/page-equivalency-requests.component';
 import { PageEquivalencyAppealsComponent } from './vehpc/equivalency/page-equivalency-appeals/page-equivalency-appeals.component';
+import { OcManageExamsComponent } from './oc-examinations/oc-manage-exams/oc-manage-exams.component';
+import { OcPageExamsComponent } from './oc-examinations/oc-manage-exams/oc-page-exams/oc-page-exams.component';
+import { OcViewExamDatesComponent } from './oc-examinations/oc-manage-exams/oc-view-exam-dates/oc-view-exam-dates.component';
+import { OcViewRegistrationComponent } from './oc-examinations/oc-registration/oc-view-registration/oc-view-registration.component';
+import { OcCreateRegistrationComponent } from './oc-examinations/oc-registration/oc-create-registration/oc-create-registration.component';
+import { OcViewWithdrawalRequestComponent } from './oc-examinations/oc-withdrawal/oc-view-withdrawal-request/oc-view-withdrawal-request.component';
 
 const routes: Routes = [
     //Default Routing
@@ -361,6 +367,21 @@ const routes: Routes = [
         { path: 'view-results',  component :  ViewResultsComponent},
         { path: 'view-appeals',  component :  ViewAppealsComponent}
       ] },
+    ]},
+    { path : 'oc-examinations', children: [
+      { path : 'manage-exams', children: [
+        {path : "", component :  OcManageExamsComponent},
+        {path : "view-exam", children: [
+          { path : "", component :  OcPageExamsComponent },
+          { path : "view-exam-dates", component :  OcViewExamDatesComponent },
+        ]},
+      ]},
+      { path: 'registration', children : [
+        { path : "", component :  OcViewRegistrationComponent },
+        { path : "create-registration", component :  OcCreateRegistrationComponent }
+      ] },
+      { path: 'withdrawal', component :  OcViewWithdrawalRequestComponent },
+
     ]},
     { path : 'vehpc', children: [
       { path : 'verification', children:[

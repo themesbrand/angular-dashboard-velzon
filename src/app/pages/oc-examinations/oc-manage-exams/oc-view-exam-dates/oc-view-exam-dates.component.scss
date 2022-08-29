@@ -18,7 +18,11 @@ td, th {
     border-top: 1.3px dashed grey !important;
     padding-top: 10px;
 }
-
-.acitivity-timeline .acitivity-item:before {
-    border-left: 1.3px dashed grey;
+.mgLink {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
+.mgLink:hover {
+    color: red;
 }

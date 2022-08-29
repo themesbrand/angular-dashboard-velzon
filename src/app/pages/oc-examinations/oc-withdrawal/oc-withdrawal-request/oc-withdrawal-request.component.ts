@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-oc-withdrawal-request',
   templateUrl: './oc-withdrawal-request.component.html',
@@ -7,9 +7,84 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OcWithdrawalRequestComponent implements OnInit {
 
-  constructor() { }
+  filesSupportingDocuments: any;
+
+  withdrawalRequest: any = null;
+
+  @Input('withdrawalRequest') 
+  set isWithdrawalRequest(data: any){
+    this.withdrawalRequest = data;
+  };
+
+  constructor(
+    private formBuilder : FormBuilder
+  ) { }
+
+  requestForm !: FormGroup
 
   ngOnInit(): void {
+    this.requestFormInit();
+    if(this.withdrawalRequest) {
+      this.requestForm.patchValue(this.withdrawalRequest)
+      this.withdrawalRequest.supportingDocumentsArray.forEach((element: any) => {
+        (<FormArray>this.requestForm.get('supportingDocumentsArray')).push(
+          new FormGroup({
+            title : new FormControl(element.title),
+            supportingDocument : new FormControl(element.supportingDocument)
+          })
+        );
+      })
+    } else {
+      this.addSupportingDocumentsArray();
+    }
+  }
+  
+  requestFormInit() {
+    this.requestForm = this.formBuilder.group({
+      reason : new FormControl(null),
+      cancellationType : new FormControl(null),
+      supportingDocumentsArray : new FormArray([])
+    })
   }
 
+  get supportingDocumentsControls() {
+    return (<FormArray>this.requestForm.get('supportingDocumentsArray')).controls;
+  }
+  addSupportingDocumentsArray() {
+    (<FormArray>this.requestForm.get('supportingDocumentsArray')).push(
+      new FormGroup({
+        title : new FormControl(null, []),
+        supportingDocument : new FormControl(null, [])
+      })
+    );
+  }
+  onDeleteSupportingDocumentsArray(index : number) {
+    if((<FormArray>this.requestForm.get('supportingDocumentsArray')).length != 1) {
+      (<FormArray>this.requestForm.get('supportingDocumentsArray')).removeAt(index);
+    }
+  }
+
+  
+  onRemove(event : any, type: any) {
+    switch(type) {
+      case 'filesSupportingDocuments' : {
+        this.filesSupportingDocuments.splice(this.filesSupportingDocuments.indexOf(event), 1);
+        return
+      }
+      default : {
+        break;
+      }
+    }
+  }
+  onSelect(event : any, type: any) {
+    switch(type) {
+      case 'filesSupportingDocuments' : {
+        this.filesSupportingDocuments.push(...event.addedFiles);
+        return
+      }
+      default : {
+        break;
+      }
+    }
+  }
 }

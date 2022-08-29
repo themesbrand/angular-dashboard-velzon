@@ -6,27 +6,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {data} from './../data';
 import {pageData} from './data';
 
-
 @Component({
-  selector: 'app-view-exam-dates',
-  templateUrl: './view-exam-dates.component.html',
-  styleUrls: ['./view-exam-dates.component.scss'],
-  animations: [
-    trigger(
-      'enterAnimation', [
-        transition(':enter', [
-          style({transform: 'translateY(-100%)', opacity: 0}),
-          animate('500ms', style({transform: 'translateY(0)', opacity: 1}))
-        ]),
-        transition(':leave', [
-          style({transform: 'translateY(0)', opacity: 1}),
-          animate('500ms', style({transform: 'translateY(-100%)', opacity: 0}))
-        ])
-      ]
-    )
-  ],
+  selector: 'app-oc-view-exam-dates',
+  templateUrl: './oc-view-exam-dates.component.html',
+  styleUrls: ['./oc-view-exam-dates.component.scss']
 })
-export class ViewExamDatesComponent implements OnInit {
+export class OcViewExamDatesComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
@@ -96,4 +81,5 @@ export class ViewExamDatesComponent implements OnInit {
   openModal(modal :any, size : any) {
     this.modalService.open(modal, {size : size})
   }
+
 }

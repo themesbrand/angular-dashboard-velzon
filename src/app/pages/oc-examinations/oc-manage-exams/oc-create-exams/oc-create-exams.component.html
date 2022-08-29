@@ -3,91 +3,57 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-
                     <div class="col-md-4 mb-3">
-                        <label class="form-label">Type of exam<span class="text-danger">{{ " *" }}</span></label>
-                        <ng-select [items]="listData.typeOfExams" formControlName="typeOfExam"
-                        placeholder="Please select">
-                      </ng-select>
+                        <label class="form-label">Exam Title<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select formControlName="examTitle" 
+                            [items]="[
+                            'Omani Examination for Nurses (OEN)',
+                            'Omani Examination for General Practitioners (OEGP)',
+                            'Omani Examination for Pharmacists (OEP)',
+                            'Omani Examination for Medical Laboratory Scientists (OEMLS)']" 
+                            placeholder="Please select">
+                        </ng-select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-label">Results source<span class="text-danger">{{ " *" }}</span></label>
-                        <ng-select [items]="['Manual Entry', 'Rehal']" formControlName="resultsSource"
-                        placeholder="Please select">
-                      </ng-select>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <label class="form-label">Misc Exam Information</label>
-                        <ckeditor [editor]="Editor" formControlName="information"></ckeditor>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label">Start date of application process for exam<span class="text-danger">{{ " *" }}</span></label>
+                        <label class="form-label">Announcement Date<span class="text-danger">{{ " *" }}</span></label>
                       <input
                         class="form-control flatpickr-input"
                         type="text" mwlFlatpickr 
                         [minDate]="currentDate"
-                        formControlName="startDateOfApplication"
+                        formControlName="announcementDate"
                         [altInput]="true" [convertModelValue]="true"/>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-label">End date of application process for exam<span class="text-danger">{{ " *" }}</span></label>
+                        <label class="form-label">Registration Start Date<span class="text-danger">{{ " *" }}</span></label>
                       <input
                         class="form-control flatpickr-input"
                         type="text" mwlFlatpickr 
-                        [minDate]="createExamFormValues.startDateOfApplication"
-                        formControlName="endDateOfApplication"
+                        [minDate]="currentDate"
+                        formControlName="registrationStartDate"
                         [altInput]="true" [convertModelValue]="true"/>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
                     <div class="col-md-4 mb-3">
-                        <label class="form-label">Eligibility I<span class="text-danger">*</span></label>
-                        <ng-select formControlName="eligibilityOne" [items]="['None', 'Level 1', 'Level 2', 'Level 3']" 
-                        placeholder="Please select">
-                      </ng-select>
+                        <label class="form-label">Registration Cut-Off Window<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="number" formControlName="registrationCutOffWindow" class="form-control">
                     </div>
-                </div>
-            </div>
-            <div class="card-body" 
-            formArrayName="eligibilityTwo">
-                <div class="d-flex flex-row justify-content-between">
-                    <p class="h6">Eligibility II<span class="text-danger">{{ " *" }}</span></p>
-                    <a *ngIf="examData === null" (click)="addEligibilityTwo()"
-                    href="javascript:void(0);"
-                    class="link-primary"
-                    ><i class="ri-add-box-line"></i>Add more</a>
-                </div>
-                <div class="row" >
-                    <div class="col-md-6" *ngFor="let element of eligibilityTwoControls; let i = index"
-                    [formGroupName]="i">
-                        <div class="row border shadow">
-                            <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
-                                <a (click)="onDeleteEligibilityTwo(i)" class="link-danger"
-                                  ><i class="ri-delete-bin-5-line"></i
-                                ></a>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Available Levels<span class="text-danger">{{ " *" }}</span></label>
-                                <ng-select formControlName="availableLevels" [items]="['None', 'Level 1', 'Level 2', 'Level 3']" 
-                                placeholder="Please select">
-                              </ng-select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Type of exam<span class="text-danger">{{ " *" }}</span></label>
-                                <ng-select formControlName="examType" [items]="listData.typeOfExams" 
-                                placeholder="Please select">
-                              </ng-select>
-                            </div>
-
-                        </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Results source<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select formControlName="resultsSource" 
+                            [items]="[
+                            'Manual Entry',
+                            'Fast Test',
+                            'Rehal']" 
+                            placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Misc Exam Information<span class="text-danger">*</span></label>
+                        <ckeditor [editor]="Editor" formControlName="information"></ckeditor>
                     </div>
                 </div>
             </div>
         </div>
+        <p class="h5 text-primary">Fees</p>
         <div class="card">
             <div class="card-body">
                 <p class="h6 text-primary">Early bird fees<span class="text-danger">{{ " *" }}</span></p>
@@ -136,34 +102,70 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-body" >
+            <div class="card-body" formArrayName="cancellationFees">
                 <div class="d-flex flex-row justify-content-between">
-                    <p class="h6 text-primary">Withdrawal fees<span class="text-danger">{{ " *" }}</span></p>
-                    <a *ngIf="examData === null" (click)="addWithdrawalFees()"
+                    <p class="h6 text-primary">Cancellation fees<span class="text-danger">{{ " *" }}</span></p>
+                    <a *ngIf="examData === null" (click)="addCancellationFees()"
                     href="javascript:void(0);"
                     class="link-primary"
                     ><i class="ri-add-box-line"></i>Add more</a>
                 </div>
-                <div class="row" formArrayName="withdrawalFees">
-                    <div class="col-md-6" *ngFor="let element of withdrawalFeesControls; let i = index"
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let element of cancellationFeesControls; let i = index"
                     [formGroupName]="i">
                         <div class="row border shadow">
                             <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
-                                <a (click)="onDeleteWithdrawalFees(i)" class="link-danger"
+                                <a (click)="onDeleteCancellationFees(i)" class="link-danger"
                                   ><i class="ri-delete-bin-5-line"></i
                                 ></a>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Number of days before the exam date that the refund percentage is applicable<span class="text-danger">{{ " *" }}</span></label>
-                                <input type="number" class="form-control" formControlName="numberOfDays">
+                                <input type="number" class="form-control" formControlName="attempts">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label mb-4">Percentage of refund<span class="text-danger">{{ " *" }}</span></label>
-                                <input type="number" class="form-control mt-1" formControlName="refundPercentage">
+                                <input type="text" class="form-control mt-1" formControlName="fee">
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" formArrayName="reschedulingFees">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h6 text-primary">Re-scheduling fees<span class="text-danger">{{ " *" }}</span></p>
+                    <a *ngIf="examData === null" (click)="addReschedulingFees()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let element of reschedulingFeesControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row border shadow">
+                            <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
+                                <a (click)="onDeleteReschedulingFees(i)" class="link-danger"
+                                  ><i class="ri-delete-bin-5-line"></i
+                                ></a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Up-to number of days before the exam date that the charge is applicable<span class="text-danger">{{ " *" }}</span></label>
+                                <input type="number" class="form-control" formControlName="attempts">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-4">Fee Amount<span class="text-danger">{{ " *" }}</span></label>
+                                <input type="number" class="form-control mt-1" formControlName="fee">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
                 <div class="row mt-2">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Appeal Window<span class="text-danger">{{ " *" }}</span></label>
@@ -185,11 +187,12 @@
                 </div>
             </div>
         </div>
+        <p class="h5 text-primary">Dates</p>
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <label class="form-label mb-2">Is exam frequency single or multiple?</label>
+                        <label class="form-label mb-2">Is exam frequency single or multiple?<span class="text-danger">*</span></label>
                         <div class="d-flex flex-row" >
                             <div class="form-check mx-3">
                               <input class="form-check-input"
@@ -319,6 +322,57 @@
 
                 </div>
 
+            </div>
+        </div>
+        <p class="h5 text-primary">Eligibility</p>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Is eligibility check required?<span class="text-danger">*</span></label>
+                        <div class="d-flex flex-row" >
+                            <div class="form-check mx-3">
+                              <input class="form-check-input"
+                              formControlName="eligibility" type="radio" id="radioCheck3" value="yes">
+                              <label for="radioCheck3">Yes</label>
+                            </div>
+                            <div class="form-check mx-3">
+                              <input class="form-check-input" 
+                              formControlName="eligibility"type="radio" id="radioCheck4"  value="no">
+                              <label class="mx-2" for="radioCheck4">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="h5 text-primary">Re-Attempt Rules</p>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Exam Type<span class="text-danger">*</span></label>
+                        <ng-select [items]="[]" formControlName="examType" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Max no of re-attempts<span class="text-danger">*</span></label>
+                        <input type="number" formControlName="reAttempts" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Max no of days to complete all re-attempts after 1st attempt<span class="text-danger">*</span></label>
+                        <input type="number" formControlName="maxNoOfDaysAfterReAttempt"  class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Min no of days between re-attempts<span class="text-danger">*</span></label>
+                        <input type="number" formControlName="minNoOfDaysAfterReAttempt" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nationality<span class="text-danger">*</span></label>
+                        <ng-select [items]="['Omani', 'Non-Omani']" formControlName="nationality" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
