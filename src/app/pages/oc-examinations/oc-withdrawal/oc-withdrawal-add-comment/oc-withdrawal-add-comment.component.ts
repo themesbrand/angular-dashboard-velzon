@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-oc-withdrawal-add-comment',
@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OcWithdrawalAddCommentComponent implements OnInit {
 
+  @Input('comment') 
+  set setComment(data: any){
+    this.comment = data;
+  };
+
+  comment : any = null;
+
+  currentData = new Date();
+  
   constructor() { }
 
   ngOnInit(): void {

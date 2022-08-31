@@ -84,7 +84,7 @@ const pageData = {
     minNoOfDaysAfterReAttempt : 2,
     nationality : 'Omani'
   },
-  registeredExamData : [
+  registeredExamDataTrainee : [
     {
       examDate : '2022-10-15',
       examTime : '08:45 AM',
@@ -138,7 +138,61 @@ const pageData = {
         { stage : 'Withdrawn', status : 'Complete', date : '2022-07-30 08:00:00 AM', by : 'Madan Khan'},
       ]
     },
-  ]
+  ],
+  registeredExamDataAdmin : [
+    {
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Payment Pending',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Pending', date : 'N/A', by : 'N/A'},
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Payment Complete',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Eligibility Check Pending',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Withdrawn',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Withdrawn', status : 'Complete', date : '2022-07-30 08:00:00 AM', by : 'Madan Khan'},
+      ]
+    },
+  ],
 }
 
 export {pageData};

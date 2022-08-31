@@ -1,5 +1,3 @@
-import { Countries } from "src/app/enums/countries"
-import { Nationalities } from "src/app/enums/nationality"
 import { sharedData } from "src/app/shared/data/shared.data"
 
 const data = {
@@ -15,43 +13,6 @@ const data = {
         'Selection exam',
         'Filtration exam',
     ],
-    tableData : [
-        {
-            programName : 'Anastasia', 
-            examType : 'Part 1 Exam', 
-            examStartDate : '2022-10-15', 
-            examEndDate : '2022-10-18', 
-            attempt : 1,
-            registrationFee : 150,
-            examDates : [
-                {
-                    examDate : '2022-10-15', examTime :'08:00 AM', venue : 'Armed Forces Hospital', seatsRemaining : 5
-                },
-                {
-                    examDate : '2022-10-18', examTime :'08:00 AM', venue : 'Armed Forces Hospital', seatsRemaining : 3
-                },
-            ]
-        },
-        {
-            programName : 'ENT', 
-            examType : 'Part 2 – Clinical', 
-            examStartDate : '2022-10-16', 
-            examEndDate : '2022-10-16', 
-            attempt : 1,
-            registrationFee : 200,
-            examDates : [
-                {
-                    examDate : '2022-10-16', examTime :'08:00 AM', venue : 'Armed Forces Hospital', seatsRemaining : 2
-                },
-                {
-                    examDate : '2022-10-16', examTime :'10:00 AM', venue : 'Armed Forces Hospital', seatsRemaining : 3
-                },
-            ]
-        }
-    ],
-    nationalities : Nationalities.nationalities,
-    countryList : Countries.countryList,
-    yearsList : getYearsList(),
     userLists : userListGenerator(),
 }
 

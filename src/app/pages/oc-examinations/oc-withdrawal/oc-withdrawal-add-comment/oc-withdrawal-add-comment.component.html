@@ -1,1 +1,16 @@
-<p>oc-withdrawal-add-comment works!</p>
+<div class="mt-3">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Created By</label>
+            <label class="form-control">Abbas Al Ajmi</label>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Created On</label>
+            <label class="form-control">{{currentData | date : 'yyyy-M-dd'}} </label>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comment</label>
+            <textarea rows="2" [(ngModel)]="comment" class="form-control"></textarea>
+        </div>
+    </div>
+</div>

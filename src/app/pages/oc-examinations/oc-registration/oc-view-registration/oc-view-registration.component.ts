@@ -30,7 +30,7 @@ export class OcViewRegistrationComponent implements OnInit {
   listData = data;
   pageData = pageData;
 
-  tableData: any[] = []
+  registrationTableData: any[] = []
 
   isFilterOpened: boolean = true;
   isSearched: boolean = false;
@@ -47,9 +47,9 @@ export class OcViewRegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.userRole = localStorage.getItem('userType');
     if(this.userRole === 'trainee@omsb.org') {
-      this.tableData = this.listData.tableDataTrainee
+      this.registrationTableData = this.pageData.registeredExamDataTrainee
     } else if(this.userRole === 'eportal@omsb.org') {
-      this.tableData = this.listData.tableDataAdmin
+      this.registrationTableData = this.pageData.registeredExamDataAdmin
     }
   }
 

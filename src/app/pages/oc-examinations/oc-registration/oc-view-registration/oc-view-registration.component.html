@@ -57,7 +57,7 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let exam of tableData">
+                            <tbody *ngFor="let exam of listData.tableData">
                                 <tr>
                                     <td>{{exam.programName}}</td>
                                     <td>{{exam.examType}}</td>
@@ -136,7 +136,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let examData of pageData.registeredExamData">
+                                <tr *ngFor="let examData of registrationTableData">
                                     <td>{{examData.examDate}}</td>
                                     <td>{{examData.examTime}}</td>
                                     <td>{{examData.daysRemaining}}</td>
@@ -177,9 +177,18 @@
                                                           </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'eportal@omsb.org'">
-
-
-
+                                                        <container-element [ngSwitch]="examData.status">
+                                                            <some-element *ngSwitchCase="'Eligibility Check Pending'">
+                                                                <li  (click)="openModal(withdrawalRequest, 'xl')" >
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Mark as Eligible</a></li>
+                                                                <li  (click)="openModal(withdrawalRequest, 'xl')" >
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Mark as not Eligible</a></li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchDefault>
+                                                                <li>
+                                                                    <a class="dropdown-item" >No Action</a></li>
+                                                            </some-element>
+                                                        </container-element>
                                                     </some-element>
                                                 </container-element>
                                             </ul>
