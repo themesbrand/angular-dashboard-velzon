@@ -9,7 +9,8 @@
                 </div>
             </div>
             <div class="card-body py-2">
-                <p class="h5">Course Requests</p>
+                <p class="h5" *ngIf="userRole === 'eportal@omsb.org'">Course Requests</p>
+                <p class="h5" *ngIf="userRole === 'trainee@omsb.org'">View Courses</p>
             </div>
         </div>
     </div>

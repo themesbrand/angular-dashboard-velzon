@@ -83,6 +83,30 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <container-element [ngSwitch]="selectedUser">
+                                                    <some-element *ngSwitchCase="'SDS Admin'">
+                                                        <container-element [ngSwitch]="course.status">
+                                                            <some-element *ngSwitchCase="'With SDS'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With SME Team'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With PCD Admin'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchDefault>
+                                                                <li >
+                                                                    <a class="dropdown-item" >No Actions Available</a>
+                                                                </li> 
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
                                                     <some-element *ngSwitchCase="'PCD Admin'">
                                                         <container-element [ngSwitch]="course.status">
                                                             <some-element *ngSwitchCase="'With SDS'">
@@ -132,6 +156,19 @@
                                                                 <li (click)="openModal(addCourseReft, 'md'); setCourse(course)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Add Course Ref No</a>
                                                                 </li> 
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With PCD Admin'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With SME Team'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
                                                             </some-element>
                                                             <some-element *ngSwitchDefault>
                                                                 <li >
@@ -150,6 +187,21 @@
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-mail-send-line"></i>Send to PCD Admin</a>
                                                                 </li> 
                                                             </some-element>
+                                                            <some-element *ngSwitchCase="'With SDS'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With PCD Admin'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With SME Team'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
                                                             <some-element *ngSwitchDefault>
                                                                 <li >
                                                                     <a class="dropdown-item" >No Actions Available</a>
@@ -159,7 +211,20 @@
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'SME Team User'">
                                                         <container-element [ngSwitch]="course.status">
+                                                            <some-element *ngSwitchCase="'With SDS'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With PCD Admin'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
                                                             <some-element *ngSwitchCase="'With SME Team'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-keynote-line"></i>View Course in Tebyan</a>
                                                                 </li> 
@@ -173,7 +238,20 @@
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'SME Team Rapporteur'">
                                                         <container-element [ngSwitch]="course.status">
+                                                            <some-element *ngSwitchCase="'With SDS'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'With PCD Admin'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
+                                                            </some-element>
                                                             <some-element *ngSwitchCase="'With SME Team'">
+                                                                <li (click)="setSelectedComments(course); openModal(courseCommentsView, 'xl')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
+                                                                </li> 
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Mark as Complete</a>
                                                                 </li> 

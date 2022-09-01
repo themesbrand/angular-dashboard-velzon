@@ -10,8 +10,6 @@
                         <div class="d-flex flex-row w-25">
                             <ng-select [(ngModel)]="selectedUser" (change)="onChangeUser($event)"  class="w-100"
                                 [items]="[
-                                    'SDS Admin',
-                                    'SDS User',
                                     'PCD Admin',
                                     'SME Team Chair',
                                     'SME Team Rapporteur',
@@ -20,7 +18,7 @@
                         </div>
                         <div class="d-flex flex-row justify-content-end gap-3 mb-3" >
                             <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
-                            <button *ngIf="selectedUser === 'SDS Admin'" (click)="openModal(addNewCourseRequest, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Course Request</button>
+                            <button *ngIf="selectedUser === 'PCD Admin'" (click)="openModal(addNewCourseRequest, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Course Review Request</button>
                         </div>
 
                     </div>

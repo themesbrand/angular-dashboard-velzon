@@ -16,6 +16,7 @@ export class PageEquivalencyAppealsComponent implements OnInit {
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
 
+  tableData : any[] =[]
   selectedUser :any =  null;
 
   supportingFiles: File[] = [];
@@ -38,8 +39,10 @@ export class PageEquivalencyAppealsComponent implements OnInit {
 
     if(this.userRole === 'eportal@omsb.org') {
       this.selectedUser = 'Admin'
+      this.tableData = this.listData.tableDataAdmin
     } else {
       this.selectedUser = 'Trainee'
+      this.tableData = this.listData.tableDataTrainee
     }
 
   }
