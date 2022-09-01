@@ -1,1 +1,45 @@
-<p>oc-result works!</p>
+<div class="row card-box">
+    <div class="col-md-3 col-12 mb-3" >
+        <div class="card card-animate border shadow" (click)="onNavigate('oc-examinations/results/view-results')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    VR
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5" *ngIf="userRole === 'trainee@omsb.org'">View Results</p>
+                <p class="h5" *ngIf="userRole === 'eportal@omsb.org'">Update Results</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" >
+        <div class="card card-animate border shadow" (click)="onNavigate('oc-examinations/results/view-appeals')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    VA
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">View Appeals</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" >
+        <div class="card card-animate border shadow" (click)="onNavigate('oc-examinations/results/import-results')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    IR
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Import Results</p>
+            </div>
+        </div>
+    </div>
+</div>

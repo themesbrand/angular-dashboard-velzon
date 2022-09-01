@@ -1,0 +1,32 @@
+td a {
+    cursor: pointer !important;
+}
+th {
+    background-color: #193239 !important;   
+    color: white;
+    align-items: center;
+}
+td, th {
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+.table-responsive {
+    overflow: visible;
+}
+
+.border-top {
+    border-top: 1.3px dashed grey !important;
+    padding-top: 10px;
+}
+.mgLink {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
+.mgLink:hover {
+    color: red;
+}
+
+.acitivity-timeline .acitivity-item:before {
+    border-left: 1.6px dashed grey;
+}

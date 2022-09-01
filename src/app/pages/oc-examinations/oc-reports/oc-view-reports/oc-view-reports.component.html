@@ -1,0 +1,48 @@
+<app-breadcrumbs title="View Reports" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/oc-examinations/reports')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row" >
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Report Type</label>
+                    <ng-select
+                    [items]="['Report - 1', 'Report - 2']" (change)="onChangeReportType($event)" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            <div class="row" *ngIf="selectedReport">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th  *ngFor="let header of selectedReport.tableHeaders" scope="col">{{header}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of selectedReport.data">
+                                    <td *ngIf="data?.CandidateName">{{data?.CandidateName}}</td>
+                                    <td *ngIf="data?.candidateDoB">{{data?.candidateDoB}}</td>
+                                    <td *ngIf="data?.passportNo">{{data?.passportNo}}</td>
+                                    <td *ngIf="data?.examNumber">{{data?.examNumber}}</td>
+                                    <td *ngIf="data?.examName">{{data?.examName}}</td>
+                                    <td *ngIf="data?.percentage">{{data?.percentage}}</td>
+                                    <td *ngIf="data?.result">{{data?.result}}</td>
+                                    <td *ngIf="data?.examDate">{{data?.examDate}}</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

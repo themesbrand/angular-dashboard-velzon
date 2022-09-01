@@ -164,6 +164,14 @@ import { OcViewRegistrationComponent } from './oc-examinations/oc-registration/o
 import { OcCreateRegistrationComponent } from './oc-examinations/oc-registration/oc-create-registration/oc-create-registration.component';
 import { OcViewWithdrawalRequestComponent } from './oc-examinations/oc-withdrawal/oc-view-withdrawal-request/oc-view-withdrawal-request.component';
 import { OcViewRescheduleComponent } from './oc-examinations/oc-reschedule/oc-view-reschedule/oc-view-reschedule.component';
+import { OcViewResultsComponent } from './oc-examinations/oc-result/oc-view-results/oc-view-results.component';
+import { OcImportResultsComponent } from './oc-examinations/oc-result/oc-import-results/oc-import-results.component';
+import { OcViewAppealsComponent } from './oc-examinations/oc-result/oc-view-appeals/oc-view-appeals.component';
+import { OcResultComponent } from './oc-examinations/oc-result/oc-result.component';
+import { OcDefineReportsComponent } from './oc-examinations/oc-reports/oc-define-reports/oc-define-reports.component';
+import { OcViewReportsComponent } from './oc-examinations/oc-reports/oc-view-reports/oc-view-reports.component';
+import { OcReportsComponent } from './oc-examinations/oc-reports/oc-reports.component';
+import { OcViewCertificatesRequestComponent } from './oc-examinations/oc-certificates-request/oc-view-certificates-request/oc-view-certificates-request.component';
 
 const routes: Routes = [
     //Default Routing
@@ -383,6 +391,18 @@ const routes: Routes = [
       ] },
       { path: 'withdrawal', component :  OcViewWithdrawalRequestComponent },
       { path: 'reschedule', component :  OcViewRescheduleComponent },
+      { path: 'results', children:[
+        { path: '',  component :  OcResultComponent},
+        { path: 'view-results',  component :  OcViewResultsComponent},
+        { path: 'view-appeals',  component :  OcViewAppealsComponent},
+        { path: 'import-results',  component :  OcImportResultsComponent},
+      ] },
+      { path: 'reports', children : [
+        { path : "", component :  OcReportsComponent },
+        { path : "define-reports", component :  OcDefineReportsComponent },
+        { path : "view-reports", component :  OcViewReportsComponent }
+      ] },
+      { path: 'certificates', component :  OcViewCertificatesRequestComponent },
 
     ]},
     { path : 'vehpc', children: [

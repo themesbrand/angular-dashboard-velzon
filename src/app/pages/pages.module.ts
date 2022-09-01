@@ -295,6 +295,18 @@ import { OcCreateExamsComponent } from './oc-examinations/oc-manage-exams/oc-cre
 import { OcCreateExamsDatesComponent } from './oc-examinations/oc-manage-exams/oc-create-exams-dates/oc-create-exams-dates.component';
 import { OcViewExamRegistrationsComponent } from './oc-examinations/oc-manage-exams/oc-view-exam-registrations/oc-view-exam-registrations.component';
 import { OcViewExamDatesComponent } from './oc-examinations/oc-manage-exams/oc-view-exam-dates/oc-view-exam-dates.component';
+import { OcViewResultsComponent } from './oc-examinations/oc-result/oc-view-results/oc-view-results.component';
+import { OcImportResultsComponent } from './oc-examinations/oc-result/oc-import-results/oc-import-results.component';
+import { OcViewAppealsComponent } from './oc-examinations/oc-result/oc-view-appeals/oc-view-appeals.component';
+import { OcAppealResponseFormComponent } from './oc-examinations/oc-result/oc-appeal-response-form/oc-appeal-response-form.component';
+import { OcCreateAppealComponent } from './oc-examinations/oc-result/oc-create-appeal/oc-create-appeal.component';
+import { OcCreateResultComponent } from './oc-examinations/oc-result/oc-create-result/oc-create-result.component';
+import { OcDefineReportsComponent } from './oc-examinations/oc-reports/oc-define-reports/oc-define-reports.component';
+import { OcViewReportsComponent } from './oc-examinations/oc-reports/oc-view-reports/oc-view-reports.component';
+import { OcReportsComponent } from './oc-examinations/oc-reports/oc-reports.component';
+import { OcCreateReportComponent } from './oc-examinations/oc-reports/oc-create-report/oc-create-report.component';
+import { OcCreateCertificatesRequestComponent } from './oc-examinations/oc-certificates-request/oc-create-certificates-request/oc-create-certificates-request.component';
+import { OcViewCertificatesRequestComponent } from './oc-examinations/oc-certificates-request/oc-view-certificates-request/oc-view-certificates-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -554,7 +566,19 @@ FullCalendarModule.registerPlugins([
     OcCreateExamsComponent,
     OcCreateExamsDatesComponent,
     OcViewExamRegistrationsComponent,
-    OcViewExamDatesComponent
+    OcViewExamDatesComponent,
+    OcViewResultsComponent,
+    OcImportResultsComponent,
+    OcViewAppealsComponent,
+    OcAppealResponseFormComponent,
+    OcCreateAppealComponent,
+    OcCreateResultComponent,
+    OcDefineReportsComponent,
+    OcViewReportsComponent,
+    OcReportsComponent,
+    OcCreateReportComponent,
+    OcCreateCertificatesRequestComponent,
+    OcViewCertificatesRequestComponent
   ],
   imports: [
     CommonModule,

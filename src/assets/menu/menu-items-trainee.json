@@ -142,6 +142,11 @@
                 "id": 24,
                 "label": "Results",
                 "link": "oc-examinations/results"
+            },
+            {
+                "id": 25,
+                "label": "Certificates",
+                "link": "oc-examinations/certificates"
             }
         ]
     }

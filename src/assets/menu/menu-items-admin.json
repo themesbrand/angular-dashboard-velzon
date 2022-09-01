@@ -368,6 +368,16 @@
                 "id": 60,
                 "label": "Results",
                 "link": "oc-examinations/results"
+            },
+            {
+                "id": 61,
+                "label": "Reports",
+                "link": "oc-examinations/reports"
+            },
+            {
+                "id": 62,
+                "label": "Certificates",
+                "link": "oc-examinations/certificates"
             }
         ]
     }
