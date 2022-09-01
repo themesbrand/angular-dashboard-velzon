@@ -135,6 +135,11 @@
             },
             {
                 "id": 23,
+                "label": "Reschedule",
+                "link": "oc-examinations/reschedule"
+            },
+            {
+                "id": 24,
                 "label": "Results",
                 "link": "oc-examinations/results"
             }

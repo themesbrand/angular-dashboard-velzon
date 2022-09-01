@@ -163,6 +163,7 @@ import { OcViewExamDatesComponent } from './oc-examinations/oc-manage-exams/oc-v
 import { OcViewRegistrationComponent } from './oc-examinations/oc-registration/oc-view-registration/oc-view-registration.component';
 import { OcCreateRegistrationComponent } from './oc-examinations/oc-registration/oc-create-registration/oc-create-registration.component';
 import { OcViewWithdrawalRequestComponent } from './oc-examinations/oc-withdrawal/oc-view-withdrawal-request/oc-view-withdrawal-request.component';
+import { OcViewRescheduleComponent } from './oc-examinations/oc-reschedule/oc-view-reschedule/oc-view-reschedule.component';
 
 const routes: Routes = [
     //Default Routing
@@ -381,6 +382,7 @@ const routes: Routes = [
         { path : "create-registration", component :  OcCreateRegistrationComponent }
       ] },
       { path: 'withdrawal', component :  OcViewWithdrawalRequestComponent },
+      { path: 'reschedule', component :  OcViewRescheduleComponent },
 
     ]},
     { path : 'vehpc', children: [
