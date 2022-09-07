@@ -8,17 +8,15 @@ const data = {
     fellowshipPrograms : sharedData.fellowshipPrograms,
     gfpPrograms : sharedData.gfpPrograms,
     typeOfExams : [
-        'Part 1 Exam',
-        'Part 2 – Clinical',
-        'Part 2 – Written',
-        'Fellowship Exit exam',
-        'Selection exam',
-        'Filtration exam',
+        'Omani Examination for Nurses (OEN)',
+        'Omani Examination for General Practitioners (OEGP)',
+        'Omani Examination for Pharmacists (OEP)',
+        'Omani Examination for Medical Laboratory Scientists (OEMLS)'
     ],
     tableData : [
         {
             programName : 'Anastasia', 
-            examType : 'Part 1 Exam', 
+            examType : 'Omani Examination for Nurses (OEN)', 
             examStartDate : '2022-10-15', 
             examEndDate : '2022-10-18', 
             attempt : 1,
@@ -34,7 +32,7 @@ const data = {
         },
         {
             programName : 'ENT', 
-            examType : 'Part 2 – Clinical', 
+            examType : 'Omani Examination for Nurses (OEN)', 
             examStartDate : '2022-10-16', 
             examEndDate : '2022-10-16', 
             attempt : 1,

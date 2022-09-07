@@ -72,10 +72,6 @@
                                                                 <li>
                                                                     <a class="dropdown-item"><i class="mx-1  ri-profile-line"></i>Issue Certificate</a></li>
                                                             </some-element>
-                                                            <some-element *ngSwitchCase="'Withdrawn'">
-                                                                <li>
-                                                                    <a class="dropdown-item" >No Action</a></li>
-                                                            </some-element>
                                                             <some-element *ngSwitchDefault>
                                                                 <li>
                                                                     <a class="dropdown-item">No Action</a></li>
@@ -88,6 +84,10 @@
                                                             <some-element *ngSwitchCase="'Payment Pending'">
                                                                 <li>
                                                                     <a class="dropdown-item"><i class="mx-1  ri-profile-line"></i>Complete Payment</a></li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Issued'">
+                                                                <li>
+                                                                    <a class="dropdown-item"><i class="mx-1  ri-file-download-line"></i>Download Certificate</a></li>
                                                             </some-element>
                                                             <some-element *ngSwitchDefault>
                                                                 <li>

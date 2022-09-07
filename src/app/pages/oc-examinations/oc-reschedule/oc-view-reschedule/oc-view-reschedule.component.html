@@ -16,12 +16,12 @@
                     [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
                     </ng-select>
                 </div>
-                <div class="col-md-3 mb-3">
+                <!-- <div class="col-md-3 mb-3">
                     <label class="form-lable">Program Name</label>
                     <ng-select 
                     [items]="listData.residencyPrograms" placeholder="Please select">
                     </ng-select>
-                </div>
+                </div> -->
                 <div class="col-md-3 mb-3">
                     <label class="form-label">Exam Type</label>
                     <ng-select 
@@ -48,7 +48,7 @@
                         <table class="table align-middle table-hover table-wrap mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col">Program Name</th>
+                                    <!-- <th scope="col">Program Name</th> -->
                                     <th scope="col">Exam Type</th>
                                     <th scope="col">Exam Date</th>
                                     <th scope="col">Exam Time</th>
@@ -62,7 +62,7 @@
                             </thead>
                             <tbody *ngFor="let examData of tableData">
                                 <tr>
-                                    <td>{{examData.programName}}</td>
+                                    <!-- <td>{{examData.programName}}</td> -->
                                     <td>{{examData.examType}}</td>
                                     <td>{{examData.examDate}}</td>
                                     <td>{{examData.examTime}}</td>

@@ -15,14 +15,14 @@
                     [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
                     </ng-select>
                 </div>
-                <div class="col-md-3 mb-3">
+                <!-- <div class="col-md-3 mb-3">
                     <label class="form-lable">Program Name</label>
                     <ng-select 
                     [items]="listData.residencyPrograms" placeholder="Please select">
                     </ng-select>
-                </div>
+                </div> -->
                 <div class="col-md-3 mb-3">
-                    <label class="form-label">Exam Type</label>
+                    <label class="form-label">Exam Title</label>
                     <ng-select 
                     [items]="listData.typeOfExams" placeholder="Please select">
                     </ng-select>
@@ -48,8 +48,8 @@
                         <table class="table align-middle table-hover table-wrap mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col">Program Name</th>
-                                    <th scope="col">Exam Type</th>
+                                    <!-- <th scope="col">Program Name</th> -->
+                                    <th scope="col">Exam Title</th>
                                     <th scope="col">Exam Start Date</th>
                                     <th scope="col">Exam End Date</th>
                                     <th scope="col">Attempt No</th>
@@ -59,7 +59,7 @@
                             </thead>
                             <tbody *ngFor="let exam of listData.tableData">
                                 <tr>
-                                    <td>{{exam.programName}}</td>
+                                    <!-- <td>{{exam.programName}}</td> -->
                                     <td>{{exam.examType}}</td>
                                     <td>{{exam.examStartDate}}</td>
                                     <td>{{exam.examEndDate}}</td>
@@ -72,6 +72,7 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="openModal(viewExam, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View Details</a></li>
+                                                <li (click)="viewRegistration('all'); openModal(viewRegistrations, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>Registrations For Exam</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -103,6 +104,7 @@
                                                                     <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                                         <li  (click)="openModal(registerTrainee, 'xl')">
                                                                             <a class="dropdown-item" ><i class="mx-1 ri-book-2-line"></i>Register</a></li>
+                                                                        <li (click)="viewRegistration('date'); openModal(viewRegistrations, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>View Registrations</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </td>
@@ -118,13 +120,72 @@
                     </div>                             
                 </div>
             </div>
-            <div class="row mt-1" *ngIf="isSearched">
-                <p class="h5 text-success my-3">Registered Exams</p>
+        </div>
+    </div>
+</div>
+
+<ng-template #viewExam let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Exam</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-oc-create-exams [examData]="pageData.examObject"></app-oc-create-exams>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #registerTrainee let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Register</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-oc-create-registration></app-oc-create-registration>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #reScheduleRequest let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Re-ScheduleRequest Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-oc-create-reschedule></app-oc-create-reschedule>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #withdrawalRequest let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Withdrawal Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-oc-withdrawal-request></app-oc-withdrawal-request>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #viewRegistrations let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Registrations For Exam</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="row mt-1">
                 <div class="live-preview">     
                     <div class="table-responsive">
                         <table class="table align-middle table-hover table-wrap mb-0">
                             <thead>
                                 <tr>
+                                    <th *ngIf="userRole !== 'trainee@omsb.org'" scope="col">Trainee Name</th>
                                     <th scope="col">Exam Date</th>
                                     <th scope="col">Exam Time</th>
                                     <th scope="col">Days Remaining</th>
@@ -137,6 +198,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let examData of registrationTableData">
+                                    <td *ngIf="userRole !== 'trainee@omsb.org'">{{examData.traineeName}}</td>
                                     <td>{{examData.examDate}}</td>
                                     <td>{{examData.examTime}}</td>
                                     <td>{{examData.daysRemaining}}</td>
@@ -201,54 +263,6 @@
                     </div>                             
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<ng-template #viewExam let-modal>
-    <div class="modal-content bg-light">
-        <div class="modal-body px-4 py-2">
-            <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">View Exam</label>
-                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-            </div>
-            <app-oc-create-exams [examData]="pageData.examObject"></app-oc-create-exams>
-        </div>
-    </div><!-- /.modal-content -->
-</ng-template>
-
-<ng-template #registerTrainee let-modal>
-    <div class="modal-content bg-light">
-        <div class="modal-body px-4 py-2">
-            <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Register</label>
-                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-            </div>
-            <app-oc-create-registration></app-oc-create-registration>
-        </div>
-    </div><!-- /.modal-content -->
-</ng-template>
-
-<ng-template #reScheduleRequest let-modal>
-    <div class="modal-content bg-light">
-        <div class="modal-body px-4 py-2">
-            <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Re-ScheduleRequest Request</label>
-                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-            </div>
-            <app-oc-create-reschedule></app-oc-create-reschedule>
-        </div>
-    </div><!-- /.modal-content -->
-</ng-template>
-
-<ng-template #withdrawalRequest let-modal>
-    <div class="modal-content bg-light">
-        <div class="modal-body px-4 py-2">
-            <div class="d-flex flex-row justify-content-between">
-                <label class="form-label mt-2 h5">Withdrawal Request</label>
-                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-            </div>
-            <app-oc-withdrawal-request></app-oc-withdrawal-request>
         </div>
     </div><!-- /.modal-content -->
 </ng-template>

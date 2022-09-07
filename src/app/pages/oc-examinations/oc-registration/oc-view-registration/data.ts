@@ -84,9 +84,10 @@ const pageData = {
     minNoOfDaysAfterReAttempt : 2,
     nationality : 'Omani'
   },
-  registeredExamDataTrainee : [
+  registeredExamDataTraineeAll : [
     {
-      examDate : '2022-10-15',
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-12',
       examTime : '08:45 AM',
       daysRemaining	: 15,
       paymentDate	: '2022-09-15',
@@ -99,7 +100,8 @@ const pageData = {
       ]
     },
     {
-      examDate : '2022-10-15',
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-13',
       examTime : '08:45 AM',
       daysRemaining	: 15,
       paymentDate	: '2022-09-15',
@@ -112,7 +114,8 @@ const pageData = {
       ]
     },
     {
-      examDate : '2022-10-15',
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-14',
       examTime : '08:45 AM',
       daysRemaining	: 15,
       paymentDate	: '2022-09-15',
@@ -125,6 +128,7 @@ const pageData = {
       ]
     },
     {
+      traineeName: 'Madan Khan',
       examDate : '2022-10-15',
       examTime : '08:45 AM',
       daysRemaining	: 15,
@@ -139,8 +143,126 @@ const pageData = {
       ]
     },
   ],
-  registeredExamDataAdmin : [
+  registeredExamDataTraineeDate : [
     {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Eligibility Check Pending',
+      applicationStatus: [
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+        { stage : 'Payment Progress', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Payment Pending',
+      applicationStatus: [
+        { stage : 'Eligibility Check', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Payment Progress', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Payment Complete',
+      applicationStatus: [
+        { stage : 'Eligibility Check', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Faisal Gawas'},
+      ]
+    },
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Withdrawn',
+      applicationStatus: [
+        { stage : 'Eligibility Check', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Faisal Gawas'},
+        { stage : 'Withdrawn', status : 'Complete', date : '2022-07-30 08:00:00 AM', by : 'Madan Khan'},
+      ]
+    },
+  ],
+  registeredExamDataAdminAll : [
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-12',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Payment Pending',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Pending', date : 'N/A', by : 'N/A'},
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-13',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Payment Complete',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-14',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Eligibility Check Pending',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Eligibility Check', status : 'Pending', date : 'N/A', by : 'N/A'},
+      ]
+    },
+    {
+      traineeName: 'Madan Khan',
+      examDate : '2022-10-15',
+      examTime : '08:45 AM',
+      daysRemaining	: 15,
+      paymentDate	: '2022-09-15',
+      venue	: 'Armed Forces Hospital',
+      registeredOn : '2022-08-10',
+      status : 'Withdrawn',
+      applicationStatus: [
+        { stage : 'Payment Progress', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'},
+        { stage : 'Withdrawn', status : 'Complete', date : '2022-07-30 08:00:00 AM', by : 'Madan Khan'},
+      ]
+    },
+  ],
+  registeredExamDataAdminDate : [
+    {
+      traineeName: 'Madan Khan',
       examDate : '2022-10-15',
       examTime : '08:45 AM',
       daysRemaining	: 15,
@@ -154,6 +276,7 @@ const pageData = {
       ]
     },
     {
+      traineeName: 'Madan Khan',
       examDate : '2022-10-15',
       examTime : '08:45 AM',
       daysRemaining	: 15,
@@ -167,6 +290,7 @@ const pageData = {
       ]
     },
     {
+      traineeName: 'Madan Khan',
       examDate : '2022-10-15',
       examTime : '08:45 AM',
       daysRemaining	: 15,
@@ -180,6 +304,7 @@ const pageData = {
       ]
     },
     {
+      traineeName: 'Madan Khan',
       examDate : '2022-10-15',
       examTime : '08:45 AM',
       daysRemaining	: 15,

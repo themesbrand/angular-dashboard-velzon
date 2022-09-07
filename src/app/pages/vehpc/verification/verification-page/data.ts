@@ -30,7 +30,11 @@ const data = {
             dob	: '1968-09-15', 
             passportNo : '987654321321',
             civilId	: '9876547141',
-            noOfVerifications : '1'
+            noOfVerifications : '1',
+            dfrn : {
+                number : '456798132',
+                verificationDate : '2022-09-15'
+            }
         },
     ],
 

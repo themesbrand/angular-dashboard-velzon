@@ -46,11 +46,25 @@ export class OcViewRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.userRole = localStorage.getItem('userType');
+
+  }
+
+  viewRegistration(type : any) {
     if(this.userRole === 'trainee@omsb.org') {
-      this.registrationTableData = this.pageData.registeredExamDataTrainee
+      if(type === 'all') {
+        this.registrationTableData = this.pageData.registeredExamDataTraineeAll
+      } else {
+        this.registrationTableData = this.pageData.registeredExamDataTraineeDate
+      }
     } else if(this.userRole === 'eportal@omsb.org') {
-      this.registrationTableData = this.pageData.registeredExamDataAdmin
-    }
+      if(type === 'all') {
+        this.registrationTableData = this.pageData.registeredExamDataAdminAll
+      } else {
+        this.registrationTableData = this.pageData.registeredExamDataAdminDate
+      }
+    } 
+
+
   }
 
   onFilter() {

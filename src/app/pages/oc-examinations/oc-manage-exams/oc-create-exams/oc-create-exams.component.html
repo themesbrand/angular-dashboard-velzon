@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label class="form-label">Exam Title<span class="text-danger">{{ " *" }}</span></label>
-                        <ng-select formControlName="examTitle" 
+                        <ng-select formControlName="examTitle" (change)="onChangeTitle($event)"
                             [items]="[
                             'Omani Examination for Nurses (OEN)',
                             'Omani Examination for General Practitioners (OEGP)',
@@ -346,31 +346,47 @@
                 </div>
             </div>
         </div>
-        <p class="h5 text-primary">Re-Attempt Rules</p>
-        <div class="card">
-            <div class="card-body">
+        <p class="h5 text-primary" *ngIf="createExamFormValues.examTitle !== null">Re-Attempt Rules</p>
+        <div class="card" *ngIf="createExamFormValues.examTitle !== null">
+            <div class="card-body" formArrayName="reAttemptRules">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="h6 text-primary">Re-Attempt Rules<span class="text-danger">{{ " *" }}</span></p>
+                    <a *ngIf="examData === null" (click)="addReAttemptRules()"
+                    href="javascript:void(0);"
+                    class="link-primary"
+                    ><i class="ri-add-box-line"></i>Add more</a>
+                </div>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Exam Type<span class="text-danger">*</span></label>
-                        <ng-select [items]="[]" formControlName="examType" placeholder="Please select">
-                        </ng-select>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Max no of re-attempts<span class="text-danger">*</span></label>
-                        <input type="number" formControlName="reAttempts" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Max no of days to complete all re-attempts after 1st attempt<span class="text-danger">*</span></label>
-                        <input type="number" formControlName="maxNoOfDaysAfterReAttempt"  class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Min no of days between re-attempts<span class="text-danger">*</span></label>
-                        <input type="number" formControlName="minNoOfDaysAfterReAttempt" class="form-control">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Nationality<span class="text-danger">*</span></label>
-                        <ng-select [items]="['Omani', 'Non-Omani']" formControlName="nationality" placeholder="Please select">
-                        </ng-select>
+                    <div class="col-md-6" *ngFor="let element of reAttemptRulesControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row border shadow">
+                            <div *ngIf="examData === null" class="d-flex flex-row justify-content-end align-items-center">
+                                <a (click)="onDeleteReAttemptRules(i)" class="link-danger"
+                                  ><i class="ri-delete-bin-5-line"></i
+                                ></a>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Exam Type<span class="text-danger">*</span></label>
+                                <label class="form-control">{{createExamFormValues.examTitle}}</label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Max no of re-attempts<span class="text-danger">*</span></label>
+                                <input type="number" formControlName="reAttempts" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Max no of days to complete all re-attempts after 1st attempt<span class="text-danger">*</span></label>
+                                <input type="number" formControlName="maxNoOfDaysAfterReAttempt"  class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Min no of days between re-attempts<span class="text-danger">*</span></label>
+                                <input type="number" formControlName="minNoOfDaysAfterReAttempt" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nationality<span class="text-danger">*</span></label>
+                                <ng-select [items]="['Omani', 'Non-Omani']" formControlName="nationality" placeholder="Please select">
+                                </ng-select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

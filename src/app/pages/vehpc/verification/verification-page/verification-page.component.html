@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="d-flex flex-row justify-content-end gap-2 my-2">
                         <button *ngIf="userRole === 'eportal@omsb.org'" (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
-                        <button (click)="openModal(redirectToDataFlow, 'md')" class="btn btn-primary">New Verification</button>
+                        <button *ngIf="userRole === 'trainee@omsb.org'" (click)="openModal(redirectToDataFlow, 'md')" class="btn btn-primary">New Verification</button>
                     </div>
                 </div>
             </div>

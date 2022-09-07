@@ -44,6 +44,12 @@
             </div>
         </div>
         <div class="card">
+            <div class="card-body"> 
+                <label class="form-label">Reason for Appeal <span class="text-danger">{{" * "}}</span></label>
+                <textarea formControlName="reason" rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="card">
             <div class="card-body"  formArrayName="supportingDocuments">
                 <div class="d-flex flex-row justify-content-end">
                     <a  (click)="addSupportingDocumentsArray()"
@@ -51,29 +57,25 @@
                     class="link-primary"
                     ><i class="ri-add-box-line"></i>Add more</a>
                 </div>
-                <div class="mt-2 d-flex flex-column border shadow p-3"
-                *ngFor="let document of supportingDocumentsArrayControls; let i = index"
-                [formGroupName]="i">
-                    <div  class="d-flex flex-row justify-content-end align-items-center">
-                        <a (click)="onDeleteSupportingDocumentsArray(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
-                            <input type="text" class="form-control" formControlName="title">
+                <div class="row">
+                    <div class="col-md-6 mb-3 border shadow p-3" *ngFor="let document of supportingDocumentsArrayControls; let i = index"
+                    [formGroupName]="i">
+                        <div  class="d-flex flex-row justify-content-end align-items-center">
+                            <a (click)="onDeleteSupportingDocumentsArray(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <p class="text-muted">Supporting Documents.<span class="text-danger">{{ " *" }}</span>
-                            </p>
-                            <ngx-dropzone (change)="onSelect($event, 'filesSupportingDocuments')"
-                            [multiple]="false">
-                            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-                            <ngx-dropzone-preview *ngFor="let f of filesSupportingDocuments"
-                                [removable]="true" (removed)="onRemove(f, 'filesSupportingDocuments')">
-                                <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
-                            </ngx-dropzone-preview>
-                            </ngx-dropzone>
-                        </div>
+
+                        <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" class="form-control" formControlName="title">
+                        <p class="text-muted">Supporting Documents.<span class="text-danger">{{ " *" }}</span>
+                        </p>
+                        <ngx-dropzone (change)="onSelect($event, 'filesSupportingDocuments')"
+                        [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of filesSupportingDocuments"
+                            [removable]="true" (removed)="onRemove(f, 'filesSupportingDocuments')">
+                            <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                        </ngx-dropzone>
                     </div>
                 </div>
             </div>

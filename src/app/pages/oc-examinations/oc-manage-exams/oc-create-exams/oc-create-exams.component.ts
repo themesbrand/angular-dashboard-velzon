@@ -115,11 +115,7 @@ export class OcCreateExamsComponent implements OnInit {
       
       eligibility : new FormControl(null, []),
       
-      examType : new FormControl(null, []),
-      reAttempts : new FormControl(null, []),
-      maxNoOfDaysAfterReAttempt : new FormControl(null, []),
-      minNoOfDaysAfterReAttempt : new FormControl(null, []),
-      nationality : new FormControl(null, [])
+      reAttemptRules : new FormArray([])
             
     })
     this.addRegularFees();
@@ -127,7 +123,6 @@ export class OcCreateExamsComponent implements OnInit {
     this.addReschedulingFees();
     this.addMultipleExamDates();
   }
-
   formOnChange() {
     this.createExamForm.valueChanges.subscribe(res => {
       console.log(res)
@@ -161,6 +156,9 @@ export class OcCreateExamsComponent implements OnInit {
   }
   get singleExamDatesControls() {
     return (<FormArray>this.createExamForm.get('singleExamDates')).controls
+  }
+  get reAttemptRulesControls() {
+    return (<FormArray>this.createExamForm.get('reAttemptRules')).controls
   }
   addRegularFees() {
     (<FormArray>this.createExamForm.get('regularFees')).push(
@@ -207,6 +205,22 @@ export class OcCreateExamsComponent implements OnInit {
       })
     ) 
   }
+  addReAttemptRules() {
+    const formArray = (<FormArray>this.createExamForm.get('reAttemptRules'))
+    if (formArray.length < 2) {
+      
+      (<FormArray>this.createExamForm.get('reAttemptRules')).push(
+        new FormGroup({
+          examType : new FormControl(this.createExamFormValues.examTitle),
+          reAttempts : new FormControl(null, []),
+          maxNoOfDaysAfterReAttempt : new FormControl(null, []),
+          minNoOfDaysAfterReAttempt : new FormControl(null, []),
+          nationality : new FormControl(null, []),
+        })
+      ) 
+    }
+  }
+
   
   onDeleteRegularFees(index : number) {
     if((<FormArray>this.createExamForm.get('regularFees')).length != 1) {
@@ -222,11 +236,15 @@ export class OcCreateExamsComponent implements OnInit {
     if((<FormArray>this.createExamForm.get('reschedulingFees')).length != 1) {
       (<FormArray>this.createExamForm.get('reschedulingFees')).removeAt(index);
     }
-  }
-  
+  }  
   onDeleteMultipleExamDates(index : number) {
     if((<FormArray>this.createExamForm.get('multipleExamDates')).length != 1) {
       (<FormArray>this.createExamForm.get('multipleExamDates')).removeAt(index);
+    }
+  }
+  onDeleteReAttemptRules(index : number) {
+    if((<FormArray>this.createExamForm.get('reAttemptRules')).length != 1) {
+      (<FormArray>this.createExamForm.get('reAttemptRules')).removeAt(index);
     }
   }
 
@@ -242,4 +260,12 @@ export class OcCreateExamsComponent implements OnInit {
 
   }
 
+  onChangeTitle(event : any) {
+    const formArray = (<FormArray>this.createExamForm.get('reAttemptRules'))
+    while (formArray.length !== 0) {
+      formArray.removeAt(0)
+    }
+    this.addReAttemptRules();
+
+  }
 }

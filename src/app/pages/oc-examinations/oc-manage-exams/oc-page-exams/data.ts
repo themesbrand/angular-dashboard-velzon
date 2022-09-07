@@ -6,19 +6,17 @@ const data = {
     fellowshipPrograms : sharedData.fellowshipPrograms,
     gfpPrograms : sharedData.gfpPrograms,
     typeOfExams : [
-        'Part 1 Exam',
-        'Part 2 – Clinical',
-        'Part 2 – Written',
-        'Fellowship Exit exam',
-        'Selection exam',
-        'Filtration exam',
+      'Omani Examination for Nurses (OEN)',
+      'Omani Examination for General Practitioners (OEGP)',
+      'Omani Examination for Pharmacists (OEP)',
+      'Omani Examination for Medical Laboratory Scientists (OEMLS)'
     ],
     tableData : [
         {
-            programName : 'Anastasia', examType : 'Part 1 Exam', examStartDate : '2022-10-15', examEndDate : '2022-10-18', createdOn :  '2022-09-05 09:45:15 AM', status : 'Draft' 
+            programName : 'Anastasia', examType : 'Omani Examination for Nurses (OEN)', examStartDate : '2022-10-15', examEndDate : '2022-10-18', createdOn :  '2022-09-05 09:45:15 AM', status : 'Draft' 
         },
         {
-            programName : 'Medical Microbiology', examType : 'Part 2 – Written', examStartDate : '2022-10-17', examEndDate : '2022-10-20', createdOn :  '2022-09-01 10:25:15 AM', status : 'Dates Created' 
+            programName : 'Medical Microbiology', examType : 'Omani Examination for Nurses (OEN)', examStartDate : '2022-10-17', examEndDate : '2022-10-20', createdOn :  '2022-09-01 10:25:15 AM', status : 'Dates Created' 
         }
     ],
     examObject : {

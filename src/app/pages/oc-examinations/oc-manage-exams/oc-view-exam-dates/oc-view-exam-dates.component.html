@@ -81,14 +81,16 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                <li (click)="openModal(editExamDates, 'xl')">
+                                                <li *ngIf="examDate.status != 'Cancelled'" (click)="openModal(editExamDates, 'xl')">
                                                     <a class="dropdown-item" ><i class="mx-1 ri-edit-line"></i>Edit</a></li>
-                                                <li>
+                                                <li *ngIf="examDate.status != 'Cancelled'">
                                                     <a class="dropdown-item" ><i class="mx-1   ri-stop-circle-line"></i>Cancel</a></li>
-                                                <li>
+                                                <li *ngIf="examDate.status != 'Cancelled'">
                                                     <a class="dropdown-item" ><i class="mx-1 ri-notification-line"></i>New Notification</a></li>
-                                                <li (click)="openModal(viewRegistrations, 'lg')">
+                                                <li *ngIf="examDate.status != 'Cancelled'" (click)="openModal(viewRegistrations, 'lg')">
                                                     <a class="dropdown-item" ><i class="mx-1 ri-pages-line"></i>View Registrations</a></li>
+                                                <li *ngIf="examDate.status === 'Cancelled'">
+                                                    <a class="dropdown-item" >No Actions</a></li>
                                             </ul>
                                         </div>
                                     </td>

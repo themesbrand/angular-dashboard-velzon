@@ -120,7 +120,7 @@ export class CreateEquivalencyRequestComponent implements OnInit {
   addDfrnWithReceiptArray() {
     (<FormArray>this.newRequestForm.get('dfrnWithReceipt')).push(
       new FormGroup({
-        title : new FormControl('', []),
+        title : new FormControl(null, []),
         link : new FormControl('', []),
       })
     );

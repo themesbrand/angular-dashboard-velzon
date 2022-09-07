@@ -87,7 +87,7 @@
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li *ngIf="userRole === 'trainee@omsb.org' && appeal.status === 'Payment Pending'">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-wallet-3-line"></i>Complete Payment</a></li>
-                                                <li *ngIf="userRole === 'trainee@omsb.org' && (appeal.status === 'Accepted' || appeal.status === 'Rejected')">
+                                                <li *ngIf="userRole === 'trainee@omsb.org' && (appeal.status === 'Accepted' || appeal.status === 'Rejected')" (click)="openModal(reAppealResponse, 'lg')">
                                                     <a class="dropdown-item" ><i class="mx-1 ri-arrow-go-back-line"></i>Re-Appeal</a></li>
                                                 <li *ngIf="userRole === 'eportal@omsb.org' && appeal.status === 'Awaiting Response'" (click)="setAppealResponse('Accept'); openModal(appealResponse, 'lg')">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-check-double-fill"></i>Accept</a></li>
@@ -114,6 +114,21 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <app-oc-create-result></app-oc-create-result>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #reAppealResponse let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Re-Appeal Response</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-oc-create-appeal></app-oc-create-appeal>
             <div class="d-flex flex-row">
                 <button class="btn btn-primary">Submit</button>
             </div>

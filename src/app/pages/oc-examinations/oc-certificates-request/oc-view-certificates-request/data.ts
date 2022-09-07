@@ -20,7 +20,7 @@ const data = {
       certificateRecipient : 'Faisal Gawas',
       reason : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque possimus, quisquam commodi ipsa, perspiciatis voluptates aut animi non maiores neque repudiandae, consequatur quae excepturi earum.',
       documents : '',
-      status : 'Pending Certificate',
+      status : 'Issued',
       applicationStatus: [
         { stage : 'Payment for Certificate', status : 'Completed', by : 'Faisal Gawas' , date : '2022-09-29'},
         { stage : 'Certificate Issued', status : 'Completed', by : 'Abu Nasser', date : '2022-09-29'},
@@ -33,7 +33,7 @@ const data = {
       certificateRecipient : 'Faisal Gawas',
       reason : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque possimus, quisquam commodi ipsa, perspiciatis voluptates aut animi non maiores neque repudiandae, consequatur quae excepturi earum.',
       documents : '',
-      status : 'Pending Certificate',
+      status : 'Payment Pending',
       applicationStatus: [
         { stage : 'Payment Pending', status : 'Pending', date : 'N/A', by : 'N/A'},
         { stage : 'Certificate Issued', status : 'Pending', date : 'N/A', by : 'N/A'},
@@ -56,7 +56,7 @@ const data = {
       certificateRecipient : 'Faisal Gawas',
       reason : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque possimus, quisquam commodi ipsa, perspiciatis voluptates aut animi non maiores neque repudiandae, consequatur quae excepturi earum.',
       documents : '',
-      status : 'Pending Certificate',
+      status : 'Issued',
       applicationStatus: [
         { stage : 'Payment for Certificate', status : 'Completed', by : 'Faisal Gawas' , date : '2022-09-29'},
         { stage : 'Certificate Issued', status : 'Completed', by : 'Abu Nasser', date : '2022-09-29'},

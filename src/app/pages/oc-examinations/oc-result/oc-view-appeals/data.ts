@@ -59,7 +59,7 @@ const pageData = {
             appealReason : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, incidunt facilis a rem id eveniet quasi?',
             supportingDocs : '',
             paymentDate : '2022-08-15',
-            status : 'Appealed'
+            status : 'Awaiting Response'
         },
         {
             examRefId : 'XS-1334191',

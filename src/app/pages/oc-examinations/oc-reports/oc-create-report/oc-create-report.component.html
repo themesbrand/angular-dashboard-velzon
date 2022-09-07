@@ -7,10 +7,12 @@
         <div class="col-md-6 mb-3">
             <label class="form-label">Institution</label>
             <ng-select formControlName="institution"
-            [items]="[]" placeholder="Please select">
+            [items]="[
+            'Institution - 1','Institution - 2','Institution - 3','Institution - 4'
+            ]" placeholder="Please select">
             </ng-select>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-12 mb-3">
             <label class="form-label">Report Fields</label>
             <ng-select [multiple]="true" formControlName="reportFields"
             [items]="['Candidate name',
@@ -23,13 +25,13 @@
             'Candidate Passport No']" placeholder="Please select">
             </ng-select>
         </div>
-        <div class="col-md-6 mb-3">
+        <!-- <div class="col-md-6 mb-3">
             <label class="form-label">Visibility</label>
             <ng-select
             formControlName="status"
             [items]="['Visible', 'Hidden']" placeholder="Please select">
             </ng-select>
-        </div>
+        </div> -->
     </div>
 </form>
 

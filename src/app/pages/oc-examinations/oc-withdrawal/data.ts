@@ -6,12 +6,10 @@ const data = {
     fellowshipPrograms : sharedData.fellowshipPrograms,
     gfpPrograms : sharedData.gfpPrograms,
     typeOfExams : [
-        'Part 1 Exam',
-        'Part 2 – Clinical',
-        'Part 2 – Written',
-        'Fellowship Exit exam',
-        'Selection exam',
-        'Filtration exam',
+        'Omani Examination for Nurses (OEN)',
+        'Omani Examination for General Practitioners (OEGP)',
+        'Omani Examination for Pharmacists (OEP)',
+        'Omani Examination for Medical Laboratory Scientists (OEMLS)'
     ],
     userLists : userListGenerator(),
 }

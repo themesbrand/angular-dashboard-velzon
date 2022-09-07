@@ -1,11 +1,81 @@
 <div class="row mt-1">
     <div class="card">
         <div class="card-body">
+            <div class="row mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+                <div class="col-md-3">
+                    <div class="card card-widget mb-0 w-100">
+                        <div class="card-body">
+                             <div class="d-flex align-items-center">
+                                 <div class="avatar-sm flex-shrink-0">
+                                     <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                        <i class=" ri-window-2-line align-middle"></i>
+                                     </span>
+                                 </div>
+                                 <div class="flex-grow-1 ms-3">
+                                    <p class="fw-semibold fs-12 text-light mb-1">Pending Requests</p>
+                                    <h4 class="text-light mb-0"><span [CountTo]="10" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-widget mb-0 w-100">
+                        <div class="card-body">
+                             <div class="d-flex align-items-center">
+                                 <div class="avatar-sm flex-shrink-0">
+                                     <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                        <i class=" ri-projector-line align-middle"></i>
+                                     </span>
+                                 </div>
+                                 <div class="flex-grow-1 ms-3">
+                                    <p class="fw-semibold fs-12 text-light mb-1">Approved Requests</p>
+                                    <h4 class="text-light mb-0"><span [CountTo]="20" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-widget mb-0 w-100">
+                        <div class="card-body">
+                             <div class="d-flex align-items-center">
+                                 <div class="avatar-sm flex-shrink-0">
+                                     <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                        <i class=" ri-window-line align-middle"></i>
+                                     </span>
+                                 </div>
+                                 <div class="flex-grow-1 ms-3">
+                                    <p class="fw-semibold fs-12 text-light mb-1">Returned Requests</p>
+                                    <h4 class="text-light mb-0"><span [CountTo]="5" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-widget mb-0 w-100">
+                        <div class="card-body">
+                             <div class="d-flex align-items-center">
+                                 <div class="avatar-sm flex-shrink-0">
+                                     <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                        <i class=" ri-stack-line align-middle"></i>
+                                     </span>
+                                 </div>
+                                 <div class="flex-grow-1 ms-3">
+                                    <p class="fw-semibold fs-12 text-light mb-1">Rejected Requests</p>
+                                    <h4 class="text-light mb-0"><span [CountTo]="3" class="counter-value" [from]="0" [duration]="1"></span></h4>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex flex-row justify-content-end gap-2 my-2">
                         <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
-                        <button  *ngIf="userRole === 'trainee@omsb.org'"  (click)="onNavigate('/examinations/registration')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Withdrawal Request</button>
+                        <button  *ngIf="userRole === 'trainee@omsb.org'"  (click)="onNavigate('/oc-examinations/registration')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>New Withdrawal Request</button>
                     </div>
                 </div>
             </div>
@@ -16,14 +86,14 @@
                     [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
                     </ng-select>
                 </div>
-                <div class="col-md-3 mb-3">
+                <!-- <div class="col-md-3 mb-3">
                     <label class="form-lable">Program Name</label>
                     <ng-select 
                     [items]="listData.residencyPrograms" placeholder="Please select">
                     </ng-select>
-                </div>
+                </div> -->
                 <div class="col-md-3 mb-3">
-                    <label class="form-label">Exam Type</label>
+                    <label class="form-label">Exam Title</label>
                     <ng-select 
                     [items]="listData.typeOfExams" placeholder="Please select">
                     </ng-select>
@@ -48,8 +118,8 @@
                         <table class="table align-middle table-hover table-wrap mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col">Program Name</th>
-                                    <th scope="col">Exam Type</th>
+                                    <!-- <th scope="col">Program Name</th> -->
+                                    <th scope="col">Exam Title</th>
                                     <th scope="col">Exam Date</th>
                                     <th scope="col">Exam Time</th>
                                     <th scope="col">Reason</th>
@@ -62,7 +132,7 @@
                             </thead>
                             <tbody *ngFor="let examData of tableData">
                                 <tr>
-                                    <td>{{examData.programName}}</td>
+                                    <!-- <td>{{examData.programName}}</td> -->
                                     <td>{{examData.examType}}</td>
                                     <td>{{examData.examDate}}</td>
                                     <td>{{examData.examTime}}</td>

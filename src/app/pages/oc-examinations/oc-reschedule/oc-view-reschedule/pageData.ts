@@ -2,7 +2,7 @@ const pageData = {
     tableDataTrainee : [
         {
             programName : 'ENT',
-            examType : 'Part 2 – Written',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-15',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -29,7 +29,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 1 Exam',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-09',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -56,7 +56,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 2 – Clinical',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-05',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -83,7 +83,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 2 – Clinical',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-05',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -110,7 +110,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 2 – Clinical',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-05',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -139,7 +139,7 @@ const pageData = {
     adminDataTrainee : [
         {
             programName : 'ENT',
-            examType : 'Part 2 – Written',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-15',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -166,7 +166,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 1 Exam',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-09',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -193,7 +193,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 2 – Clinical',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-05',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',
@@ -220,7 +220,7 @@ const pageData = {
         },
         {
             programName : 'Anesthesia',
-            examType : 'Part 2 – Clinical',
+            examType : 'Omani Examination for Nurses (OEN)',
             examDate : '2022-10-05',
             examTime : '08:45 AM',
             reason : 'Lorem ipsum dolor sit amet.',

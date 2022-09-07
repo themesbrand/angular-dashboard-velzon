@@ -137,11 +137,11 @@
                         <div class="row">
                             <div class="d-flex flex-column">
                                 <div class="d-flex flex-row justify-content-between align-items-center">
-                                    <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
+                                    <label class="form-label">Qualification Name<span class="text-danger">{{ " *" }}</span></label>
                                     <a *ngIf="formDataObject === null" (click)="onDeleteCertificatesToBeEvaluate(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
                                 </div>
                                 <input type="text" class="form-control" formControlName="title">
-                                <p class="text-muted mt-2">Supporting Documents.<span class="text-danger">{{ " *" }}</span></p>
+                                <p class="text-muted mt-2">Attachment<span class="text-danger">{{ " *" }}</span></p>
                                 <button *ngIf="formDataObject != null" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
                                 <ngx-dropzone *ngIf="formDataObject === null" (change)="onSelect($event, 'toBeEvaluatedFiles')"
                                 [multiple]="false">
@@ -173,7 +173,10 @@
                                     <label class="form-label">Title<span class="text-danger">{{ " *" }}</span></label>
                                     <a *ngIf="formDataObject === null" (click)="onDeleteDfrnWithReceiptArray(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
                                 </div>
-                                <input type="text" class="form-control" formControlName="title">
+                                <ng-select
+                                    formControlName="title" [items]="['Verification Report', 'Payment Receipt']" 
+                                    placeholder="Select your employment Status">
+                                </ng-select>
                                 <p class="text-muted mt-2">Supporting Documents.<span class="text-danger">{{ " *" }}</span>
                                 </p>
                                 <button *ngIf="formDataObject != null" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
