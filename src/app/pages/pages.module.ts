@@ -307,6 +307,14 @@ import { OcReportsComponent } from './oc-examinations/oc-reports/oc-reports.comp
 import { OcCreateReportComponent } from './oc-examinations/oc-reports/oc-create-report/oc-create-report.component';
 import { OcCreateCertificatesRequestComponent } from './oc-examinations/oc-certificates-request/oc-create-certificates-request/oc-create-certificates-request.component';
 import { OcViewCertificatesRequestComponent } from './oc-examinations/oc-certificates-request/oc-view-certificates-request/oc-view-certificates-request.component';
+import { ChiefResidentsAffairsComponent } from './tafus/chief-residents-affairs/chief-residents-affairs.component';
+import { NominateChiefResidentsComponent } from './tafus/chief-residents-affairs/nominate-chief-residents/nominate-chief-residents.component';
+import { ViewChiefResidentsComponent } from './tafus/chief-residents-affairs/view-chief-residents/view-chief-residents.component';
+import { AnnualIncentivesComponent } from './tafus/chief-residents-affairs/annual-incentives/annual-incentives.component';
+import { TerminationsComponent } from './tafus/terminations/terminations.component';
+import { TerminateResidentsComponent } from './tafus/terminations/terminate-residents/terminate-residents.component';
+import { CreateTerminateRequestComponent } from './tafus/terminations/terminate-residents/create-terminate-request/create-terminate-request.component';
+import { ViewTerminateRequestComponent } from './tafus/terminations/terminate-residents/view-terminate-request/view-terminate-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -578,7 +586,15 @@ FullCalendarModule.registerPlugins([
     OcReportsComponent,
     OcCreateReportComponent,
     OcCreateCertificatesRequestComponent,
-    OcViewCertificatesRequestComponent
+    OcViewCertificatesRequestComponent,
+    ChiefResidentsAffairsComponent,
+    NominateChiefResidentsComponent,
+    ViewChiefResidentsComponent,
+    AnnualIncentivesComponent,
+    TerminationsComponent,
+    TerminateResidentsComponent,
+    CreateTerminateRequestComponent,
+    ViewTerminateRequestComponent
   ],
   imports: [
     CommonModule,

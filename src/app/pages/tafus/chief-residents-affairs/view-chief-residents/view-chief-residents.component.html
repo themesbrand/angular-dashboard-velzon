@@ -1,0 +1,55 @@
+<app-breadcrumbs title="View Chief Residents" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('//tafus/chief-residents-affairs')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Program Name</label>
+                    <ng-select [items]="sharedData.programList" placeholder="Please select" (change)="onChangeProgram($event)">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="selectedProgram">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Attendance</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Resident</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td >
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                            </div>
+                                    </td>
+                                    <td>Chief Resident</td>
+                                    <td>{{selectedProgram.chiefResident}}</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                            </div>
+                                    </td>
+                                    <td>Asst. Chief Resident</td>
+                                    <td>{{selectedProgram.asstChiefResident}}</td>
+                                    
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+            <div *ngIf="selectedProgram" class="mt-3 d-flex flex-row justify-content-end">
+                <button class="btn btn-primary">Add to meeting with Executive President</button>
+            </div>
+        </div>
+    </div>
+</div>

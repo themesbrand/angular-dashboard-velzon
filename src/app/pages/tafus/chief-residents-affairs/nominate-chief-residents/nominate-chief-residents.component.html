@@ -1,0 +1,98 @@
+<app-breadcrumbs title="Nominate Chief Residents" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('//tafus/chief-residents-affairs')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Trainees (Senior Residency)</label>
+                        <ng-select [items]="sharedData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Start Date</label>
+                    <input class="form-control flatpickr-input"
+                        type="text"
+                        mwlFlatpickr
+                        [altInput]="true"
+                        [convertModelValue]="true"/>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">End Date</label>
+                    <input class="form-control flatpickr-input"
+                        type="text"
+                        mwlFlatpickr
+                        [altInput]="true"
+                        [convertModelValue]="true"/>
+                </div>
+            </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Nominate</button>
+            </div>
+            <div class="row mt-3">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Chief Resident</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">End Date</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td>Al Abri Ibraham</td>
+                                    <td>09/01/2022</td>
+                                    <td>02/28/2023</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hilal basheer</td>
+                                    <td>1/3/2023</td>
+                                    <td>08/31/2023</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Trainees (Junior Residency)</label>
+                        <ng-select [items]="sharedData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Start Date</label>
+                    <input class="form-control flatpickr-input"
+                        type="text"
+                        mwlFlatpickr
+                        [altInput]="true"
+                        [convertModelValue]="true"/>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">End Date</label>
+                    <input class="form-control flatpickr-input"
+                        type="text"
+                        mwlFlatpickr
+                        [altInput]="true"
+                        [convertModelValue]="true"/>
+                </div>
+            </div>
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary">Nominate</button>
+            </div>
+        </div>
+    </div>
+</div>

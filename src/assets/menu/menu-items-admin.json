@@ -380,5 +380,22 @@
                 "link": "oc-examinations/certificates"
             }
         ]
+    },
+    {
+        "id": 63,
+        "label": "TAFUS",
+        "icon": "ri-government-line",
+        "subItems" : [
+            {
+                "id": 56,
+                "label": "Chief Residents Affairs",
+                "link": "tafus/chief-residents-affairs"
+            },
+            {
+                "id": 57,
+                "label": "Terminations",
+                "link": "tafus/terminations"
+            }
+        ]
     }
 ]

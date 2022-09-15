@@ -172,6 +172,12 @@ import { OcDefineReportsComponent } from './oc-examinations/oc-reports/oc-define
 import { OcViewReportsComponent } from './oc-examinations/oc-reports/oc-view-reports/oc-view-reports.component';
 import { OcReportsComponent } from './oc-examinations/oc-reports/oc-reports.component';
 import { OcViewCertificatesRequestComponent } from './oc-examinations/oc-certificates-request/oc-view-certificates-request/oc-view-certificates-request.component';
+import { ChiefResidentsAffairsComponent } from './tafus/chief-residents-affairs/chief-residents-affairs.component';
+import { NominateChiefResidentsComponent } from './tafus/chief-residents-affairs/nominate-chief-residents/nominate-chief-residents.component';
+import { ViewChiefResidentsComponent } from './tafus/chief-residents-affairs/view-chief-residents/view-chief-residents.component';
+import { AnnualIncentivesComponent } from './tafus/chief-residents-affairs/annual-incentives/annual-incentives.component';
+import { TerminationsComponent } from './tafus/terminations/terminations.component';
+import { TerminateResidentsComponent } from './tafus/terminations/terminate-residents/terminate-residents.component';
 
 const routes: Routes = [
     //Default Routing
@@ -437,6 +443,18 @@ const routes: Routes = [
       { path: 'preventative-maintenance',  component :  PagePreventativeMaintenanceComponent},
       { path: 'repair-requests',  component :  PageRepairRequestsComponent},
       { path: '3d-object-request',  component :  PageThreedObjectRequestComponent},
+    ]},
+    { path : 'tafus', children: [
+      { path: 'chief-residents-affairs',  children:[
+        { path: '',  component :  ChiefResidentsAffairsComponent},
+        { path: 'nominate-chief-residents',  component :  NominateChiefResidentsComponent},
+        { path: 'view-chief-residents',  component :  ViewChiefResidentsComponent},
+        { path: 'annual-incentives',  component :  AnnualIncentivesComponent},
+      ]},
+      { path: 'terminations',  children:[
+        { path: '',  component :  TerminationsComponent},
+        { path: 'terminate-residents',  component :  TerminateResidentsComponent},
+      ]},
     ]},
 
     { path: "employer", children : [

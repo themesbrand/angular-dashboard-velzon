@@ -1,0 +1,77 @@
+<app-breadcrumbs title="Nominate Chief Residents" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('//tafus/chief-residents-affairs')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-3">
+                        <button (click)="onFilter()" type="button" class="btn-sm my-2 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Program Name</label>
+                        <ng-select [items]="sharedData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Appointed Trainee</label>
+                        <ng-select [items]="sharedData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Status</label>
+                        <ng-select [items]="[]" bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Program Name</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Appointed Trainee</th>
+                                    <th scope="col">Duration (Start Date)</th>
+                                    <th scope="col">Duration (End Date)</th>
+                                    <th scope="col">Incentive Amount to be Paid</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let data of listData.tableData">
+                                    <td>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td>{{data.programName}}</td>
+                                    <td>{{data.role}}</td>
+                                    <td>{{data.traineeName}}</td>
+                                    <td>{{data.startDate}}</td>
+                                    <td>{{data.endDate}}</td>
+                                    <td>{{data.incentive}}</td>
+                                    <td>{{data.status}}</td>
+
+                                </tr>
+
+                            </thead>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+            <div class="d-flex flex-row mt-3 gap-3">
+                <button class="btn btn-primary">Confirm</button>
+                <button class="btn btn-primary">Generate Incentive QARAR</button>
+            </div>
+        </div>
+    </div>
+</div>

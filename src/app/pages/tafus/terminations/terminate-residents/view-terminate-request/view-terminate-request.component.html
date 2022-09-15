@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-4 mb-3" *ngIf="selectedUser !== 'PD'">
+        <label class="form-label">Program Name</label>
+        <label class="form-control">{{requestData.programName}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Trainee</label>
+        <label class="form-control">{{requestData.trainee}}</label>            
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Reason for Termination</label>
+        <label class="form-control">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ratione hic amet nobis eius? Velit at soluta nostrum numquam a!</label>          
+    </div>
+    <div class="col-md-12 mb-3"  *ngIf="requestData.applicationStatus[0].stage === 'Submission by PD'">
+        <label class="form-label">Comments from the Program Director</label>
+        <label class="form-control">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ratione hic amet nobis eius? Velit at soluta nostrum numquam a!</label>  
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.applicationStatus[1].stage === 'Approved by TAFUS' && requestData.applicationStatus[1].status === 'Complete'">
+        <label class="form-label">Comments from Trainee Affairs</label>
+        <label class="form-control">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ratione hic amet nobis eius? Velit at soluta nostrum numquam a!</label>  
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.applicationStatus[2].stage === 'Approved by Legal Affairs' && requestData.applicationStatus[2].status === 'Complete'">
+        <label class="form-label">Comments from Legal Affairs</label>
+        <label class="form-control">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ratione hic amet nobis eius? Velit at soluta nostrum numquam a!</label>  
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.applicationStatus[3].stage === 'Approved by VPAA' && requestData.applicationStatus[3].status === 'Complete'">
+        <label class="form-label">Comments from VPPA</label>
+        <label class="form-control">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ratione hic amet nobis eius? Velit at soluta nostrum numquam a!</label>  
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.applicationStatus[4].stage === 'Approved by EP' && requestData.applicationStatus[4].status === 'Complete'">
+        <label class="form-label">Comments from EP</label>
+        <label class="form-control">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ratione hic amet nobis eius? Velit at soluta nostrum numquam a!</label>  
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Trainee informed about the termination?</label>
+        <div class="d-flex flex-row">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="radioCheckButton1" name="radioCheck1"  value="yes" checked>
+              <label class="form-check-label" for="radioCheckButton3">Yes</label>
+            </div>
+            <div class="form-check mx-4">
+              <input class="form-check-input" type="radio" id="radioCheckButton2" name="radioCheck1" value="no">
+              <label class="form-check-label" for="radioCheckButton4">No</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Sponsor informed about the termination?</label>
+        <div class="d-flex flex-row">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="radioCheckButton3" name="radioCheck2"  value="yes" checked>
+                <label class="form-check-label" for="radioCheckButton3">Yes</label>
+              </div>
+              <div class="form-check mx-4">
+                <input class="form-check-input" type="radio" id="radioCheckButton4" name="radioCheck2" value="no">
+                <label class="form-check-label" for="radioCheckButton4">No</label>
+              </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-1">
+        <div class="d-flex flex-row">
+            <label class="form-label">Supporting the decision</label>
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+        </div>
+    </div>
+</div>
