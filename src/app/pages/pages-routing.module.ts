@@ -183,6 +183,7 @@ import { ResearchDayIncentivesForJudgesComponent } from './tafus/academic-activi
 import { ResearchDayRewardWinnersComponent } from './tafus/academic-activities/research-day-reward-winners/research-day-reward-winners.component';
 import { VisitingExpertsComponent } from './tafus/academic-activities/visiting-experts/visiting-experts.component';
 import { AcademicActivityRequestsComponent } from './tafus/academic-activities/academic-activity-requests/academic-activity-requests.component';
+import { LettersRequestsComponent } from './tafus/letters/letters-requests/letters-requests.component';
 
 const routes: Routes = [
     //Default Routing
@@ -466,6 +467,9 @@ const routes: Routes = [
         { path: 'research-day-reward-winners',  component :  ResearchDayRewardWinnersComponent},
         { path: 'visiting-experts',  component :  VisitingExpertsComponent},
         { path: 'academic-activities-request',  component :  AcademicActivityRequestsComponent},
+      ]},
+      { path: 'letters',  children:[
+        { path: '',  component :  LettersRequestsComponent},
       ]},
     ]},
 

@@ -400,6 +400,26 @@
                 "id": 58,
                 "label": "Academic Activities",
                 "link": "tafus/academic-activities"
+            },
+            {
+                "id": 59,
+                "label": "Graduation",
+                "link": "tafus/graduation"
+            },
+            {
+                "id": 60,
+                "label": "Letters",
+                "link": "tafus/letters"
+            },
+            {
+                "id": 61,
+                "label": "Request Certificates",
+                "link": "tafus/request-certificates"
+            },
+            {
+                "id": 62,
+                "label": "ID Replacement",
+                "link": "tafus/id-replacement"
             }
         ]
     }

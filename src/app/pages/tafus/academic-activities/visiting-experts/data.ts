@@ -15,8 +15,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Approval ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Completion ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Approval', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Completion', status : 'Pending', date : 'N/A', by : 'N/A'}, 
             ]
         },
         {
@@ -34,8 +34,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Approval ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Completion ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Approval', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Completion', status : 'Pending', date : 'N/A', by : 'N/A'}, 
             ]
         },
         {
@@ -53,8 +53,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Approval ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Completion ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Approval', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Completion', status : 'Pending', date : 'N/A', by : 'N/A'}, 
             ]
         },
         {
@@ -72,8 +72,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Approval ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Completion ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Approval', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Completion', status : 'Pending', date : 'N/A', by : 'N/A'}, 
             ]
         },
         {
@@ -91,8 +91,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Approval ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
-                { stage : 'Payment Completion ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Approval', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Completion', status : 'Pending', date : 'N/A', by : 'N/A'}, 
             ]
         },
         {
@@ -110,8 +110,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
-                { stage : 'Payment Approval ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
-                { stage : 'Payment Completion ', status : 'Pending', date : 'N/A', by : 'N/A'}, 
+                { stage : 'Payment Approval', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
+                { stage : 'Payment Completion', status : 'Pending', date : 'N/A', by : 'N/A'}, 
             ]
         },
         {
@@ -129,8 +129,8 @@ const data = {
                 { stage : 'Pending Approval from TAFUS ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from TA Director ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
                 { stage : 'Pending Approval from EAC ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
-                { stage : 'Payment Approval ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
-                { stage : 'Payment Completion ', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
+                { stage : 'Payment Approval', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
+                { stage : 'Payment Completion', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Al Abri Falsal'}, 
             ]
         },
 

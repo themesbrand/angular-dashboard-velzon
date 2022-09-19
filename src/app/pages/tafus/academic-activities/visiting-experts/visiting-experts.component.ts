@@ -8,7 +8,21 @@ import {data} from './data';
 @Component({
   selector: 'app-visiting-experts',
   templateUrl: './visiting-experts.component.html',
-  styleUrls: ['./visiting-experts.component.scss']
+  styleUrls: ['./visiting-experts.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateY(-100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateY(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateY(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateY(-100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class VisitingExpertsComponent implements OnInit {
 
@@ -58,11 +72,11 @@ export class VisitingExpertsComponent implements OnInit {
     this.selectedActivity = request;
   }
   
-  setSelectedComments(course : any) {
-    if(course?.comments === undefined || course?.comments?.length === 0) {
+  setSelectedComments(request : any) {
+    if(request?.comments === undefined || request?.comments?.length === 0) {
       this.selectedComments = []
     } else {
-      this.selectedComments = course.comments
+      this.selectedComments = request.comments
     }
   }
 

@@ -1,0 +1,34 @@
+<form [formGroup]="requestForm">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="" class="form-label">Purpose of Letter</label>
+            <ng-select 
+                [items]="listData.purposeOfLetters" formControlName="purpose" 
+                bindLabel="name" (change)="onChangePurpose($event)" placeholder="Please select">
+            </ng-select>
+        </div>
+        <div class="col-md-6 mb-3" *ngIf="formValues.purpose === 'Other'">
+            <label for="" class="form-label">If Other Purpose,</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="" class="form-label">Reason for the letter</label>
+            <textarea rows="2" formControlName="reason" class="form-control"></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Attachment<span class="text-danger">*</span></label>
+            <ngx-dropzone (change)="onSelect($event, 'attachmentsFile')"
+            [multiple]="false">
+                <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of attachmentsFile"
+                    [removable]="true" (removed)="onRemove(f, 'attachmentsFile')">
+                    <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="" class="form-label">Amount</label>
+            <input type="text" class="form-control" formControlName="amount" >
+        </div>
+    </div>
+</form>

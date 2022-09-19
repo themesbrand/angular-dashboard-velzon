@@ -127,7 +127,7 @@
                                                         </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'TAFUS'">
-                                                        <li (click)="setSelectedComments(row); openModal(activityStatus, 'xl')">
+                                                        <li (click)="setSelectedComments(row); openModal(commentsView, 'xl')">
                                                             <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
                                                         </li> 
                                                         <container-element [ngSwitch]="row.status">
@@ -142,7 +142,7 @@
                                                         </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'Trainee Affairs Director'">
-                                                        <li (click)="setSelectedComments(row); openModal(activityStatus, 'xl')">
+                                                        <li (click)="setSelectedComments(row); openModal(commentsView, 'xl')">
                                                             <a class="dropdown-item" ><i class="mx-1 ri-message-2-line"></i>Comments</a>
                                                         </li> 
                                                         <container-element [ngSwitch]="row.status">

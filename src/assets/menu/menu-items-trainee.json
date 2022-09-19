@@ -149,5 +149,17 @@
                 "link": "oc-examinations/certificates"
             }
         ]
+    },
+    {
+        "id": 26,
+        "label": "TAFUS",
+        "icon": "ri-government-line",
+        "subItems" : [
+            {
+                "id": 27,
+                "label": "Letters",
+                "link": "tafus/letters"
+            }
+        ]
     }
 ]

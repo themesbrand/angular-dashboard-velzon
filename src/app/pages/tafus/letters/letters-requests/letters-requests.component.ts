@@ -3,13 +3,13 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
+
 import {data} from './data';
 
-
 @Component({
-  selector: 'app-research-day-reward-winners',
-  templateUrl: './research-day-reward-winners.component.html',
-  styleUrls: ['./research-day-reward-winners.component.scss'],
+  selector: 'app-letters-requests',
+  templateUrl: './letters-requests.component.html',
+  styleUrls: ['./letters-requests.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -25,31 +25,24 @@ import {data} from './data';
     )
   ]
 })
-export class ResearchDayRewardWinnersComponent implements OnInit {
-
+export class LettersRequestsComponent implements OnInit {
+  userRole: string | null = null;
   listData = data;
-  tableData : any[] = []
 
-  selectedUser : any =  'PD';
-
-  breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
-  
+
   selectedActivity: any;
   selectedComments: any[]  = [];
-  
-  supportingFiles: File[] = [];
 
+  supportingFiles: File[] = [];
+  
   constructor(
     private router : Router,
     private modalService : NgbModal
   ) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [
-      { label: "Academic Activities", link: '/tafus/academic-activities'},
-      { label: "Research day - Reward for Winners ", active : true }
-    ];
+    this.userRole = localStorage.getItem('userType'); 
   }
 
   onFilter() {
@@ -60,10 +53,6 @@ export class ResearchDayRewardWinnersComponent implements OnInit {
     }
   }
 
-  onChangeUser(event : any) {
-    this.selectedUser = event  
-  }
-  
   onNavigate(url : any) {
     this.modalService.dismissAll();
     this.router.navigateByUrl(url);
@@ -73,11 +62,11 @@ export class ResearchDayRewardWinnersComponent implements OnInit {
     this.selectedActivity = request;
   }
   
-  setSelectedComments(course : any) {
-    if(course?.comments === undefined || course?.comments?.length === 0) {
+  setSelectedComments(request : any) {
+    if(request?.comments === undefined || request?.comments?.length === 0) {
       this.selectedComments = []
     } else {
-      this.selectedComments = course.comments
+      this.selectedComments = request.comments
     }
   }
 
@@ -103,6 +92,7 @@ export class ResearchDayRewardWinnersComponent implements OnInit {
       }
     }
   }
+
 
   openModal(modal :any, size : any) {
     this.modalService.open(modal, {size : size})
