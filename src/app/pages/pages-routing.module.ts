@@ -178,6 +178,11 @@ import { ViewChiefResidentsComponent } from './tafus/chief-residents-affairs/vie
 import { AnnualIncentivesComponent } from './tafus/chief-residents-affairs/annual-incentives/annual-incentives.component';
 import { TerminationsComponent } from './tafus/terminations/terminations.component';
 import { TerminateResidentsComponent } from './tafus/terminations/terminate-residents/terminate-residents.component';
+import { AcademicActivitiesComponent } from './tafus/academic-activities/academic-activities.component';
+import { ResearchDayIncentivesForJudgesComponent } from './tafus/academic-activities/research-day-incentives-for-judges/research-day-incentives-for-judges.component';
+import { ResearchDayRewardWinnersComponent } from './tafus/academic-activities/research-day-reward-winners/research-day-reward-winners.component';
+import { VisitingExpertsComponent } from './tafus/academic-activities/visiting-experts/visiting-experts.component';
+import { AcademicActivityRequestsComponent } from './tafus/academic-activities/academic-activity-requests/academic-activity-requests.component';
 
 const routes: Routes = [
     //Default Routing
@@ -454,6 +459,13 @@ const routes: Routes = [
       { path: 'terminations',  children:[
         { path: '',  component :  TerminationsComponent},
         { path: 'terminate-residents',  component :  TerminateResidentsComponent},
+      ]},
+      { path: 'academic-activities',  children:[
+        { path: '',  component :  AcademicActivitiesComponent},
+        { path: 'research-day-incentives-judges',  component :  ResearchDayIncentivesForJudgesComponent},
+        { path: 'research-day-reward-winners',  component :  ResearchDayRewardWinnersComponent},
+        { path: 'visiting-experts',  component :  VisitingExpertsComponent},
+        { path: 'academic-activities-request',  component :  AcademicActivityRequestsComponent},
       ]},
     ]},
 

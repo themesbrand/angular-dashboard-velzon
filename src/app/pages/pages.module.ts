@@ -315,6 +315,14 @@ import { TerminationsComponent } from './tafus/terminations/terminations.compone
 import { TerminateResidentsComponent } from './tafus/terminations/terminate-residents/terminate-residents.component';
 import { CreateTerminateRequestComponent } from './tafus/terminations/terminate-residents/create-terminate-request/create-terminate-request.component';
 import { ViewTerminateRequestComponent } from './tafus/terminations/terminate-residents/view-terminate-request/view-terminate-request.component';
+import { AcademicActivitiesComponent } from './tafus/academic-activities/academic-activities.component';
+import { ResearchDayIncentivesForJudgesComponent } from './tafus/academic-activities/research-day-incentives-for-judges/research-day-incentives-for-judges.component';
+import { ResearchDayRewardWinnersComponent } from './tafus/academic-activities/research-day-reward-winners/research-day-reward-winners.component';
+import { VisitingExpertsComponent } from './tafus/academic-activities/visiting-experts/visiting-experts.component';
+import { AcademicActivityRequestsComponent } from './tafus/academic-activities/academic-activity-requests/academic-activity-requests.component';
+import { CreateIncentiveForJudgesComponent } from './tafus/academic-activities/research-day-incentives-for-judges/create-incentive-for-judges/create-incentive-for-judges.component';
+import { CreateResearchDayRewardComponent } from './tafus/academic-activities/research-day-reward-winners/create-research-day-reward/create-research-day-reward.component';
+import { CreateVisitingExpertsComponent } from './tafus/academic-activities/visiting-experts/create-visiting-experts/create-visiting-experts.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -594,7 +602,15 @@ FullCalendarModule.registerPlugins([
     TerminationsComponent,
     TerminateResidentsComponent,
     CreateTerminateRequestComponent,
-    ViewTerminateRequestComponent
+    ViewTerminateRequestComponent,
+    AcademicActivitiesComponent,
+    ResearchDayIncentivesForJudgesComponent,
+    ResearchDayRewardWinnersComponent,
+    VisitingExpertsComponent,
+    AcademicActivityRequestsComponent,
+    CreateIncentiveForJudgesComponent,
+    CreateResearchDayRewardComponent,
+    CreateVisitingExpertsComponent
   ],
   imports: [
     CommonModule,

@@ -395,6 +395,11 @@
                 "id": 57,
                 "label": "Terminations",
                 "link": "tafus/terminations"
+            },
+            {
+                "id": 58,
+                "label": "Academic Activities",
+                "link": "tafus/academic-activities"
             }
         ]
     }
