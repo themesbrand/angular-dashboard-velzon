@@ -184,6 +184,8 @@ import { ResearchDayRewardWinnersComponent } from './tafus/academic-activities/r
 import { VisitingExpertsComponent } from './tafus/academic-activities/visiting-experts/visiting-experts.component';
 import { AcademicActivityRequestsComponent } from './tafus/academic-activities/academic-activity-requests/academic-activity-requests.component';
 import { LettersRequestsComponent } from './tafus/letters/letters-requests/letters-requests.component';
+import { CertificateRequestsComponent } from './tafus/certificates/certificate-requests/certificate-requests.component';
+import { IdCardsRequestsComponent } from './tafus/id-cards/id-cards-requests/id-cards-requests.component';
 
 const routes: Routes = [
     //Default Routing
@@ -470,6 +472,12 @@ const routes: Routes = [
       ]},
       { path: 'letters',  children:[
         { path: '',  component :  LettersRequestsComponent},
+      ]},
+      { path: 'request-certificates',  children:[
+        { path: '',  component :  CertificateRequestsComponent},
+      ]},
+      { path: 'id-replacement',  children:[
+        { path: '',  component :  IdCardsRequestsComponent},
       ]},
     ]},
 

@@ -325,6 +325,10 @@ import { CreateResearchDayRewardComponent } from './tafus/academic-activities/re
 import { CreateVisitingExpertsComponent } from './tafus/academic-activities/visiting-experts/create-visiting-experts/create-visiting-experts.component';
 import { LettersRequestsComponent } from './tafus/letters/letters-requests/letters-requests.component';
 import { CreateLettersRequestComponent } from './tafus/letters/create-letters-request/create-letters-request.component';
+import { CertificateRequestsComponent } from './tafus/certificates/certificate-requests/certificate-requests.component';
+import { CreateCertificateRequestComponent } from './tafus/certificates/create-certificate-request/create-certificate-request.component';
+import { IdCardsRequestsComponent } from './tafus/id-cards/id-cards-requests/id-cards-requests.component';
+import { CreateIdCardsRequestComponent } from './tafus/id-cards/create-id-cards-request/create-id-cards-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -614,7 +618,11 @@ FullCalendarModule.registerPlugins([
     CreateResearchDayRewardComponent,
     CreateVisitingExpertsComponent,
     LettersRequestsComponent,
-    CreateLettersRequestComponent
+    CreateLettersRequestComponent,
+    CertificateRequestsComponent,
+    CreateCertificateRequestComponent,
+    IdCardsRequestsComponent,
+    CreateIdCardsRequestComponent
   ],
   imports: [
     CommonModule,

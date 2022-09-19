@@ -1,10 +1,10 @@
 <form [formGroup]="requestForm">
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="" class="form-label">Purpose of Letter</label>
+            <label for="" class="form-label">Request For</label>
             <ng-select 
-                [items]="listData.purposeOfLetters" formControlName="purpose" 
-                bindLabel="name" (change)="onChangePurpose($event)" placeholder="Please select">
+                [items]="listData.replacementReason" formControlName="requestReason" 
+                bindLabel="name" (change)="onChangeReason($event)" placeholder="Please select">
             </ng-select>
         </div>
         <div class="col-md-6 mb-3" *ngIf="formValues.purpose?.name === 'Other'">
@@ -12,7 +12,7 @@
             <input type="text" class="form-control">
         </div>
         <div class="col-md-12 mb-3">
-            <label for="" class="form-label">Reason for the letter</label>
+            <label for="" class="form-label">Reason</label>
             <textarea rows="2" formControlName="reason" class="form-control"></textarea>
         </div>
         <div class="col-md-6 mb-3">

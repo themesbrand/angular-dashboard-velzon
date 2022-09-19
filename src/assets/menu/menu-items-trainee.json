@@ -159,6 +159,16 @@
                 "id": 27,
                 "label": "Letters",
                 "link": "tafus/letters"
+            },
+            {
+                "id": 28,
+                "label": "Request Certificates",
+                "link": "tafus/request-certificates"
+            },
+            {
+                "id": 29,
+                "label": "ID Replacement",
+                "link": "tafus/id-replacement"
             }
         ]
     }

@@ -1,10 +1,10 @@
 <form [formGroup]="requestForm">
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="" class="form-label">Purpose of Letter</label>
+            <label for="" class="form-label">Certificate Type</label>
             <ng-select 
-                [items]="listData.purposeOfLetters" formControlName="purpose" 
-                bindLabel="name" (change)="onChangePurpose($event)" placeholder="Please select">
+                [items]="listData.certificateTypes" formControlName="type" 
+                bindLabel="name" (change)="onChangeType($event)" placeholder="Please select">
             </ng-select>
         </div>
         <div class="col-md-6 mb-3" *ngIf="formValues.purpose?.name === 'Other'">
