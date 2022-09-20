@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-12 mb-1">
+        <p class="text-muted">Upload Invoice<span class="text-danger">{{ " *" }}</span></p>
+        <ngx-dropzone (change)="onSelect($event, 'supportingFiles')"
+        [multiple]="false">
+            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of supportingFiles"
+                [removable]="true" (removed)="onRemove(f, 'supportingFiles')">
+                <ngx-dropzone-label>{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+    </div>
+</div>

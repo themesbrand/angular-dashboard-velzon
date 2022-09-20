@@ -69,6 +69,20 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userType === 'eportal@omsb.org' || userType === 'trainee@omsb.org'">
+        <div class="card card-animate border shadow" (click)="onNavigate('/simulation/workshop/surgical-foundation-program-scores')">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    SS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Surgical Foundation Program Scores</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- <div class="row ">

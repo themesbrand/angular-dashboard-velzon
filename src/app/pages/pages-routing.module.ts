@@ -186,6 +186,8 @@ import { AcademicActivityRequestsComponent } from './tafus/academic-activities/a
 import { LettersRequestsComponent } from './tafus/letters/letters-requests/letters-requests.component';
 import { CertificateRequestsComponent } from './tafus/certificates/certificate-requests/certificate-requests.component';
 import { IdCardsRequestsComponent } from './tafus/id-cards/id-cards-requests/id-cards-requests.component';
+import { SurgicalFoundationProgramComponent } from './simulation/simulation-workshop/surgical-foundation-program/surgical-foundation-program.component';
+import { SimulationFacilitiesForRentComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-for-rent.component';
 
 const routes: Routes = [
     //Default Routing
@@ -296,8 +298,10 @@ const routes: Routes = [
         { path: "view-application", component: SimulationWorkshopViewApplicationComponent },
         { path: "order-food", component: SimulationWorkshopOrderFoodComponent },
         { path: "create-form", component: SimulationCreateFormComponent },
+        { path: "surgical-foundation-program-scores", component: SurgicalFoundationProgramComponent },
       ] },
-      { path: "standardized-patients", component: SimulationStandardizedPatientsComponent }
+      { path: "standardized-patients", component: SimulationStandardizedPatientsComponent },
+      { path: "facilities-for-rent", component: SimulationFacilitiesForRentComponent }
     ]},
 
     { path: "research", children : [
@@ -515,8 +519,9 @@ const routes: Routes = [
         { path: "course", children:[
           { path: "", component: FinanceCourseComponent },
           { path: "order-food", component: FinanceOrderFoodComponent },
-          { path: "refund-management", component: FinanceRefundManagementComponent },
+          { path: "refund-management", component: FinanceRefundManagementComponent }
         ] },
+        { path: "facilities-for-rent", component: SimulationFacilitiesForRentComponent }
       ]},
     ] },
    

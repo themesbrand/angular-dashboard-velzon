@@ -329,6 +329,13 @@ import { CertificateRequestsComponent } from './tafus/certificates/certificate-r
 import { CreateCertificateRequestComponent } from './tafus/certificates/create-certificate-request/create-certificate-request.component';
 import { IdCardsRequestsComponent } from './tafus/id-cards/id-cards-requests/id-cards-requests.component';
 import { CreateIdCardsRequestComponent } from './tafus/id-cards/create-id-cards-request/create-id-cards-request.component';
+import { SurgicalFoundationProgramComponent } from './simulation/simulation-workshop/surgical-foundation-program/surgical-foundation-program.component';
+import { SimulationFacilitiesForRentComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-for-rent.component';
+import { CreateSimulationFacilitiesForRentComponent } from './simulation/simulation-facilities-for-rent/create-simulation-facilities-for-rent/create-simulation-facilities-for-rent.component';
+import { SimulationFacilitiesAgreementTemplateComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-agreement-template/simulation-facilities-agreement-template.component';
+import { SimulationFacilitiesAgreementSubmissionComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-agreement-submission/simulation-facilities-agreement-submission.component';
+import { SimulationFacilitiesUploadInvoiceComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-upload-invoice/simulation-facilities-upload-invoice.component';
+import { ViewSurgicalScoreComponent } from './simulation/simulation-workshop/surgical-foundation-program/view-surgical-score/view-surgical-score.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -622,7 +629,14 @@ FullCalendarModule.registerPlugins([
     CertificateRequestsComponent,
     CreateCertificateRequestComponent,
     IdCardsRequestsComponent,
-    CreateIdCardsRequestComponent
+    CreateIdCardsRequestComponent,
+    SurgicalFoundationProgramComponent,
+    SimulationFacilitiesForRentComponent,
+    CreateSimulationFacilitiesForRentComponent,
+    SimulationFacilitiesAgreementTemplateComponent,
+    SimulationFacilitiesAgreementSubmissionComponent,
+    SimulationFacilitiesUploadInvoiceComponent,
+    ViewSurgicalScoreComponent
   ],
   imports: [
     CommonModule,

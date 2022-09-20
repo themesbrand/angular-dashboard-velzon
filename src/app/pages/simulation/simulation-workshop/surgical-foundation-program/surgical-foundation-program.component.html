@@ -1,0 +1,57 @@
+<app-breadcrumbs title="Surgical Foundation Program Scores" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/simulation/workshop')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Program</th>
+                                    <th scope="col">OMSB ID</th>
+                                    <th scope="col">Trainee Name</th>
+                                    <th scope="col">Total score</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of listData.tableData">
+                                    <td>{{row.program}}</td>
+                                    <td>{{row.omsbId}}</td>
+                                    <td>{{row.traineeName}}</td>
+                                    <td>{{row.totalScore}}</td>
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="setRequest(row); openModal(viewRequest, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #viewRequest let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Trainee Score</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-view-surgical-score [formData]="selectedRequest"></app-view-surgical-score>
+        </div>
+    </div>
+</ng-template>
