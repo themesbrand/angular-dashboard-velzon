@@ -336,6 +336,13 @@ import { SimulationFacilitiesAgreementTemplateComponent } from './simulation/sim
 import { SimulationFacilitiesAgreementSubmissionComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-agreement-submission/simulation-facilities-agreement-submission.component';
 import { SimulationFacilitiesUploadInvoiceComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-upload-invoice/simulation-facilities-upload-invoice.component';
 import { ViewSurgicalScoreComponent } from './simulation/simulation-workshop/surgical-foundation-program/view-surgical-score/view-surgical-score.component';
+import { EducationCommitteeComponent } from './education-committee/education-committee.component';
+import { EcAddMembersComponent } from './education-committee/ec-add-members/ec-add-members.component';
+import { EcRemoveMembersComponent } from './education-committee/ec-remove-members/ec-remove-members.component';
+import { NewMemberRequestComponent } from './education-committee/ec-add-members/new-member-request/new-member-request.component';
+import { ViewNewMemberRequestComponent } from './education-committee/ec-add-members/view-new-member-request/view-new-member-request.component';
+import { EcRemoveMemberFormComponent } from './education-committee/ec-remove-members/ec-remove-member-form/ec-remove-member-form.component';
+import { EcRemoveMemberViewComponent } from './education-committee/ec-remove-members/ec-remove-member-view/ec-remove-member-view.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -636,7 +643,14 @@ FullCalendarModule.registerPlugins([
     SimulationFacilitiesAgreementTemplateComponent,
     SimulationFacilitiesAgreementSubmissionComponent,
     SimulationFacilitiesUploadInvoiceComponent,
-    ViewSurgicalScoreComponent
+    ViewSurgicalScoreComponent,
+    EducationCommitteeComponent,
+    EcAddMembersComponent,
+    EcRemoveMembersComponent,
+    NewMemberRequestComponent,
+    ViewNewMemberRequestComponent,
+    EcRemoveMemberFormComponent,
+    EcRemoveMemberViewComponent
   ],
   imports: [
     CommonModule,

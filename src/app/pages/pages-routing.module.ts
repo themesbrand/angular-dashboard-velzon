@@ -188,6 +188,9 @@ import { CertificateRequestsComponent } from './tafus/certificates/certificate-r
 import { IdCardsRequestsComponent } from './tafus/id-cards/id-cards-requests/id-cards-requests.component';
 import { SurgicalFoundationProgramComponent } from './simulation/simulation-workshop/surgical-foundation-program/surgical-foundation-program.component';
 import { SimulationFacilitiesForRentComponent } from './simulation/simulation-facilities-for-rent/simulation-facilities-for-rent.component';
+import { EducationCommitteeComponent } from './education-committee/education-committee.component';
+import { EcAddMembersComponent } from './education-committee/ec-add-members/ec-add-members.component';
+import { EcRemoveMembersComponent } from './education-committee/ec-remove-members/ec-remove-members.component';
 
 const routes: Routes = [
     //Default Routing
@@ -483,6 +486,13 @@ const routes: Routes = [
       { path: 'id-replacement',  children:[
         { path: '',  component :  IdCardsRequestsComponent},
       ]},
+    ]},
+    { path : 'education-committee', children: [
+      { path: '',  component :  EducationCommitteeComponent},
+      { path: 'add-members',  component :  EcAddMembersComponent},
+      { path: 'remove-members',  component :  EcRemoveMembersComponent},
+      
+      
     ]},
 
     { path: "employer", children : [

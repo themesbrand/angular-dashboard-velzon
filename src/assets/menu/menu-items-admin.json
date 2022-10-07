@@ -392,40 +392,46 @@
         "icon": "ri-government-line",
         "subItems" : [
             {
-                "id": 56,
+                "id": 64,
                 "label": "Chief Residents Affairs",
                 "link": "tafus/chief-residents-affairs"
             },
             {
-                "id": 57,
+                "id": 65,
                 "label": "Terminations",
                 "link": "tafus/terminations"
             },
             {
-                "id": 58,
+                "id": 66,
                 "label": "Academic Activities",
                 "link": "tafus/academic-activities"
             },
             {
-                "id": 59,
+                "id": 67,
                 "label": "Graduation",
                 "link": "tafus/graduation"
             },
             {
-                "id": 60,
+                "id": 68,
                 "label": "Letters",
                 "link": "tafus/letters"
             },
             {
-                "id": 61,
+                "id": 69,
                 "label": "Request Certificates",
                 "link": "tafus/request-certificates"
             },
             {
-                "id": 62,
+                "id": 70,
                 "label": "ID Replacement",
                 "link": "tafus/id-replacement"
             }
         ]
+    },
+    {
+        "id": 71,
+        "label": "Education Committee",
+        "icon": "ri-book-2-line",
+        "link": "/education-committee"
     }
 ]
