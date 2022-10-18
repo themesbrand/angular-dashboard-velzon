@@ -192,6 +192,7 @@ import { EducationCommitteeComponent } from './education-committee/education-com
 import { EcAddMembersComponent } from './education-committee/ec-add-members/ec-add-members.component';
 import { EcRemoveMembersComponent } from './education-committee/ec-remove-members/ec-remove-members.component';
 import { EcAddFacultyMemberComponent } from './education-committee/ec-add-faculty-member/ec-add-faculty-member.component';
+import { EcRemoveFacultyMemberComponent } from './education-committee/ec-remove-faculty-member/ec-remove-faculty-member.component';
 
 const routes: Routes = [
     //Default Routing
@@ -493,6 +494,7 @@ const routes: Routes = [
       { path: 'add-members',  component :  EcAddMembersComponent},
       { path: 'remove-members',  component :  EcRemoveMembersComponent},
       { path: 'add-fc-members',  component :  EcAddFacultyMemberComponent},
+      { path: 'remove-fc-members',  component :  EcRemoveFacultyMemberComponent},
       
     ]},
 

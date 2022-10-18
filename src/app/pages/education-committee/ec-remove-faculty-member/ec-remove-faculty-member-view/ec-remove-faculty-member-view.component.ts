@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-ec-remove-member-view',
-  templateUrl: './ec-remove-member-view.component.html',
-  styleUrls: ['./ec-remove-member-view.component.scss']
+  selector: 'app-ec-remove-faculty-member-view',
+  templateUrl: './ec-remove-faculty-member-view.component.html',
+  styleUrls: ['./ec-remove-faculty-member-view.component.scss']
 })
-export class EcRemoveMemberViewComponent implements OnInit {
+export class EcRemoveFacultyMemberViewComponent implements OnInit {
 
   @Input() isEditable : boolean = false;
   @Input() isSubmit : boolean = false;
