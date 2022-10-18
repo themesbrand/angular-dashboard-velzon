@@ -343,6 +343,9 @@ import { NewMemberRequestComponent } from './education-committee/ec-add-members/
 import { ViewNewMemberRequestComponent } from './education-committee/ec-add-members/view-new-member-request/view-new-member-request.component';
 import { EcRemoveMemberFormComponent } from './education-committee/ec-remove-members/ec-remove-member-form/ec-remove-member-form.component';
 import { EcRemoveMemberViewComponent } from './education-committee/ec-remove-members/ec-remove-member-view/ec-remove-member-view.component';
+import { EcAddFacultyMemberComponent } from './education-committee/ec-add-faculty-member/ec-add-faculty-member.component';
+import { FcNewMemberRequestComponent } from './education-committee/ec-add-faculty-member/fc-new-member-request/fc-new-member-request.component';
+import { FcViewMemberRequestComponent } from './education-committee/ec-add-faculty-member/fc-view-member-request/fc-view-member-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -650,7 +653,10 @@ FullCalendarModule.registerPlugins([
     NewMemberRequestComponent,
     ViewNewMemberRequestComponent,
     EcRemoveMemberFormComponent,
-    EcRemoveMemberViewComponent
+    EcRemoveMemberViewComponent,
+    EcAddFacultyMemberComponent,
+    FcNewMemberRequestComponent,
+    FcViewMemberRequestComponent
   ],
   imports: [
     CommonModule,

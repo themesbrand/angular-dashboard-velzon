@@ -1,6 +1,6 @@
 <div class="row card-box">
     <div class="col-md-3 col-12 mb-3" >
-        <div class="card card-animate border shadow" (click)="onNavigate('/education-committee/add-members')">
+        <div class="card card-animate border shadow" [routerLink]="['/education-committee/add-members']">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-md-3 col-12 mb-3">
-        <div class="card card-animate border shadow" (click)="onNavigate('/education-committee/remove-members')">
+        <div class="card card-animate border shadow" [routerLink]="['/education-committee/remove-members']">
             <div class="card-header bg-warning">
             </div>
             <div class="card-body">
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-md-3 col-12 mb-3">
-        <div class="card card-animate border shadow">
+        <div class="card card-animate border shadow" [routerLink]="['/education-committee/add-fc-members']">
             <div class="card-header bg-success">
             </div>
             <div class="card-body">

@@ -10,15 +10,10 @@ export class EducationCommitteeComponent implements OnInit {
 
   userRole: string | null = null;
 
-  constructor(
-    private router : Router
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void {
     this.userRole = localStorage.getItem('userType');
   }
 
-  onNavigate(url : any) {
-    this.router.navigateByUrl(url)
-  }
 }

@@ -191,6 +191,7 @@ import { SimulationFacilitiesForRentComponent } from './simulation/simulation-fa
 import { EducationCommitteeComponent } from './education-committee/education-committee.component';
 import { EcAddMembersComponent } from './education-committee/ec-add-members/ec-add-members.component';
 import { EcRemoveMembersComponent } from './education-committee/ec-remove-members/ec-remove-members.component';
+import { EcAddFacultyMemberComponent } from './education-committee/ec-add-faculty-member/ec-add-faculty-member.component';
 
 const routes: Routes = [
     //Default Routing
@@ -491,7 +492,7 @@ const routes: Routes = [
       { path: '',  component :  EducationCommitteeComponent},
       { path: 'add-members',  component :  EcAddMembersComponent},
       { path: 'remove-members',  component :  EcRemoveMembersComponent},
-      
+      { path: 'add-fc-members',  component :  EcAddFacultyMemberComponent},
       
     ]},
 
