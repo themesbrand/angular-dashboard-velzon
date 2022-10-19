@@ -349,6 +349,9 @@ import { FcViewMemberRequestComponent } from './education-committee/ec-add-facul
 import { EcRemoveFacultyMemberComponent } from './education-committee/ec-remove-faculty-member/ec-remove-faculty-member.component';
 import { EcRemoveFacultyMemberFormComponent } from './education-committee/ec-remove-faculty-member/ec-remove-faculty-member-form/ec-remove-faculty-member-form.component';
 import { EcRemoveFacultyMemberViewComponent } from './education-committee/ec-remove-faculty-member/ec-remove-faculty-member-view/ec-remove-faculty-member-view.component';
+import { ChangePositionComponent } from './education-committee/change-position/change-position.component';
+import { NewChangePositionRequestComponent } from './education-committee/change-position/new-change-position-request/new-change-position-request.component';
+import { ViewChangePositionRequestComponent } from './education-committee/change-position/view-change-position-request/view-change-position-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -662,7 +665,10 @@ FullCalendarModule.registerPlugins([
     FcViewMemberRequestComponent,
     EcRemoveFacultyMemberComponent,
     EcRemoveFacultyMemberFormComponent,
-    EcRemoveFacultyMemberViewComponent
+    EcRemoveFacultyMemberViewComponent,
+    ChangePositionComponent,
+    NewChangePositionRequestComponent,
+    ViewChangePositionRequestComponent
   ],
   imports: [
     CommonModule,

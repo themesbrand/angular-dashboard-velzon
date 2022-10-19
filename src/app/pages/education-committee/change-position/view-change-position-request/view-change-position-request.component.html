@@ -1,0 +1,210 @@
+<form [formGroup]="requestForm" *ngIf="isEditable">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Name<span class="text-danger px-2">{{"*"}}</span></label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">New Position<span class="text-danger px-2">{{"*"}}</span></label>
+            <ng-select formControlName="position" [items]="['Chairperson', 'Program Director', 'Asst. Program Director', 'Member']" placeholder="Please select">
+            </ng-select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Effective Date of the change<span class="text-danger px-2">{{"*"}}</span></label>
+            <input
+                  class="form-control flatpickr-input"
+                  type="text"
+                  formControlName="effectiveDate"
+                  mwlFlatpickr
+                  [altInput]="true"
+                  [convertModelValue]="true"
+                />
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Reason for Change<span class="text-danger px-2">{{"*"}}</span></label>
+            <textarea type="text" class="form-control" formControlName="reason"></textarea>
+        </div>
+        
+        <div class="col-md-12 mb-3">
+            <p class="text-muted">Supporting Document<span
+                class="text-danger">{{ " *" }}</span>
+            </p>
+            <input type="hidden">
+            <ngx-dropzone (change)="onSelect($event, 'filesCovering')"
+            [multiple]="false">
+            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of filesCovering"
+                [removable]="true" (removed)="onRemove(f, 'filesCovering')">
+                <ngx-dropzone-label
+                >{{ f.name }} ({{
+                    f.type
+                }})</ngx-dropzone-label
+                >
+            </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="d-flex flex-row my-2">
+            <button class="btn btn-primary my-2">Submit</button>
+        </div>
+    </div>
+    
+</form>
+<form [formGroup]="requestForm" *ngIf="!isEditable">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Name</label>
+            <label class="form-control">{{formValues.name}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">New Position</label>
+            <label class="form-control">{{formValues.position}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Effective Date of the change</label>
+            <label class="form-control">{{formValues.effectiveDate}}</label>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Reason for Change<span class="text-danger px-2">{{"*"}}</span></label>
+            <label class="form-control">{{formValues.reason}}</label>
+        </div>
+        <div class="col-md-12 mb-3">
+            <div class="d-flex flex-row">
+                <p class="h6">Download Supporting Document</p>
+                <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.ecSectionComments !== undefined">
+            <label class="form-label">Comments from EC Section</label>
+            <label class="form-control">{{formValues.ecSectionComments}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.ecSectionComments === undefined && isSubmit">
+            <label class="form-label">Comments from EC Section</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.ecSectionHeadComments !== undefined">
+            <label class="form-label">Comments from EC Section Head</label>
+            <label class="form-control">{{formValues.ecSectionHeadComments}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.ecSectionHeadComments === undefined && isSubmit && formValues.ecSectionComments !== undefined">
+            <label class="form-label">Comments from EC Section Head</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.gmeDirectorComments !== undefined">
+            <label class="form-label">Comments from GME Director</label>
+            <label class="form-control">{{formValues.gmeDirectorComments}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.gmeDirectorComments === undefined && formValues.ecSectionHeadComments !== undefined && isSubmit">
+            <label class="form-label">Comments from GME Director</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.vppaComments !== undefined">
+            <label class="form-label">Comments from VPAA</label>
+            <label class="form-control">{{formValues.vppaComments}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.vppaComments === undefined && formValues.gmeDirectorComments !== undefined && isSubmit">
+            <label class="form-label">Comments from VPAA</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.executivePresidentComments !== undefined">
+            <label class="form-label">Comments from Executive President</label>
+            <label class="form-control">{{formValues.executivePresidentComments}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.executivePresidentComments === undefined && formValues.vppaComments !== undefined && isSubmit">
+            <label class="form-label">Comments from Executive President</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.commentsToEmployer !== undefined">
+            <label class="form-label">Comments To Employer</label>
+            <label class="form-control">{{formValues.commentsToEmployer}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.commentsToEmployer === undefined && formValues.executivePresidentComments !== undefined && isSubmit">
+            <label class="form-label">Comments To Employer</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+
+        <div class="col-md-12 mb-3" *ngIf="formValues.commentsFromEmployer !== undefined">
+            <label class="form-label">Comments from Employer</label>
+            <label class="form-control">{{formValues.commentsFromEmployer}}</label>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.commentsFromEmployer === undefined && formValues.commentsToEmployer !== undefined && isSubmit">
+            <label class="form-label">Comments from Employer</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-6 mb-3" *ngIf="formValues.commentsFromEmployer !== undefined">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">No Objection Letter</label>
+        </div>
+        <div class="col-md-6 mb-3" *ngIf="formValues.commentsFromEmployer === undefined && formValues.commentsToEmployer !== undefined && isSubmit">
+            <label class="form-label">No Objection Letter</label>
+            <ngx-dropzone (change)="onSelect($event, 'objectionLetter')"
+                            [multiple]="false">
+                            <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of objectionLetter"
+                            [removable]="true" (removed)="onRemove(f, 'files')">
+                            <ngx-dropzone-label >{{ f.name }} ({{f.type}})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3" *ngIf="formValues.membershipQararLink !== undefined">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">Approved Membership QARAR</label>
+        </div>
+        <div class="d-flex flex-row my-2 justify-content-between border shadow p-3" *ngIf="isSubmit">
+            <div class="d-flex flex-row">
+                <p class="h6">Resident Distribution</p>
+                <button type="button" class="mx-3 btn btn-outline-primary btn-sm waves-effect waves-light">View</button>
+            </div>
+            <div class="d-flex flex-row">
+                <p class="h6">Faculty Distribution</p>
+                <button type="button" class="mx-3 btn btn-outline-primary btn-sm waves-effect waves-light">View</button>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3 mt-3">
+            <div class="row"  *ngIf="formValues.applicantDocuments !== undefined">
+                <div class="col-md-6 mb-3">
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    <label class="form-label">Education Qualification Details</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    <label class="form-label">Scanned copies of Certificates</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    <label class="form-label">Training Details and copies of certificates</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    <label class="form-label">Passport</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                    <label class="form-label">National ID / Civil ID</label>
+                </div>
+            </div>
+            <div class="row"  *ngIf="isSubmit && formValues.status === undefined">
+                <p class="h6 text-primary">Bank Details</p>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Bank Name</label>
+                    <label class="form-control">National Bank of Oman</label>                    
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Branch Name</label>
+                    <label class="form-control">AZAIBA</label>                    
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Account Number</label>
+                    <label class="form-control">886543215643</label>                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="formValues.status === 'Pending Document Verification'">
+            <label class="form-label">Comments</label>
+            <textarea rows="5" class="form-control"></textarea>
+        </div>
+
+        <div class="d-flex flex-row my-2" *ngIf="isSubmit">
+            <button class="btn btn-primary my-2">Submit</button>
+        </div>
+    </div>  
+</form>
