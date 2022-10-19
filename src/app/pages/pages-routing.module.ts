@@ -194,6 +194,7 @@ import { EcRemoveMembersComponent } from './education-committee/ec-remove-member
 import { EcAddFacultyMemberComponent } from './education-committee/ec-add-faculty-member/ec-add-faculty-member.component';
 import { EcRemoveFacultyMemberComponent } from './education-committee/ec-remove-faculty-member/ec-remove-faculty-member.component';
 import { ChangePositionComponent } from './education-committee/change-position/change-position.component';
+import { EcAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/ec-annual-incentives.component';
 
 const routes: Routes = [
     //Default Routing
@@ -497,6 +498,7 @@ const routes: Routes = [
       { path: 'add-fc-members',  component :  EcAddFacultyMemberComponent},
       { path: 'remove-fc-members',  component :  EcRemoveFacultyMemberComponent},
       { path: 'change-position',  component :  ChangePositionComponent},
+      { path: 'annual-incentive',  component :  EcAnnualIncentivesComponent},
       
     ]},
 

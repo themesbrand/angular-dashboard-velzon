@@ -352,6 +352,7 @@ import { EcRemoveFacultyMemberViewComponent } from './education-committee/ec-rem
 import { ChangePositionComponent } from './education-committee/change-position/change-position.component';
 import { NewChangePositionRequestComponent } from './education-committee/change-position/new-change-position-request/new-change-position-request.component';
 import { ViewChangePositionRequestComponent } from './education-committee/change-position/view-change-position-request/view-change-position-request.component';
+import { EcAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/ec-annual-incentives.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -668,7 +669,8 @@ FullCalendarModule.registerPlugins([
     EcRemoveFacultyMemberViewComponent,
     ChangePositionComponent,
     NewChangePositionRequestComponent,
-    ViewChangePositionRequestComponent
+    ViewChangePositionRequestComponent,
+    EcAnnualIncentivesComponent
   ],
   imports: [
     CommonModule,
