@@ -1,4 +1,4 @@
-<app-breadcrumbs title="Add EC Members" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Change Position" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/education-committee')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 
 <div class="row mt-1" >
@@ -139,35 +139,13 @@
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
                                                                 </li> 
                                                             </some-element>
-                                                            <some-element *ngSwitchCase="'Membership QARAR Pending'">
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-profile-line"></i>Generate Membership QARAR</a>
-                                                                </li> 
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return</a>
-                                                                </li> 
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Membership QARAR Generated'">
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-file-text-line"></i>Request for Document Number</a>
-                                                                </li>
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Contact Applicant</a>
-                                                                </li>
-                                                            </some-element>
                                                             <some-element *ngSwitchCase="'Approved'">
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Contact Employer</a>
-                                                                </li>
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Pending Document Verification'">
-
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-user-add-line"></i>Add as EC Member</a>
+                                                                <li>
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Remove Member from EC</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return</a>
-                                                                </li> 
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Add Member To Faculty</a>
+                                                                </li>
                                                             </some-element>
                                                         </container-element>
                                                     </some-element>

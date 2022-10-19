@@ -48,7 +48,7 @@ export class ChangePositionComponent implements OnInit {
 
     this.breadCrumbItems = [
       { label: "Education Committee", link: '/education-committee'},
-      { label: "EC Add Members", active : true }
+      { label: "Change Position", active : true }
     ];
   }
 
