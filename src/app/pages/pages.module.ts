@@ -353,6 +353,8 @@ import { ChangePositionComponent } from './education-committee/change-position/c
 import { NewChangePositionRequestComponent } from './education-committee/change-position/new-change-position-request/new-change-position-request.component';
 import { ViewChangePositionRequestComponent } from './education-committee/change-position/view-change-position-request/view-change-position-request.component';
 import { EcAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/ec-annual-incentives.component';
+import { AddAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/add-annual-incentives/add-annual-incentives.component';
+import { ViewAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/view-annual-incentives/view-annual-incentives.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -670,7 +672,9 @@ FullCalendarModule.registerPlugins([
     ChangePositionComponent,
     NewChangePositionRequestComponent,
     ViewChangePositionRequestComponent,
-    EcAnnualIncentivesComponent
+    EcAnnualIncentivesComponent,
+    AddAnnualIncentivesComponent,
+    ViewAnnualIncentivesComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-<!-- <app-breadcrumbs title="Annual Incentives" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Annual Incentives" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/education-committee')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 <div class="row mt-1" >
     <div class="card">
@@ -65,7 +65,7 @@
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li ><a class="dropdown-item" ><i class="mx-1  ri-delete-bin-5-line"></i>Remove</a></li>
                                                 <li><a class="dropdown-item" ><i class="mx-1 ri-exchange-line"></i>Change Position</a></li>
-                                                <li (click)="openModal(addAnnualIncentive, 'lg')"><a class="dropdown-item" ><i class="mx-1 ri-exchange-line"></i>Annual Incentives</a></li>
+                                                <li (click)="openModal(addAnnualIncentive, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-coin-line"></i>Annual Incentives</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -108,9 +108,9 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Position</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Civil Id</th>
-                                    <th scope="col">Training Site</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Working Days</th>
+                                    <th scope="col">Absence Days</th>
                                     <th scope="col">Status</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -129,57 +129,31 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                <li (click)="openModal(viewMemberRequest, 'lg');">
+                                                <li (click)="openModal(viewAnnualIncentive, 'lg');">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
                                                 </li>
                                                 <container-element [ngSwitch]="selectedUser">
                                                     <some-element *ngSwitchCase="'EC Section Staff (Admin)'">
                                                         <container-element [ngSwitch]="row.status">
-                                                            <some-element *ngSwitchCase="'Requested'">
+                                                            <some-element *ngSwitchCase="'Submitted to EC Section'">
                                                                 <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Submit to EC Section Head</a>
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Generate EOY QARAR</a>
                                                                 </li> 
                                                                 <li (click)="openModal(memberAction, 'lg')">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
                                                                 </li> 
                                                             </some-element>
-                                                            <some-element *ngSwitchCase="'Membership QARAR Pending'">
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-profile-line"></i>Generate Membership QARAR</a>
+                                                            <some-element *ngSwitchCase="'EOY QARAR Approval'">
+                                                                <li (click)="openModal(memberAction, 'lg')">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Request for Document Number</a>
                                                                 </li> 
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return</a>
-                                                                </li> 
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Membership QARAR Generated'">
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-file-text-line"></i>Request for Document Number</a>
-                                                                </li>
                                                                 <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Contact Applicant</a>
-                                                                </li>
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Approved'">
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Contact Employer</a>
-                                                                </li>
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Pending Document Verification'">
-
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-user-add-line"></i>Add as EC Member</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return</a>
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
                                                                 </li> 
                                                             </some-element>
-                                                        </container-element>
-                                                    </some-element>
-                                                    <some-element *ngSwitchCase="'EC Section Head (Admin)'">
-                                                        <container-element [ngSwitch]="row.status">
-                                                            <some-element *ngSwitchCase="'Submitted to EC Section Head'">
+                                                            <some-element *ngSwitchCase="'Document Number Updated'">
                                                                 <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Submit to GME Director</a>
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Sent to Finance for payment</a>
                                                                 </li> 
                                                                 <li (click)="openModal(memberAction, 'lg')">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
@@ -187,55 +161,6 @@
                                                             </some-element>
                                                         </container-element>
                                                     </some-element>
-                                                    <some-element *ngSwitchCase="'GME Director'">
-                                                        <container-element [ngSwitch]="row.status">
-                                                            <some-element *ngSwitchCase="'Submitted to GME Director'">
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Submit to VPAA</a>
-                                                                </li> 
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
-                                                                </li> 
-                                                            </some-element>
-                                                        </container-element>
-                                                    </some-element>
-                                                    <some-element *ngSwitchCase="'VPAA'">
-                                                        <container-element [ngSwitch]="row.status">
-                                                            <some-element *ngSwitchCase="'Submitted to VPAA'">
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Submit to Executive President</a>
-                                                                </li> 
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
-                                                                </li> 
-                                                            </some-element>
-                                                        </container-element>
-                                                    </some-element>
-                                                    <some-element *ngSwitchCase="'Executive President'">
-                                                        <container-element [ngSwitch]="row.status">
-                                                            <some-element *ngSwitchCase="'Submitted to Executive President'">
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Approve</a>
-                                                                </li> 
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Return to Program</a>
-                                                                </li> 
-                                                            </some-element>
-                                                        </container-element>
-                                                    </some-element>
-                                                    <some-element *ngSwitchCase="'Employer'">
-                                                        <container-element [ngSwitch]="row.status">
-                                                            <some-element *ngSwitchCase="'No Objection Letter Pending'">
-                                                                <li (click)="openModal(memberAction, 'lg')">
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-check-double-fill"></i>Submit</a>
-                                                                </li> 
-                                                                <li>
-                                                                    <a class="dropdown-item" ><i class="mx-1 ri-close-line"></i>Reject</a>
-                                                                </li> 
-                                                            </some-element>
-                                                        </container-element>
-                                                    </some-element>
-                                                    
                                                 </container-element>
                                             </ul>
                                         </div>          
@@ -254,11 +179,40 @@
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <p class="h5 mt-2">Add New EC Member</p>
+                <p class="h5 mt-2">Create Annual Incentive Request</p>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3">
-                <app-new-member-request></app-new-member-request>
+                <app-add-annual-incentives></app-add-annual-incentives>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #viewAnnualIncentive let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Annual Incentive Request</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-view-annual-incentives [formRequest]="selectedRequest" [isEditable]="false"></app-view-annual-incentives >
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #memberAction let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Annual Incentive Request</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-view-annual-incentives  [isEditable]="false" [isSubmit]="true" [formRequest]="selectedRequest"></app-view-annual-incentives >
             </div>            
         </div>
     </div>
@@ -297,4 +251,4 @@
             </div>
         </div>
     </div>
-</ng-template> -->
+</ng-template>

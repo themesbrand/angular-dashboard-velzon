@@ -28,25 +28,7 @@ const data = {
               {
                 startDate : '2022-01-15',
                 endDate : '2022-01-20'
-              }
-            ],
-            totalWorkingDays : 250,
-            totalAbsenceDays : 5,
-            status : 'Incentive Requested',
-            applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submitted to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
-                { stage : 'EOY QARAR approved', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }
-            ]
-        },
-        {
-            name : 'Al Abri Ibraham',
-            position : 'Program Director',
-            startDate : '2018-05-26',
-            absencePeriod : [
+              },
               {
                 startDate : '2022-01-15',
                 endDate : '2022-01-20'
@@ -54,15 +36,14 @@ const data = {
             ],
             totalWorkingDays : 250,
             totalAbsenceDays : 5,
-            status : 'Submitted to EC Sectio',
-            applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submit to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
+            status : 'Submitted to EC Section',
+            applicationStatus : [  
+                { stage : 'Submit to EC Section', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
                 { stage : 'EOY QARAR Approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }
-            ]
+            ],
+            incentiveAmount : 200 
         },
         {
             name : 'Al Abri Ibraham',
@@ -76,15 +57,15 @@ const data = {
             ],
             totalWorkingDays : 250,
             totalAbsenceDays : 5,
-            status : 'Pending EOY QARAR',
+            status : 'EOY QARAR Approval',
             applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submit to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
+               
+                { stage : 'Submit to EC Section', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
                 { stage : 'EOY QARAR Approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }
-            ]
+            ],
+            qararLink : 'link'
         },
         {
             name : 'Al Abri Ibraham',
@@ -98,55 +79,11 @@ const data = {
             ],
             totalWorkingDays : 250,
             totalAbsenceDays : 5,
-            status : 'EOY QARAR Generated',
+            status : 'Document Number Updated',
             applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submit to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
-                { stage : 'EOY QARAR Approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }
-            ]
-        },
-        {
-            name : 'Al Abri Ibraham',
-            position : 'Program Director',
-            startDate : '2018-05-26',
-            absencePeriod : [
-              {
-                startDate : '2022-01-15',
-                endDate : '2022-01-20'
-              }
-            ],
-            totalWorkingDays : 250,
-            totalAbsenceDays : 5,
-            status : 'Approved',
-            applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submit to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
-                { stage : 'EOY QARAR Approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }
-            ]
-        },
-        {
-            name : 'Al Abri Ibraham',
-            position : 'Program Director',
-            startDate : '2018-05-26',
-            absencePeriod : [
-              {
-                startDate : '2022-01-15',
-                endDate : '2022-01-20'
-              }
-            ],
-            totalWorkingDays : 250,
-            totalAbsenceDays : 5,
-            status : 'Document Number Requested',
-            applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submit to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
+               
+                { stage : 'Submit to EC Section', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+                
                 { stage : 'EOY QARAR Approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }
@@ -166,9 +103,9 @@ const data = {
             totalAbsenceDays : 5,
             status : 'Submitted to Finance',
             applicationStatus : [
-                { stage : 'Incentive Payment Requested', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-                { stage : 'Submit to EC Section', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending EOY QARAR', status : 'Pending', date : null, 'by' : null },
+               
+                { stage : 'Submit to EC Section', status : 'Completed', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+                
                 { stage : 'EOY QARAR Approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Request Document Number', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Submit to Finance', status : 'Pending', date : null, 'by' : null }

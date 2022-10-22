@@ -1,0 +1,69 @@
+<form [formGroup]="requestForm">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Name<span class="text-danger px-2">{{"*"}}</span></label>
+            <label class="form-control" >{{formValues.name}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Position<span class="text-danger px-2">{{"*"}}</span></label>
+            <label class="form-control" >{{formValues.position}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Start Date<span class="text-danger px-2">{{"*"}}</span></label>
+            <label class="form-control" >{{formValues.startDate}}</label>
+        </div>
+        <div formArrayName="absencePeriod">
+            <div class="mt-3 d-flex flex-row justify-content-end">
+                <a
+                  (click)="addAbsencePeriodArray()"
+                  href="javascript:void(0);"
+                  class="link-primary"
+                  ><i class="ri-add-box-line"></i>Add more</a
+                >
+            </div>
+            <div class="mt-2 d-flex flex-column">
+                <div class="row" >
+                    <div class="col-md-6 mb-3 border shadow p-3" *ngFor="let dateRange of absencePeriodControls; let i = index" [formGroupName]="i">
+                        <div class="d-flex flex-row justify-content-end align-items-center">
+                            <a (click)="onDeleteAbsencePeriodArray(i)" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">From Date<span class="text-danger">{{ " *" }}</span></label>
+                                <input class="form-control flatpickr-input"
+                                    type="text"
+                                    formControlName="fromDate"
+                                    mwlFlatpickr
+                                    [altInput]="true"
+                                    [convertModelValue]="true"
+                                />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">To Date<span class="text-danger">{{ " *" }}</span></label>
+                                <input class="form-control flatpickr-input"
+                                    type="text"
+                                    formControlName="toDate"
+                                    mwlFlatpickr
+                                    [altInput]="true"
+                                    [convertModelValue]="true"
+                                />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Total number of working days<span class="text-danger px-2">{{"*"}}</span></label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Total number of absence days<span class="text-danger px-2">{{"*"}}</span></label>
+            <input type="number" class="form-control">
+        </div>
+    </div>
+    <div class="d-flex flex-row">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
