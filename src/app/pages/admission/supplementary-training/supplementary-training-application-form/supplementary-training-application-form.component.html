@@ -62,14 +62,14 @@
                 <div-d-flex class="flex-row" *ngIf="isEditable === true">
                     <button class="btn btn-primary">Submit</button>
                 </div-d-flex>
-            </div>            
+            </div>      
         </div>
     </div>
 </ng-template>
 
 <ng-template #applicationFormTemplate>
     <form [formGroup]="applicationForm" class="p-0">
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <p class="h5 mb-3">DEMOGRAPHIC INFORMATION SECTION</p>
                 <div class="row">
@@ -178,7 +178,7 @@
                   </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 mb-3">
@@ -227,7 +227,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12 mb-3">
@@ -248,7 +248,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <!-- <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
                 <div class="d-flex flex-row justify-content-between">
@@ -321,11 +321,12 @@
                   </div>
                 </div>
             </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
+              <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
                 <div class="mt-3 d-flex flex-row justify-content-between">
-                    <p class="h5">2. BSc/Medical School</p>
+                    <p class="h5">1. BSc/Medical School</p>
                     <a
                       (click)="addMedicineSchool()"
                       href="javascript:void(0);"
@@ -395,10 +396,10 @@
                   </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <div class="mt-3 d-flex flex-row justify-content-between">
-                    <p class="h5">3. Clinical Electives</p>
+                    <p class="h5">2. Clinical Electives</p>
                     <a
                       (click)="addClinicalElectives()"
                       href="javascript:void(0);"
@@ -448,9 +449,9 @@
                   </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
-                <p class="h5 mt-3">4. The Basic Certificates Courses:</p>
+                <p class="h5 mt-3">3. The Basic Certificates Courses:</p>
                 <div class="mt-2 d-flex flex-column p-3  bg-light">
                   <div class="row" formGroupName="certificateCourses">
                     <div class="col-md-6 d-flex flex-row">
@@ -489,7 +490,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <div class="mt-3 d-flex flex-row justify-content-between">
                     <p class="h5">INTERNSHIP</p>
@@ -566,7 +567,7 @@
                   </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <p class="h5 mt-4">SCHOLARLY ACTIVITIES SECTION</p>
                 <div class="mt-3 d-flex flex-row justify-content-between">
@@ -622,7 +623,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <p class="h5 mt-3">2. Publications</p>
                 <div class="mt-3 d-flex flex-column mt-2 p-3">
@@ -644,7 +645,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <p class="h5 mt-3">3. Presentations</p>
                 <div class="mt-3 d-flex flex-column mt-2 p-3">
@@ -663,7 +664,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <p class="h5 mt-3">4. Honors and Awards</p>
                 <div class="mt-3 d-flex flex-column mt-2 p-3">
@@ -682,7 +683,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div *ngIf="isEditable === true" class="card">
             <div class="card-body">
                 <div class="mt-3 d-flex flex-row justify-content-between">
                     <p class="h5">4. Community Service/Volunteer Experience (Health-Related Fields)</p>
@@ -736,6 +737,405 @@
                 </div>
             </div>
         </div>
+
+
+        <div *ngIf="isEditable === false" class="card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-2 mb-4" *ngIf="applicationFormValues.assessmentUploadLink != null">
+                    <div class="user-thumb mb-2 d-flex flex-row" >
+                      <img src="assets/images/users/avatar-1.jpg" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
+  
+                    </div>
+                  </div>
+                  <div [ngClass]="{'col-md-4' : applicationFormValues.assessmentUploadLink === null, 'col-md-6' : applicationFormValues.assessmentUploadLink !== null}">
+                      <div class="mb-3">
+                          <label class="form-label">Name (As per passport)</label>
+                          <label class="form-control">{{applicationFormValues.name}}</label>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">Birthday</label>
+                      <label class="form-control">{{applicationFormValues.birthday}}</label>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-control-label" >Nationality</label>
+                      <label class="form-control">{{applicationFormValues.nationality}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">National ID No</label>
+                      <label class="form-control">{{applicationFormValues.nationalIDNo}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">Passport No</label>
+                      <label class="form-control">{{applicationFormValues.passportNo}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">Marital Status</label>
+                      <label class="form-control">{{applicationFormValues.maritalStatus}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">Permanent Address</label>
+                      <label class="form-control">{{applicationFormValues.permanentAddress}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">Wilayat/Region</label>
+                      <label class="form-control">{{applicationFormValues.wilayatOrRegion}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Mobile Number</label>
+                    <label class="form-control">{{applicationFormValues.mobileNumber}}</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label">Name of Next of Kin (NOK)</label>
+                      <label class="form-control">{{applicationFormValues.nameNextKin}}</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Contact No. of NOK</label>
+                    <label class="form-control">{{applicationFormValues.contactNextKin}}</label>
+                  </div>
+                  <div class="col-md-12">
+                      <label class="form-label">Diseases / Disabilities</label>
+                      <label class="form-control">{{applicationFormValues.diseases}}</label>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Current Employment Status</label>
+                        <label class="form-control">{{applicationFormValues.isEmployed}}</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Name of Institution</label>
+                        <label class="form-control">{{applicationFormValues.nameOfInstitution}}</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Department</label>
+                        <label class="form-control">{{applicationFormValues.department}}</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Current Position</label>
+                        <label class="form-control">{{applicationFormValues.currentPosition}}</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Date of Joining OMSB</label>
+                        <label class="form-control">2020-01-09</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Date of Withdrawal</label>
+                        <label class="form-control">2021-10-15</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Program at the time of withdrawal</label>
+                        <label class="form-control">Anesthesia</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Level of Training at time of withdrawal:</label>
+                        <label class="form-control">L2</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Post Graduate Qualifications</label>
+                        <label class="form-control">{{applicationFormValues.postGraduateQualifications}}</label>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Post Graduate Training experience</label>
+                        <label class="form-control">{{applicationFormValues.postGraduateTrainingExperience}}</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-control-label">Sponsorship</label>
+                        <label class="form-control">{{applicationFormValues.sponsorship}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
+                <div formArrayName="secondarySchool">
+                  <div
+                    class="mt-2 d-flex flex-column  p-3 bg-light"
+                    *ngFor="let schools of secondarySchoolControls; let i = index"
+                    [formGroupName]="i">
+                    <div class="row ">
+                      <div class="col-md-3">
+                        <label class="form-label">School</label>
+                        <label class="form-control">{{schools.value.school}}</label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label">Start Date</label>
+                        <label class="form-control">{{schools.value.startDate}}</label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label">End Date</label>
+                        <label class="form-control">{{schools.value.endDate}}</label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label"
+                          >Country
+                        </label>
+                        <label class="form-control">{{schools.value.country}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">2. BSc/Medical School</p>
+                  </div>
+                  <div formArrayName="medicineSchool">
+                    <div
+                      class="mt-2 d-flex flex-column p-3  bg-light"
+                      *ngFor="let schools of medicineSchoolControls; let i = index"
+                      [formGroupName]="i"
+                    >
+                      <div class="row">
+                        <div class="col-md-3">
+                          <label class="form-label">School</label>
+                          <label class="form-control">{{schools.value.school}}</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Start Date</label>
+                          <label class="form-control">{{schools.value.startDate}}</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">End Date</label>
+                          <label class="form-control">{{schools.value.endDate}}</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Country</label>
+                          <label class="form-control">{{schools.value.country}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">3. Clinical Electives</p>
+                  </div>
+                  <div formArrayName="clinicalElectives">
+                    <div
+                      class="mt-2 d-flex flex-column p-3  bg-light"
+                      *ngFor="let clinics of clinicalElectivesControls; let i = index"
+                      [formGroupName]="i">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label class="form-label">Department, Institution</label>
+                          <label class="form-control">{{clinics.value.department}}</label>
+                        </div>
+                        <div class="col-md-4">
+                          <label class="form-label">Date</label>
+                          <label class="form-control">{{clinics.value.date}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">4. The Basic Certificates Courses:</p>
+                <div class="mt-2 d-flex flex-column p-3  bg-light">
+                  <div class="row" formGroupName="certificateCourses">
+                    <div class="col-md-6">
+                      <label class="form-label text-primary">BLS Certificate</label>
+                      <div class="d-flex flex-row">
+                        <label class="form-label w-100">Expiry Date</label>
+                        <label class="form-control">{{certificateCoursesValues.blsCertificateExpiry}}</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label text-primary">ACLS Certificate</label>
+                      <div class="d-flex flex-row">
+                        <label class="form-label w-100">Expiry Date</label>
+                        <label class="form-control">{{certificateCoursesValues.aclsCertificateExpiry}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">INTERNSHIP</p>
+                  </div>
+                  <div formArrayName="internship">
+                    <div
+                      class="mt-2 d-flex flex-column p-3  bg-light"
+                      *ngFor="let schools of internshipControls; let i = index"
+                      [formGroupName]="i"
+                    >
+                      <div class="row">
+                        <div class="col-md-3">
+                          <label class="form-label">Start Date</label>
+                          <label class="form-control">{{schools.value.startDate}}</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">End Date</label>
+                          <label class="form-control">{{schools.value.endDate}}</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Institution of Internship</label>
+                          <label class="form-control">{{schools.value.institution}}</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Country</label>
+                          <label class="form-control">{{schools.value.country}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <p class="h5 mt-4">SCHOLARLY ACTIVITIES SECTION</p>
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">1. Research</p>
+                </div>
+                <div formArrayName="research">
+                    <div class="mt-2 d-flex flex-column p-3  bg-light"
+                    *ngFor="let schools of researchControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="form-label">Project Title</label>
+                                <label class="form-control">{{schools.value.projectTitle}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Position</label>
+                                <label class="form-control">{{schools.value.position}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Inclusive Dates</label>
+                                <label class="form-control">{{schools.value.inclusiveDates}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Institution</label>
+                                <label class="form-control">{{schools.value.institution}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Department</label>
+                                <label class="form-control">{{schools.value.department}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" >Mentor</label>
+                                <label class="form-control">{{schools.value.mentor}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">2. Publications</p>
+                <div class="mt-3 d-flex flex-column mt-2 p-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >Last, First, Middle Initial of authors as listed in the paper.
+                          Underline your name. Title of article, Journal, Publication date;
+                          vol (issue): pages. (Should include abstracts).
+                        </label>
+                        <label class="form-control">{{applicationFormValues.publications}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">3. Presentations</p>
+                <div class="mt-3 d-flex flex-column mt-2 p-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label" >Name of Conference, Presentation title, (if ‘placed’, list here), Date and Location</label>
+                          <label class="form-control">{{applicationFormValues.presentations}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <p class="h5 mt-3">4. Honors and Awards</p>
+                <div class="mt-3 d-flex flex-column mt-2 p-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Award, Institution, Date Conferred</label>
+                        <label class="form-control">{{applicationFormValues.honorsAndAwards}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isEditable === false" class="card">
+            <div class="card-body">
+                <div class="mt-3 d-flex flex-row justify-content-between">
+                    <p class="h5">4. Community Service/Volunteer Experience (Health-Related Fields)</p>
+                </div>
+                <div formArrayName="communityService">
+                    <div class="mt-2 d-flex flex-column p-3  bg-light"
+                    *ngFor="let schools of addCommunityServiceControls; let i = index"
+                    [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="form-label">From Date</label>
+                                <label class="form-control">{{schools.value.fromDate}}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">To Date</label>
+                                <label class="form-control">{{schools.value.toDate}}</label>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <label class="form-control">{{schools.value.description}}</label>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="card" *ngIf="isEditable === true">
             <div class="card-body">
                 <div class="row">
@@ -853,7 +1253,6 @@
         </div>
     </form>
 </ng-template>
-
 
 <ng-template #requestStatus let-modal>
   <div class="modal-content">

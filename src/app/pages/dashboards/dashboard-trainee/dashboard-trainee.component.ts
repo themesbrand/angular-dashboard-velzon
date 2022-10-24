@@ -377,7 +377,7 @@ export class DashboardTraineeComponent implements OnInit {
             quarters: dataSet[0].quarters
           },
           {
-            x: "Anastasia",
+            x: "Anesthesia",
             y: dataSet[1].y,
             color: colors[1],
             quarters: dataSet[1].quarters

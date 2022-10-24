@@ -195,6 +195,7 @@ import { EcAddFacultyMemberComponent } from './education-committee/ec-add-facult
 import { EcRemoveFacultyMemberComponent } from './education-committee/ec-remove-faculty-member/ec-remove-faculty-member.component';
 import { ChangePositionComponent } from './education-committee/change-position/change-position.component';
 import { EcAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/ec-annual-incentives.component';
+import { GraduationListsComponent } from './tafus/graduation-lists/graduation-lists.component';
 
 const routes: Routes = [
     //Default Routing
@@ -489,6 +490,9 @@ const routes: Routes = [
       ]},
       { path: 'id-replacement',  children:[
         { path: '',  component :  IdCardsRequestsComponent},
+      ]},
+      { path: 'graduation',  children:[
+        { path: '',  component :  GraduationListsComponent},
       ]},
     ]},
     { path : 'education-committee', children: [

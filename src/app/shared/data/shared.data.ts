@@ -5,7 +5,7 @@ const sharedData = {
         'GFP program',
       ],
       residencyPrograms : [
-        'Anastasia',
+        'Anesthesia',
         'ENT',
         'Medical Microbiology',
         'Pediatrics',

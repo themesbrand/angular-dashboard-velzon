@@ -29,6 +29,9 @@ export class SimulationFacilitiesForRentComponent implements OnInit {
   userRole: string | null = null;
   listData = data;
 
+  selectedUser :any =  'EC Member';
+
+
   isFilterOpened: boolean = false;
 
   selectedActivity: any;
@@ -60,6 +63,12 @@ export class SimulationFacilitiesForRentComponent implements OnInit {
 
   setRequest(request : any) {
     this.selectedActivity = request;
+  }
+
+  onChangeUser(event : any) {
+    if(event === 'PD') {
+
+    }
   }
 
   openModal(modal :any, size : any) {

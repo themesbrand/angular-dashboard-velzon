@@ -33,7 +33,7 @@ const data = {
     { name: "Other", value: "other" },
   ],
   degreeList: [
-    { name: "MBBS", value: "MBBS" },
+    { name: "MD", value: "MD" },
     { name: "BMBS", valu0e: "BMBS" },
     { name: "Other", value: "other" },
   ],

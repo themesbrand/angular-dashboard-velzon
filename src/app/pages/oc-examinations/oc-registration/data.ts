@@ -15,7 +15,7 @@ const data = {
     ],
     tableData : [
         {
-            programName : 'Anastasia', 
+            programName : 'Anesthesia', 
             examType : 'Omani Examination for Nurses (OEN)', 
             examStartDate : '2022-10-15', 
             examEndDate : '2022-10-18', 

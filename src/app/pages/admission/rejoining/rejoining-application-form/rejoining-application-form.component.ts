@@ -17,6 +17,8 @@ export class RejoiningApplicationFormComponent implements OnInit {
   isFilterOpened: boolean = false;
   listData = data;
 
+  isEditable: boolean = false;
+
   SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
@@ -26,6 +28,7 @@ export class RejoiningApplicationFormComponent implements OnInit {
   filesAssessment: any[] = [];
   filesPersonalStatements: any[] = [];
   filesExams: any[] = [];
+  filesCertificates: any[] = [];
   filesPassportPhoto: any[] = [];
   selectedApplication: any;
 
@@ -109,6 +112,10 @@ export class RejoiningApplicationFormComponent implements OnInit {
 
   get applicationFormValues() {
     return this.applicationForm.value
+  }
+
+  get certificateCoursesValues() {
+    return this.applicationForm.get('certificateCourses')?.value
   }
 
   get secondarySchoolControls() {
@@ -243,6 +250,10 @@ export class RejoiningApplicationFormComponent implements OnInit {
         this.filesPassportPhoto.splice(this.filesPassportPhoto.indexOf(event), 1);
         return
       }
+      case 'filesCertificates' : {
+        this.filesCertificates.push(...event.addedFiles);
+        return
+      }
       default : {
         break;
       }
@@ -266,6 +277,10 @@ export class RejoiningApplicationFormComponent implements OnInit {
         this.filesPassportPhoto.push(...event.addedFiles);
         return
       }
+      case 'filesCertificates' : {
+        this.filesCertificates.splice(this.filesCertificates.indexOf(event), 1);
+        return
+      }
       default : {
         break;
       }
@@ -283,12 +298,13 @@ export class RejoiningApplicationFormComponent implements OnInit {
   
   viewApplication() {
     this.formPatchValue();
-    console.log(this.applicationFormValues)
+    this.isEditable = false;
     this.openModal(this.rejoiningApplication, 'xl')
   }
 
   openAddApplication() {
-    this.applicationForm.reset()
+    this.applicationForm.reset();
+    this.isEditable = true;
     this.openModal(this.rejoiningApplication, 'xl')
   }
 

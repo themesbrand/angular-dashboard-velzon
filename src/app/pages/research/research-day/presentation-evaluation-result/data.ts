@@ -3,7 +3,7 @@ const data = {
     competitionGroup: ['Oral Presentation', 'Poster Presentation'],
     tableData : [
       {
-        programName	: 'Anastasia',
+        programName	: 'Anesthesia',
         traineeName	: 'Madan Al Abri',
         level : 'L3',
         judgeOne : '4.5',

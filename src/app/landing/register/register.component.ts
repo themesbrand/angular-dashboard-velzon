@@ -10,7 +10,7 @@ import { data } from './data';
 })
 export class RegistrationComponent implements OnInit {
 
-  userDetailObject : any;
+  userDetailObject : any = undefined;
 
   @Input('userDetails') 
   set userDetails(data: any){
@@ -98,8 +98,6 @@ export class RegistrationComponent implements OnInit {
         'gender' : 'Male',
         'nationality' : 'Omani',
       })
-
-      this.onChangeFormValues();
       this.addEducation();
       this.addEmployment();
 
@@ -129,10 +127,12 @@ export class RegistrationComponent implements OnInit {
         );
       });
     }
+    this.onChangeFormValues();
   }
 
   onChangeFormValues() {
     this.registrationForm.valueChanges.subscribe(res => {
+      console.log(res)
       if(res.programType === "Residency Program") {
         this.programNames = this.listData.residencyPrograms
       }

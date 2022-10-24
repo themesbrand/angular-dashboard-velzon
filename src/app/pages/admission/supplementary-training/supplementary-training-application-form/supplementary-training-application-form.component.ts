@@ -30,8 +30,9 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
   filesPassportPhoto: any[] = [];
   selectedApplication: any;
 
-  @ViewChild("supplementaryTrainingApplication") supplementaryTrainingApplication !: TemplateRef<any>;
   isEditable: boolean = false;
+
+  @ViewChild("supplementaryTrainingApplication") supplementaryTrainingApplication !: TemplateRef<any>;
 
   constructor(
     private router : Router,
@@ -45,12 +46,10 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
       { label: "Application", active : true }
     ];
     this.applicationFormInit()
-    this.formPatchValue()
   }
 
   formPatchValue(){
     this.applicationForm.patchValue(this.listData.formObjectValues)
-
   }
 
   applicationFormInit() {
@@ -110,6 +109,10 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
 
   get applicationFormValues() {
     return this.applicationForm.value
+  }
+
+  get certificateCoursesValues() {
+    return this.applicationForm.get('certificateCourses')?.value
   }
 
   get secondarySchoolControls() {
@@ -292,13 +295,15 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
   }
   
   viewApplication() {
-    this.isEditable = false
-
+    this.isEditable = false;
+    this.formPatchValue();
     this.openModal(this.supplementaryTrainingApplication, 'xl')
   }
 
   openAddApplication() {
     this.isEditable = true
+
+    this.applicationForm.reset();
 
     this.openModal(this.supplementaryTrainingApplication, 'xl')
   }

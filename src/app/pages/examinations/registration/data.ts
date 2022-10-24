@@ -17,7 +17,7 @@ const data = {
     ],
     tableData : [
         {
-            programName : 'Anastasia', 
+            programName : 'Anesthesia', 
             examType : 'Part 1 Exam', 
             examStartDate : '2022-10-15', 
             examEndDate : '2022-10-18', 

@@ -113,9 +113,9 @@ export class ApplicationForScholarshipComponent implements OnInit {
 
   getIntakeYears() {
     const currentYear = new Date().getFullYear(), years = [];
-    let startYear = 1980;  
-    while ( startYear <= currentYear ) {
-        this.intakeYears.push(startYear++);
+    let endYear = currentYear + 5;  
+    while ( currentYear <= endYear ) {
+        this.intakeYears.push(endYear--);
     }  
     this.intakeYears.reverse()
   }

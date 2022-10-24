@@ -136,6 +136,10 @@ export class SupplementaryTrainingApplicationListComponent implements OnInit {
 
   get applicationFormValues() {
     return this.applicationForm.value
+  }  
+
+  get certificateCoursesValues() {
+    return this.applicationForm.get('certificateCourses')?.value
   }
 
   get secondarySchoolControls() {

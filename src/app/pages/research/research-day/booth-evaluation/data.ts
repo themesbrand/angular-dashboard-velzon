@@ -16,7 +16,7 @@ const data = {
         'Trainees Affairs Follow-Up Section'
     ],
     programBoothGroupList : [
-        'Anastasia',
+        'Anesthesia',
         'ENT',
         'Medical Microbiology',
         'Pediatrics',

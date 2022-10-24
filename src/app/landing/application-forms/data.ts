@@ -7,13 +7,14 @@ const userDetails = {
 
     isAssociatedWithOmsb : true,
 
-    role : 'Staff',
+    role : 'Faculty',
     department : 'Public relations and international cooperation department',
-    section : 'Scholarships Affairs Section',
-    position : 'Staff',
-
+    programType : 'Residency Program',
+    programName : 'Anesthesia',
+    facultyRole : 'Faculty-Full Load',
 
     'firstName' : 'Abbas',
+    'secondName' : 'Al',
     'thirdName' : 'Al',
     'familyName' : 'Ajmi',
     'fullNameInArabic' : 'عباس أل أجمع',

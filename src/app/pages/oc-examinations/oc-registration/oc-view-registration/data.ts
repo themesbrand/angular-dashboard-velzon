@@ -61,11 +61,11 @@ const pageData = {
 
     examFrequency : 'Single',
     programType : 'Residency Program',
-    programName : ['Anastasia', 'Pediatrics'],
+    programName : ['Anesthesia', 'Pediatrics'],
 
     singleExamDates : [
       {
-        programName : 'Anastasia',
+        programName : 'Anesthesia',
         startDateOfExam : '2022-09-15',
         endDateOfExam : '2022-09-16',
         fromTimeOfExam : '08:00 AM',

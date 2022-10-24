@@ -55,6 +55,8 @@ import { ThreeDObjectRequestFormComponent } from './application-forms/three-d-ob
 import { ThreeDObjectApplicationFormComponent } from './application-forms/three-d-object-request-form/three-d-object-application-form/three-d-object-application-form.component';
 import { ThreeDObjectApplicationsListComponent } from './application-forms/three-d-object-request-form/three-d-object-applications-list/three-d-object-applications-list.component';
 import { ThreeDObjectApplicationViewComponent } from './application-forms/three-d-object-request-form/three-d-object-application-view/three-d-object-application-view.component';
+import { ViewCvSectionFormComponent } from './application-forms/view-cv-section-form/view-cv-section-form.component';
+import { CvSectionFormComponent } from './application-forms/cv-section-form/cv-section-form.component';
 
 
 @NgModule({
@@ -95,7 +97,9 @@ import { ThreeDObjectApplicationViewComponent } from './application-forms/three-
     ThreeDObjectRequestFormComponent,
     ThreeDObjectApplicationFormComponent,
     ThreeDObjectApplicationsListComponent,
-    ThreeDObjectApplicationViewComponent
+    ThreeDObjectApplicationViewComponent,
+    ViewCvSectionFormComponent,
+    CvSectionFormComponent
   ],
   imports: [
     CommonModule,

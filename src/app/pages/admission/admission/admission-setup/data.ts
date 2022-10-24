@@ -5,7 +5,7 @@ const data = {
         'Fellowship'
     ],
     residencyProgramList : [
-        'Anastasia',
+        'Anesthesia',
         'ENT',
         'Medical Microbiology',
         'Pediatrics',
@@ -47,7 +47,7 @@ const data = {
         academicYear : 2022,
         applicationStartDate  : 'Wed Aug 18 2022 12:00:00 GMT+0530 (India Standard Time)',
         applicationEndDate  : 'Wed Aug 24 2022 12:00:00 GMT+0530 (India Standard Time)',
-        medicalQualifications  : 'MBBS',
+        medicalQualifications  : 'MD',
         medicalQualificationsOther : null,
         certificationsRequired  : 'BMBS',
         certificationsRequiredOther : null,

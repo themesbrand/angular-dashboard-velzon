@@ -126,7 +126,7 @@ const data = {
             {
                 country: "OM",
                 dateOfGraduation: 'Thu Jul 29 2010 00:00:00 GMT+0530 (India Standard Time)',
-                degreeObtained: "MBBS",
+                degreeObtained: "MD",
                 gpa: "2.27",
                 otherName: null,
                 school: "Sultan_Qaboos_Univestiry",
@@ -209,7 +209,7 @@ const data = {
         { name: "Other", value: "other" },
       ],
       degreeList: [
-        { name: "MBBS", value: "MBBS" },
+        { name: "MD", value: "MD" },
         { name: "BMBS", valu0e: "BMBS" },
         { name: "Other", value: "other" },
       ],

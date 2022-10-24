@@ -9,7 +9,6 @@
                                 <th scope="col">Application Id</th>
                                 <th scope="col">Application Type</th>
                                 <th scope="col">Application Intake Year</th>
-                                <th scope="col">Exam Type</th>
                                 <th scope="col">Application Date</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"></th>
@@ -20,11 +19,10 @@
                                 <td>{{application.id}}</td>
                                 <td>{{application.type}}</td>
                                 <td>{{application.intakeYear}}</td>
-                                <td>{{application.examType}}</td>
                                 <td>{{application.appliedDate}}</td>
                                 <td>{{application.status}}</td>
                                 <td>
-                                    <button *ngIf="application.type ==='Residency Program'" (click)="openModal(residencyProgramApplication, 'xl')" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                                    <button *ngIf="application.type ==='Specialty Program'" (click)="openModal(residencyProgramApplication, 'xl')" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
                                     <button *ngIf="application.type ==='Fellowship Program'" (click)="openModal(fellowshipApplication, 'xl')" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
                                 </td>
                             </tr>

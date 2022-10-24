@@ -355,6 +355,7 @@ import { ViewChangePositionRequestComponent } from './education-committee/change
 import { EcAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/ec-annual-incentives.component';
 import { AddAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/add-annual-incentives/add-annual-incentives.component';
 import { ViewAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/view-annual-incentives/view-annual-incentives.component';
+import { GraduationListsComponent } from './tafus/graduation-lists/graduation-lists.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -674,7 +675,8 @@ FullCalendarModule.registerPlugins([
     ViewChangePositionRequestComponent,
     EcAnnualIncentivesComponent,
     AddAnnualIncentivesComponent,
-    ViewAnnualIncentivesComponent
+    ViewAnnualIncentivesComponent,
+    GraduationListsComponent
   ],
   imports: [
     CommonModule,

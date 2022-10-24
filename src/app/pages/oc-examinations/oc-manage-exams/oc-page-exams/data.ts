@@ -13,7 +13,7 @@ const data = {
     ],
     tableData : [
         {
-            programName : 'Anastasia', examType : 'Omani Examination for Nurses (OEN)', examStartDate : '2022-10-15', examEndDate : '2022-10-18', createdOn :  '2022-09-05 09:45:15 AM', status : 'Draft' 
+            programName : 'Anesthesia', examType : 'Omani Examination for Nurses (OEN)', examStartDate : '2022-10-15', examEndDate : '2022-10-18', createdOn :  '2022-09-05 09:45:15 AM', status : 'Draft' 
         },
         {
             programName : 'Medical Microbiology', examType : 'Omani Examination for Nurses (OEN)', examStartDate : '2022-10-17', examEndDate : '2022-10-20', createdOn :  '2022-09-01 10:25:15 AM', status : 'Dates Created' 
@@ -81,11 +81,11 @@ const data = {
 
       examFrequency : 'Single',
       programType : 'Residency Program',
-      programName : ['Anastasia', 'Pediatrics'],
+      programName : ['Anesthesia', 'Pediatrics'],
 
       singleExamDates : [
         {
-          programName : 'Anastasia',
+          programName : 'Anesthesia',
           startDateOfExam : '2022-09-15',
           endDateOfExam : '2022-09-16',
           fromTimeOfExam : '08:00 AM',

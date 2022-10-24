@@ -75,11 +75,11 @@ export class ViewExamsComponent implements OnInit {
     endDateOfApplication : '2022-08-30',
 
     programType : 'Residency Program',
-    programName : ['Anastasia'],
+    programName : ['Anesthesia'],
 
     singleExamDates :[
       {
-        programName : 'Anastasia',
+        programName : 'Anesthesia',
         startDateOfExam : '2022-10-15',
         endDateOfExam : '2022-10-15',
         fromTimeOfExam : '08:00 AM',

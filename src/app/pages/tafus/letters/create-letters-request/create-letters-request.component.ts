@@ -27,7 +27,7 @@ export class CreateLettersRequestComponent implements OnInit {
     this.requestForm = this.formBuilder.group({
       purpose : new FormControl(null),
       reason : new FormControl(null),
-      amount : new FormControl(null)
+      amount : new FormControl(0)
     })
   }
 
