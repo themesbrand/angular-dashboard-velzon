@@ -250,22 +250,22 @@
     <div class="card bg-light">
       <div class="card-body">
         <div class="d-flex flex-row">
-          <button class="btn btn-primary" (click)="this.isCvSection = true">CV Section</button>
+          <button class="btn btn-primary" (click)="toggleCvSection()">CV Section</button>
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="isCvSection">
-    <div class="card bg-light">
-      <div class="card-body">
-        <app-view-cv-section-form></app-view-cv-section-form>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="d-flex flex-row">
-          <button class="btn btn-primary" (click)="this.isCvSection = false">Back to Application Form</button>
-        </div>
-      </div>
+</div>
+<div *ngIf="isCvSection">
+  <div class="card bg-light">
+    <div class="card-body">
+      <app-admission-view-cv-application></app-admission-view-cv-application>
     </div>
   </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex flex-row">
+        <button class="btn btn-primary" (click)="toggleCvSection()">Back to Application Form</button>
+      </div>
+    </div>
+  </div>
+</div>
