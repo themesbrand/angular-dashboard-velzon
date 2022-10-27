@@ -235,7 +235,10 @@
                                     [formGroupName]="i">
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">Name of the Institution / Department</label>
-                                            <label class="form-control">Armed Forces Hospital</label>
+                                            <ng-select
+                                                formControlName="nameOfInstitution" [items]="['Khoula Hospital', 'Al Nahdah Hospital', 'Armed Forces Hospital']"
+                                                placeholder="Select your Institution">
+                                            </ng-select>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">Name of the authorized person</label>

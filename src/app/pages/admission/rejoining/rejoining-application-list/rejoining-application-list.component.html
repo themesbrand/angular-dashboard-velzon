@@ -194,25 +194,33 @@
                   <label class="form-control-label">Current Position</label>
                   <label class="form-control">{{applicationFormValues.currentPosition}}</label>
               </div>
-              <div class="col-md-4 mb-3">
-                  <label class="form-control-label">Date of Joining OMSB</label>
-                  <label class="form-control">2020-01-09</label>
-              </div>
-              <div class="col-md-4 mb-3">
-                  <label class="form-control-label">Date of Withdrawal</label>
-                  <label class="form-control">2021-10-15</label>
-              </div>
-              <div class="col-md-4 mb-3">
-                  <label class="form-control-label">Program at the time of withdrawal</label>
-                  <label class="form-control">Anesthesia</label>
-              </div>
-              <div class="col-md-4 mb-3">
-                  <label class="form-control-label">Level of Training at time of withdrawal:</label>
-                  <label class="form-control">L2</label>
-              </div>
           </div>
       </div>
   </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+              <label class="form-control-label">Date of Joining OMSB</label>
+              <label class="form-control">2020-01-09</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-control-label">Date of Completion</label>
+            <label class="form-control">2021-10-15</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-control-label">Program at the time of withdrawal</label>
+            <label class="form-control">Anesthesia</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-control-label">Level of Training at time of Withdrawal:</label>
+            <label class="form-control">L3</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div class="card">
       <div class="card-body">
           <div class="row">
@@ -231,38 +239,6 @@
           </div>
       </div>
   </div>
-  <!-- <div class="card">
-      <div class="card-body">
-          <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
-          <div formArrayName="secondarySchool">
-            <div
-              class="mt-2 d-flex flex-column  p-3 bg-light"
-              *ngFor="let schools of secondarySchoolControls; let i = index"
-              [formGroupName]="i">
-              <div class="row ">
-                <div class="col-md-3">
-                  <label class="form-label">School</label>
-                  <label class="form-control">{{schools.value.school}}</label>
-                </div>
-                <div class="col-md-3">
-                  <label class="form-label">Start Date</label>
-                  <label class="form-control">{{schools.value.startDate}}</label>
-                </div>
-                <div class="col-md-3">
-                  <label class="form-label">End Date</label>
-                  <label class="form-control">{{schools.value.endDate}}</label>
-                </div>
-                <div class="col-md-3">
-                  <label class="form-label"
-                    >Country
-                  </label>
-                  <label class="form-control">{{schools.value.country}}</label>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  </div> -->
   <div class="card">
       <div class="card-body">
         <p class="h5 mt-4">QUALIFICATION DATA SECTION</p>
@@ -508,6 +484,10 @@
                   <div class="col-md-6 mb-3">
                       <p class="text-muted">Approval documents from Sponsor
                       </p>
+                      <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <p class="text-muted">Application Health Assessment Form</p>
                       <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
                   </div>
                   <div class="col-md-6 mb-3">

@@ -10,7 +10,7 @@ const data = {
         passportNo : '8431321218',
         maritalStatus : 'Married',
         permanentAddress : 'Al Abri Ibraham, Muscat, Oman',
-        wilayatOrRegion : 'value_1',
+        wilayatOrRegion : 'Value 1',
         mobileNumber : '32132131',
         nameNextKin : 'Abdel Maddali',
         contactNextKin : '55132131',
@@ -21,7 +21,7 @@ const data = {
         department  : 'ENT',
         currentPosition  : 'Trainee',
 
-        postGraduateQualifications  : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt voluptatum consequuntur, id temporibus necessitatibus neque.',
+        postGraduateQualifications  : 'MRCP',
         postGraduateTrainingExperience  : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt voluptatum consequuntur, id temporibus necessitatibus neque.',
   
         sponsorship  : 'MOH',

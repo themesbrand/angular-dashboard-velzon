@@ -303,7 +303,6 @@ export class RejoiningApplicationFormComponent implements OnInit {
   }
 
   openAddApplication() {
-    this.applicationForm.reset();
     this.isEditable = true;
     this.openModal(this.rejoiningApplication, 'xl')
   }
