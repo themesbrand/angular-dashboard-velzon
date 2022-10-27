@@ -39,6 +39,7 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="openModal(transferApplication, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li><a class="dropdown-item" ><i class="mx-1 ri-close-circle-line"></i>Cancel Request</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -74,7 +75,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label class="form-label">Transfer Type<span class="text-danger">{{ " *" }}</span></label>
-                        <ng-select [items]="['Residency Program to GFP', 'Residency Program to another']" formControlName="transferType"
+                        <ng-select [items]="['Specialty Program to GFP', 'Current Specialty to another']" formControlName="transferType"
                           placeholder="Please select">
                         </ng-select>
                       </div>
@@ -125,22 +126,22 @@
             </div>
             <div class="card-body" *ngIf="applicationFormValues.transferType">
                 <div class="row">
-                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Residency Program to GFP'">
+                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Specialty Program to GFP'">
                         <label class="form-label">Transfer to General Foundation Program in the field:<span class="text-danger">{{ " *" }}</span></label>
                         <ng-select [items]="['Anesthesia', 'ENT']" placeholder="Please select">
                         </ng-select>
                     </div>
-                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Residency Program to GFP'">
+                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Specialty Program to GFP'">
                         <label class="form-label">Reasons for transfer to General Foundation Program:<span class="text-danger">{{ " *" }}</span></label>
                         <textarea rows="2" class="form-control"></textarea>
                     </div>
-                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Residency Program to another'">
+                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Current Specialty to another'">
                         <label class="form-label">The training program requested for transfer to:<span class="text-danger">{{ " *" }}</span></label>
                         <ng-select [items]="['Anesthesia', 'ENT']" placeholder="Please select">
                         </ng-select>
                     </div>
-                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Residency Program to another'">
-                        <label class="form-label">Reasons for transfer to another residency program:<span class="text-danger">{{ " *" }}</span></label>
+                    <div class="col-md-6 mb-3" *ngIf="applicationFormValues.transferType === 'Current Specialty to another'">
+                        <label class="form-label">Reasons for transfer to another Specialty program:<span class="text-danger">{{ " *" }}</span></label>
                         <textarea rows="2" class="form-control"></textarea>
                     </div>
                 </div>
@@ -238,7 +239,7 @@
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <p class="h5 mt-2">Application Tracker</p>
+                <p class="h5 mt-2">Application Tracker</p> Specialty
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3">

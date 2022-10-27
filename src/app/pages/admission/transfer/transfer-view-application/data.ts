@@ -1,17 +1,4 @@
 const data = {
-    applicationForm : {
-        civilId: '9485131321321',
-        name: 'Abbas Al Ajmi',
-        ombsNumber: '210-19',
-        staffNumber: '210-19',
-        levelOfTraining: 'L5',
-        currentTrainingProgram: 'Anesthesia',
-        programStartDate: '2022-10-05',
-        Sponsor: 'MOH',
-        transferType : 'Residency Program to GFP',
-        transferToGeneralFoundation : 'Value 1',
-        reasonsForTransferToGeneralFoundationProgram : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!'
-    },
     tableData : [
         {
             civilId: '98213543213',
@@ -28,6 +15,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Applied',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
@@ -52,6 +42,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Sponsor Approved',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
@@ -75,6 +68,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Sponsor Rejected',
+            sponsorRejectedReason : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!',
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Rejected', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'}
@@ -95,6 +91,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Approved',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
@@ -119,6 +118,9 @@ const data = {
             transferToGeneralFoundation : null,
             reasonsForTransferToGeneralFoundationProgram : null,
             status : 'Rejected',
+            sponsorRejectedReason : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!',
+            rejectedReason : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!',
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
@@ -140,6 +142,9 @@ const data = {
             transferToGeneralFoundation : null,
             reasonsForTransferToGeneralFoundationProgram : null,
             status : 'Qarar Issued',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : 'link',
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 10:00:00 AM', by :'Al Abri Ibraham'},
@@ -166,6 +171,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Applied',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
@@ -188,6 +196,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Applied',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
@@ -210,6 +221,9 @@ const data = {
             programRequestedForTransferTo : null,
             transferToAnotherResidencyProgram : null,
             status : 'Applied',
+            sponsorRejectedReason : null,
+            rejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},

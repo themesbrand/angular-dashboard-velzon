@@ -80,6 +80,7 @@ export class TransferViewApplicationComponent implements OnInit {
 
   setApplication(application : any) {
     this.selectedApplication = application;
+    console.log(this.selectedApplication)
   }
   
   onNavigate(url : any) {

@@ -40,7 +40,7 @@
                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
-                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                            <ul (click)="openModal(viewSponsorSetup, 'xl')" class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                             </ul>
                                         </div>
@@ -107,6 +107,65 @@
                     </div>
                 </div>
             </form>          
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #viewSponsorSetup let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Sponsor Setup</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <div class="card shadow border">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-lable">Sponsor Name</label>
+                                <label class="form-control">MOH</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow border">
+                    <div class="d-flex flex-row px-3 py-2 justify-content-between">
+                        <p class="h5 mb-0 text-primary">Authorized Users</p>
+                    </div>
+                    <div class="card-body" >
+                        <div class="row mt-1">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Civil ID<span class="text-danger"></span></label>
+                                <label class="form-control">98635321321</label>
+                            </div>    
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Full Name<span class="text-danger"></span></label>
+                                <label class="form-control">Al Abri Ibraham</label>
+                            </div>    
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Designation<span class="text-danger"></span></label>
+                                <label class="form-control">Director General</label>
+                            </div>    
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Civil ID<span class="text-danger"></span></label>
+                                <label class="form-control">986213548544</label>
+                            </div>    
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Full Name<span class="text-danger"></span></label>
+                                <label class="form-control">Hilal basheer</label>
+                            </div>    
+                            <div class="col-md-4 mb-3">
+                                <label class="form-lable">Designation<span class="text-danger"></span></label>
+                                <label class="form-control">ExecutiveDirector</label>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>       
         </div>
     </div>
 </ng-template>

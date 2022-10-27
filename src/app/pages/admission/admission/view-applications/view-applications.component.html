@@ -85,12 +85,12 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Full Name</th>
-                                    <th scope="col">Specialty</th>
                                     <th scope="col">Sponsored By</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Contact Number</th>
                                     <th scope="col">BLS Expiry Date</th>
                                     <th scope="col">ACLS Expiry Date</th>
+                                    <th scope="col">OMSB Selection Exam Score</th>
                                     <th scope="col">Status</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
@@ -99,12 +99,12 @@
                             <thead>
                                 <tr *ngFor="let application of listData.applicationTableDate">
                                     <td>{{application.fullName}}</td>
-                                    <td>{{application.program}}</td>
                                     <td>{{application.sponsoredBy}}</td>
                                     <td>{{application.email}}</td>
                                     <td>{{application.contactNumber}}</td>
                                     <td>{{application.blsExpiryDate}}</td>
                                     <td>{{application.aclsExpiryDate}}</td>
+                                    <td>{{application.selectionExamScore}}</td>
                                     <td (click)="openModal(applicationStatus, 'md'); setApplication(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td>
                                     <td class="text-center">
                                         <div class="dropdown" ngbDropdown>

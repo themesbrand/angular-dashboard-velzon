@@ -1,15 +1,4 @@
 const data = {
-    applicationForm : {
-        civilId: '9485131321321',
-        name: 'Abbas Al Ajmi',
-        ombsNumber: '210-19',
-        staffNumber: '210-19',
-        levelOfTraining: 'L5',
-        currentTrainingProgram: 'Anesthesia',
-        programStartDate: '2022-10-05',
-        Sponsor: 'MOH',
-        withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
-    },
     tableData : [
         {
             civilId: '98213543213',
@@ -22,6 +11,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Applied',
+            rejectedReason : null,
+            sponsorRejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},
@@ -42,6 +34,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Sponsor Approved',
+            rejectedReason : null,
+            sponsorRejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'Al Abri Ibraham'},
@@ -62,6 +57,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Sponsor Rejected',
+            rejectedReason : null,
+            sponsorRejectedReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam',
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-08-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Rejected', status : 'Complete', date : '2022-08-28 10:00:00 AM', by :'Al Abri Ibraham'}
@@ -78,6 +76,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Approved',
+            rejectedReason : null,
+            sponsorRejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'Al Abri Ibraham'},
@@ -98,6 +99,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Rejected',
+            rejectedReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam',
+            sponsorRejectedReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam',
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'Al Abri Ibraham'},
@@ -115,6 +119,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Qarar Issued',
+            rejectedReason : null,
+            sponsorRejectedReason : null,
+            qararLink : 'link',
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-07-28 08:00:00 AM', by :'Al Abri Ibraham'},
@@ -134,6 +141,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Clearance Completed',
+            rejectedReason : null,
+            sponsorRejectedReason : null,
+            qararLink : 'link',
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approved', status : 'Complete', date : '2022-08-01 08:00:00 AM', by :'Al Abri Ibraham'},
@@ -155,6 +165,9 @@ const data = {
             Sponsor: 'MOH',
             withdrawalReason : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, aliquid laudantium cupiditate accusamus culpa qui dignissimos possimus ab tempore neque blanditiis quod voluptatibus ea facere nisi hic, reprehenderit nostrum aperiam.',
             status : 'Applied',
+            rejectedReason : null,
+            sponsorRejectedReason : null,
+            qararLink : null,
             applicationStatus : [
                 { stage : 'Applied', status : 'Complete', date : '2022-07-25 08:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Sponsor Approval', status : 'Pending', date : '', by :''},

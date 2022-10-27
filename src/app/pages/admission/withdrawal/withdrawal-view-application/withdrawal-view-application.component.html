@@ -57,11 +57,12 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                <li (click)="openModal(withdrawalApplication, 'xl')"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li (click)="openModal(withdrawalApplication, 'xl'); setApplication(application)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <li *ngIf="application.status === 'Applied'" (click)="openModal(applicationApproval, 'lg')"><a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Sponsor Approval</a></li>
                                                 <li *ngIf="application.status === 'Sponsor Approved'"><a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Approval</a></li>
                                                 <li *ngIf="application.status === 'Approved'">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Create Qarar</a></li>
+                                                    <li *ngIf="application.status === 'Approved'"><a class="dropdown-item" ><i class="mx-1  ri-shield-user-line"></i>Provide Council & Guidance</a></li>
                                                 <li *ngIf="application.status === 'Qarar Issued'" (click)="openModal(clearanceApplication, 'lg')">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-article-line"></i>Clearance</a></li>
                                             </ul>
@@ -92,35 +93,43 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Civil ID:</label>
-                                        <label class="form-control">9485131321321</label>
+                                        <label class="form-control">{{selectedApplication.civilId}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Full Name:</label>
-                                        <label class="form-control">Abbas Al Ajmi</label>
+                                        <label class="form-control">{{selectedApplication.name}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">OMSB Registration Number:</label>
-                                        <label class="form-control">210-19</label>
+                                        <label class="form-control">{{selectedApplication.ombsNumber}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Staff Number:</label>
-                                        <label class="form-control">210-19</label>
+                                        <label class="form-control">{{selectedApplication.staffNumber}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Level of Training:</label>
-                                        <label class="form-control">L4</label>
+                                        <label class="form-control">{{selectedApplication.levelOfTraining}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Current Training Program:</label>
-                                        <label class="form-control">Anesthesia</label>
+                                        <label class="form-control">{{selectedApplication.currentTrainingProgram}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Current Program Start Date: </label>
-                                        <label class="form-control">2020-01-08</label>
+                                        <label class="form-control">{{selectedApplication.programStartDate}}</label>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Sponsor: </label>
-                                        <label class="form-control">MOH</label>
+                                        <label class="form-control">{{selectedApplication.Sponsor}}</label>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="selectedApplication.qararLink !== null">
+                                    <div class="col-md-6 mb-1">
+                                        <div class="d-flex flex-row">
+                                            <p class="h6">Download Qarar</p>
+                                            <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -130,9 +139,28 @@
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label">Reasons for withdrawal from the Training Program<span class="text-danger">{{ " *" }}</span></label>
-                                        <label class="form-control">{{listData.applicationForm.withdrawalReason}}</label>
+                                        <label class="form-control">{{selectedApplication.withdrawalReason}}</label>
 
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" >
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Status</label>
+                                        <label class="form-control">{{selectedApplication.status}}</label>
+                                    </div>
+                                    <div class="col-md-12 mb-3" *ngIf="selectedApplication.sponsorRejectedReason !== null">
+                                        <label class="form-label">Sponsor Rejected Reason<span class="text-danger">{{ " *" }}</span></label>
+                                        <label class="form-control">{{selectedApplication.sponsorRejectedReason}}</label>
+                                    </div>
+                                    <div class="col-md-12 mb-3" *ngIf="selectedApplication.rejectedReason !== null">
+                                        <label class="form-label">Rejected Reason<span class="text-danger">{{ " *" }}</span></label>
+                                        <label class="form-control">{{selectedApplication.rejectedReason}}</label>
+                                    </div>
+    
                                 </div>
                             </div>
                         </div>
@@ -250,9 +278,9 @@
                                 placeholder="Please select">
                             </ng-select>
                         </div>
-                        <div class="col-md-6 mb-3" *ngIf="approvalFormValues.approvalStatus === 'Reject'">
+                        <div class="col-md-12 mb-3" *ngIf="approvalFormValues.approvalStatus === 'Reject'">
                             <label class="form-lable">Reason</label>
-                            <input type="text" class="form-control">
+                            <textarea rows="3" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="d-flex flex-row my-2">

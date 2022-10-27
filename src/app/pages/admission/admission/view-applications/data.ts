@@ -7,11 +7,12 @@ const data = {
             fullName : 'Madan Al Abri',
             program :  'Anaesthesia',
             programType : 'Value 1',
-            sponsoredBy : 'MOHERI',
+            sponsoredBy : 'MOH',
             email : 'Madan@email.com',
             contactNumber : '+9681224568',
             blsExpiryDate : '2029-02-06',
             aclsExpiryDate : '2029-05-06',
+            selectionExamScore :  20.1,
             status : 'Applied',
             action: 'red',
             applicationStatus : [
@@ -23,11 +24,12 @@ const data = {
             fullName : 'Saleh Mahfoudh',
             program :  'Anaesthesia',
             programType : 'Value 1',
-            sponsoredBy : 'MOHERI',
+            sponsoredBy : 'MOH',
             email : 'Saleh@email.com',
             contactNumber : '+9689994568',
             blsExpiryDate : '2028-02-16',
             aclsExpiryDate : '2028-01-16',
+            selectionExamScore :  20.1,
             status : 'Shortlisted for Interview',
             action: 'green',
             applicationStatus : [
@@ -39,11 +41,12 @@ const data = {
             fullName : 'Madan Khan',
             program :  'Anaesthesia',
             programType : 'Value 1',
-            sponsoredBy : 'OMSB',
+            sponsoredBy : 'SQUH',
             email : 'Khan@email.com',
             contactNumber : '+9681743687',
             blsExpiryDate : '2025-12-26',
             aclsExpiryDate : '2025-05-05',
+            selectionExamScore :  20.1,
             status : 'Not Eligible',
             action: 'red',
             applicationStatus : [
@@ -274,7 +277,7 @@ const data = {
       programType : [
         'International Residency Program', 'International Fellowship program', 'Stroke Units Residency Program', 'Stroke Units Fellowship program', 'other projects funded by OMSB'
       ],
-      sponsoredBy: ['MoHERI', 'OMSB', 'Other'] ,
+      sponsoredBy: ['MOH', 'SQUH', 'Other'] ,
       programSpecialization: ['Value 1', 'Value 2', 'Value 3'],
       programSubSpecialization: ['Value 1', 'Value 2', 'Value 3', 'Other'],
 }

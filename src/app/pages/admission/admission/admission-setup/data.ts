@@ -22,31 +22,31 @@ const data = {
         {
             academicYear : '2022',
             programName : 'Medical Microbiology',	
-            applicationStartDate : '2022-10-15T15:30',
-            applicationEndDate: '2022-12-15T15:30',
+            applicationStartDate : '2021-12-01T15:30',
+            applicationEndDate: '2022-08-15T15:30',
             status : 'Open'
         },
         {
             academicYear : '2022',
             programName : 'General Surgery',	
-            applicationStartDate : '2022-10-15T15:30',
-            applicationEndDate: '2022-12-15T15:30',
-            status : ''
+            applicationStartDate : '2021-12-01T15:30',
+            applicationEndDate: '2022-08-15T15:30',
+            status : 'Open'
         },
         {
             academicYear : '2022',
             programName : 'General Dentistry program and Oral',	
-            applicationStartDate : '2022-12-15T15:30',
-            applicationEndDate: '2022-12-15T15:30',
+            applicationStartDate : '2021-12-01T15:30',
+            applicationEndDate: '2022-08-15T15:30',
             status : 'Close'
         },
     ],
     admissionData : {
         programType : 'Residency Program',
-        programName : 'General Dentistry program and Oral',
+        programName : 'Medical Microbiology',
         academicYear : 2022,
-        applicationStartDate  : 'Wed Aug 18 2022 12:00:00 GMT+0530 (India Standard Time)',
-        applicationEndDate  : 'Wed Aug 24 2022 12:00:00 GMT+0530 (India Standard Time)',
+        applicationStartDate  : 'Wed Dec 01 2021 12:00:00 GMT+0530 (India Standard Time)',
+        applicationEndDate  : 'Wed Sept 29 2022 12:00:00 GMT+0530 (India Standard Time)',
         medicalQualifications  : 'MD',
         medicalQualificationsOther : null,
         certificationsRequired  : 'BMBS',

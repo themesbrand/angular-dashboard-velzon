@@ -1,6 +1,6 @@
 const data = {
     applicationForm : {
-        transferType : 'Residency Program to GFP',
+        transferType : 'Specialty Program to GFP',
         transferToGeneralFoundation : 'Value 1',
         reasonsForTransferToGeneralFoundationProgram : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!'
     },
@@ -14,7 +14,7 @@ const data = {
             currentTrainingProgram: 'Anesthesia',
             programStartDate: '2022-10-05',
             Sponsor: 'MOH',
-            transferType : 'Residency Program to GFP',
+            transferType : 'Specialty Program to GFP',
             transferToGeneralFoundation : 'Value 1',
             reasonsForTransferToGeneralFoundationProgram : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!',
             programRequestedForTransferTo : null,
@@ -38,7 +38,7 @@ const data = {
             currentTrainingProgram: 'Anesthesia',
             programStartDate: '2022-10-05',
             Sponsor: 'MOH',
-            transferType : 'Residency Program to GFP',
+            transferType : 'Specialty Program to GFP',
             transferToGeneralFoundation : 'Value 1',
             reasonsForTransferToGeneralFoundationProgram : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod mollitia necessitatibus officiis magni? Iusto consequuntur veniam at rem ratione exercitationem placeat!',
             programRequestedForTransferTo : null,

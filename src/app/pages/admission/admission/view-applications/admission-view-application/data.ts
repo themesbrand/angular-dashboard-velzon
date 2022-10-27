@@ -4,8 +4,9 @@ import { Nationalities } from "src/app/enums/nationality";
 const data = {
     formObject : {
         intakeYear : 2022,
-        examType : 'MFD',
-        isMfdPassed : 'Yes',
+        examType : 'OMSB Selection Exam',
+        isMfdPassed : '',
+        omsbScore : '20.3'
     },
     gender: [
         { name: "Male", value: "male" },
