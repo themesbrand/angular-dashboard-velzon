@@ -1,1 +1,44 @@
-<p>graduation-lists works!</p>
+<div class="row card-box">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
+        <div class="card card-animate border shadow" [routerLink]="['/tafus/graduation/trainee-selection']">
+            <div class="card-header bg-primary">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    TS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Trainee Selection</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" [routerLink]="['/tafus/graduation/graduation-achievements']">
+            <div class="card-header bg-warning">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    GS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Graduation Achievements List</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
+        <div class="card card-animate border shadow" [routerLink]="['/tafus/graduation/extension-need']">
+            <div class="card-header bg-success">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    GS
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Extension Required List</p>
+            </div>
+        </div>
+    </div>
+</div>

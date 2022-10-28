@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-graduation-lists',
   templateUrl: './graduation-lists.component.html',
@@ -7,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraduationListsComponent implements OnInit {
 
-  constructor() { }
+  userRole: string | null = null;
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+    this.userRole = localStorage.getItem('userType');
   }
 
 }

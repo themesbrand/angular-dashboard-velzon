@@ -1,0 +1,75 @@
+<app-breadcrumbs title="Graduation Achievements List" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/tafus/graduation')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-2 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Annual Evaluations Status">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="FITAR Completion">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Resident Development Program">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Please select Status">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button (click)="onSearch()" class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-nowrap">Trainee Name</th>
+                                    <th scope="col" class="text-center">Achieve Satisfactory Annual Evaluations</th>
+                                    <th scope="col" class="text-center">Pass OMSB Part-I Specialty Examination or equivalent</th>
+                                    <th scope="col" class="text-center">Complete FITAR</th>
+                                    <th scope="col" class="text-center">FITAR Completed Date</th>
+                                    <th scope="col" class="text-center">Completed the Resident Development Programs</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let application of listData.tableData; let i = index">
+                                    <td class="text-nowrap">{{application.name}}</td>
+                                    <td>{{application.annualEvaluations}}</td>
+                                    <td>{{application.passStatus}}</td>
+                                    <td>{{application.fitarComplition}}</td>
+                                    <td>{{application.fitarComplitionDate}}</td>
+                                    <td>{{application.completedResidentDevelopment}}</td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>                             
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

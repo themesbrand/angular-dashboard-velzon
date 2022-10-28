@@ -1,0 +1,114 @@
+<app-breadcrumbs title="Trainee Selection" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/tafus/graduation')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-end gap-2 my-2">
+                        <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Annual Evaluations Status">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="FITAR Completion">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Resident Development Program">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Please select Status">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button (click)="onSearch()" class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col" class="text-nowrap">Trainee Name</th>
+                                    <th scope="col" class="text-center">Achieve Satisfactory Annual Evaluations</th>
+                                    <th scope="col" class="text-center">Pass OMSB Part-I Specialty Examination or equivalent</th>
+                                    <th scope="col" class="text-center">Complete FITAR</th>
+                                    <th scope="col" class="text-center">FITAR Completed Date</th>
+                                    <th scope="col" class="text-center">Completed the Resident Development Programs</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let application of listData.tableData; let i = index">
+                                    <td>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="updateChecbox{{i}}" [(ngModel)]="application.statusValue">
+                                            </div>
+                                    </td>
+                                    <td class="text-nowrap">{{application.name}}</td>
+                                    <td>{{application.annualEvaluations}}</td>
+                                    <td>{{application.passStatus}}</td>
+                                    <td>{{application.fitarComplition}}</td>
+                                    <td>{{application.fitarComplitionDate}}</td>
+                                    <td>{{application.completedResidentDevelopment}}</td>
+                                    <td>
+                                        <ng-select placeholder="Trainee Selection 
+                                        Status" [(ngModel)]="application.status">
+                                            <ng-option *ngFor="let status of statusList" [value]="status">{{status}}</ng-option>
+                                        </ng-select>
+                                    </td>
+                                    <td>
+                                        <button [disabled]="application.status === null" class="btn btn-primary btn-sm w-100" (click)="openModal(contactTrainee, 'lg'); selectTrainee(application)">Contact Trainee</button>
+                                    </td>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>                             
+                </div>
+                <div class="col-md-3 mt-3">
+                    <label class="form-label">Update Selected Trainee Status</label>
+                    <ng-select placeholder="Trainee Selection Status" [(ngModel)]="selectedStatusValue">
+                        <ng-option *ngFor="let status of statusList" [value]="status">{{status}}</ng-option>
+                    </ng-select>
+                    <button class="btn btn-primary mt-3" (click)="updateStatus()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #contactTrainee let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Contact Trainee</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="form-label">Comments</label>
+                        <textarea rows="2" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary mt-3" (click)="contactTraineeAction()">Contact Trainee</button>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
