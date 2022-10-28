@@ -45,11 +45,12 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
       { label: "Supplementary Training", link: '/admission/supplementary-training'},
       { label: "Application", active : true }
     ];
-    this.applicationFormInit()
+    this.applicationFormInit();
+    this.formPatchValue();
   }
 
   formPatchValue(){
-    this.applicationForm.patchValue(this.listData.formObjectValues)
+    this.applicationForm.patchValue(this.listData.formObjectValues);
   }
 
   applicationFormInit() {
@@ -301,10 +302,7 @@ export class SupplementaryTrainingApplicationFormComponent implements OnInit {
   }
 
   openAddApplication() {
-    this.isEditable = true
-
-    this.applicationForm.reset();
-
+    this.isEditable = true;
     this.openModal(this.supplementaryTrainingApplication, 'xl')
   }
 

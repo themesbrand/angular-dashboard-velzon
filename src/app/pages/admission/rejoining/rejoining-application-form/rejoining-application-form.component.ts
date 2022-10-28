@@ -45,13 +45,12 @@ export class RejoiningApplicationFormComponent implements OnInit {
       { label: "Rejoining", link: '/admission/rejoining'},
       { label: "Application", active : true }
     ];
-    this.applicationFormInit()
-    this.formPatchValue()
+    this.applicationFormInit();
+    this.formPatchValue();
   }
 
   formPatchValue(){
-    this.applicationForm.patchValue(this.listData.formObjectValues)
-
+    this.applicationForm.patchValue(this.listData.formObjectValues);
   }
 
   applicationFormInit() {

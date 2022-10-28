@@ -1037,7 +1037,23 @@
                     </ngx-dropzone>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <p class="text-muted">Copy of valid (BLS) & (ACLS) Certificates<span class="text-danger">{{ " *" }}</span>
+                    <p class="text-muted">Copy of valid (BLS)  Certificates<span class="text-danger">{{ " *" }}</span>
+                    </p>
+                    <ngx-dropzone (change)="onSelect($event, 'filesCertificates')"
+                    [multiple]="false">
+                    <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngFor="let f of filesCertificates"
+                        [removable]="true" (removed)="onRemove(f, 'filesCertificates')">
+                        <ngx-dropzone-label
+                        >{{ f.name }} ({{
+                            f.type
+                        }})</ngx-dropzone-label
+                        >
+                    </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <p class="text-muted">Copy of valid (ACLS) Certificates<span class="text-danger">{{ " *" }}</span>
                     </p>
                     <ngx-dropzone (change)="onSelect($event, 'filesCertificates')"
                     [multiple]="false">
@@ -1083,7 +1099,11 @@
                     <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <p class="text-muted">Copy of valid (BLS) & (ACLS) Certificates</p>
+                    <p class="text-muted">Copy of valid (BLS) Certificates</p>
+                    <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <p class="text-muted">Copy of valid (ACLS) Certificates</p>
                     <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
                 </div>
             </div>
