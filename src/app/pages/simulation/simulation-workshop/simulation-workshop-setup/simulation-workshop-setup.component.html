@@ -13,27 +13,27 @@
             </div>
             <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Workshop Code <span class="text-danger"></span></label>
+                    <label class="form-label">Workshop Code <span class="text-danger"></span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Workshop Name<span class="text-danger"></span></label>
+                    <label class="form-label">Workshop Name<span class="text-danger"></span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Workshop Type<span class="text-danger"></span></label>
+                    <label class="form-label">Workshop Type<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.workshopTypeList" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Workshop Provider</label>
+                    <label class="form-label">Workshop Provider</label>
                     <ng-select 
                         [items]="listData.workshopProviderList" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                    <label class="form-label">Manual Type<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.manualTypeList" placeholder="Please select">
                     </ng-select>
@@ -96,49 +96,49 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Workshop Code <span class="text-danger"></span></label>
+                                    <label class="form-label">Workshop Code <span class="text-danger"></span></label>
                                     <input type="text" formControlName="workshopCode" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Workshop Name<span class="text-danger"></span></label>
+                                    <label class="form-label">Workshop Name<span class="text-danger"></span></label>
                                     <input formControlName="workshopName" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Workshop Type<span class="text-danger"></span></label>
+                                    <label class="form-label">Workshop Type<span class="text-danger"></span></label>
                                     <ng-select 
                                         [items]="listData.workshopTypeList" formControlName="workshopType" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createWorkshopSetupValues.workshopType === 'Other'">
-                                    <label class="form-lable">If Other, Workshop Type<span class="text-danger"></span></label>
+                                    <label class="form-label">If Other, Workshop Type<span class="text-danger"></span></label>
                                     <input formControlName="workshopTypeOther" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label class="form-lable">Workshop Description<span class="text-danger"></span></label>
+                                    <label class="form-label">Workshop Description<span class="text-danger"></span></label>
                                     <ckeditor [editor]="Editor" formControlName="workshopDescription"></ckeditor>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Pre-Requisite Workshop</label>
+                                    <label class="form-label">Pre-Requisite Workshop</label>
                                     <ng-select 
                                         [items]="[]" formControlName="preRequisiteWorkshop" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Workshop Duration (In Days)<span class="text-danger"></span></label>
+                                    <label class="form-label">Workshop Duration (In Days)<span class="text-danger"></span></label>
                                     <input formControlName="workshopDuration" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Workshop Provider</label>
+                                    <label class="form-label">Workshop Provider</label>
                                     <ng-select 
                                         [items]="listData.workshopProviderList" formControlName="workshopProvider" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createWorkshopSetupValues.workshopProvider === 'Other'">
-                                    <label class="form-lable">If Other, Workshop Provider<span class="text-danger"></span></label>
+                                    <label class="form-label">If Other, Workshop Provider<span class="text-danger"></span></label>
                                     <input formControlName="workshopProviderOther" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Evaluation Form </label>
+                                    <label class="form-label">Evaluation Form </label>
                                     <ng-select 
                                         [multiple]="true"
                                         [items]="listData.evaluationFormList" formControlName="evaluationForm" placeholder="Please select">
@@ -152,7 +152,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Staff</label>
+                                    <label class="form-label">Staff</label>
                                     <ng-select 
                                         [multiple]="true"
                                         [items]="listData.userLists" formControlName="workshopStaffCoordinators" 
@@ -160,7 +160,7 @@
                                     </ng-select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Other Coordinators</label>
+                                    <label class="form-label">Other Coordinators</label>
                                     <ng-select 
                                         [multiple]="true"
                                         [items]="listData.userLists" formControlName="workshopOtherCoordinators" 
@@ -174,28 +174,28 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">CPD Score <span class="text-danger"></span></label>
+                                    <label class="form-label">CPD Score <span class="text-danger"></span></label>
                                     <input formControlName="cpdScore" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                                    <label class="form-label">Manual Type<span class="text-danger"></span></label>
                                     <ng-select 
                                         [items]="listData.manualTypeList" formControlName="manualType" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createWorkshopSetupValues.manualType === 'eManual'">
-                                    <label class="form-lable">eManual Link</label>
+                                    <label class="form-label">eManual Link</label>
                                     <div class="d-flex flex-row gap-1">
                                         <input formControlName="eManualLink" type="text" class="form-control">
                                         <button class="btn btn-primary">Upload</button>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Minimum No. of manuals required<span class="text-danger"></span></label>
+                                    <label class="form-label">Minimum No. of manuals required<span class="text-danger"></span></label>
                                     <input formControlName="manualsRequired" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Current no. of manuals available<span class="text-danger"></span></label>
+                                    <label class="form-label">Current no. of manuals available<span class="text-danger"></span></label>
                                     <input formControlName="manualsAvailable" type="text" class="form-control">
                                 </div>
                             </div>
@@ -213,13 +213,13 @@
                                     <button (click)="deleteRolesArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Role</label>
+                                    <label class="form-label">Role</label>
                                     <ng-select 
                                         [items]="listData.userRolesList" formControlName="role" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">No. of Roles<span class="text-danger"></span></label>
+                                    <label class="form-label">No. of Roles<span class="text-danger"></span></label>
                                     <input formControlName="noOfRoles" (change)="onChangeNoOfRoles(i)" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-12 mb-3">
@@ -332,43 +332,43 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Workshop Code <span class="text-danger"></span></label>
+                                <label class="form-label">Workshop Code <span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopCode}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Workshop Name<span class="text-danger"></span></label>
+                                <label class="form-label">Workshop Name<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopName}}</label>                                
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Workshop Type<span class="text-danger"></span></label>
+                                <label class="form-label">Workshop Type<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopType}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedWorkshopSetup.workshopTypeOther.workshopType === 'Other'">
-                                <label class="form-lable">If Other, Workshop Type<span class="text-danger"></span></label>
+                                <label class="form-label">If Other, Workshop Type<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopTypeOther}}</label>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="form-lable">Workshop Description<span class="text-danger"></span></label>
+                                <label class="form-label">Workshop Description<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopDescription}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Pre-Requisite Workshop</label>
+                                <label class="form-label">Pre-Requisite Workshop</label>
                                 <label class="form-control">{{selectedWorkshopSetup.preRequisiteWorkshop}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Workshop Duration (In Days)<span class="text-danger"></span></label>
+                                <label class="form-label">Workshop Duration (In Days)<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopDuration}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Workshop Provider</label>
+                                <label class="form-label">Workshop Provider</label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopProvider}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedWorkshopSetup.workshopProvider === 'Other'">
-                                <label class="form-lable">If Other, Workshop Provider<span class="text-danger"></span></label>
+                                <label class="form-label">If Other, Workshop Provider<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopProviderOther}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Evaluation Form</label>
+                                <label class="form-label">Evaluation Form</label>
                                 <label class="form-control">{{selectedWorkshopSetup.evaluationForm}}</label>
                             </div>
                         </div>
@@ -379,11 +379,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Staff</label>
+                                <label class="form-label">Staff</label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopStaffCoordinators}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Other Coordinators</label>
+                                <label class="form-label">Other Coordinators</label>
                                 <label class="form-control">{{selectedWorkshopSetup.workshopOtherCoordinators}}</label>
                             </div>
                         </div>
@@ -393,23 +393,23 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">CPD Score <span class="text-danger"></span></label>
+                                <label class="form-label">CPD Score <span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.cpdScore}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                                <label class="form-label">Manual Type<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.manualType}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedWorkshopSetup.manualType === 'eManual'">
-                                <label class="form-lable">eManual Link</label>
+                                <label class="form-label">eManual Link</label>
                                 <label class="form-control">{{selectedWorkshopSetup.eManualLink}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Minimum No. of manuals required<span class="text-danger"></span></label>
+                                <label class="form-label">Minimum No. of manuals required<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.manualsRequired}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Current no. of manuals available<span class="text-danger"></span></label>
+                                <label class="form-label">Current no. of manuals available<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedWorkshopSetup.manualsAvailable}}</label>
                             </div>
                         </div>
@@ -422,11 +422,11 @@
                     <div class="card-body" >
                         <div class="row mt-1 shadow" *ngFor="let role of selectedWorkshopSetup.roles;">
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Role</label>
+                                <label class="form-label">Role</label>
                                 <label class="form-control">{{role.role}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">No. of Roles<span class="text-danger"></span></label>
+                                <label class="form-label">No. of Roles<span class="text-danger"></span></label>
                                 <label class="form-control">{{role.noOfRoles}}</label>
                             </div>
                             <div class="col-md-12 mb-3">
@@ -434,11 +434,11 @@
                                     <div class="col-md-6 mb-3" *ngFor="let user of role.usersArray;">
                                         <div class="row">
                                             <div class="col-md-7">
-                                                <label class="form-lable">User Name</label>
+                                                <label class="form-label">User Name</label>
                                                 <label class="form-control">{{user.userName}}</label>
                                             </div>
                                             <div class="col-md-5">
-                                                <label class="form-lable">Payable Amount</label>
+                                                <label class="form-label">Payable Amount</label>
                                                 <div class="input-group input-group">
                                                     <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
                                                     <input type="text" 

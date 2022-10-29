@@ -358,8 +358,9 @@ import { ViewAnnualIncentivesComponent } from './education-committee/ec-annual-i
 import { GraduationListsComponent } from './tafus/graduation-lists/graduation-lists.component';
 import { AdmissionViewCvApplicationComponent } from './admission/admission/view-applications/admission-view-cv-application/admission-view-cv-application.component';
 import { TraineeSelectionPageComponent } from './tafus/graduation-lists/trainee-selection-page/trainee-selection-page.component';
-import { GraducationAchievementsPageComponent } from './tafus/graduation-lists/graducation-achievements-page/graducation-achievements-page.component';
+import { GraduationAchievementsPageComponent } from './tafus/graduation-lists/graducation-achievements-page/graducation-achievements-page.component';
 import { ExtensionRequiredListComponent } from './tafus/graduation-lists/extension-required-list/extension-required-list.component';
+import { GraduationRequestViewComponent } from './tafus/graduation-lists/graduation-request-view/graduation-request-view.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -683,8 +684,9 @@ FullCalendarModule.registerPlugins([
     GraduationListsComponent,
     AdmissionViewCvApplicationComponent,
     TraineeSelectionPageComponent,
-    GraducationAchievementsPageComponent,
-    ExtensionRequiredListComponent
+    GraduationAchievementsPageComponent,
+    ExtensionRequiredListComponent,
+    GraduationRequestViewComponent
   ],
   imports: [
     CommonModule,

@@ -11,22 +11,22 @@
             </div>
             <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-3 mb-3">
-                    <label class="form-lable">Applicant Name<span class="text-danger"></span></label>
+                    <label class="form-label">Applicant Name<span class="text-danger"></span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label class="form-lable">Date Range<span class="text-danger"></span></label>
+                    <label class="form-label">Date Range<span class="text-danger"></span></label>
                     <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                     [convertModelValue]="true" mode="range">
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label class="form-lable">Model<span class="text-danger"></span></label>
+                    <label class="form-label">Model<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="[]" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label class="form-lable">Status<span class="text-danger"></span></label>
+                    <label class="form-label">Status<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="[]" placeholder="Please select">
                     </ng-select>

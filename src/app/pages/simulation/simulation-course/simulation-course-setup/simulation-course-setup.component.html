@@ -13,27 +13,27 @@
             </div>
             <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Course Code <span class="text-danger"></span></label>
+                    <label class="form-label">Course Code <span class="text-danger"></span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Course Name<span class="text-danger"></span></label>
+                    <label class="form-label">Course Name<span class="text-danger"></span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Course Type<span class="text-danger"></span></label>
+                    <label class="form-label">Course Type<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.courseTypeList" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Course Provider</label>
+                    <label class="form-label">Course Provider</label>
                     <ng-select 
                         [items]="listData.courseProviderList" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                    <label class="form-label">Manual Type<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.manualTypeList" placeholder="Please select">
                     </ng-select>
@@ -96,49 +96,49 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Course Code <span class="text-danger"></span></label>
+                                    <label class="form-label">Course Code <span class="text-danger"></span></label>
                                     <input type="text" formControlName="courseCode" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Course Name<span class="text-danger"></span></label>
+                                    <label class="form-label">Course Name<span class="text-danger"></span></label>
                                     <input formControlName="courseName" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Course Type<span class="text-danger"></span></label>
+                                    <label class="form-label">Course Type<span class="text-danger"></span></label>
                                     <ng-select 
                                         [items]="listData.courseTypeList" formControlName="courseType" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseType === 'Other'">
-                                    <label class="form-lable">If Other, Course Type<span class="text-danger"></span></label>
+                                    <label class="form-label">If Other, Course Type<span class="text-danger"></span></label>
                                     <input formControlName="courseTypeOther" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label class="form-lable">Course Description<span class="text-danger"></span></label>
+                                    <label class="form-label">Course Description<span class="text-danger"></span></label>
                                     <ckeditor [editor]="Editor" formControlName="courseDescription"></ckeditor>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Pre-Requisite Course</label>
+                                    <label class="form-label">Pre-Requisite Course</label>
                                     <ng-select 
                                         [items]="[]" formControlName="preRequisiteCourse" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Course Duration (In Days)<span class="text-danger"></span></label>
+                                    <label class="form-label">Course Duration (In Days)<span class="text-danger"></span></label>
                                     <input formControlName="courseDuration" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Course Provider</label>
+                                    <label class="form-label">Course Provider</label>
                                     <ng-select 
                                         [items]="listData.courseProviderList" formControlName="courseProvider" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseProvider === 'Other'">
-                                    <label class="form-lable">If Other, Course Provider<span class="text-danger"></span></label>
+                                    <label class="form-label">If Other, Course Provider<span class="text-danger"></span></label>
                                     <input formControlName="courseProviderOther" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Evaluation Form </label>
+                                    <label class="form-label">Evaluation Form </label>
                                     <ng-select 
                                         [multiple]="true"
                                         [items]="listData.evaluationFormList" formControlName="evaluationForm" placeholder="Please select">
@@ -152,7 +152,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Staff</label>
+                                    <label class="form-label">Staff</label>
                                     <ng-select 
                                         [multiple]="true"
                                         [items]="listData.userLists" formControlName="courseStaffCoordinators" 
@@ -160,7 +160,7 @@
                                     </ng-select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Other Coordinators</label>
+                                    <label class="form-label">Other Coordinators</label>
                                     <ng-select 
                                         [multiple]="true"
                                         [items]="listData.userLists" formControlName="courseOtherCoordinators" 
@@ -174,36 +174,36 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">CPD Score <span class="text-danger"></span></label>
+                                    <label class="form-label">CPD Score <span class="text-danger"></span></label>
                                     <input formControlName="cpdScore" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                                    <label class="form-label">Manual Type<span class="text-danger"></span></label>
                                     <ng-select 
                                         [items]="listData.manualTypeList" formControlName="manualType" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.manualType === 'eManual'">
-                                    <label class="form-lable">eManual Link</label>
+                                    <label class="form-label">eManual Link</label>
                                     <div class="d-flex flex-row gap-1">
                                         <input formControlName="eManualLink" type="text" class="form-control">
                                         <button class="btn btn-primary">Upload</button>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Minimum No. of manuals required<span class="text-danger"></span></label>
+                                    <label class="form-label">Minimum No. of manuals required<span class="text-danger"></span></label>
                                     <input formControlName="manualsRequired" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Current no. of manuals available<span class="text-danger"></span></label>
+                                    <label class="form-label">Current no. of manuals available<span class="text-danger"></span></label>
                                     <input formControlName="manualsAvailable" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseProvider === 'AHA'">
-                                    <label class="form-lable">No. of Heartcode Keys</label>
+                                    <label class="form-label">No. of Heartcode Keys</label>
                                     <input formControlName="heartCodeKeys" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="createCourseSetupValues.courseProvider === 'AHA'">
-                                    <label class="form-lable">No. of eCards</label>
+                                    <label class="form-label">No. of eCards</label>
                                     <input formControlName="noOfECards" type="text" class="form-control">
                                 </div>
                             </div>
@@ -221,13 +221,13 @@
                                     <button (click)="deleteRolesArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Role</label>
+                                    <label class="form-label">Role</label>
                                     <ng-select 
                                         [items]="listData.userRolesList" formControlName="role" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">No. of Roles<span class="text-danger"></span></label>
+                                    <label class="form-label">No. of Roles<span class="text-danger"></span></label>
                                     <input formControlName="noOfRoles" (change)="onChangeNoOfRoles(i)" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-12 mb-3">
@@ -367,43 +367,43 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Course Code <span class="text-danger"></span></label>
+                                <label class="form-label">Course Code <span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.courseCode}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Course Name<span class="text-danger"></span></label>
+                                <label class="form-label">Course Name<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.courseName}}</label>                                
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Course Type<span class="text-danger"></span></label>
+                                <label class="form-label">Course Type<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.courseType}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseTypeOther.courseType === 'Other'">
-                                <label class="form-lable">If Other, Course Type<span class="text-danger"></span></label>
+                                <label class="form-label">If Other, Course Type<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.courseTypeOther}}</label>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="form-lable">Course Description<span class="text-danger"></span></label>
+                                <label class="form-label">Course Description<span class="text-danger"></span></label>
                                 <span class="form-control" [innerHtml]="selectedCourseSetup.courseDescription"></span>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Pre-Requisite Course</label>
+                                <label class="form-label">Pre-Requisite Course</label>
                                 <label class="form-control">{{selectedCourseSetup.preRequisiteCourse}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Course Duration (In Days)<span class="text-danger"></span></label>
+                                <label class="form-label">Course Duration (In Days)<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.courseDuration}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Course Provider</label>
+                                <label class="form-label">Course Provider</label>
                                 <label class="form-control">{{selectedCourseSetup.courseProvider}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseProvider === 'Other'">
-                                <label class="form-lable">If Other, Course Provider<span class="text-danger"></span></label>
+                                <label class="form-label">If Other, Course Provider<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.courseProviderOther}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Evaluation Form</label>
+                                <label class="form-label">Evaluation Form</label>
                                 <label class="form-control">{{selectedCourseSetup.evaluationForm}}</label>
                             </div>
                         </div>
@@ -414,11 +414,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Staff</label>
+                                <label class="form-label">Staff</label>
                                 <label class="form-control">{{selectedCourseSetup.courseStaffCoordinators}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Other Coordinators</label>
+                                <label class="form-label">Other Coordinators</label>
                                 <label class="form-control">{{selectedCourseSetup.courseOtherCoordinators}}</label>
                             </div>
                         </div>
@@ -428,31 +428,31 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">CPD Score <span class="text-danger"></span></label>
+                                <label class="form-label">CPD Score <span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.cpdScore}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Manual Type<span class="text-danger"></span></label>
+                                <label class="form-label">Manual Type<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.manualType}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.manualType === 'eManual'">
-                                <label class="form-lable">eManual Link</label>
+                                <label class="form-label">eManual Link</label>
                                 <label class="form-control">{{selectedCourseSetup.eManualLink}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Minimum No. of manuals required<span class="text-danger"></span></label>
+                                <label class="form-label">Minimum No. of manuals required<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.manualsRequired}}</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Current no. of manuals available<span class="text-danger"></span></label>
+                                <label class="form-label">Current no. of manuals available<span class="text-danger"></span></label>
                                 <label class="form-control">{{selectedCourseSetup.manualsAvailable}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseProvider === 'AHA'">
-                                <label class="form-lable">No. of Heartcode Keys</label>
+                                <label class="form-label">No. of Heartcode Keys</label>
                                 <label class="form-control">{{selectedCourseSetup.heartCodeKeys}}</label>
                             </div>
                             <div class="col-md-4 mb-3" *ngIf="selectedCourseSetup.courseProvider === 'AHA'">
-                                <label class="form-lable">No. of eCards</label>
+                                <label class="form-label">No. of eCards</label>
                                 <label class="form-control">{{selectedCourseSetup.noOfECards}}</label>
                             </div>
                         </div>
@@ -465,11 +465,11 @@
                     <div class="card-body" >
                         <div class="row mt-1 shadow" *ngFor="let role of selectedCourseSetup.roles;">
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Role</label>
+                                <label class="form-label">Role</label>
                                 <label class="form-control">{{role.role}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">No. of Roles<span class="text-danger"></span></label>
+                                <label class="form-label">No. of Roles<span class="text-danger"></span></label>
                                 <label class="form-control">{{role.noOfRoles}}</label>
                             </div>
                             <div class="col-md-12 mb-3">
@@ -477,11 +477,11 @@
                                     <div class="col-md-6 mb-3" *ngFor="let user of role.usersArray;">
                                         <div class="row">
                                             <div class="col-md-7">
-                                                <label class="form-lable">User Name</label>
+                                                <label class="form-label">User Name</label>
                                                 <label class="form-control">{{user.userName}}</label>
                                             </div>
                                             <div class="col-md-5">
-                                                <label class="form-lable">Payable Amount</label>
+                                                <label class="form-label">Payable Amount</label>
                                                 <div class="input-group input-group">
                                                     <span class="input-group-text" id="inputGroup-sizing-sm">ر.ع.</span>
                                                     <input type="text" 

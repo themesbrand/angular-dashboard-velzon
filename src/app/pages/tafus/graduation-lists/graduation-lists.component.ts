@@ -7,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
 export class GraduationListsComponent implements OnInit {
 
   userRole: string | null = null;
-
+  breadCrumbItems!: Array<{}>;
+  
   constructor(
   ) { }
 
   ngOnInit(): void {
-    this.userRole = localStorage.getItem('userType');
+    this.breadCrumbItems = [
+      { label: "Graduation", link: '/tafus/graduation'},
+      { label: "Graduation Achievements List", active : true }
+    ];
   }
 
 }

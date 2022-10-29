@@ -11,13 +11,13 @@
             </div>
             <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-3 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-                    <label class="form-lable">Trainee Name</label>
+                    <label class="form-label">Trainee Name</label>
                     <ng-select 
                     [items]="listData.userLists" bindLabel="labelValue" bindValue="name" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label class="form-lable">Program Name</label>
+                    <label class="form-label">Program Name</label>
                     <ng-select 
                     [items]="listData.residencyPrograms" placeholder="Please select">
                     </ng-select>

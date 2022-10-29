@@ -3,7 +3,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import {data} from '../data';
+import {data} from './data';
 
 @Component({
   selector: 'app-graducation-achievements-page',
@@ -24,11 +24,16 @@ import {data} from '../data';
     )
   ],
 })
-export class GraducationAchievementsPageComponent implements OnInit {
+export class GraduationAchievementsPageComponent implements OnInit {
 
   listData = data;
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
+
+  
+  selectedUser :any =  'PA';
+
+  selectedActivity: any;
 
   constructor(
     private router : Router,
@@ -36,6 +41,7 @@ export class GraducationAchievementsPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.listData = data;
     this.breadCrumbItems = [
       { label: "Graduation", link: '/tafus/graduation'},
       { label: "Graduation Achievements List", active : true }
@@ -53,7 +59,12 @@ export class GraducationAchievementsPageComponent implements OnInit {
       this.isFilterOpened = true
     }
   }
+
   
+  setRequest(request : any) {
+    this.selectedActivity = request;
+  }
+
   onNavigate(url : any) {
     this.modalService.dismissAll();
     this.router.navigateByUrl(url);

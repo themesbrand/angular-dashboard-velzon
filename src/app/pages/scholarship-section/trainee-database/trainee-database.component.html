@@ -6,25 +6,25 @@
         <div class="card-body">
             <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Name<span class="text-danger"></span></label>
+                    <label class="form-label">Name<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="[]" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Specialty<span class="text-danger"></span></label>
+                    <label class="form-label">Specialty<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="[]" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Subspecialty<span class="text-danger"></span></label>
+                    <label class="form-label">Subspecialty<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="[]" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Training Type<span class="text-danger"></span></label>
+                    <label class="form-label">Training Type<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="[]" placeholder="Please select">
                     </ng-select>
@@ -100,37 +100,37 @@
             <div class="mt-3">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-lable">Name<span class="text-danger"></span></label>
+                        <label class="form-label">Name<span class="text-danger"></span></label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="form-lable">Arabic Name<span class="text-danger"></span></label>
+                        <label class="form-label">Arabic Name<span class="text-danger"></span></label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">National ID<span class="text-danger"></span></label>
+                        <label class="form-label">National ID<span class="text-danger"></span></label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Specialty<span class="text-danger"></span></label>
+                        <label class="form-label">Specialty<span class="text-danger"></span></label>
                         <ng-select 
                             [items]="['ENT', 'Anesthesia']" placeholder="Please select">
                         </ng-select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Subspecialty<span class="text-danger"></span></label>
+                        <label class="form-label">Subspecialty<span class="text-danger"></span></label>
                         <ng-select 
                             [items]="['ENT', 'Anesthesia']" placeholder="Please select">
                         </ng-select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Training Type<span class="text-danger"></span></label>
+                        <label class="form-label">Training Type<span class="text-danger"></span></label>
                         <ng-select 
                             [items]="[]" placeholder="Please select">
                         </ng-select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Institution<span class="text-danger"></span></label>
+                        <label class="form-label">Institution<span class="text-danger"></span></label>
                         <ng-select 
                             [items]="['Khoula Hospital', 'Al Nahdah Hospital']" placeholder="Please select">
                         </ng-select>
@@ -221,15 +221,15 @@
                         </ng-select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Email 1<span class="text-danger"></span></label>
+                        <label class="form-label">Email 1<span class="text-danger"></span></label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Email 2</label>
+                        <label class="form-label">Email 2</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Local Phone No.</label>
+                        <label class="form-label">Local Phone No.</label>
                         <ngx-intl-tel-input [cssClass]="'custom'" 
                             [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
                             [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
@@ -238,7 +238,7 @@
                         </ngx-intl-tel-input>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">International Phone No.</label>
+                        <label class="form-label">International Phone No.</label>
                         <ngx-intl-tel-input [cssClass]="'custom'" 
                             [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
                             [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
@@ -266,31 +266,31 @@
             <div class="mt-3">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-lable">Name<span class="text-danger"></span></label>
+                        <label class="form-label">Name<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.name}}</label>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="form-lable">Arabic Name<span class="text-danger"></span></label>
+                        <label class="form-label">Arabic Name<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.arabicName}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">National ID<span class="text-danger"></span></label>
+                        <label class="form-label">National ID<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.nationalID}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Specialty<span class="text-danger"></span></label>
+                        <label class="form-label">Specialty<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.specialty}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Subspecialty<span class="text-danger"></span></label>
+                        <label class="form-label">Subspecialty<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.subspecialty}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Training Type<span class="text-danger"></span></label>
+                        <label class="form-label">Training Type<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.trainingType}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Institution<span class="text-danger"></span></label>
+                        <label class="form-label">Institution<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.institution}}</label>
 
                     </div>
@@ -338,19 +338,19 @@
                         <label class="form-control">{{listData.formData.submittedCertificateOfCompletion}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Email 1<span class="text-danger"></span></label>
+                        <label class="form-label">Email 1<span class="text-danger"></span></label>
                         <label class="form-control">{{listData.formData.email1}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Email 2</label>
+                        <label class="form-label">Email 2</label>
                         <label class="form-control">{{listData.formData.email2}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">Local Phone No.</label>
+                        <label class="form-label">Local Phone No.</label>
                         <label class="form-control">{{listData.formData.localPhoneNo}}</label>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label class="form-lable">International Phone No.</label>
+                        <label class="form-label">International Phone No.</label>
                         <label class="form-control">{{listData.formData.internationalPhoneNo}}</label>
                     </div>
                 </div>

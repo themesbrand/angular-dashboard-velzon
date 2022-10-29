@@ -20,7 +20,7 @@
                     </ng-select>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-lable">Research Day (Year)</label>
+                    <label class="form-label">Research Day (Year)</label>
                     <ng-select 
                         [items]="listData.yearsList" placeholder="Please select">
                     </ng-select>
@@ -77,11 +77,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Program Name</label>
+                                    <label class="form-label">Program Name</label>
                                     <label class="form-control">Anesthesia</label>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Research Day (Year)</label>
+                                    <label class="form-label">Research Day (Year)</label>
                                     <ng-select 
                                         [items]="listData.yearsList" placeholder="Please select">
                                     </ng-select>
@@ -101,20 +101,20 @@
                                     <button (click)="deleteWinnersArray(i)" type="button" class="btn btn-outline-danger btn-sm btn-icon waves-effect waves-light"><i class=" ri-delete-bin-5-line"></i></button>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Winner Position<span class="text-danger"></span></label>
+                                    <label class="form-label">Winner Position<span class="text-danger"></span></label>
                                     <ng-select 
                                     [items]="['1st Position', '2nd Position', '3rd Position']" formControlName="position" placeholder="Please select a User">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Winner Name<span class="text-danger"></span></label>
+                                    <label class="form-label">Winner Name<span class="text-danger"></span></label>
                                     <ng-select 
                                     [items]="listData.userLists"
                                     bindLabel="labelValue" formControlName="name" placeholder="Please select a User">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Level<span class="text-danger"></span></label>
+                                    <label class="form-label">Level<span class="text-danger"></span></label>
                                     <label class="form-control">{{winnersArrayControls[i].value.name === null ? 'Please select a User' : winnersArrayControls[i].value?.name?.level}}</label>
                                 </div>
     
@@ -142,11 +142,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Program Name</label>
+                                <label class="form-label">Program Name</label>
                                 <label class="form-control">{{listData.sampleProgramNomination.program}}</label>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-lable">Research Day (Year)</label>
+                                <label class="form-label">Research Day (Year)</label>
                                 <label class="form-control">{{listData.sampleProgramNomination.researchDay}}</label>
 
                             </div>

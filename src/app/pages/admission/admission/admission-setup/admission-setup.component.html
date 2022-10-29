@@ -13,25 +13,25 @@
             </div>
             <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Program Type<span class="text-danger"></span></label>
+                    <label class="form-label">Program Type<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.programType" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Program Name<span class="text-danger"></span></label>
+                    <label class="form-label">Program Name<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.residencyProgramList" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Academic Year<span class="text-danger"></span></label>
+                    <label class="form-label">Academic Year<span class="text-danger"></span></label>
                     <ng-select 
                         [items]="listData.yearsList" placeholder="Please select">
                     </ng-select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Application Date Range<span class="text-danger"></span></label>
+                    <label class="form-label">Application Date Range<span class="text-danger"></span></label>
                     <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                                     [convertModelValue]="true" mode="range">
                 </div>
@@ -93,31 +93,31 @@
                         <p class="h5 mt-2">Interview Panel members</p>
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Civil ID<span class="text-danger"></span></label>
+                                <label class="form-label">Civil ID<span class="text-danger"></span></label>
                                 <label class="form-control">9831321321</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Panel Member Name<span class="text-danger"></span></label>
+                                <label class="form-label">Panel Member Name<span class="text-danger"></span></label>
                                 <label class="form-control">Al Abri Ibraham</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Employer Details<span class="text-danger"></span></label>
+                                <label class="form-label">Employer Details<span class="text-danger"></span></label>
                                 <label class="form-control">MOH</label>
                             </div>
                             <!-- <div class="col-md-4 mb-3" *ngIf="interviewPanelFormValue.employerDetails === 'Other'">
-                                <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                                <label class="form-label">If Other,<span class="text-danger"></span></label>
                                 <input type="text" class="form-control">
                             </div> -->
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Authorized Employer Name<span class="text-danger"></span></label>
+                                <label class="form-label">Authorized Employer Name<span class="text-danger"></span></label>
                                 <label class="form-control">Faisal Gawas</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Authorized Employer Civil ID<span class="text-danger"></span></label>
+                                <label class="form-label">Authorized Employer Civil ID<span class="text-danger"></span></label>
                                 <label class="form-control">98321321321</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Authorized Employer Email ID<span class="text-danger"></span></label>
+                                <label class="form-label">Authorized Employer Email ID<span class="text-danger"></span></label>
                                 <label class="form-control">Faisal@email.com</label>
                             </div>
                         </div>
@@ -131,27 +131,27 @@
                         <p class="h5 mt-2">Filter exam</p>
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-lable">Is filter examination required?<span class="text-danger"></span></label>
+                                <label class="form-label">Is filter examination required?<span class="text-danger"></span></label>
                                 <label class="form-control">Yes</label>
 
                             </div>
                             <div class="col-md-4 mb-3" >
-                                <label class="form-lable">Exam Type<span class="text-danger"></span></label>
+                                <label class="form-label">Exam Type<span class="text-danger"></span></label>
                                 <label class="form-control">Type - 1</label>
 
                             </div>
                             <div class="col-md-4 mb-3" >
-                                <label class="form-lable">Exam Date<span class="text-danger"></span></label>
+                                <label class="form-label">Exam Date<span class="text-danger"></span></label>
                                 <label class="form-control">2022-10-08</label>
 
                             </div>
                             <div class="col-md-4 mb-3" >
-                                <label class="form-lable">Start Time<span class="text-danger"></span></label>
+                                <label class="form-label">Start Time<span class="text-danger"></span></label>
                                 <label class="form-control">08:00AM</label>
 
                             </div>
                             <div class="col-md-4 mb-3" >
-                                <label class="form-lable">End Time<span class="text-danger"></span></label>
+                                <label class="form-label">End Time<span class="text-danger"></span></label>
                                 <label class="form-control">10:00AM</label>
 
                             </div>
@@ -177,32 +177,32 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Program Type<span class="text-danger"></span></label>
+                                    <label class="form-label">Program Type<span class="text-danger"></span></label>
                                     <ng-select 
                                     formControlName="programType"
                                     [items]="listData.programType" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Program Name<span class="text-danger"></span></label>
+                                    <label class="form-label">Program Name<span class="text-danger"></span></label>
                                     <ng-select formControlName="programName"
                                     [items]="programList" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Academic Year<span class="text-danger"></span></label>
+                                    <label class="form-label">Academic Year<span class="text-danger"></span></label>
                                     <ng-select formControlName="academicYear"
                                         [items]="listData.yearsList" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Application Start Date and Time<span class="text-danger"></span></label>
+                                    <label class="form-label">Application Start Date and Time<span class="text-danger"></span></label>
                                     <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                                     formControlName="applicationStartDate"
                                             [enableTime]="true" [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-lable">Application End Date and Time<span class="text-danger"></span></label>
+                                    <label class="form-label">Application End Date and Time<span class="text-danger"></span></label>
                                     <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                                     formControlName="applicationEndDate"
                                             [enableTime]="true" [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'">
@@ -214,43 +214,43 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Medical Qualifications<span class="text-danger"></span></label>
+                                    <label class="form-label">Medical Qualifications<span class="text-danger"></span></label>
                                     <ng-select  [multiple]="true"
                                     formControlName="medicalQualifications" 
                                     [items]="['MD', 'MBBS' , 'BMBS', 'MBChB', 'MBBCh','Other']" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue?.medicalQualifications?.includes('Other') ">
-                                    <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                                    <label class="form-label">If Other,<span class="text-danger"></span></label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Certifications required<span class="text-danger"></span></label>
+                                    <label class="form-label">Certifications required<span class="text-danger"></span></label>
                                     <ng-select 
                                     formControlName="certificationsRequired"  [multiple]="true"
                                     [items]="['BLS','ACLS', 'PALS','Other']" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue?.certificationsRequired?.includes('Other') ">
-                                    <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                                    <label class="form-label">If Other,<span class="text-danger"></span></label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue.programType === 'Fellowship'">
-                                    <label class="form-lable">Completion of training and specialty certificates<span class="text-danger"></span></label>
+                                    <label class="form-label">Completion of training and specialty certificates<span class="text-danger"></span></label>
                                     <ng-select 
                                     formControlName="specialtyCertificates"
                                     [items]="['Yes', 'No']" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3" *ngIf="admissionSetupFormValue.programName === 'General Dentistry program and Oral' || admissionSetupFormValue.programName === 'Maxillofacial surgery program'">
-                                    <label class="form-lable">Membership of Faculty in Dentistry certificate<span class="text-danger"></span></label>
+                                    <label class="form-label">Membership of Faculty in Dentistry certificate<span class="text-danger"></span></label>
                                     <ng-select 
                                     formControlName="dentistryCertificate"
                                     [items]="['Yes', 'No']" placeholder="Please select">
                                     </ng-select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-lable">Selection Exam Required<span class="text-danger"></span></label>
+                                    <label class="form-label">Selection Exam Required<span class="text-danger"></span></label>
                                     <ng-select 
                                     formControlName="selectionExamRequired"
                                     [items]="['Yes', 'No']" placeholder="Please select">
@@ -263,7 +263,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6 mb-3">
-                                    <label class="form-lable">Evaluation Form<span class="text-danger"></span></label>
+                                    <label class="form-label">Evaluation Form<span class="text-danger"></span></label>
                                     <ng-select 
                                     formControlName="evaluationForm"
                                     [items]="['Evaluation Form']" placeholder="Please select">
@@ -320,23 +320,23 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Program Type<span class="text-danger"></span></label>
+                    <label class="form-label">Program Type<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.programType}}</label>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Program Name<span class="text-danger"></span></label>
+                    <label class="form-label">Program Name<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.programName}}</label>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Academic Year<span class="text-danger"></span></label>
+                    <label class="form-label">Academic Year<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.academicYear}}</label>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-lable">Application Start Date and Time<span class="text-danger"></span></label>
+                    <label class="form-label">Application Start Date and Time<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.applicationStartDate | date : 'yyyy-MM-d hh:mm:ss a'}}</label>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-lable">Application End Date and Time<span class="text-danger"></span></label>
+                    <label class="form-label">Application End Date and Time<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.applicationEndDate | date : 'yyyy-MM-d hh:mm:ss a'}}</label>
                 </div>
             </div>
@@ -346,32 +346,32 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Medical Qualifications<span class="text-danger"></span></label>
+                    <label class="form-label">Medical Qualifications<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.medicalQualifications}}</label>
                 </div>
                 <div class="col-md-4 mb-3" *ngIf="listData.admissionData.medicalQualifications === 'Other'">
-                    <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                    <label class="form-label">If Other,<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.medicalQualificationsOther}}</label>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Certifications required<span class="text-danger"></span></label>
+                    <label class="form-label">Certifications required<span class="text-danger"></span></label>
                    <label class="form-control">{{listData.admissionData.certificationsRequired}}</label>
                     
                 </div>
                 <div class="col-md-4 mb-3" *ngIf="listData.admissionData.certificationsRequired === 'Other'">
-                    <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                    <label class="form-label">If Other,<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.certificationsRequiredOther}}</label>
                 </div>
                 <div class="col-md-4 mb-3" *ngIf="listData.admissionData.programType === 'Fellowship'">
-                    <label class="form-lable">Completion of training and specialty certificates<span class="text-danger"></span></label>
+                    <label class="form-label">Completion of training and specialty certificates<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.specialtyCertificates}}</label>
                 </div>
                 <div class="col-md-4 mb-3" *ngIf="listData.admissionData.programName === 'General Dentistry program and Oral' || listData.admissionData.programName === 'Maxillofacial surgery program'">
-                    <label class="form-lable">Membership of Faculty in Dentistry certificate<span class="text-danger"></span></label>
+                    <label class="form-label">Membership of Faculty in Dentistry certificate<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.dentistryCertificate}}</label>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-lable">Selection Exam Required<span class="text-danger"></span></label>
+                    <label class="form-label">Selection Exam Required<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.selectionExamRequired}}</label>
                 </div>
             </div>
@@ -381,7 +381,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label class="form-lable">Evaluation Form<span class="text-danger"></span></label>
+                    <label class="form-label">Evaluation Form<span class="text-danger"></span></label>
                     <label class="form-control">{{listData.admissionData.evaluationForm}}</label>
                 </div>
                 <div class="col-1 mb-3" *ngIf="listData.admissionData.evaluationForm" >
@@ -405,33 +405,33 @@
                 <form [formGroup]="interviewPanelForm">
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Civil ID<span class="text-danger"></span></label>
+                            <label class="form-label">Civil ID<span class="text-danger"></span></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Panel Member Name<span class="text-danger"></span></label>
+                            <label class="form-label">Panel Member Name<span class="text-danger"></span></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Employer Details<span class="text-danger"></span></label>
+                            <label class="form-label">Employer Details<span class="text-danger"></span></label>
                             <ng-select formControlName="employerDetails"
                                 [items]="['OMSB' , 'MOH', 'SQUH' , 'Other']" placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-4 mb-3" *ngIf="interviewPanelFormValue.employerDetails === 'Other'">
-                            <label class="form-lable">If Other,<span class="text-danger"></span></label>
+                            <label class="form-label">If Other,<span class="text-danger"></span></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Authorized Employer Name<span class="text-danger"></span></label>
+                            <label class="form-label">Authorized Employer Name<span class="text-danger"></span></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Authorized Employer Civil ID<span class="text-danger"></span></label>
+                            <label class="form-label">Authorized Employer Civil ID<span class="text-danger"></span></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Authorized Employer Email ID<span class="text-danger"></span></label>
+                            <label class="form-label">Authorized Employer Email ID<span class="text-danger"></span></label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
@@ -455,29 +455,29 @@
                 <form [formGroup]="filterExamForm">
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label class="form-lable">Is filter examination required?<span class="text-danger"></span></label>
+                            <label class="form-label">Is filter examination required?<span class="text-danger"></span></label>
                             <ng-select formControlName="isFilterExamRequired"
                                 [items]="['Yes' , 'No']" placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-4 mb-3" *ngIf="filterExamFormValue.isFilterExamRequired === 'Yes'">
-                            <label class="form-lable">Exam Type<span class="text-danger"></span></label>
+                            <label class="form-label">Exam Type<span class="text-danger"></span></label>
                             <ng-select 
                                 [items]="[]" placeholder="Please select">
                             </ng-select>
                         </div>
                         <div class="col-md-4 mb-3" *ngIf="filterExamFormValue.isFilterExamRequired === 'Yes'">
-                            <label class="form-lable">Exam Date<span class="text-danger"></span></label>
+                            <label class="form-label">Exam Date<span class="text-danger"></span></label>
                             <input class="form-control flatpickr-input" type="text" mwlFlatpickr [altInput]="true"
                                     [convertModelValue]="true" [dateFormat]="'Y-m-d H:i'">
                         </div>
                         <div class="col-md-4 mb-3" *ngIf="filterExamFormValue.isFilterExamRequired === 'Yes'">
-                            <label class="form-lable">Start Time<span class="text-danger"></span></label>
+                            <label class="form-label">Start Time<span class="text-danger"></span></label>
                             <input class="form-control flatpickr-input" type="text" mwlFlatpickr
                                         [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
                         </div>
                         <div class="col-md-4 mb-3" *ngIf="filterExamFormValue.isFilterExamRequired === 'Yes'">
-                            <label class="form-lable">End Time<span class="text-danger"></span></label>
+                            <label class="form-label">End Time<span class="text-danger"></span></label>
                             <input class="form-control flatpickr-input" type="text" mwlFlatpickr
                                         [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
                         </div>

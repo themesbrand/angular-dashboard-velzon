@@ -197,7 +197,7 @@ import { ChangePositionComponent } from './education-committee/change-position/c
 import { EcAnnualIncentivesComponent } from './education-committee/ec-annual-incentives/ec-annual-incentives.component';
 import { GraduationListsComponent } from './tafus/graduation-lists/graduation-lists.component';
 import { TraineeSelectionPageComponent } from './tafus/graduation-lists/trainee-selection-page/trainee-selection-page.component';
-import { GraducationAchievementsPageComponent } from './tafus/graduation-lists/graducation-achievements-page/graducation-achievements-page.component';
+import { GraduationAchievementsPageComponent } from './tafus/graduation-lists/graducation-achievements-page/graducation-achievements-page.component';
 import { ExtensionRequiredListComponent } from './tafus/graduation-lists/extension-required-list/extension-required-list.component';
 
 const routes: Routes = [
@@ -497,7 +497,7 @@ const routes: Routes = [
       { path: 'graduation',  children:[
         { path: '',  component :  GraduationListsComponent},
         { path: 'trainee-selection',  component :  TraineeSelectionPageComponent},
-        { path: 'graduation-achievements',  component :  GraducationAchievementsPageComponent},
+        { path: 'graduation-achievements',  component :  GraduationAchievementsPageComponent},
         { path: 'extension-need',  component :  ExtensionRequiredListComponent},
       ]},
     ]},

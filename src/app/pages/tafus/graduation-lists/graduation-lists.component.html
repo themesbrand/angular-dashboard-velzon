@@ -1,44 +1,45 @@
-<div class="row card-box">
-    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
-        <div class="card card-animate border shadow" [routerLink]="['/tafus/graduation/trainee-selection']">
-            <div class="card-header bg-primary">
-            </div>
-            <div class="card-body">
-                <div class="d-flex card-thumbnail">
-                    TS
+<div class="row mt-1">
+    <div class="col-lg-12">
+        <div class="card mx-n4 card-top-header">
+            <div class="bg-soft-primary">
+                <div class="card-body p-0">
+                    <div class="d-flex flex-row w-100">
+                        <h4 class="fw-bold px-4 my-3">Graduation</h4>
+                    </div>
+                    <div class="d-flex flex-row w-100 mt-2">
+                        <ul ngbNav #customNav="ngbNav" [activeId]="1"  class="nav nav-tabs-custom border-bottom-0" role="tablist">
+                            <li [ngbNavItem]="1" class="nav-item">
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+                                  Trainee Selection
+                                </a>
+                                <ng-template ngbNavContent>
+                                    <app-trainee-selection-page></app-trainee-selection-page> 
+                                </ng-template>
+                            </li>
+                            <li [ngbNavItem]="2" class="nav-item">
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Graduation Achievements List</a>
+                                <ng-template ngbNavContent>
+                                    <app-graducation-achievements-page></app-graducation-achievements-page>
+                                </ng-template>
+                            </li>
+                            <li [ngbNavItem]="3" class="nav-item">
+                              <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">Extension Required List</a>
+                              <ng-template ngbNavContent>
+                                <app-extension-required-list></app-extension-required-list>
+                              </ng-template>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body py-2">
-                <p class="h5">Trainee Selection</p>
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate border shadow" [routerLink]="['/tafus/graduation/graduation-achievements']">
-            <div class="card-header bg-warning">
-            </div>
-            <div class="card-body">
-                <div class="d-flex card-thumbnail">
-                    GS
-                </div>
-            </div>
-            <div class="card-body py-2">
-                <p class="h5">Graduation Achievements List</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org'">
-        <div class="card card-animate border shadow" [routerLink]="['/tafus/graduation/extension-need']">
-            <div class="card-header bg-success">
-            </div>
-            <div class="card-body">
-                <div class="d-flex card-thumbnail">
-                    GS
-                </div>
-            </div>
-            <div class="card-body py-2">
-                <p class="h5">Extension Required List</p>
-            </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="tab-content text-muted">
+          <div [ngbNavOutlet]="customNav"></div>
         </div>
     </div>
 </div>

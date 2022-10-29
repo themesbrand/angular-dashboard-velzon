@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
-import {data} from '../data';
+import {data} from './data';
 
 @Component({
   selector: 'app-trainee-selection-page',
@@ -37,7 +37,6 @@ export class TraineeSelectionPageComponent implements OnInit {
   selectedStatusValue : any;
 
   statusList : any  = [ 'Graduation', 'Extension Required' ]
-  selectedTrainee: any = null;
 
   constructor(
     private router : Router,
@@ -73,12 +72,12 @@ export class TraineeSelectionPageComponent implements OnInit {
     });    
   }
 
-  contactTraineeAction() {
+  contactTraineeAction(trainee: any) {
     
     const indexOfObject = this.listData.tableData.findIndex((object) => {
       console.log(object)
-      console.log(this.selectedTrainee.name)
-      return object.name === this.selectedTrainee.name;
+      console.log(trainee.name)
+      return object.name === trainee.name;
     });
 
     console.log( indexOfObject)
@@ -89,11 +88,6 @@ export class TraineeSelectionPageComponent implements OnInit {
 
     this.modalService.dismissAll();
     
-  }
-
-
-  selectTrainee(trainee: any) {
-    this.selectedTrainee = trainee;
   }
 
   onNavigate(url : any) {
