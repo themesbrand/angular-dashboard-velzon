@@ -63,6 +63,7 @@ export class GraduationAchievementsPageComponent implements OnInit {
   
   setRequest(request : any) {
     this.selectedActivity = request;
+    console.log(this.selectedActivity )
   }
 
   onNavigate(url : any) {

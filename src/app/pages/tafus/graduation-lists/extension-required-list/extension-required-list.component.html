@@ -1,1 +1,269 @@
-<p>extension-required-list works!</p>
+<div class="row mt-1">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row justify-content-between mb-3">
+                        <div class="d-flex flex-row w-25">
+                            <ng-select [(ngModel)]="selectedUser" class="w-100"
+                                [items]="['PA', 'Executive President', 'TAFUS User', 'TA Director' , 'Chairman / PD', 'Assessments and Performance Section', 'Employer', 'Training Sites/OMSB departments']" placeholder="Please select User Role">
+                            </ng-select>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end gap-3">
+                            <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Annual Evaluations Status">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="FITAR Completion">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Resident Development Program">
+                    </ng-select>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <ng-select [items]="[]"
+                    placeholder="Please select Status">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button (click)="onSearch()" class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-nowrap">Trainee Name</th>
+                                    <th scope="col" >Achieve Satisfactory Annual Evaluations</th>
+                                    <th scope="col" >Pass OMSB Part-I Specialty Examination or equivalent</th>
+                                    <th scope="col" >Complete FITAR</th>
+                                    <th scope="col" >FITAR Completed Date</th>
+                                    <th scope="col" >Completed the Resident Development Programs</th>
+                                    <th scope="col">Clearance Status</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr *ngFor="let application of listData.tableData; let i = index">
+                                    <td class="text-nowrap">{{application.name}}</td>
+                                    <td >{{application.annualEvaluations}}</td>
+                                    <td >{{application.passStatus}}</td>
+                                    <td >{{application.fitarComplition}}</td>
+                                    <td >{{application.fitarComplitionDate}}</td>
+                                    <td>{{application.completedResidentDevelopment}}</td>
+                                    <td>{{application.clearanceStatus}}</td>
+                                    <td (click)="openModal(activityStatus, 'md'); setRequest(application)" style="cursor: pointer; color: rgb(3, 3, 147)">{{application.status}}</td> 
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" style="right: 0px !important;" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <container-element [ngSwitch]="selectedUser">
+                                                    <li (click)="openModal(formRequestView, 'xl'); setRequest(application)">
+                                                        <a class="dropdown-item text-wrap" ><i class="mx-1    ri-eye-line"></i>View</a>
+                                                    </li>
+                                                    <some-element *ngSwitchCase="'TAFUS User'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Requested'">
+                                                                <li>
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1  ri-delete-bin-line"></i>Cancel Request</a>
+                                                                </li>
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-phone-line"></i>Contact Trainee</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Request For Cancellation Release'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-phone-line"></i>Request letter for extension of training</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Letter of Cancellation of Released'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-phone-line"></i>Contact Employer</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Cancellation QARAR Submitted'">
+                                                                <li>
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-file-text-line"></i>Initiate Clearance</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Clearance Pending'">
+                                                                <container-element [ngSwitch]="application.clearanceStatus">
+                                                                    <some-element *ngSwitchCase="'Completed'">
+                                                                        <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                            <a class="dropdown-item text-wrap" ><i class="mx-1 ri-profile-line"></i>Generate Certificates</a>
+                                                                        </li>
+                                                                    </some-element>
+                                                                </container-element>                       
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Graduation Booklet Generated'">
+                                                                <li>
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1  ri-check-double-fill"></i>Submit to TA Director</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'PA'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Graduation Achievements Submission'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1   ri-profile-line"></i>Submit Achievements</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Executive President'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Pending Letter of Cancellation of Release'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-profile-line"></i>Submit Extension of training Letter</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Pending Executive President Approval'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-profile-line"></i>Submit Certificate</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'TA Director'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Pending TA Director Approval'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-profile-line"></i>Submit to Chairman / PD</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Chairman / PD'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Pending Chairman/PD Approval'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-profile-line"></i>Submit to Executive President</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Assessments and Performance Section'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Assessments and Performance Section Approval'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1   ri-profile-line"></i>Confirm</a>
+                                                                </li>
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1 ri-arrow-go-back-line"></i>Return</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Employer'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Pending Cancellation QARAR'">
+                                                                <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                    <a class="dropdown-item text-wrap" ><i class="mx-1   ri-profile-line"></i>Upload Release QARAR</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Training Sites/OMSB departments'">
+                                                        <container-element [ngSwitch]="application.status">
+                                                            <some-element *ngSwitchCase="'Clearance Pending'">
+                                                                <container-element [ngSwitch]="application.clearanceStatus">
+                                                                    <some-element *ngSwitchCase="null">
+                                                                        <li (click)="openModal(actionsForm, 'xl'); setRequest(application)">
+                                                                            <a class="dropdown-item text-wrap" ><i class="mx-1   ri-profile-line"></i>Submit Clearance</a>
+                                                                        </li>
+                                                                    </some-element>
+                                                                </container-element>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                </container-element>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>                             
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #actionsForm let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">Extension Required</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-extension-form-request [formRequest]="selectedActivity"></app-extension-form-request>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #formRequestView let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Request</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <app-extension-form-request-view [formRequest]="selectedActivity" [isViewOnly]="true"></app-extension-form-request-view>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>
+
+<ng-template #activityStatus let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Status Tracker</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <ngx-simplebar class="p-3" style="max-height: 364px;">
+                    <div class="acitivity-timeline acitivity-main">
+                        <div class="acitivity-item d-flex mb-3" *ngFor="let stage of selectedActivity.applicationStatus; let i = index">
+                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                                <div class="avatar-title text-light rounded-circle " [ngClass]="stage.status === 'Pending' ? 'bg-warning' : 'bg-success' ">
+                                    <i [ngClass]="stage.status === 'Pending' ? 'ri-loader-2-fill' : 'ri-check-double-line' "></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-1">{{stage.stage}}</h6>
+                                <p class="h7 mb-1">{{stage.name}}</p>
+                                <span class="badge rounded-pill"
+                                    [ngClass]="stage.status === 'Awaiting Approval' ? 'badge-soft-secondary' : 'badge-soft-success' "
+                                >{{stage.status}}</span>
+                                <br>
+                                <small class="my-3 text-muted">{{"Date : "}}{{stage.date === '' ? 'N/A' : stage.date}}</small>
+                                <br>
+                                <small class="my-3 text-muted">{{"By : "}}{{stage.by === '' ? 'N/A' : stage.by}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-simplebar>
+            </div>
+        </div>
+    </div>
+</ng-template>

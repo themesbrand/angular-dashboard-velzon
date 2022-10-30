@@ -1,0 +1,155 @@
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Trainee Name</label>
+        <label class="form-control">{{formRequest.name}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Program Name</label>
+        <label class="form-control">{{formRequest.programName}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Achieve Satisfactory Annual Evaluations</label>
+        <label class="form-control">{{formRequest.annualEvaluations}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Pass OMSB Part-I Specialty Examination or equivalent</label>
+        <label class="form-control">{{formRequest.passStatus}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Complete FITAR</label>
+        <label class="form-control">{{formRequest.fitarComplition}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">FITAR Completed Date</label>
+        <label class="form-control">{{formRequest.fitarComplitionDate}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Completed the required resident development programs?</label>
+        <label class="form-control">{{formRequest.completedResidentDevelopment}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Request Status</label>
+        <label class="form-control">{{formRequest.status}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="formRequest.contactTraineeComments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Comments To Trainee</label>
+        <label class="form-control">{{formRequest.contactTraineeComments}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="formRequest.internationalAwards !== null">
+    <p class="h5 text-primary mt-2">International Awards</p>
+    <div class="col-md-12 shadow border p-2" *ngFor="let award of formRequest.internationalAwards">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">Award</label>
+                <label class="form-control">{{award.award}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Country</label>
+                <label class="form-control">{{award.country}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Date</label>
+                <label class="form-control">{{award.date}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="formRequest.publishedResearch !== null">
+    <p class="h5 text-primary mt-2">Published Research</p>
+    <div class="col-md-12 shadow border p-2" *ngFor="let award of formRequest.publishedResearch">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">Title Of Research</label>
+                <label class="form-control">{{award.titleOfResearch}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Date</label>
+                <label class="form-control">{{award.date}}</label>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Journal Name</label>
+                <label class="form-control">{{award.journalName}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="formRequest.otherAchievements !== null">
+    <p class="h5 text-primary mt-2">Other Achievements</p>
+    <div class="col-md-12 shadow border p-2" *ngFor="let award of formRequest.otherAchievements">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Achievement</label>
+                <label class="form-control">{{award.achievement}}</label>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Date</label>
+                <label class="form-control">{{award.date}}</label>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label">Remark</label>
+                <label class="form-control">{{award.remark}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.programComments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Program Comments</label>
+        <label rows="3" class="form-control">{{formRequest.programComments}}</label>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.apSectionComments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">AP Section Comments</label>
+        <label rows="3" class="form-control">{{formRequest.apSectionComments}}</label>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.tafusComments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">TAFUS Comments</label>
+        <label rows="3" class="form-control">{{formRequest.tafusComments}}</label>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.executivePresidentComments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Executive President Comments </label>
+        <label rows="3" class="form-control">{{formRequest.executivePresidentComments}}</label>
+    </div>
+</div>
+<div class="row mt-2" >
+    <div class="col-md-6 mb-3" *ngIf="formRequest.cancellationOfReleaseLetter !== null">
+        <label class="form-label">Download Letter of cancellation of release</label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+    </div>
+    <div class="col-md-6 mb-3" *ngIf="formRequest.cancellationQarar !== null">
+        <label class="form-label">Download Cancellation QARAR</label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.remarks !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Training Site Remarks</label>
+        <label rows="3" class="form-control">{{formRequest.remarks}}</label>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.trainingSiteAttachments !== null">
+    <div class="col-md-6 mb-3" *ngIf="formRequest.trainingSiteAttachments !== null">
+        <label class="form-label">Download Document Attachments from Training Site</label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.clearanceStatus !== null">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Clearance Status</label>
+        <label rows="3" class="form-control">{{formRequest.clearanceStatus}}</label>
+    </div>
+</div>
+<div class="row mt-2" *ngIf="formRequest.certificate !== null && formRequest.clearanceStatus !== null">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Download Certificate</label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+    </div>
+</div>
