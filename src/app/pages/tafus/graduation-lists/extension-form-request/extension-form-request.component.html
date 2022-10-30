@@ -267,17 +267,17 @@
         <div class="col-md-12 mb-3">
             <label class="form-label">Upload Request letter for extension of training</label>
             <ngx-dropzone (change)="onSelect($event, 'files')"
-                        [multiple]="false">
-                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
-                        <ngx-dropzone-preview *ngFor="let f of files"
-                            [removable]="true" (removed)="onRemove(f, 'files')">
-                            <ngx-dropzone-label
-                            >{{ f.name }} ({{
-                                f.type
-                            }})</ngx-dropzone-label
-                            >
-                        </ngx-dropzone-preview>
-                        </ngx-dropzone>
+                [multiple]="false">
+                <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files"
+                    [removable]="true" (removed)="onRemove(f, 'files')">
+                    <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                        f.type
+                    }})</ngx-dropzone-label
+                    >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
         </div>
     </div>
     <div class="row mt-2" *ngIf="formRequest.cancellationOfReleaseLetter !== null && formRequest.tafusComments !== null">

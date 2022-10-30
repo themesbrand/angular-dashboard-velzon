@@ -169,6 +169,11 @@
                 "id": 29,
                 "label": "ID Replacement",
                 "link": "tafus/id-replacement"
+            },
+            {
+                "id": 30,
+                "label": "Graduation",
+                "link": "tafus/graduation"
             }
         ]
     }

@@ -364,6 +364,7 @@ import { GraduationFormRequestViewComponent } from './tafus/graduation-lists/gra
 import { ExtensionRequiredListComponent } from './tafus/graduation-lists/extension-required-list/extension-required-list.component';
 import { ExtensionFormRequestComponent } from './tafus/graduation-lists/extension-form-request/extension-form-request.component';
 import { ExtensionFormRequestViewComponent } from './tafus/graduation-lists/extension-form-request-view/extension-form-request-view.component';
+import { TraineeGraduationComponent } from './tafus/graduation-lists/trainee-graduation/trainee-graduation.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -692,7 +693,8 @@ FullCalendarModule.registerPlugins([
     GraduationFormRequestViewComponent,
     ExtensionRequiredListComponent,
     ExtensionFormRequestComponent,
-    ExtensionFormRequestViewComponent
+    ExtensionFormRequestViewComponent,
+    TraineeGraduationComponent
   ],
   imports: [
     CommonModule,

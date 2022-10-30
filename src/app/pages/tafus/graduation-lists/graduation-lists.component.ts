@@ -13,6 +13,7 @@ export class GraduationListsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userRole = localStorage.getItem('userType');
     this.breadCrumbItems = [
       { label: "Graduation", link: '/tafus/graduation'},
       { label: "Graduation Achievements List", active : true }
