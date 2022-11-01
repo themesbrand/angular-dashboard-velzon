@@ -365,6 +365,14 @@ import { ExtensionRequiredListComponent } from './tafus/graduation-lists/extensi
 import { ExtensionFormRequestComponent } from './tafus/graduation-lists/extension-form-request/extension-form-request.component';
 import { ExtensionFormRequestViewComponent } from './tafus/graduation-lists/extension-form-request-view/extension-form-request-view.component';
 import { TraineeGraduationComponent } from './tafus/graduation-lists/trainee-graduation/trainee-graduation.component';
+import { ActivityRequestTraineeComponent } from './tafus/academic-activities/academic-activity-requests/activity-request-trainee/activity-request-trainee.component';
+import { ActivityRequestDirectorComponent } from './tafus/academic-activities/academic-activity-requests/activity-request-director/activity-request-director.component';
+import { AssessmentAndPerformanceComponent } from './assessment-and-performance/assessment-and-performance.component';
+import { DevelopAssessmentToolsComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-tools.component';
+import { DevelopAssessmentFormComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-form/develop-assessment-form.component';
+import { DevelopAssessmentDynamicFormComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-dynamic-form/develop-assessment-dynamic-form.component';
+import { DevelopAssessmentFormViewComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-form-view/develop-assessment-form-view.component';
+import { DevelopAssessmentActionFormComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-action-form/develop-assessment-action-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -694,7 +702,15 @@ FullCalendarModule.registerPlugins([
     ExtensionRequiredListComponent,
     ExtensionFormRequestComponent,
     ExtensionFormRequestViewComponent,
-    TraineeGraduationComponent
+    TraineeGraduationComponent,
+    ActivityRequestTraineeComponent,
+    ActivityRequestDirectorComponent,
+    AssessmentAndPerformanceComponent,
+    DevelopAssessmentToolsComponent,
+    DevelopAssessmentFormComponent,
+    DevelopAssessmentDynamicFormComponent,
+    DevelopAssessmentFormViewComponent,
+    DevelopAssessmentActionFormComponent
   ],
   imports: [
     CommonModule,

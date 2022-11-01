@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
+import { data } from './data';
+
+
 @Component({
-  selector: 'app-academic-activity-requests',
-  templateUrl: './academic-activity-requests.component.html',
-  styleUrls: ['./academic-activity-requests.component.scss'],
+  selector: 'app-develop-assessment-tools',
+  templateUrl: './develop-assessment-tools.component.html',
+  styleUrls: ['./develop-assessment-tools.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -21,38 +26,44 @@ import { Router } from '@angular/router';
     )
   ]
 })
-export class AcademicActivityRequestsComponent implements OnInit {
-
-  breadCrumbItems!: Array<{}>;
-  isFilterOpened: boolean = false;
+export class DevelopAssessmentToolsComponent implements OnInit {
 
   userRole: string | null = null;
 
-  selectedUser : any =  'Chairman/PD';
+  listData = data;
+
+  selectedUser :any =  'CH/PD/PA';
+  selectedRequest: any;
+
+  breadCrumbItems!: Array<{}>;
+  isFilterOpened: boolean = false;
+  
 
   constructor(
     private router : Router,
-    private modalService : NgbModal
+    private modalService : NgbModal,
+    private formBuilder : FormBuilder
   ) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [
-      { label: "Academic Activities", link: '/tafus/academic-activities'},
-      { label: "Apply for Academic Activity ", active : true }
-    ];
     this.userRole = localStorage.getItem('userType');
+
+    this.breadCrumbItems = [
+      { label: "Assessment And Performance", link: '/assessment-and-performance'},
+      { label: "Develop New Assessment Tools", active : true }
+    ];
   }
 
+  setRequest(request: any) {
+    this.selectedRequest = request
+  }
+  
   onFilter() {
     if(this.isFilterOpened) {
       this.isFilterOpened = false;
     } else {
       this.isFilterOpened = true
     }
-  }
-
-  onChangeUser(event : any) {
-    this.selectedUser = event  
   }
 
   onNavigate(url : any) {
@@ -63,5 +74,4 @@ export class AcademicActivityRequestsComponent implements OnInit {
   openModal(modal :any, size : any) {
     this.modalService.open(modal, {size : size})
   }
-
 }

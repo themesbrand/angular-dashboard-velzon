@@ -1,0 +1,65 @@
+<div class="row my-2 py-2 bg-light">
+    <p class="h5 text-primary">Create Your New Form</p>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Please select Evaluation Category</label>
+        <ng-select [(ngModel)]="evaluationCategory"  [items]="['Unsatisfactory - Not Evaluated', 'Strongly Disagree - Strongly Agree', '1 - 4', '1 - 5 or More']" placeholder="Please select" (change)="onChangeCategory()">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Please select Input Type</label>
+        <div class="d-flex flex-row gap-3">
+            <ng-select style="min-width: 180px" [(ngModel)]="selectedSelectionType" [items]="['Add Multi Selection', 'Add Input Field']" placeholder="Please select" (change)="onChangeSelection()">
+            </ng-select>
+            <button class="btn btn-sm btn-primary" (click)="addNewCriteriaListRow()">Add New Row</button>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="evaluationCategory !== null">
+        <div class="row" >
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <tbody>
+                            <tr *ngFor="let row of criteriaList; let i = index">
+                                <td [colSpan]="selectedEvaluationCategoryList.length + 3">
+                                    <table class="w-100 table-custom-row" *ngIf="row.selectionValue === 'Add Multi Selection'">
+                                        <tbody class="w-100">
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Please enter the Label Name">
+                                                </td>
+                                                <td *ngFor="let value of selectedEvaluationCategoryList; let j = index">
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <input [value]="value" class="form-check-input text-start" type="radio" id="{{i}}{{j}}" >
+                                                        <label for="{{i}}{{j}}" class="form-check-label mx-2 text-start check-option" >
+                                                            {{value}}
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger" (click)="removeRow(i)">Remove</button>
+                                                </td>
+                                            </tr>
+                                    </table>
+                                    <table class="w-100 table-custom-row"  *ngIf="row.selectionValue === 'Add Input Field'">
+                                        <tbody class="w-100">
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Please enter the Label Name">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger" (click)="removeRow(i)">Remove</button>
+                                                </td>
+                                            </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>

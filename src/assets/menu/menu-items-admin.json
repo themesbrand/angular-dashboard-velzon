@@ -433,5 +433,11 @@
         "label": "Education Committee",
         "icon": "ri-book-2-line",
         "link": "/education-committee"
+    },
+    {
+        "id": 72,
+        "label": "Assessment and Performance",
+        "icon": "ri-bar-chart-grouped-fill",
+        "link": "/assessment-and-performance"
     }
 ]

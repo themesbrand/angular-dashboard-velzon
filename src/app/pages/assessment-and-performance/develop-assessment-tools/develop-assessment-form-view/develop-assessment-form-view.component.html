@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Form Name</label>
+        <label class="form-control">{{selectedRequest.formName}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Common or Program Specific</label>
+        <label class="form-control">{{selectedRequest.commonOrProgramSpecific}}</label>
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Purpose</label>
+        <label class="form-control">{{selectedRequest.purpose}}</label>
+    </div>
+    <div class="col-md-6 mb-3" *ngIf="selectedRequest.commonOrProgramSpecific === 'Program Specific'">
+        <label class="form-label">Programs applicable for</label>
+        <label class="form-control">{{selectedRequest.applicableFor}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Conducted by</label>
+        <label class="form-control">{{selectedRequest.conductedBy}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Intended for</label>
+        <label class="form-control">{{selectedRequest.intendedFor}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">When Matched</label>
+        <label class="form-control">{{selectedRequest.whenMatched}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">When available</label>
+        <label class="form-control">{{selectedRequest.whenAvailable}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">When Due</label>
+        <label class="form-control">{{selectedRequest.whenDue}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Block / Annual Requirement</label>
+        <label class="form-control">{{selectedRequest.blockOrAnnualRequirement}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Mandatory</label>
+        <label class="form-control">{{selectedRequest.mandatory}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Minimum required number</label>
+        <label class="form-control">{{selectedRequest.minimumRequiredNumber}}</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 mb-3" *ngIf="selectedRequest.commentsFromAP !== null">
+        <label class="form-label">Comments from Assessment and Performance Section</label>
+        <label class="form-control">{{selectedRequest.commentsFromAP}}</label>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="selectedRequest.commentsFromGmeDirector !== null && selectedRequest.commentsFromAP !== null">
+        <label class="form-label">Comments from GME Director</label>
+        <label class="form-control">{{selectedRequest.commentsFromGmeDirector}}</label>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="selectedRequest.commentsFromVpaa !== null && selectedRequest.commentsFromGmeDirector !== null">
+        <label class="form-label">Comments from VPAA</label>
+        <label class="form-control">{{selectedRequest.commentsFromVpaa}}</label>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="selectedRequest.commentsFromEacRapporteur !== null && selectedRequest.commentsFromVpaa !== null">
+        <label class="form-label">Comments from EAC Rapporteur</label>
+        <label class="form-control">{{selectedRequest.commentsFromEacRapporteur}}</label>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="selectedRequest.formNumber !== null && selectedRequest.commentsFromEacRapporteur !== null">
+        <label class="form-label">Assessment Form Number</label>
+        <label class="form-control">{{selectedRequest.formNumber}}</label>
+    </div>
+</div>

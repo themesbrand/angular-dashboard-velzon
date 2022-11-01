@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Form Name</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Common or Program Specific</label>
+        <ng-select [items]="['Common', 'Program Specific']" (change)="onChangeSpecific()" [(ngModel)]="formSpecific" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Purpose</label>
+        <textarea rows="3" class="form-control"></textarea>
+    </div>
+    <div class="col-md-6 mb-3" *ngIf="isApplicableFor">
+        <label class="form-label">Programs applicable for</label>
+        <ng-select [items]="['ENT', 'Anesthesia']" [multiple]="true" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Conducted by</label>
+        <ng-select [items]="['CH', 'PD', 'Rotation Supervisor', 'Faculty', 'Chief Resident', 'Trainee']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Intended for</label>
+        <ng-select [items]="['Rotation Supervisor', 'Faculty', 'Trainee']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">When Matched</label>
+        <ng-select [items]="['2 weeks from end of the block', '2 Weeks from end of the AY', 'Beginng of the AY']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">When available</label>
+        <ng-select [items]="['1 week before end of the program', '1 week before the end of the AY']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">When Due</label>
+        <ng-select [items]="['14 days from Block end date', '14 days from end of AY']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Block / Annual Requirement</label>
+        <ng-select [items]="['Block Requirement', 'Annual Requirement']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Mandatory</label>
+        <ng-select [items]="['Yes', 'No']" placeholder="Please select">
+        </ng-select>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Minimum required number</label>
+        <ng-select [items]="['1, 2, 3.. per Block', '1, 2, 3… per AY', 'As per the curriculum']" placeholder="Please select">
+        </ng-select>
+    </div>
+</div>
+<app-develop-assessment-dynamic-form></app-develop-assessment-dynamic-form>
+
+<div class="d-flex flex-row">
+    <button class="btn btn-primary">Submit</button>
+</div>
+
+
+

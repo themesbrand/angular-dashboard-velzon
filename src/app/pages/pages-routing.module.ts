@@ -199,6 +199,8 @@ import { GraduationListsComponent } from './tafus/graduation-lists/graduation-li
 import { TraineeSelectionPageComponent } from './tafus/graduation-lists/trainee-selection-page/trainee-selection-page.component';
 import { GraduationAchievementsPageComponent } from './tafus/graduation-lists/graducation-achievements-page/graducation-achievements-page.component';
 import { ExtensionRequiredListComponent } from './tafus/graduation-lists/extension-required-list/extension-required-list.component';
+import { AssessmentAndPerformanceComponent } from './assessment-and-performance/assessment-and-performance.component';
+import { DevelopAssessmentToolsComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-tools.component';
 
 const routes: Routes = [
     //Default Routing
@@ -509,7 +511,13 @@ const routes: Routes = [
       { path: 'remove-fc-members',  component :  EcRemoveFacultyMemberComponent},
       { path: 'change-position',  component :  ChangePositionComponent},
       { path: 'annual-incentive',  component :  EcAnnualIncentivesComponent},
-      
+    ]},
+    { path : 'assessment-and-performance', children: [
+      { path: '',  component :  AssessmentAndPerformanceComponent},
+      { path: 'develop-new-assessment-tools',  component :  DevelopAssessmentToolsComponent},
+      { path: 'modify-assessment-tools',  component :  DevelopAssessmentToolsComponent},
+      { path: 'provide-support-assessment',  component :  DevelopAssessmentToolsComponent},
+      { path: 'monitor-program-data',  component :  DevelopAssessmentToolsComponent},
     ]},
 
     { path: "employer", children : [
