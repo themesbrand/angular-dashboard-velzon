@@ -70,3 +70,42 @@
         <label class="form-control">{{selectedRequest.formNumber}}</label>
     </div>
 </div>
+<div class="row">
+    <p class="h5 text-primary">Assessment Form Template</p>
+    <div class="col-md-12 mb-3">
+        <div class="row" >
+            <div class="live-preview">     
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover table-wrap mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Criteria</th>
+                                <th *ngFor="let value of selectedRequest.formChoices">{{value}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let question of selectedRequest.form; let i = index">
+                                <td>
+                                    <label class="form-label">{{question.question}}</label>
+                                </td>
+                                <td *ngFor="let choice of question.choices; let j=index" [attr.colspan]="question.colspan">
+                                    <div *ngIf="question.isChoices" class="form-check mb-2">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <input class="form-check-input text-start" type="radio" id="{{i}}{{j}}" name="{{i}}" >
+                                            <label class="form-check-label mx-2 text-start check-option" for="{{i}}{{j}}">
+                                                {{choice}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="!question.isChoices">
+                                        <textarea rows="3" class="form-control"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                             
+            </div>
+        </div>
+    </div>
+</div>

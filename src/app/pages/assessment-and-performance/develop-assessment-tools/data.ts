@@ -28,7 +28,41 @@ const data = {
             commentsFromGmeDirector: null,
             commentsFromVpaa: null,
             commentsFromEacRapporteur: null,
-            formNumber : null
+            formNumber : null,
+            formChoices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+            formChoicesCategory : 'Strongly Disagree - Strongly Agree',
+            form : [
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '1 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '2 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '3 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '4 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["input field"],
+                    colspan : 4,
+                    isChoices : false,
+                    question : 'Comments'
+                },
+            ]
         },
         {
             formName : 'Form Name Sample',
@@ -58,7 +92,41 @@ const data = {
             commentsFromGmeDirector: null,
             commentsFromVpaa: null,
             commentsFromEacRapporteur: null,
-            formNumber : null
+            formNumber : null,
+            formChoices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+            formChoicesCategory : 'Strongly Disagree - Strongly Agree',
+            form : [
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '1 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '2 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '3 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '4 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["input field"],
+                    colspan : 4,
+                    isChoices : false,
+                    question : 'Comments'
+                },
+            ]
         },
         {
             formName : 'Form Name Sample',
@@ -88,7 +156,41 @@ const data = {
             commentsFromGmeDirector: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromVpaa: null,
             commentsFromEacRapporteur: null,
-            formNumber : null
+            formNumber : null,
+            formChoices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+            formChoicesCategory : 'Strongly Disagree - Strongly Agree',
+            form : [
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '1 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '2 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '3 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '4 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["input field"],
+                    colspan : 4,
+                    isChoices : false,
+                    question : 'Comments'
+                },
+            ]
         },
         {
             formName : 'Form Name Sample',
@@ -118,7 +220,41 @@ const data = {
             commentsFromGmeDirector: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromVpaa: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromEacRapporteur: null,
-            formNumber : null
+            formNumber : null,
+            formChoices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+            formChoicesCategory : 'Strongly Disagree - Strongly Agree',
+            form : [
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '1 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '2 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '3 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '4 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["input field"],
+                    colspan : 4,
+                    isChoices : false,
+                    question : 'Comments'
+                },
+            ]
         },
         {
             formName : 'Form Name Sample',
@@ -148,7 +284,41 @@ const data = {
             commentsFromGmeDirector: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromVpaa: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromEacRapporteur: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
-            formNumber : null
+            formNumber : null,
+            formChoices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+            formChoicesCategory : 'Strongly Disagree - Strongly Agree',
+            form : [
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '1 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '2 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '3 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '4 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["input field"],
+                    colspan : 4,
+                    isChoices : false,
+                    question : 'Comments'
+                },
+            ]
         },
         {
             formName : 'Form Name Sample',
@@ -178,7 +348,41 @@ const data = {
             commentsFromGmeDirector: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromVpaa: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
             commentsFromEacRapporteur: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur assumenda cupiditate? Similique, eum aliquam.',
-            formNumber : 'CS32131321'
+            formNumber : 'CS32131321',
+            formChoices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+            formChoicesCategory : 'Strongly Disagree - Strongly Agree',
+            form : [
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '1 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '2 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '3 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["Strongly Disagree", "Disagree", "Agree", "Strongly Agree"],
+                    colspan : 0,
+                    isChoices : true,
+                    question : '4 - Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    choices : ["input field"],
+                    colspan : 4,
+                    isChoices : false,
+                    question : 'Comments'
+                },
+            ]
         },
 
     ]

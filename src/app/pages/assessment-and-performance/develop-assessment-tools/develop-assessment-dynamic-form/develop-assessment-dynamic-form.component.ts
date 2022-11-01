@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-develop-assessment-dynamic-form',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./develop-assessment-dynamic-form.component.scss']
 })
 export class DevelopAssessmentDynamicFormComponent implements OnInit {
+
+  isPreviewForm : boolean = false;
 
   evaluationCategory: any = null;
   evaluationCategoryList : any = [
@@ -32,7 +35,9 @@ export class DevelopAssessmentDynamicFormComponent implements OnInit {
 
   rowValue : any = null;
 
-  constructor() { }
+  constructor(
+    private modalService : NgbModal
+  ) { }
 
   ngOnInit(): void {
   }
@@ -52,12 +57,27 @@ export class DevelopAssessmentDynamicFormComponent implements OnInit {
   }
 
   addNewCriteriaListRow() {
+    let choice : boolean = false;
+    let colspan = 0;
+    let choices : any[] = []
+    
+    if(this.selectedSelectionType === 'Add Multi Selection') {
+      choice = true,
+      choices = this.selectedEvaluationCategoryList
+    } else {
+      const len = this.selectedEvaluationCategoryList.length;
+      colspan = len
+      choices = ['input field']
+
+    }
+
     const row = {
-      rowValue : null,
-      selectionValue: this.selectedSelectionType
+      isChoices : choice,
+      question : null,
+      colspan : colspan,
+      choices : choices
     }
     this.criteriaList.push(row)
-    this.selectedSelectionType = null
     console.log(this.criteriaList)
   }
 
@@ -65,7 +85,24 @@ export class DevelopAssessmentDynamicFormComponent implements OnInit {
    
   }
 
+  onTogglePreview() {
+    if(this.isPreviewForm) {
+      this.isPreviewForm = false
+    } else {
+      this.isPreviewForm = true
+    }
+  }
+ 
+  onChangeCriteria(i : any) {
+    
+    console.log(this.criteriaList[i].question)
+  }
+
   removeRow(i : any) {
     this.criteriaList.splice(i, 1)
+  }
+
+  openModal(modal :any, size : any) {
+    this.modalService.open(modal, {size : size})
   }
 }

@@ -67,12 +67,12 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                <li (click)="openModal(requestView, 'lg'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <container-element [ngSwitch]="selectedUser">
                                                     <some-element *ngSwitchCase="'A&P'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Requested'">
-                                                                <li (click)="openModal(memberAction, 'lg'); setRequest(row)">
+                                                                <li (click)="openModal(memberAction, 'xl'); setRequest(row)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Submit to GME Director</a>
                                                                 </li>
                                                                 <li>
@@ -84,7 +84,7 @@
                                                     <some-element *ngSwitchCase="'GME Director'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Submitted to GME Director'">
-                                                                <li (click)="openModal(memberAction, 'lg'); setRequest(row)">
+                                                                <li (click)="openModal(memberAction, 'xl'); setRequest(row)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Submit to VPAA</a>
                                                                 </li>
                                                                 <li>
@@ -96,7 +96,7 @@
                                                     <some-element *ngSwitchCase="'VPAA'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Submitted to VPAA'">
-                                                                <li (click)="openModal(memberAction, 'lg'); setRequest(row)">
+                                                                <li (click)="openModal(memberAction, 'xl'); setRequest(row)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Add to EAC Meeting agenda</a>
                                                                 </li>
                                                                 <li>
@@ -108,7 +108,7 @@
                                                     <some-element *ngSwitchCase="'EAC Rapporteur'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Added to EAC Meeting agenda'">
-                                                                <li (click)="openModal(memberAction, 'lg'); setRequest(row)">
+                                                                <li (click)="openModal(memberAction, 'xl'); setRequest(row)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Approve</a>
                                                                 </li>
                                                                 <li>
@@ -120,7 +120,7 @@
                                                     <some-element *ngSwitchCase="'CH/PD/PA'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Approved'">
-                                                                <li (click)="openModal(memberAction, 'lg'); setRequest(row)">
+                                                                <li (click)="openModal(memberAction, 'xl'); setRequest(row)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Assessment Form Number</a>
                                                                 </li>
                                                             </some-element>
@@ -129,7 +129,7 @@
                                                     <some-element *ngSwitchCase="'Quality Dept'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Approved'">
-                                                                <li (click)="openModal(memberAction, 'lg'); setRequest(row)">
+                                                                <li (click)="openModal(memberAction, 'xl'); setRequest(row)">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Assessment Form Number</a>
                                                                 </li>
                                                             </some-element>
