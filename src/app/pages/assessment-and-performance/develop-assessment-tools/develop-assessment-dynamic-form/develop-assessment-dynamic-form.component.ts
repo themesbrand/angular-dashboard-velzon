@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,7 +10,7 @@ export class DevelopAssessmentDynamicFormComponent implements OnInit {
 
   isPreviewForm : boolean = false;
 
-  evaluationCategory: any = null;
+  @Input() evaluationCategory: any = null;
   evaluationCategoryList : any = [
     {
       value: 'Unsatisfactory - Not Evaluated', 
@@ -29,8 +29,8 @@ export class DevelopAssessmentDynamicFormComponent implements OnInit {
       list : [ 1, 2, 3, 4, '5 or More']
     }    
   ];
-  selectedEvaluationCategoryList : any = null
-  criteriaList : any[] = []
+  @Input() selectedEvaluationCategoryList : any = null
+  @Input() criteriaList : any[] = []
   selectedSelectionType : any = null
 
   rowValue : any = null;
@@ -40,6 +40,7 @@ export class DevelopAssessmentDynamicFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.selectedEvaluationCategoryList)
   }
 
   onChangeCategory() {

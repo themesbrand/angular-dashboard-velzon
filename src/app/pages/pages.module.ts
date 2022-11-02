@@ -373,6 +373,9 @@ import { DevelopAssessmentFormComponent } from './assessment-and-performance/dev
 import { DevelopAssessmentDynamicFormComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-dynamic-form/develop-assessment-dynamic-form.component';
 import { DevelopAssessmentFormViewComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-form-view/develop-assessment-form-view.component';
 import { DevelopAssessmentActionFormComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-action-form/develop-assessment-action-form.component';
+import { ModifyAssessmentToolsComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-tools.component';
+import { ModifyAssessmentFormComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-form/modify-assessment-form.component';
+import { ModifyAssessmentReviewTeamComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-review-team/modify-assessment-review-team.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -710,7 +713,10 @@ FullCalendarModule.registerPlugins([
     DevelopAssessmentFormComponent,
     DevelopAssessmentDynamicFormComponent,
     DevelopAssessmentFormViewComponent,
-    DevelopAssessmentActionFormComponent
+    DevelopAssessmentActionFormComponent,
+    ModifyAssessmentToolsComponent,
+    ModifyAssessmentFormComponent,
+    ModifyAssessmentReviewTeamComponent
   ],
   imports: [
     CommonModule,

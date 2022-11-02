@@ -201,6 +201,7 @@ import { GraduationAchievementsPageComponent } from './tafus/graduation-lists/gr
 import { ExtensionRequiredListComponent } from './tafus/graduation-lists/extension-required-list/extension-required-list.component';
 import { AssessmentAndPerformanceComponent } from './assessment-and-performance/assessment-and-performance.component';
 import { DevelopAssessmentToolsComponent } from './assessment-and-performance/develop-assessment-tools/develop-assessment-tools.component';
+import { ModifyAssessmentToolsComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-tools.component';
 
 const routes: Routes = [
     //Default Routing
@@ -515,7 +516,7 @@ const routes: Routes = [
     { path : 'assessment-and-performance', children: [
       { path: '',  component :  AssessmentAndPerformanceComponent},
       { path: 'develop-new-assessment-tools',  component :  DevelopAssessmentToolsComponent},
-      { path: 'modify-assessment-tools',  component :  DevelopAssessmentToolsComponent},
+      { path: 'modify-assessment-tools',  component :  ModifyAssessmentToolsComponent},
       { path: 'provide-support-assessment',  component :  DevelopAssessmentToolsComponent},
       { path: 'monitor-program-data',  component :  DevelopAssessmentToolsComponent},
     ]},

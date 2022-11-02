@@ -7,9 +7,9 @@ import { data } from './data';
 
 
 @Component({
-  selector: 'app-develop-assessment-tools',
-  templateUrl: './develop-assessment-tools.component.html',
-  styleUrls: ['./develop-assessment-tools.component.scss'],
+  selector: 'app-modify-assessment-tools',
+  templateUrl: './modify-assessment-tools.component.html',
+  styleUrls: ['./modify-assessment-tools.component.scss'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -25,8 +25,9 @@ import { data } from './data';
     )
   ]
 })
-export class DevelopAssessmentToolsComponent implements OnInit {
+export class ModifyAssessmentToolsComponent implements OnInit {
 
+  
   userRole: string | null = null;
 
   listData = data;
@@ -36,11 +37,10 @@ export class DevelopAssessmentToolsComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
-  
 
   constructor(
     private router : Router,
-    private modalService : NgbModal,
+    private modalService : NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class DevelopAssessmentToolsComponent implements OnInit {
 
     this.breadCrumbItems = [
       { label: "Assessment And Performance", link: '/assessment-and-performance'},
-      { label: "Develop New Assessment Tools", active : true }
+      { label: "Modify Assessment Tools", active : true }
     ];
   }
 

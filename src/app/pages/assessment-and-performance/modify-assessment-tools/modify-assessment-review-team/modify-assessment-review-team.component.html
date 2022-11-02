@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-md-6 mb-3" *ngIf="!isSearchOpen">
+        <label class="form-label">Team Name</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="!isSearchOpen">
+        <div class="d-flex flex-row justify-content-between">
+            <p class="h5 text-primary">Existing Team Members</p>
+            <button class="btn btn-primary mb-2" (click)="openSearch()">Add new Team Member</button>
+        </div>
+        <div class="live-preview">     
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-wrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Civil ID/Resident ID/ Passport #</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of listData.existingList">
+                            <td>{{row.name}}</td>
+                            <td>{{row.position}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.civilId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>                             
+        </div>
+        <div class="d-flex flex-row mt-3">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3 bg-light py-3" *ngIf="isSearchOpen">
+        <p class="h5 text-primary">Team Member Search</p>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Position</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">Civil ID/Resident ID/ Passport ID</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <button class="btn btn-primary" (click)="searchTrainee()" >Search</button>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="isSearch && isSearchOpen">
+        <div class="live-preview">     
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-wrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Civil ID/Resident ID/ Passport #</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of listData.existingList">
+                            <td>{{row.name}}</td>
+                            <td>{{row.position}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.civilId}}</td>
+                            <td>
+                                <div class="d-flex flex-column gap-3">
+                                    <button (click)="closeSearchTrainee()" class="btn btn-primary btn-sm">Invite to Join Review Team</button>
+                                    <button (click)="closeSearchTrainee()" class="btn btn-primary btn-sm">Add to Review Team</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>                             
+        </div>
+    </div>
+</div>
