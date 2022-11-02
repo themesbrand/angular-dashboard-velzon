@@ -59,8 +59,8 @@
 <app-develop-assessment-dynamic-form *ngIf="formListSelection !== null" [evaluationCategory]="formListSelection.formChoicesCategory" [selectedEvaluationCategoryList]="formListSelection.formChoices" [criteriaList]="formListSelection.form"></app-develop-assessment-dynamic-form>
 <div class="row">
     <div class="d-flex flex-row gap-5">
-        <button *ngIf="formListSelection !== null" class="btn btn-primary" (click)="openModal(reviewTeam, 'xl')" >Form Review Team</button>
         <button class="btn btn-primary">Initiate Review</button>
+        <button *ngIf="formListSelection !== null" class="btn btn-primary" (click)="openModal(reviewTeam, 'xl')" >Form Review Team</button>
     </div>
 </div>
 

@@ -148,11 +148,11 @@
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <p class="h5 mt-2">Request for new Assessment Form</p>
+                <p class="h5 mt-2">Modify Assessment Form</p>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modalNew.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3">
-                
+                <app-develop-assessment-form-view [selectedRequest]="selectedRequest"></app-develop-assessment-form-view>
             </div>            
         </div>
     </div>
@@ -162,11 +162,11 @@
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
-                <p class="h5 mt-2">Assessment Form Request</p>
+                <p class="h5 mt-2">Modify Assessment Form</p>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3">
-                
+                <app-develop-assessment-action-form [selectedRequest]="selectedRequest"></app-develop-assessment-action-form>
             </div>            
         </div>
     </div>
