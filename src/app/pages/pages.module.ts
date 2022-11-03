@@ -376,6 +376,12 @@ import { DevelopAssessmentActionFormComponent } from './assessment-and-performan
 import { ModifyAssessmentToolsComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-tools.component';
 import { ModifyAssessmentFormComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-form/modify-assessment-form.component';
 import { ModifyAssessmentReviewTeamComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-review-team/modify-assessment-review-team.component';
+import { ProvideSupportAssessmentComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment.component';
+import { MonitorProgramDataComponent } from './assessment-and-performance/monitor-program-data/monitor-program-data.component';
+import { ProvideSupportAssessmentFormComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-form/provide-support-assessment-form.component';
+import { ProvideSupportAssessmentFormViewComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-form-view/provide-support-assessment-form-view.component';
+import { ProvideSupportAssessmentSetupComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-setup/provide-support-assessment-setup.component';
+import { ProvideSupportAssessmentScheduleComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-schedule/provide-support-assessment-schedule.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -716,7 +722,13 @@ FullCalendarModule.registerPlugins([
     DevelopAssessmentActionFormComponent,
     ModifyAssessmentToolsComponent,
     ModifyAssessmentFormComponent,
-    ModifyAssessmentReviewTeamComponent
+    ModifyAssessmentReviewTeamComponent,
+    ProvideSupportAssessmentComponent,
+    MonitorProgramDataComponent,
+    ProvideSupportAssessmentFormComponent,
+    ProvideSupportAssessmentFormViewComponent,
+    ProvideSupportAssessmentSetupComponent,
+    ProvideSupportAssessmentScheduleComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,83 @@
+<form [formGroup]="createWorkshopSetupForm">
+    <div class="mt-3">
+        <div class="card shadow border">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Training Code <span class="text-danger"></span></label>
+                        <input type="text" formControlName="workshopCode" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Training Name<span class="text-danger"></span></label>
+                        <input formControlName="workshopName" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Training Type<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="listData.workshopTypeList" formControlName="workshopType" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="createWorkshopSetupValues.workshopType === 'Other'">
+                        <label class="form-label">If Other, Training Type<span class="text-danger"></span></label>
+                        <input formControlName="workshopTypeOther" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Training Description<span class="text-danger"></span></label>
+                        <ckeditor [editor]="Editor" formControlName="workshopDescription"></ckeditor>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Pre-Requisite Training</label>
+                        <ng-select 
+                            [items]="[]" formControlName="preRequisiteWorkshop" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Training Duration (In Days)<span class="text-danger"></span></label>
+                        <input formControlName="workshopDuration" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Training Provider</label>
+                        <ng-select 
+                            [items]="listData.workshopProviderList" formControlName="workshopProvider" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngIf="createWorkshopSetupValues.workshopProvider === 'Other'">
+                        <label class="form-label">If Other, Training Provider<span class="text-danger"></span></label>
+                        <input formControlName="workshopProviderOther" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Evaluation Form </label>
+                        <ng-select 
+                            [multiple]="true"
+                            [items]="listData.evaluationFormList" formControlName="evaluationForm" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow border">
+            <p class="h5 px-3 py-2 text-primary">Training Coordinators</p>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Staff</label>
+                        <ng-select 
+                            [multiple]="true"
+                            [items]="listData.userLists" formControlName="workshopStaffCoordinators" 
+                            bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Other Coordinators</label>
+                        <ng-select 
+                            [multiple]="true"
+                            [items]="listData.userLists" formControlName="workshopOtherCoordinators" 
+                            bindLabel="labelValue" bindValue="name" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>
