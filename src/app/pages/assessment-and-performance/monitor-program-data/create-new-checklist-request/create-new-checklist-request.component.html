@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Program Name<span class="text-danger"></span></label>
+        <ng-select class="w-100" [(ngModel)]="selectedProgram"
+            [items]="['ENT', 'Anesthesia']" placeholder="Please select a  Program">
+        </ng-select>
+    </div>
+</div>
+<div class="row" *ngIf="selectedProgram !== null">
+    <div class="live-preview">     
+        <div class="table-responsive">
+            <table class="table align-middle table-hover table-wrap mb-0">
+                <thead>
+                    <tr>
+                        <th colspan="6"><p class="h6 text-light">{{listData.checkList[currentSelection].name}}</p></th>
+                    </tr>
+                    <tr>
+                        <th scope="col" style="max-width: 180px;">Module</th>
+                        <th scope="col">Requirement</th>
+                        <th scope="col">Yes</th>
+                        <th scope="col">No</th>
+                        <th scope="col">INC</th>
+                        <th scope="col" style="min-width: 400px;">Details/Updates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let object of listData.checkList[currentSelection].objects; let i = index">
+                        <td class="text-wrap" style="max-width: 180px;" *ngIf="object.rowSpan !== null" [rowSpan]="object.rowSpan" [innerHtml]="object.module"></td>
+                        <td *ngIf="object.isChoice === false" [colSpan]="5">{{object.requirement}}</td>
+                        <td *ngIf="object.isChoice">{{object.requirement}}</td>
+                        <td *ngIf="object.isChoice">
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check-input" type="radio" name="{{currentSelection}}{{i}}" id="{{currentSelection}}{{i}}{{'Yes'}}" [value]="object.yes">
+                                <label class="form-check-label mx-2" for="{{currentSelection}}{{i}}{{'Yes'}}">Yes</label>
+                            </div>
+                        </td>
+                        <td *ngIf="object.isChoice">
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check-input" type="radio" name="{{currentSelection}}{{i}}" id="{{currentSelection}}{{i}}{{'No'}}" [value]="object.no">
+                                <label class="form-check-label mx-2" for="{{currentSelection}}{{i}}{{'No'}}">No</label>
+                            </div>
+                        </td>
+                        <td *ngIf="object.isChoice">
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check-input" type="radio" name="{{currentSelection}}{{i}}" id="{{currentSelection}}{{i}}{{'NIC'}}" [value]="object.inc">
+                                <label class="form-check-label mx-2" for="{{currentSelection}}{{i}}{{'NIC'}}">NIC</label>
+                            </div>
+                        </td>
+                        <td *ngIf="object.isChoice">
+                            <textarea rows="1" class="form-control" [placeholder]="object.detailsPlaceholder">{{object.details}}</textarea>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>                             
+    </div>
+</div>
+<div class="row mt-2" *ngIf="selectedProgram !== null">
+    <div class="d-flex flex-row justify-content-between">
+        <button class="btn btn-primary">Submit</button>
+        <div class="d-flex flex-row justify-content-between gap-4" >
+            <button class="btn btn-primary btn-sm" (click)="changePage('pre')" [disabled]="currentSelection === 0">Previous</button>
+            <button class="btn btn-primary btn-sm" (click)="changePage('next')" [disabled]="currentSelection === 8">Next</button>
+        </div>
+    </div>
+</div>

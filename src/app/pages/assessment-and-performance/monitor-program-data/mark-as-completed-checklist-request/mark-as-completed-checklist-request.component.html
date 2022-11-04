@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Program Name<span class="text-danger"></span></label>
+        <label class="form-control">{{requestData.program}}</label>
+        
+    </div>
+</div>
+<div class="row" *ngIf="requestData.program !== null">
+    <div class="live-preview">     
+        <div class="table-responsive">
+            <table class="table align-middle table-hover table-wrap mb-0">
+                <thead>
+                    <tr>
+                        <th colspan="6"><p class="h6 text-light">{{requestData.checkList[currentSelection].name}}</p></th>
+                    </tr>
+                    <tr>
+                        <th scope="col" style="max-width: 180px;">Module</th>
+                        <th scope="col">Requirement</th>
+                        <th scope="col">Yes</th>
+                        <th scope="col">No</th>
+                        <th scope="col">INC</th>
+                        <th scope="col" style="min-width: 400px;">Details/Updates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let object of requestData.checkList[currentSelection].objects; let i = index">
+                        <td class="text-wrap" style="max-width: 180px;" *ngIf="object.rowSpan !== null" [rowSpan]="object.rowSpan" [innerHtml]="object.module"></td>
+                        <td *ngIf="object.isChoice === false" [colSpan]="5">{{object.requirement}}</td>
+                        <td *ngIf="object.isChoice">{{object.requirement}}</td>
+                        <td *ngIf="object.isChoice">
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check-input" type="radio" name="{{currentSelection}}{{i}}" id="{{currentSelection}}{{i}}{{'Yes'}}" [checked]="object.yes">
+                                <label class="form-check-label mx-2" for="{{currentSelection}}{{i}}{{'Yes'}}">Yes</label>
+                            </div>
+                        </td>
+                        <td *ngIf="object.isChoice">
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check-input" type="radio" name="{{currentSelection}}{{i}}" id="{{currentSelection}}{{i}}{{'No'}}" [checked]="object.no">
+                                <label class="form-check-label mx-2" for="{{currentSelection}}{{i}}{{'No'}}">No</label>
+                            </div>
+                        </td>
+                        <td *ngIf="object.isChoice">
+                            <div class="form-check d-flex flex-row">
+                                <input class="form-check-input" type="radio" name="{{currentSelection}}{{i}}" id="{{currentSelection}}{{i}}{{'NIC'}}" [checked]="object.inc">
+                                <label class="form-check-label mx-2" for="{{currentSelection}}{{i}}{{'NIC'}}">NIC</label>
+                            </div>
+                        </td>
+                        <td *ngIf="object.isChoice">
+                            <label *ngIf="object.details !== null" class="form-control">{{object.details}}</label>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>                             
+    </div>
+</div>
+<div class="row mt-2" *ngIf="requestData.program !== null">
+    <div class="d-flex flex-row justify-content-end">
+        <div class="d-flex flex-row justify-content-between gap-4" >
+            <button class="btn btn-primary btn-sm" (click)="changePage('pre')" [disabled]="currentSelection === 0">Previous</button>
+            <button class="btn btn-primary btn-sm" (click)="changePage('next')" [disabled]="currentSelection === 8">Next</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" *ngIf="requestData.aPComments !== null">
+        <label class="form-label">A&P Comments<span class="text-danger"></span></label>
+        <label class="form-control">{{requestData.aPComments}}</label>
+
+    </div>
+    <div class="col-md-12" >
+        <label class="form-label">CH/PD/PA Comments<span class="text-danger"></span></label>
+        <textarea rows="1" class="form-control"></textarea>
+    </div>
+</div>
+<div class="d-flex flex-row mt-3">
+    <button class="btn btn-primary btn-sm">Mark as Completed</button>
+
+</div>

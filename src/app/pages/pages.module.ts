@@ -382,6 +382,10 @@ import { ProvideSupportAssessmentFormComponent } from './assessment-and-performa
 import { ProvideSupportAssessmentFormViewComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-form-view/provide-support-assessment-form-view.component';
 import { ProvideSupportAssessmentSetupComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-setup/provide-support-assessment-setup.component';
 import { ProvideSupportAssessmentScheduleComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment-schedule/provide-support-assessment-schedule.component';
+import { CreateNewChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/create-new-checklist-request/create-new-checklist-request.component';
+import { UpdateChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/update-checklist-request/update-checklist-request.component';
+import { ViewChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/view-checklist-request/view-checklist-request.component';
+import { MarkAsCompletedChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/mark-as-completed-checklist-request/mark-as-completed-checklist-request.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -728,7 +732,11 @@ FullCalendarModule.registerPlugins([
     ProvideSupportAssessmentFormComponent,
     ProvideSupportAssessmentFormViewComponent,
     ProvideSupportAssessmentSetupComponent,
-    ProvideSupportAssessmentScheduleComponent
+    ProvideSupportAssessmentScheduleComponent,
+    CreateNewChecklistRequestComponent,
+    UpdateChecklistRequestComponent,
+    ViewChecklistRequestComponent,
+    MarkAsCompletedChecklistRequestComponent
   ],
   imports: [
     CommonModule,
