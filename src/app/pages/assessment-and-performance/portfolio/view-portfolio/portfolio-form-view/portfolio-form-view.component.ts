@@ -11,7 +11,13 @@ export class PortfolioFormViewComponent implements OnInit {
 
   listData = data
 
-  @Input() requestData = null;
+
+  @Input() onEditMode = false;
+
+  progressSummary : any[] = ['Overall Progress', 'Patient Care',	'Medical Knowledge',	'Systems Based',	'Practice Based',	'Professionalism',	'Interpersonal'
+]
+
+  @Input() requestData: any = null;
 
   rotationRequirementsChart:any;
   competencyTrainingYearChart: any;
@@ -295,4 +301,5 @@ export class PortfolioFormViewComponent implements OnInit {
         }
     });
   }
+
 }

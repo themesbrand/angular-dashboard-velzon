@@ -90,13 +90,31 @@
                                                                 </li>
                                                             </some-element>
                                                             <some-element *ngSwitchCase="'Locked'">
-                                                                <li (click)="openModal(portfolioForm, 'xl'); setRequest(row)">
+                                                                <li (click)="setRequest(row); openModal(portfolioForm, 'xl'); unlockForm();">
                                                                     <a class="dropdown-item" ><i class="mx-1 ri-lock-unlock-line"></i>Unlock</a>
                                                                 </li>
                                                             </some-element>
                                                             <some-element *ngSwitchCase="'Submitted'">
                                                                 <li>
                                                                     <a class="dropdown-item" ><i class="mx-1  ri-phone-lock-line"></i>Lock</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Trainee'">
+                                                        <container-element [ngSwitch]="row.status">
+                                                            <some-element *ngSwitchCase="'Submitted'">
+                                                                <li (click)="openModal(portfolioForm, 'xl'); setRequest(row)">
+                                                                    <a class="dropdown-item" ><i class="mx-1   ri-article-line"></i>Agree</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'A&P'">
+                                                        <container-element [ngSwitch]="row.status">
+                                                            <some-element *ngSwitchCase="'Agreed By Trainee'">
+                                                                <li (click)="openModal(portfolioForm, 'xl'); setRequest(row)">
+                                                                    <a class="dropdown-item" ><i class="mx-1   ri-check-double-fill"></i>Approve</a>
                                                                 </li>
                                                             </some-element>
                                                         </container-element>
@@ -122,7 +140,7 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3 ">
-                <app-portfolio-form-view></app-portfolio-form-view>
+                <app-portfolio-form-view [requestData]="selectedRequest"></app-portfolio-form-view>
             </div>            
         </div>
     </div>
@@ -136,7 +154,7 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3 ">
-                <app-portfolio-form></app-portfolio-form>
+                <app-portfolio-form [requestData]="selectedRequest"></app-portfolio-form>
             </div>            
         </div>
     </div>
@@ -150,7 +168,7 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3 ">
-                <app-portfolio-form [fitar]="true"></app-portfolio-form>
+                <app-portfolio-form [requestData]="selectedRequest" [fitar]="true"></app-portfolio-form>
             </div>            
         </div>
     </div>

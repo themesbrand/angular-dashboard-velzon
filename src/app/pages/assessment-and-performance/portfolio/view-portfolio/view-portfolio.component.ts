@@ -72,4 +72,20 @@ export class ViewPortfolioComponent implements OnInit {
     this.modalService.open(modal, {size : size})
   }
 
+  unlockForm() {
+    const temp = {
+      evaluationPeriod : this.selectedRequest.evaluationPeriod,
+      trainingPeriod : this.selectedRequest.trainingPeriod,
+      evaluatedOn : this.selectedRequest.evaluatedOn,
+      evaluatedBy : this.selectedRequest.evaluatedBy,
+      status : this.selectedRequest.status,
+      commentsFromTrainee: null,
+      commentsByAP: null,
+      progressSummary : 'not filled',
+      progressSummaryComments : null,
+    }
+
+    this.selectedRequest = temp;
+  }
+
 }

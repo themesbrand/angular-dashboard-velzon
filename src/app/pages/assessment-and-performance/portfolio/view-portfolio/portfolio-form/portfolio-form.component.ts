@@ -9,7 +9,7 @@ export class PortfolioFormComponent implements OnInit {
 
   @Input() fitar : boolean = false;
 
-  @Input() requestData = null;
+  @Input() requestData : any = null;
 
   progressSummary : any[] = ['Overall Progress', 'Patient Care',	'Medical Knowledge',	'Systems Based',	'Practice Based',	'Professionalism',	'Interpersonal'
 ]

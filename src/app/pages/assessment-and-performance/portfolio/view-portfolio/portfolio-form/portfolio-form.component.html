@@ -1,6 +1,6 @@
-<app-portfolio-form-view></app-portfolio-form-view>
+<app-portfolio-form-view [requestData]="requestData" [onEditMode]="true"></app-portfolio-form-view>
 <div class="row">
-    <div class="col-md-12 mb-3">
+    <div class="col-md-12 mb-3" *ngIf="requestData.progressSummary === 'not filled'">
         <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">Progress Summary</h4>
@@ -45,6 +45,78 @@
                         ><span class="text-danger px-2">{{" * "}}</span>In view of the 'Anesthesia' Education Committee, the above mentioned doctor has  acquired the minimum required competencies, as per the objectives of the Training Program, and is competent to practice as a specialist in Anesthesia."</label
                         >
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.progressSummary === 'filled'">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Progress Summary</h4>
+            </div>
+            <div class="card-body">
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-wrap mb-0">
+                            <thead class="table-light">
+
+                            <tbody>
+                                <tr *ngFor="let data of progressSummary; let i = index">
+                                    <td>{{data}}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" checked="true">
+                                            <label class="form-check-label mx-2" for="flexRadioDefault1">Meet Expectations</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="{{i}}" id="{{i}}" >
+                                            <label class="form-check-label mx-2" for="{{i}}">Require Attention</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="d-flex flex-column mt-4">
+                    <label class="form-label">Comments</label>
+                    <label class="form-control">{{requestData.progressSummaryComments}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.commentsFromTrainee !== null && requestData.progressSummary === 'filled'">
+        <div class="card">
+            <div class="card-body">
+                <label class="form-label">Comments From Trainee</label>
+                <label class="form-control">{{requestData.commentsFromTrainee}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.commentsFromTrainee === null && requestData.progressSummary === 'filled' ">
+        <div class="card">
+            <div class="card-body">
+                <label class="form-label">Comments From Trainee</label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.commentsByAP !== null && requestData.commentsFromTrainee !== null">
+        <div class="card">
+            <div class="card-body">
+                <label class="form-label">Comments From A&P</label>
+                <label class="form-control">{{requestData.commentsByAP}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="requestData.commentsByAP === null && requestData.commentsFromTrainee !== null">
+        <div class="card">
+            <div class="card-body">
+                <label class="form-label">Comments From A&P</label>
+                <textarea rows="3" class="form-control"></textarea>
             </div>
         </div>
     </div>
