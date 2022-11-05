@@ -6,8 +6,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="d-flex flex-row w-25">
+                    <div class="d-flex flex-row" [ngClass]="userRole === 'pd@omsb.org' ? 'justify-content-end' : 'justify-content-between' ">
+                        <div class="d-flex flex-row w-25" *ngIf="userRole === 'eportal@omsb.org'">
                             <ng-select [(ngModel)]="selectedUser" class="w-100"
                                 [items]="['CH/PD/PA', 'A&P']" placeholder="Please select User Role">
                             </ng-select>

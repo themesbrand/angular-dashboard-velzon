@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssessmentAndPerformanceComponent implements OnInit {
 
+  userRole: string | null = null;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.userRole = localStorage.getItem('userType');
+
   }
 
 }

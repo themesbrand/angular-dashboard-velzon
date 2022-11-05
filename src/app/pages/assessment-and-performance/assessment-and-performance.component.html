@@ -1,5 +1,5 @@
 <div class="row card-box">
-    <div class="col-md-3 col-12 mb-3">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
         <div class="card  border shadow" [routerLink]="['/assessment-and-performance/develop-new-assessment-tools']">
             <div class="card-header bg-success">
             </div>
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
         <div class="card  border shadow" [routerLink]="['/assessment-and-performance/modify-assessment-tools']" >
             <div class="card-header bg-primary">
             </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
         <div class="card  border shadow" [routerLink]="['/assessment-and-performance/provide-support-assessment']" >
             <div class="card-header bg-warning">
             </div>
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-12 mb-3">
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'eportal@omsb.org' || userRole === 'pd@omsb.org'">
         <div class="card  border shadow" [routerLink]="['/assessment-and-performance/monitor-program-data']" >
             <div class="card-header bg-danger">
             </div>
@@ -52,6 +52,20 @@
             </div>
             <div class="card-body py-2">
                 <p class="h5">Monitor Program Data</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3" *ngIf="userRole === 'pd@omsb.org' || userRole === 'eportal@omsb.org'">
+        <div class="card  border shadow" [routerLink]="['/assessment-and-performance/trainee-portfolio']" >
+            <div class="card-header bg-danger">
+            </div>
+            <div class="card-body">
+                <div class="d-flex card-thumbnail">
+                    TP 
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <p class="h5">Trainee Portfolio</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,157 @@
+<app-breadcrumbs title="View Portfolio" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/assessment-and-performance/trainee-portfolio')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1" >
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row mb-3"  [ngClass]="userRole === 'pd@omsb.org' ? 'justify-content-end' : 'justify-content-between' ">
+                        <div class="d-flex flex-row w-25" *ngIf="userRole === 'eportal@omsb.org'">
+                            <ng-select [(ngModel)]="selectedUser" class="w-100"
+                                [items]="['CCC/CH/PD', 'A&P', 'Trainee']" placeholder="Please select User Role">
+                            </ng-select>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end gap-3">
+                            <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Trainee Name<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">OMSB Number<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Email<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Residency Level<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Evaluation Period</th>
+                                    <th scope="col">Training Period</th>
+                                    <th scope="col">Evaluated on</th>
+                                    <th scope="col">Evaluated by</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of listData.tableData">
+                                    <td>{{row.evaluationPeriod}}</td>
+                                    <td>{{row.trainingPeriod}}</td>
+                                    <td>{{row.evaluatedOn}}</td>
+                                    <td>{{row.evaluatedBy}}</td>
+                                    <td>{{row.status}}</td> 
+                                    <td>
+                                        <div class="dropdown" ngbDropdown>
+                                            <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                                <i class="ri-more-2-fill"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
+                                                <li (click)="openModal(viewPortfolioForm, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <container-element [ngSwitch]="selectedUser">
+                                                    <some-element *ngSwitchCase="'CCC/CH/PD'">
+                                                        <container-element [ngSwitch]="row.status">
+                                                            <some-element *ngSwitchCase="'Draft'">
+                                                                <li (click)="openModal(portfolioForm, 'xl'); setRequest(row)">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Submit the 6 months evaluation</a>
+                                                                </li>
+                                                                <li (click)="openModal(portfolioForm, 'xl'); setRequest(row)">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Submit Annual evaluation</a>
+                                                                </li>
+                                                                <li (click)="openModal(portfolioFitarForm, 'xl'); setRequest(row)">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-file-edit-line"></i>Submit FITAR</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Locked'">
+                                                                <li (click)="openModal(portfolioForm, 'xl'); setRequest(row)">
+                                                                    <a class="dropdown-item" ><i class="mx-1 ri-lock-unlock-line"></i>Unlock</a>
+                                                                </li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Submitted'">
+                                                                <li>
+                                                                    <a class="dropdown-item" ><i class="mx-1  ri-phone-lock-line"></i>Lock</a>
+                                                                </li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                </container-element>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+    </div>
+</div>
+
+<ng-template #viewPortfolioForm let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">View Portfolio</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3 ">
+                <app-portfolio-form-view></app-portfolio-form-view>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #portfolioForm let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Trainee Portfolio</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3 ">
+                <app-portfolio-form></app-portfolio-form>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #portfolioFitarForm let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Trainee Portfolio</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3 ">
+                <app-portfolio-form [fitar]="true"></app-portfolio-form>
+            </div>            
+        </div>
+    </div>
+</ng-template>

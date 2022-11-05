@@ -138,5 +138,11 @@
                 "link": "admission/admission"
             }
         ]
+    },
+    {
+        "id": 25,
+        "label": "Assessment and Performance",
+        "icon": "ri-bar-chart-grouped-fill",
+        "link": "/assessment-and-performance"
     }
 ]

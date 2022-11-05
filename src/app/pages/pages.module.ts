@@ -386,6 +386,10 @@ import { CreateNewChecklistRequestComponent } from './assessment-and-performance
 import { UpdateChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/update-checklist-request/update-checklist-request.component';
 import { ViewChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/view-checklist-request/view-checklist-request.component';
 import { MarkAsCompletedChecklistRequestComponent } from './assessment-and-performance/monitor-program-data/mark-as-completed-checklist-request/mark-as-completed-checklist-request.component';
+import { PortfolioComponent } from './assessment-and-performance/portfolio/portfolio.component';
+import { ViewPortfolioComponent } from './assessment-and-performance/portfolio/view-portfolio/view-portfolio.component';
+import { PortfolioFormViewComponent } from './assessment-and-performance/portfolio/view-portfolio/portfolio-form-view/portfolio-form-view.component';
+import { PortfolioFormComponent } from './assessment-and-performance/portfolio/view-portfolio/portfolio-form/portfolio-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -736,7 +740,11 @@ FullCalendarModule.registerPlugins([
     CreateNewChecklistRequestComponent,
     UpdateChecklistRequestComponent,
     ViewChecklistRequestComponent,
-    MarkAsCompletedChecklistRequestComponent
+    MarkAsCompletedChecklistRequestComponent,
+    PortfolioComponent,
+    ViewPortfolioComponent,
+    PortfolioFormViewComponent,
+    PortfolioFormComponent
   ],
   imports: [
     CommonModule,

@@ -204,6 +204,8 @@ import { DevelopAssessmentToolsComponent } from './assessment-and-performance/de
 import { ModifyAssessmentToolsComponent } from './assessment-and-performance/modify-assessment-tools/modify-assessment-tools.component';
 import { ProvideSupportAssessmentComponent } from './assessment-and-performance/provide-support-assessment/provide-support-assessment.component';
 import { MonitorProgramDataComponent } from './assessment-and-performance/monitor-program-data/monitor-program-data.component';
+import { PortfolioComponent } from './assessment-and-performance/portfolio/portfolio.component';
+import { ViewPortfolioComponent } from './assessment-and-performance/portfolio/view-portfolio/view-portfolio.component';
 
 const routes: Routes = [
     //Default Routing
@@ -521,6 +523,11 @@ const routes: Routes = [
       { path: 'modify-assessment-tools',  component :  ModifyAssessmentToolsComponent},
       { path: 'provide-support-assessment',  component :  ProvideSupportAssessmentComponent},
       { path: 'monitor-program-data',  component :  MonitorProgramDataComponent},
+      { path: 'trainee-portfolio',  children: [
+        { path: '',  component :  PortfolioComponent},
+        { path: 'view-portfolio',  component :  ViewPortfolioComponent},
+        
+      ]},
     ]},
 
     { path: "employer", children : [
