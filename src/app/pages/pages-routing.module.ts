@@ -206,6 +206,7 @@ import { ProvideSupportAssessmentComponent } from './assessment-and-performance/
 import { MonitorProgramDataComponent } from './assessment-and-performance/monitor-program-data/monitor-program-data.component';
 import { PortfolioComponent } from './assessment-and-performance/portfolio/portfolio.component';
 import { ViewPortfolioComponent } from './assessment-and-performance/portfolio/view-portfolio/view-portfolio.component';
+import { SixMonthAndAnnualEvaluationFormNewComponent } from './forms/six-month-and-annual-evaluation-form-new/six-month-and-annual-evaluation-form-new.component';
 
 const routes: Routes = [
     //Default Routing
@@ -220,7 +221,8 @@ const routes: Routes = [
       { path: "rotation-evaluation-form", component: RotationEvaluationFormComponent },
       { path: "in-training-evaluation-form", component: InTrainingEvaluationReportComponent },
       { path: "presentation-evaluation-form", component: PresentationEvaluationFormComponent },
-      { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormComponent },
+      { path: "six-month-and-annual-evaluation-form-old", component: SixMonthAndAnnualEvaluationFormComponent },
+      { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormNewComponent },
       
     ] },
     { path: "curriculum", children: [

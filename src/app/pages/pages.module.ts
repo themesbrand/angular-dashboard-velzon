@@ -390,6 +390,7 @@ import { PortfolioComponent } from './assessment-and-performance/portfolio/portf
 import { ViewPortfolioComponent } from './assessment-and-performance/portfolio/view-portfolio/view-portfolio.component';
 import { PortfolioFormViewComponent } from './assessment-and-performance/portfolio/view-portfolio/portfolio-form-view/portfolio-form-view.component';
 import { PortfolioFormComponent } from './assessment-and-performance/portfolio/view-portfolio/portfolio-form/portfolio-form.component';
+import { SixMonthAndAnnualEvaluationFormNewComponent } from './forms/six-month-and-annual-evaluation-form-new/six-month-and-annual-evaluation-form-new.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -744,7 +745,8 @@ FullCalendarModule.registerPlugins([
     PortfolioComponent,
     ViewPortfolioComponent,
     PortfolioFormViewComponent,
-    PortfolioFormComponent
+    PortfolioFormComponent,
+    SixMonthAndAnnualEvaluationFormNewComponent
   ],
   imports: [
     CommonModule,
