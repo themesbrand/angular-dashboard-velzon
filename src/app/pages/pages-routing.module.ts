@@ -207,6 +207,9 @@ import { MonitorProgramDataComponent } from './assessment-and-performance/monito
 import { PortfolioComponent } from './assessment-and-performance/portfolio/portfolio.component';
 import { ViewPortfolioComponent } from './assessment-and-performance/portfolio/view-portfolio/view-portfolio.component';
 import { SixMonthAndAnnualEvaluationFormNewComponent } from './forms/six-month-and-annual-evaluation-form-new/six-month-and-annual-evaluation-form-new.component';
+import { CurriculumAndFacultyDevelopmentComponent } from './curriculum-and-faculty-development/curriculum-and-faculty-development.component';
+import { CreateNewProgramComponent } from './curriculum-and-faculty-development/create-new-program/create-new-program.component';
+import { CurriculumReviewComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review.component';
 
 const routes: Routes = [
     //Default Routing
@@ -225,6 +228,12 @@ const routes: Routes = [
       { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormNewComponent },
       
     ] },
+    { path: "curriculum-new", children: [
+        { path: "", component: CurriculumAndFacultyDevelopmentComponent },
+        { path: "new-program", component: CreateNewProgramComponent },
+        { path: "curriculum-review", component: CurriculumReviewComponent },
+      ] 
+    },
     { path: "curriculum", children: [
         { path: "", component: EcSetupComponent },
         { path: "create-program", component: CreateProgramComponent },

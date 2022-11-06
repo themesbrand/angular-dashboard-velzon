@@ -8,7 +8,6 @@
                             <tr>
                                 <th scope="col">Application Id</th>
                                 <th scope="col">Application Intake Year</th>
-                                <th scope="col">Exam Type</th>
                                 <th scope="col">Application Date</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"></th>
@@ -18,7 +17,6 @@
                             <tr *ngFor="let application of listData.tableData">
                                 <td>{{application.id}}</td>
                                 <td>{{application.intakeYear}}</td>
-                                <td>{{application.examType}}</td>
                                 <td>{{application.appliedDate}}</td>
                                 <td>{{application.status}}</td>
                                 <td>

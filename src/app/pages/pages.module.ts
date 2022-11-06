@@ -391,6 +391,10 @@ import { ViewPortfolioComponent } from './assessment-and-performance/portfolio/v
 import { PortfolioFormViewComponent } from './assessment-and-performance/portfolio/view-portfolio/portfolio-form-view/portfolio-form-view.component';
 import { PortfolioFormComponent } from './assessment-and-performance/portfolio/view-portfolio/portfolio-form/portfolio-form.component';
 import { SixMonthAndAnnualEvaluationFormNewComponent } from './forms/six-month-and-annual-evaluation-form-new/six-month-and-annual-evaluation-form-new.component';
+import { CurriculumAndFacultyDevelopmentComponent } from './curriculum-and-faculty-development/curriculum-and-faculty-development.component';
+import { CreateNewProgramComponent } from './curriculum-and-faculty-development/create-new-program/create-new-program.component';
+import { CurriculumReviewComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review.component';
+import { CreateNewProgramFormComponent } from './curriculum-and-faculty-development/create-new-program/create-new-program-form/create-new-program-form.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -746,7 +750,11 @@ FullCalendarModule.registerPlugins([
     ViewPortfolioComponent,
     PortfolioFormViewComponent,
     PortfolioFormComponent,
-    SixMonthAndAnnualEvaluationFormNewComponent
+    SixMonthAndAnnualEvaluationFormNewComponent,
+    CurriculumAndFacultyDevelopmentComponent,
+    CreateNewProgramComponent,
+    CurriculumReviewComponent,
+    CreateNewProgramFormComponent
   ],
   imports: [
     CommonModule,

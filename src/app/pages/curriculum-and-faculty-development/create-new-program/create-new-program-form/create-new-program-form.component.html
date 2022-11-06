@@ -1,0 +1,103 @@
+<form [formGroup]="requestForm">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Proposed Program Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Proposed Program Director <span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Type of Training Program <span class="text-danger">*</span></label>
+            <ng-select class="w-100"
+                [items]="['Residency', 'Fellowship', 'Other']" formControlName='trainingProgram' placeholder="Please select option">
+            </ng-select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Classification <span class="text-danger">*</span></label>
+            <ng-select class="w-100"
+                [[items]="['Medical', 'Surgical', 'Laboratory', 'Dental', 'Other']" formControlName='classification' placeholder="Please select option">
+            </ng-select>
+        </div>
+        <div class="col-md-4 mb-3" *ngIf="formValues.classification === 'Other'">
+            <label class="form-label">If Other Classification, please specify<span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Program Duration (in years) <span class="text-danger">*</span></label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Proposed Primary Hospital (choose only one)<span class="text-danger">*</span></label>
+            <ng-select class="w-100" 
+                [items]="hospitalList" formControlName='primaryTrainingHospital' placeholder="Please select option">
+            </ng-select>
+        </div>
+        <div class="col-md-4 mb-3" *ngIf="this.formValues.primaryTrainingHospital === 'Other'">
+            <label class="form-label">If Other Primary Hospital, please specify<span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Proposed Participating Sites (choose all that apply)<span class="text-danger">*</span></label>
+            <ng-select class="w-100" [multiple]="true"
+                [items]="participatingHospitalList" formControlName='participatingSites' placeholder="Please select option">
+            </ng-select>
+        </div>
+        <div class="col-md-4 mb-3" *ngIf="isParticipateOther">
+            <label class="form-label">If Other Proposed Participating Sites, please specify<span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Proposed Intake per year <span class="text-danger">*</span></label>
+            <input type="number" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <p class="h5 text-primary">Recruitment/Eligibility</p>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Applicant Eligibility<span class="text-danger">*</span></label>
+            <ng-select class="w-100" 
+                [items]="['MD or MBBCh', 'DDS or DMD', 'Completion of a residency program', 'Other']" formControlName='applicantEligibility' placeholder="Please select option">
+            </ng-select>
+        </div>
+        <div class="col-md-4 mb-3" *ngIf="this.formValues.applicantEligibility === 'Other'">
+            <label class="form-label">If Other Applicant Eligibility, please specify<span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <p class="h5 text-primary">Resources for Training at the primary training site</p>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Number of Faculty<span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-12 mb-3">
+            <p class="h6 text-primary">Clinical Volume</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Total Hospital Visits<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Department Visit<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Volume of cases related to the proposed program<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Describe the space and facilities such as office/clinic space, computers, on‑call room, resident lounge, shower, etc.<span class="text-danger">*</span></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Other important resources (kindly state the site)<span class="text-danger">*</span></label>
+            textarea.form-control
+            <input type="text" class="form-control">
+        </div>
+    </div>
+
+</form>
