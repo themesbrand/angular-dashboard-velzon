@@ -27,7 +27,7 @@ export class AddRotationComponent implements OnInit {
     this.breadCrumbItems = [
       { label: "Curriculum and Faculty Development", link: '/curriculum'},
       { label: "Starting New Program", link: '/curriculum/new-program' },
-      { label: "View Program", link: '/curriculum/view-program' },
+      { label: "View Curriculum", link: '/curriculum/view-program' },
       { label: "Add Rotation", active : true }
     ];
     this.rotationFormInit()

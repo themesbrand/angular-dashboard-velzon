@@ -16,7 +16,7 @@ export class ViewProgramComponent implements OnInit {
     this.breadCrumbItems = [
       { label: "Curriculum and Faculty Development", link: '/curriculum'},
       { label: "Starting New Program", link: '/curriculum/new-program' },
-      { label: "View Program", active : true }
+      { label: "View Curriculum", active : true }
     ];
 
   }

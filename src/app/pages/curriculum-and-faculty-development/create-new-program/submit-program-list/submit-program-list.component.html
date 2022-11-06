@@ -30,10 +30,10 @@
                                         <li (click)="openModal(createNewProgram, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>Submit Curriculum </a></li>
                                     </some-element>
                                     <some-element *ngSwitchCase="'Pending CFDS Review'">
-                                        <li [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program</a></li>
+                                        <li [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Curriculum</a></li>
                                     </some-element>
                                     <some-element *ngSwitchCase="'Curriculum Finalized'">
-                                        <li [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program</a></li>
+                                        <li [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Curriculum</a></li>
                                     </some-element>
                                 </container-element>
                             </ul>
