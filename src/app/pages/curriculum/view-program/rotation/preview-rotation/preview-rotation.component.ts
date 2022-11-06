@@ -20,8 +20,9 @@ export class PreviewRotationComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "Curriculum", link: '/curriculum'},
-      { label: "View Program", link: '/curriculum/view-program'},
+      { label: "Curriculum and Faculty Development", link: '/curriculum'},
+      { label: "Starting New Program", link: '/curriculum/new-program' },
+      { label: "View Program", link: '/curriculum/view-program' },
       { label: "View Rotation", active : true }
     ];
     this.formInit();

@@ -397,6 +397,9 @@ import { CurriculumReviewComponent } from './curriculum-and-faculty-development/
 import { CreateNewProgramFormComponent } from './curriculum-and-faculty-development/create-new-program/create-new-program-form/create-new-program-form.component';
 import { ViewNewProgramFormComponent } from './curriculum-and-faculty-development/create-new-program/view-new-program-form/view-new-program-form.component';
 import { NewProgramFormActionsComponent } from './curriculum-and-faculty-development/create-new-program/new-program-form-actions/new-program-form-actions.component';
+import { SubmitProgramListComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-list/submit-program-list.component';
+import { SubmitProgramFormComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/submit-program-form.component';
+import { SubmitProgramViewComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-view/submit-program-view.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -758,7 +761,10 @@ FullCalendarModule.registerPlugins([
     CurriculumReviewComponent,
     CreateNewProgramFormComponent,
     ViewNewProgramFormComponent,
-    NewProgramFormActionsComponent
+    NewProgramFormActionsComponent,
+    SubmitProgramListComponent,
+    SubmitProgramFormComponent,
+    SubmitProgramViewComponent
   ],
   imports: [
     CommonModule,

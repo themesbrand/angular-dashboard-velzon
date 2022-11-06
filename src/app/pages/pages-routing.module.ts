@@ -231,9 +231,15 @@ const routes: Routes = [
     { path: "curriculum", children: [
         { path: "", component: CurriculumAndFacultyDevelopmentComponent },
         { path: "new-program", component: CreateNewProgramComponent },
+        { path: "view-program", component: ViewProgramComponent },
+        { path: "add-rotation", component: AddRotationComponent },
+        { path: "view-rotation", component: PreviewRotationComponent },
+        { path: "allocate-procedure", component: AllocateProcedureComponent },
+
+        
         { path: "curriculum-review", component: CurriculumReviewComponent },
       ] 
-    },
+  },
     // { path: "curriculum", children: [
     //     { path: "", component: EcSetupComponent },
     //     { path: "create-program", component: CreateProgramComponent },

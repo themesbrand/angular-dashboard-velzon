@@ -9,7 +9,7 @@
                     <div class="d-flex flex-row mb-3"  [ngClass]="userRole === 'pd@omsb.org' ? 'justify-content-end' : 'justify-content-between' ">
                         <div class="d-flex flex-row w-25" *ngIf="userRole === 'eportal@omsb.org'">
                             <ng-select [(ngModel)]="selectedUser" class="w-100"
-                                [items]="['VPAA', 'CH/PD/PA', 'Requestor', 'Board and Committee Section/EPO', 'CFDS']" placeholder="Please select User Role">
+                                [items]="['VPAA', 'CH/PD/PA', 'Requestor', 'Board and Committee Section/EPO', 'CFDS', 'TaskForce']" placeholder="Please select User Role">
                             </ng-select>
                         </div>
                         <div class="d-flex flex-row justify-content-end gap-3">
@@ -40,7 +40,7 @@
                     <button class="btn btn-primary my-2">Filter</button>
                 </div>
             </div>
-            <div class="row" >
+            <div class="row" *ngIf="selectedUser !== 'TaskForce'">
                 <div class="live-preview">     
                     <div class="table-responsive">
                         <table class="table align-middle table-hover table-wrap mb-0">
@@ -68,6 +68,8 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li *ngIf="row.status === 'Pending CFDS Review'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program</a></li>
+                                                <li *ngIf="row.status === 'Curriculum Finalized'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program</a></li>
                                                 <container-element [ngSwitch]="selectedUser">
                                                     <some-element *ngSwitchCase="'VPAA'">
                                                         <container-element [ngSwitch]="row.status">
@@ -131,6 +133,9 @@
                         </table>
                     </div>                             
                 </div>
+            </div>
+            <div class="row" *ngIf="selectedUser === 'TaskForce'">
+                <app-submit-program-list></app-submit-program-list>
             </div>
     </div>
 </div>

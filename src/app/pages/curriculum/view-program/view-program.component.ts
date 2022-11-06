@@ -14,9 +14,11 @@ export class ViewProgramComponent implements OnInit {
   }
   ngOnInit(): void {
     this.breadCrumbItems = [
-      { label: "Curriculum", link: '/curriculum'},
+      { label: "Curriculum and Faculty Development", link: '/curriculum'},
+      { label: "Starting New Program", link: '/curriculum/new-program' },
       { label: "View Program", active : true }
     ];
+
   }
 
   
