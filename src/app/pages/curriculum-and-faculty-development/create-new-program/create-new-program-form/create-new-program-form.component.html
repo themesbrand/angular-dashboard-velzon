@@ -1,103 +1,217 @@
 <form [formGroup]="requestForm">
-    <div class="row">
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Proposed Program Name <span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Proposed Program Director <span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Type of Training Program <span class="text-danger">*</span></label>
-            <ng-select class="w-100"
-                [items]="['Residency', 'Fellowship', 'Other']" formControlName='trainingProgram' placeholder="Please select option">
-            </ng-select>
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Classification <span class="text-danger">*</span></label>
-            <ng-select class="w-100"
-                [[items]="['Medical', 'Surgical', 'Laboratory', 'Dental', 'Other']" formControlName='classification' placeholder="Please select option">
-            </ng-select>
-        </div>
-        <div class="col-md-4 mb-3" *ngIf="formValues.classification === 'Other'">
-            <label class="form-label">If Other Classification, please specify<span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Program Duration (in years) <span class="text-danger">*</span></label>
-            <input type="number" class="form-control">
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Proposed Primary Hospital (choose only one)<span class="text-danger">*</span></label>
-            <ng-select class="w-100" 
-                [items]="hospitalList" formControlName='primaryTrainingHospital' placeholder="Please select option">
-            </ng-select>
-        </div>
-        <div class="col-md-4 mb-3" *ngIf="this.formValues.primaryTrainingHospital === 'Other'">
-            <label class="form-label">If Other Primary Hospital, please specify<span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Proposed Participating Sites (choose all that apply)<span class="text-danger">*</span></label>
-            <ng-select class="w-100" [multiple]="true"
-                [items]="participatingHospitalList" formControlName='participatingSites' placeholder="Please select option">
-            </ng-select>
-        </div>
-        <div class="col-md-4 mb-3" *ngIf="isParticipateOther">
-            <label class="form-label">If Other Proposed Participating Sites, please specify<span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Proposed Intake per year <span class="text-danger">*</span></label>
-            <input type="number" class="form-control">
-        </div>
-    </div>
-    <div class="row">
-        <p class="h5 text-primary">Recruitment/Eligibility</p>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Applicant Eligibility<span class="text-danger">*</span></label>
-            <ng-select class="w-100" 
-                [items]="['MD or MBBCh', 'DDS or DMD', 'Completion of a residency program', 'Other']" formControlName='applicantEligibility' placeholder="Please select option">
-            </ng-select>
-        </div>
-        <div class="col-md-4 mb-3" *ngIf="this.formValues.applicantEligibility === 'Other'">
-            <label class="form-label">If Other Applicant Eligibility, please specify<span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-    </div>
-    <div class="row">
-        <p class="h5 text-primary">Resources for Training at the primary training site</p>
-        <div class="col-md-4 mb-3">
-            <label class="form-label">Number of Faculty<span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-12 mb-3">
-            <p class="h6 text-primary">Clinical Volume</p>
+    <div class="card">
+        <div class=card-body>
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Total Hospital Visits<span class="text-danger">*</span></label>
+                    <label class="form-label">Proposed Program Name<span class="text-danger">{{" * "}}</span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Department Visit<span class="text-danger">*</span></label>
+                    <label class="form-label">Proposed Program Director<span class="text-danger">{{" * "}}</span></label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Volume of cases related to the proposed program<span class="text-danger">*</span></label>
+                    <label class="form-label">Type of Training Program<span class="text-danger">{{" * "}}</span></label>
+                    <ng-select class="w-100"
+                        [items]="['Residency', 'Fellowship', 'Other']" formControlName='trainingProgram' placeholder="Please select option">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Classification<span class="text-danger">{{" * "}}</span></label>
+                    <ng-select class="w-100"
+                        [[items]="['Medical', 'Surgical', 'Laboratory', 'Dental', 'Other']" formControlName='classification' placeholder="Please select option">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="formValues.classification === 'Other'">
+                    <label class="form-label">If Other Classification, please specify<span class="text-danger">{{" * "}}</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Program Duration (in years)<span class="text-danger">{{" * "}}</span></label>
+                    <input type="number" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Proposed Primary Hospital (choose only one)<span class="text-danger">{{" * "}}</span></label>
+                    <ng-select class="w-100" 
+                        [items]="hospitalList" formControlName='primaryTrainingHospital' placeholder="Please select option">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="this.formValues.primaryTrainingHospital === 'Other'">
+                    <label class="form-label">If Other Primary Hospital, please specify<span class="text-danger">{{" * "}}</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Proposed Participating Sites (choose all that apply)<span class="text-danger">{{" * "}}</span></label>
+                    <ng-select class="w-100" [multiple]="true"
+                        [items]="participatingHospitalList" formControlName='participatingSites' placeholder="Please select option">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="isParticipateOther">
+                    <label class="form-label">If Other Proposed Participating Sites, please specify<span class="text-danger">{{" * "}}</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Proposed Intake per year<span class="text-danger">{{" * "}}</span></label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class=card-body>
+            <div class="row">
+                <p class="h5 text-primary">Recruitment/Eligibility</p>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Applicant Eligibility<span class="text-danger">{{" * "}}</span></label>
+                    <ng-select class="w-100" 
+                        [items]="['MD or MBBCh', 'DDS or DMD', 'Completion of a residency program', 'Other']" formControlName='applicantEligibility' placeholder="Please select option">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3" *ngIf="this.formValues.applicantEligibility === 'Other'">
+                    <label class="form-label">If Other Applicant Eligibility, please specify<span class="text-danger">{{" * "}}</span></label>
                     <input type="text" class="form-control">
                 </div>
             </div>
         </div>
-        <div class="col-md-12 mb-3">
-            <label class="form-label">Describe the space and facilities such as office/clinic space, computers, on‑call room, resident lounge, shower, etc.<span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-12 mb-3">
-            <label class="form-label">Other important resources (kindly state the site)<span class="text-danger">*</span></label>
-            textarea.form-control
-            <input type="text" class="form-control">
+    </div>
+    <div class="card">
+        <div class=card-body>
+            <div class="row">
+                <p class="h5 text-primary">Resources for Training at the primary training site</p>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Number of Faculty<span class="text-danger">{{" * "}}</span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <p class="h6 text-primary">Clinical Volume</p>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Total Hospital Visits<span class="text-danger">{{" * "}}</span></label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Department Visit<span class="text-danger">{{" * "}}</span></label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Volume of cases related to the proposed program<span class="text-danger">{{" * "}}</span></label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Describe the space and facilities such as office/clinic space, computers, on‑call room, resident lounge, shower, etc.<span class="text-danger">{{" * "}}</span></label>
+                    <textarea rows="3" class="form-control"></textarea>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Other important resources (kindly state the site)<span class="text-danger">{{" * "}}</span></label>
+                    <textarea rows="3" class="form-control"></textarea>
+                </div>
+            </div>
         </div>
     </div>
-
+    <div class="card">
+        <div class=card-body>
+            <p class="h5 text-primary">Needs Assessment</p>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">What are the healthcare problems that the program will address and the disease prevalence?<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Please provide information regarding the workforce<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Current total number of qualified physicians in this field<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Current number of qualified physicians in the field and their distribution in the Sultanate (indicate governorate and number of physicians)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Omani<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Non-Omani<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Projected number of specialists in this field in 15 years<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Please outline the rationale for starting a training program in this area (e.g. will it address a societal need, meet local service demands, enhance the workforce requirements, improving quality of service, etc.?). (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class=card-body>
+            <p class="h5 text-primary">Educational Program Information</p>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Describe the educational impact for starting this training program (e.g. how would the new program enhance the learning environment, improve the experience on certain rotations, complement existing programs, and further enhance the mission of the institution and OMSB)?  (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Describe the anticipated career path/s for program graduates (e.g. posting at the health centers and specialized health centers or primary/tertiary hospitals, regional or primary hospitals with a potential to provide services in the regions)  (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Indicate the proportion of time that the trainee would devote to clinical activities, research and any other major responsibilities (e.g.  overseeing/supervising the clinical teams, committees, education/guidance of junior trainees and other staff).  (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Describe the expected interactions between the trainees and other learners; any potential impact on the core residency program and other training (e.g. reduced clinical material available to trainees, increased medical student teaching or resident supervision, expanded didactic conferences open to trainees in other programs, etc.) (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Provide a brief description of the educational strategies that will be utilized in this training program. (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class=card-body>
+            <p class="h5 text-primary">Strategic Impact</p>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">How does the addition of this program affect residents, faculty, GME at OMSB and hospitals?<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class=card-body>
+            <p class="h5 text-primary">Program Description</p>
+            <p class="h6">Provide a brief description on the following </p>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Overview of the program and mission statement (please limit your answer to 100 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Description of training locations (what institutions would be involved?  Provide a brief description of the educational impact, faculty coverage, volume and variety of clinical experience, and faculty coverage for each training site).  (please limit your answer to 1000 words for each site)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Educational outcomes of the program (please limit your answer to 100 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Requirements of trainees in the program (e.g. participation in education program, clinical care of patients, presentation at a national meeting, publication of a scholarly activity) (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Description of evaluations of trainees and the program (please limit your answer to 400 words)<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">List of faculty roster and qualifications<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row">
+        <button class="btn btn-primary">Submit</button>
+    </div>
 </form>

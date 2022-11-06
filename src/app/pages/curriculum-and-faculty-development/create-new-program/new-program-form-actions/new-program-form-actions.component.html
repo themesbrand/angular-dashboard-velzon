@@ -1,0 +1,266 @@
+<app-view-new-program-form [isPreviewOnly]="true"></app-view-new-program-form>
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-4 mb-3" *ngIf="requestData.vppaComments === null">
+                <label class="form-label">Program Name<span class="text-danger">{{" * "}}</span></label>
+                <ng-select class="w-100"
+                    [items]="['Anastasia', 'ENT', 'Medical Microbiology', 'Pediatrics', 'Histopathology', 'Emergency Medicine', 'General Surgery']" placeholder="Please select option">
+                </ng-select>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.vppaComments === null">
+                <label class="form-label">Comments to Chairmen from VPAA <span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-4 mb-3" *ngIf="requestData.vppaComments !== null">
+                <label class="form-label">Program Name</label>
+                <label class="form-control">{{requestData.similarProgram}}</label>
+                
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.vppaComments !== null">
+                <label class="form-label">Comments to Chairmen from VPAA<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-control">{{requestData.vppaComments}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.vppaComments !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.chairmenComments === null">
+                <label class="form-label">Comments to VPAA from Chairman<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.chairmenComments !== null">
+                <label class="form-label">Comments to VPAA from Chairman</label>
+                <label class="form-control">{{requestData.chairmenComments}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.chairmenComments !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.vppaApprovalComments === null">
+                <label class="form-label">VPAA Initial Approval Comments<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.vppaApprovalComments !== null">
+                <label class="form-label">Comments to VPAA from Chairman</label>
+                <label class="form-control">{{requestData.vppaApprovalComments}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.vppaApprovalComments !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.proposalLink === null">
+                <label class="form-label">Upload Proposal<span class="text-danger">{{" * "}}</span></label>
+                <ngx-dropzone (change)="onSelect($event, 'files')"
+                        [multiple]="false">
+                        <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of files"
+                            [removable]="true" (removed)="onRemove(f, 'files')">
+                            <ngx-dropzone-label
+                            >{{ f.name }} ({{
+                                f.type
+                            }})</ngx-dropzone-label
+                            >
+                        </ngx-dropzone-preview>
+                        </ngx-dropzone>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.proposalLink !== null">
+                <label class="form-label">Download Proposal</label>
+                <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.proposalLink !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.vppaCommentsToEb === null">
+                <label class="form-label">Comments to EB from VPPA<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.vppaCommentsToEb !== null">
+                <label class="form-label">Comments to EB from VPPA</label>
+                <label class="form-control">{{requestData.vppaCommentsToEb}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.vppaCommentsToEb !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToBot === null">
+                <label class="form-label">Comments to BoT from Board and Committee<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToBot !== null">
+                <label class="form-label">Comments to BoT from Board and Committee</label>
+                <label class="form-control">{{requestData.bcsCommentsToBot}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.bcsCommentsToBot !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToCreateTaskForce === null">
+                <label class="form-label">Board and Committee Comments : Create Task Force<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToCreateTaskForce !== null">
+                <label class="form-label">Board and Committee Comments : Create Task Force</label>
+                <label class="form-control">{{requestData.bcsCommentsToCreateTaskForce}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.bcsCommentsToCreateTaskForce !== null">
+    <div class="card">
+        <div class="card-body">
+            <p class="h5 text-primary">Task Force List</p>
+            <div class="col-md-12 mb-3" *ngIf="requestData.taskForceArray === null">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Name<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Email<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Civil ID<span class="text-danger"></span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-primary my-2" (click)="onSearch()">Search</button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="isFilterOpen">
+                    <div class="col-md-12 mb-3">
+                        <div class="live-preview">     
+                            <div class="table-responsive">
+                                <table class="table align-middle table-hover table-wrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Civil ID</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of traineeList">
+                                            <td>{{row.name}}</td>
+                                            <td>{{row.email}}</td>
+                                            <td>{{row.civilId}}</td>
+                                            <td><button class="btn btn-primary btn-sm" (click)="onAddToTaskForce(row)">Add</button></td>                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                             
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2" *ngIf="taskForceList.length !== 0">
+                    <p class="h6 text-primary">Proposed Task Force List</p>
+                    <div class="col-md-12 mb-3">
+                        <div class="live-preview">     
+                            <div class="table-responsive">
+                                <table class="table align-middle table-hover table-wrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Civil ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of taskForceList">
+                                            <td>{{row.name}}</td>
+                                            <td>{{row.email}}</td>
+                                            <td>{{row.civilId}}</td>                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.taskForceArray !== null">
+                <p class="h6 text-primary">Proposed Task Force List</p>
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-wrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Civil ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of requestData.taskForceArray">
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.email}}</td>
+                                    <td>{{row.civilId}}</td>                                        
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>   
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.qararLink !== null">
+                <label class="form-label">Download Task Force QARAR document</label>
+                <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+    
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="requestData.qararLink !== null">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 mb-3" *ngIf="requestData.cfdsComments === null">
+                <label class="form-label">Comments from CFDS<span class="text-danger">{{" * "}}</span></label>
+                <textarea rows="3" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mb-3" *ngIf="requestData.cfdsComments !== null">
+                <label class="form-label">Comments from CFDS</label>
+                <label class="form-control">{{requestData.cfdsComments}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-row">
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Request Submitted'">Forward for Review</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending Review by CH'">Submit</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval'">Approve</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending Curriculum submission'">Upload Proposal</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for VPAA approval'">Add to EB Meeting Agenda</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for EB approval'">Add to BoT Meeting Agenda</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for BoT approval'">Create Task Force</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending Task Force'">Invite to join Task Force</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval'">Submit Request to Task Force</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending CFDS Review'">Approve</button>
+            </div>
+        </div>
+    </div>
+</div>
