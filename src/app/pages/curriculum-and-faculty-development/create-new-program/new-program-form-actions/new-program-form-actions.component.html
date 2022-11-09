@@ -1,4 +1,3 @@
-<app-view-new-program-form [isPreviewOnly]="true"></app-view-new-program-form>
 <div class="row">
     <div class="card">
         <div class="card-body">
@@ -9,7 +8,7 @@
                 </ng-select>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.vppaComments === null">
-                <label class="form-label">Comments to Chairmen from VPAA <span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments <span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-4 mb-3" *ngIf="requestData.vppaComments !== null">
@@ -18,7 +17,7 @@
                 
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.vppaComments !== null">
-                <label class="form-label">Comments to Chairmen from VPAA<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments to Program | From VPPA : Date - 2022-11-10<span class="text-danger">{{" * "}}</span></label>
                 <label class="form-control">{{requestData.vppaComments}}</label>
             </div>
 
@@ -29,11 +28,11 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-12 mb-3" *ngIf="requestData.chairmenComments === null">
-                <label class="form-label">Comments to VPAA from Chairman<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments<span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.chairmenComments !== null">
-                <label class="form-label">Comments to VPAA from Chairman</label>
+                <label class="form-label">Comments to Program | From Chairman : Date - 2022-11-10</label>
                 <label class="form-control">{{requestData.chairmenComments}}</label>
             </div>
 
@@ -44,11 +43,11 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-12 mb-3" *ngIf="requestData.vppaApprovalComments === null">
-                <label class="form-label">VPAA Initial Approval Comments<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments<span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.vppaApprovalComments !== null">
-                <label class="form-label">Comments to VPAA from Chairman</label>
+                <label class="form-label">Comments to Program | From VPPA : Date - 2022-11-10</label>
                 <label class="form-control">{{requestData.vppaApprovalComments}}</label>
             </div>
 
@@ -85,11 +84,11 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-12 mb-3" *ngIf="requestData.vppaCommentsToEb === null">
-                <label class="form-label">Comments to EB from VPPA<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments<span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.vppaCommentsToEb !== null">
-                <label class="form-label">Comments to EB from VPPA</label>
+                <label class="form-label">Comments to EB | From VPPA : Date - 2022-11-10</label>
                 <label class="form-control">{{requestData.vppaCommentsToEb}}</label>
             </div>
 
@@ -100,11 +99,11 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToBot === null">
-                <label class="form-label">Comments to BoT from Board and Committee<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments<span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToBot !== null">
-                <label class="form-label">Comments to BoT from Board and Committee</label>
+                <label class="form-label">Comments to BoT | From Chairman : Date - 2022-11-10</label>
                 <label class="form-control">{{requestData.bcsCommentsToBot}}</label>
             </div>
 
@@ -115,18 +114,16 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToCreateTaskForce === null">
-                <label class="form-label">Board and Committee Comments : Create Task Force<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments<span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.bcsCommentsToCreateTaskForce !== null">
-                <label class="form-label">Board and Committee Comments : Create Task Force</label>
+                <label class="form-label">Comments | From Board and Committee : Date - 2022-11-10</label>
                 <label class="form-control">{{requestData.bcsCommentsToCreateTaskForce}}</label>
             </div>
 
         </div>
     </div>
-</div>
-<div class="row" *ngIf="requestData.bcsCommentsToCreateTaskForce !== null">
     <div class="card">
         <div class="card-body">
             <p class="h5 text-primary">Task Force List</p>
@@ -235,11 +232,11 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-12 mb-3" *ngIf="requestData.cfdsComments === null">
-                <label class="form-label">Comments from CFDS<span class="text-danger">{{" * "}}</span></label>
+                <label class="form-label">Comments <span class="text-danger">{{" * "}}</span></label>
                 <textarea rows="3" class="form-control"></textarea>
             </div>
             <div class="col-md-12 mb-3" *ngIf="requestData.cfdsComments !== null">
-                <label class="form-label">Comments from CFDS</label>
+                <label class="form-label">Comments | From CFDS : Date - 2022-11-10</label>
                 <label class="form-control">{{requestData.cfdsComments}}</label>
             </div>
 
@@ -247,19 +244,44 @@
     </div>
 </div>
 <div class="row">
+    <div class="live-preview px-0">
+        <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+          <ngb-panel id="static-1">
+              <ng-template ngbPanelTitle class="accordion-header">
+                  <h2 class="accordion-header" id="gen-ques-headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#gen-ques-collapseOne" aria-expanded="false"
+                          aria-controls="gen-ques-collapseOne">
+                          View New Program Request
+                      </button>
+                  </h2>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <app-view-new-program-form [isPreviewOnly]="true"></app-view-new-program-form>
+              </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+    </div>
+</div>
+<div class="row">
     <div class="card">
         <div class="card-body">
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row gap-3">
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Request Submitted'">Forward for Review</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Pending Review by CH'">Submit</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval'">Approve</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval'">Reject</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval'">Return</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Pending Curriculum submission'">Upload Proposal</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for VPAA approval'">Add to EB Meeting Agenda</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for VPAA approval'">Reject</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for EB approval'">Add to BoT Meeting Agenda</button>
-                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for BoT approval'">Create Task Force</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for BoT approval'">Invite to join Task Force</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Curriculum submitted for BoT approval'">Reject</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Pending Task Force'">Invite to join Task Force</button>
-                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval'">Submit Request to Task Force</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending VPAA Approval for TaskForce'">Submit Request to Task Force</button>
                 <button class="btn btn-primary" *ngIf="requestData.status === 'Pending CFDS Review'">Approve</button>
+                <button class="btn btn-primary" *ngIf="requestData.status === 'Pending CFDS Review'">Return</button>
             </div>
         </div>
     </div>

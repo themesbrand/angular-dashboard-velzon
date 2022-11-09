@@ -64,5 +64,4 @@ export class NewProgramFormActionsComponent implements OnInit {
   onAddToTaskForce(row : any) {
     this.taskForceList .push(row)
   }
-
 }

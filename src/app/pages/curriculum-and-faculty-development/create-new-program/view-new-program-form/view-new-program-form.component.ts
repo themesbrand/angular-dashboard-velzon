@@ -13,6 +13,7 @@ export class ViewNewProgramFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.requestData)
   }
 
 }

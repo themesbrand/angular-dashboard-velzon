@@ -253,6 +253,168 @@
                                     <td>{{data.professionalism}}</td>
                                     <td>{{data.interpersonal}}</td>
                                 </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <apx-chart [series]="competencyByRotationChart_1.series" [chart]="competencyByRotationChart_1.chart"
+                                            [markers]="competencyByRotationChart_1.markers" [dataLabels]="competencyByRotationChart_1.dataLabels"
+                                            [stroke]="competencyByRotationChart_1.stroke" [colors]="competencyByRotationChart_1.colors" [title]="competencyByRotationChart_1.title"
+                                            [xaxis]="competencyByRotationChart_1.xaxis"></apx-chart>
+                                    </td>
+                                    <td>
+                                        <apx-chart [series]="competencyByRotationChart_2.series" [chart]="competencyByRotationChart_2.chart"
+                                            [markers]="competencyByRotationChart_2.markers" [dataLabels]="competencyByRotationChart_2.dataLabels"
+                                            [stroke]="competencyByRotationChart_2.stroke" [colors]="competencyByRotationChart_2.colors" [title]="competencyByRotationChart_2.title"
+                                            [xaxis]="competencyByRotationChart_2.xaxis"></apx-chart>
+                                    </td>
+                                    <td>
+                                        <apx-chart [series]="competencyByRotationChart_3.series" [chart]="competencyByRotationChart_3.chart"
+                                            [markers]="competencyByRotationChart_3.markers" [dataLabels]="competencyByRotationChart_3.dataLabels"
+                                            [stroke]="competencyByRotationChart_3.stroke" [colors]="competencyByRotationChart_3.colors" [title]="competencyByRotationChart_3.title"
+                                            [xaxis]="competencyByRotationChart_3.xaxis"></apx-chart>
+                                    </td>
+                                    <td>
+                                        <apx-chart [series]="competencyByRotationChart_4.series" [chart]="competencyByRotationChart_4.chart"
+                                            [markers]="competencyByRotationChart_4.markers" [dataLabels]="competencyByRotationChart_4.dataLabels"
+                                            [stroke]="competencyByRotationChart_4.stroke" [colors]="competencyByRotationChart_4.colors" [title]="competencyByRotationChart_4.title"
+                                            [xaxis]="competencyByRotationChart_4.xaxis"></apx-chart>
+                                    </td>
+                                    <td>
+                                        <apx-chart [series]="competencyByRotationChart_5.series" [chart]="competencyByRotationChart_5.chart"
+                                            [markers]="competencyByRotationChart_5.markers" [dataLabels]="competencyByRotationChart_5.dataLabels"
+                                            [stroke]="competencyByRotationChart_5.stroke" [colors]="competencyByRotationChart_5.colors" [title]="competencyByRotationChart_5.title"
+                                            [xaxis]="competencyByRotationChart_5.xaxis"></apx-chart>
+                                    </td>
+                                    <td>
+                                        <apx-chart [series]="competencyByRotationChart_6.series" [chart]="competencyByRotationChart_6.chart"
+                                            [markers]="competencyByRotationChart_6.markers" [dataLabels]="competencyByRotationChart_6.dataLabels"
+                                            [stroke]="competencyByRotationChart_6.stroke" [colors]="competencyByRotationChart_6.colors" [title]="competencyByRotationChart_6.title"
+                                            [xaxis]="competencyByRotationChart_6.xaxis"></apx-chart>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card card-height-100">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">On-Demand Evaluation</h4>
+            </div>
+            <div class="card-body px-3">
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-wrap mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Custom Data Field</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of listData.onDemandEvaluation">
+                                    <td>{{data.name}}</td>
+                                    <td>{{data.value}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card card-height-100">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Certifications</h4>
+            </div>
+            <div class="card-body px-3">
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-wrap mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Certification Type</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">End Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Expired</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of listData.certifications">
+                                    <td>{{data.type}}</td>
+                                    <td>{{data.description}}</td>
+                                    <td>{{data.startDate}}</td>
+                                    <td>{{data.endDate}}</td>
+                                    <td>{{data.status}}</td>
+                                    <td>{{data.expired}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card card-height-100">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Test Scores</h4>
+            </div>
+            <div class="card-body px-3">
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-wrap mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Test Type</th>
+                                    <th scope="col">Date Taken</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Passed</th>
+                                    <th scope="col">Percentile</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of listData.testScores">
+                                    <td>{{data.type}}</td>
+                                    <td>{{data.dateTaken}}</td>
+                                    <td>{{data.score}}</td>
+                                    <td>{{data.passed}}</td>
+                                    <td>{{data.percentile}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card card-height-100">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Resident Development Workshops</h4>
+            </div>
+            <div class="card-body px-3">
+                <div class="live-preview">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-wrap mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Custom Data Filed</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of listData.developmentWorkshops">
+                                    <td>{{data.name}}</td>
+                                    <td>{{data.value}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

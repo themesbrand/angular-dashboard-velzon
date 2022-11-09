@@ -27,7 +27,7 @@
                                 <li (click)="openModal(viewProgramRequest, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                 <container-element [ngSwitch]="row.status">
                                     <some-element *ngSwitchCase="'Pending at Task Force'">
-                                        <li (click)="openModal(createNewProgram, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>Submit Curriculum </a></li>
+                                        <li (click)="openModal(createNewProgram, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>Create Program Components</a></li>
                                     </some-element>
                                     <some-element *ngSwitchCase="'Pending CFDS Review'">
                                         <li [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Curriculum</a></li>

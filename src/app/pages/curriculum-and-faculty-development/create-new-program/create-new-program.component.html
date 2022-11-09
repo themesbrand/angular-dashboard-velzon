@@ -68,8 +68,8 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
-                                                <li *ngIf="row.status === 'Pending CFDS Review'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Curriculum</a></li>
-                                                <li *ngIf="row.status === 'Curriculum Finalized'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Curriculum</a></li>
+                                                <li *ngIf="row.status === 'Pending CFDS Review'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program Components</a></li>
+                                                <li *ngIf="row.status === 'Curriculum Finalized'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program Components</a></li>
                                                 <container-element [ngSwitch]="selectedUser">
                                                     <some-element *ngSwitchCase="'VPAA'">
                                                         <container-element [ngSwitch]="row.status">
@@ -111,9 +111,6 @@
                                                             </some-element>
                                                             <some-element *ngSwitchCase="'Curriculum submitted for BoT approval'">
                                                                 <li (click)="openModal(requestAction, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>Create Task Force</a></li>
-                                                            </some-element>
-                                                            <some-element *ngSwitchCase="'Pending Task Force'">
-                                                                <li (click)="openModal(requestAction, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-file-list-line"></i>Invite to join Task Force</a></li>
                                                             </some-element>
                                                         </container-element>
                                                     </some-element>

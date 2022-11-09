@@ -14,7 +14,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -47,7 +47,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -80,7 +80,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -113,7 +113,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -146,7 +146,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -179,7 +179,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -212,7 +212,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -232,44 +232,11 @@ const data = {
             curriculum : null
         },
         {
-            requestId: 'X999123',
-            programRequested: 'New Program - 8',
-            requestedBy: 'Abdel Maddali',
-            requestedDate: '2022-10-15',
-            status: 'Pending Task Force',
-            applicationStatus : [
-                { stage : 'Request Submitted', status : 'Complete', date : '2022-11-25 10:00:00 AM', by : 'Abdel Maddali'},
-                { stage : 'Pending Review by CH', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending VPAA Approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Curriculum submission', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Curriculum Finalized', status : 'Pending', date : null, 'by' : null },
-            ],
-            vppaComments : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi natus amet beatae.',
-            similarProgram: 'Anesthesia',
-            chairmenComments : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi natus amet beatae.',
-            vppaApprovalComments : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi natus amet beatae.',
-            proposalLink : 'link',
-            vppaCommentsToEb : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi natus amet beatae.',
-            bcsCommentsToBot : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi natus amet beatae.',
-            bcsCommentsToCreateTaskForce : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi natus amet beatae.',
-            taskForceArray : null,
-            qararLink: null,
-            cfdsComments : null,
-            curriculum : null
-        },
-        {
             requestId: 'X899456',
             programRequested: 'New Program - 9',
             requestedBy: 'Abdel Maddali',
             requestedDate: '2022-10-15',
-            status: 'Pending VPAA Approval',
+            status: 'Pending VPAA Approval for TaskForce',
             applicationStatus : [
                 { stage : 'Request Submitted', status : 'Complete', date : '2022-11-25 10:00:00 AM', by : 'Abdel Maddali'},
                 { stage : 'Pending Review by CH', status : 'Pending', date : null, 'by' : null },
@@ -278,7 +245,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -321,7 +288,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -364,7 +331,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -407,7 +374,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },
@@ -452,7 +419,7 @@ const data = {
                 { stage : 'Curriculum submitted for VPAA approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for EB approval', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Curriculum submitted for BoT approval', status : 'Pending', date : null, 'by' : null },
-                { stage : 'Pending Task Force', status : 'Pending', date : null, 'by' : null },
+                
                 { stage : 'Pending VPAA Approval for TaskForce', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending at Task Force', status : 'Pending', date : null, 'by' : null },
                 { stage : 'Pending CFDS Review', status : 'Pending', date : null, 'by' : null },

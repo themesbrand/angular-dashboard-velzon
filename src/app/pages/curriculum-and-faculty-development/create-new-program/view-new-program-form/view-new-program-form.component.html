@@ -105,35 +105,37 @@
         <p class="h5 text-primary">Needs Assessment</p>
         <div class="col-md-12 mb-3">
             <label class="form-label">What are the healthcare problems that the program will address and the disease prevalence?</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
+            <label class="form-control">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
         </div>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Please provide information regarding the workforce</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
+            <p class="h6 text-primary">Please provide information regarding the workforce</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Current total number of qualified physicians in this field</label>
+                    <label class="form-control">5</label>
+                </div>
+            </div>
         </div>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Current total number of qualified physicians in this field</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
-        </div>
-        <div class="col-md-12 mb-3">
-            <label class="form-label">Current number of qualified physicians in the field and their distribution in the Sultanate (indicate governorate and number of physicians)</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
-        </div>
-        <div class="col-md-12 mb-3">
-            <label class="form-label">Omani</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
-        </div>
-        <div class="col-md-12 mb-3">
-            <label class="form-label">Non-Omani</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
-        </div>
-        <div class="col-md-12 mb-3">
-            <label class="form-label">Projected number of specialists in this field in 15 years</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
+            <p class="h6 text-primary">Current number of qualified physicians in the field and their distribution in the Sultanate (indicate governorate and number of physicians)</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Omani</label>
+                    <label class="form-control">5</label>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Non-Omani</label>
+                    <label class="form-control">10</label>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Projected number of specialists in this field in 15 years</label>
+                    <label class="form-control">15</label>
+                </div>
+            </div>
         </div>
         <div class="col-md-12 mb-3">
             <label class="form-label">Please outline the rationale for starting a training program in this area (e.g. will it address a societal need, meet local service demands, enhance the workforce requirements, improving quality of service, etc.?). (please limit your answer to 400 words)</label>
-            <label class="form-control">lorem, ipsum dolor sit amet consectetur adipisicing elit. necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
+            <label class="form-control">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus praesentium dicta quos odit, consequatur dignissimos.</label>
         </div>
     </div>
 </div>
@@ -202,35 +204,35 @@
     </div>
 </div>
 
-<div class="card" *ngIf="requestData.vppaComments !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.vppaComments !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-3 mb-3">
             <label class="form-label">Program Name</label>
-            <label class="form-control">{{requestData.similarProgram}}</label>
+            <label class="form-control">{{requestData?.similarProgram}}</label>
         </div>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Comments to Chairmen from VPAA</label>
-            <label class="form-control">{{requestData.vppaComments}}</label>
+            <label class="form-label">Comments to Program | From VPPA : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.vppaComments}}</label>
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.chairmenComments !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.chairmenComments !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Comments to VPAA from Chairman</label>
-            <label class="form-control">{{requestData.chairmenComments}}</label>
+            <label class="form-label">Comments to Program | From Chairman : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.chairmenComments}}</label>
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.vppaApprovalComments !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.vppaApprovalComments !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Comments to VPAA from Chairman</label>
-            <label class="form-control">{{requestData.vppaApprovalComments}}</label>
+            <label class="form-label">Comments to Program | From VPPA : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.vppaApprovalComments}}</label>
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.proposalLink !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.proposalLink !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
             <label class="form-label">Download Proposal</label>
@@ -238,34 +240,34 @@
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.vppaCommentsToEb !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.vppaCommentsToEb !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Comments to EB from VPPA</label>
-            <label class="form-control">{{requestData.vppaCommentsToEb}}</label>
+            <label class="form-label">Comments to EB | From VPPA : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.vppaCommentsToEb}}</label>
 
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.bcsCommentsToBot !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.bcsCommentsToBot !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Comments to BoT from Board and Committee</label>
-            <label class="form-control">{{requestData.bcsCommentsToBot}}</label>
+            <label class="form-label">Comments to BoT | From Chairman : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.bcsCommentsToBot}}</label>
 
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.bcsCommentsToCreateTaskForce !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.bcsCommentsToCreateTaskForce !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Board and Committee Comments : Create Task Force</label>
-            <label class="form-control">{{requestData.bcsCommentsToCreateTaskForce}}</label>
+            <label class="form-label">Comments | From Board and Committee : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.bcsCommentsToCreateTaskForce}}</label>
 
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.taskForceArray !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.taskForceArray !== null && !isPreviewOnly">
     <div class=card-body>
         <p class="h5 text-primary">Task Force List</p>
         <div class="col-md-12 mb-3">
@@ -280,7 +282,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let row of requestData.taskForceArray">
+                            <tr *ngFor="let row of requestData?.taskForceArray">
                                 <td>{{row.name}}</td>
                                 <td>{{row.email}}</td>
                                 <td>{{row.civilId}}</td>                                        
@@ -296,11 +298,11 @@
         </div>
     </div>
 </div>
-<div class="card" *ngIf="requestData.cfdsComments !== null && !isPreviewOnly">
+<div class="card" *ngIf="requestData?.cfdsComments !== null && !isPreviewOnly">
     <div class=card-body>
         <div class="col-md-12 mb-3">
-            <label class="form-label">Comments from CFDS</label>
-            <label class="form-control">{{requestData.cfdsComments}}</label>
+            <label class="form-label">Comments | From CFDS : Date - 2022-11-10</label>
+            <label class="form-control">{{requestData?.cfdsComments}}</label>
         </div>
     </div>
 </div>

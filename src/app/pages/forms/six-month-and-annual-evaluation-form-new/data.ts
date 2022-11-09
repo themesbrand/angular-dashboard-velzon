@@ -299,7 +299,76 @@ const data = {
             residencyTotalPassed : '1',
             residencyTotalNotPassed : '0'
         },
-    ] 
+    ],
+    onDemandEvaluation : [
+        {
+            name : 'On-Demand Presentation Evaluation',
+            value : 3
+        },
+        {
+            name : 'On-Demand Mini Clinical Evaluation',
+            value : 3
+        },
+        {
+            name : 'Procedural',
+            value : 11
+        }
+    ],
+    certifications : [
+        {
+            type : 'NRP',
+            description: '',
+            startDate : '1/20/2022',
+            endDate : '1/20/2024',
+            status : 'R4',
+            expired : ''
+        },
+        {
+            type : 'PALS',
+            description: '',
+            startDate : '1/20/2022',
+            endDate : '1/20/2024',
+            status : 'R4',
+            expired : ''
+        },
+    ],
+    testScores : [
+        {
+            type: 'CMSB End of Year Exam (Part 1) - Written',
+            dateTaken : '9/3/2019',
+            score : '69',
+            passed : 'Yes',
+            percentile : ''
+        },
+        {
+            type: 'CMSB End of Year Exam - Written',
+            dateTaken : '6/22/2019',
+            score : '45',
+            passed : 'Yes',
+            percentile : ''
+        },
+        {
+            type: 'CMSB Part 1',
+            dateTaken : '6/22/2021',
+            score : '59',
+            passed : 'Yes',
+            percentile : ''
+        }
+    ],
+    developmentWorkshops: [
+        {
+            name : 'Resident Development Workshop Year 1 - Introduction Course',
+            value : '21/02/2019'
+        },
+        {
+            name : 'Resident Development Workshop Year 1 - Medical Ethics',
+            value : '20/02/2019'
+        },
+        {
+            name : 'Resident Development Workshop Year 1 - Evidence Based Medicine',
+            value : '11/03/2019'
+        }
+    ]
 }
 
 export {data}

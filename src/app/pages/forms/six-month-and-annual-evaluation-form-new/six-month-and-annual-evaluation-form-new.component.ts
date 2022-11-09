@@ -15,6 +15,12 @@ export class SixMonthAndAnnualEvaluationFormNewComponent implements OnInit {
 
   rotationRequirementsChart:any;
   competencyTrainingYearChart: any;
+  competencyByRotationChart_1: any;
+  competencyByRotationChart_2: any;
+  competencyByRotationChart_3: any;
+  competencyByRotationChart_4: any;
+  competencyByRotationChart_5: any;
+  competencyByRotationChart_6: any;
 
 
   breadCrumbItems!: Array<{}>;
@@ -33,6 +39,7 @@ export class SixMonthAndAnnualEvaluationFormNewComponent implements OnInit {
     ];
     this._rotationRequirementsChart('["--vz-success", "--vz-primary"]');
     this._competencyTrainingYearChart('["--vz-danger", "--vz-primary", "--vz-success", "--vz-warning"]');
+    this._competencyByRotationChart('["--vz-primary"]');
   }
 
   private _rotationRequirementsChart(colors:any) {
@@ -283,6 +290,172 @@ export class SixMonthAndAnnualEvaluationFormNewComponent implements OnInit {
       },
     };
     }
+
+  private _competencyByRotationChart(colors:any) {
+    colors = this.getChartColorsArray(colors);
+    this.competencyByRotationChart_1  = {
+      series: [{
+        name: "STOCK ABC",
+        data: [3.45, 3.00, 3.00, 3.15, 3.15, 3.00]
+      }],
+      chart: {
+        height: 150,
+        width: 120,
+        type: 'line',
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      markers: {
+        size: 4,
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      colors: colors,
+    };
+    this.competencyByRotationChart_2  = {
+      series: [{
+        name: "STOCK ABC",
+        data: [3.00, 3.15, 3.15, 3.15, 3.15, 3.45]
+      }],
+      chart: {
+        height: 150,
+        width: 120,
+        type: 'line',
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      markers: {
+        size: 4,
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      colors: colors,
+    };
+    this.competencyByRotationChart_3  = {
+      series: [{
+        name: "STOCK ABC",
+        data: [3.00, 3.25, 3.45, 3.05, 3.25, 3.25]
+      }],
+      chart: {
+        height: 150,
+        width: 120,
+        type: 'line',
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      markers: {
+        size: 4,
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      colors: colors,
+    };
+    this.competencyByRotationChart_4  = {
+      series: [{
+        name: "STOCK ABC",
+        data: [3.00, 3.00, 3.80, 3.20, 3.40, 3.00]
+      }],
+      chart: {
+        height: 150,
+        width: 120,
+        type: 'line',
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      markers: {
+        size: 4,
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      colors: colors,
+    };
+    this.competencyByRotationChart_5  = {
+      series: [{
+        name: "STOCK ABC",
+        data: [3.00, 3.20, 3.40, 3.00, 3.40, 3.00]
+      }],
+      chart: {
+        height: 150,
+        width: 120,
+        type: 'line',
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      markers: {
+        size: 4,
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      colors: colors,
+    };
+    this.competencyByRotationChart_6  = {
+      series: [{
+        name: "STOCK ABC",
+        data: [3.80, 3.00, 3.20, 3.20, 3.60, 3.20]
+      }],
+      chart: {
+        height: 150,
+        width: 120,
+        type: 'line',
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      markers: {
+        size: 4,
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      colors: colors,
+    };
+  }
 
   private getChartColorsArray(colors:any) {
     colors = JSON.parse(colors);
