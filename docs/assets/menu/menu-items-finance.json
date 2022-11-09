@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "label": "Dashboard",
+        "icon": " ri-profile-line",
+        "link": "/finance/dashboard"
+    },
+    {
+        "id": 2,
+        "label": "Medical Library",
+        "icon": "  ri-clapperboard-line",
+        "subItems" : [
+            {
+                "id": 3,
+                "label": "E-Resource Request",
+                "link": "finance/medical-library/e-resource-request"
+            },
+            {
+                "id": 4,
+                "label": "Renewal",
+                "link": "finance/medical-library/renewal"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "label": "Simulation Program",
+        "icon": "  ri-pantone-line",
+        "subItems" : [
+            {
+                "id": 6,
+                "label": "Course",
+                "link": "finance/simulation/course"
+            },
+            {
+                "id": 7,
+                "label": "Facilities for rent",
+                "link": "finance/simulation/facilities-for-rent"
+            }
+        ]
+    }
+]
