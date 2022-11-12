@@ -418,6 +418,7 @@ import { ReviewAndConfirmRotationCurriculumComponent } from './forms/review-and-
 import { ListOfModificationComponent } from './curriculum-and-faculty-development/curriculum-review/list-of-modification/list-of-modification.component';
 import { NewCurriculumReviewRequestComponent } from './curriculum-and-faculty-development/curriculum-review/new-curriculum-review-request/new-curriculum-review-request.component';
 import { CurriculumReviewRequestActionComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review-request-action/curriculum-review-request-action.component';
+import { CurriculumReviewRequestViewComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review-request-view/curriculum-review-request-view.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -800,7 +801,8 @@ FullCalendarModule.registerPlugins([
     ReviewAndConfirmRotationCurriculumComponent,
     ListOfModificationComponent,
     NewCurriculumReviewRequestComponent,
-    CurriculumReviewRequestActionComponent
+    CurriculumReviewRequestActionComponent,
+    CurriculumReviewRequestViewComponent
   ],
   imports: [
     CommonModule,

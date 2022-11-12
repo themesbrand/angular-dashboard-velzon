@@ -72,9 +72,7 @@
                                                     <some-element *ngSwitchCase="'CFDS'">
                                                         <container-element [ngSwitch]="row.status">
                                                             <some-element *ngSwitchCase="'Request Submitted'">
-                                                                <li (click)="openModal(curriculumComponents, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Curriculum Components</a></li>
-                                                                <li (click)="openModal(rotationAnalysis, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Rotation Analysis</a></li>
-                                                                <li (click)="openModal(listOfModifications, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>List Of Modifications</a></li>
+                                                                <li (click)="openModal(requestActions, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Submit</a></li>
                                                             </some-element>
                                                         </container-element>
                                                     </some-element>
@@ -91,6 +89,30 @@
                                                             <some-element *ngSwitchCase="'CFDS review comments submitted'">
                                                                 <li><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Submit for additional Time to address comments</a></li>
                                                                 <li (click)="openModal(requestActions, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Submit Curriculum for review</a></li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'GME Director'">
+                                                        <container-element [ngSwitch]="row.status">
+                                                            <some-element *ngSwitchCase="'Submitted for GME Director approval'">
+                                                                <li (click)="openModal(requestActions, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Approval</a></li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'VPAA'">
+                                                        <container-element [ngSwitch]="row.status">
+                                                            <some-element *ngSwitchCase="'Submitted for VPAA approval'">
+                                                                <li (click)="openModal(requestActions, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Add to EB meeting Agenda</a></li>
+                                                            </some-element>
+                                                        </container-element>
+                                                    </some-element>
+                                                    <some-element *ngSwitchCase="'Board and Committee Section/EPO'">
+                                                        <container-element [ngSwitch]="row.status">
+                                                            <some-element *ngSwitchCase="'Submitted for EB approval'">
+                                                                <li (click)="openModal(requestActions, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Add to BoT Meeting Agenda</a></li>
+                                                            </some-element>
+                                                            <some-element *ngSwitchCase="'Submitted for BoT approval'">
+                                                                <li (click)="openModal(requestActions, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>Approve</a></li>
                                                             </some-element>
                                                         </container-element>
                                                     </some-element>
@@ -130,7 +152,7 @@
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
             <div class="mt-3">
-
+                <app-curriculum-review-request-view [formData]="selectedRequest"></app-curriculum-review-request-view>
             </div>            
         </div>
     </div>

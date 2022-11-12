@@ -16,7 +16,7 @@
         <button type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light mx-4"><i class=" ri-download-cloud-line"></i></button>
     </div>
 </div>
-<div class="row my-2">
+<div class="row my-2" *ngIf="formData.curriculumComponents !== null">
     <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
         <ngb-panel id="static-1">
             <ng-template ngbPanelTitle class="accordion-header">
@@ -66,11 +66,6 @@
     
 </div>
 <div class="row" *ngIf="formData.curriculumComponents !== null">
-    <div class="col-md-4 mb-3" *ngIf="formData.effectiveDate === null">
-        <label class="form-label">Proposed Effective AY for New Curriculum</label>
-        <input class="form-control flatpickr-input" type="text" mwlFlatpickr 
-            [altInput]="true" [convertModelValue]="true">
-    </div>
     <div class="col-md-4 mb-3" *ngIf="formData.effectiveDate !== null">
         <label class="form-label">Proposed Effective AY for New Curriculum</label>
         <label class="form-control">{{formData.effectiveDate}}</label>
@@ -78,20 +73,13 @@
     </div>
 </div>
 <div class="row" *ngIf="formData.effectiveDate !== null">
-    <div class="col-md-12 mb-3" *ngIf="formData.commentsFromGme === null">
-        <label class="form-label">Comments</label>
-        <textarea rows="3" class="form-control"></textarea>
-    </div>
     <div class="col-md-12 mb-3" *ngIf="formData.commentsFromGme !== null">
         <label class="form-label">Comments | by : GME Director | On 2022-11-12</label>
         <label class="form-control">{{formData.commentsFromGme}}</label>
     </div>
 </div>
+
 <div class="row" *ngIf="formData.commentsFromGme !== null">
-    <div class="col-md-12 mb-3" *ngIf="formData.commentsFromVppa === null">
-        <label class="form-label">Comments</label>
-        <textarea rows="3" class="form-control"></textarea>
-    </div>
     <div class="col-md-12 mb-3" *ngIf="formData.commentsFromVppa !== null">
         <label class="form-label">Comments | by : VPPA | On 2022-11-12</label>
         <label class="form-control">{{formData.commentsFromVppa}}</label>
@@ -99,45 +87,8 @@
 </div>
 
 <div class="row" *ngIf="formData.commentsFromVppa !== null">
-    <div class="col-md-12 mb-3" *ngIf="formData.commentsFromBscToEb === null">
-        <label class="form-label">Comments</label>
-        <textarea rows="3" class="form-control"></textarea>
-    </div>
     <div class="col-md-12 mb-3" *ngIf="formData.commentsFromBscToEb !== null">
         <label class="form-label">Comments | by : Board and Committee Section | On 2022-11-12</label>
         <label class="form-control">{{formData.commentsFromBscToEb}}</label>
     </div>
 </div>
-
-<div class="row" *ngIf="formData.commentsFromBscToEb !== null">
-    <div class="col-md-12 mb-3" *ngIf="formData.commentsFromBscToBot === null">
-        <label class="form-label">Comments</label>
-        <textarea rows="3" class="form-control"></textarea>
-    </div>
-    <div class="col-md-12 mb-3" *ngIf="formData.commentsFromBscToBot !== null">
-        <label class="form-label">Comments | by : Board and Committee Section | On 2022-11-12</label>
-        <label class="form-control">{{formData.commentsFromBscToBot}}</label>
-    </div>
-</div>
-
-
-<div class="d-flex flex-row mt-3 gap-3">
-    <button class="btn btn-primary" *ngIf="formData.status ==='Request Submitted'">Submit</button>
-    <button class="btn btn-primary" *ngIf="formData.status ==='CFDS review comments submitted'">Submit Curriculum for Review</button>
-
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for GME Director approval'">Approve</button>
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for GME Director approval'">Return</button>
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for GME Director approval'">Reject</button>
-    
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for VPAA approval'">Add to EB meeting Agenda</button>
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for VPAA approval'">Reject</button>
-
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for EB approval'">Add to BoT Meeting Agenda</button>
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for EB approval'">Reject</button>
-    
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for BoT approval'">Approve</button>
-    <button class="btn btn-primary" *ngIf="formData.status ==='Submitted for BoT approval'">Reject</button>
-</div>
-
-
-

@@ -11,11 +11,16 @@ export class CurriculumComponentsComponent implements OnInit {
 
   listData = data;
 
-  @Input() isEditable : boolean = false;
+  @Input() formData : any = null;
+
+  isViewOnly : boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    if (this.formData !== null) {
+      this.isViewOnly = true
+    }
   }
 
 }

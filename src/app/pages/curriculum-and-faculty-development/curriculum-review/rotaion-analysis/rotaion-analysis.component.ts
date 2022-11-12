@@ -12,7 +12,7 @@ export class RotaionAnalysisComponent implements OnInit {
 
   tableData: any [] = []
 
-  @Input() isEditable : boolean = false;
+  @Input() formData : any = null;
 
   constructor() { }
 

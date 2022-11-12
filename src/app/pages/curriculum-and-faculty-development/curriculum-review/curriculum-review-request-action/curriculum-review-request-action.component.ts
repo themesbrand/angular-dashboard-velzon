@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CurriculumReviewRequestActionComponent implements OnInit {
 
   @Input() formData : any = null;
+  @Input() isViewOnly : boolean= false;
 
   constructor() { }
 

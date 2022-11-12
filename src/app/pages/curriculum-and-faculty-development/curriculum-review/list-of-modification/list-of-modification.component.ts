@@ -13,7 +13,7 @@ export class ListOfModificationComponent implements OnInit {
 
   tableData: any [] = []
 
-  @Input() isEditable : boolean = false;
+  @Input() formData : any = null;
 
   constructor() { }
 

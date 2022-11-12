@@ -1,7 +1,7 @@
-<div class="d-flex flex-row justify-content-end mb-2">
+<div class="d-flex flex-row justify-content-end mb-2" *ngIf="formData === null">
     <button class="btn btn-primary" (click)="addNew()">Add New</button>
 </div>
-<div class="row mb-2" *ngIf="tableData.length !== 0">
+<div class="row mb-2" *ngIf="tableData.length !== 0 || formData !== null">
     <div class="live-preview">     
         <div class="table-responsive">
             <table class="table align-middle table-hover table-wrap mb-0">
@@ -27,7 +27,7 @@
                         <th scope="col">P</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="formData === null">
                     <tr *ngFor="let row of tableData">
                         <td style="min-width : 350px">
                             <ng-select [items]="listData.rotationCodes" bindLabel="name" placeholder="Please select">
@@ -90,10 +90,29 @@
                         </td>
                     </tr>
                 </tbody>
+                <tbody *ngIf="formData !== null">
+                    <tr *ngFor="let row of formData">
+                        <td style="min-width : 350px">{{row.rotation}}</td>
+                        <td>{{row.traineeLevel}}</td>
+                        <td>{{row.blocks}}</td>
+                        <td>{{row.center}}</td>
+                        <td>{{row.specificObjectiveOne}}</td>
+                        <td>{{row.specificObjectiveTwo}}</td>
+                        <td>{{row.specificObjectiveThree}}</td>
+                        <td>{{row.specificObjectiveFour}}</td>
+                        <td>{{row.specificObjectiveFive}}</td>
+                        <td>{{row.specificObjectiveSix}}</td>
+                        <td>{{row.progressionOfObjectives}}</td>
+                        <td>{{row.assessmentAndEvaluation}}</td>
+                        <td>{{row.matchWithBlockDiagram}}</td>
+                        <td style="min-width : 300px">{{row.remarks}}</td>
+                        <td style="min-width : 150px">{{row.addressedBy}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>                             
     </div>
 </div>
-<div class="d-flex flex-row" *ngIf="tableData.length !== 0">
+<div class="d-flex flex-row" *ngIf="tableData.length !== 0 && formData === null">
     <button class="btn btn-primary">Submit</button>
 </div>
