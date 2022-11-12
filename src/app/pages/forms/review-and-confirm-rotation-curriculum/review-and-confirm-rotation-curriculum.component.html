@@ -1,0 +1,88 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Review And Confirm Rotation Curriculum" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="navigateBack()"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-2" >
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/assets/images/logo_2.png" class="img-fluid" style="width: 110px; height : auto">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex flex-column text-center">
+                                <p class="h2">OMAN MEDICAL SPECIALTY BOARD</p>
+                                <p class="h3">Review And Confirm Rotation Curriculum</p>
+                                <!-- <p class="h6 mb-4">OMSB-AES-FRM-001</p> -->
+                            </div>
+                            <form [formGroup]="applicationHeaderForm">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Trainee Name</label>
+                                        <input type="text" formControlName="traineeName" class="form-control"/>
+                                    </div>
+                                   
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Program Name</label>
+                                        <input type="text" formControlName="program" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Trainee Level</label>
+                                        <input type="text" formControlName="traineeLevel" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">OMSB No.</label>
+                                        <input type="text" formControlName="omsbNumber" class="form-control"/>
+                                    </div>                                 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body py-3 px-3">
+                <div class="d-flex flex-row justify-content-end mb-3">
+                    <button class="btn btn-primary" (click)="addNew()">Add</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table_block table-fixed">
+                            <table class="table table-wrap" >
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Residency Level</th>
+                                        <th>Block No.</th>
+                                        <th>Rotation Name</th>
+                                        <th>Confirmation Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let rotation of rotationCurriculumList; let i = index">
+                                        <td> 
+                                            <ng-select [items]="['R1','R2','R3','R4','R5']" placeholder="Please select">
+                                            </ng-select>
+                                        </td>
+                                        <td> 
+                                            <input type="number" class="form-control">
+                                        </td>
+                                        <td class="w-75"> 
+                                            <ng-select [items]="listData.rotationList" placeholder="Please select">
+                                            </ng-select>
+                                        </td>
+                                        <td> 
+                                            <ng-select [items]="['Confirmed', 'Not Confirmed']" placeholder="Please select">
+                                            </ng-select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

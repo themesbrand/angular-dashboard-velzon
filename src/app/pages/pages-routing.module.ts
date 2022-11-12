@@ -210,6 +210,7 @@ import { SixMonthAndAnnualEvaluationFormNewComponent } from './forms/six-month-a
 import { CurriculumAndFacultyDevelopmentComponent } from './curriculum-and-faculty-development/curriculum-and-faculty-development.component';
 import { CreateNewProgramComponent } from './curriculum-and-faculty-development/create-new-program/create-new-program.component';
 import { CurriculumReviewComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review.component';
+import { ReviewAndConfirmRotationCurriculumComponent } from './forms/review-and-confirm-rotation-curriculum/review-and-confirm-rotation-curriculum.component';
 
 const routes: Routes = [
     //Default Routing
@@ -226,6 +227,7 @@ const routes: Routes = [
       { path: "presentation-evaluation-form", component: PresentationEvaluationFormComponent },
       { path: "six-month-and-annual-evaluation-form-old", component: SixMonthAndAnnualEvaluationFormComponent },
       { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormNewComponent },
+      { path: "review-and-confirm-rotation-curriculum", component: ReviewAndConfirmRotationCurriculumComponent },
       
     ] },
     { path: "curriculum", children: [

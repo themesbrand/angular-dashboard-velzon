@@ -1,1 +1,99 @@
-<p>rotaion-analysis works!</p>
+<div class="d-flex flex-row justify-content-end mb-2">
+    <button class="btn btn-primary" (click)="addNew()">Add New</button>
+</div>
+<div class="row mb-2" *ngIf="tableData.length !== 0">
+    <div class="live-preview">     
+        <div class="table-responsive">
+            <table class="table align-middle table-hover table-wrap mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2">Rotations Name</th>
+                        <th scope="col" rowspan="2">Trainee Level</th>
+                        <th scope="col" rowspan="2">No. of Blocks</th>
+                        <th scope="col" rowspan="2">Training Centers</th>
+                        <th scope="col" colspan="6" class="text-center">Competency Specific Objectives</th>
+                        <th scope="col" rowspan="2">Progression of Objectives</th>
+                        <th scope="col" rowspan="2">Assessment & Evaluation</th>
+                        <th scope="col" rowspan="2">Match with block diagram</th>
+                        <th scope="col" rowspan="2">Remarks</th>
+                        <th scope="col" rowspan="2">Remarks to be addressed by</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">MK</th>
+                        <th scope="col">PC</th>
+                        <th scope="col">ICG</th>
+                        <th scope="col">SBP</th>
+                        <th scope="col">PBLE</th>
+                        <th scope="col">P</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of tableData">
+                        <td style="min-width : 350px">
+                            <ng-select [items]="listData.rotationCodes" bindLabel="name" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="listData.rotationYears" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="listData.numberOfBlocks" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="listData.trainingCenters" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Yes', 'No', 'N/A']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td style="min-width : 300px">
+                            <textarea rows="2" class="form-control"></textarea>
+                        </td>
+                        <td style="min-width : 150px">
+                            <ng-select [items]="listData.userLists" bindLabel="name" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>                             
+    </div>
+</div>
+<div class="d-flex flex-row" *ngIf="tableData.length !== 0">
+    <button class="btn btn-primary">Submit</button>
+</div>

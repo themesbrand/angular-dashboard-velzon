@@ -5,6 +5,8 @@
                 <thead>
                     <tr>
                         <th scope="col" colspan="3" >Curriculum Content</th>
+                        <th scope="col">Included</th>
+                        <th scope="col">Page</th>
                         <th scope="col">Remarks/Comments</th>
                         <th scope="col">Remarks to be addressed by</th>
                         <th scope="col">Status</th>
@@ -18,10 +20,19 @@
                         <td *ngIf="row.isSub">{{row.number}}</td>
                         <td *ngIf="row.isSub" style="max-width: 150px">{{row.value}}</td>
                         <td>
-                            <textarea rows="3" class="form-control"></textarea>
+                            <ng-select [items]="['Yes', 'No', 'Incomplete']" placeholder="Please select">
+                            </ng-select>
                         </td>
                         <td>
+                            <ng-select [items]="['Yes', 'No']" placeholder="Please select">
+                            </ng-select>
+                        </td>
+                        <td style="min-width: 300px !important">
                             <textarea rows="3" class="form-control"></textarea>
+                        </td>
+                        <td >
+                            <ng-select [items]="listData.userLists" bindLabel="name" placeholder="Please select">
+                            </ng-select>
                         </td>
                         <td>
                             <ng-select  [items]="['In-Progress', 'Completed']" placeholder="Please select">

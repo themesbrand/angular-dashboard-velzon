@@ -75,7 +75,4 @@ export class CreateNewProgramFormComponent implements OnInit {
     })
   }
 
-
-
-
 }

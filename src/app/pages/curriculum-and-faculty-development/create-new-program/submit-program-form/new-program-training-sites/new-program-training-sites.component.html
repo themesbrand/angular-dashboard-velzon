@@ -1,0 +1,95 @@
+<p class="h5 text-primary">Training Sites</p>
+<div class="row" *ngIf="!isTeamMemberAddView">
+    <div class="d-flex flex-row justify-content-end">
+        <button class="btn btn-primary" (click)="viewTeamMemberForm()">Add Training Site</button>
+    </div>
+</div>
+<div class="row mt-3" *ngIf="!isTeamMemberAddView && committeeList.length !== 0">
+    <div class="live-preview">     
+        <div class="table-responsive">
+            <table class="table align-middle table-hover table-wrap mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col">Committee Name</th>
+                        <th scope="col">Position</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of committeeList; let i = index">
+                        <td>{{i}}</td>
+                        <td>{{row.name}}</td>
+                        <td>{{row.email}}</td>
+                        <td>{{row.telephone}}</td>
+                        <td>
+                            <ng-select [items]="committeeNames"
+                            placeholder="Select the Committee Name">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <ng-select [items]="['Contact Person', 'Educational Supervisor', 'Teaching Faculties']"
+                            placeholder="Select the Position">
+                            </ng-select>
+                        </td>
+                        <td>
+                            <button (click)="onDeleteMember(i)" type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>                             
+    </div>
+</div>
+<div class="row" *ngIf="!isTeamMemberAddView && committeeList.length === 0">
+    <div class="d-flex flex-row text-center text-warning h5">No Members Included to the List</div>
+</div>
+<div class="row" *ngIf="isTeamMemberAddView">
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Telephone</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="d-flex flex-row">
+        <button class="btn btn-primary" (click)="onSearch()">Search</button>
+    </div>
+</div>
+<div class="row mt-3" *ngIf="isTeamMemberAddView && isTeamMemberSearch">
+    <div class="live-preview">     
+        <div class="table-responsive">
+            <table class="table align-middle table-hover table-wrap mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let member of membersList; let i = index">
+                        <td>{{member.name}}</td>
+                        <td>{{member.email}}</td>
+                        <td>{{member.telephone}}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" (click)="onAddMemberToList(member, i)">Add to Training Site</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>                             
+    </div>
+</div>
+<div class="d-flex flex-row mt-3" *ngIf="committeeList.length !== 0">
+    <button class="btn btn-primary">Submit</button>
+</div>

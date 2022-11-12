@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-header align-items-xl-center d-xl-flex">
+        <div class="flex-shrink-0">
+          <ul ngbNav #Header="ngbNav" [activeId]="1" class="nav nav-pills card-header-pills">
+            <li [ngbNavItem]="1">
+                <a ngbNavLink>Admission Requirements</a>
+                <ng-template ngbNavContent>
+                    <div class="d-flex flex-row justify-content-end">
+                        <button (click)="addNew()" type="button" class="btn btn-primary btn-sm btn-label waves-effect waves-light"><i class="   ri-file-add-line label-icon align-middle fs-16 me-2"></i>Add</button>
+                    </div>
+                    <div class="live-preview mt-3" *ngIf="admissionRequirements.length !== 0">
+                        <div class="table-responsive">
+                            <table class="table align-middle table-hover table-wrap mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Index</th>
+                                        <th scope="col">Requirements</th>
+                                        <th scope="col"></th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let requirement of admissionRequirements; let i = index">
+                                        <td class="fw-medium">{{(i + 1)}}</td>
+                                        <td class="w-100">
+                                            <textarea class="form-control" rows="2" [innerHtml]="requirement"></textarea>
+                                        </td>
+                                        <td>
+                                            <button (click)="onDelete(i)" type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row gap-3 mt-4">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink>Residency Training Requirements</a>
+                <ng-template ngbNavContent>
+                    <ckeditor [editor]="Editor"></ckeditor>           
+                    <div class="d-flex flex-row gap-3 mt-4">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </ng-template>
+            </li>
+            
+          </ul>
+        </div>
+    </div><!-- end card header -->
+    <div class="card-body">
+        <!-- Tab panes -->
+        <div class="tab-content text-muted">
+          <div [ngbNavOutlet]="Header"></div>
+        </div>
+    </div><!-- end card-body -->                
+</div>

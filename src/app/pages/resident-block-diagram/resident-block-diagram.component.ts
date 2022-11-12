@@ -96,6 +96,16 @@ export class ResidentBlockDiagramComponent implements OnInit {
   routeToForm(form : any, blockId : any, tableYearNumber : any) {
     console.log(form)
     switch (form) {
+      case 'Review & Confirm rotation curriculum' : {
+        this.router.navigateByUrl('/forms/review-and-confirm-rotation-curriculum', { state: {
+          block: this.blockDates[tableYearNumber][blockId],
+          programName : this.listData.programName,
+          traineeName : this.listData.traineeName,
+          level: this.listData.traineeLevel,
+          omsb: this.listData.omsb
+        }})
+        break;
+      }
       case 'Trainer Evaluation Form' : {
         this.router.navigateByUrl('/forms/trainer-evaluation-form', { state: {
           block: this.blockDates[tableYearNumber][blockId],

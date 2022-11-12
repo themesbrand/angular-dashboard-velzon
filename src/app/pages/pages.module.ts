@@ -402,6 +402,22 @@ import { SubmitProgramFormComponent } from './curriculum-and-faculty-development
 import { SubmitProgramViewComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-view/submit-program-view.component';
 import { CurriculumComponentsComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-components/curriculum-components.component';
 import { RotaionAnalysisComponent } from './curriculum-and-faculty-development/curriculum-review/rotaion-analysis/rotaion-analysis.component';
+import { NewProgramAddCommitteeComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-add-committee/new-program-add-committee.component';
+import { NewProgramObjectivesComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-objectives/new-program-objectives.component';
+import { NewProgramFormComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-form/new-program-form.component';
+import { NewProgramRequirementsComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-requirements/new-program-requirements.component';
+import { NewProgramRotationsComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-rotations/new-program-rotations.component';
+import { NewProgramProceduresComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-procedures/new-program-procedures.component';
+import { NewProgramRotationsAddRotationComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-rotations-add-rotation/new-program-rotations-add-rotation.component';
+import { NewProgramTrainingSitesComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-training-sites/new-program-training-sites.component';
+import { NewProgramSyllabusComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-syllabus/new-program-syllabus.component';
+import { NewProgramAssessmentComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-assessment/new-program-assessment.component';
+import { NewProgramToolsProgramEvaluationComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-tools-program-evaluation/new-program-tools-program-evaluation.component';
+import { NewProgramDailyAssignmentsComponent } from './curriculum-and-faculty-development/create-new-program/submit-program-form/new-program-daily-assignments/new-program-daily-assignments.component';
+import { ReviewAndConfirmRotationCurriculumComponent } from './forms/review-and-confirm-rotation-curriculum/review-and-confirm-rotation-curriculum.component';
+import { ListOfModificationComponent } from './curriculum-and-faculty-development/curriculum-review/list-of-modification/list-of-modification.component';
+import { NewCurriculumReviewRequestComponent } from './curriculum-and-faculty-development/curriculum-review/new-curriculum-review-request/new-curriculum-review-request.component';
+import { CurriculumReviewRequestActionComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review-request-action/curriculum-review-request-action.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -768,7 +784,23 @@ FullCalendarModule.registerPlugins([
     SubmitProgramFormComponent,
     SubmitProgramViewComponent,
     CurriculumComponentsComponent,
-    RotaionAnalysisComponent
+    RotaionAnalysisComponent,
+    NewProgramAddCommitteeComponent,
+    NewProgramObjectivesComponent,
+    NewProgramFormComponent,
+    NewProgramRequirementsComponent,
+    NewProgramRotationsComponent,
+    NewProgramProceduresComponent,
+    NewProgramRotationsAddRotationComponent,
+    NewProgramTrainingSitesComponent,
+    NewProgramSyllabusComponent,
+    NewProgramAssessmentComponent,
+    NewProgramToolsProgramEvaluationComponent,
+    NewProgramDailyAssignmentsComponent,
+    ReviewAndConfirmRotationCurriculumComponent,
+    ListOfModificationComponent,
+    NewCurriculumReviewRequestComponent,
+    CurriculumReviewRequestActionComponent
   ],
   imports: [
     CommonModule,

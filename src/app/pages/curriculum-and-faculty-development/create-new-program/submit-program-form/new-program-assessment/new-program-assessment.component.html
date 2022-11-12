@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="card-header align-items-xl-center d-xl-flex">
+        <div class="flex-shrink-0">
+          <ul ngbNav #Header="ngbNav" [activeId]="1" class="nav nav-pills card-header-pills">
+            <li [ngbNavItem]="1">
+                <a ngbNavLink>
+                    Formative Assessment
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="d-flex flex-row justify-content-end">
+                        <button type="button" (click)="addFormative()" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Formative Assessment</button>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="border border-dashed mt-2 px-4 py-3" *ngFor="let object of formativeList; let i = index">
+                            <div class="d-flex flex-row justify-content-between mb-2 align-items-center">
+                                <p class="text-success h5 mb-0 ">{{(i+1)}}{{". "}}</p>
+                                <input type="text" class="form-control mx-3" [(ngModel)]="object.heading">
+                                <button (click)="onDeleteFormative(i)" type="button" class="btn btn-sm btn-outline-danger mx-1 btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                            </div>
+                            <ckeditor [editor]="Editor" [(ngModel)]="object.content"></ckeditor>
+            
+                        </div>
+                    </div>
+                    <div *ngIf="formativeList.length !== 0" class="d-flex flex-row gap-3 mt-4">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                    
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink>
+                  Summative Assessment
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="d-flex flex-row justify-content-end">
+                        <button type="button" (click)="addSummativeList()" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Summative Assessment</button>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="border border-dashed mt-2 px-4 py-3" *ngFor="let object of summativeList; let i = index">
+                            <div class="d-flex flex-row justify-content-between mb-2 align-items-center">
+                                <p class="text-success h5 mb-0 ">{{(i+1)}}{{". "}}</p>
+                                <input type="text" class="form-control mx-3" [(ngModel)]="object.heading">
+                                <button (click)="onDeleteSummativeList(i)" type="button" class="btn btn-sm btn-outline-danger mx-1 btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                            </div>
+                            <ckeditor [editor]="Editor" [(ngModel)]="object.content"></ckeditor>
+            
+                        </div>
+                    </div>
+                    <div *ngIf="summativeList.length !== 0" class="d-flex flex-row gap-3 mt-4">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </ng-template>
+            </li>
+          </ul>
+        </div>
+    </div><!-- end card header -->
+    <div class="card-body">
+        <!-- Tab panes -->
+        <div class="tab-content text-muted">
+          <div [ngbNavOutlet]="Header"></div>
+        </div>
+    </div><!-- end card-body -->                
+</div>

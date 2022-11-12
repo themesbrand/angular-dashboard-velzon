@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
+import {data} from './data';
 @Component({
   selector: 'app-rotaion-analysis',
   templateUrl: './rotaion-analysis.component.html',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RotaionAnalysisComponent implements OnInit {
 
+  listData = data;
+
+  tableData: any [] = []
+
+  @Input() isEditable : boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  addNew() {
+    const object : any = {
+      rotationName : null
+    }
+    this.tableData.push(object)
+  }
 }

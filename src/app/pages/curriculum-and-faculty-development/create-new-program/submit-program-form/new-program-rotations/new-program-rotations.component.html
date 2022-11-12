@@ -1,0 +1,45 @@
+<div class="card" *ngIf="!isAddRotation">
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-end" >
+            <button type="button" (click)="onAddRotation()" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add</button>
+        </div>
+        <div class="live-preview" *ngIf="rotationsList.length !== 0 && !isAddRotation">                                    
+            <div class="table-responsive">
+                <table class="table table-hover align-middle table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rotation</th>
+                            <th scope="col">R1</th>
+                            <th scope="col">R2</th>
+                            <th scope="col">R3</th>
+                            <th scope="col">R4</th>
+                            <th scope="col">R5</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of rotationsList; let i = index">
+                            <td>{{row?.name?.name}}</td>
+                            <td><input type="number" class="form-control" [(ngModel)]="row.r1"></td>
+                            <td><input type="number" class="form-control" [(ngModel)]="row.r2"></td>
+                            <td><input type="number" class="form-control" [(ngModel)]="row.r3"></td>
+                            <td><input type="number" class="form-control" [(ngModel)]="row.r4"></td>
+                            <td><input type="number" class="form-control" [(ngModel)]="row.r5"></td>
+                            <td>{{(row.r1 + row.r2 + row.r3  + row.r4 + row.r5)}}</td>
+                            <td>
+                                <div class="d-flex flex-row gap-3">
+                                    <button type="button" (click)="onDelete(i)" class="btn btn-outline-danger btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                                    <button type="button" (click)="onEdit(row, i)"  class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-pencil-line"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="rotationsList.length === 0" class="d-flex flex-row text-center text-warning h5">No Rotations Included to the List</div>
+    </div>
+</div>
+<app-new-program-rotations-add-rotation *ngIf="isAddRotation" (onSaveForm)="onSaveNewRotation($event)" [formData]="selectedData"></app-new-program-rotations-add-rotation>
+

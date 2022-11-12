@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-end">
+            <button type="button" (click)="addSyllabus()" class="btn btn-primary my-2 btn-label waves-effect waves-light"><i class=" ri-file-add-fill label-icon align-middle fs-16 me-2"></i>Add Syllabus</button>
+        </div>
+        <div class="d-flex flex-column">
+            <div class="border border-dashed mt-2 px-4 py-3" *ngFor="let syllabus of syllabusList; let i = index">
+                <div class="d-flex flex-row justify-content-between mb-2 align-items-center">
+                    <p class="text-success h5 mb-0 ">{{(i+1)}}{{". "}}</p>
+                    <input type="text" class="form-control mx-3" [(ngModel)]="syllabus.heading">
+                    <button (click)="onDelete(i)" type="button" class="btn btn-sm btn-outline-danger mx-1 btn-icon waves-effect waves-light"><i class=" ri-delete-bin-line"></i></button>
+                </div>
+                <ckeditor [editor]="Editor" [(ngModel)]="syllabus.content"></ckeditor>
+
+            </div>
+        </div>
+        <div *ngIf="syllabusList.length !== 0" class="d-flex flex-row gap-3 mt-4">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
