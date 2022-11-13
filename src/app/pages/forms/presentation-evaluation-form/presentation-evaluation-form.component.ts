@@ -39,10 +39,10 @@ export class PresentationEvaluationFormComponent implements OnInit {
   });
 
   public choices = [
-    {description: 'Unsatisfactory', value: '1'},
-    {description: "Below Expectations", value: '2'},
-    {description: "Meets Expectations", value: '3'},
-    {description: "Exceeds Expectations", value: '3'},
+    {description: 'Unsatisfactory - 1', value: '1'},
+    {description: "Below Expectations - 2", value: '2'},
+    {description: "Meets Expectations - 3", value: '3'},
+    {description: "Exceeds Expectations - 4", value: '4'},
     {description: "N/A", value: '4'}
   ];
   traineeName: any;

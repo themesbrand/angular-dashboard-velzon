@@ -42,11 +42,11 @@ export class RotationEvaluationFormComponent implements OnInit {
   });
 
   public choices = [
-    {description: 'Unsatisfactory', value: '1'},
-    {description: "Deficient", value: '2'},
-    {description: "Good", value: '3'},
-    {description: "Very Good", value: '3'},
-    {description: "Outstanding", value: '4'},
+    {description: 'Unsatisfactory - 1', value: '1'},
+    {description: "Deficient - 2", value: '2'},
+    {description: "Good - 3", value: '3'},
+    {description: "Very Good - 4", value: '4'},
+    {description: "Outstanding - 5", value: '5'},
     {description: "N/A", value: '5'}
   ];
   

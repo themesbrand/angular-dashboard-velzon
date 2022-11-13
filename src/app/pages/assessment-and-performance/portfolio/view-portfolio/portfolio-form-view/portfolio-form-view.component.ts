@@ -13,6 +13,7 @@ export class PortfolioFormViewComponent implements OnInit {
 
 
   @Input() onEditMode = false;
+  @Input() isPortfolioHidden = false;
 
   progressSummary : any[] = ['Overall Progress', 'Patient Care',	'Medical Knowledge',	'Systems Based',	'Practice Based',	'Professionalism',	'Interpersonal'
 ]

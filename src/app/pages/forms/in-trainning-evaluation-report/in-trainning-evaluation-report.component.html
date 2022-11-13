@@ -98,18 +98,18 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>CRITERIA</th>
-                                        <th class="text-start">Unsatisfactory</th>
-                                        <th class="text-start">Below Expectations</th>
-                                        <th class="text-start">Meets Expectations</th>
-                                        <th class="text-start">Exceeds Expectations</th>
+                                        <th class="text-start">Unsatisfactory - 1</th>
+                                        <th class="text-start">Below Expectations - 2</th>
+                                        <th class="text-start">Meets Expectations - 3</th>
+                                        <th class="text-start">Exceeds Expectations - 4</th>
                                         <th class="text-start">N/A</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let question of listData['in-training-evaluation-form']">
-                                        <td *ngIf="question.isChoices">{{question.question}}
+                                        <td style="max-width : 200px" *ngIf="question.isChoices">{{question.question}}
                                         </td>
-                                        <td *ngIf="!question.isChoices"><b>{{question.question}}</b>
+                                        <td style="max-width : 200px" *ngIf="!question.isChoices"><b>{{question.question}}</b>
                                         </td>
                                         <td  *ngFor="let choice of choices; let i=index">
                                             <div *ngIf="question.isChoices" class="form-check mb-2">

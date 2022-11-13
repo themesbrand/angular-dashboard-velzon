@@ -39,10 +39,10 @@ export class ResearchMentorEvaluationFormComponent implements OnInit {
   });
 
   public choices = [
-    {description: 'Strongly Disagree', value: '1'},
-    {description: "Disagree", value: '2'},
-    {description: "Agree", value: '3'},
-    {description: "Strongly Agree", value: '4'},
+    {description: 'Strongly Disagree - 1', value: '1'},
+    {description: "Disagree - 2", value: '2'},
+    {description: "Agree - 3", value: '3'},
+    {description: "Strongly Agree - 4", value: '4'},
     {description: "N/A", value: '5'}
   ];
 
