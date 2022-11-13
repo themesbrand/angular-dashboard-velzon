@@ -57,7 +57,7 @@ const data = {
         },
         {
             questionNumber: '',
-            question : 'V. Interpersonal and Communication Skills (ICS)',
+            question : 'IV. Interpersonal and Communication Skills (ICS)',
             isChoices : false,
         },
         {
@@ -438,22 +438,22 @@ const data = {
         },
         {
             questionNumber: 'Q18',
-            question : '18. Communicates effectively with patients & families',
+            question : '18. Communicates effectively with health care professionals',
             isChoices : true,
         },
         {
             questionNumber: 'Q19',
-            question : '19. Communicates effectively with patients & families',
+            question : '19. Maintains comprehensive and timely medical records',
             isChoices : true,
         },
         {
             questionNumber: 'Q20',
-            question : '20. Communicates effectively with patients & families',
+            question : '20. Works effectively as a team member',
             isChoices : true,
         },
         {
             questionNumber: 'Q21',
-            question : '21. Communicates effectively with patients & families',
+            question : '21.  Leads medical teams effectively',
             isChoices : true,
         },
         {

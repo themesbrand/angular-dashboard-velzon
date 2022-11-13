@@ -98,72 +98,106 @@ export class ResidentBlockDiagramComponent implements OnInit {
     switch (form) {
       case 'Review & Confirm rotation curriculum' : {
         this.router.navigateByUrl('/forms/review-and-confirm-rotation-curriculum', { state: {
-          block: this.blockDates[tableYearNumber][blockId],
-          programName : this.listData.programName,
-          traineeName : this.listData.traineeName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }
       case 'Trainer Evaluation Form' : {
         this.router.navigateByUrl('/forms/trainer-evaluation-form', { state: {
-          block: this.blockDates[tableYearNumber][blockId],
-          programName : this.listData.programName,
-          traineeName : this.listData.traineeName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }
       case 'Research Mentor Evaluation Form' : {
         this.router.navigateByUrl('/forms/research-mentor-evaluation-form', { state: {
-          yearCode: this.tableYears[tableYearNumber].yearCode,
-          programName : this.listData.programName,
-          traineeName : this.listData.traineeName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }
       case 'Rotation Evaluation Form' : {
         this.router.navigateByUrl('/forms/rotation-evaluation-form', { state: {
-          block: this.blockDates[tableYearNumber][blockId],
-          academicYear : this.tableYears[tableYearNumber].year,
-          programName : this.listData.programName,
-          traineeName : this.listData.traineeName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }
       case 'ITAR' : {
         this.router.navigateByUrl('/forms/in-training-evaluation-form', { state: {
-          traineeName : this.listData.traineeName,
-          programName : this.listData.programName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb,
-          block: this.blockDates[tableYearNumber][blockId]
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }
       case 'WPBA (On-Demand Evaluations)' : {
         this.router.navigateByUrl('/forms/presentation-evaluation-form', { state: {
-          traineeName : this.listData.traineeName,
-          programName : this.listData.programName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb,
-          block: this.blockDates[tableYearNumber][blockId]
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }
       case 'Six monthly and Annual Evaluation' : {
         this.router.navigateByUrl('/forms/six-month-and-annual-evaluation-form', { state: {
-          traineeName : this.listData.traineeName,
-          programName : this.listData.programName,
-          level: this.listData.traineeLevel,
-          omsb: this.listData.omsb,
-          block: this.blockDates[tableYearNumber][blockId]
+          subjectName : this.listData.subjectName,
+          status : this.listData.status,
+          employer: this.listData.employer,
+          program: this.listData.program,
+          rotation: this.listData.rotation,
+          evaluationDates: this.blockDates[tableYearNumber][blockId],
+          evaluatorName: this.listData.evaluatorName,
+          evaluatorStatus: this.listData.evaluatorStatus,
+          evaluatorEmployer: this.listData.evaluatorEmployer,
+          evaluatorProgram: this.listData.evaluatorProgram,
         }})
         break;
       }

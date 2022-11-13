@@ -108,7 +108,7 @@
                                         <td  *ngFor="let choice of choices; let i=index" >
                                             <div *ngIf="question.isChoices" class="form-check mb-2">
                                                 <div class="d-flex flex-row align-items-center">
-                                                    <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
+                                                    <input [value]="choice.value" class="form-check-input text-start" type="radio" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
                                                     [disabled]="!question.question"
                                                     (change)="onCheckChangeSurvey($event, i, question.questionNumber, question.question)">
@@ -418,7 +418,7 @@
                                         <td  style="background-color: grey; color: white;" *ngFor="let choice of choicesSubs; let i=index" >
                                             <div class="form-check mb-2">
                                                 <div class="d-flex flex-row align-items-center">
-                                                    <input [value]="choice.value" class="form-check-input text-center" type="checkbox" id="formCheck1" 
+                                                    <input [value]="choice.value" class="form-check-input text-center" type="radio" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallSixMonthEvaluation')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallSixMonthEvaluation', 'null')">
                                                     <label (click)="onCheckChangeSurvey($event, i, 'overallSixMonthEvaluation', 'null')" class="form-check-label mx-2 text-start check-option" >
@@ -435,7 +435,7 @@
                                         <td  colspan="1" style="background-color: grey; color: white;  " *ngFor="let choice of choicesSubs2; let i=index" >
                                             <div class="form-check mb-2">
                                                 <div class="d-flex flex-row align-items-center">
-                                                    <input [value]="choice.value" class="form-check-input text-center" type="checkbox" id="formCheck1" 
+                                                    <input [value]="choice.value" class="form-check-input text-center" type="radio" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallAnnualEvaluation')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallAnnualEvaluation', 'null')">
                                                     <label (click)="onCheckChangeSurvey($event, i, 'overallAnnualEvaluation', 'null')" class="form-check-label mx-2 text-start check-option" >

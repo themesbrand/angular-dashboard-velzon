@@ -47,7 +47,7 @@ export class ViewPortfolioComponent implements OnInit {
     this.breadCrumbItems = [
       { label: "Assessment And Performance", link: '/assessment-and-performance'},
       { label: "Portfolio", link: '/assessment-and-performance/trainee-portfolio'},
-      { label: "View Portfolio", active : true }
+      { label: "View Evaluation", active : true }
     ];
   }
 

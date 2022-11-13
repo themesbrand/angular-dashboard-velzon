@@ -9,62 +9,71 @@
             <div class="card-header pb-0">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/assets/images/logo_2.png" class="img-fluid" style="width: 110px; height : auto">
+                        <img src="assets/images/users/avatar-4.jpg" class="img-fluid" style="width: 110px; height : auto">
                     </div>
                     <div class="col-md-10">
                         <div class="d-flex flex-column justify-content-center">
+                            <form [formGroup]="applicationHeaderForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="row">
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Subject Name: </label>
+                                                <p class="mb-0">{{getControlsValues.subjectName}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Status: </label>
+                                                <p class="mb-0">{{getControlsValues.subjectName}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Employer: </label>
+                                                <p class="mb-0">{{getControlsValues.employer}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Program: </label>
+                                                <p class="mb-0">{{getControlsValues.program}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Rotation: </label>
+                                                <p class="mb-0">{{getControlsValues.rotation}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Evaluation Dates: </label>
+                                                <p class="mb-0">{{getControlsValues.evaluationDates}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="row">
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Evaluator Name: </label>
+                                                <p class="mb-0">{{getControlsValues.evaluatorName}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Status: </label>
+                                                <p class="mb-0">{{getControlsValues.evaluatorStatus}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Employer: </label>
+                                                <p class="mb-0">{{getControlsValues.evaluatorEmployer}}</p>
+                                            </div>
+                                            <div class="col-md-12 d-flex flex-row gap-2">
+                                                <label class="form-label">Program: </label>
+                                                <p class="mb-0">{{getControlsValues.evaluatorProgram}}</p>
+                                            </div>
+                                        </div>
+                                    </div>                                  
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="d-flex flex-column justify-content-center">
                             <div class="d-flex flex-column text-center">
+                                <p class="h2">OMAN MEDICAL SPECIALTY BOARD</p>
                                 <p class="h2">ROTATION EVALUATION FORM</p>
                                 <p class="h6 mb-4">OMSB-AES-FRM-033</p>
                             </div>
-                            <form [formGroup]="applicationHeaderForm">
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Trainee Name</label>
-                                        <input type="text" formControlName="traineeName" class="form-control"/>
-                                    </div>
-                                   
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Program Name</label>
-                                        <input type="text" formControlName="program" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Trainee Level</label>
-                                        <input type="text" formControlName="traineeLevel" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">OMSB No.</label>
-                                        <input type="text" formControlName="omsbNumber" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Academic Year</label>
-                                        <input type="text" formControlName="academicYear" class="form-control"/>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Rotation</label>
-                                        <ng-select
-                                        [items]="listData.rotationList"
-                                        formControlName="rotation"
-                                        placeholder="Please select"
-                                        >
-                                        </ng-select>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Training Center</label>
-                                        <ng-select
-                                        [items]="listData.trainerCenterList"
-                                        formControlName="trainerCenterName"
-                                        placeholder="Please select"
-                                        >
-                                        </ng-select>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label">Block</label>
-                                        <input type="text" formControlName="block" class="form-control"/>
-                                    </div>
-                                </div>
-
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -94,7 +103,7 @@
                                         <td  *ngFor="let choice of choices; let i=index" >
                                             <div *ngIf="question.isChoices" class="form-check mb-2">
                                                 <div class="d-flex flex-row align-items-center">
-                                                    <input [value]="choice.value" class="form-check-input text-start" type="checkbox" id="formCheck1" 
+                                                    <input [value]="choice.value" class="form-check-input text-start" type="radio" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm(question.questionNumber)[i].value"
                                                     (change)="onCheckChangeSurvey($event, i, question.questionNumber)">
                                                     <label (click)="onCheckChangeSurvey($event, i, question.questionNumber)" class="form-check-label mx-2 text-start check-option" >
@@ -111,7 +120,7 @@
                                         <td  style="background-color: grey; color: white;" *ngFor="let choice of choices; let i=index" >
                                             <div class="form-check mb-2">
                                                 <div class="d-flex flex-row align-items-center">
-                                                    <input [value]="choice.value" class="form-check-input text-center" type="checkbox" id="formCheck1" 
+                                                    <input [value]="choice.value" class="form-check-input text-center" type="radio" id="formCheck1" 
                                                     [checked]="getControlsSurveyForm('overallQualityOfRotation')[i].value" 
                                                     (change)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')">
                                                     <label (click)="onCheckChangeSurvey($event, i, 'overallQualityOfRotation')" class="form-check-label mx-2 text-center check-option" >

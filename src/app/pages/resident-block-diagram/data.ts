@@ -3,6 +3,18 @@ const data = {
     omsb : '19-201',
     traineeLevel : 'R3',
     traineeName : 'Abbas Al Ajmi',
+    subjectName : 'Subject Name --- 1',
+    status : 'Status Value',
+    employer: 'Employer - 1',
+    program: 'Program - 1',
+    rotation: 'OBGYN:ANW-RH',
+    evaluatorName: 'Saleh Mahfoudh',
+    evaluatorStatus: 'Status Value',
+    evaluatorEmployer: 'Employer - 1',
+    evaluatorProgram: 'Program - 1',
+
+
+
     blockDatesYearOne : [
         '(01/09/2019 - 28/09/2019)', '(29/09/2019 - 26/10/2019)', '(27/10/2019 - 23/11/2019)', '(24/11/2019 - 21/12/2019)', '(22/12/2019 - 18/01/2020)', '(19/01/2020 - 15/02/2020)', '(16/02/2020 - 14/03/2020)', '(15/03/2020 - 11/04/2020)', '(12/04/2020 - 09/05/2020)', '(10/05/2020 - 06/06/2020)', '(07/06/2020 - 04/07/2020)', '(05/07/2020 - 01/08/2020)', '(02/08/2020 - 31/08/2020)'
     ],

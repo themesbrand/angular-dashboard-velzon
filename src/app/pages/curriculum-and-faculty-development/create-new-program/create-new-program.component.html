@@ -67,7 +67,15 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                <li (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                <li *ngIf="row.status === 'Request Submitted' || 
+                                                row.status === 'Pending Reivew by CH' || 
+                                                row.status === 'Pending VPAA Approval' ||
+                                                row.status === ' Pending Curriculum submission' ||
+                                                row.status === ' Curriculum submitted for VPAA approval' ||
+                                                row.status === ' Curriculum submitted for EB approval' ||
+                                                row.status === ' Curriculum submitted for BoT approval' ||
+                                                row.status === ' Pending VPAA Approval for TaskForce' ||
+                                                row.status === ' Pending at Task Force' "  (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <li *ngIf="row.status === 'Pending CFDS Review'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program Components</a></li>
                                                 <li *ngIf="row.status === 'Curriculum Finalized'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program Components</a></li>
                                                 <container-element [ngSwitch]="selectedUser">

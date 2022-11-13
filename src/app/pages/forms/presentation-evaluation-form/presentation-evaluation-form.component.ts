@@ -63,38 +63,51 @@ export class PresentationEvaluationFormComponent implements OnInit {
 
   headerFormInit() {
     this.applicationHeaderForm = this.formBuilder.group({
-      'traineeName' : new FormControl(null, []),
-      'traineeLevel' : new FormControl(null, []),
-      'omsbNumber' : new FormControl(null, []),
-      'program' : new FormControl(null, []),
-      'rotation' : new FormControl(null, []),
-      'setting' : new FormControl(null, []),
-      'dateOfPresentation' : new FormControl(null, []),
+      subjectName : new FormControl(null, []),
+      status : new FormControl(null, []),
+      employer : new FormControl(null, []),
+      program : new FormControl(null, []),
+      rotation : new FormControl(null, []),
+      evaluationDates : new FormControl(null, []),
+      evaluatorName : new FormControl(null, []),
+      evaluatorStatus : new FormControl(null, []),
+      evaluatorEmployer : new FormControl(null, []),
+      evaluatorProgram : new FormControl(null, []),
     })
 
     this.patchHeadingValues()
   }
 
   patchHeadingValues() {
-    const splitBlock = history.state.block.split(" - ", 2); 
+    const splitBlock = history.state.evaluationDates.split(" - ", 2); 
     const fromDate = splitBlock[0].slice(1)
     const toDate = splitBlock[1].slice(0,-1)
     const blockValue = `From : ${fromDate} To : ${toDate}`
 
     this.applicationHeaderForm.patchValue({
-      program : history.state.programName,
-      block : blockValue,
-      traineeName : history.state.traineeName,
-      traineeLevel : history.state.level,
-      omsbNumber : history.state.omsb,
+      subjectName : history.state.subjectName,
+      status : history.state.status,
+      employer: history.state.employer,
+      program: history.state.program,
+      rotation: history.state.rotation,
+      evaluationDates: blockValue,
+      
+      evaluatorName: history.state.evaluatorName,
+      evaluatorStatus: history.state.evaluatorStatus,
+      evaluatorEmployer: history.state.evaluatorEmployer,
+      evaluatorProgram: history.state.evaluatorProgram,
     })
     this.traineeName = history.state.traineeName
-
   }
 
   getControlsHeadingForm(controlName : any) {
     return (<FormArray>this.applicationHeaderForm.get(controlName)).controls
   }
+
+  get getControlsValues() {
+    return this.applicationHeaderForm.value
+  }
+  
   getControlsSurveyForm(controlName : any) {
     return (<FormArray>this.surveyForm.get(controlName)).controls
   }

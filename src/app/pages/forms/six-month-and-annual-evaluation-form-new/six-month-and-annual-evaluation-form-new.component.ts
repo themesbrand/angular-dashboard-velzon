@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormArray, FormBuilder, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { data } from './data'
@@ -22,14 +23,16 @@ export class SixMonthAndAnnualEvaluationFormNewComponent implements OnInit {
   competencyByRotationChart_5: any;
   competencyByRotationChart_6: any;
 
-
+  applicationHeaderForm !: FormGroup;
+  
   breadCrumbItems!: Array<{}>;
 
   progressSummary : any[] = ['Overall Progress', 'Patient Care',	'Medical Knowledge',	'Systems Based',	'Practice Based',	'Professionalism',	'Interpersonal'
 ]
 
   constructor(
-    private router : Router
+    private router : Router,
+    private formBuilder : FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +43,53 @@ export class SixMonthAndAnnualEvaluationFormNewComponent implements OnInit {
     this._rotationRequirementsChart('["--vz-success", "--vz-primary"]');
     this._competencyTrainingYearChart('["--vz-danger", "--vz-primary", "--vz-success", "--vz-warning"]');
     this._competencyByRotationChart('["--vz-primary"]');
+
+
+    this.headerFormInit()
+  }
+
+  
+  headerFormInit() {
+    this.applicationHeaderForm = this.formBuilder.group({
+      subjectName : new FormControl(null, []),
+      status : new FormControl(null, []),
+      employer : new FormControl(null, []),
+      program : new FormControl(null, []),
+      rotation : new FormControl(null, []),
+      evaluationDates : new FormControl(null, []),
+      evaluatorName : new FormControl(null, []),
+      evaluatorStatus : new FormControl(null, []),
+      evaluatorEmployer : new FormControl(null, []),
+      evaluatorProgram : new FormControl(null, []),
+    })
+
+    this.patchHeadingValues()
+  }
+
+  get getControlsValues() {
+    return this.applicationHeaderForm.value
+  }
+  
+
+  patchHeadingValues() {
+    const splitBlock = history.state.evaluationDates.split(" - ", 2); 
+    const fromDate = splitBlock[0].slice(1)
+    const toDate = splitBlock[1].slice(0,-1)
+    const blockValue = `From : ${fromDate} To : ${toDate}`
+
+    this.applicationHeaderForm.patchValue({
+      subjectName : history.state.subjectName,
+      status : history.state.status,
+      employer: history.state.employer,
+      program: history.state.program,
+      rotation: history.state.rotation,
+      evaluationDates: blockValue,
+      
+      evaluatorName: history.state.evaluatorName,
+      evaluatorStatus: history.state.evaluatorStatus,
+      evaluatorEmployer: history.state.evaluatorEmployer,
+      evaluatorProgram: history.state.evaluatorProgram,
+    })
   }
 
   private _rotationRequirementsChart(colors:any) {

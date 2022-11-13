@@ -83,15 +83,25 @@ export class TrainerEvaluationFormComponent implements OnInit {
       'omsbNumber' : new FormControl(null, []),
       'nameOfTrainer' : new FormControl(null, []),
       'trainerCenterName' : new FormControl(null, []),
-      'program' : new FormControl(null, []),
-      'rotation' : new FormControl(null, []),
       'block' : new FormControl(null, []),
       'weeksOfWork' : new FormArray([
         new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)
       ]),
       'frequencyOfContacts' : new FormArray([
         new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)
-      ])
+      ]),
+
+      subjectName : new FormControl(null, []),
+      status : new FormControl(null, []),
+      employer : new FormControl(null, []),
+      program : new FormControl(null, []),
+      rotation : new FormControl(null, []),
+      evaluationDates : new FormControl(null, []),
+      evaluatorName : new FormControl(null, []),
+      evaluatorStatus : new FormControl(null, []),
+      evaluatorEmployer : new FormControl(null, []),
+      evaluatorProgram : new FormControl(null, []),
+
     })
 
 
@@ -99,22 +109,28 @@ export class TrainerEvaluationFormComponent implements OnInit {
   }
 
   patchHeadingValues() {
-    console.log(history.state)
-
-    const splitBlock = history?.state?.block.split(" - ", 2) || undefined; 
-
-    console.log(splitBlock)
+    const splitBlock = history.state.evaluationDates.split(" - ", 2); 
     const fromDate = splitBlock[0].slice(1)
     const toDate = splitBlock[1].slice(0,-1)
     const blockValue = `From : ${fromDate} To : ${toDate}`
 
     this.applicationHeaderForm.patchValue({
-      program : history.state.programName,
-      block : blockValue,
-      traineeName : history.state.traineeName,
-      traineeLevel : history.state.level,
-      omsbNumber : history.state.omsb,
+      subjectName : history.state.subjectName,
+      status : history.state.status,
+      employer: history.state.employer,
+      program: history.state.program,
+      rotation: history.state.rotation,
+      evaluationDates: blockValue,
+      
+      evaluatorName: history.state.evaluatorName,
+      evaluatorStatus: history.state.evaluatorStatus,
+      evaluatorEmployer: history.state.evaluatorEmployer,
+      evaluatorProgram: history.state.evaluatorProgram,
     })
+  }
+
+  get getControlsValues() {
+    return this.applicationHeaderForm.value
   }
 
   getControlsHeadingForm(controlName : any) {
