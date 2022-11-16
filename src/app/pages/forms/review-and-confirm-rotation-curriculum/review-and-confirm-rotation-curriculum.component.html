@@ -98,20 +98,34 @@
                                             {{rotation.blockNumber}}
                                         </td>
                                         <td class="w-75"> 
-                                            {{rotation.rotation}}
+                                            <a style="cursor: pointer" (click)="openModal(viewRotation, 'xl')">{{rotation.rotation}}</a>
                                         </td>
                                         <td> 
-                                            <ng-select [items]="['Confirmed', 'Not Confirmed']" placeholder="Please select">
-                                            </ng-select>
+                                            {{rotation.status}}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <button class="btn btn-primary">Submit</button>
+                        <!-- <button class="btn btn-primary">Submit</button> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<ng-template #viewRotation let-modal>
+    <div class="modal-content bg-light">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <label class="form-label mt-2 h5">View Rotation</label>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-curriculum-preview-rotation></app-curriculum-preview-rotation>
+            </div>
+        </div>
+    </div><!-- /.modal-content -->
+</ng-template>

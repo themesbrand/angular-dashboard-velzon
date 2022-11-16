@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { data } from '../data'
 
@@ -26,148 +27,90 @@ export class ReviewAndConfirmRotationCurriculumComponent implements OnInit {
       level : 'R1',
       rotation: 'Anesthesia for General Surgery ', 
       blockNumber : '1',
-      status : null
+      status : 'Confirmed'
     },
     { 
-      level : 'R2',
+      level : 'R1',
       rotation: 'Anesthesia for General Surgery - Ambulatory Cases', 
       blockNumber : '2',
-      status : null
+      status : 'Confirmed'
     },
     { 
-      level : 'R2',
+      level : 'R1',
       rotation: 'Anesthesia for General Surgery – Urology Surgery ', 
       blockNumber : '3',
-      status : null
+      status : 'Confirmed'
     },
     { 
-      level : 'R4',
+      level : 'R1',
       rotation: 'Anesthesia for General Surgery – Vascular Surgery', 
       blockNumber : '4',
-      status : null
+      status : 'Confirmed'
     },
     { 
-      level : 'R4',
+      level : 'R1',
       rotation: 'Anesthesia for ENT/Ophthalmology/ Oral & Maxillofacial Surgery', 
       blockNumber : '5',
-      status : null
+      status : 'Confirmed'
 
     },
     { 
-      level : 'R3',
+      level : 'R1',
       rotation: 'Obstetrics and Gynecology Anesthesia', 
       blockNumber : '6',
-      status : null
+      status : 'Confirmed'
     },
     { 
       level : 'R1',
       rotation: 'Regional Anesthesia ', 
       blockNumber : '7',
-      status : null
+      status : 'Confirmed'
 
     },
     { 
-      level : 'R4',
+      level : 'R1',
       rotation: 'Anesthesia for Orthopedic Surgery', 
       blockNumber : '8',
-      status : null
+      status : 'Confirmed'
     },
     { 
       level : 'R1',
       rotation: 'Pre-Anesthesia Clinic (PAC)', 
-      blockNumber : '1',
-      status : null
+      blockNumber : '9',
+      status : 'Confirmed'
  
     },
     { 
       level : 'R1',
       rotation: 'Critical Care Medicine', 
-      blockNumber : '2',
-      status : null
+      blockNumber : '10',
+      status : 'Confirmed'
     },
     { 
-      level : 'R4',
+      level : 'R1',
       rotation: 'Plastic Surgery & Burns Anesthesia', 
-      blockNumber : '4',
-      status : null
+      blockNumber : '11',
+      status : 'Confirmed'
     },
     { 
       level : 'R1',
       rotation: 'Pain Management', 
-      blockNumber : '5',
-      status : null
+      blockNumber : '12',
+      status : 'Not Confirmed'
 
     },
     { 
       level : 'R1',
       rotation: 'Postanesthesia Care Unit- (PACU) 2 week', 
-      blockNumber : '6',
-      status : null
-    },
-    { 
-      level : 'R2',
-      rotation: 'Pediatric Anesthesia', 
-      blockNumber : '7',
-      status : null
-    },
-    { 
-      level : 'R1',
-      rotation: 'Neurosurgical Anesthesia', 
-      blockNumber : '8',
-      status : null
-
-    },
-    { 
-      level : 'R1',
-      rotation: 'Cardio Thoracic Anesthesia', 
-      blockNumber : '9',
-      status : null
-    },
-    { 
-      level : 'R1',
-      rotation: 'Anesthesia for Radiodiagnosis/Remote Location', 
-      blockNumber : '10',
-      status : null
-    },
-    { 
-      level : 'R1',
-      rotation: 'Respiratory Medicine', 
-      blockNumber : '11',
-      status : null
-
-    },
-    { 
-      level : 'R1',
-      rotation: 'Coronary Care Unit', 
-      blockNumber : '12',
-      status : null
-
-    },
-    { 
-      level : 'R1',
-      rotation: 'Research', 
-      blockNumber : '1',
-      status : null
-
-    },
-    { 
-      level : 'R1',
-      rotation: 'Elective', 
-      blockNumber : '5',
-      status : null
-
-    },
-    { 
-      level : 'R1',
-      rotation: 'Annual Leave', 
-      blockNumber : '16',
-      status : null
-    },
+      blockNumber : '13',
+      status : 'Not Confirmed'
+    }
   ]
   
   constructor(
     private formBuilder : FormBuilder,
-    private router : Router
+    private router : Router,
+    private modalService : NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -229,12 +172,16 @@ export class ReviewAndConfirmRotationCurriculumComponent implements OnInit {
     residencyLevel : null,
     blockNo : '',
     rotationName : null,
-    confirmStatus : null
-   } 
-   this.rotationCurriculumList.push(object)
+    confirmStatus : 'Confirmed'
+   };
+   this.rotationCurriculumList.push(object);
   }
 
   navigateBack() {
     this.router.navigateByUrl('/residency-block-diagram')
+  }
+
+  openModal(modal : any, size: any) {
+    this.modalService.open(modal, {size : size})
   }
 }

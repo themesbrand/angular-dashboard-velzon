@@ -15,7 +15,7 @@ export class PortfolioFormViewComponent implements OnInit {
   @Input() onEditMode = false;
   @Input() isPortfolioHidden = false;
 
-  progressSummary : any[] = ['Overall Progress', 'Patient Care',	'Medical Knowledge',	'Systems Based',	'Practice Based',	'Professionalism',	'Interpersonal'
+  progressSummary : any[] = ['Overall Progress', 'Patient Care',	'Medical Knowledge',	'Systems Based Practice',	'Practice Based Learning and Improvement',	'Professionalism',	'Interpersonal'
 ]
 
 competencyByRotationChart_1: any;
@@ -291,7 +291,6 @@ competencyByRotationChart_6: any;
     colors = this.getChartColorsArray(colors);
     this.competencyByRotationChart_1  = {
       series: [{
-        name: "STOCK ABC",
         data: [3.45, 3.00, 3.00, 3.15, 3.15, 3.00]
       }],
       chart: {
@@ -318,7 +317,6 @@ competencyByRotationChart_6: any;
     };
     this.competencyByRotationChart_2  = {
       series: [{
-        name: "STOCK ABC",
         data: [3.00, 3.15, 3.15, 3.15, 3.15, 3.45]
       }],
       chart: {
@@ -345,7 +343,6 @@ competencyByRotationChart_6: any;
     };
     this.competencyByRotationChart_3  = {
       series: [{
-        name: "STOCK ABC",
         data: [3.00, 3.25, 3.45, 3.05, 3.25, 3.25]
       }],
       chart: {
@@ -372,7 +369,6 @@ competencyByRotationChart_6: any;
     };
     this.competencyByRotationChart_4  = {
       series: [{
-        name: "STOCK ABC",
         data: [3.00, 3.00, 3.80, 3.20, 3.40, 3.00]
       }],
       chart: {
@@ -399,7 +395,6 @@ competencyByRotationChart_6: any;
     };
     this.competencyByRotationChart_5  = {
       series: [{
-        name: "STOCK ABC",
         data: [3.00, 3.20, 3.40, 3.00, 3.40, 3.00]
       }],
       chart: {
@@ -426,7 +421,6 @@ competencyByRotationChart_6: any;
     };
     this.competencyByRotationChart_6  = {
       series: [{
-        name: "STOCK ABC",
         data: [3.80, 3.00, 3.20, 3.20, 3.60, 3.20]
       }],
       chart: {

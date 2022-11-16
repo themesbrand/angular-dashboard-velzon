@@ -419,6 +419,13 @@ import { ListOfModificationComponent } from './curriculum-and-faculty-developmen
 import { NewCurriculumReviewRequestComponent } from './curriculum-and-faculty-development/curriculum-review/new-curriculum-review-request/new-curriculum-review-request.component';
 import { CurriculumReviewRequestActionComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review-request-action/curriculum-review-request-action.component';
 import { CurriculumReviewRequestViewComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review-request-view/curriculum-review-request-view.component';
+import { PreviewCurriculumRotationComponent } from './forms/review-and-confirm-rotation-curriculum/preview-rotation/preview-rotation.component';
+import { CpdComponent } from './cpd/cpd.component';
+import { MediaRequestComponent } from './cpd/media-request/media-request.component';
+import { RequestForCommittessComponent } from './cpd/request-for-committess/request-for-committess.component';
+import { AddNewMediaRequestCpdComponent } from './cpd/media-request/add-new-media-request-cpd/add-new-media-request-cpd.component';
+import { ViewNewMediaRequestCpdComponent } from './cpd/media-request/view-new-media-request-cpd/view-new-media-request-cpd.component';
+import { ActionNewMediaRequestCpdComponent } from './cpd/media-request/action-new-media-request-cpd/action-new-media-request-cpd.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -802,7 +809,14 @@ FullCalendarModule.registerPlugins([
     ListOfModificationComponent,
     NewCurriculumReviewRequestComponent,
     CurriculumReviewRequestActionComponent,
-    CurriculumReviewRequestViewComponent
+    CurriculumReviewRequestViewComponent,
+    PreviewCurriculumRotationComponent,
+    CpdComponent,
+    MediaRequestComponent,
+    RequestForCommittessComponent,
+    AddNewMediaRequestCpdComponent,
+    ViewNewMediaRequestCpdComponent,
+    ActionNewMediaRequestCpdComponent
   ],
   imports: [
     CommonModule,

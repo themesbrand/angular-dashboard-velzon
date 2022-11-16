@@ -201,6 +201,10 @@ export class ResidentBlockDiagramComponent implements OnInit {
         }})
         break;
       }
+      case 'Logging of Duty Hours' : {
+        this.router.navigateByUrl('/duty-hours/grid')
+        break;
+      }
       default : {
         break;
       }

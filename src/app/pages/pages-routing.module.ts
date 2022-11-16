@@ -211,6 +211,9 @@ import { CurriculumAndFacultyDevelopmentComponent } from './curriculum-and-facul
 import { CreateNewProgramComponent } from './curriculum-and-faculty-development/create-new-program/create-new-program.component';
 import { CurriculumReviewComponent } from './curriculum-and-faculty-development/curriculum-review/curriculum-review.component';
 import { ReviewAndConfirmRotationCurriculumComponent } from './forms/review-and-confirm-rotation-curriculum/review-and-confirm-rotation-curriculum.component';
+import { CpdComponent } from './cpd/cpd.component';
+import { MediaRequestComponent } from './cpd/media-request/media-request.component';
+import { RequestForCommittessComponent } from './cpd/request-for-committess/request-for-committess.component';
 
 const routes: Routes = [
     //Default Routing
@@ -548,6 +551,13 @@ const routes: Routes = [
         
       ]},
     ]},
+
+    { path: "cpd", children : [
+      { path: "", component: CpdComponent },
+      { path: "media-request", component: MediaRequestComponent },
+      { path: "request-for-committees", component: RequestForCommittessComponent },
+    ]},
+    
 
     { path: "employer", children : [
       { path: "dashboard", component: DashboardsEmployerComponent },

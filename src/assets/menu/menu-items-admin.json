@@ -439,5 +439,11 @@
         "label": "Assessment and Performance",
         "icon": "ri-bar-chart-grouped-fill",
         "link": "/assessment-and-performance"
+    },
+    {
+        "id": 73,
+        "label": "CPD",
+        "icon": " ri-store-2-line",
+        "link": "/cpd"
     }
 ]

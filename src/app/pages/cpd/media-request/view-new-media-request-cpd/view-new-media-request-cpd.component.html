@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Type of Material required</label>
+        <label for="" class="form-control">{{formData.typeOfMaterial}}</label>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Date required by</label>
+        <label for="" class="form-control">{{formData.requiredData}}</label>
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Description</label>
+        <label for="" class="form-control">{{formData.description}}</label>
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Download Documents</label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+    </div>
+    
+</div>
+<div class="row" *ngIf="formData.comments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Comments from Media Department<span class="text-danger px-2">{{"*"}}</span></label>
+        <label for="" class="form-control">{{formData.comments}}</label>
+
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Material Uploads<span class="text-danger px-2">{{"*"}}</span></label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-sm btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+        
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Is Upload complete<span class="text-danger px-2">{{"*"}}</span></label>
+        <label for="" class="form-control">Yes</label>
+    </div>
+</div>
+<div class="row" *ngIf="formData.approvalComments !== null && formData.comments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Approval Comments From Requestor<span class="text-danger px-2">{{"*"}}</span></label>
+        <label for="" class="form-control">{{formData.approvalComments}}</label>
+    </div>
+</div>
