@@ -445,5 +445,17 @@
         "label": "CPD",
         "icon": " ri-store-2-line",
         "link": "/cpd"
+    },
+    {
+        "id": 74,
+        "label": "Accreditation",
+        "icon": "ri-chat-poll-line",
+        "link": "/accreditation"
+    },
+    {
+        "id": 75,
+        "label": "Trainee Management System",
+        "icon": "ri-medal-line",
+        "link": "/trainee-management-system"
     }
 ]

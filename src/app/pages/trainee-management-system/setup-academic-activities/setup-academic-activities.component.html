@@ -1,0 +1,140 @@
+<app-breadcrumbs title="Setup Academic Activities" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/trainee-management-system')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
+
+<div class="row mt-1">
+    <form [formGroup]="requestForm">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Activity Type<span class="text-danger"></span></label>
+                        <ng-select formControlName="activityType"
+                        [items]="[
+                        'Academic Teaching',
+                        'Journal Club',
+                        'Program Research Day',
+                        'Resident Development Workshops',
+                        'Courses',
+                        'Conferences - Discovery',
+                        'Conferences - Integration',
+                        'Conferences - Application']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Residency Level<span class="text-danger"></span></label>
+                        <ng-select formControlName="residencyLevel"
+                        [items]="[ 'R1', 'R2', 'R3', 'R4']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Number of Activities Required</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Comments</label>
+                        <textarea rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+                <p class="h5 text-primary my-3" *ngIf="
+                formValues.activityType === 'Academic Teaching' || 
+                formValues.activityType === 'Journal Club' || 
+                formValues.activityType === 'Resident Development' || 
+                formValues.activityType === 'Courses'">{{formValues.activityType}}</p>
+                <div class="row" *ngIf="formValues.activityType === 'Academic Teaching' ">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Residency Level</label>
+                        <label class="form-control">{{formValues?.residencyLevel}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Date<span class="text-danger"></span></label>
+                        <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            [convertModelValue]="true"
+                            />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Time<span class="text-danger"></span></label>
+                        <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                    </div>
+                    <div class="col-md-12 mb-3" formArrayName="topics">
+                        <div class="d-flex flex-row justify-content-between mb-3">
+                            <label class="form-label">Topics<span class="text-danger"></span></label>
+                            <button type="button" (click)="addTopics()" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class="ri-folder-add-line"></i></button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3" *ngFor="let topic of topicsControls; let i = index"
+                            [formGroupName]="i">
+                                <div    class="d-flex flex-row justify-content-between gap-3" >
+                                    <input type="text" class="form-control w-100" formControlName="name">
+                                    <button (click)="deleteTopic(i)" type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="row" *ngIf="formValues.activityType === 'Journal Club' ">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Date<span class="text-danger"></span></label>
+                        <input
+                            class="form-control flatpickr-input"
+                            type="text"
+                            mwlFlatpickr
+                            [altInput]="true"
+                            [convertModelValue]="true"
+                            />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Start Time<span class="text-danger"></span></label>
+                        <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">End Time<span class="text-danger"></span></label>
+                        <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                    </div>
+
+                </div>
+                <div class="row" *ngIf="formValues.activityType === 'Resident Development Workshops' ">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Residency Level</label>
+                        <label class="form-control">{{formValues?.residencyLevel}}</label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Workshop Name</label>
+                        <ng-select 
+                        [items]="['Workshop Name -1', 'Workshop Name -2', 'Workshop Name -3', 'Workshop Name -4', 'Workshop Name -5', 'Workshop Name -6']" [multiple]="true" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row" *ngIf="formValues.activityType === 'Courses' ">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Course Name</label>
+                        <ng-select 
+                        [items]="['BLS', 'ACLS', 'PALS', 'ATLS', 'FCCS', 'NR']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Is Mandatory or Recommended</label>
+                        <ng-select 
+                        [items]="['Mandatory', 'Recommended']" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

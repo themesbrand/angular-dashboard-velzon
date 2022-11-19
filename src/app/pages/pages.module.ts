@@ -426,6 +426,17 @@ import { RequestForCommittessComponent } from './cpd/request-for-committess/requ
 import { AddNewMediaRequestCpdComponent } from './cpd/media-request/add-new-media-request-cpd/add-new-media-request-cpd.component';
 import { ViewNewMediaRequestCpdComponent } from './cpd/media-request/view-new-media-request-cpd/view-new-media-request-cpd.component';
 import { ActionNewMediaRequestCpdComponent } from './cpd/media-request/action-new-media-request-cpd/action-new-media-request-cpd.component';
+import { AccreditationComponent } from './accreditation/accreditation.component';
+import { AccreditNewProgramComponent } from './accreditation/accredit-new-program/accredit-new-program.component';
+import { AccreditionReviewComponent } from './accreditation/accredition-review/accredition-review.component';
+import { TraineeManagementSystemComponent } from './trainee-management-system/trainee-management-system.component';
+import { ConfirmCurriculumComponent } from './trainee-management-system/confirm-curriculum/confirm-curriculum.component';
+import { SetupAcademicActivitiesComponent } from './trainee-management-system/setup-academic-activities/setup-academic-activities.component';
+import { ScheduleAcademicActivitiesComponent } from './trainee-management-system/schedule-academic-activities/schedule-academic-activities.component';
+import { AssessmentSetupComponent } from './trainee-management-system/assessment-setup/assessment-setup.component';
+import { EvaluationMatchingComponent } from './trainee-management-system/evaluation-matching/evaluation-matching.component';
+import { TmScheduleCourseComponent } from './trainee-management-system/schedule-academic-activities/tm-schedule-course/tm-schedule-course.component';
+import { TmScheduleWorkshopComponent } from './trainee-management-system/schedule-academic-activities/tm-schedule-workshop/tm-schedule-workshop.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -816,7 +827,18 @@ FullCalendarModule.registerPlugins([
     RequestForCommittessComponent,
     AddNewMediaRequestCpdComponent,
     ViewNewMediaRequestCpdComponent,
-    ActionNewMediaRequestCpdComponent
+    ActionNewMediaRequestCpdComponent,
+    AccreditationComponent,
+    AccreditNewProgramComponent,
+    AccreditionReviewComponent,
+    TraineeManagementSystemComponent,
+    ConfirmCurriculumComponent,
+    SetupAcademicActivitiesComponent,
+    ScheduleAcademicActivitiesComponent,
+    AssessmentSetupComponent,
+    EvaluationMatchingComponent,
+    TmScheduleCourseComponent,
+    TmScheduleWorkshopComponent
   ],
   imports: [
     CommonModule,

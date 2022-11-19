@@ -214,6 +214,15 @@ import { ReviewAndConfirmRotationCurriculumComponent } from './forms/review-and-
 import { CpdComponent } from './cpd/cpd.component';
 import { MediaRequestComponent } from './cpd/media-request/media-request.component';
 import { RequestForCommittessComponent } from './cpd/request-for-committess/request-for-committess.component';
+import { AccreditationComponent } from './accreditation/accreditation.component';
+import { AccreditNewProgramComponent } from './accreditation/accredit-new-program/accredit-new-program.component';
+import { AccreditionReviewComponent } from './accreditation/accredition-review/accredition-review.component';
+import { ConfirmCurriculumComponent } from './trainee-management-system/confirm-curriculum/confirm-curriculum.component';
+import { SetupAcademicActivitiesComponent } from './trainee-management-system/setup-academic-activities/setup-academic-activities.component';
+import { ScheduleAcademicActivitiesComponent } from './trainee-management-system/schedule-academic-activities/schedule-academic-activities.component';
+import { AssessmentSetupComponent } from './trainee-management-system/assessment-setup/assessment-setup.component';
+import { EvaluationMatchingComponent } from './trainee-management-system/evaluation-matching/evaluation-matching.component';
+import { TraineeManagementSystemComponent } from './trainee-management-system/trainee-management-system.component';
 
 const routes: Routes = [
     //Default Routing
@@ -556,6 +565,21 @@ const routes: Routes = [
       { path: "", component: CpdComponent },
       { path: "media-request", component: MediaRequestComponent },
       { path: "request-for-committees", component: RequestForCommittessComponent },
+    ]},
+
+    { path: "accreditation", children : [
+      { path: "", component: AccreditationComponent },
+      { path: "accredit-new-program", component: AccreditNewProgramComponent },
+      { path: "accreditation-review", component: AccreditionReviewComponent },
+    ]},
+    
+    { path: "trainee-management-system", children : [
+      { path: "", component: TraineeManagementSystemComponent },
+      { path: "confirm-curriculum", component: ConfirmCurriculumComponent },
+      { path: "setup-academic-activities", component: SetupAcademicActivitiesComponent },
+      { path: "schedule-academic-activities", component: ScheduleAcademicActivitiesComponent },
+      { path: "assessment-setup", component: AssessmentSetupComponent },
+      { path: "evaluation-matching", component: EvaluationMatchingComponent },
     ]},
     
 

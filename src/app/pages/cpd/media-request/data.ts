@@ -12,7 +12,7 @@ const data = {
       submissionDocuments: 'link',
       status : 'Requested',
       applicationStatus : [
-        { stage : 'Requested', status : 'In Progress', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+        { stage : 'Requested', status : 'Submit', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
         { stage : 'Submitted for Approval', status : 'Pending', date : null, 'by' : null },
         { stage : 'Complete', status : 'Pending', date : null, 'by' : null },
       ],
@@ -32,8 +32,8 @@ const data = {
       submissionDocuments: 'link',
       status : 'Submitted for Approval',
       applicationStatus : [
-        { stage : 'Requested', status : 'In Progress', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-        { stage : 'Submitted for Approval', status : 'In Progress', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+        { stage : 'Requested', status : 'Submit', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+        { stage : 'Submitted for Approval', status : 'Pending', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
         { stage : 'Complete', status : 'Pending', date : null, 'by' : null },
       ],
       comments: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatibus voluptas hic numquam commodi minima.',
@@ -52,9 +52,9 @@ const data = {
       submissionDocuments: 'link',
       status : 'Complete',
       applicationStatus : [
-        { stage : 'Requested', status : 'In Progress', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-        { stage : 'Submitted for Approval', status : 'In Progress', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
-        { stage : 'Complete', status : 'In Progress', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+        { stage : 'Requested', status : 'Submit', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+        { stage : 'Submitted for Approval', status : 'Pending', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
+        { stage : 'Complete', status : 'Pending', date : '2022-09-21 10:00:00 AM', by : 'Madan Al Abri'},
       ],
       comments: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatibus voluptas hic numquam commodi minima.',
       materialUpload : 'link',

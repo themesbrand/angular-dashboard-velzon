@@ -1,0 +1,102 @@
+<form [formGroup]="createSchedulingForm">
+    <div class="mt-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Course Name<span class="text-danger">{{ " *" }}</span></label>
+                        <ng-select 
+                        formControlName="courseName"
+                        [items]="listData.courseNameList" placeholder="Please select">
+                    </ng-select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Registration Start Date<span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control flatpickr-input" type="text"
+                            formControlName="registrationStartDate" 
+                            [minDate]="currentDate"
+                            mwlFlatpickr [altInput]="true" [convertModelValue]="true"/>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Registration End Date<span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control flatpickr-input" type="text"
+                            formControlName="registrationEndDate" 
+                            [minDate]="createSchedulingFormValues.registrationStartDate"
+                            mwlFlatpickr [altInput]="true" [convertModelValue]="true" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Course Start Date<span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control flatpickr-input" type="text"
+                            formControlName="courseStartDate" 
+                            [minDate]="currentDate"
+                            mwlFlatpickr [altInput]="true" [convertModelValue]="true" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Course Start Time<span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                            formControlName="courseStartTime" 
+                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Course End Date<span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control flatpickr-input" type="text"
+                            formControlName="courseEndDate" 
+                            [minDate]="currentDate"
+                            mwlFlatpickr [altInput]="true" [convertModelValue]="true" />
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Course End Time<span class="text-danger">{{ " *" }}</span></label>
+                        <input class="form-control flatpickr-input" type="text" mwlFlatpickr
+                            formControlName="courseEndTime" 
+                        [noCalendar]="true" [enableTime]="true" [dateFormat]="'H:i'">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">No: of seats<span class="text-danger">{{ " *" }}</span></label>
+                        <input type="text" formControlName="noOfSeats" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="d-flex flex-row gap-3">
+                            <label class="form-label">{{"Venue : "}}<span class="text-danger">{{"*"}}</span></label>
+                            <a class="mgLink">Create Link</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Food Required?<span class="text-danger">{{ " *" }}</span></label>
+                        <div class="d-flex flex-row">
+                            <div class="form-check mx-3">
+                                <input class="form-check-input"
+                                formControlName="isFoodRequired"
+                                id="selectionRadio1" type="radio" value="Yes">
+                                <label class="mx-2" for="selectionRadio1">Yes</label>
+                              </div>
+                              <div class="form-check mx-3">
+                                <input class="form-check-input"
+                                formControlName="isFoodRequired" type="radio" value="No"
+                                id="selectionRadio2" >
+                                <label class="mx-2" for="selectionRadio2">No</label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3" *ngIf="createSchedulingFormValues.isFoodRequired === 'Yes'">
+                        <ng-select 
+                        [items]="listData.foodRequiredList" formControlName="foodRequired" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Terms and Conditions<span class="text-danger">{{"*"}}</span></label>
+                        <ckeditor [editor]="Editor" formControlName="termsAndConditions"></ckeditor>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="formCheck1" formControlName="isInPersonPaymentsAllowed">
+                            <label class="form-check-label" for="formCheck1">
+                                In-person payments Allowed?
+                            </label>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>
