@@ -437,6 +437,12 @@ import { AssessmentSetupComponent } from './trainee-management-system/assessment
 import { EvaluationMatchingComponent } from './trainee-management-system/evaluation-matching/evaluation-matching.component';
 import { TmScheduleCourseComponent } from './trainee-management-system/schedule-academic-activities/tm-schedule-course/tm-schedule-course.component';
 import { TmScheduleWorkshopComponent } from './trainee-management-system/schedule-academic-activities/tm-schedule-workshop/tm-schedule-workshop.component';
+import { AccreditationReviewFormComponent } from './accreditation/accredition-review/accreditation-review-form/accreditation-review-form.component';
+import { AccreditationReviewFormViewComponent } from './accreditation/accredition-review/accreditation-review-form-view/accreditation-review-form-view.component';
+import { AccreditFacultySurveyComponent } from './accreditation/accredition-review/accredit-faculty-survey/accredit-faculty-survey.component';
+import { AccreditResidentSurveyProgramComponent } from './accreditation/accredition-review/accredit-resident-survey-program/accredit-resident-survey-program.component';
+import { AccreditResidentSurveySiteComponent } from './accreditation/accredition-review/accredit-resident-survey-site/accredit-resident-survey-site.component';
+import { AccreditReportTemplateComponent } from './accreditation/accredition-review/accredit-report-template/accredit-report-template.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -838,7 +844,13 @@ FullCalendarModule.registerPlugins([
     AssessmentSetupComponent,
     EvaluationMatchingComponent,
     TmScheduleCourseComponent,
-    TmScheduleWorkshopComponent
+    TmScheduleWorkshopComponent,
+    AccreditationReviewFormComponent,
+    AccreditationReviewFormViewComponent,
+    AccreditFacultySurveyComponent,
+    AccreditResidentSurveyProgramComponent,
+    AccreditResidentSurveySiteComponent,
+    AccreditReportTemplateComponent
   ],
   imports: [
     CommonModule,

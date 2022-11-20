@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-2" >
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex flex-column text-center">
+                                <p class="h2">OMAN MEDICAL SPECIALTY BOARD</p>
+                                <p class="h3">Faculty Survey: Program Evaluation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Training Program<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="[]" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Affiliated Training Site<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="[]" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Program Post<span class="text-danger"></span></label>
+                        <ng-select 
+                            [items]="[]" placeholder="Please select">
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">No. of Years in the Training Program<span class="text-danger"></span></label>
+                        <div class="d-flex flex-row gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="numberOfYears" id="numberOfYears1">
+                                <label class="form-check-label" for="numberOfYears1">0 to 3
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="numberOfYears" id="numberOfYears2">
+                                <label class="form-check-label" for="numberOfYears2">4 to 6
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="numberOfYears" id="numberOfYears3">
+                                <label class="form-check-label" for="numberOfYears3">7 to 10
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="numberOfYears" id="numberOfYears4">
+                                <label class="form-check-label" for="numberOfYears4">10 or more
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body py-3 px-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table_block table-fixed">
+                            <table class="table table-wrap" >
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>CRITERIA</th>
+                                        <th class="text-start">Strongly Disagree</th>
+                                        <th class="text-start">Disagree</th>
+                                        <th class="text-start">Agree</th>
+                                        <th class="text-start">Strongly Agree</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let question of listData.criteriaList; let i = index">
+                                        <tr >
+                                            <td style="max-width : 200px" *ngIf="question.isChoices">{{question.question}}
+                                            </td>
+                                            <td style="max-width : 200px" *ngIf="!question.isChoices"><b>{{question.question}}</b>
+                                            </td>
+                                            <td  *ngFor="let choice of choices; let j=index">
+                                                <div *ngIf="question.isChoices" class="form-check mb-2">
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <input [value]="choice.value" class="form-check-input text-start" type="radio" id="{{j}}{{i}}" name="{{i}}">
+                                                        <label class="form-check-label mx-2  text-start check-option" for="{{j}}{{i}}">
+                                                            {{choice.description}}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="4">
+                                                <textarea class="form-control" cols="3" rows="2" placeholder="Your comments"></textarea>
+                                            </td>
+                                        </tr>
+
+                                    </ng-container>
+                                    <tr>
+                                        <td>
+                                            <label class="form-label">Other Comments and Feedbacks</label>
+                                        </td>
+                                        <td colspan="4">
+                                            <textarea class="form-control" cols="3" rows="2" placeholder="Your comments"></textarea>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-row mt-3">
+    <button class="btn btn-primary">Submit</button>
+</div>

@@ -1,0 +1,714 @@
+<ng-container>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Program Name</label>
+            <label class="form-control">{{formData.programName}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Established Date</label>
+            <label class="form-control">{{formData.establishedDate}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Last Reviewed</label>
+            <label class="form-control">{{formData.lastReview}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Due Date for Next Review</label>
+            <label class="form-control">{{formData.dueDateForNextReview}}</label>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Current Status</label>
+            <label class="form-control">{{formData.status}}</label>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="formData.status === 'Review Pending'">
+    <p class="h5 text-primary">Survey Team</p>
+    <div class="row" *ngIf="!isTeamMemberAddView">
+        <div class="d-flex flex-row justify-content-end">
+            <button class="btn btn-primary" (click)="viewTeamMemberForm()">Add Survey Team Member</button>
+        </div>
+    </div>
+    <div class="row mt-3" *ngIf="!isTeamMemberAddView && committeeList.length !== 0">
+        <div class="live-preview">     
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-wrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">OMSB ID</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of committeeList; let i = index">
+                            <td>{{row.name}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.omsb}}</td>
+                            <td>
+                                <button (click)="onDeleteMember(i)" type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>                             
+        </div>
+    </div>
+    <div class="row" *ngIf="!isTeamMemberAddView && committeeList.length === 0">
+        <div class="d-flex flex-row text-center text-warning h5">No Members Included to the List</div>
+    </div>
+    <div class="row" *ngIf="isTeamMemberAddView">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">OMSB ID</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="d-flex flex-row">
+            <button class="btn btn-primary" (click)="onSearch()">Search</button>
+        </div>
+    </div>
+    <div class="row mt-3" *ngIf="isTeamMemberAddView && isTeamMemberSearch">
+        <div class="live-preview">     
+            <div class="table-responsive">
+                <table class="table align-middle table-hover table-wrap mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">OMSB ID</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let member of listData.userLists; let i = index">
+                            <td>{{member.name}}</td>
+                            <td>{{member.email}}</td>
+                            <td>{{member.omsb}}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" (click)="onAddMemberToList(member, i)">Add to Team</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>                             
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3" *ngIf="committeeList.length !== 0">
+        <button class="btn btn-primary">Invite to join Survey Team</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="formData.status === 'Survey Team Invitation Sent'">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Approved Curriculum</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">ADS information</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">ACGME-I Resident and Faculty survey results</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Resident case logs </label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other pertinent program documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="formData.status === 'Program Response Submitted'">
+    <ng-container *ngTemplateOutlet="uploadedDocumentsFromDirector"></ng-container>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="formData.status === 'Assigned to Survey Team'">
+    <ng-container *ngTemplateOutlet="uploadedDocumentsFromDirector"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromAC"></ng-container>
+    <ng-container *ngTemplateOutlet="surveyForms"></ng-container>
+    <div class="d-flex flex-row mt-3">
+        <button class="btn btn-primary">Submit Survey</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="formData.status === 'AC Report draft Submitted'">
+    <ng-container *ngTemplateOutlet="uploadedDocumentsFromDirector"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromAC"></ng-container>
+    <ng-container *ngTemplateOutlet="surveyFormsNonEditable"></ng-container>
+    <hr class="mt-3">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Recommended Decision</label>
+            <ng-select [items]="['Continued Accreditation', 'Continued Accreditation with Citations', 'Continued Accreditation with Warning', 'Probationary Accreditation', 'Extended Probationary with No Resident Intake', 'Withdrawal of Accreditation']" placeholder="Please select Option">
+                            </ng-select>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3 gap-3">
+        <button class="btn btn-primary">Add to GMEC meeting agenda</button>
+        <button class="btn btn-primary">Return</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="formData.status === 'Submitted to GMEC'">
+    <ng-container *ngTemplateOutlet="uploadedDocumentsFromDirector"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromAC"></ng-container>
+    <ng-container *ngTemplateOutlet="surveyFormsNonEditable"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromACtoGMEC"></ng-container>
+    <hr class="mt-3">
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Recommended Decision</label>
+            <ng-select [items]="['Continued Accreditation', 'Continued Accreditation with Citations', 'Continued Accreditation with Warning', 'Probationary Accreditation', 'Extended Probationary with No Resident Intake', 'Withdrawal of Accreditation']" placeholder="Please select Option">
+                            </ng-select>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3 gap-3">
+        <button class="btn btn-primary">Generate letter</button>
+        <button class="btn btn-primary">Present to EB</button>
+    </div>
+</ng-container>
+<ng-container *ngIf="formData.status === 'Presented to EB'">
+    <ng-container *ngTemplateOutlet="uploadedDocumentsFromDirector"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromAC"></ng-container>
+    <ng-container *ngTemplateOutlet="surveyFormsNonEditable"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromACtoGMEC"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromGMEC"></ng-container>
+    <hr class="mt-3">
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Recommended Decision</label>
+            <ng-select [items]="['Continued Accreditation', 'Continued Accreditation with Citations', 'Continued Accreditation with Warning', 'Probationary Accreditation', 'Extended Probationary with No Resident Intake', 'Withdrawal of Accreditation']" placeholder="Please select Option">
+                            </ng-select>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3 gap-3">
+        <button class="btn btn-primary">Present to BoT</button>
+    </div>
+</ng-container>
+<ng-container *ngIf="formData.status === 'Presented to BoT'">
+    <ng-container *ngTemplateOutlet="uploadedDocumentsFromDirector"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromAC"></ng-container>
+    <ng-container *ngTemplateOutlet="surveyFormsNonEditable"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromACtoGMEC"></ng-container>
+    <ng-container *ngTemplateOutlet="commentsFromGMEC"></ng-container>
+    <hr class="mt-3">
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Other Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Recommended Decision</label>
+            <ng-select [items]="['Continued Accreditation', 'Continued Accreditation with Citations', 'Continued Accreditation with Warning', 'Probationary Accreditation', 'Extended Probationary with No Resident Intake', 'Withdrawal of Accreditation']" placeholder="Please select Option">
+                            </ng-select>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3 gap-3">
+        <button class="btn btn-primary">Mark as Review Completed</button>
+    </div>
+</ng-container>
+
+<ng-template #uploadedDocumentsFromDirector>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">Approved Curriculum</label>
+        </div>
+        <div class="col-md-6 mb-3">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">ADS information</label>
+        </div>
+        <div class="col-md-6 mb-3">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">ACGME-I Resident and Faculty survey results</label>
+        </div>
+        <div class="col-md-6 mb-3">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">Resident case logs </label>
+        </div>
+        <div class="col-md-6 mb-3">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">Other pertinent program documents</label>
+        </div>
+        <div class="col-md-6 mb-3">
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+            <label class="form-label">Option to upload more documents</label>
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments from Chairman</label>
+            <label class="form-control">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quis quia soluta amet reiciendis tempora!</label>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #commentsFromAC>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments From Accreditation Committee</label>
+            <label class="form-control">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quis quia soluta amet reiciendis tempora</label>       
+         </div>
+    </div>
+</ng-template>
+
+<ng-template #surveyForms>
+    <p class="h5 text-primary">Faculty Survey: Program Evaluation</p>
+    <div class="d-flex flex-row justify-content-end mb-3">
+        <button class="btn btn-primary btn-sm" (click)="addFacultySurvey()">Add Evaluation</button>
+    </div>
+    
+    <div class="d-flex flex-column" *ngIf="facultySurvey.length !== 0">
+        <div class="d-flex flex-row gap-3 mt-2" *ngFor="let survey of facultySurvey; let i = index">
+            <label class="form-label text-nowrap">Faculty Name</label>
+            <input class="form-control" [(ngModel)]="survey.name">
+            <button class="btn btn-primary btn-sm text-nowrap" (click)="openModal(facultySurveyForm, 'xl')">Edit Evaluation</button>
+            <button class="btn btn-danger btn-sm text-nowrap" (click)="onDeleteFacultySurvey(i)">Delete Evaluation</button>
+        </div>
+    </div>
+    <div class="d-flex flex-column" *ngIf="facultySurvey.length === 0">
+        <p class="h5 text-danger">No Faculty Surveys Found</p>
+    </div>
+
+    <p class="h5 mt-3 text-primary">Resident Survey : Training Program Evaluation</p>
+    <div class="d-flex flex-row justify-content-end mb-3">
+        <button class="btn btn-primary btn-sm" (click)="addResidentSurvey()">Add Evaluation</button>
+    </div>
+    
+    <div class="d-flex flex-column" *ngIf="residentSurvey.length !== 0">
+        <div class="d-flex flex-row gap-3 mt-2" *ngFor="let survey of residentSurvey; let i = index">
+            <label class="form-label text-nowrap">Resident Name</label>
+            <input class="form-control" [(ngModel)]="survey.name">
+            <button class="btn btn-primary btn-sm text-nowrap" (click)="openModal(residentSurveyForm, 'xl')">Edit Evaluation</button>
+            <button class="btn btn-danger btn-sm text-nowrap" (click)="onDeleteResidentSurvey(i)">Delete Evaluation</button>
+        </div>
+    </div>
+    <div class="d-flex flex-column" *ngIf="residentSurvey.length === 0">
+        <p class="h5 text-danger">No Resident Surveys Found</p>
+    </div>
+
+    <p class="h5 mt-3 text-primary">Resident Survey: Training Site Evaluation</p>
+    <div class="d-flex flex-row justify-content-end mb-3">
+        <button class="btn btn-primary btn-sm" (click)="addResidentSurveyTrainingSite()">Add Evaluation</button>
+    </div>
+    
+    <div class="d-flex flex-column" *ngIf="residentSurveyTrainingSite.length !== 0">
+        <div class="d-flex flex-row gap-3 mt-2" *ngFor="let survey of residentSurveyTrainingSite; let i = index">
+            <label class="form-label text-nowrap">Resident Name</label>
+            <input class="form-control" [(ngModel)]="survey.name">
+            <button class="btn btn-primary btn-sm text-nowrap" (click)="openModal(residentSurveyTrainingSiteForm, 'xl')">Edit Evaluation</button>
+            <button class="btn btn-danger btn-sm text-nowrap" (click)="onDeleteResidentSurveyTrainingSite(i)">Delete Evaluation</button>
+        </div>
+    </div>
+    <div class="d-flex flex-column" *ngIf="residentSurveyTrainingSite.length === 0">
+        <p class="h5 text-danger">No Resident Surveys Found</p>
+    </div>
+
+    
+    <div class="row mt-1">
+        <div class="d-flex flex-row justify-content-between">
+            <p class="h5 mt-3 text-primary">Accreditation Report</p>
+            <button class="btn btn-secondary btn-sm text-nowrap" (click)="openModal(accreditationReportForm , 'xl')">Accreditation Report Form </button>
+
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments</label>
+            <textarea rows="3" class="form-control"></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Upload Documents</label>
+            <ngx-dropzone (change)="onSelect($event, 'files')" [multiple]="false">
+                <ngx-dropzone-label>Drop your file here!</ngx-dropzone-label>
+                <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="true"
+                (removed)="onRemove(f, 'files')"
+                >
+                <ngx-dropzone-label
+                    >{{ f.name }} ({{
+                    f.type
+                    }})</ngx-dropzone-label
+                >
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+        </div>
+        
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Recommended Decision</label>
+            <ng-select [items]="['Continued Accreditation', 'Continued Accreditation with Citations', 'Continued Accreditation with Warning', 'Probationary Accreditation', 'Extended Probationary with No Resident Intake', 'Withdrawal of Accreditation']" placeholder="Please select Option">
+                            </ng-select>
+        </div>
+        
+
+    </div>
+</ng-template>
+
+<ng-template #surveyFormsNonEditable>
+    <p class="h5 text-primary">Faculty Survey: Program Evaluation</p>
+    <div class="d-flex flex-row justify-content-end mb-3">
+        <button class="btn btn-primary btn-sm" (click)="addFacultySurvey()">Add Evaluation</button>
+    </div>
+    
+    <div class="d-flex flex-column" *ngIf="facultySurvey.length !== 0">
+        <div class="d-flex flex-row gap-3 mt-2" *ngFor="let survey of facultySurvey; let i = index">
+            <label class="form-label text-nowrap">Faculty Name</label>
+            <input class="form-control" [(ngModel)]="survey.name">
+            <button class="btn btn-primary btn-sm text-nowrap" (click)="openModal(facultySurveyForm, 'xl')">Edit Evaluation</button>
+            <button class="btn btn-danger btn-sm text-nowrap" (click)="onDeleteFacultySurvey(i)">Delete Evaluation</button>
+        </div>
+    </div>
+    <div class="d-flex flex-column" *ngIf="facultySurvey.length === 0">
+        <p class="h5 text-danger">No Faculty Surveys Found</p>
+    </div>
+
+    <p class="h5 mt-3 text-primary">Resident Survey : Training Program Evaluation</p>
+    <div class="d-flex flex-row justify-content-end mb-3">
+        <button class="btn btn-primary btn-sm" (click)="addResidentSurvey()">Add Evaluation</button>
+    </div>
+    
+    <div class="d-flex flex-column" *ngIf="residentSurvey.length !== 0">
+        <div class="d-flex flex-row gap-3 mt-2" *ngFor="let survey of residentSurvey; let i = index">
+            <label class="form-label text-nowrap">Resident Name</label>
+            <input class="form-control" [(ngModel)]="survey.name">
+            <button class="btn btn-primary btn-sm text-nowrap" (click)="openModal(residentSurveyForm, 'xl')">Edit Evaluation</button>
+            <button class="btn btn-danger btn-sm text-nowrap" (click)="onDeleteResidentSurvey(i)">Delete Evaluation</button>
+        </div>
+    </div>
+    <div class="d-flex flex-column" *ngIf="residentSurvey.length === 0">
+        <p class="h5 text-danger">No Resident Surveys Found</p>
+    </div>
+
+    <p class="h5 mt-3 text-primary">Resident Survey: Training Site Evaluation</p>
+    <div class="d-flex flex-row justify-content-end mb-3">
+        <button class="btn btn-primary btn-sm" (click)="addResidentSurveyTrainingSite()">Add Evaluation</button>
+    </div>
+    
+    <div class="d-flex flex-column" *ngIf="residentSurveyTrainingSite.length !== 0">
+        <div class="d-flex flex-row gap-3 mt-2" *ngFor="let survey of residentSurveyTrainingSite; let i = index">
+            <label class="form-label text-nowrap">Resident Name</label>
+            <input class="form-control" [(ngModel)]="survey.name">
+            <button class="btn btn-primary btn-sm text-nowrap" (click)="openModal(residentSurveyTrainingSiteForm, 'xl')">Edit Evaluation</button>
+            <button class="btn btn-danger btn-sm text-nowrap" (click)="onDeleteResidentSurveyTrainingSite(i)">Delete Evaluation</button>
+        </div>
+    </div>
+    <div class="d-flex flex-column" *ngIf="residentSurveyTrainingSite.length === 0">
+        <p class="h5 text-danger">No Resident Surveys Found</p>
+    </div>
+
+    
+    <div class="row mt-1">
+        <div class="d-flex flex-row justify-content-between">
+            <p class="h5 mt-3 text-primary">Accreditation Report</p>
+            <button class="btn btn-secondary btn-sm text-nowrap" (click)="openModal(accreditationReportForm , 'xl')">Accreditation Report Form </button>
+
+        </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments from Survey Team</label>
+            <label class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam minus in ex obcaecati ut quod.</label>
+
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Upload Documents</label>
+            <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
+
+        </div>
+        
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Recommended Decision</label>
+            <label class="form-control">Continued Accreditation</label>
+        </div>
+        
+
+    </div>
+</ng-template>
+<ng-template #commentsFromACtoGMEC>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments From Accreditation Team to GME</label>
+            <label class="form-control">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quis quia soluta amet reiciendis tempora</label>       
+         </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Recommended Decision From Accreditation Team</label>
+            <label class="form-control">Extended Probationary with No Resident Intake</label>       
+         </div>
+    </div>
+</ng-template>
+<ng-template #commentsFromGMEC>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Comments From GMEC</label>
+            <label class="form-control">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quis quia soluta amet reiciendis tempora</label>       
+         </div>
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Recommended Decision From GMEC</label>
+            <label class="form-control">Extended Probationary with No Resident Intake</label>       
+         </div>
+    </div>
+</ng-template>
+
+
+
+
+
+<ng-template #facultySurveyForm let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Faculty Survey</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-accredit-faculty-survey></app-accredit-faculty-survey>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+<ng-template #residentSurveyForm let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Resident Survey : Training Program Evaluation</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-accredit-resident-survey-program></app-accredit-resident-survey-program>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+<ng-template #residentSurveyTrainingSiteForm let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Resident Survey: Training Site Evaluation</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-accredit-resident-survey-site></app-accredit-resident-survey-site>
+            </div>            
+        </div>
+    </div>
+</ng-template>
+<ng-template #accreditationReportForm let-modal>
+    <div class="modal-content">
+        <div class="modal-body px-4 py-2">
+            <div class="d-flex flex-row justify-content-between">
+                <p class="h5 mt-2">Accreditation Report</p>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="mt-3">
+                <app-accredit-report-template></app-accredit-report-template>
+            </div>            
+        </div>
+    </div>
+</ng-template>
