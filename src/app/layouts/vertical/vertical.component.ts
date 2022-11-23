@@ -32,6 +32,7 @@ export class VerticalComponent implements OnInit {
       }
     })
     
+    console.log(document.documentElement.getAttribute('data-layout-mode'))
   }
 
   /**

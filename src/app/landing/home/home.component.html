@@ -1,6 +1,6 @@
 <section class="section pt-0" id="home">
     <div class="container-fluid carousel_box p-0">
-        <ngb-carousel [showNavigationIndicators]="!showNavigationIndicators">
+        <ngb-carousel [showNavigationIndicators]="!showNavigationIndicators" [interval]="3000">
             <ng-template ngbSlide>
                 <div class="d-flex justify-content-center align-items-center first slide">
                     <div class="d-flex flex-column justify-content-center align-items-start carousel_content">
@@ -24,10 +24,10 @@
     <div class="container-fluid alerts-container">
         <div class="d-flex flex-row gap-3 align-items-center">
             <button class="btn btn-custom text-nowrap">Daily Alerts</button>
-            <button class="btn btn-light"><i class="ri-arrow-left-circle-line"></i></button>
-            <button class="btn btn-light"><i class="ri-arrow-right-circle-line"></i></button>
+            <button class="btn btn-light-custom" (click)="onChangeAlert('prev')"><i class="ri-arrow-left-circle-line"></i></button>
+            <button class="btn btn-light-custom" (click)="onChangeAlert('next')"><i class="ri-arrow-right-circle-line"></i></button>
             <div class="w-100">
-                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum repudiandae sapiente id mollitia, error commodi.</p>
+                <p class="mb-0">{{alert[selectedAlert]}}</p>
             </div>
             
             
@@ -70,45 +70,45 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3 w-100 justify-content-between text-center gy-4 counter_box">
+        <div #sectionCounters class="row mt-3 w-100 justify-content-between text-center gy-4 counter_box">
             <div class="col-lg-2 col-4">
                 <div class="counter_item">
-                    <p class="mb-0"><span [CountTo]="3650" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <p class="mb-0"><span [CountTo]="traineesCounterNumber" class="counter-value" [from]="0" [duration]="2"></span></p>
                     <div class="text-muted text text-wrap">OMSB</div>
                     <div class="text-muted text text-wrap">TRAINEES</div>
                 </div>
             </div>
             <div class="col-lg-2 col-4">
                 <div class="counter_item">
-                    <p class="mb-0"><span [CountTo]="1240" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <p class="mb-0"><span [CountTo]="simulationSessionsNumber" class="counter-value" [from]="0" [duration]="2"></span></p>
                     <div class="text-muted text text-wrap">SIMULATION</div>
                     <div class="text-muted text text-wrap">SESSIONS</div>
                 </div>
             </div>
             <div class="col-lg-2 col-4">
                 <div class="counter_item">
-                    <p class="mb-0"><span [CountTo]="2860" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <p class="mb-0"><span [CountTo]="courseParticipantsNumber" class="counter-value" [from]="0" [duration]="2"></span></p>
                     <div class="text-muted text text-wrap">COURSE</div>
                     <div class="text-muted text text-wrap">PARTICIPANTS</div>
                 </div>
             </div>
             <div class="col-lg-2 col-4">
                 <div class="counter_item">
-                    <p class="mb-0"><span [CountTo]="2860" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <p class="mb-0"><span [CountTo]="physiciansNumber" class="counter-value" [from]="0" [duration]="2"></span></p>
                     <div class="text-muted text text-wrap">PHYSICIANS</div>
                     <div class="text-muted text text-wrap">REGISTERED</div>
                 </div>
             </div>
             <div class="col-lg-2 col-4">
                 <div class="counter_item">
-                    <p class="mb-0"><span [CountTo]="1290" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <p class="mb-0"><span [CountTo]="cpdNumber" class="counter-value" [from]="0" [duration]="2"></span></p>
                     <div class="text-muted text text-wrap">CPD</div>
                     <div class="text-muted text text-wrap">ACCREDITATION</div>
                 </div>
             </div>
             <div class="col-lg-2 col-4">
                 <div class="counter_item">
-                    <p class="mb-0"><span [CountTo]="1385" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <p class="mb-0"><span [CountTo]="articlesNumber" class="counter-value" [from]="0" [duration]="2"></span></p>
                     <div class="text-muted text text-wrap">PUBLISHED</div>
                     <div class="text-muted text text-wrap">ARTICLES</div>
                 </div>
@@ -125,7 +125,7 @@
             <div class="d-flex mt-2 right"></div>
         </div>
         <div class="row mt-5 service_box">
-            <div class="col-lg-4 mb-3 service_box_section">
+            <div class="col-lg-4 mb-3 service_box_section card-animate">
                 <div class="header header_1"></div>
                 <div class="body">
                     <p class="title text-dark">Residency & Fellowship</p>
@@ -140,7 +140,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mb-3 service_box_section">
+            <div class="col-lg-4 mb-3 service_box_section card-animate">
                 <div class="header header_2"></div>
                 <div class="body">
                     <p class="title">Residency & Fellowship</p>
@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mb-3 service_box_section">
+            <div class="col-lg-4 mb-3 service_box_section card-animate">
                 <div class="header header_3"></div>
                 <div class="body">
                     <p class="title text-dark">Residency & Fellowship</p>
@@ -183,7 +183,7 @@
             <div class="d-flex mt-2 right"></div>
         </div>
         <div class="row mt-5 service_box">
-            <div class="col-lg-4 mb-3 service_box_section">
+            <div class="col-lg-4 mb-3 service_box_section card-animate">
                 <div class="header header_1"></div>
                 <div class="body">
                     <p class="title">COLLEGE ANNUAL EXPO - 2018</p>
@@ -192,7 +192,7 @@
                     <a>View Details <i class="mx-2 ri-arrow-right-s-fill"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 mb-3 service_box_section">
+            <div class="col-lg-4 mb-3 service_box_section card-animate">
                 <div class="header header_2"></div>
                 <div class="body">
                     <p class="title">SEMINAR ABOUT Cardiology</p>
@@ -201,7 +201,7 @@
                     <a>View Details <i class="mx-2 ri-arrow-right-s-fill"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 mb-3 service_box_section">
+            <div class="col-lg-4 mb-3 service_box_section card-animate">
                 <div class="header header_3"></div>
                 <div class="body">
                     <p class="title">SEMINAR ABOUT ANASTHESIA</p>

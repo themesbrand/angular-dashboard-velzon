@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
   { path: 'home', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)},
   { path: 'home_2', loadChildren: () => import('./landing_two/landing_two.module').then(m => m.LandingModuleTwo)},
+  { path: 'home_3', loadChildren: () => import('./landing_three/landing_three.module').then(m => m.LandingModuleThree)},
 ];
 
 @NgModule({

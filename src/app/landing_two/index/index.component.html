@@ -1,64 +1,124 @@
-<div appScrollspy [spiedTags]="['SECTION']">
-    <!-- Begin page -->
-    <div class="layout-wrapper landing">
-       <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar" (window:scroll)="windowScroll()">
-           <div class="container-fluid px-2 justify-content-start">
-               <a class="navbar-brand" routerLink="/">
-                <div class="d-flex flex-row">
-                    <img src="assets/images/king_image.png" class="card-logo card-logo-dark rounded-circle my-auto" alt="logo dark">
-                    <img src="assets/images/logo.png" class="card-logo card-logo-dark my-auto" alt="logo dark">
+<div class="layout-wrapper landing h-100">
+    <div class="container d-flex flex-column p-0">
+        <div class="d-flex flex-row gap-3 py-3">                    
+            <img src="assets/images/king_image.png" class="card-logo card-logo-dark rounded-circle my-auto" alt="logo dark">
+            <img src="assets/images/logo.png" class="card-logo card-logo-dark my-auto" alt="logo dark">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <h3 class="heading p-3">Oman Medical Specialty Board</h3>
+            </div>
+            <div class="d-flex flex-row header_box justify-content-center align-items-center">
+                <div class="icon_box d-flex justify-content-center align-items-center mx-3"><i class=" ri-map-pin-line"></i></div>
+                <div class="d-flex flex-column">
+                    <p class="mb-0 header">Headquarters</p>
+                    <p class="mb-0 sub_header">Muscat, Oman</p>
                 </div>
-               </a>
-               <div class="d-flex flex-column w-100">
-                    <h1 class="header">OMAN MEDICAL SPECIALITY BOARD</h1>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mt-2 mt-lg-0 d-flex flex-row flex-wrap" id="navbar-example">
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'home'}" (click)="routerTo('/home/main')" [ngxScrollTo]="'#home'" href="javascript:void(0);">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'home_2'}" (click)="routerTo('/home_2/main')" [ngxScrollTo]="'#home'" href="javascript:void(0);">Home_2</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'hero'}" [ngxScrollTo]="'#hero'" href="javascript:void(0);">About</a>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Professional Competence Affair</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Academic Affairs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" (click)="routerTo('/home/application-forms')">Admission</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" (click)="routerTo('/home/research-day-registration')">Research Day Registration</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" [ngxScrollTo]="'#features'" href="javascript:void(0);">Medical Simulation & Innovation Center</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'plans'}" [ngxScrollTo]="'#plans'" href="javascript:void(0);">OMJ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" [ngClass]="{'active':currentSection === 'reviews'}" [ngxScrollTo]="'#reviews'" href="javascript:void(0);">Support & Services</a>
-                            </li>
-                        </ul>
-        
-                        <div class="">
-                            <a routerLink="/signin/basic" class="btn btn-link fw-medium text-decoration-none"><i class="mx-3 ri-user-3-line
-                                "></i>Login</a>
+            </div>
+            <div class="d-flex flex-row header_box justify-content-center align-items-center">
+                <div class="icon_box d-flex justify-content-center align-items-center mx-3"><i class="ri-phone-line"></i></div>
+                <div class="d-flex flex-column">
+                    <p class="mb-0 header">Call us for detail</p>
+                    <p class="mb-0 sub_header">+968 3434 3434 341</p>
+                </div>
+            </div>
+            <div class="d-flex flex-row\justify-content-center align-items-center">
+                <button class="btn btn-custom" (click)="routerTo('home/login')">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar p-0 navbar-expand-xl navbar-landing" id="navbar" (window:scroll)="windowScroll()">
+        <div class="container-fluid d-flex flex-column p-0">
+            <div class="navbar-brand w-100 px-4 py-2">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0 px-4 d-flex flex-row flex-wrap" id="navbar-example">
+                    <li class="nav-item">
+                        <div class="dropdown" ngbDropdown>
+                            <button class="btn btn-custom dropdown-toggle" style="font-size: 12px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                Home
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" ngbDropdownMenu>
+                                <a class="dropdown-item"  style="cursor: pointer;" (click)="routerTo('/home/main')">Home One</a>
+                                <a class="dropdown-item"  style="cursor: pointer;" (click)="routerTo('/home_2/main')" >Home Two</a>
+                                <a class="dropdown-item"  style="cursor: pointer;" (click)="routerTo('/home_3/main')" >Home Three</a>
+                            </div>
                         </div>
-                    </div>
-               </div>
-   
-               
-   
-           </div>
-       </nav>
-       <router-outlet></router-outlet>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'home'}" (click)="routerTo('/home/main')" [ngxScrollTo]="'#home'" href="javascript:void(0);">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'home_2'}" (click)="routerTo('/home_2/main')" [ngxScrollTo]="'#home'" href="javascript:void(0);">Home_2</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'hero'}" [ngxScrollTo]="'#hero'" href="javascript:void(0);">About</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Professional Competence Affair</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Academic Affairs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'services'}" (click)="routerTo('/home/application-forms')">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" (click)="routerTo('/home/registration')">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'features'}" (click)="routerTo('/home/research-day-registration')">Research Day Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'features'}" [ngxScrollTo]="'#features'" href="javascript:void(0);">Medical Simulation & Innovation Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'plans'}" [ngxScrollTo]="'#plans'" href="javascript:void(0);">OMJ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'reviews'}" [ngxScrollTo]="'#reviews'" href="javascript:void(0);">Support & Services</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+                <i class="mdi mdi-menu text-white"></i>
+            </button>
+
+            <div class="collapse navbar-collapse w-100 bg-light" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0 px-4" id="navbar-example">
+                    <li class="nav-item">
+                        <a class="nav-link active" [ngClass]="{'active':currentSection === 'hero'}" [ngxScrollTo]="'#hero'" href="javascript:void(0);">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Professional Competence Affair</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Academic Affairs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" (click)="routerTo('/home/application-forms')">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" (click)="routerTo('/home/registration')">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" (click)="routerTo('/home/research-day-registration')">Research Day Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'features'}" [ngxScrollTo]="'#features'" href="javascript:void(0);">Medical Simulation & Innovation Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'plans'}" [ngxScrollTo]="'#plans'" href="javascript:void(0);">OMJ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active':currentSection === 'reviews'}" [ngxScrollTo]="'#reviews'" href="javascript:void(0);">Support & Services</a>
+                    </li>
+                </ul>
+            </div> -->
+
+        </div>
+    </nav>
+    <div class="h-100" style="background-color: rgb(237, 237, 237) !important;">
+        <router-outlet></router-outlet>
     </div>
     <app-lading-two-footer></app-lading-two-footer>
-   
 </div>
-

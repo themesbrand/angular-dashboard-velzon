@@ -1,40 +1,105 @@
+.navbar  {
+    z-index: 999999999999 !important;
+    background-color: #02987a !important;
+}
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    cursor: pointer !important;
+    font-size : 12px !important;
+    padding: 8px !important;
+}
+.header_box {
+    color: #02987a;
+    .icon_box {
+        height: 35px;
+        width: 35px;
+        border: 2px solid #02987a;
+    }
+    .header {
+        font-size: 13px;
+    }
+    .sub_header{
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
 .card-logo {
     height: 80px !important;
 }
-.header {
-    color: #002a66;
-    font-size: 18px;
-    padding: 14px;
-    border-bottom: 1px solid #e5ebf6;
+
+.heading {
+    font-size: 1.4rem;
+} 
+
+.btn-custom {
+    background-color: #02987a !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: 0;
+    font-size: 1rem;
 }
-.navbar > .container_fluid {
-    justify-content: flex-start !important;
+.btn-custom:hover  {
+    background-color: white !important;
+    color: #02987a !important;
+    border: 1px solid #02987a !important;
 }
-a.nav-link {
-    color: #002a66 !important;
-    font-size: 12px;
-    padding: 5px 10px !important;
-    &.active {
-        border: 1px solid #1c5ccd;
-        border-radius: 5px;
-        color: white !important;
-        background-color: #002a66;
+.nav-link:hover  {
+    color: #02987a !important;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.submenu {
+    cursor: pointer !important;
+}
+.signIn-button {
+    padding-top: 0;
+}
+.navbar-brand {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 767px) { 
+    .card-logo {
+        height: 50px !important;
+    }
+    .heading {
+        font-size: 1.1rem !important;
+    } 
+    .btn-custom {
+        font-size: 0.8rem !important;
     }
 }
-a.nav-link:hover {
-    color: #1c5ccd !important;
-}
-.navbar-expand-lg .navbar-collapse {
-    flex-direction: row;
-    justify-content: space-between;
-}
-.btn-link {
-    color: #002a66 !important;
-}
-.btn-link:hover {
-    color:white !important;
-    background-color: #002a66 !important;
-    i {
-        color:white !important;
+@media screen and (max-width: 574px) { 
+    .card-logo {
+        height: 40px !important;
+    }
+    .heading {
+        font-size: 1rem !important;
+    } 
+    .btn-custom {
+        font-size: 0.6rem !important;
+    }
+    .navbar-brand {
+        padding: 15px !important;
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-brand .d-flex {
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .signIn-button {
+        padding-top: 15px;
     }
 }

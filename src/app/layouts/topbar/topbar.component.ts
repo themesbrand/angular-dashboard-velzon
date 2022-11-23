@@ -100,6 +100,28 @@ export class TopbarComponent implements OnInit {
     window.location.reload();
   }
 
+    /**
+  * Topbar Light-Dark Mode Change
+  */
+  changeColorMode(mode: string) {
+  this.mode = mode;
+  this.eventService.broadcast('changeMode', mode);
+
+  switch (mode) {
+    case 'light':
+      document.body.setAttribute('data-layout-mode', "light");
+      document.body.setAttribute('data-sidebar', "light");
+      break;
+    case 'dark':
+      document.body.setAttribute('data-layout-mode', "dark");
+      document.body.setAttribute('data-sidebar', "dark");
+      break;
+    default:
+      document.body.setAttribute('data-layout-mode', "light");
+      break;
+  }
+  }
+  
   /**
    * Logout the user
    */

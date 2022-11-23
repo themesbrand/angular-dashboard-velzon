@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600&display=swap');
+* {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.btn-custom {
+    background-color: #1c5ccd;
+    color: white;
+    &:hover {
+        background-color: white;
+        border: 1px solid #1c5ccd;
+        color: #1c5ccd;
+    }
+}
+#home {
+    background-color: white;
+    position: relative;
+    .carousel_box {
+        max-height: calc(100vh - 220px) !important;
+        overflow: hidden;
+    }
+    .btn-light-custom {
+        background-color: #ffffff;
+        border: 1px solid #1c5ccd;
+        color: #1c5ccd;
+        &:hover {
+            background-color: #1c5ccd;
+            color: #ffffff;
+        }
+    }
+    .slide {
+        background-size: cover;
+        background-position: top;
+        height: 100%;
+        width: 100%;
+        .carousel_content {
+            height: calc(100vh - 220px) !important;
+            width: 60%;
+            .header {
+                color: white;
+                span {
+                    color: #1c5ccd !important;
+                }
+            }
+            .text {
+                color: white;
+            }
+        }
+    }
+    .first.slide {
+        background-image: url('/assets/images/patient_checkup.jpeg');
+        background-position: center;
+    }
+    .second.slide {
+        background-image: url('/assets/images/lab_tests.jpeg');    
+        background-position: center;
+        
+    }
+    .popup_div {
+        width: 515px;
+        background-color: #1c5ccd;
+        bottom: 48px;
+        left: 15%;
+        color: #ffffff;
+        .header {
+            font-size: 48px;
+        }
+        .text {
+            font-size: 16px;
+        }
+        .btn-custom {
+            border: 1px solid #ffffff;
+            &:hover {
+                background-color: #ffffff;
+                color: #1c5ccd;
+            }
+        }
+    }
+}
+#vision {
+    background-color: #ffffff;
+    padding: 0 !important;
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+     .content_box {
+        .content_box_items {
+            border-left: 2px solid #1676d0;
+            padding-left: 10px;
+            .header {
+                font-size: 20px;
+                color: #1c5ccd;
+                font-weight: 600;
+            }
+            .text {
+                font-size: 15px;
+                color: #535397;
+            }
+            a {
+                color: #1676d0;
+                cursor: pointer;
+                &:hover {
+                    color: #04223e;
+                }
+            }
+        }
+     }
+}
+#service {
+    background-color: #f4f8fd;
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .service_box {
+        display: flex;
+        .service_box_section {
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            .body {
+                background-color: white;
+                padding: 35px 15px 0 15px;
+                z-index: 99 !important;
+                border: 2px solid #E1E1E1;
+                height: 100%;
+                .title {
+                    color: #002a66;
+                    font-size: 25px;
+                }
+                .text, span {
+                    color: #535397;
+                    font-size: 15px;
+                }
+                .list_menu {
+                    span {
+                        padding : 10px 5px;
+                        border-bottom: 1px solid #e5e9ef;
+                        cursor: pointer;
+                        &:hover {
+                            text-decoration: underline;
+                            color: #002a66;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+      }
+      .row > [class*='col-'] {
+           display: flex;
+           flex-direction: column;
+      }
+}
+#events {
+    background-color: #ffffff;
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+     .text  {
+        font-size: 15px;
+        color: #535397;
+     }
+     a {
+        text-decoration: none;
+        color: #002a66;
+        padding: 10px;
+        &:hover {
+            text-decoration: underline;
+            background-color: #002a66;
+            color: white;
+        }
+     }
+     .event_card_box {
+        .event_card {
+            .date_box {
+                height: 90px;
+                margin-top: 10px;
+                width: 90px;
+                border: 1px solid #002a66;
+                .month {
+                    font-size: 15px;
+                    color: #535397;
+                    
+                }
+                .date {
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: #1c5ccd;
+                }
+             }
+             .info_box {
+                padding: 0 15px;
+                width: 100%;
+                .title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #002a66;
+                }
+                .type {
+                    font-size: 15px;
+                    color: #1c5ccd;
+                }
+                .info {
+                    font-size: 15px;
+                    color: #1c5ccd; 
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+             }
+            &:hover {
+               .date_box {
+                   background-color: #002a66;
+                   color: #ffffff;
+                   .month, .date {
+                       color: #ffffff;
+                   }
+               }
+               .info_box .title {
+                   color: #1c5ccd;
+               }
+   
+            }
+        }        
+     }
+}
+#questions {
+    background-color: #f4f8fd;
+    .question_box {
+        .header {
+            font-size: 40px;
+            color: #002a66;
+        }
+        .header_text {
+            font-size: 15px;
+            color: #002a66;
+        }
+    }
+    .image_box {
+        color: white;
+        .container_1, .container_2 {
+            .header {
+                font-size: 30px;
+                color: #ffffff;
+            }
+            .text {
+                font-size: 15px;
+            }
+            a {
+                padding: 10px;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                &:hover {
+                    color: #1c5ccd;
+                    background-color: white;
+                }
+            }
+        }
+        .container_1_img, .container_2_img {
+            img {
+                height: 100%;
+                width: auto;
+                object-fit: cover;
+            }
+        }
+        .container_1 {
+            background-color: #1c5ccd;
+        }
+        .container_2 {
+            background-color: #002a66;
+        }
+    }
+    ::ng-deep ngb-accordion  {
+        button {
+            background-color: #002a66;
+            color: white;
+        }
+    }
+}
+#news {
+    background-color: #ffffff;
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+     .text  {
+        font-size: 15px;
+        color: #535397;
+     }
+     a {
+        text-decoration: none;
+        color: #002a66;
+        padding: 10px;
+        &:hover {
+            text-decoration: underline;
+            background-color: #002a66;
+            color: white;
+        }
+     }
+     .card.custom_card {
+        height: 100%;
+        .card-body {
+            .card-title {
+                font-weight: 600;
+                color: #002a66;
+            }
+        }
+        .card-footer {
+            a {
+                padding: 10px;
+                color: #002a66;
+                &:hover {
+                    background-color: #002a66;
+                    color: #ffffff;
+                }
+            }
+        }
+
+    }
+}
+#foot {
+    background-color: #002a66;
+}
+
