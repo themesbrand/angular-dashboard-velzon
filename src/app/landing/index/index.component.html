@@ -1,19 +1,77 @@
  <div class="layout-wrapper landing h-100">
+    <div class="container-fluid d-flex flex-column p-0 navbar-custom">
+        <div class="d-flex flex-row justify-content-center py-3 align-items-center header_section_bar">
+            <div class="d-flex flex-row justify-content-center header_box right_border">
+                <i class="ri-phone-line me-1"></i>
+                <p>Call Us : </p>
+                <p class="px-1 ml-4">+1 (409) 987-5874</p>
+            </div>
+            <div class="d-flex flex-row justify-content-center header_box right_border">
+                <i class="ri-timer-line me-1"></i>
+                <p>Opening Hours :</p>
+                <p class="px-1 ml-4">Mon - Fri : 8.00 AM - 7.00PM</p>
+            </div>
+            <div class="d-flex flex-row justify-content-center header_box right_border">
+                <a (click)="routerTo('/home/login')" ><i class="ri-user-fill me-1"></i>Login</a>
+            </div>
+            <div class="d-flex flex-row justify-content-center header_box">
+                <a (click)="routerTo('/home/registration')"><i class="ri-edit-box-line me-1"></i>Register</a>
+            </div>
+            <div class="d-flex flex-row justify-content-center header_box">
+                <a><i class="ri-facebook-fill me-1"></i></a>
+                <a><i class="ri-twitter-line me-1"></i></a>
+                <a><i class="bx bxl-linkedin-square me-1"></i></a>
+                <a><i class="ri-instagram-line me-1"></i></a>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar p-0 navbar-expand-xl navbar-landing" id="navbar" (window:scroll)="windowScroll()">
         <div class="container-fluid d-flex flex-column p-0 navbar-custom">
             <div class="navbar-brand w-100 px-4 py-2">
-                <div class="d-flex">
-                    <img src="assets/images/king_image.png" class="mx-5 card-logo card-logo-dark rounded-circle" alt="logo dark">
-                    <img src="assets/images/logo.png" class="card-logo card-logo-dark" alt="logo dark">
+                <div class="d-flex flex-row gap-3">
+                    <img src="assets/images/king_image.png" class="card-logo card-logo-dark rounded-circle my-auto" alt="logo dark">
+                    <img src="assets/images/logo.png" class="card-logo card-logo-dark my-auto" alt="logo dark">
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                        <h3 class="heading text-white p-3">Oman Medical Specialty Board</h3>
+                        <h3 class="heading p-3">Oman Medical Specialty Board</h3>
                     </div>
-                </div>
-                <div class="d-flex signIn-button">
-                    <a (click)="routerTo('/home/login')"  class="btn btn-custom my-auto">Sign In</a>
+                    
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0 px-4 d-flex flex-row flex-wrap" id="navbar-example">
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'home'}" (click)="routerTo('/home/main')" [ngxScrollTo]="'#home'" href="javascript:void(0);">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'home_2'}" (click)="routerTo('/home_2/main')" [ngxScrollTo]="'#home'" href="javascript:void(0);">Home_2</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'hero'}" [ngxScrollTo]="'#hero'" href="javascript:void(0);">About</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Professional Competence Affair</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'services'}" [ngxScrollTo]="'#services'" href="javascript:void(0);">Academic Affairs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'services'}" (click)="routerTo('/home/application-forms')">Admission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'features'}" (click)="routerTo('/home/research-day-registration')">Research Day Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'features'}" [ngxScrollTo]="'#features'" href="javascript:void(0);">Medical Simulation & Innovation Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'plans'}" [ngxScrollTo]="'#plans'" href="javascript:void(0);">OMJ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{'btn btn-custom':currentSection === 'reviews'}" [ngxScrollTo]="'#reviews'" href="javascript:void(0);">Support & Services</a>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
-            <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+            <!-- <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
                 <i class="mdi mdi-menu text-white"></i>
@@ -49,7 +107,7 @@
                         <a class="nav-link" [ngClass]="{'active':currentSection === 'reviews'}" [ngxScrollTo]="'#reviews'" href="javascript:void(0);">Support & Services</a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
 
         </div>
     </nav>
@@ -57,6 +115,8 @@
     <div class="h-100" style="background-color: rgb(237, 237, 237) !important;">
         <router-outlet></router-outlet>
     </div>
+    <app-landing-page-footer></app-landing-page-footer>
+
 </div>
 
 

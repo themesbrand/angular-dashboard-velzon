@@ -1,0 +1,243 @@
+#home {
+    padding: 150px 0;
+    .row .left {
+        background-image: url('/assets/images/3d-render-medical-dna-strand.jpg');
+        background-size: cover;
+        background-position: center;
+        .btn-custom-arrow {
+            font-size: 25px;
+            color: white;
+            background-color: #161ddd49;
+            border-radius: 0 !important;
+            &:hover {
+                background-color: white;
+                border: 1px solid #161ddd49;
+                i {
+                    color: #161ddd49;
+                }
+            }
+        }
+        .content-left {
+            width: 30%;
+        }
+        .content-right {
+            .header {
+                color: white !important;
+            }
+            width: 70%;
+            padding: 50px 0;
+            display: flex;
+            justify-content: start;
+            color: white !important;
+            align-items: flex-start;
+        }
+        .btn-custom {
+            font-weight: 600;
+            border: 1px solid #161ddd49;
+            color: white !important;
+            &:hover {
+                background-color: white;
+                border: 1px solid #161ddd49;
+                color: #161ddd !important;
+            }
+        }
+    }
+    .row .right {
+        padding : 0 !important;
+        img {
+            width: 100%;
+            background-size: cover;
+        }
+    }
+    .update_row {
+        background-color: #002a66;
+        color: white;
+    }
+}
+
+#solutions{
+    .header {
+       color: #002a66;  
+       font-size: 40px;
+    }
+    .header_text {
+        font-size: 15px;
+        color: #535397;
+    }
+    .card.custom_card {
+        
+        text-align: center;
+        .card-body {
+            .card-title {
+                font-weight: 600;
+            }
+            color: #002a66;
+        }
+        .card-footer {
+            a {
+                color: #2b67d0;
+            }
+        }
+
+    }
+}
+#how_we_are {
+    background-color: #c4f3f6;
+    padding: 0 !important;
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+     .content_box {
+        .content_box_items {
+            border-left: 2px solid #1676d0;
+            padding-left: 10px;
+            .header {
+                font-size: 20px;
+                color: #002a66;
+                font-weight: 600;
+            }
+            .text {
+                font-size: 15px;
+                color: #535397;
+            }
+            a {
+                color: #002a66;
+            }
+        }
+     }
+     .right {
+        padding: 0;
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+     }
+}
+#events {
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+     .news_bar_item {
+        .date {
+            font-size: 13px;
+            color: #1c5ccd;
+        }
+        .title {
+            font-size: 25px;
+            color: #002a66;
+            font-weight: 600;
+        }
+        .info {
+            font-size: 15px;
+            color: #535397;
+        }
+        i {
+            font-size: 15px;
+            color: grey;
+        }
+     }
+     .date_box {
+        height: 70px;
+        margin-top: 10px;
+
+        width: 70px;
+        border: 1px solid #002a66;
+        .month {
+            font-size: 15px;
+            color: #535397;
+            
+        }
+        .date {
+            font-size: 30px;
+            font-weight: 600;
+            color: #1c5ccd;
+        }
+     }
+     .info_box {
+        padding: 0 15px;
+        width: 100%;
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #002a66;
+        }
+        .type {
+            font-size: 15px;
+            color: #1c5ccd;
+        }
+        .info {
+            font-size: 15px;
+            color: #1c5ccd; 
+            i {
+                margin-right: 10px;
+            }
+        }
+     }
+}
+#counter {
+    background-color: #01ccda;
+    font-size: 20px;
+    color: white;
+    .fs-600 {
+        font-weight: 600;
+    }
+}
+#service {
+    .header {
+        color: #002a66;  
+        font-size: 40px;
+     }
+
+
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .service_box {
+        display: flex;
+        .service_box_section {
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            .body {
+                background-color: white;
+                padding: 35px 15px 0 15px;
+                z-index: 99 !important;
+                border: 2px solid #E1E1E1;
+                height: 100%;
+                .title {
+                    color: #002a66;
+                    font-size: 25px;
+                }
+                .text, span {
+                    color: #535397;
+                    font-size: 15px;
+                }
+                .list_menu {
+                    span {
+                        padding : 10px 5px;
+                        border-bottom: 1px solid #e5e9ef;
+                    }
+                }
+            }
+
+        }
+    }
+    .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+      }
+      .row > [class*='col-'] {
+           display: flex;
+           flex-direction: column;
+      }
+}

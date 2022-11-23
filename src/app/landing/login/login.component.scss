@@ -1,4 +1,5 @@
 .section {
+    padding: 30px 0 !important;
     background-color: rgb(237, 237, 237) !important;
 }
 
@@ -10,7 +11,7 @@ p {
 }
 .border {
     border: 1px solid var(--vz-border-color) !important;
-    border-radius: 25px !important;
+    border-radius: 10px !important;
 }
 
 .shadow {
@@ -30,10 +31,18 @@ p {
 }
 
 .card-box-title {
-    color: #011c10 !important;
-    text-shadow: 2px 2px 4px #05e37f3f !important;
+    color: #ef4f35 !important;
+    text-shadow: 2px 2px 4px #ef4e3572 !important;
 }
 
 .tab-card {
     background: url('/assets/images/chat-bg-pattern.png');
+}
+.nav-border-top-success .nav-link.active {
+    color: #ef4f35;
+    border-top-color: #ef4f35;
+}
+.btn-success {
+    background-color: #ef4f35;
+    border-color: #ef4f35;
 }

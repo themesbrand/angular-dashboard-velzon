@@ -1,87 +1,308 @@
-<section class="section landing" id="services">
-    <div class="bg-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-sm-10">
-                <div class="text-center">
-                    <h1 class="display-4 fw-medium mb-4 lh-base text-white"><span class="text-success">{{"Oman "}}</span>Medical Specialty Board</h1>
-                    <p class="lead text-white h5 lh-base mb-4 pb-2">Our aim is to create an inter-professional training environment of excellence, that enables health professionals and trainees to engage in various technical and non-technical skills.</p>
-
-                    <div class="hstack gap-2 justify-content-center">
-                        <a class="btn btn-primary" href="#services">Explore Now <i class="ri-arrow-right-line align-middle ms-1"></i></a>
+<section class="section pt-0" id="home">
+    <div class="container-fluid carousel_box p-0">
+        <ngb-carousel [showNavigationIndicators]="!showNavigationIndicators">
+            <ng-template ngbSlide>
+                <div class="d-flex justify-content-center align-items-center first slide">
+                    <div class="d-flex flex-column justify-content-center align-items-start carousel_content">
+                        <h1 class="header">Medical Simulation & Innovation <span>Centre</span></h1>
+                        <p class="text">Our aim is to create an inter-professional training environment of excellence, that enables health professionals and trainees to engage in various technical and non-technical skills.</p>
+                        <a class="btn btn-custom">Read More</a>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="d-flex justify-content-center align-items-center second slide">
+                    <div class="d-flex flex-column justify-content-center align-items-start carousel_content">
+                        <h1 class="header">Continuing Professional <span>Development</span></h1>
+                        <p class="text">Continuing Professional Development (CPD) is a holistic multidimensional approach to lifelong learning which is an integral requirement for all health care professionals.</p>
+                        <a class="btn btn-custom">Read More</a>
+                    </div>
+                </div>
+            </ng-template>
+          </ngb-carousel>      
+    </div>
+    <div class="container-fluid alerts-container">
+        <div class="d-flex flex-row gap-3 align-items-center">
+            <button class="btn btn-custom text-nowrap">Daily Alerts</button>
+            <button class="btn btn-light"><i class="ri-arrow-left-circle-line"></i></button>
+            <button class="btn btn-light"><i class="ri-arrow-right-circle-line"></i></button>
+            <div class="w-100">
+                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum repudiandae sapiente id mollitia, error commodi.</p>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+<section class="section pt-0" id="about">
+    <div class="container p-0 d-flex flex-column justify-content-center align-items-center">
+        <h2 class="header">ABOUT <span>US</span></h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis vero libero rerum neque labore harum veritatis impedit maiores tempora. Commodi consectetur ex architecto autem error quis possimus a facere vero nemo. Maxime.</p>
+        <div class="d-flex flex-row justify-content-center align-items-center custom_box gap-2">
+            <div class="d-flex mb-2 left"></div>
+            <div class="d-flex mt-2 right"></div>
+        </div>
+        <div class="selector_box w-100">
+            <div class="header">
+                <button (click)="onChangeSelection('Who We Are')" class="btn btn-custom" [ngClass]="{'active':currentSection === 'Who We Are'}">Who We Are</button>
+                <button (click)="onChangeSelection('Our Mission')" class="btn btn-custom" [ngClass]="{'active':currentSection === 'Our Mission'}">Our Mission</button>
+                <button (click)="onChangeSelection('Our Vision')" class="btn btn-custom" [ngClass]="{'active':currentSection === 'Our Vision'}">Our Vision</button>
+                <button (click)="onChangeSelection('Values')" class="btn btn-custom" [ngClass]="{'active':currentSection === 'Values'}">Values</button>
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-md-6 left">
+                        <video controls>
+                            <source src="assets/video/Medical Training.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                          </video>
+                    </div>
+                    <div class="col-md-6 right  d-flex flex-row flex-column align-items-start justify-content-start">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias in id quas quaerat culpa architecto eveniet quia totam similique, nihil officiis odit assumenda, exercitationem tempora perferendis provident maiores esse.</p>
+                        <ul>
+                            <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur.</li>
+                            <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi in laudantium esse.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, dolor unde.</li>
+                        </ul>
+                        <button class="btn btn-custom text-nowrap">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 w-100 justify-content-between text-center gy-4 counter_box">
+            <div class="col-lg-2 col-4">
+                <div class="counter_item">
+                    <p class="mb-0"><span [CountTo]="3650" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <div class="text-muted text text-wrap">OMSB</div>
+                    <div class="text-muted text text-wrap">TRAINEES</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-4">
+                <div class="counter_item">
+                    <p class="mb-0"><span [CountTo]="1240" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <div class="text-muted text text-wrap">SIMULATION</div>
+                    <div class="text-muted text text-wrap">SESSIONS</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-4">
+                <div class="counter_item">
+                    <p class="mb-0"><span [CountTo]="2860" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <div class="text-muted text text-wrap">COURSE</div>
+                    <div class="text-muted text text-wrap">PARTICIPANTS</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-4">
+                <div class="counter_item">
+                    <p class="mb-0"><span [CountTo]="2860" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <div class="text-muted text text-wrap">PHYSICIANS</div>
+                    <div class="text-muted text text-wrap">REGISTERED</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-4">
+                <div class="counter_item">
+                    <p class="mb-0"><span [CountTo]="1290" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <div class="text-muted text text-wrap">CPD</div>
+                    <div class="text-muted text text-wrap">ACCREDITATION</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-4">
+                <div class="counter_item">
+                    <p class="mb-0"><span [CountTo]="1385" class="counter-value" [from]="0" [duration]="1"></span></p>
+                    <div class="text-muted text text-wrap">PUBLISHED</div>
+                    <div class="text-muted text text-wrap">ARTICLES</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section" id="service">
+    <div class="container p-0 d-flex flex-column justify-content-center align-items-center">
+        <h2 class="header">OUR <span>SERVICES</span></h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis vero libero rerum neque labore harum veritatis impedit maiores tempora. Commodi consectetur ex architecto autem error quis possimus a facere vero nemo. Maxime.</p>
+        <div class="d-flex flex-row justify-content-center align-items-center custom_box gap-2">
+            <div class="d-flex mb-2 left"></div>
+            <div class="d-flex mt-2 right"></div>
+        </div>
+        <div class="row mt-5 service_box">
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header header_1"></div>
+                <div class="body">
+                    <p class="title text-dark">Residency & Fellowship</p>
+                    <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur exercitationem, veniam dolorum hic ipsum debitis molestiae facere, mollitia culpa deleniti asperiores, eligendi accusantium omnis dolore!</p>
+                    <div class="d-flex flex-column list_menu">
+                        <span>Simulation Course Registration</span>
+                        <span>Prometric Exams</span>
+                        <span>Exam Registration</span>
+                        <span>Residency / Fellowship Application</span>
+                        <span>GFP Application</span>
+                        <span>Resident Management System</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header header_2"></div>
+                <div class="body">
+                    <p class="title">Residency & Fellowship</p>
+                    <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur exercitationem.</p>
+                    <div class="d-flex flex-column list_menu">
+                        <span>Simulation Course Registration</span>
+                        <span>Accredited E-Learning Courses</span>
+                        <span>Prometric Exams</span>
+                        <span>Certificate Verification</span>
+                        <span>Certificate Equivalency</span>
+                        <span>Continuous Professional 
+                            Development</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header header_3"></div>
+                <div class="body">
+                    <p class="title text-dark">Residency & Fellowship</p>
+                    <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur exercitationem.</p>
+                    <div class="d-flex flex-column list_menu">
+                        <span>E-Learning</span>
+                        <span>Simulation Course Registration</span>
+                        <span>Hakeem System</span>
+                        <span>OMSB e-Services Portal</span>
+                        <span>E-Library</span>
+                        <span>Oman Medical Journal</span>
+                        <span>Ejada</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
- <!-- start wallet -->
- <section class="section" id="services">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="text-center mb-5">
-                    <h2 class="mb-3 fw-semibold lh-base">SERVICES</h2>
-                    <p class="text-muted">Digital Transformation has paved the way for better and faster services. Efforts will continue to make your experience remarkable.</p>
+<section class="section" id="events">
+    <div class="container p-0 d-flex flex-column justify-content-center align-items-center">
+        <h2 class="header">UPCOMING <span>EVENTS</span></h2>
+        <div class="d-flex flex-row justify-content-center align-items-center custom_box gap-2">
+            <div class="d-flex mb-2 left"></div>
+            <div class="d-flex mt-2 right"></div>
+        </div>
+        <div class="row mt-5 service_box">
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header header_1"></div>
+                <div class="body">
+                    <p class="title">COLLEGE ANNUAL EXPO - 2018</p>
+                    <p class="venue">APRIL 31,2023 | 7.00PM - 10.00 PM</p>
+                    <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, porro ipsa aliquid iste itaque quasi nemo quae? Velit, ipsum delectus modi voluptas quia accusamus eaque.</p>
+                    <a>View Details <i class="mx-2 ri-arrow-right-s-fill"></i></a>
                 </div>
-            </div><!-- end col -->
-        </div><!-- end row -->
+            </div>
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header header_2"></div>
+                <div class="body">
+                    <p class="title">SEMINAR ABOUT Cardiology</p>
+                    <p class="venue">APRIL 31,2023 | 7.00PM - 10.00 PM</p>
+                    <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, porro ipsa aliquid iste itaque quasi nemo quae? Velit, ipsum delectus modi voluptas quia accusamus eaque.</p>
+                    <a>View Details <i class="mx-2 ri-arrow-right-s-fill"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header header_3"></div>
+                <div class="body">
+                    <p class="title">SEMINAR ABOUT ANASTHESIA</p>
+                    <p class="venue">APRIL 31,2023 | 7.00PM - 10.00 PM</p>
+                    <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, porro ipsa aliquid iste itaque quasi nemo quae.</p>
+                    <a>View Details <i class="mx-2 ri-arrow-right-s-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section" id="news">
+    <div class="container p-0 ">
+        <h2 class="header">LATEST <span>NEWS</span></h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis vero libero rerum neque labore harum veritatis impedit maiores tempora. Commodi consectetur ex architecto autem error quis possimus a facere vero nemo. Maxime.</p>
+        <div class="row d-flex flex-row justify-content-center">
+            <div class="d-flex flex-row justify-content-center align-items-center custom_box gap-2">
+                <div class="d-flex mb-2 left"></div>
+                <div class="d-flex mt-2 right"></div>
+            </div>
+        </div>
+        <div class="row mt-5 service_box">
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header">
+                    <div class="d-flex flex-column justify-content-end">
+                        <p class="title">Sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="footer_section">
+                    <span class="border-right"><i class="ri-user-line mx-2"></i>Peter Doe</span>
+                    <span class="border-right"><i class="ri-calendar-event-line mx-2"></i>15 Feb 2023</span>
+                    <span><i class="ri-wechat-line mx-2"></i>20</span>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header">
+                    <div class="d-flex flex-column ">
+                        <p class="title_orange">Lorem ipsum dolor sit amet consectetur.</p>
+                        <p class="title h-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, molestiae voluptate harum earum delectus amet qui!</p>
+                    </div>
+                </div>
+                <div class="footer_section">
+                    <span class="border-right"><i class="ri-user-line mx-2"></i>Peter Doe</span>
+                    <span class="border-right"><i class="ri-calendar-event-line mx-2"></i>15 Feb 2023</span>
+                    <span><i class="ri-wechat-line mx-2"></i>20</span>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 service_box_section">
+                <div class="header">
+                    <div class="d-flex flex-column justify-content-end">
+                        <p class="title">Sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="footer_section">
+                    <span class="border-right"><i class="ri-user-line mx-2"></i>Peter Doe</span>
+                    <span class="border-right"><i class="ri-calendar-event-line mx-2"></i>15 Feb 2023</span>
+                    <span><i class="ri-wechat-line mx-2"></i>20</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section" id="comments">
+    <div class="container p-0 ">
+        <div class="row">
+            <div class="col-md-5">
+                <h2 class="header">STUDENT'S <span>SAY</span></h2>
+                <p class="header_text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis vero libero rerum neque labore harum veritatis impedit maiores tempora. Commodi consectetur ex architecto autem error quis possimus a facere vero nemo. Maxime.</p>
+                <div class="row d-flex flex-row justify-content-center">
+                    <div class="d-flex flex-row justify-content-center align-items-center custom_box gap-2">
+                        <div class="d-flex mb-2 left"></div>
+                        <div class="d-flex mt-2 right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 carousel">
+                <div class="d-flex flex-row">
+                    <img [src]="comments[selectedIndex].src" class="img-fluid">
+                    <div class="d-flex flex-column p-3">
+                        <p class="mb-0 text">{{comments[selectedIndex].comment}}</p>
+                        <p class="mt-2 mb-0 commenter">{{comments[selectedIndex].name}}</p>
+                        <p class="mt-2 mb-0 position">{{comments[selectedIndex].position}}</p>
+                    </div>
+                    <div class="mx-2 d-flex justify-content-center align-items-center">
+                        <button (click)="onChangeComment()" class="btn btn-custom">
+                            <i class=" ri-arrow-right-s-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="section" id="know_more">
+    <div class="container p-0 ">
+        <div class="d-flex flex-row justify-content-between">
+            <h2 class="text-light">Know More About OMSB</h2>
+            <button class="btn btn-dark">Know More</button>
+        </div>
+        
+    </div>
+</section>
 
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="card text-center border shadow-none">
-                    <div class="card-body">
-                        <img src="/assets/images/goal.png" alt="" height="55" class="mb-3 pb-2">
-                        <h5>Continuing Professional Development</h5>
-                        <p class="text-muted pb-1">Organizers, Trainers and Trainees to apply for CPD accreditation.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card text-center border shadow-none">
-                    <div class="card-body">
-                        <img src="/assets/images/verified.png" alt="" height="55" class="mb-3 pb-2">
-                        <h5>Certificate Verification</h5>
-                        <p class="text-muted pb-1">Allows healthcare Professionals to verify their academic and professional certificates.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card text-center border shadow-none">
-                    <div class="card-body">
-                        <img src="/assets/images/evaluation.png" alt="" height="55" class="mb-3 pb-2">
-                        <h5>Certificate Evaluation</h5>
-                        <p class="text-muted pb-1">Allows healthcare Professionals to verify their academic and professional certificates.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card text-center border shadow-none">
-                    <div class="card-body">
-                        <img src="/assets/images/online-education.png" alt="" height="55" class="mb-3 pb-2">
-                        <h5>Online Courses</h5>
-                        <p class="text-muted pb-1">Allows healthcare Professionals to register for courses offered at OMSB. They will be able to take the course online once registered.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card text-center border shadow-none">
-                    <div class="card-body">
-                        <img src="/assets/images/exam.png" alt="" height="55" class="mb-3 pb-2">
-                        <h5>Standardized Testing</h5>
-                        <p class="text-muted pb-1">Allows healthcare Professionals to choose from various standardized tests and take the exam at OMSB premise.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card text-center border shadow-none">
-                    <div class="card-body">
-                        <img src="/assets/images/journal.png" alt="" height="55" class="mb-3 pb-2">
-                        <h5>Oman Medical Journal</h5>
-                        <p class="text-muted pb-1">Allows healthcare Professionals to explore and read from a wide range of published articles.</p>
-                    </div>
-                </div>
-            </div>
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end wallet -->

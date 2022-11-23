@@ -1,7 +1,7 @@
 <app-breadcrumbs title="Starting New Program" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <button type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3"  (click)="onNavigate('/curriculum')"><i class="ri-arrow-left-circle-line label-icon align-middle fs-16 me-2"></i>Back</button>
 
-<div class="row mt-1" >
+<div class="row mt-1 design_1" >
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -68,14 +68,14 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
                                                 <li *ngIf="row.status === 'Request Submitted' || 
-                                                row.status === 'Pending Reivew by CH' || 
+                                                row.status === 'Pending Review by CH' || 
                                                 row.status === 'Pending VPAA Approval' ||
-                                                row.status === ' Pending Curriculum submission' ||
-                                                row.status === ' Curriculum submitted for VPAA approval' ||
-                                                row.status === ' Curriculum submitted for EB approval' ||
-                                                row.status === ' Curriculum submitted for BoT approval' ||
-                                                row.status === ' Pending VPAA Approval for TaskForce' ||
-                                                row.status === ' Pending at Task Force' "  (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
+                                                row.status === 'Pending Curriculum submission' ||
+                                                row.status === 'Curriculum submitted for VPAA approval' ||
+                                                row.status === 'Curriculum submitted for EB approval' ||
+                                                row.status === 'Curriculum submitted for BoT approval' ||
+                                                row.status === 'Pending VPAA Approval for TaskForce' ||
+                                                row.status === 'Pending at Task Force' "  (click)="openModal(requestView, 'xl'); setRequest(row)"><a class="dropdown-item" ><i class="mx-1 ri-eye-line"></i>View</a></li>
                                                 <li *ngIf="row.status === 'Pending CFDS Review'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program Components</a></li>
                                                 <li *ngIf="row.status === 'Curriculum Finalized'" [routerLink]="['/curriculum/view-program']"><a class="dropdown-item" ><i class="mx-1 ri-article-line"></i>View Program Components</a></li>
                                                 <container-element [ngSwitch]="selectedUser">
@@ -142,6 +142,179 @@
             <div class="row" *ngIf="selectedUser === 'TaskForce'">
                 <app-submit-program-list></app-submit-program-list>
             </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-1 design_2" >
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row mb-3"  [ngClass]="userRole === 'pd@omsb.org' ? 'justify-content-end' : 'justify-content-between' ">
+                        <div class="d-flex flex-row w-25" *ngIf="userRole === 'eportal@omsb.org'">
+                            <div class="dropdown" ngbDropdown>
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                    Select A Role
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" ngbDropdownMenu>
+                                    <a class="dropdown-item" href="#">VPAA</a>
+                                    <a class="dropdown-item" href="#">CH/PD/PA</a>
+                                    <a class="dropdown-item" href="#">Requestor</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end gap-3">
+                            <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                            <button *ngIf="selectedUser === 'Requestor'" (click)="openModal(newRequest, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Start New Program</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Program Requested<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Requested by<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row" *ngIf="selectedUser !== 'TaskForce'">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-nowrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Request ID</th>
+                                    <th scope="col">Program Requested</th>
+                                    <th scope="col">Requested by</th>
+                                    <th scope="col">Requested Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of listData.tableData">
+                                    <td>{{row.requestId}}</td>
+                                    <td>{{row.programRequested}}</td>
+                                    <td>{{row.requestedBy}}</td>
+                                    <td>{{row.requestedDate}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setRequest(row)" style="cursor: pointer; color: rgb(173, 51, 10)">{{row.status}}</td> 
+                                    <td>
+                                        <div class="d-flex flex-rowas justify-content-center gap-1">
+                                            <button type="button" tooltip="View" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                                            <button type="button" tooltip="Upload Proposal" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-list-line"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+            <div class="row" *ngIf="selectedUser === 'TaskForce'">
+                <app-submit-program-list></app-submit-program-list>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-1 design_3" >
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex flex-row mb-3"  [ngClass]="userRole === 'pd@omsb.org' ? 'justify-content-end' : 'justify-content-between' ">
+                        <div class="d-flex flex-row w-25" *ngIf="userRole === 'eportal@omsb.org'">
+                            <div class="dropdown" ngbDropdown>
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                                    Select A Role
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1" ngbDropdownMenu>
+                                    <a class="dropdown-item" href="#">VPAA</a>
+                                    <a class="dropdown-item" href="#">CH/PD/PA</a>
+                                    <a class="dropdown-item" href="#">Requestor</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end gap-3">
+                            <button (click)="onFilter()" type="button" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-filter-2-line"></i></button>
+                            <button *ngIf="selectedUser === 'Requestor'" (click)="openModal(newRequest, 'xl')" type="button" class="btn btn-primary btn-label waves-effect waves-light mb-3" ><i class=" ri-file-add-line label-icon align-middle fs-16 me-2"></i>Start New Program</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="isFilterOpened" [@enterAnimation]>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Program Requested<span class="text-danger"></span></label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Requested by<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Status<span class="text-danger"></span></label>
+                    <ng-select 
+                        [items]="[]" placeholder="Please select">
+                    </ng-select>
+                </div>
+                <div class="d-flex flex-row">
+                    <button class="btn btn-primary my-2">Filter</button>
+                </div>
+            </div>
+            <div class="row" *ngIf="selectedUser !== 'TaskForce'">
+                <div class="live-preview">     
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-nowrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Request ID</th>
+                                    <th scope="col">Program Requested</th>
+                                    <th scope="col">Requested by</th>
+                                    <th scope="col">Requested Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of listData.tableData">
+                                    <td>{{row.requestId}}</td>
+                                    <td>{{row.programRequested}}</td>
+                                    <td>{{row.requestedBy}}</td>
+                                    <td>{{row.requestedDate}}</td>
+                                    <td (click)="openModal(requestStatus, 'md'); setRequest(row)">
+                                        <span class="progress_status">{{row.status}}</span>
+                                    </td> 
+                                    <td>
+                                        <div class="d-flex flex-rowas justify-content-center gap-1">
+                                            <button type="button" tooltip="View" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-eye-line"></i></button>
+                                            <button type="button" tooltip="Upload Proposal" class="btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-file-list-line"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                             
+                </div>
+            </div>
+            <div class="row" *ngIf="selectedUser === 'TaskForce'">
+                <app-submit-program-list></app-submit-program-list>
+            </div>
+        </div>
     </div>
 </div>
 

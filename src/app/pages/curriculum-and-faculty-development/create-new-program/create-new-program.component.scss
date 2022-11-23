@@ -1,23 +1,92 @@
-th, td {
-    vertical-align: middle;
-}
-th {
-    background-color: #193239 !important;   
-    color: white;
-}
-td .badge {
-    cursor: pointer;
-}
-td {
-    padding: 0.25rem 0.6rem;
-}
-.table-responsive {
-    overflow: visible !important;
-}
-td a  {
-    cursor: pointer !important;
+.design_1 {
+    th, td {
+        vertical-align: middle;
+    }
+    th {
+        background-color: #193239 !important;   
+        color: white;
+    }
+    td .badge {
+        cursor: pointer;
+    }
+    td {
+        padding: 0.25rem 0.6rem;
+    }
+    .table-responsive {
+        overflow: visible !important;
+    }
+    td a  {
+        cursor: pointer !important;
+    }
+    
+    .acitivity-timeline .acitivity-item:before {
+        border-left: 1.2px dashed grey;
+    }
 }
 
-.acitivity-timeline .acitivity-item:before {
-    border-left: 1.2px dashed grey;
+.design_2 {
+    th, td {
+        vertical-align: middle;
+    }
+    .btn-outline-primary {
+        background-color: white;
+        color: #ef4f35;
+        border-color: #ef4f35;
+        &:hover {
+            border-color: #ef4f35;
+            background-color: #ef4f35;
+            color: white;
+        }
+    }
+    .btn-primary {
+        background-color: #ef4f35;
+        color: white;
+        border-color: #ef4f35;
+        &:hover {
+            border-color: #ef4f35;
+            background-color: #92200f;
+            color: white;
+        }
+    }
+    th {
+        background-color: #ef4f35 !important;   
+        color: white;
+    }
+}
+
+.design_3 {
+    th, td {
+        vertical-align: middle;
+    }
+    .btn-outline-primary {
+        background-color: white;
+        color: #002a66;
+        border-color: #002a66;
+        &:hover {
+            border-color: #002a66;
+            background-color: #002a66;
+            color: white;
+        }
+    }
+    .btn-primary {
+        background-color: #002a66;
+        color: white;
+        border-color: #002a66;
+        &:hover {
+            border-color: #002a66;
+            background-color: #03142c;
+            color: white;
+        }
+    }
+    th {
+        background-color: #002a66 !important;   
+        color: white;
+    }
+    .progress_status {
+        cursor: pointer; 
+        background-color: #34c0ca;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+    }
 }

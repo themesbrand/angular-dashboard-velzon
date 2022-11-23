@@ -1,0 +1,40 @@
+.card-logo {
+    height: 80px !important;
+}
+.header {
+    color: #002a66;
+    font-size: 18px;
+    padding: 14px;
+    border-bottom: 1px solid #e5ebf6;
+}
+.navbar > .container_fluid {
+    justify-content: flex-start !important;
+}
+a.nav-link {
+    color: #002a66 !important;
+    font-size: 12px;
+    padding: 5px 10px !important;
+    &.active {
+        border: 1px solid #1c5ccd;
+        border-radius: 5px;
+        color: white !important;
+        background-color: #002a66;
+    }
+}
+a.nav-link:hover {
+    color: #1c5ccd !important;
+}
+.navbar-expand-lg .navbar-collapse {
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn-link {
+    color: #002a66 !important;
+}
+.btn-link:hover {
+    color:white !important;
+    background-color: #002a66 !important;
+    i {
+        color:white !important;
+    }
+}

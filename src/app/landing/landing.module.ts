@@ -9,6 +9,7 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { CountToModule } from 'angular-count-to';
 
 // Load Icons
 import { defineLordIconElement } from 'lord-icon-element';
@@ -57,6 +58,7 @@ import { ThreeDObjectApplicationsListComponent } from './application-forms/three
 import { ThreeDObjectApplicationViewComponent } from './application-forms/three-d-object-request-form/three-d-object-application-view/three-d-object-application-view.component';
 import { ViewCvSectionFormComponent } from './application-forms/view-cv-section-form/view-cv-section-form.component';
 import { CvSectionFormComponent } from './application-forms/cv-section-form/cv-section-form.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -99,7 +101,8 @@ import { CvSectionFormComponent } from './application-forms/cv-section-form/cv-s
     ThreeDObjectApplicationsListComponent,
     ThreeDObjectApplicationViewComponent,
     ViewCvSectionFormComponent,
-    CvSectionFormComponent
+    CvSectionFormComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -113,6 +116,7 @@ import { CvSectionFormComponent } from './application-forms/cv-section-form/cv-s
     NgbNavModule,
     NgSelectModule,
     FormsModule,
+    CountToModule,
     NgSelectModule,
     FlatpickrModule.forRoot(),
     ScrollToModule.forRoot(),
