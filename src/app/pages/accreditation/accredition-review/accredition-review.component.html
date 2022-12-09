@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label">Status<span class="text-danger"></span></label>
-                    <ng-select 
+                    <ng-select
                         [items]="[]" placeholder="Please select">
                     </ng-select>
                 </div>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="row" >
-                <div class="live-preview">     
+                <div class="live-preview">
                     <div class="table-responsive">
                         <table class="table align-middle table-hover table-wrap mb-0">
                             <thead>
@@ -81,7 +81,7 @@
                                                                     <a class="dropdown-item" ><i class="mx-1  ri-user-add-line"></i>Add to GMEC meeting agenda</a>
                                                                 </li>
                                                             </some-element>
-                                                            
+
                                                         </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'CH/PD/PA'">
@@ -91,7 +91,7 @@
                                                                     <a class="dropdown-item" ><i class="mx-1  ri-contacts-book-upload-line"></i>Submit Documents</a>
                                                                 </li>
                                                             </some-element>
-                                                            
+
                                                         </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'ST'">
@@ -102,7 +102,7 @@
                                                                         "></i>Submit Survey</a>
                                                                 </li>
                                                             </some-element>
-                                                            
+
                                                         </container-element>
                                                     </some-element>
                                                     <some-element *ngSwitchCase="'GMEC Chairman'">
@@ -125,18 +125,18 @@
                                                                         "></i>Complete Review</a>
                                                                 </li>
                                                             </some-element>
-                                                            
+
                                                         </container-element>
                                                     </some-element>
                                                 </container-element>
-                                                
+
                                             </ul>
-                                        </div>          
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>                             
+                    </div>
                 </div>
             </div>
         </div>
@@ -152,12 +152,12 @@
             </div>
             <div class="mt-3">
                 <app-accreditation-review-form [formData]="selectedRequest"></app-accreditation-review-form>
-            </div>            
+            </div>
         </div>
     </div>
 </ng-template>
 
-<ng-template #requestForm let-modal>
+<!-- <ng-template #requestForm let-modal>
     <div class="modal-content">
         <div class="modal-body px-4 py-2">
             <div class="d-flex flex-row justify-content-between">
@@ -166,10 +166,10 @@
             </div>
             <div class="mt-3">
 
-            </div>            
+            </div>
         </div>
     </div>
-</ng-template>
+</ng-template> -->
 
 <ng-template #applicationStatus let-modal>
     <div class="modal-content">

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Phone</label>
+        <input type="text" class="form-control">
+    </div>
+</div>
+<div class="row">
+    <label class="form-label">Issue Description</label>
+    <div class="col-md-6 mb-3" >
+        <ng-select  [(ngModel)]="issueLevel1" [items]="listData.issueLevel1"
+            placeholder="Please select Issue">
+        </ng-select>
+    </div>
+    <ng-container *ngIf="issueLevel1 !== 'Other'">
+        <div class="col-md-6 mb-3" *ngIf="issueLevel1 !== null">
+            <ng-select  [(ngModel)]="issueLevel2" [items]="listData.issueLevel2"
+                placeholder="Please select sub-issue">
+            </ng-select>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="issueLevel1 !== 'Other'">
+        <div class="col-md-6 mb-3" *ngIf="issueLevel2 !== null">
+            <ng-select [(ngModel)]="issueLevel3"  [items]="listData.issueLevel3"
+                placeholder="Please select sub-issue">
+            </ng-select>
+        </div>
+    </ng-container>
+    <div class="col-md-6 mb-3"  *ngIf="issueLevel1 === 'Other' ">
+        <input type="text" class="form-control" placeholder="If other">
+    </div>
+</div>
+

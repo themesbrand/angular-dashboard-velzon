@@ -443,6 +443,10 @@ import { AccreditFacultySurveyComponent } from './accreditation/accredition-revi
 import { AccreditResidentSurveyProgramComponent } from './accreditation/accredition-review/accredit-resident-survey-program/accredit-resident-survey-program.component';
 import { AccreditResidentSurveySiteComponent } from './accreditation/accredition-review/accredit-resident-survey-site/accredit-resident-survey-site.component';
 import { AccreditReportTemplateComponent } from './accreditation/accredition-review/accredit-report-template/accredit-report-template.component';
+import { IssueTrackerComponent } from './issue-tracker/issue-tracker.component';
+import { ViewIssueRequestComponent } from './issue-tracker/view-issue-request/view-issue-request.component';
+import { CreateIssueRequestComponent } from './issue-tracker/create-issue-request/create-issue-request.component';
+import { IssueRequestActionsComponent } from './issue-tracker/issue-request-actions/issue-request-actions.component';
 
 export function createTranslateLoader(http: HttpClient): any {
 return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -456,7 +460,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin,
-  timeGridPlugin 
+  timeGridPlugin
 ]);
 
 
@@ -850,7 +854,11 @@ FullCalendarModule.registerPlugins([
     AccreditFacultySurveyComponent,
     AccreditResidentSurveyProgramComponent,
     AccreditResidentSurveySiteComponent,
-    AccreditReportTemplateComponent
+    AccreditReportTemplateComponent,
+    IssueTrackerComponent,
+    CreateIssueRequestComponent,
+    ViewIssueRequestComponent,
+    IssueRequestActionsComponent
   ],
   imports: [
     CommonModule,
@@ -909,7 +917,7 @@ FullCalendarModule.registerPlugins([
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class PagesModule { 
+export class PagesModule {
   constructor() {
     defineLordIconElement(lottie.loadAnimation);
   }

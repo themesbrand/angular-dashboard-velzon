@@ -223,6 +223,7 @@ import { ScheduleAcademicActivitiesComponent } from './trainee-management-system
 import { AssessmentSetupComponent } from './trainee-management-system/assessment-setup/assessment-setup.component';
 import { EvaluationMatchingComponent } from './trainee-management-system/evaluation-matching/evaluation-matching.component';
 import { TraineeManagementSystemComponent } from './trainee-management-system/trainee-management-system.component';
+import { IssueTrackerComponent } from './issue-tracker/issue-tracker.component';
 
 const routes: Routes = [
     //Default Routing
@@ -240,7 +241,7 @@ const routes: Routes = [
       { path: "six-month-and-annual-evaluation-form-old", component: SixMonthAndAnnualEvaluationFormComponent },
       { path: "six-month-and-annual-evaluation-form", component: SixMonthAndAnnualEvaluationFormNewComponent },
       { path: "review-and-confirm-rotation-curriculum", component: ReviewAndConfirmRotationCurriculumComponent },
-      
+
     ] },
     { path: "curriculum", children: [
         { path: "", component: CurriculumAndFacultyDevelopmentComponent },
@@ -250,9 +251,9 @@ const routes: Routes = [
         { path: "view-rotation", component: PreviewRotationComponent },
         { path: "allocate-procedure", component: AllocateProcedureComponent },
 
-        
+
         { path: "curriculum-review", component: CurriculumReviewComponent },
-      ] 
+      ]
   },
     // { path: "curriculum", children: [
     //     { path: "", component: EcSetupComponent },
@@ -261,7 +262,7 @@ const routes: Routes = [
     //     { path: "add-rotation", component: AddRotationComponent },
     //     { path: "view-rotation", component: PreviewRotationComponent },
     //     { path: "allocate-procedure", component: AllocateProcedureComponent },
-    //   ] 
+    //   ]
     // },
 
     {
@@ -271,13 +272,13 @@ const routes: Routes = [
     { path: "duty-hours", children: [
         { path: "grid", component: LogHoursComponent },
         { path: "view", component: ViewHoursComponent },
-      ] 
+      ]
     },
     { path: "leave-application", children: [
         { path: "", component: LeaveApplicationComponent },
         { path: "leave-request", component: LeaveRequestFormComponent },
         { path: "leave-return-application", component: LeaveReturnApplicationComponent },
-      ] 
+      ]
     },
 
     { path: "log-procedures", component: LogProcedureComponent },
@@ -300,7 +301,7 @@ const routes: Routes = [
       { path: "my-appointments", children : [
         {path : "", component: MyAppointmentsComponent},
         {path : "assessment-form", component: AssessmentFormComponent },
-      ] },  
+      ] },
     ]},
 
     { path: "scholarship", children : [
@@ -436,7 +437,7 @@ const routes: Routes = [
         { path : "", component :  ViewRegistrationComponent },
         { path : "create-registration", component :  CreateRegistrationComponent },
       ] },
-      
+
       { path: 'withdrawal', component :  ViewWithdrawalRequestsComponent },
       { path: 'results', children:[
         { path: '',  component :  ResultsComponent},
@@ -557,7 +558,7 @@ const routes: Routes = [
       { path: 'trainee-portfolio',  children: [
         { path: '',  component :  PortfolioComponent},
         { path: 'view-portfolio',  component :  ViewPortfolioComponent},
-        
+
       ]},
     ]},
 
@@ -572,7 +573,7 @@ const routes: Routes = [
       { path: "accredit-new-program", component: AccreditNewProgramComponent },
       { path: "accreditation-review", component: AccreditionReviewComponent },
     ]},
-    
+
     { path: "trainee-management-system", children : [
       { path: "", component: TraineeManagementSystemComponent },
       { path: "confirm-curriculum", component: ConfirmCurriculumComponent },
@@ -581,13 +582,17 @@ const routes: Routes = [
       { path: "assessment-setup", component: AssessmentSetupComponent },
       { path: "evaluation-matching", component: EvaluationMatchingComponent },
     ]},
-    
+
+    { path: "issue-tracker", children : [
+      { path: "", component: IssueTrackerComponent }
+    ]},
+
 
     { path: "employer", children : [
       { path: "dashboard", component: DashboardsEmployerComponent },
       { path: "employer-view-applications", component: ScholarshipApplicationViewComponent },
     ]},
-    
+
     //Interviewer Routing
     { path: "interviewer", children : [
       { path: "dashboard", component: DashboardInterviewerComponent },
@@ -603,7 +608,7 @@ const routes: Routes = [
         { path: "residency-program-applications", component: ApplicantRecidencyProgramApplicationsComponent }
       ] }
     ] },
-    
+
     //Finance Routing
     { path: "finance", children : [
       { path: "dashboard", component: FinanceDashboardComponent },
@@ -622,13 +627,13 @@ const routes: Routes = [
         { path: "facilities-for-rent", component: SimulationFacilitiesForRentComponent }
       ]},
     ] },
-   
+
     //International Routing
     { path: "international", children : [
       { path: "dashboard", component: DashboardInternationalTraineeComponent},
       { path: "application", component: ApplicationInternationalTraineeComponent},
     ] },
-    
+
 ];
 
 @NgModule({

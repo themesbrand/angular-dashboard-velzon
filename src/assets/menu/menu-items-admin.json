@@ -457,5 +457,11 @@
         "label": "Trainee Management System",
         "icon": "ri-medal-line",
         "link": "/trainee-management-system"
+    },
+    {
+        "id": 75,
+        "label": "Issue Tracker",
+        "icon": "ri-pantone-line",
+        "link": "/issue-tracker"
     }
 ]

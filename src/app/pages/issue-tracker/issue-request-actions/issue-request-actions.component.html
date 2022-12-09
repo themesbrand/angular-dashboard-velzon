@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Request Id</label>
+        <label class="form-control">{{formData.requestId}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Name</label>
+        <label class="form-control">{{formData.name}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Email</label>
+        <label class="form-control">{{formData.email}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Phone</label>
+        <label class="form-control">{{formData.phone}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Date Submit</label>
+        <label class="form-control">{{formData.dateSubmit}}</label>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label class="form-label">Assigned To</label>
+        <label class="form-control">{{formData.assignedTo}}</label>
+    </div>
+    <div class="col-md-12 mb-3" *ngIf="formData.reassignedComments !== null">
+        <label class="form-label">Reassigned Comments</label>
+        <label class="form-control">{{formData.reassignedComments}}</label>
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Status</label>
+        <label class="form-control">{{formData.status }}</label>
+    </div>
+</div>
+<div class="row">
+    <label class="form-label">Issue Description</label>
+    <div class="col-md-6 mb-3" >
+        <label class="form-control">{{formData.descriptionLevelOne}}</label>
+    </div>
+    <ng-container *ngIf="formData.descriptionLevelOne !== 'Other'">
+        <div class="col-md-6 mb-3" *ngIf="formData.descriptionLevelOne !== null">
+            <label class="form-control">{{formData.descriptionLevelTwo}}</label>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="formData.descriptionLevelOne !== 'Other'">
+        <div class="col-md-6 mb-3" *ngIf="formData.descriptionLevelTwo !== null">
+            <label class="form-control">{{formData.descriptionLevelThree}}</label>
+        </div>
+    </ng-container>
+    <div class="col-md-6 mb-3" *ngIf="formData.descriptionLevelOne === 'Other' ">
+        <label class="form-control">{{formData.descriptionIfOther}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="formData.closedComments !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Closed Comments</label>
+        <label class="form-control">{{formData.closedComments}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="formData.resolution !== null">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Resolution</label>
+        <label class="form-control">{{formData.resolution}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="formData.status === 'In Progress' && formData.action === 'Assign To'">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Select OMSB Department / Section to assign the issue to</label>
+        <ng-select [items]="['Curriculum & Faculty development', 'Simulation', 'Trainee Affairs']"
+            placeholder="Please select a Department">
+        </ng-select>
+    </div>
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Comments</label>
+        <textarea rows="2" class="form-control"></textarea>
+    </div>
+</div>
+<div class="row" *ngIf="formData.status === 'In Progress' && formData.action === 'Close'">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Comments</label>
+        <textarea rows="2" class="form-control"></textarea>
+    </div>
+</div>
+<div class="row" *ngIf="formData.status === 'In Progress' && formData.action === 'Update'">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Resolution</label>
+        <textarea rows="2" class="form-control"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="d-flex flex-row">
+        <button class="btn btn-primary" *ngIf="formData.action !== 'Close'">Submit</button>
+        <button class="btn btn-primary"  *ngIf="formData.action === 'Close'">Close</button>
+    </div>
+</div>
+
