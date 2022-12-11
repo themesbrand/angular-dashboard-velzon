@@ -65,7 +65,7 @@
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-up" aria-labelledby="dropdownMenuLink5" ngbDropdownMenu>
-                                                <li (click)="openModal(issueForm, 'xl'); setRecord(request, null)">
+                                                <li (click)="openModal(viewIssue, 'xl'); setRecord(request, null)">
                                                     <a class="dropdown-item" ><i class="mx-1  ri-eye-line"></i>View</a>
                                                 </li>
                                                 <container-element [ngSwitch]="selectedUser">
@@ -127,7 +127,7 @@
                 <label class="form-label mt-2 h5">View Issue Request</label>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             </div>
-            <app-issue-request-actions></app-issue-request-actions>
+            <app-issue-request-actions [formData]="selectedRecord" [isViewOnly]="true"></app-issue-request-actions>
         </div>
     </div>
 </ng-template>

@@ -13,28 +13,38 @@
     </div>
 </div>
 <div class="row">
-    <label class="form-label">Issue Description</label>
+    <label class="h5 text-primary">Issue Category</label>
     <div class="col-md-6 mb-3" >
-        <ng-select  [(ngModel)]="issueLevel1" [items]="listData.issueLevel1"
-            placeholder="Please select Issue">
+        <label class="form-label">Main Issue Category</label>
+        <ng-select  [(ngModel)]="issueLevel1"
+            [items]="listData. issueLevel1" placeholder="Please select Issue">
         </ng-select>
     </div>
     <ng-container *ngIf="issueLevel1 !== 'Other'">
         <div class="col-md-6 mb-3" *ngIf="issueLevel1 !== null">
-            <ng-select  [(ngModel)]="issueLevel2" [items]="listData.issueLevel2"
+                <label class="form-label">Issue Category - Sub Level 1</label>
+                <ng-select  [(ngModel)]="issueLevel2" [items]="listData.issueLevel2"
                 placeholder="Please select sub-issue">
             </ng-select>
         </div>
     </ng-container>
     <ng-container *ngIf="issueLevel1 !== 'Other'">
         <div class="col-md-6 mb-3" *ngIf="issueLevel2 !== null">
-            <ng-select [(ngModel)]="issueLevel3"  [items]="listData.issueLevel3"
-                placeholder="Please select sub-issue">
-            </ng-select>
-        </div>
+                <label class="form-label">Issue Category - Sub Level 2</label>
+                <ng-select [(ngModel)]="issueLevel3"  [items]="listData.issueLevel3"
+                    placeholder="Please select sub-issue">
+                </ng-select>
+            </div>
     </ng-container>
     <div class="col-md-6 mb-3"  *ngIf="issueLevel1 === 'Other' ">
+        <label class="form-label">If, Other Issues</label>
         <input type="text" class="form-control" placeholder="If other">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <label class="form-control">Issue Description</label>
+        <textarea rows="2" class="form-control"></textarea>
     </div>
 </div>
 

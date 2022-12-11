@@ -11,6 +11,7 @@ export class IssueRequestActionsComponent implements OnInit {
   listData = data;
 
   @Input() formData : any = null;
+  @Input() isViewOnly : boolean = false;
 
   constructor() { }
 

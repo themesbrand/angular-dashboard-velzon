@@ -444,7 +444,6 @@ import { AccreditResidentSurveyProgramComponent } from './accreditation/accredit
 import { AccreditResidentSurveySiteComponent } from './accreditation/accredition-review/accredit-resident-survey-site/accredit-resident-survey-site.component';
 import { AccreditReportTemplateComponent } from './accreditation/accredition-review/accredit-report-template/accredit-report-template.component';
 import { IssueTrackerComponent } from './issue-tracker/issue-tracker.component';
-import { ViewIssueRequestComponent } from './issue-tracker/view-issue-request/view-issue-request.component';
 import { CreateIssueRequestComponent } from './issue-tracker/create-issue-request/create-issue-request.component';
 import { IssueRequestActionsComponent } from './issue-tracker/issue-request-actions/issue-request-actions.component';
 
@@ -857,7 +856,6 @@ FullCalendarModule.registerPlugins([
     AccreditReportTemplateComponent,
     IssueTrackerComponent,
     CreateIssueRequestComponent,
-    ViewIssueRequestComponent,
     IssueRequestActionsComponent
   ],
   imports: [
