@@ -49,6 +49,7 @@
                                     <th scope="col">Requestor Name</th>
                                     <th scope="col">Assigned To</th>
                                     <th scope="col">Status</th>
+                                    <th *ngIf="selectedUser === 'Website Admin'" scope="col">EAT for resolution</th>
                                     <th scope="col" *ngIf="selectedUser !== 'Public User'"></th>
                                 </tr>
                             </thead>
@@ -59,6 +60,7 @@
                                     <td>{{request.name}}</td>
                                     <td>{{request.assignedTo}}</td>
                                     <td (click)="openModal(recordStatus, 'md'); setRecord(request, null)" style="cursor: pointer; color: rgb(3, 3, 147)">{{request.status}}</td>
+                                    <td *ngIf="selectedUser === 'Website Admin'" [ngClass]="request?.resolutionEtaClass === 'Red' ? 'text-danger' : ''">{{request.status === 'In Progress' ? request.resolutionEta : 'N/A'}}</td>
                                     <td *ngIf="selectedUser !== 'Public User'">
                                         <div class="dropdown" ngbDropdown>
                                             <a href="javascript:void(0);" class="arrow-none" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
@@ -77,6 +79,9 @@
                                                                 </li>
                                                                 <li (click)="openModal(issueForm, 'xl'); setRecord(request, 'Close')">
                                                                     <a class="dropdown-item" ><i class="mx-1  ri-close-circle-line"></i>Close</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" ><i class="mx-1  ri-mail-send-line"></i>Send Reminder</a>
                                                                 </li>
                                                             </some-element>
                                                         </container-element>

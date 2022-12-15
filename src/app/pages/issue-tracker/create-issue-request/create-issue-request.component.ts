@@ -14,9 +14,20 @@ export class CreateIssueRequestComponent implements OnInit {
   issueLevel2 : any = null;
   issueLevel3 : any = null;
 
+  files: File[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onRemove(event : any) {
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  onSelect(event : any) {
+    this.files.push(...event.addedFiles);
+
   }
 
 }

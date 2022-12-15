@@ -43,8 +43,24 @@
 </div>
 <div class="row">
     <div class="col-md-12 mb-3">
-        <label class="form-control">Issue Description</label>
+        <label class="form-label">Issue Description</label>
         <textarea rows="2" class="form-control"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Attachments</label>
+        <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label
+                >{{ f.name }} ({{
+                    f.type
+                }})</ngx-dropzone-label
+                >
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
     </div>
 </div>
 

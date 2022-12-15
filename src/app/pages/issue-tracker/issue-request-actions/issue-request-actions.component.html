@@ -32,7 +32,7 @@
         <label class="form-control">{{formData.status }}</label>
     </div>
 </div>
-<div class="row border p-3">
+<div class="row">
     <label class="h5 text-primary">Issue Category</label>
     <div class="col-md-6 mb-3" >
         <label class="form-label">Main Issue Category</label>
@@ -56,10 +56,17 @@
 
         <label class="form-control">{{formData.descriptionIfOther}}</label>
     </div>
+</div>
+<div class="row mt-2">
     <div class="col-md-12 mb-3">
         <label class="form-label">Issue Description</label>
-
         <label class="form-control">{{formData.descriptionIssue}}</label>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Download Attachments</label>
+        <button type="button" class="mx-3 btn btn-outline-primary btn-icon waves-effect waves-light"><i class=" ri-download-cloud-line"></i></button>
     </div>
 </div>
 <div class="row mt-2" *ngIf="formData.closedComments !== null">
@@ -88,11 +95,39 @@
 </div>
 <div class="row mt-2" *ngIf="formData.status === 'In Progress' && formData.action === 'Close'">
     <div class="col-md-12 mb-3">
+        <label class="form-label">Attachments</label>
+        <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label
+                >{{ f.name }} ({{
+                    f.type
+                }})</ngx-dropzone-label
+                >
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+    </div>
+    <div class="col-md-12 mb-3">
         <label class="form-label">Comments</label>
         <textarea rows="2" class="form-control"></textarea>
     </div>
 </div>
 <div class="row mt-2" *ngIf="formData.status === 'In Progress' && formData.action === 'Update'">
+    <div class="col-md-12 mb-3">
+        <label class="form-label">Attachments</label>
+        <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label >Drop your file here!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label
+                >{{ f.name }} ({{
+                    f.type
+                }})</ngx-dropzone-label
+                >
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+    </div>
     <div class="col-md-12 mb-3">
         <label class="form-label">Resolution</label>
         <textarea rows="2" class="form-control"></textarea>

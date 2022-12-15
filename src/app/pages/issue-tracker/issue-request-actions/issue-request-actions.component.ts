@@ -13,9 +13,20 @@ export class IssueRequestActionsComponent implements OnInit {
   @Input() formData : any = null;
   @Input() isViewOnly : boolean = false;
 
+  files: File[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  onRemove(event : any) {
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  onSelect(event : any) {
+    this.files.push(...event.addedFiles);
+
+  }
 }

@@ -30,6 +30,8 @@ export class IssueTrackerComponent implements OnInit {
   tableData : any[] = [];
   userRole: string | null = null;
 
+  currentDate =  new Date();
+
   breadCrumbItems!: Array<{}>;
   isFilterOpened: boolean = false;
 
@@ -47,6 +49,17 @@ export class IssueTrackerComponent implements OnInit {
     this.breadCrumbItems = [
       { label: "Issue Tracker", active : true }
     ];
+
+
+    this.tableData.forEach(element => {
+      if(element.resolutionEta) {
+        const date = new Date(element.resolutionEta)
+        if(date.getTime() < this.currentDate.getTime() ) {
+           element.resolutionEtaClass === 'Red';
+        }
+      }
+    });
+    console.log(this.tableData)
   }
 
   setRecord(record : any, action: any) {
@@ -61,6 +74,19 @@ export class IssueTrackerComponent implements OnInit {
     } else {
       this.tableData = this.listData.adminTableData;
     }
+
+    this.tableData.forEach(element => {
+      if(element.resolutionEta) {
+        const date = new Date(element.resolutionEta)
+        if(date.getTime() < this.currentDate.getTime() ) {
+          console.log(date)
+          console.log('Yes')
+           element.resolutionEtaClass = 'Red';
+           return element;
+        }
+      }
+    });
+    console.log(this.tableData)
   }
 
   onFilter() {
